@@ -19,3 +19,7 @@ Artisan::command('view-octane-tests', function () {
 
     logger('End view octane tests');
 })->purpose('View Octane Tests')->everyMinute();
+
+
+Artisan::command('telescope:prune --hours=720', fn() => $this->info('Telescope data from 30 days ago deleted'))
+    ->daily();
