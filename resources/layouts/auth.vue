@@ -1,0 +1,9 @@
+<script setup lang="ts"></script>
+
+<template>
+    <main class="flex items-center h-full py-16 bg-gray-100 dark:bg-slate-900">
+        <section class="w-full max-w-md p-6 mx-auto">
+            <slot />
+        </section>
+    </main>
+</template>
