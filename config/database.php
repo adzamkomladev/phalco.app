@@ -112,6 +112,21 @@ return [
             'sslmode' => 'prefer',
         ],
 
+        'pulse_pgsql' => [
+            'driver' => 'pgsql',
+            'url' => env('PULSE_DB_URL'),
+            'host' => env('PULSE_DB_HOST', '127.0.0.1'),
+            'port' => env('PULSE_DB_PORT', '5432'),
+            'database' => env('PULSE_DB_DATABASE', 'pulse'),
+            'username' => env('PULSE_DB_USERNAME', 'root'),
+            'password' => env('PULSE_DB_PASSWORD', ''),
+            'charset' => env('PULSE_DB_CHARSET', 'utf8'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'search_path' => env('PULSE_DB_SEARCH_PATH', 'public'),
+            'sslmode' => 'prefer',
+        ],
+
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DB_URL'),
@@ -181,6 +196,15 @@ return [
             'password' => env('REDIS_PASSWORD'),
             'port' => env('REDIS_PORT', '6379'),
             'database' => env('REDIS_CACHE_DB', '1'),
+        ],
+
+        'pulse' => [
+            'url' => env('REDIS_URL'),
+            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'username' => env('REDIS_USERNAME'),
+            'password' => env('REDIS_PASSWORD'),
+            'port' => env('REDIS_PORT', '6379'),
+            'database' => env('REDIS_CACHE_DB', '2'),
         ],
 
     ],
