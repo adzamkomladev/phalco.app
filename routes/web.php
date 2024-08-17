@@ -11,7 +11,15 @@ Route::get('/home', function () {
 });
 Route::get('/elections', fn() => hybridly('elections.index'));
 
-Route::post('porn/login', \App\Actions\Auth\Login::class)->name('porn.login');
+
+#region Auth Routes
+
+Route::prefix('google')
+    ->name('google.')
+    ->group(function () {
+        Route::get('redirect', \App\Actions\Auth\Google\Redirect::class)->name('redirect');
+        Route::get('callback', \App\Actions\Auth\Google\Callback::class)->name('callback');
+    });
 
 Route::prefix('email')
     ->middleware(['auth'])
@@ -32,3 +40,5 @@ Route::prefix('password')
         Route::get('reset/{token}', fn(string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
         Route::post('reset', \App\Actions\Auth\Password\Reset::class)->name('reset');
     });
+
+#endregion

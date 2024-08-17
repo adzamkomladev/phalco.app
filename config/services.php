@@ -35,4 +35,30 @@ return [
         ],
     ],
 
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_CALLBACK_URL'),
+    ],
+
+    'arkesel' => [
+        'url' => env('ARKESEL_URL'),
+        'key' => env('ARKESEL_KEY'),
+        'otp' => [
+            'sender' => env('ARKESEL_OTP_SENDER', env('APP_NAME')),
+            'message' => env('ARKESEL_OTP_MESSAGE', 'Your ' . env('APP_NAME') . ' verification code: %otp_code%. Do not share this code with anyone.'),
+            'medium' => env('ARKESEL_OTP_MEDIUM', 'sms'),
+            'type' => env('ARKESEL_OTP_TYPE', 'numeric'),
+            'expiry' => (int)env(
+                'ARKESEL_OTP_EXPIRY',
+                10
+            ),
+            'length' => (int)env('ARKESEL_OTP_LENGTH', 6),
+            'urls' => [
+                'send' => env('ARKESEL_OTP_URLS_SEND'),
+                'verify' => env('ARKESEL_OTP_URLS_VERIFY'),
+            ],
+        ]
+    ]
+
 ];

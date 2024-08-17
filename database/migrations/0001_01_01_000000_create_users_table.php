@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone', 20)->nullable()->unique();
@@ -21,8 +22,8 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->enum('sex', ['male', 'female'])->nullable();
             $table->enum('role', ['super_admin', 'admin', 'customer']);
-            $table->string('address')->nullable();
-            $table->string('password');
+            $table->string('google_id')->nullable();
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

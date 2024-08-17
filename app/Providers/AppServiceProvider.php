@@ -10,11 +10,10 @@ use Illuminate\Foundation\Console\CliDumper;
 use Illuminate\Foundation\Http\HtmlDumper;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Octane\Facades\Octane;
-use Illuminate\Support\Str;
-
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -41,6 +40,8 @@ class AppServiceProvider extends ServiceProvider
         ]);
         Date::use(CarbonImmutable::class);
 
+        #region Octane
+
         Octane::tick('test-ticker-1', function () {
             logger('Start test-ticker-1');
 
@@ -54,5 +55,15 @@ class AppServiceProvider extends ServiceProvider
 
             logger('End test-ticker-1');
         })->seconds(101);
+
+        #endregion
+
+        #region Socialite
+
+        Event::listen(function (\SocialiteProviders\Manager\SocialiteWasCalled $event) {
+            $event->extendSocialite('google', \SocialiteProviders\Google\Provider::class);
+        });
+
+        #endregion
     }
 }
