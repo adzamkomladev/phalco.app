@@ -1,15 +1,16 @@
 <script setup lang="ts">
 useHead({
-    title: "Login",
+    title: "Register",
 });
 
-const login = useForm({
+const register = useForm({
     method: "POST",
-    url: route("login"),
+    url: route("register"),
     fields: {
         email: "",
         password: "",
-        remember: false,
+        password_confirmation: "",
+        agree: false,
     },
     hooks: {
         start: () => console.log("The request has started."),
@@ -29,21 +30,21 @@ const login = useForm({
                 <h1
                     class="block text-2xl font-bold text-gray-800 dark:text-white"
                 >
-                    Login
+                    Register
                 </h1>
                 <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
-                    Don't have an account yet?
+                    Already have an account?
                     <router-link
                         class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
-                        :href="route('register')"
+                        :href="route('login')"
                     >
-                        Sign up here
+                        Sign in here
                     </router-link>
                 </p>
             </div>
 
             <div class="mt-5">
-                <AuthGoogleButton />
+                <AuthGoogleButton text="Sign up with Google" />
                 <div
                     class="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600"
                 >
@@ -51,12 +52,12 @@ const login = useForm({
                 </div>
 
                 <!-- Form -->
-                <form @submit.prevent="login.submit">
+                <form @submit.prevent="register.submit">
                     <div class="grid gap-y-4">
                         <!-- Form Group -->
                         <SharedFormBaseInput
-                            v-model="login.fields.email"
-                            :error="login.errors.email"
+                            v-model="register.fields.email"
+                            :error="register.errors.email"
                             id="email"
                             name="email"
                             type="email"
@@ -66,8 +67,8 @@ const login = useForm({
 
                         <!-- Form Group -->
                         <SharedFormBaseInput
-                            v-model="login.fields.password"
-                            :error="login.errors.password"
+                            v-model="register.fields.password"
+                            :error="register.errors.password"
                             id="password"
                             name="password"
                             type="password"
@@ -76,12 +77,23 @@ const login = useForm({
 
                         <!-- End Form Group -->
 
+                        <!-- Form Group -->
+                        <SharedFormBaseInput
+                            v-model="register.fields.password_confirmation"
+                            :error="register.errors.password_confirmation"
+                            id="password_confirmation"
+                            name="password_confirmation"
+                            type="password"
+                            label="Confirm Password"
+                        />
+                        <!-- End Form Group -->
+
                         <!-- Checkbox -->
                         <SharedFormBaseCheckbox
-                            v-model="login.fields.remember"
-                            id="remember"
-                            name="remember"
-                            label="Remember me"
+                            v-model="register.fields.agree"
+                            id="agree"
+                            name="agree"
+                            label="I accept the Terms and Conditions"
                         />
                         <!-- End Checkbox -->
 
@@ -89,7 +101,7 @@ const login = useForm({
                             type="submit"
                             class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                         >
-                            Login
+                            Register
                         </button>
                     </div>
                 </form>

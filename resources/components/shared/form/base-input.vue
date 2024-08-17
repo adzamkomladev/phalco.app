@@ -28,13 +28,15 @@ const describeBy = computed(() => `${props.id}-error`);
 
 <template>
     <div>
-        <label
-            v-if="props.label"
-            :for="props.id"
-            class="block text-sm mb-2 dark:text-white"
-        >
-            {{ props.label }}
-        </label>
+        <div class="flex justify-between items-center">
+            <label
+                v-if="props.label"
+                :for="props.id"
+                class="block text-sm mb-2 dark:text-white"
+            >
+                {{ props.label }}
+            </label>
+        </div>
         <div class="relative">
             <input
                 ref="input"
@@ -50,19 +52,23 @@ const describeBy = computed(() => `${props.id}-error`);
             />
             <div
                 v-if="props.error"
-                class="absolute inset-y-0 end-0 pointer-events-none pe-3"
+                class="absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3"
             >
                 <svg
-                    class="size-5 text-red-500"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
+                    class="shrink-0 size-4 text-red-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                 >
-                    <path
-                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
-                    />
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" x2="12" y1="8" y2="12"></line>
+                    <line x1="12" x2="12.01" y1="16" y2="16"></line>
                 </svg>
             </div>
         </div>
