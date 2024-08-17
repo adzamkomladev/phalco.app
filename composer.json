@@ -12,6 +12,7 @@
         "hybridly/laravel": "^0.7.13",
         "laravel/fortify": "^1.23",
         "laravel/framework": "^11.9",
+        "laravel/horizon": "^5.27",
         "laravel/octane": "^2.5",
         "laravel/pail": "^1.1",
         "laravel/socialite": "^5.15",

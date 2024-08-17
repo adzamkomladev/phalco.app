@@ -23,3 +23,4 @@ Artisan::command('view-octane-tests', function () {
 
 Artisan::command('telescope:prune --hours=720', fn() => $this->info('Telescope data from 30 days ago deleted'))
     ->daily();
+Artisan::command('horizon:snapshot', fn() => $this->info('Horizon snapshot'))->everyFiveMinutes();

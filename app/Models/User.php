@@ -68,4 +68,9 @@ class User extends Authenticatable
     {
         $query->ofRoles(['admin', 'super_admin']);
     }
+
+    public function scopeHorizon(Builder $query): void
+    {
+        $query->ofRoles(['admin', 'super_admin']);
+    }
 }
