@@ -6,14 +6,24 @@ import "preline/preline";
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 
+//#region Preline Setup
+
+import { type IStaticMethods } from "preline/preline";
+declare global {
+    interface Window {
+        HSStaticMethods: IStaticMethods;
+    }
+}
+//#endregion
+
 //#region Echo Setup
 declare global {
-    interface Window { Pusher: any; Echo: any; }
+    interface Window { Pusher: any; EchoHub: Echo; }
 }
 
 window.Pusher = Pusher;
 
-window.Echo = new Echo({
+window.EchoHub = new Echo({
     broadcaster: 'reverb',
     key: import.meta.env.VITE_REVERB_APP_KEY,
     wsHost: import.meta.env.VITE_REVERB_HOST,

@@ -8,9 +8,6 @@ Route::get('/', function () {
     return hybridly('welcome');
 });
 
-Route::get('/home', function () {
-    return hybridly('welcome');
-});
 Route::get('/elections', function () {
     return hybridly('elections.index');
 });
@@ -44,5 +41,11 @@ Route::prefix('password')
         Route::get('reset/{token}', fn(string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
         Route::post('reset', \App\Actions\Auth\Password\Reset::class)->name('reset');
     });
+
+#endregion
+
+#region Home Routes
+
+Route::get('home', \App\Actions\Home\Index::class)->name('home');
 
 #endregion

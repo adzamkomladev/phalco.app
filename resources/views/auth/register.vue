@@ -7,6 +7,8 @@ const register = useForm({
     method: "POST",
     url: route("register"),
     fields: {
+        first_name: "",
+        last_name: "",
         email: "",
         password: "",
         password_confirmation: "",
@@ -54,7 +56,22 @@ const register = useForm({
                 <!-- Form -->
                 <form @submit.prevent="register.submit">
                     <div class="grid gap-y-4">
-                        <!-- Form Group -->
+                        <SharedFormBaseInput
+                            v-model="register.fields.first_name"
+                            :error="register.errors.first_name"
+                            id="first_name"
+                            name="first_name"
+                            type="text"
+                            label="First Name"
+                        />
+                        <SharedFormBaseInput
+                            v-model="register.fields.last_name"
+                            :error="register.errors.last_name"
+                            id="last_name"
+                            name="last_name"
+                            type="text"
+                            label="Last Name"
+                        />
                         <SharedFormBaseInput
                             v-model="register.fields.email"
                             :error="register.errors.email"
@@ -63,9 +80,7 @@ const register = useForm({
                             type="email"
                             label="Email address"
                         />
-                        <!-- End Form Group -->
 
-                        <!-- Form Group -->
                         <SharedFormBaseInput
                             v-model="register.fields.password"
                             :error="register.errors.password"
@@ -75,9 +90,6 @@ const register = useForm({
                             label="Password"
                         />
 
-                        <!-- End Form Group -->
-
-                        <!-- Form Group -->
                         <SharedFormBaseInput
                             v-model="register.fields.password_confirmation"
                             :error="register.errors.password_confirmation"
@@ -86,16 +98,13 @@ const register = useForm({
                             type="password"
                             label="Confirm Password"
                         />
-                        <!-- End Form Group -->
 
-                        <!-- Checkbox -->
                         <SharedFormBaseCheckbox
                             v-model="register.fields.agree"
                             id="agree"
                             name="agree"
                             label="I accept the Terms and Conditions"
                         />
-                        <!-- End Checkbox -->
 
                         <button
                             type="submit"

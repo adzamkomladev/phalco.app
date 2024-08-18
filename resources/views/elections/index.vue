@@ -5,10 +5,13 @@ useHead({
 
 const totalUsers = ref(0);
 onMounted(() => {
-    window.Echo.channel("hello-world").listen("Users.HelloWorld", (e: { newUsers: number }) => {
-        console.log(e);
-        totalUsers.value += e.newUsers;
-    });
+    window.EchoHub.channel("hello-world").listen(
+        "Users.HelloWorld",
+        (e: { newUsers: number }) => {
+            console.log(e);
+            totalUsers.value += e.newUsers;
+        }
+    );
 });
 </script>
 
