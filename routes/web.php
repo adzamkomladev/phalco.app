@@ -1,15 +1,19 @@
 <?php
 
+use App\Events\Users\HelloWorld;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    HelloWorld::dispatch(fake()->randomNumber(2));
     return hybridly('welcome');
 });
 
 Route::get('/home', function () {
     return hybridly('welcome');
 });
-Route::get('/elections', fn() => hybridly('elections.index'));
+Route::get('/elections', function () {
+    return hybridly('elections.index');
+});
 
 
 #region Auth Routes
