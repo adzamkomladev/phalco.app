@@ -22,3 +22,4 @@ yarn-error.log
 .hybridly
 _ide_helper*
 .phpstorm.meta.php
+./data.ms

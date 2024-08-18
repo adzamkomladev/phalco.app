@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     HelloWorld::dispatch(fake()->randomNumber(2));
     return hybridly('welcome');
-});
+})->name('welcome');
 
 Route::get('/elections', function () {
     return hybridly('elections.index');
-});
+})->middleware('auth')->name('elections');
 
 
 #region Auth Routes
@@ -31,6 +31,10 @@ Route::prefix('email')
         Route::get('verify/{id}/{hash}', \App\Actions\Auth\Verification\VerifyEmail::class)
             ->middleware(['signed'])
             ->name('verification.verify');
+
+    Route::get('verified', fn() => hybridly('auth.email-verified'))
+    ->middleware(['auth'])
+    ->name('email.verified');
     });
 
 Route::prefix('password')
@@ -46,6 +50,6 @@ Route::prefix('password')
 
 #region Home Routes
 
-Route::get('home', \App\Actions\Home\Index::class)->name('home');
+Route::get('home', \App\Actions\Home\Index::class)->name('home')->middleware('verified');
 
 #endregion

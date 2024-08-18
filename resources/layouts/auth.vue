@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+onMounted(() => {
+    setTimeout(() => {
+        window.HSStaticMethods.autoInit();
+    }, 100);
+});
+</script>
 
 <template>
     <main class="flex items-center h-full py-16 bg-gray-100 dark:bg-slate-900">
