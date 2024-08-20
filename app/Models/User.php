@@ -8,6 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Scout\Searchable;
 
 /**
@@ -23,6 +27,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
+        'selected_organization_id',
         'first_name',
         'last_name',
         'email',
@@ -43,6 +48,13 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'remember_token',
     ];
+
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    // protected $with = ['currentOrganization'];
 
     /**
      * Get the attributes that should be cast.
@@ -80,6 +92,30 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
+    public function organizationsOwned(): HasMany
+    {
+        return $this->hasMany(Organization::class);
+    }
+
+    public function currentOrganization(): BelongsTo
+    {
+        return $this->belongTo(Organization::class, 'selected_organization_id', 'id');
+    }
+
+    public function organizationMemberships(): HasMany
+    {
+        return $this->hasMany(OrganizationMembership::class);
+    }
+
+    public function memberOrganizations(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Organization::class,
+            'organization_memberships',
+            'user_id',
+            'organization_id'
+        );
+    }
     /**
      * Scope a query to only include users of a list of roles.
      */
@@ -88,13 +124,32 @@ class User extends Authenticatable implements MustVerifyEmail
         $query->whereIn('role', $roles);
     }
 
-    public function scopeTelescope(Builder $query): void
+    public function isAnAdmin(): bool
     {
-        $query->ofRoles(['admin', 'super_admin']);
+        return in_array($this->role, ['admin', 'super_admin']);
     }
 
-    public function scopeHorizon(Builder $query): void
+    public function canViewTelescope(): bool
     {
-        $query->ofRoles(['admin', 'super_admin']);
+        return $this->isAnAdmin();
+    }
+
+    public function canViewHorizon(): bool
+    {
+        return $this->isAnAdmin();
+    }
+
+    public function selectOrganization(int $organizationId)
+    {
+        $this->selected_organization_id = $organizationId;
+        $this->save();
+        $this->refresh();
+
+        return $this;
+    }
+
+    public function hasSelectedOrganization(): bool
+    {
+        return $this->selected_organization_id !== null;
     }
 }

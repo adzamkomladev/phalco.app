@@ -32,7 +32,7 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        return User::create([
+        $user =  User::create([
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
             'email' => $input['email'],
@@ -40,5 +40,9 @@ class CreateNewUser implements CreatesNewUsers
             'role' => 'customer',
             'avatar' => "https://ui-avatars.com/api/?name={$input['first_name']}+{$input['last_name']}&background=random",
         ]);
+
+        $user->sendEmailVerificationNotification();
+
+        return $user;
     }
 }

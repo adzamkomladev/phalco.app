@@ -9,11 +9,14 @@ import Pusher from 'pusher-js';
 //#region Preline Setup
 
 import { type IStaticMethods } from "preline/preline";
+import HSFileUpload from '@preline/file-upload';
 declare global {
     interface Window {
         HSStaticMethods: IStaticMethods;
     }
 }
+
+// HSFileUpload.
 //#endregion
 
 //#region Echo Setup

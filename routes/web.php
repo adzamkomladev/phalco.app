@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\Users\HelloWorld;
+use App\Http\Middleware\EnsureUserHasSelectedOrganization;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -50,6 +51,26 @@ Route::prefix('password')
 
 #region Home Routes
 
-Route::get('home', \App\Actions\Home\Index::class)->name('home')->middleware('verified');
+Route::get('home', \App\Actions\Home\Index::class)->name('home')->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
+
+#endregion
+
+#region Organization Routes
+
+Route::prefix('organizations')
+    ->name('organizations.')
+    ->middleware(['verified'])
+    ->group(function () {
+        Route::get('select', \App\Actions\Organizations\ShowSelect::class)->name('show.select');
+        Route::patch('select', \App\Actions\Organizations\Select::class)->name('select');
+        Route::get('create', \App\Actions\Organizations\Create::class)->name('create');
+        Route::post('', \App\Actions\Organizations\Store::class)->name('store');
+    });
+
+#endregion
+
+#region Uploads Routes
+
+Route::post('assets/upload', \App\Actions\Assets\Upload::class)->name('assets.upload')->middleware('auth');
 
 #endregion
