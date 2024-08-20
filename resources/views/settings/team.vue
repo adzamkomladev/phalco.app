@@ -2,8 +2,19 @@
 useHead({
     title: "Settings: Team",
 });
+
+const props = defineProps<{
+    members: Table<{
+        id: number;
+    }>;
+}>();
+
+const table = useTable(props, "members");
 </script>
 
 <template layout="main">
-    <p>Team settings</p>
+    <div>
+        <SettingsTeamStats />
+        <SettingsTeamMembersTable :table="table" />
+    </div>
 </template>

@@ -20,3 +20,7 @@ export interface BaseSelectProps extends FormProp {
     options: { label: string; value: number }[];
     error?: string;
 }
+
+export interface SearchInputProps extends FormProp {
+    placeholder?: string;
+}

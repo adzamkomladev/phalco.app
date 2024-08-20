@@ -2,7 +2,10 @@
 
 namespace App\Actions\Settings\Team;
 
+use App\Tables\Team\MembersTable;
 use Lorisleiva\Actions\Concerns\AsAction;
+use function Hybridly\view;
+
 
 class Index
 {
@@ -10,7 +13,9 @@ class Index
 
     public function asController()
     {
-        return hybridly('settings.team');
+        return view('settings.team', [
+            'members' => MembersTable::make(),
+        ]);
     }
 
     public function handle()
