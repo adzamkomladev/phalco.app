@@ -14,7 +14,7 @@
                     ></span>
                     <span
                         class="text-xs font-semibold uppercase text-gray-600 dark:text-neutral-400"
-                        >Projects</span
+                        >Members</span
                     >
                 </div>
 
@@ -75,7 +75,7 @@
                     ></span>
                     <span
                         class="text-xs font-semibold uppercase text-gray-600 dark:text-neutral-400"
-                        >Successful conversions</span
+                        >Invites</span
                     >
                 </div>
 
@@ -136,7 +136,7 @@
                     ></span>
                     <span
                         class="text-xs font-semibold uppercase text-gray-600 dark:text-neutral-400"
-                        >Failed conversions</span
+                        >Rejections</span
                     >
                 </div>
 
