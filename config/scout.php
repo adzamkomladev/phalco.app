@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Organization;
 use App\Models\User;
 
 return [
@@ -141,6 +142,11 @@ return [
         'index-settings' => [
             User::class => [
                 'filterableAttributes' => ['id', 'name', 'email', 'phone'],
+                'sortableAttributes' => ['created_at'],
+                // Other settings fields...
+            ],
+            Organization::class => [
+                'filterableAttributes' => ['id', 'name'],
                 'sortableAttributes' => ['created_at'],
                 // Other settings fields...
             ],
