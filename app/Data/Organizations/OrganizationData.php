@@ -13,7 +13,7 @@ class OrganizationData extends Data
         public ?int $id,
         public string $name,
         public ?string $description,
-        public ?string $avatar
+        public ?string $logo
     ) {
         //
     }

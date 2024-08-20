@@ -54,7 +54,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    // protected $with = ['currentOrganization'];
+    protected $with = ['currentOrganization'];
 
     /**
      * Get the attributes that should be cast.
@@ -99,7 +99,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function currentOrganization(): BelongsTo
     {
-        return $this->belongTo(Organization::class, 'selected_organization_id', 'id');
+        return $this->belongsTo(Organization::class, 'selected_organization_id', 'id');
     }
 
     public function organizationMemberships(): HasMany
