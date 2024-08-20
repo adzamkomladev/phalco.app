@@ -35,7 +35,7 @@ Route::prefix('email')
 
     Route::get('verified', fn() => hybridly('auth.email-verified'))
     ->middleware(['auth'])
-    ->name('email.verified');
+        ->name('email.verified');
     });
 
 Route::prefix('password')
@@ -51,7 +51,8 @@ Route::prefix('password')
 
 #region Home Routes
 
-Route::get('home', \App\Actions\Home\Index::class)->name('home')->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
+Route::get('home', \App\Actions\Home\Index::class)->name('home')
+->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
 
 #endregion
 
@@ -72,5 +73,19 @@ Route::prefix('organizations')
 #region Uploads Routes
 
 Route::post('assets/upload', \App\Actions\Assets\Upload::class)->name('assets.upload')->middleware('auth');
+
+#endregion
+
+#region Settings Routes
+
+Route::prefix('settings')
+    ->name('settings.')
+    ->middleware(['verified', EnsureUserHasSelectedOrganization::class])
+    ->group(function () {
+        Route::get('profile', \App\Actions\Settings\Profile\Index::class)->name('profile');
+        Route::get('team', \App\Actions\Settings\Team\Index::class)->name('team');
+        Route::get('billing', \App\Actions\Settings\Billing\Index::class)->name('billing');
+        Route::get('organization', \App\Actions\Settings\Organization\Index::class)->name('organization');
+    });
 
 #endregion

@@ -8,6 +8,12 @@ class Index
 {
     use AsAction;
 
+    public function asController()
+    {
+        return hybridly('settings.billing');
+    }
+
+
     public function handle()
     {
         // ...
