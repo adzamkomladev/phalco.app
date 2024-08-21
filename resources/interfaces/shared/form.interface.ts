@@ -17,7 +17,7 @@ export interface BaseCheckboxProps extends FormProp { }
 
 
 export interface BaseSelectProps extends FormProp {
-    options: { label: string; value: number }[];
+    options: { label: string; value: any }[];
     error?: string;
 }
 

@@ -66,6 +66,7 @@ Route::prefix('organizations')
         Route::patch('select', \App\Actions\Organizations\Select::class)->name('select');
         Route::get('create', \App\Actions\Organizations\Create::class)->name('create');
         Route::post('', \App\Actions\Organizations\Store::class)->name('store');
+    Route::get('invitations/{token}/verify', \App\Actions\Settings\Team\VerifyInvitation::class)->name('invitations.verify');
     });
 
 #endregion
@@ -83,7 +84,16 @@ Route::prefix('settings')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class])
     ->group(function () {
         Route::get('profile', \App\Actions\Settings\Profile\Index::class)->name('profile');
-        Route::get('team', \App\Actions\Settings\Team\Index::class)->name('team');
+
+    Route::prefix('team')
+        ->group(function () {
+            Route::get('', \App\Actions\Settings\Team\Index::class)->name('team');
+            Route::get('invitations', \App\Actions\Settings\Team\Invitations::class)
+                ->name('team.invitations');
+            Route::post('invitation/send', \App\Actions\Settings\Team\SendInvitation::class)
+                ->name('team.invitation.send');
+        });
+
         Route::get('billing', \App\Actions\Settings\Billing\Index::class)->name('billing');
         Route::get('organization', \App\Actions\Settings\Organization\Index::class)->name('organization');
     });

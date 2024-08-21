@@ -53,16 +53,16 @@ watch(search, debounceFn);
 
                     <div>
                         <div class="inline-flex gap-x-2">
-                            <a
+                            <router-link
                                 class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                href="#"
+                                :href="route('settings.team.invitations')"
                             >
                                 Pending Invites
-                            </a>
+                            </router-link>
 
-                            <a
+                            <router-link
+                                :href="route('settings.team.invitations')"
                                 class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                data-hs-overlay="#hs-overlay-create-user"
                             >
                                 <svg
                                     class="flex-shrink-0 size-3"
@@ -80,7 +80,7 @@ watch(search, debounceFn);
                                     />
                                 </svg>
                                 Invite member
-                            </a>
+                            </router-link>
                         </div>
                     </div>
                 </div>
