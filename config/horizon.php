@@ -201,14 +201,14 @@ return [
                 'maxProcesses' => 12,
                 'balanceMaxShift' => 1,
                 'balanceCooldown' => 3,
-                'queue' => ['sms', 'email', 'voice', 'campaigns', 'payments', 'imports', 'exports', 'scout', 'telescope', 'default'],
+                'queue' => ['sms', 'emails', 'voice', 'campaigns', 'payments', 'imports', 'exports', 'scout', 'telescope', 'default'],
             ],
         ],
 
         'local' => [
             'horizon-supervisor-1' => [
                 'maxProcesses' => 10,
-                'queue' => ['sms', 'email', 'voice', 'campaigns', 'payments', 'imports', 'exports', 'scout', 'telescope', 'default'],
+                'queue' => ['sms', 'emails', 'voice', 'campaigns', 'payments', 'imports', 'exports', 'scout', 'telescope', 'default'],
             ],
         ],
     ],

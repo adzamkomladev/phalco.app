@@ -11,12 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //  'organization_id',
-        // 'email',
-        // 'status',
-        // 'role',
-        // 'expires_at',
-        // 'token'
         Schema::create('organization_invitations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('organization_id')->constrained();
@@ -24,7 +18,7 @@ return new class extends Migration
             $table->ulid('token')->unique();
             $table->string('email', 100);
             $table->string('role');
-            $table->enum('status', ['active', 'pending', 'cancelled', 'rejected', 'expired']);
+            $table->enum('status', ['accepted', 'pending', 'cancelled', 'rejected', 'expired']);
             $table->timestamp('expires_at');
             $table->timestamps();
         });

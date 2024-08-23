@@ -34,4 +34,11 @@ class OrganizationInvitation extends Model
     {
         $query->where('status', 'pending');
     }
+
+    public function accept()
+    {
+        $this->status = 'accepted';
+        $this->save();
+        return $this;
+    }
 }

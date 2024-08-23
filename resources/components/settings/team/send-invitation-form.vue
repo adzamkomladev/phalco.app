@@ -6,6 +6,9 @@ const form = useForm({
         email: "",
         role: "",
     },
+    hooks: {
+        success: () => router.get(route("settings.team")),
+    },
 });
 
 const roles = [

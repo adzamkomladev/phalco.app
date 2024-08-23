@@ -8,6 +8,8 @@ class SharedData extends Data
 {
     public function __construct(
         public readonly SecurityData $security,
+        public readonly ?FlashBagData $flash,
+
     ) {
     }
 }

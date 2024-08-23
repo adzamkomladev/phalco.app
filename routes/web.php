@@ -92,6 +92,8 @@ Route::prefix('settings')
                 ->name('team.invitations');
             Route::post('invitation/send', \App\Actions\Settings\Team\SendInvitation::class)
                 ->name('team.invitation.send');
+        Route::delete('invitation/{id}/delete', \App\Actions\Settings\Team\DeleteInvitation::class)
+            ->name('team.invitation.delete');
         });
 
         Route::get('billing', \App\Actions\Settings\Billing\Index::class)->name('billing');
