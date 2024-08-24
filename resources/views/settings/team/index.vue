@@ -7,6 +7,7 @@ const props = defineProps<{
     members: Table<{
         id: number;
     }>;
+    stats: App.Data.Settings.Team.InvitationStatsData;
 }>();
 
 const table = useTable(props, "members");
@@ -14,7 +15,7 @@ const table = useTable(props, "members");
 
 <template layout="main">
     <div>
-        <SettingsTeamStats />
+        <SettingsTeamStats :stats="stats" />
         <SettingsTeamMembersTable :table="table" />
     </div>
 </template>

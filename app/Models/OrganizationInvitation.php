@@ -35,6 +35,11 @@ class OrganizationInvitation extends Model
         $query->where('status', 'pending');
     }
 
+    public function scopeRejected(Builder $query): void
+    {
+        $query->where('status', 'rejected');
+    }
+
     public function accept()
     {
         $this->status = 'accepted';

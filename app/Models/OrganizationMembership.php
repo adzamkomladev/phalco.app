@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class OrganizationMembership extends Model
 {
@@ -20,4 +21,10 @@ class OrganizationMembership extends Model
         'status',
         'role'
     ];
+
+
+    public function scopeActive(Builder $query): void
+    {
+        $query->where('status', 'active');
+    }
 }

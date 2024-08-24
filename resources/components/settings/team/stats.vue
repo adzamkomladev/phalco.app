@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps<{ stats: App.Data.Settings.Team.InvitationStatsData }>();
+</script>
 <template>
     <!-- Card Section -->
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -22,7 +24,7 @@
                     <h3
                         class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-neutral-200"
                     >
-                        150
+                        {{ stats.totalMembers }}
                     </h3>
                 </div>
 
@@ -44,7 +46,9 @@
                                     d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
                                 />
                             </svg>
-                            <span class="inline-block text-sm"> 1.7% </span>
+                            <span class="inline-block text-sm">
+                                {{ stats.changeMembers.percentage }}%
+                            </span>
                         </span>
                         <span
                             class="block text-sm text-gray-500 dark:text-neutral-500"
@@ -54,7 +58,7 @@
                     <dd class="text-start ps-3">
                         <span
                             class="text-sm font-semibold text-gray-800 dark:text-neutral-200"
-                            >5</span
+                            >{{ stats.changeMembers.total }}</span
                         >
                         <span
                             class="block text-sm text-gray-500 dark:text-neutral-500"
@@ -83,7 +87,7 @@
                     <h3
                         class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-neutral-200"
                     >
-                        25
+                        {{ stats.totalInvites }}
                     </h3>
                 </div>
 
@@ -105,7 +109,9 @@
                                     d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
                                 />
                             </svg>
-                            <span class="inline-block text-sm"> 5.6% </span>
+                            <span class="inline-block text-sm">
+                                {{ stats.changeInvites.percentage }}%
+                            </span>
                         </span>
                         <span
                             class="block text-sm text-gray-500 dark:text-neutral-500"
@@ -115,7 +121,7 @@
                     <dd class="text-start ps-3">
                         <span
                             class="text-sm font-semibold text-gray-800 dark:text-neutral-200"
-                            >7</span
+                            >{{ stats.changeInvites.total }}</span
                         >
                         <span
                             class="block text-sm text-gray-500 dark:text-neutral-500"
@@ -144,7 +150,7 @@
                     <h3
                         class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-neutral-200"
                     >
-                        4
+                        {{ stats.totalRejections }}
                     </h3>
                 </div>
 
@@ -166,7 +172,9 @@
                                     d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
                                 />
                             </svg>
-                            <span class="inline-block text-sm"> 5.6% </span>
+                            <span class="inline-block text-sm">
+                                {{ stats.changeRejections.percentage }}%
+                            </span>
                         </span>
                         <span
                             class="block text-sm text-gray-500 dark:text-neutral-500"
@@ -176,7 +184,7 @@
                     <dd class="text-start ps-3">
                         <span
                             class="text-sm font-semibold text-gray-800 dark:text-neutral-200"
-                            >7</span
+                            >{{ stats.changeRejections.total }}</span
                         >
                         <span
                             class="block text-sm text-gray-500 dark:text-neutral-500"
