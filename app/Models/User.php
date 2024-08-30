@@ -116,6 +116,12 @@ class User extends Authenticatable implements MustVerifyEmail
             'organization_id'
         );
     }
+
+    public function selectedOrganizationMembership(): HasOne
+    {
+        return $this->hasOne(OrganizationMembership::class, 'user_id', 'id')
+            ->where('organization_id', $this->selected_organization_id);
+    }
     /**
      * Scope a query to only include users of a list of roles.
      */

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class OrganizationMembership extends Model
 {
@@ -18,10 +19,18 @@ class OrganizationMembership extends Model
     protected $fillable = [
         'organization_id',
         'user_id',
+        'organization_role_id',
         'status',
-        'role'
+        'roleTitle'
     ];
 
+    protected $with = ['role'];
+
+
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(OrganizationRole::class, 'organization_role_id', 'id');
+    }
 
     public function scopeActive(Builder $query): void
     {

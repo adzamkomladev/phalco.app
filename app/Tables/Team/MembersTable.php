@@ -28,9 +28,9 @@ final class MembersTable extends Table
                     'avatar' => $user->avatar,
                 ])),
             Columns\TextColumn::make('position')->label('Position')
-                ->transformValueUsing(fn(User $user) => $user->organizationMemberships->first()->role)
+                ->transformValueUsing(fn(User $user) => $user->organizationMemberships->first()->roleTitle)
                 ->extra((fn(User $user) => [
-                    'role' => $user->organizationMemberships->first()->role,
+                'role' => $user->organizationMemberships->first()->role->name,
                 ])),
             Columns\TextColumn::make('status')->label('Status')
                 ->transformValueUsing(fn(User $user) => $user->organizationMemberships->first()->status),

@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('organization_memberships', function (Blueprint $table) {
+        Schema::create('organization_roles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('organization_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('organization_role_id')->constrained();
-            $table->string('roleTitle', 50)->nullable();
-            $table->enum('status', ['active', 'inactive', 'suspended', 'removed']);
+            $table->string('name');
+            $table->enum('status', ['active', 'inactive']);
+            $table->json('permissions');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('organization_memberships');
+        Schema::dropIfExists('organization_roles');
     }
 };
