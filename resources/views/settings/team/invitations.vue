@@ -5,7 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
-    <SharedCommonOverlay title="Invitations" maxSize="2xl" size="2/5">
+    <SharedCommonOverlay title="Invitations" size="2xl">
         <div class="grid gap-y-8">
             <SettingsTeamSendInvitationForm />
             <SettingsTeamInvitationsTable :data="props.invitations" />

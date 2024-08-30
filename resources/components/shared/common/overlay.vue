@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { HSOverlay } from "preline/preline";
 
-const props = defineProps<{ title: string; size: string; maxSize: string }>();
+const props = defineProps<{ title: string; size: string; maxSize?: string }>();
 
-const sizeClass = computed(() => `max-w-${props.maxSize} lg:w-${props.size}`);
+const sizeClass = computed(() => `max-w-${props.size} w-${props.maxSize || 'full'}`);
 
 const { show, close, unmount } = useDialog();
 
@@ -35,12 +35,12 @@ watch(show, (newShow: boolean | undefined, _: boolean | undefined) => {
 <template>
     <div
         ref="overlay"
-        :class="sizeClass"
         id="base-overlay"
         class="hs-overlay hs-overlay-open:translate-x-0 hidden translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full z-[80] bg-white border-e dark:bg-neutral-800 dark:border-neutral-700"
         role="dialog"
         tabindex="-1"
         aria-labelledby="base-overlay-label"
+        :class="sizeClass"
     >
         <div
             class="flex justify-between items-center py-3 px-4 border-b dark:border-neutral-700"
