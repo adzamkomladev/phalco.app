@@ -10,6 +10,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Scout\Searchable;
 
+/**
+ * @mixin IdeHelperOrganization
+ */
 class Organization extends Model
 {
     use HasFactory, Notifiable, Searchable;

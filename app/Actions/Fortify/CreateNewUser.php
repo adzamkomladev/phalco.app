@@ -41,8 +41,6 @@ class CreateNewUser implements CreatesNewUsers
             'avatar' => "https://ui-avatars.com/api/?name={$input['first_name']}+{$input['last_name']}&background=random",
         ]);
 
-        $user->sendEmailVerificationNotification();
-
         return $user;
     }
 }

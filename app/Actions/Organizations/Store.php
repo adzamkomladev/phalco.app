@@ -38,38 +38,42 @@ class Store
         $userId = $user->id;
 
         $organization = $user->organizationsOwned()->create($data);
-        $role = OrganizationRole::create([
-            'organization_id' => $organization->id,
-            'name' => 'owner',
-            'status' => 'active',
-            'user_id' => $userId,
-            'permissions' => [
-                'elections' => [
-                    'create' => true,
-                    'read' => true,
-                    'update' => true,
-                    'delete' => true
-                ],
-                'settings' => [
-                    'team' => [
-                        'create' => true,
-                        'read' => true,
-                        'update' => true,
-                        'delete' => true
-                    ],
-                    'organization' => [
-                        'create' => true,
-                        'read' => true,
-                        'update' => true,
-                        'delete' => true
-                    ]
-                ]
-            ]
-        ]);
 
         $organizationId = $organization->id;
-        $roleId = $role->id;
+        [
+            $ownerRole
+        ] = Octane::concurrently([
+            fn() => OrganizationRole::create([
+                'organization_id' => $organizationId,
+                'name' => 'owner',
+                'status' => 'active',
+                'user_id' => $userId,
+                'permissions' => config('roles.owner')
+            ]),
+            fn() => OrganizationRole::create([
+                'organization_id' => $organizationId,
+                'name' => 'admin',
+                'status' => 'active',
+                'user_id' => $userId,
+                'permissions' => config('roles.admin')
+            ]),
+            fn() => OrganizationRole::create([
+                'organization_id' => $organizationId,
+                'name' => 'member',
+                'status' => 'active',
+                'user_id' => $userId,
+                'permissions' => config('roles.member')
+            ]),
+            fn() => OrganizationRole::create([
+                'organization_id' => $organizationId,
+                'name' => 'agent',
+                'status' => 'active',
+                'user_id' => $userId,
+                'permissions' => config('roles.agent')
+            ])
+        ]);
 
+        $roleId = $ownerRole->id;
         Octane::concurrently([
             fn() => User::where('id', $userId)->update(['selected_organization_id' => $organizationId]),
             fn() => OrganizationMembership::create([

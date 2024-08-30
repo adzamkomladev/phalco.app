@@ -1,21 +1,23 @@
 <script setup lang="ts">
+const props = defineProps<{
+    roles: App.Data.Settings.Team.RoleData[];
+}>();
 const form = useForm({
     method: "POST",
     url: route("settings.team.invitation.send"),
     fields: {
         email: "",
-        role: "",
+        role_id: null,
     },
     hooks: {
-        success: () => router.get(route("settings.team")),
+        success: () => router.get(route("settings.team.index")),
     },
 });
 
-const roles = [
-    { label: "Admin", value: "admin" },
-    { label: "Agent", value: "agent" },
-    { label: "Member", value: "member" },
-];
+const roles = props.roles.map((role: App.Data.Settings.Team.RoleData) => ({
+    value: role.id,
+    label: role.name,
+}));
 </script>
 <template>
     <form @submit.prevent="form.submit">
@@ -34,9 +36,9 @@ const roles = [
 
                 <SharedFormBaseSelect
                     class="basis-3/7"
-                    v-model="form.fields.role"
-                    id="role"
-                    name="role"
+                    v-model="form.fields.role_id"
+                    id="role_id"
+                    name="role_id"
                     :options="roles"
                     label="Role"
                 />

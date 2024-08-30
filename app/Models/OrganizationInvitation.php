@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @mixin IdeHelperOrganizationInvitation
+ */
 class OrganizationInvitation extends Model
 {
     use HasFactory;
@@ -18,16 +22,16 @@ class OrganizationInvitation extends Model
     protected $fillable = [
         'organization_id',
         'user_id',
+        'organization_role_id',
         'email',
         'status',
-        'role',
         'expires_at',
         'token'
     ];
 
-    public function scopeOfRoles(Builder $query, array $roles): void
+    public function role(): BelongsTo
     {
-        $query->whereIn('role', $roles);
+        return $this->belongsTo(OrganizationRole::class, 'organization_role_id', 'id');
     }
 
     public function scopePending(Builder $query): void

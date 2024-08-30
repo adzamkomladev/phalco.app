@@ -55,9 +55,9 @@ watch(search, debounceFn);
                         <div class="inline-flex gap-x-2">
                             <router-link
                                 class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                :href="route('settings.team.invitations')"
+                                :href="route('settings.team.roles')"
                             >
-                                Pending Invites
+                                Roles
                             </router-link>
 
                             <router-link
@@ -79,7 +79,7 @@ watch(search, debounceFn);
                                         stroke-linecap="round"
                                     />
                                 </svg>
-                                Invite member
+                                Invitations
                             </router-link>
                         </div>
                     </div>

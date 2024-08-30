@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('organization_id')->constrained();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('organization_role_id')->constrained();
             $table->ulid('token')->unique();
             $table->string('email', 100);
-            $table->string('role');
             $table->enum('status', ['accepted', 'pending', 'cancelled', 'rejected', 'expired']);
             $table->timestamp('expires_at');
             $table->timestamps();

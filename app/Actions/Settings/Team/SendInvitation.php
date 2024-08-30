@@ -16,7 +16,7 @@ class SendInvitation
     {
         return [
             'email' => ['required', 'max:100'],
-            'role' => ['required']
+            'role_id' => ['required']
         ];
     }
     public function asController(ActionRequest $request)
@@ -37,6 +37,6 @@ class SendInvitation
             $invitation->update(['status' => 'cancelled']);
         }
 
-        CreateInvitation::dispatch($user->id, $user->currentOrganization->id, $user->currentOrganization->name, $data['email'], $data['role']);
+        CreateInvitation::dispatch($user->id, $user->currentOrganization->id, $user->currentOrganization->name, $data['email'], $data['role_id']);
     }
 }

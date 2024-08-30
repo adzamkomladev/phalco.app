@@ -86,14 +86,18 @@ Route::prefix('settings')
         Route::get('profile', \App\Actions\Settings\Profile\Index::class)->name('profile');
 
     Route::prefix('team')
+    ->name('team.')
         ->group(function () {
-            Route::get('', \App\Actions\Settings\Team\Index::class)->name('team');
-            Route::get('invitations', \App\Actions\Settings\Team\Invitations::class)
-                ->name('team.invitations');
-            Route::post('invitation/send', \App\Actions\Settings\Team\SendInvitation::class)
-                ->name('team.invitation.send');
+        Route::get('', \App\Actions\Settings\Team\Index::class)->name('index');
+        Route::get('invitations', \App\Actions\Settings\Team\Invitations::class)
+            ->name('invitations');
+        Route::post('invitation/send', \App\Actions\Settings\Team\SendInvitation::class)
+            ->name('invitation.send');
         Route::delete('invitation/{id}/delete', \App\Actions\Settings\Team\DeleteInvitation::class)
-            ->name('team.invitation.delete');
+            ->name('invitation.delete');
+
+        Route::get('roles', \App\Actions\Settings\Team\Roles::class)
+            ->name('roles');
         });
 
         Route::get('billing', \App\Actions\Settings\Billing\Index::class)->name('billing');

@@ -14,7 +14,7 @@ class VerifyInvitation
 
     public function asController(string $token)
     {
-        $res = $this->handle(auth()->id(), $token);
+        $res = $this->handle(auth()->id(), auth()->user()->email, $token);
 
         if ($res === null) return hybridly('settings.team.verify-invitation', [
             'error' => 'Invitation is expired or invalid!'
@@ -23,25 +23,30 @@ class VerifyInvitation
         return hybridly('settings.team.verify-invitation', ['success' => 'Invitation accepted']);
     }
 
-    public function handle(int $userId, string $token): ?OrganizationInvitation
+    public function handle(int $userId, string $email, string $token): ?OrganizationInvitation
     {
-        $invitation = OrganizationInvitation::pending()->where('token', $token)->first();
+        $invitation = OrganizationInvitation::pending()
+            ->where('token', $token)
+            ->where('email', $email)
+            ->first();
 
         if ($invitation === null) return null;
 
         $organizationId = $invitation->organization_id;
         $invitationId = $invitation->id;
-        $invitationRole = $invitation->role;
+        $invitationRoleId = $invitation->organization_role_id;
+        $invitationRoleName = $invitation->role?->name;
 
         [$invitation] = Octane::concurrently([
             fn() => OrganizationInvitation::find($invitationId)->accept(),
             fn() => OrganizationMembership::create([
                 'user_id' => $userId,
                 'organization_id' => $organizationId,
-                'role' => $invitationRole,
+                'organization_role_id' => $invitationRoleId,
+                'roleTitle' => $invitationRoleName,
                 'status' => 'active',
             ]),
-            fn() => User::find($userId)->selectOrganization($organizationId),
+            fn() => User::where('id', $userId)->update(['selected_organization_id' => $organizationId]),
         ]);
 
         return $invitation;
