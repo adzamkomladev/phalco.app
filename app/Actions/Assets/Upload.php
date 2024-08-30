@@ -30,8 +30,15 @@ class Upload
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $storagePath = $request->query('path') ?? 'general';
+
+            if (app()->isProduction()) {
+                $path = $request->file->storePubliclyAs("uploads/{$storagePath}", $file->hashName());
+                return asset($path);
+            }
+
             $path = $request->file->storePubliclyAs("uploads/{$storagePath}", $file->hashName(), 'public');
             return asset("storage/{$path}");
+
         }
 
         return null;
