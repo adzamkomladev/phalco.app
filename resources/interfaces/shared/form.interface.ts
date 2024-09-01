@@ -24,3 +24,11 @@ export interface BaseSelectProps extends FormProp {
 export interface SearchInputProps extends FormProp {
     placeholder?: string;
 }
+
+export interface BaseTextareaProps extends FormProp {
+    error?: string;
+    placeholder?: string;
+    required?: boolean;
+    autocomplete?: string;
+    rows?: number;
+}

@@ -103,28 +103,20 @@
                     >
                         <ul class="ps-8 pt-1 space-y-1">
                             <li>
-                                <a
+                                <router-link
                                     class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-200"
-                                    href="#"
+                                    :href="route('elections.index')"
                                 >
-                                    Link 1
-                                </a>
+                                    Dashboard
+                                </router-link>
                             </li>
                             <li>
-                                <a
+                                <router-link
                                     class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-200"
-                                    href="#"
+                                    :href="route('elections.create')"
                                 >
-                                    Link 2
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-200"
-                                    href="#"
-                                >
-                                    Link 3
-                                </a>
+                                    New Election
+                                </router-link>
                             </li>
                         </ul>
                     </div>

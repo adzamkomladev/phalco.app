@@ -71,6 +71,19 @@ Route::prefix('organizations')
 
 #endregion
 
+#region Elections Routes
+
+Route::prefix('elections')
+    ->name('elections.')
+    ->middleware(['verified', EnsureUserHasSelectedOrganization::class])
+    ->group(function () {
+        Route::get('', \App\Actions\Elections\Index::class)->name('index');
+        Route::post('', \App\Actions\Elections\Store::class)->name('store');
+        Route::get('create', \App\Actions\Elections\Create::class)->name('create');
+    });
+
+#endregion
+
 #region Uploads Routes
 
 Route::post('assets/upload', \App\Actions\Assets\Upload::class)->name('assets.upload')->middleware('auth');
@@ -86,18 +99,18 @@ Route::prefix('settings')
         Route::get('profile', \App\Actions\Settings\Profile\Index::class)->name('profile');
 
     Route::prefix('team')
-    ->name('team.')
+        ->name('team.')
         ->group(function () {
-        Route::get('', \App\Actions\Settings\Team\Index::class)->name('index');
-        Route::get('invitations', \App\Actions\Settings\Team\Invitations::class)
-            ->name('invitations');
-        Route::post('invitation/send', \App\Actions\Settings\Team\SendInvitation::class)
-            ->name('invitation.send');
-        Route::delete('invitation/{id}/delete', \App\Actions\Settings\Team\DeleteInvitation::class)
-            ->name('invitation.delete');
+            Route::get('', \App\Actions\Settings\Team\Index::class)->name('index');
+            Route::get('invitations', \App\Actions\Settings\Team\Invitations::class)
+                ->name('invitations');
+            Route::post('invitation/send', \App\Actions\Settings\Team\SendInvitation::class)
+                ->name('invitation.send');
+            Route::delete('invitation/{id}/delete', \App\Actions\Settings\Team\DeleteInvitation::class)
+                ->name('invitation.delete');
 
-        Route::get('roles', \App\Actions\Settings\Team\Roles::class)
-            ->name('roles');
+            Route::get('roles', \App\Actions\Settings\Team\Roles::class)
+                ->name('roles');
         });
 
         Route::get('billing', \App\Actions\Settings\Billing\Index::class)->name('billing');

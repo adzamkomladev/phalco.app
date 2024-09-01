@@ -3,18 +3,17 @@
 namespace App\Actions\Elections;
 
 use Lorisleiva\Actions\Concerns\AsAction;
+use function Hybridly\view;
 
-
-class Index
+class Create
 {
     use AsAction;
 
     public function asController()
     {
 
-        return hybridly('elections.index');
+        return view('elections.create')->base('elections.index');
     }
-
 
     public function handle()
     {
