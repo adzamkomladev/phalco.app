@@ -137,6 +137,7 @@ return [
             'enabled' => env('TELESCOPE_LOG_WATCHER', true),
             'level' => 'debug',
         ],
+        
         Watchers\BatchWatcher::class => env('TELESCOPE_BATCH_WATCHER', true),
 
         Watchers\CacheWatcher::class => [

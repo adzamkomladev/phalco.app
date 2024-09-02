@@ -42,4 +42,9 @@ class Election extends Model
     {
         return $this->hasMany(ElectionActivity::class, 'election_id', 'id')->latest();
     }
+
+    public function stages(): HasMany
+    {
+        return $this->hasMany(ElectionStage::class, 'election_id', 'id')->latest();
+    }
 }

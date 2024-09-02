@@ -80,6 +80,7 @@ Route::prefix('elections')
         Route::get('', \App\Actions\Elections\Index::class)->name('index');
         Route::post('', \App\Actions\Elections\Store::class)->name('store');
         Route::get('create', \App\Actions\Elections\Create::class)->name('create');
+    Route::get('{id}/show', \App\Actions\Elections\Show::class)->name('show');
     });
 
 #endregion

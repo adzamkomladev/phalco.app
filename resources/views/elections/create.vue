@@ -1,4 +1,7 @@
 <script setup lang="ts">
+useHead({
+    title: "New Election",
+});
 const form = useForm({
     method: "POST",
     url: route("elections.store"),

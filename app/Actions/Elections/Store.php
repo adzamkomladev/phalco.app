@@ -4,7 +4,10 @@ namespace App\Actions\Elections;
 
 use App\Events\Elections\ElectionCreated;
 use App\Models\Election;
+use App\Models\ElectionActivity;
+use App\Models\ElectionStage;
 use Carbon\Carbon;
+use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -26,7 +29,7 @@ class Store
     {
         $election = $this->handle($request->user()->id, $request->user()->selected_organization_id, $request->validated());
 
-        return redirect()->route('elections.index');
+        return redirect()->route('elections.show', ['id' => $election->id]);
     }
 
 
@@ -40,14 +43,27 @@ class Store
             'end' =>  Carbon::parse($data['end']),
             'organization_id' => $organizationId,
             'user_id' => $userId,
-            'status' => 'active'
+            'status' => 'active',
+            'stage' => 'campaign'
         ]);
 
-        $election->activities()->create([
-            'status' => 'active',
-            'user_id' => $userId,
-            'reason' => 'Create new election'
+        $electionId = $election->id;
+
+        Octane::concurrently([
+            fn() => ElectionActivity::create([
+                'election_id' => $electionId,
+                'status' => 'active',
+                'user_id' => $userId,
+                'reason' => 'Create new election'
+            ]),
+            fn() => ElectionStage::create([
+                'election_id' => $electionId,
+                'stage' => 'campaign',
+                'user_id' => $userId,
+                'reason' => 'Create new election for campaigns'
+            ])
         ]);
+
 
         ElectionCreated::dispatch($election->id);
 
