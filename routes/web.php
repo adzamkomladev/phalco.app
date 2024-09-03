@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     HelloWorld::dispatch(fake()->randomNumber(2));
-    return hybridly('welcome');
+    return view('welcome');
 })->name('welcome');
 
 Route::get('/elections', function () {
