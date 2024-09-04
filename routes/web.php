@@ -56,6 +56,24 @@ Route::get('home', \App\Actions\Home\Index::class)->name('home')
 
 #endregion
 
+
+#region Voting Routes
+
+Route::prefix('voting')
+    ->name('voting.')
+    ->middleware(['verified'])
+    ->group(function () {
+        Route::prefix('polling-stations')
+            ->name('polling-stations.')
+            ->group(function () {
+
+                Route::get('', \App\Actions\Voting\PollingStations\Index::class)->name('index');
+            });
+    });
+
+#endregion
+
+
 #region Organization Routes
 
 Route::prefix('organizations')
