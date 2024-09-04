@@ -2,6 +2,7 @@
 useHead({
     title: "New Election",
 });
+
 const form = useForm({
     method: "POST",
     url: route("elections.store"),
@@ -11,11 +12,18 @@ const form = useForm({
         logo: "",
         start: null,
         end: null,
+        stage: "campaigns",
     },
     hooks: {
         success: () => form.reset(),
     },
 });
+
+// Map the stages to the scope of the election
+const stages = [
+    { value: "nominations", label: "Full" },
+    { value: "campaigns", label: "Campaigns" },
+];
 </script>
 
 <template>
@@ -116,6 +124,26 @@ const form = useForm({
                         id="end"
                         name="end"
                         type="datetime-local"
+                    />
+                </div>
+
+                <div class="sm:col-span-3">
+                    <label
+                        for="scope"
+                        class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200"
+                    >
+                        Scope
+                    </label>
+                </div>
+                <!-- End Col -->
+
+                <div class="sm:col-span-9">
+                    <SharedFormBaseRadioButton
+                        v-model="form.fields.stage"
+                        :error="form.errors.stage"
+                        id="scope"
+                        name="stage"
+                        :options="stages"
                     />
                 </div>
             </div>

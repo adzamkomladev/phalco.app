@@ -23,6 +23,7 @@ class Store
             'description' => ['nullable', 'string'],
             'start' => ['required', 'date'],
             'end' => ['required', 'date'],
+            'stage' => ['required', 'string', 'in:campaigns,nominations']
         ];
     }
     public function asController(ActionRequest $request)
@@ -44,7 +45,7 @@ class Store
             'organization_id' => $organizationId,
             'user_id' => $userId,
             'status' => 'active',
-            'stage' => 'campaign'
+            'stage' => $data['stage']
         ]);
 
         $electionId = $election->id;
@@ -58,7 +59,7 @@ class Store
             ]),
             fn() => ElectionStage::create([
                 'election_id' => $electionId,
-                'stage' => 'campaign',
+                'stage' => $data['stage'],
                 'user_id' => $userId,
                 'reason' => 'Create new election for campaigns'
             ])

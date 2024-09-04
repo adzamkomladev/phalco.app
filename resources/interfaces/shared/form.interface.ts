@@ -15,6 +15,9 @@ export interface BaseInputProps extends FormProp {
 
 export interface BaseCheckboxProps extends FormProp { }
 
+export interface BaseRadioButtonProps<T> extends FormProp {
+    options: { label: string; value: T }[];
+}
 
 export interface BaseSelectProps extends FormProp {
     options: { label: string; value: any }[];
