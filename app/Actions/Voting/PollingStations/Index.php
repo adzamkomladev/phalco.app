@@ -2,7 +2,10 @@
 
 namespace App\Actions\Voting\PollingStations;
 
+use App\Tables\Voting\PollingStations\PollingStationsTable;
 use Lorisleiva\Actions\Concerns\AsAction;
+
+use function Hybridly\view;
 
 class Index
 {
@@ -11,7 +14,9 @@ class Index
     public function asController()
     {
 
-        return hybridly('voting.polling-stations.index');
+        return view('voting.polling-stations.index', [
+            'pollingStations' => PollingStationsTable::make(),
+        ]);
     }
 
     public function handle()

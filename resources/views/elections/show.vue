@@ -6,5 +6,7 @@ useHead({
 </script>
 
 <template layout="main">
-<p>Election DEtails</p>
+ <div>
+     <p>Election details</p>
+ </div>
 </template>

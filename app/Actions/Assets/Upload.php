@@ -37,6 +37,7 @@ class Upload
             }
 
             $path = $request->file->storePubliclyAs("uploads/{$storagePath}", $file->hashName(), 'public');
+
             return asset("storage/{$path}");
 
         }

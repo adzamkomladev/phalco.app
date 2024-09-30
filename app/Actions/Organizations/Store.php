@@ -28,7 +28,6 @@ class Store
             $this->handle($request->user(), $request->validated());
             return redirect()->route('home');
         } catch (\Exception $e) {
-            dd($e);
             return back()->with('error', $e->getMessage());
         }
     }

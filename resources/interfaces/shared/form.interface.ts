@@ -20,8 +20,9 @@ export interface BaseRadioButtonProps<T> extends FormProp {
 }
 
 export interface BaseSelectProps extends FormProp {
-    options: { label: string; value: any }[];
+    options: { label: any; value: any }[];
     error?: string;
+    placeholder?: string;
 }
 
 export interface SearchInputProps extends FormProp {

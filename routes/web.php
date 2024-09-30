@@ -68,6 +68,9 @@ Route::prefix('voting')
             ->group(function () {
 
                 Route::get('', \App\Actions\Voting\PollingStations\Index::class)->name('index');
+        Route::get('create', \App\Actions\Voting\PollingStations\Create::class)->name('create');
+        Route::post('upload', \App\Actions\Voting\PollingStations\Upload::class)->name('upload');
+        Route::post('', \App\Actions\Voting\PollingStations\Store::class)->name('store');
             });
     });
 
