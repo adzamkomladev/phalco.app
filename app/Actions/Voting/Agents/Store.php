@@ -2,8 +2,6 @@
 
 namespace App\Actions\Voting\Agents;
 
-use Illuminate\Validation\Rule;
-use Illuminate\Database\Query\Builder;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -16,7 +14,7 @@ class Store
         return [
             'first_name' => ['required', 'max:100'],
             'last_name' => ['required', 'max:100'],
-            'email' => ['required', 'email', 'max:100']
+            'email' => ['required', 'email', 'max:100'],
         ];
     }
 
@@ -24,6 +22,7 @@ class Store
     {
         try {
             $this->handle($request->user()->selected_organization_id, $request->validated());
+
             return redirect()->route('voting.agents.index');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());

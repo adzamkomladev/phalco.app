@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
         ]);
         Date::use(CarbonImmutable::class);
 
-        #region Octane
+        //region Octane
 
         Octane::tick('test-ticker-1', function () {
             logger('Start test-ticker-1');
@@ -56,14 +56,14 @@ class AppServiceProvider extends ServiceProvider
             logger('End test-ticker-1');
         })->seconds(101);
 
-        #endregion
+        //endregion
 
-        #region Socialite
+        //region Socialite
 
         Event::listen(function (\SocialiteProviders\Manager\SocialiteWasCalled $event) {
             $event->extendSocialite('google', \SocialiteProviders\Google\Provider::class);
         });
 
-        #endregion
+        //endregion
     }
 }

@@ -12,8 +12,8 @@ const organizations = computed(
                 logo: o.logo,
                 isCurrentOrganization:
                     o.id === user.value?.current_organization?.id,
-            })
-        ) || []
+            }),
+        ) || [],
 );
 </script>
 

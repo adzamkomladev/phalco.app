@@ -3,7 +3,9 @@ import { HSOverlay } from "preline/preline";
 
 const props = defineProps<{ title: string; size: string; maxSize?: string }>();
 
-const sizeClass = computed(() => `max-w-${props.size} w-${props.maxSize || 'full'}`);
+const sizeClass = computed(
+    () => `max-w-${props.size} w-${props.maxSize || "full"}`,
+);
 
 const { show, close, unmount } = useDialog();
 

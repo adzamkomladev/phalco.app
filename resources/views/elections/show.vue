@@ -2,11 +2,10 @@
 useHead({
     title: "Election Details",
 });
-
 </script>
 
 <template layout="main">
- <div>
-     <p>Election details</p>
- </div>
+    <div>
+        <p>Election details</p>
+    </div>
 </template>

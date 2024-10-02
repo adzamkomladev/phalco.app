@@ -25,7 +25,7 @@ const debounceFn = useDebounceFn(
         search.value !== ""
             ? searchFilter.apply(search.value)
             : searchFilter.clear(),
-    800
+    800,
 );
 
 watch(search, debounceFn);
@@ -203,7 +203,7 @@ watch(search, debounceFn);
                                             {{
                                                 extra(
                                                     findColumn("agent"),
-                                                    "email"
+                                                    "email",
                                                 )
                                             }}
                                         </span>

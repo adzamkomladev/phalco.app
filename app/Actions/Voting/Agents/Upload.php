@@ -22,12 +22,12 @@ class Upload
     {
         try {
             $this->handle($request->user()->selected_organization_id, $request->validated());
+
             return redirect()->route('voting.agents.index');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
     }
-
 
     public function handle(int $organizationId, array $data): void
     {
@@ -35,7 +35,6 @@ class Upload
             ->queue($this->getFilePath($data['upload_file']))
             ->allOnQueue('imports');
     }
-
 
     private function removeDomain(string $url): string
     {
@@ -52,6 +51,6 @@ class Upload
     {
         $path = $this->removeDomain($url);
 
-        return str_replace('/storage/', '', $path);;
+        return str_replace('/storage/', '', $path);
     }
 }

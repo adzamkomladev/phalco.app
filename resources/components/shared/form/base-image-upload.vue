@@ -11,7 +11,7 @@ onMounted(() => {
     // Retrieve element and dropzone instances
     const { element } = HSFileUpload.getInstance(
         fileUpload.value!,
-        true
+        true,
     ) as any;
     const { dropzone } = element;
 

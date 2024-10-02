@@ -3,14 +3,14 @@
 namespace App\Mail\Voting\Agents;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Contracts\Queue\ShouldBeEncrypted;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class AgentCreated extends Mailable implements ShouldQueue, ShouldBeEncrypted
+class AgentCreated extends Mailable implements ShouldBeEncrypted, ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -48,7 +48,7 @@ class AgentCreated extends Mailable implements ShouldQueue, ShouldBeEncrypted
                 'agentName' => $this->agentName,
                 'email' => $this->email,
                 'password' => $this->password,
-                'loginUrl' => route('login')
+                'loginUrl' => route('login'),
             ]
         );
     }

@@ -11,7 +11,6 @@ class SetupPollingStationFromRowImport
 
     public string $jobQueue = 'imports';
 
-
     public function asJob(int $electionId, int $organizationId, array $row): void
     {
         $this->handle($electionId, $organizationId, $row);
@@ -20,7 +19,7 @@ class SetupPollingStationFromRowImport
     public function handle(int $electionId, int $organizationId, array $row)
     {
 
-        ['name' => $name, 'code' => $code] =  $row;
+        ['name' => $name, 'code' => $code] = $row;
 
         if ($code && $name) {
             $exists = PollingStation::where('code', $code)

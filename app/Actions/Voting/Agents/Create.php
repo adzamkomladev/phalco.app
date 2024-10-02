@@ -4,8 +4,8 @@ namespace App\Actions\Voting\Agents;
 
 use App\Models\Election;
 use Lorisleiva\Actions\Concerns\AsAction;
-use function Hybridly\view;
 
+use function Hybridly\view;
 
 class Create
 {
@@ -14,6 +14,7 @@ class Create
     public function asController()
     {
         $elections = $this->handle(request()->user()->selected_organization_id);
+
         return view('voting.agents.create', ['elections' => $elections])
             ->base('voting.agents.index');
     }

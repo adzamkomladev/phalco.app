@@ -22,7 +22,7 @@ class OrganizationRole extends Model
         'user_id',
         'status',
         'name',
-        'permissions'
+        'permissions',
     ];
 
     /**

@@ -2,11 +2,11 @@
 
 namespace App\Actions\Settings\Team;
 
-use Lorisleiva\Actions\Concerns\AsAction;
 use App\Mail\Settings\Team\InvitationCreated;
 use App\Models\OrganizationInvitation;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Lorisleiva\Actions\Concerns\AsAction;
 
 class CreateInvitation
 {
@@ -16,7 +16,6 @@ class CreateInvitation
     {
         $this->handle($invitedBy, $organizationId, $organizationName, $email, $roleId);
     }
-
 
     public function handle(int $invitedBy, int $organizationId, string $organizationName, string $email, int $roleId)
     {

@@ -2,9 +2,8 @@
 
 namespace App\Actions\Auth;
 
-use Lorisleiva\Actions\Concerns\AsAction;
 use Lorisleiva\Actions\ActionRequest;
-
+use Lorisleiva\Actions\Concerns\AsAction;
 
 class Login
 {
