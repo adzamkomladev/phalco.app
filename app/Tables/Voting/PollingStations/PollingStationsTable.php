@@ -67,7 +67,7 @@ final class PollingStationsTable extends Table
     {
         $userId = auth()->id();
 
-        $selectedElectionId = cache()->get("election.selected.{$userId}");
+        $selectedElectionId = 4;
         return $this->getModel()
             ->query()
             ->with(['election', 'agent'])

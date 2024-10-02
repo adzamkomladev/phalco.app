@@ -72,6 +72,16 @@ Route::prefix('voting')
         Route::post('upload', \App\Actions\Voting\PollingStations\Upload::class)->name('upload');
         Route::post('', \App\Actions\Voting\PollingStations\Store::class)->name('store');
             });
+
+    Route::prefix('agents')
+        ->name('agents.')
+        ->group(function () {
+
+            Route::get('', \App\Actions\Voting\Agents\Index::class)->name('index');
+            Route::get('create', \App\Actions\Voting\Agents\Create::class)->name('create');
+            Route::post('upload', \App\Actions\Voting\Agents\Upload::class)->name('upload');
+            Route::post('', \App\Actions\Voting\Agents\Store::class)->name('store');
+        });
     });
 
 #endregion
