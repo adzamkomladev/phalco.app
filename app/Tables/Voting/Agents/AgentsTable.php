@@ -21,16 +21,16 @@ final class AgentsTable extends Table
             Columns\TextColumn::make('id')->label('#')->visible(false),
             Columns\TextColumn::make('name')
                 ->label('Name')
-                ->transformValueUsing(fn (User $user) => $user->name)
-                ->extra((fn (User $user) => [
+                ->transformValueUsing(fn(User $user) => $user->name)
+                ->extra((fn(User $user) => [
                     'id' => $user->id,
                     'email' => $user->email,
                     'avatar' => $user->avatar,
                 ])),
             Columns\TextColumn::make('polling_stations')->label('Polling Stations')
-                ->transformValueUsing(fn (User $user) => $user->polling_stations_count ?? 0),
+            ->transformValueUsing(fn(User $user) => $user->polling_stations_count ?? 0),
             Columns\TextColumn::make('added_on')->label('Added On')
-                ->transformValueUsing(fn (User $user) => $user->organizationMemberships->first()->created_at->diffForHumans()),
+                ->transformValueUsing(fn(User $user) => $user->organizationMemberships->first()->created_at->diffForHumans()),
 
         ];
     }
@@ -61,18 +61,15 @@ final class AgentsTable extends Table
     protected function defineQuery(): Builder
     {
         $selectedOrganizationId = auth()->user()->selected_organization_id;
-        $userId = auth()->id();
         $role = OrganizationRole::where('organization_id', $selectedOrganizationId)
             ->where('name', 'agent')
             ->first();
 
-        $selectedElectionId = 4;
-
         return $this->getModel()
             ->query()
+            ->with('organizationMemberships')
             ->withCount('pollingStations')
-            ->whereRelation('pollingStations', 'election_id', $selectedElectionId)
             ->whereRelation('organizationMemberships', 'organization_id', $selectedOrganizationId)
-            ->whereRelation('selectedOrganizationMembership', 'organization_role_id', $role?->id);
+            ->whereRelation('organizationMemberships', 'organization_role_id', $role?->id);
     }
 }

@@ -939,6 +939,30 @@
                                     aria-expanded="true"
                                     aria-controls="voting-accordion-sub-1-child"
                                 >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-warehouse"
+                                    >
+                                        <path
+                                            d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z"
+                                        />
+                                        <path d="M6 18h12" />
+                                        <path d="M6 14h12" />
+                                        <rect
+                                            width="12"
+                                            height="12"
+                                            x="6"
+                                            y="10"
+                                        />
+                                    </svg>
                                     Polling Stations
 
                                     <svg
@@ -1016,7 +1040,25 @@
                                     aria-expanded="true"
                                     aria-controls="voting-accordion-sub-2-child"
                                 >
-                                    Sub Menu 2
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-book-user"
+                                    >
+                                        <path d="M15 13a3 3 0 1 0-6 0" />
+                                        <path
+                                            d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
+                                        />
+                                        <circle cx="12" cy="8" r="2" />
+                                    </svg>
+                                    Agents
 
                                     <svg
                                         class="hs-accordion-active:block ms-auto hidden size-4"
@@ -1057,28 +1099,26 @@
                                 >
                                     <ul class="pt-1 space-y-1">
                                         <li>
-                                            <a
+                                            <router-link
                                                 class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-200"
-                                                href="#"
+                                                :href="
+                                                    route('voting.agents.index')
+                                                "
                                             >
-                                                Link 1
-                                            </a>
+                                                Dashboard
+                                            </router-link>
                                         </li>
                                         <li>
-                                            <a
+                                            <router-link
                                                 class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-200"
-                                                href="#"
+                                                :href="
+                                                    route(
+                                                        'voting.agents.create',
+                                                    )
+                                                "
                                             >
-                                                Link 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-200"
-                                                href="#"
-                                            >
-                                                Link 3
-                                            </a>
+                                                New Agent
+                                            </router-link>
                                         </li>
                                     </ul>
                                 </div>

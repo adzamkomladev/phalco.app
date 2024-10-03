@@ -31,6 +31,6 @@ class Store
 
     public function handle(int $organizationId, array $data)
     {
-        SetupAgentFromRowImport::dispatch(0, $organizationId, $data);
+        SetupAgent::dispatch($organizationId, $data);
     }
 }

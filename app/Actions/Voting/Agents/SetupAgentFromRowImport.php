@@ -7,6 +7,7 @@ use App\Models\OrganizationMembership;
 use App\Models\OrganizationRole;
 use App\Models\PollingStation;
 use App\Models\User;
+use Illuminate\Support\Facades\Concurrency;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Laravel\Octane\Facades\Octane;
@@ -33,16 +34,15 @@ class SetupAgentFromRowImport
             'name' => $name
         ] = $row;
 
-        $password = env('AGENT_PASSWORD');
+        $password = config('settings.agent.password');
         $role = 'customer';
         $avatar = "https://ui-avatars.com/api/?name={$firstName}+{$lastName}&background=random";
 
-        [$organizationRole, $user] = Octane::concurrently([
-            fn () => OrganizationRole::with('organization')
+        [$organizationRole, $user] = Octane::concurrently([fn() => OrganizationRole::with('organization')
                 ->where('organization_id', $organizationId)
                 ->where('name', 'agent')
                 ->first(),
-            fn () => User::where('email', $email)->first() ?? User::create([
+            fn() => User::where('email', $email)->first() ?? User::create([
                 'first_name' => $firstName,
                 'last_name' => $lastName,
                 'email' => $email,
@@ -53,25 +53,20 @@ class SetupAgentFromRowImport
             ]),
         ]);
 
-        $organizationMembership = OrganizationMembership::where('user_id', $user->id)
-            ->where('organization_id', $organizationId)
-            ->first();
-
-        if ($organizationMembership) {
-            return;
-        }
-
         $canCreatePollingStation = $code && $name;
 
-        [$organizationMembership, $pollingStation] = Octane::concurrently([
-            fn () => OrganizationMembership::create([
-                'user_id' => $user->id,
-                'organization_id' => $organizationId,
-                'organization_role_id' => $organizationRole->id,
-                'roleTitle' => $organizationRole->name,
-                'status' => 'active',
-            ]),
-            fn () => PollingStation::where('code', $code)
+        [$organizationMembership, $pollingStation] = Concurrency::run([
+            fn() => OrganizationMembership::where('user_id', $user->id)
+                ->where('organization_id', $organizationId)
+                ->first() ??
+                OrganizationMembership::create([
+                    'user_id' => $user->id,
+                    'organization_id' => $organizationId,
+                    'organization_role_id' => $organizationRole->id,
+                    'roleTitle' => $organizationRole->name,
+                    'status' => 'active',
+                ]),
+            fn() => PollingStation::where('code', $code)
                 ->where('election_id', $electionId)
                 ->where('organization_id', $organizationId)
                 ->first()
@@ -87,7 +82,7 @@ class SetupAgentFromRowImport
         $pollingStation?->update(['user_id' => $user->id]);
         Mail::to($email)->send(new AgentCreated(
             organizationName: $organizationRole->organization->name,
-            agentName: "{$firstName} {$lastName}",
+            agentName: $user->name,
             email: $email,
             password: $password
         ));
