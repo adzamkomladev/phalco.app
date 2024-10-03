@@ -3,9 +3,8 @@
 namespace App\Tables\Team;
 
 use App\Models\User;
-use Hybridly\Refining\{Filters, Sorts};
 use Hybridly\Refining\Filters\CallbackFilter;
-use Hybridly\Tables\Actions;
+use Hybridly\Refining\Sorts;
 use Hybridly\Tables\Columns;
 use Hybridly\Tables\Table;
 use Illuminate\Contracts\Database\Eloquent\Builder;
@@ -21,23 +20,23 @@ final class MembersTable extends Table
             Columns\TextColumn::make('id')->label('#')->visible(false),
             Columns\TextColumn::make('name')
                 ->label('Name')
-                ->transformValueUsing(fn(User $user) => $user->name)
-                ->extra((fn(User $user) => [
+                ->transformValueUsing(fn (User $user) => $user->name)
+                ->extra((fn (User $user) => [
                     'id' => $user->id,
                     'email' => $user->email,
                     'avatar' => $user->avatar,
                 ])),
             Columns\TextColumn::make('position')->label('Position')
-                ->transformValueUsing(fn(User $user) => $user->organizationMemberships->first()->roleTitle)
-                ->extra((fn(User $user) => [
-                'role' => $user->organizationMemberships->first()->role->name,
+                ->transformValueUsing(fn (User $user) => $user->organizationMemberships->first()->roleTitle)
+                ->extra((fn (User $user) => [
+                    'role' => $user->organizationMemberships->first()->role->name,
                 ])),
             Columns\TextColumn::make('status')->label('Status')
-                ->transformValueUsing(fn(User $user) => $user->organizationMemberships->first()->status),
+                ->transformValueUsing(fn (User $user) => $user->organizationMemberships->first()->status),
             Columns\TextColumn::make('last_seen')->label('Last Seen')
-                ->transformValueUsing(fn(User $user) => $user->organizationMemberships->first()->created_at->diffForHumans()),
+                ->transformValueUsing(fn (User $user) => $user->organizationMemberships->first()->created_at->diffForHumans()),
             Columns\TextColumn::make('added_on')->label('Added On')
-                ->transformValueUsing(fn(User $user) => $user->organizationMemberships->first()->created_at->diffForHumans()),
+                ->transformValueUsing(fn (User $user) => $user->organizationMemberships->first()->created_at->diffForHumans()),
 
         ];
     }
@@ -56,7 +55,7 @@ final class MembersTable extends Table
                         'phone',
                     ], 'ilike', "%{$value}%");
                 }
-            )
+            ),
         ];
     }
 
@@ -68,11 +67,12 @@ final class MembersTable extends Table
     protected function defineQuery(): Builder
     {
         $selectedOrganizationId = auth()->user()->selected_organization_id;
+
         return $this->getModel()
             ->query()
             ->whereRelation('organizationMemberships', 'organization_id', $selectedOrganizationId)
             ->with([
-                'organizationMemberships' => fn($query) => $query->where('organization_id', $selectedOrganizationId),
+                'organizationMemberships' => fn ($query) => $query->where('organization_id', $selectedOrganizationId),
             ]);
     }
 }

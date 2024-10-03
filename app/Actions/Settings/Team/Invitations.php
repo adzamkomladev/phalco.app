@@ -9,6 +9,7 @@ use App\Models\OrganizationRole;
 use Carbon\Carbon;
 use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\Concerns\AsAction;
+
 use function Hybridly\view;
 
 class Invitations
@@ -24,20 +25,21 @@ class Invitations
     public function handle(int $selectedOrganizationId)
     {
         [$invitations, $roles] = Octane::concurrently([
-            fn() => OrganizationInvitation::with(['role'])
-            ->pending()
+            fn () => OrganizationInvitation::with(['role'])
+                ->pending()
                 ->where('organization_id', $selectedOrganizationId)
                 ->get()
                 ->map(function (OrganizationInvitation $invitation) {
                     $invitation->expires_at = Carbon::parse($invitation->expires_at)->diffForHumans();
+
                     return $invitation;
                 }),
-            fn() => OrganizationRole::where('organization_id', $selectedOrganizationId)->get()
+            fn () => OrganizationRole::where('organization_id', $selectedOrganizationId)->get(),
         ]);
 
         return [
             'invitations' => InvitationData::collect($invitations),
-            'roles' => RoleData::collect($roles)
+            'roles' => RoleData::collect($roles),
         ];
     }
 }

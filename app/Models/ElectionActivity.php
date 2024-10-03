@@ -23,7 +23,7 @@ class ElectionActivity extends Model
         'user_id',
         'end',
         'status',
-        'reason'
+        'reason',
     ];
 
     public function election(): BelongsTo

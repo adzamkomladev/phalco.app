@@ -4,7 +4,6 @@ namespace App\Actions\Settings\Team;
 
 use App\Models\OrganizationInvitation;
 use App\Models\User;
-use Illuminate\Support\Facades\Cache;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -16,9 +15,10 @@ class SendInvitation
     {
         return [
             'email' => ['required', 'max:100'],
-            'role_id' => ['required']
+            'role_id' => ['required'],
         ];
     }
+
     public function asController(ActionRequest $request)
     {
         $this->handle($request->user(), $request->validated());

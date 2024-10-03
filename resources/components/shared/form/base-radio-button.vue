@@ -5,7 +5,6 @@ const props = withDefaults(defineProps<BaseRadioButtonProps<string>>(), {
     id: `input-${Math.random() * 1000}`,
 });
 const model = defineModel({ required: true });
-
 </script>
 
 <template>

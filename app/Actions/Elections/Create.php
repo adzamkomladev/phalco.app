@@ -3,6 +3,7 @@
 namespace App\Actions\Elections;
 
 use Lorisleiva\Actions\Concerns\AsAction;
+
 use function Hybridly\view;
 
 class Create

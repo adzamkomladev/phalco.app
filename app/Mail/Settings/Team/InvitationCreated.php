@@ -42,7 +42,7 @@ class InvitationCreated extends Mailable implements ShouldQueue
             markdown: 'mail.settings.team.invite.created',
             with: [
                 'inviteUrl' => $this->inviteUrl,
-                'organizationName' => $this->organizationName
+                'organizationName' => $this->organizationName,
             ]
         );
     }

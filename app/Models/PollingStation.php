@@ -23,7 +23,7 @@ class PollingStation extends Model
         'election_id',
         'user_id',
         'name',
-        'code'
+        'code',
     ];
 
     public function election(): BelongsTo

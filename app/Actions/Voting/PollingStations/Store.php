@@ -3,8 +3,8 @@
 namespace App\Actions\Voting\PollingStations;
 
 use App\Models\PollingStation;
-use Illuminate\Validation\Rule;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Validation\Rule;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -23,7 +23,7 @@ class Store
                 'max:50',
                 Rule::unique('polling_stations', 'code')
                     ->where(
-                        fn(Builder $query) => $query
+                        fn (Builder $query) => $query
                             ->where('election_id', request()->input('election_id'))
                             ->where('organization_id', request()->user()->selected_organization_id)
                     ),
@@ -35,6 +35,7 @@ class Store
     {
         try {
             $this->handle($request->user()->selected_organization_id, $request->validated());
+
             return redirect()->route('voting.polling-stations.index');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());

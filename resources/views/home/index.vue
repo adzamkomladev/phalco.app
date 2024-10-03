@@ -2,9 +2,8 @@
 useHead({
     title: "Home",
 });
-
 </script>
 
 <template layout="main">
-<p>Hellow</p>
+    <p>Hellow</p>
 </template>

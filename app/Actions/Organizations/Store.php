@@ -26,6 +26,7 @@ class Store
     {
         try {
             $this->handle($request->user(), $request->validated());
+
             return redirect()->route('home');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
@@ -42,46 +43,46 @@ class Store
         [
             $ownerRole
         ] = Octane::concurrently([
-            fn() => OrganizationRole::create([
+            fn () => OrganizationRole::create([
                 'organization_id' => $organizationId,
                 'name' => 'owner',
                 'status' => 'active',
                 'user_id' => $userId,
-                'permissions' => config('roles.owner')
+                'permissions' => config('roles.owner'),
             ]),
-            fn() => OrganizationRole::create([
+            fn () => OrganizationRole::create([
                 'organization_id' => $organizationId,
                 'name' => 'admin',
                 'status' => 'active',
                 'user_id' => $userId,
-                'permissions' => config('roles.admin')
+                'permissions' => config('roles.admin'),
             ]),
-            fn() => OrganizationRole::create([
+            fn () => OrganizationRole::create([
                 'organization_id' => $organizationId,
                 'name' => 'member',
                 'status' => 'active',
                 'user_id' => $userId,
-                'permissions' => config('roles.member')
+                'permissions' => config('roles.member'),
             ]),
-            fn() => OrganizationRole::create([
+            fn () => OrganizationRole::create([
                 'organization_id' => $organizationId,
                 'name' => 'agent',
                 'status' => 'active',
                 'user_id' => $userId,
-                'permissions' => config('roles.agent')
-            ])
+                'permissions' => config('roles.agent'),
+            ]),
         ]);
 
         $roleId = $ownerRole->id;
         Octane::concurrently([
-            fn() => User::where('id', $userId)->update(['selected_organization_id' => $organizationId]),
-            fn() => OrganizationMembership::create([
+            fn () => User::where('id', $userId)->update(['selected_organization_id' => $organizationId]),
+            fn () => OrganizationMembership::create([
                 'user_id' => $userId,
                 'organization_id' => $organizationId,
                 'organization_role_id' => $roleId,
                 'roleTitle' => 'Owner',
                 'status' => 'active',
-            ])
+            ]),
         ]);
     }
 }

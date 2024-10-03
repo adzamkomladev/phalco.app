@@ -145,7 +145,7 @@ const flash = useProperty("flash");
                                         <router-link
                                             :href="
                                                 route(
-                                                    'settings.team.invitation.send'
+                                                    'settings.team.invitation.send',
                                                 )
                                             "
                                             method="POST"
@@ -177,7 +177,7 @@ const flash = useProperty("flash");
                                             :href="
                                                 route(
                                                     'settings.team.invitation.delete',
-                                                    { id: invite.id }
+                                                    { id: invite.id },
                                                 )
                                             "
                                             method="DELETE"

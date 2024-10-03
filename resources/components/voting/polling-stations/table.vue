@@ -25,7 +25,7 @@ const debounceFn = useDebounceFn(
         search.value !== ""
             ? searchFilter.apply(search.value)
             : searchFilter.clear(),
-    800
+    800,
 );
 
 watch(search, debounceFn);
@@ -55,13 +55,13 @@ watch(search, debounceFn);
                         <div class="inline-flex gap-x-2">
                             <router-link
                                 class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                :href="route('settings.team.roles')"
+                                :href="route('voting.polling-stations.create')"
                             >
                                 Import
                             </router-link>
 
                             <router-link
-                                :href="route('settings.team.invitations')"
+                                :href="route('voting.polling-stations.create')"
                                 class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             >
                                 <svg
@@ -203,7 +203,7 @@ watch(search, debounceFn);
                                             {{
                                                 extra(
                                                     findColumn("agent"),
-                                                    "email"
+                                                    "email",
                                                 )
                                             }}
                                         </span>
