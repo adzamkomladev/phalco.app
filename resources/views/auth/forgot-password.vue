@@ -1,11 +1,67 @@
 <script setup lang="ts">
 useHead({
-    title: "Forgot Password",
+    title: "Forget Password",
+});
+
+const forget_password = useForm({
+    method: "POST",
+    url: route("password.request"),
+    fields: {
+        email: "",
+    },
+    hooks: {
+        start: () => console.log("The request has started."),
+        fail: () => console.log("The request has failed."),
+        after: () => console.log("The request has finished."),
+        success: () => console.log("The request has succeeded."),
+    },
 });
 </script>
 
 <template layout="auth">
-    <div
+    <AuthInnerLayout
+        class=""
+        title="Forget Password"
+        description="Enter your email to reset your password "
+    >
+
+
+
+
+        <form @submit.prevent="forget_password.submit">
+            <div class="grid gap-y-8 pt-2">
+                <SharedFormBaseInput
+                    v-model="forget_password.fields.email"
+                    :error="forget_password.errors.email"
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                />
+
+
+
+                <SharedFormSubmitButton
+                    :isLoading="forget_password.processing"
+                    text="Proceed"
+                />
+                 <p class="mt-2 text-sm  text-gray-600 dark:text-neutral-400">
+                    Remember your password?
+                    <a
+                        class="text-primary-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
+                        href="../examples/html/signin.html"
+                    >
+                        Sign in here
+                    </a>
+                </p>
+            </div>
+        </form>
+
+    </AuthInnerLayout>
+    
+</template>
+
+<!--  <div
         class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700"
     >
         <div class="p-4 sm:p-7">
@@ -27,10 +83,8 @@ useHead({
             </div>
 
             <div class="mt-5">
-                <!-- Form -->
                 <form>
                     <div class="grid gap-y-4">
-                        <!-- Form Group -->
                         <div>
                             <label
                                 for="email"
@@ -71,7 +125,6 @@ useHead({
                                 get back to you
                             </p>
                         </div>
-                        <!-- End Form Group -->
 
                         <button
                             type="submit"
@@ -86,8 +139,6 @@ useHead({
                         </button>
                     </div>
                 </form>
-                <!-- End Form -->
             </div>
         </div>
-    </div>
-</template>
+    </div> -->

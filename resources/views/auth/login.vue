@@ -21,7 +21,73 @@ const login = useForm({
 </script>
 
 <template layout="auth">
-    <div
+    <AuthInnerLayout
+        class=""
+        title="Login"
+        description="login to get continue with Phalco"
+    >
+        <div>
+            <AuthGoogleButton />
+        </div>
+
+       <div class="py-3 flex items-center  text-gray-400 text-base  uppercase before:flex-1 before:border-t-2 before:border-gray-200 before:me-6 after:flex-1 after:border-t-2 after:border-gray-200 after:ms-6 dark:text-gray-500 dark:before:border-gray-600 dark:after:border-gray-600">Or</div>
+
+
+        <form @submit.prevent="login.submit">
+            <div class="grid gap-y-4">
+                <SharedFormBaseInput
+                    v-model="login.fields.email"
+                    :error="login.errors.email"
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Email address"
+                />
+
+                <SharedFormBaseInput
+                    v-model="login.fields.password"
+                    :error="login.errors.password"
+                    id="password"
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                />
+                <p class="text-sm text-right">
+                    <router-link
+                        class="text-primary-twi decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
+                        :href="route('password.reset')"
+                    >
+                        forget password
+                    </router-link>
+                </p>
+
+                <SharedFormBaseCheckbox
+                    v-model="login.fields.remember"
+                    id="remember"
+                    name="remember"
+                    label="Remember me"
+                />
+                <SharedFormSubmitButton
+                    :isLoading="login.processing"
+                    text="Login"
+                />
+            </div>
+        </form>
+        <div class="text-center">
+            <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
+                Not registere yet ?
+                <router-link
+                    class="text-primary-twi decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
+                    :href="route('register')"
+                >
+                    Create an account
+                </router-link>
+            </p>
+        </div>
+    </AuthInnerLayout>
+</template>
+
+<!-- <div
         class="bg-white border border-gray-200 shadow-sm mt-7 rounded-xl dark:bg-gray-800 dark:border-gray-700"
     >
         <div class="p-4 sm:p-7">
@@ -50,10 +116,8 @@ const login = useForm({
                     Or
                 </div>
 
-                <!-- Form -->
                 <form @submit.prevent="login.submit">
                     <div class="grid gap-y-4">
-                        <!-- Form Group -->
                         <SharedFormBaseInput
                             v-model="login.fields.email"
                             :error="login.errors.email"
@@ -62,9 +126,7 @@ const login = useForm({
                             type="email"
                             label="Email address"
                         />
-                        <!-- End Form Group -->
 
-                        <!-- Form Group -->
                         <SharedFormBaseInput
                             v-model="login.fields.password"
                             :error="login.errors.password"
@@ -74,16 +136,12 @@ const login = useForm({
                             label="Password"
                         />
 
-                        <!-- End Form Group -->
-
-                        <!-- Checkbox -->
                         <SharedFormBaseCheckbox
                             v-model="login.fields.remember"
                             id="remember"
                             name="remember"
                             label="Remember me"
                         />
-                        <!-- End Checkbox -->
 
                         <button
                             type="submit"
@@ -100,8 +158,6 @@ const login = useForm({
                         </button>
                     </div>
                 </form>
-                <!-- End Form -->
             </div>
         </div>
-    </div>
-</template>
+    </div> -->

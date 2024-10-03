@@ -24,7 +24,95 @@ const register = useForm({
 </script>
 
 <template layout="auth">
-    <div
+     <AuthInnerLayout
+    class=""
+        title="Register"
+        description="Create new account with phalco"
+    >
+        <div>
+            <AuthGoogleButton/>
+        </div>
+
+  <div class="py-3 flex items-center  text-gray-400 text-base  uppercase before:flex-1 before:border-t-2 before:border-gray-200 before:me-6 after:flex-1 after:border-t-2 after:border-gray-200 after:ms-6 dark:text-gray-500 dark:before:border-gray-600 dark:after:border-gray-600">Or</div>
+
+  <form @submit.prevent="register.submit">
+                    <div class="grid gap-y-4">
+                        <div class=" grid grid-flow-col gap-x-4 w-full">
+                            <SharedFormBaseInput
+                            v-model="register.fields.first_name"
+                            :error="register.errors.first_name"
+                            id="first_name"
+                            name="first_name"
+                            type="text"
+                            placeholder="First Name"
+                            extraClass=" hidden"
+                        />
+                        <SharedFormBaseInput
+                            v-model="register.fields.last_name"
+                            :error="register.errors.last_name"
+                            id="last_name"
+                            name="last_name"
+                            type="text"
+                            placeholder="Last Name"
+                        />
+                    </div>
+
+                        <SharedFormBaseInput
+                            v-model="register.fields.email"
+                            :error="register.errors.email"
+                            id="email"
+                            name="email"
+                            type="email"
+                            placeholder="Email address"
+                        />
+
+                        <SharedFormBaseInput
+                            v-model="register.fields.password"
+                            :error="register.errors.password"
+                            id="password"
+                            name="password"
+                            type="password"
+                            placeholder="Password"
+                        />
+
+                        <SharedFormBaseInput
+                            v-model="register.fields.password_confirmation"
+                            :error="register.errors.password_confirmation"
+                            id="password_confirmation"
+                            name="password_confirmation"
+                            type="password"
+                            placeholder="Confirm Password"
+                        />
+
+                        <SharedFormBaseCheckbox
+                            v-model="register.fields.agree"
+                            id="agree"
+                            name="agree"
+                            label="I accept the Terms and Conditions"
+                        />
+
+                           <SharedFormSubmitButton
+                    :isLoading="register.processing"
+                    text="Login"
+                />
+            </div>
+        </form>
+        <div class="text-center">
+            <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
+                Already have anaccount ?
+                <router-link
+                    class="text-primary-twi decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
+                    :href="route('login')"
+                >
+                    Login
+                </router-link>
+            </p>
+        </div>
+    </AuthInnerLayout>
+</template>
+
+
+<!--  <div
         class="bg-white border border-gray-200 shadow-sm mt-7 rounded-xl dark:bg-gray-800 dark:border-gray-700"
     >
         <div class="p-4 sm:p-7">
@@ -53,7 +141,6 @@ const register = useForm({
                     Or
                 </div>
 
-                <!-- Form -->
                 <form @submit.prevent="register.submit">
                     <div class="grid gap-y-4">
                         <SharedFormBaseInput
@@ -120,8 +207,6 @@ const register = useForm({
                         </button>
                     </div>
                 </form>
-                <!-- End Form -->
             </div>
         </div>
-    </div>
-</template>
+    </div> -->

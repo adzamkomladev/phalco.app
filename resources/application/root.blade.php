@@ -16,7 +16,6 @@
 
 <body class="h-full bg-gray-50 antialiased">
     @hybridly(class: 'h-full')
-
 </body>
 
 </html>

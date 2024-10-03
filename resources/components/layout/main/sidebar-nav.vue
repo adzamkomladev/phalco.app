@@ -7,7 +7,7 @@
     >
         <div class="flex flex-col justify-between h-full">
             <ul class="flex flex-col space-y-1">
-                <li>
+                <li>                    
                     <router-link
                         class="flex items-center gap-x-3.5 py-2 px-2.5 bg-gray-100 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-white"
                         :href="route('home')"
@@ -63,7 +63,7 @@
                             <polygon points="12 2 20 7 4 7" />
                         </svg>
                         Elections
-
+<!-- <TrialDropDown/> -->
                         <svg
                             class="hs-accordion-active:block ms-auto hidden size-4"
                             xmlns="http://www.w3.org/2000/svg"

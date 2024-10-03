@@ -42,9 +42,16 @@ initializeHybridly({
     enhanceVue: (vue) => {
         const head = createHead();
         head.push({
-            titleTemplate: (title) => title ? `${title} — Phalco` : 'Phalco',
+            titleTemplate: (title) => (title ? `${title} — Phalco` : "Phalco"),
         });
         vue.use(i18n);
         vue.use(head);
+    },
+    progress: {
+        // The default options are as follow:
+        color: "#07689f",
+        delay: 300,
+        includeCSS: true,
+        spinner: false,
     },
 });

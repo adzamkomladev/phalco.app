@@ -73,3 +73,34 @@ useHead({
         </div>
     </div>
 </template>
+
+
+<!-- <AuthInnerLayout
+        class=""
+        title="Congratulations"
+        description="To start using Phalco, confirm your email address with the email we sent to:"
+    >
+
+        <form @submit.prevent="congratulations.submit">
+            <div class="grid gap-y-8 pt-2">
+               
+                <SharedFormSubmitButton
+                    :isLoading="congratulations.processing"
+                    text="Proceed"
+                />
+                
+            </div>
+        </form>
+         <div class="">
+            <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
+               Need help ?
+                <router-link
+                    class="text-primary-300 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
+                    :href="route('help')"
+                >
+                    Contact customer Support
+                </router-link>
+            </p>
+        </div>
+
+    </AuthInnerLayout> -->

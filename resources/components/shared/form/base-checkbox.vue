@@ -21,14 +21,14 @@ defineExpose({ focus, select });
                 :name="props.name"
                 v-model="model"
                 type="checkbox"
-                class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                class="shrink-0 mt-0.5 border-gray-200 rounded text-primary-600 focus:ring-primary-500 dark:bg-gray-700 dark:border-neutral-700 dark:checked:bg-primary-500 dark:checked:border-primary-500 dark:focus:ring-offset-gray-800"
             />
         </div>
         <div class="ms-3">
             <label
                 v-if="props.label"
                 :for="props.id"
-                class="text-sm dark:text-white"
+                class="text-sm text-gray-500 dark:text-gray-300"
                 >{{ props.label }}</label
             >
         </div>

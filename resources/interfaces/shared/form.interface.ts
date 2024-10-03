@@ -2,6 +2,7 @@ interface FormProp {
     id?: string;
     label?: string;
     name: string;
+    placeholder?:string;
 }
 
 export interface BaseInputProps extends FormProp {
@@ -10,6 +11,12 @@ export interface BaseInputProps extends FormProp {
     required?: boolean;
     autocomplete?: string;
     error?: string;
+}
+
+export interface ButtonProps {
+    type?: string;
+    label?:string;
+    loading?:boolean;
 }
 
 
