@@ -16,7 +16,7 @@ const select = () => input.value?.select();
 defineExpose({ focus, select });
 
 const classes = {
-    input: "py-3 font-medium px-4 text-[1.15rem] block text-gray-700 w-full border-gray-200 rounded-lg text-sm focus:border-primary-500 focus:ring-primary-500 disabled:opacity-50 placeholder:text-gray-400 placeholder:text-[1rem]  disabled:pointer-events-none dark:bg-transparent dark:border-gray-600 dark:text-neutral-400 dark:placeholder-gray-500 dark:focus:ring-neutral-600",
+    input: "py-3 font-light shadow-sm px-4 text-[1.15rem] block text-gray-700 w-full border-gray-200 rounded-lg text-sm focus:border-primary-500 focus:ring-primary-500 disabled:opacity-50 placeholder:text-gray-400 placeholder:text-[1rem]  disabled:pointer-events-none dark:bg-transparent dark:border-gray-600 dark:text-neutral-400 dark:placeholder-gray-500 dark:focus:ring-neutral-600",
     inputError:
         "py-3 px-4 block w-full border-red-500 rounded-lg text-sm focus:border-red-500 focus:ring-red-500 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400",
 };
@@ -28,7 +28,7 @@ const describeBy = computed(() => `${props.id}-error`);
 
 <template>
     <div>
-        <div class="flex justify-between  items-center">
+        <div class="flex  justify-between  items-center ">
             <label
                 v-if="props.label"
                 :for="props.id"

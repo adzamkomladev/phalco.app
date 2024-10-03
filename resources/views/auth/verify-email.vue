@@ -39,7 +39,7 @@ const startCountdown = () => {
 <template layout="auth">
     <AuthInnerLayout class="" title="Verification email sent" description="">
         <div class="grid gap-5">
-            <p>
+            <p class="text-gray-500">
                 To start using Phalco, confirm your email address with the email
                 we sent to:
                 <strong class="font-bold text-primary-500">{{
@@ -52,7 +52,7 @@ const startCountdown = () => {
                     <div
                         v-if="resMessage"
                         id="dismiss-alert"
-                        class="absolute inset-0 mb-3 bg-teal-50 border border-teal-200 text-sm text-teal-800 rounded-lg p-4 dark:bg-teal-800/10 dark:border-teal-900 dark:text-teal-500"
+                        class="absolute inset-0 mb-3 bg-primary-50 border border-primary-200 text-sm text-primary-800 rounded-lg p-4 dark:bg-primary-800/10 dark:border-primary-900 dark:text-primary-500"
                         role="alert"
                     >
                         <div class="flex">

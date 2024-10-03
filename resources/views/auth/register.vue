@@ -36,8 +36,8 @@ const register = useForm({
   <div class="py-3 flex items-center  text-gray-400 text-base  uppercase before:flex-1 before:border-t-2 before:border-gray-200 before:me-6 after:flex-1 after:border-t-2 after:border-gray-200 after:ms-6 dark:text-gray-500 dark:before:border-gray-600 dark:after:border-gray-600">Or</div>
 
   <form @submit.prevent="register.submit">
-                    <div class="grid gap-y-4">
-                        <div class=" grid grid-flow-col gap-x-4 w-full">
+                    <div class="grid gap-y-5">
+                        <div class=" grid grid-flow-col gap-x-5 w-full">
                             <SharedFormBaseInput
                             v-model="register.fields.first_name"
                             :error="register.errors.first_name"
