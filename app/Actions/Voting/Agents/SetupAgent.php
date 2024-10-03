@@ -5,7 +5,6 @@ namespace App\Actions\Voting\Agents;
 use App\Mail\Voting\Agents\AgentCreated;
 use App\Models\OrganizationMembership;
 use App\Models\OrganizationRole;
-use App\Models\PollingStation;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -34,11 +33,11 @@ class SetupAgent
         $avatar = "https://ui-avatars.com/api/?name={$firstName}+{$lastName}&background=random";
 
         [$organizationRole, $user] = Octane::concurrently([
-            fn() => OrganizationRole::with('organization')
+            fn () => OrganizationRole::with('organization')
                 ->where('organization_id', $organizationId)
                 ->where('name', 'agent')
                 ->first(),
-            fn() => User::where('email', $email)->first() ?? User::create([
+            fn () => User::where('email', $email)->first() ?? User::create([
                 'first_name' => $firstName,
                 'last_name' => $lastName,
                 'email' => $email,

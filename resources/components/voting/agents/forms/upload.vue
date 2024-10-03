@@ -23,7 +23,9 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
 
 <template>
     <form @submit.prevent="form.submit">
-        <h4 class="h4 mb-5 font-bold">Upload Agents (with assigned Polling Station - optional)</h4>
+        <h4 class="h4 mb-5 font-bold">
+            Upload Agents (with assigned Polling Station - optional)
+        </h4>
 
         <div class="grid sm:grid-cols-12 gap-2 sm:gap-6 mb-8">
             <div class="sm:col-span-3">

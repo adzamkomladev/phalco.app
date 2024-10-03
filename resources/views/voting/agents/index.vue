@@ -10,7 +10,6 @@ const props = defineProps<{
 }>();
 
 const table = useTable(props, "agents");
-
 </script>
 
 <template layout="main">

@@ -13,6 +13,6 @@ return [
 
     'agent' => [
         'password' => env('AGENT_PASSWORD', 'Pass2101#'),
-    ]
+    ],
 
 ];

@@ -19,10 +19,7 @@ const toggleUploadForm = () => (isUpload.value = !isUpload.value);
                 :elections="props.elections"
                 v-if="!isUpload"
             />
-            <VotingAgentsFormsUpload
-                :elections="props.elections"
-                v-else
-            />
+            <VotingAgentsFormsUpload :elections="props.elections" v-else />
             <div>
                 <a
                     class="cursor-pointer text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
