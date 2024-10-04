@@ -102,7 +102,6 @@ const handlePaste = (event: ClipboardEvent) => {
           </div>
         </div>
 
-        <!-- Submit Button -->
         <SharedFormSubmitButton
           :isLoading="register.processing"
           text="Verify OTP"
