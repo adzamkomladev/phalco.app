@@ -153,7 +153,7 @@ return [
         'users:1000' => [
             'name' => 'string:100',
             'email' => 'string:100',
-            'age' => 'int'
+            'age' => 'int',
         ],
     ],
 

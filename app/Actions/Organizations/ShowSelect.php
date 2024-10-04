@@ -17,7 +17,6 @@ class ShowSelect
         ]);
     }
 
-
     public function handle(User $user)
     {
         return OrganizationData::collect($user->memberOrganizations);

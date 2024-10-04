@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -24,11 +24,10 @@ class OrganizationMembership extends Model
         'user_id',
         'organization_role_id',
         'status',
-        'roleTitle'
+        'roleTitle',
     ];
 
     protected $with = ['role'];
-
 
     public function role(): BelongsTo
     {

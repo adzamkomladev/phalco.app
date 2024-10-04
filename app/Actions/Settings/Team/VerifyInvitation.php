@@ -16,9 +16,11 @@ class VerifyInvitation
     {
         $res = $this->handle(auth()->id(), auth()->user()->email, $token);
 
-        if ($res === null) return hybridly('settings.team.verify-invitation', [
-            'error' => 'Invitation is expired or invalid!'
-        ]);
+        if ($res === null) {
+            return hybridly('settings.team.verify-invitation', [
+                'error' => 'Invitation is expired or invalid!',
+            ]);
+        }
 
         return hybridly('settings.team.verify-invitation', ['success' => 'Invitation accepted']);
     }
@@ -30,7 +32,9 @@ class VerifyInvitation
             ->where('email', $email)
             ->first();
 
-        if ($invitation === null) return null;
+        if ($invitation === null) {
+            return null;
+        }
 
         $organizationId = $invitation->organization_id;
         $invitationId = $invitation->id;
@@ -38,15 +42,15 @@ class VerifyInvitation
         $invitationRoleName = $invitation->role?->name;
 
         [$invitation] = Octane::concurrently([
-            fn() => OrganizationInvitation::find($invitationId)->accept(),
-            fn() => OrganizationMembership::create([
+            fn () => OrganizationInvitation::find($invitationId)->accept(),
+            fn () => OrganizationMembership::create([
                 'user_id' => $userId,
                 'organization_id' => $organizationId,
                 'organization_role_id' => $invitationRoleId,
                 'roleTitle' => $invitationRoleName,
                 'status' => 'active',
             ]),
-            fn() => User::where('id', $userId)->update(['selected_organization_id' => $organizationId]),
+            fn () => User::where('id', $userId)->update(['selected_organization_id' => $organizationId]),
         ]);
 
         return $invitation;

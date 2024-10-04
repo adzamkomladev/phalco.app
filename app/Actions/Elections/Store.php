@@ -23,9 +23,10 @@ class Store
             'description' => ['nullable', 'string'],
             'start' => ['required', 'date'],
             'end' => ['required', 'date'],
-            'stage' => ['required', 'string', 'in:campaigns,nominations']
+            'stage' => ['required', 'string', 'in:campaigns,nominations'],
         ];
     }
+
     public function asController(ActionRequest $request)
     {
         $election = $this->handle($request->user()->id, $request->user()->selected_organization_id, $request->validated());
@@ -33,38 +34,36 @@ class Store
         return redirect()->route('elections.show', ['id' => $election->id]);
     }
 
-
     public function handle(int $userId, int $organizationId, array $data)
     {
         $election = Election::create([
             'name' => $data['name'],
             'logo' => $data['logo'],
             'description' => $data['description'],
-            'start' =>  Carbon::parse($data['start']),
-            'end' =>  Carbon::parse($data['end']),
+            'start' => Carbon::parse($data['start']),
+            'end' => Carbon::parse($data['end']),
             'organization_id' => $organizationId,
             'user_id' => $userId,
             'status' => 'active',
-            'stage' => $data['stage']
+            'stage' => $data['stage'],
         ]);
 
         $electionId = $election->id;
 
         Octane::concurrently([
-            fn() => ElectionActivity::create([
+            fn () => ElectionActivity::create([
                 'election_id' => $electionId,
                 'status' => 'active',
                 'user_id' => $userId,
-                'reason' => 'Create new election'
+                'reason' => 'Create new election',
             ]),
-            fn() => ElectionStage::create([
+            fn () => ElectionStage::create([
                 'election_id' => $electionId,
                 'stage' => $data['stage'],
                 'user_id' => $userId,
-                'reason' => 'Create new election for campaigns'
-            ])
+                'reason' => 'Create new election for campaigns',
+            ]),
         ]);
-
 
         ElectionCreated::dispatch($election->id);
 

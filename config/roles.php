@@ -17,26 +17,26 @@ return [
                 'view' => true,
                 'members' => [
                     'update' => true,
-                    'view' => true
+                    'view' => true,
                 ],
                 'invitations' => [
                     'view' => true,
                     'create' => true,
-                    'delete' => true
+                    'delete' => true,
                 ],
                 'roles' => [
                     'view' => true,
                     'create' => true,
-                    'update' => true
-                ]
-            ]
+                    'update' => true,
+                ],
+            ],
         ],
         'elections' => [
             'view' => true,
             'create' => true,
             'update' => true,
-            'delete' => true
-        ]
+            'delete' => true,
+        ],
     ],
 
     'admin' => [
@@ -45,26 +45,26 @@ return [
                 'view' => true,
                 'members' => [
                     'update' => true,
-                    'view' => true
+                    'view' => true,
                 ],
                 'invitations' => [
                     'view' => true,
                     'create' => true,
-                    'delete' => true
+                    'delete' => true,
                 ],
                 'roles' => [
                     'view' => true,
                     'create' => true,
-                    'update' => true
-                ]
-            ]
+                    'update' => true,
+                ],
+            ],
         ],
         'elections' => [
             'view' => true,
             'create' => true,
             'update' => true,
-            'delete' => true
-        ]
+            'delete' => true,
+        ],
     ],
 
     'member' => [
@@ -73,26 +73,26 @@ return [
                 'view' => false,
                 'members' => [
                     'update' => false,
-                    'view' => false
+                    'view' => false,
                 ],
                 'invitations' => [
                     'view' => false,
                     'create' => false,
-                    'delete' => false
+                    'delete' => false,
                 ],
                 'roles' => [
                     'view' => false,
                     'create' => false,
-                    'update' => false
-                ]
-            ]
+                    'update' => false,
+                ],
+            ],
         ],
         'elections' => [
             'view' => true,
             'create' => true,
             'update' => true,
-            'delete' => true
-        ]
+            'delete' => true,
+        ],
     ],
 
     'agent' => [
@@ -101,25 +101,25 @@ return [
                 'view' => false,
                 'members' => [
                     'update' => false,
-                    'view' => false
+                    'view' => false,
                 ],
                 'invitations' => [
                     'view' => false,
                     'create' => false,
-                    'delete' => false
+                    'delete' => false,
                 ],
                 'roles' => [
                     'view' => false,
                     'create' => false,
-                    'update' => false
-                ]
-            ]
+                    'update' => false,
+                ],
+            ],
         ],
         'elections' => [
             'view' => false,
             'create' => false,
             'update' => false,
-            'delete' => false
-        ]
+            'delete' => false,
+        ],
     ],
 ];

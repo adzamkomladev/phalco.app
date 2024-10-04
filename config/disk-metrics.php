@@ -20,5 +20,5 @@ return [
      * The value should be greated than 1!
      * Default: 10
      */
-    'record_interval' => 10
+    'record_interval' => 10,
 ];

@@ -13,7 +13,9 @@ class DeleteInvitation
     {
         $res = $this->handle($id);
 
-        if (!$res) return back()->with('error', 'Failed to delete invitation');
+        if (! $res) {
+            return back()->with('error', 'Failed to delete invitation');
+        }
 
         return back()->with('info', 'Invitation deleted');
     }

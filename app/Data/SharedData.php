@@ -10,6 +10,5 @@ class SharedData extends Data
         public readonly SecurityData $security,
         public readonly ?FlashBagData $flash,
 
-    ) {
-    }
+    ) {}
 }

@@ -13,7 +13,6 @@ class Index
         return hybridly('settings.billing');
     }
 
-
     public function handle()
     {
         // ...

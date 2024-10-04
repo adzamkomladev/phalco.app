@@ -2,7 +2,6 @@
 
 namespace App\Actions\Assets;
 
-use Illuminate\Support\Facades\Storage;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -17,13 +16,12 @@ class Upload
         ];
     }
 
-
     public function asController(ActionRequest $request)
     {
         $url = $this->handle($request);
+
         return response()->json(['url' => $url]);
     }
-
 
     public function handle(ActionRequest $request)
     {
@@ -33,6 +31,7 @@ class Upload
 
             if (app()->isProduction()) {
                 $path = $request->file->storePubliclyAs("uploads/{$storagePath}", $file->hashName());
+
                 return asset($path);
             }
 

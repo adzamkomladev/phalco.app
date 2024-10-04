@@ -27,7 +27,7 @@ watch(
                 loading.value = false;
             }
         }
-    }
+    },
 );
 </script>
 

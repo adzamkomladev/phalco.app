@@ -21,7 +21,7 @@ const classes = {
         "py-3 px-4 block w-full border-red-500 rounded-lg text-sm focus:border-red-500 focus:ring-red-500 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400",
 };
 const inputClass = computed(() =>
-    props.error ? classes.inputError : classes.input
+    props.error ? classes.inputError : classes.input,
 );
 const describeBy = computed(() => `${props.id}-error`);
 </script>

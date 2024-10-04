@@ -27,9 +27,8 @@ class Election extends Model
         'description',
         'start',
         'end',
-        'status'
+        'status',
     ];
-
 
     public function organization(): BelongsTo
     {

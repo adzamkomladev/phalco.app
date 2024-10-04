@@ -2,7 +2,6 @@
 
 namespace App\Actions\Organizations;
 
-use App\Models\Organization;
 use App\Models\User;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -13,6 +12,7 @@ class Select
     public function asController()
     {
         $this->handle(request()->user(), request()->input('organization_id'));
+
         return redirect()->route('home');
     }
 

@@ -1,0 +1,4 @@
+npm run format
+./vendor/bin/pint
+git add .
+git commit -m 'chore: code formatted'

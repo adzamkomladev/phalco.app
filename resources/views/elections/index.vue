@@ -10,7 +10,7 @@ onMounted(() => {
         (e: { newUsers: number }) => {
             console.log(e);
             totalUsers.value += e.newUsers;
-        }
+        },
     );
 });
 

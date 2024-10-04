@@ -4,7 +4,6 @@ namespace App\Actions\Elections;
 
 use Lorisleiva\Actions\Concerns\AsAction;
 
-
 class Index
 {
     use AsAction;
@@ -14,7 +13,6 @@ class Index
 
         return hybridly('elections.index');
     }
-
 
     public function handle()
     {

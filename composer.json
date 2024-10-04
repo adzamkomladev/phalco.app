@@ -30,6 +30,7 @@
         "meilisearch/meilisearch-php": "^1.9",
         "predis/predis": "^2.0",
         "socialiteproviders/google": "^4.1",
+        "spatie/fork": "^1.2",
         "spatie/laravel-data": "^4.8"
     },
     "require-dev": {

@@ -23,17 +23,17 @@ class Callback
             $googleUser = Socialite::driver('google')->user();
 
             [$googleUser, $emailUser] = Octane::concurrently([
-                fn() =>  User::where('google_id', $googleUser->getId())->first(),
-                fn() =>  User::where('email', $googleUser->getEmail())->first()
+                fn () => User::where('google_id', $googleUser->getId())->first(),
+                fn () => User::where('email', $googleUser->getEmail())->first(),
             ]);
 
-            if (!$googleUser && $emailUser) {
+            if (! $googleUser && $emailUser) {
                 return redirect()->route('login')->with('error', 'Account with this email already exists! Trying logging in');
             }
 
             $user = $googleUser;
 
-            if (!$user) {
+            if (! $user) {
                 $user = User::create([
                     'first_name' => $googleUser->user['given_name'],
                     'last_name' => $googleUser->user['family_name'],
@@ -41,7 +41,7 @@ class Callback
                     'email_verified_at' => now(),
                     'google_id' => $googleUser->getId(),
                     'avatar' => $googleUser->getAvatar(),
-                    'role' => 'customer'
+                    'role' => 'customer',
                 ]);
             }
 

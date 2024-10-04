@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     HelloWorld::dispatch(fake()->randomNumber(2));
+
     return view('welcome');
 })->name('welcome');
 
@@ -13,8 +14,7 @@ Route::get('/elections', function () {
     return hybridly('elections.index');
 })->middleware('auth')->name('elections');
 
-
-#region Auth Routes
+//region Auth Routes
 
 Route::prefix('google')
     ->name('google.')
@@ -33,9 +33,9 @@ Route::prefix('email')
             ->middleware(['signed'])
             ->name('verification.verify');
 
-    Route::get('verified', fn() => hybridly('auth.email-verified'))
-    ->middleware(['auth'])
-        ->name('email.verified');
+        Route::get('verified', fn () => hybridly('auth.email-verified'))
+            ->middleware(['auth'])
+            ->name('email.verified');
     });
 
 Route::prefix('password')
@@ -43,21 +43,20 @@ Route::prefix('password')
     ->middleware(['guest'])
     ->group(function () {
         Route::post('send/reset-link', \App\Actions\Auth\Password\SendResetLink::class)->name('send.reset-link');
-        Route::get('reset/{token}', fn(string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
+        Route::get('reset/{token}', fn (string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
         Route::post('reset', \App\Actions\Auth\Password\Reset::class)->name('reset');
     });
 
-#endregion
+//endregion
 
-#region Home Routes
+//region Home Routes
 
 Route::get('home', \App\Actions\Home\Index::class)->name('home')
-->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
+    ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
 
-#endregion
+//endregion
 
-
-#region Voting Routes
+//region Voting Routes
 
 Route::prefix('voting')
     ->name('voting.')
@@ -68,16 +67,25 @@ Route::prefix('voting')
             ->group(function () {
 
                 Route::get('', \App\Actions\Voting\PollingStations\Index::class)->name('index');
-        Route::get('create', \App\Actions\Voting\PollingStations\Create::class)->name('create');
-        Route::post('upload', \App\Actions\Voting\PollingStations\Upload::class)->name('upload');
-        Route::post('', \App\Actions\Voting\PollingStations\Store::class)->name('store');
+                Route::get('create', \App\Actions\Voting\PollingStations\Create::class)->name('create');
+                Route::post('upload', \App\Actions\Voting\PollingStations\Upload::class)->name('upload');
+                Route::post('', \App\Actions\Voting\PollingStations\Store::class)->name('store');
+            });
+
+        Route::prefix('agents')
+            ->name('agents.')
+            ->group(function () {
+
+                Route::get('', \App\Actions\Voting\Agents\Index::class)->name('index');
+                Route::get('create', \App\Actions\Voting\Agents\Create::class)->name('create');
+                Route::post('upload', \App\Actions\Voting\Agents\Upload::class)->name('upload');
+                Route::post('', \App\Actions\Voting\Agents\Store::class)->name('store');
             });
     });
 
-#endregion
+//endregion
 
-
-#region Organization Routes
+//region Organization Routes
 
 Route::prefix('organizations')
     ->name('organizations.')
@@ -87,12 +95,12 @@ Route::prefix('organizations')
         Route::patch('select', \App\Actions\Organizations\Select::class)->name('select');
         Route::get('create', \App\Actions\Organizations\Create::class)->name('create');
         Route::post('', \App\Actions\Organizations\Store::class)->name('store');
-    Route::get('invitations/{token}/verify', \App\Actions\Settings\Team\VerifyInvitation::class)->name('invitations.verify');
+        Route::get('invitations/{token}/verify', \App\Actions\Settings\Team\VerifyInvitation::class)->name('invitations.verify');
     });
 
-#endregion
+//endregion
 
-#region Elections Routes
+//region Elections Routes
 
 Route::prefix('elections')
     ->name('elections.')
@@ -101,18 +109,18 @@ Route::prefix('elections')
         Route::get('', \App\Actions\Elections\Index::class)->name('index');
         Route::post('', \App\Actions\Elections\Store::class)->name('store');
         Route::get('create', \App\Actions\Elections\Create::class)->name('create');
-    Route::get('{id}/show', \App\Actions\Elections\Show::class)->name('show');
+        Route::get('{id}/show', \App\Actions\Elections\Show::class)->name('show');
     });
 
-#endregion
+//endregion
 
-#region Uploads Routes
+//region Uploads Routes
 
 Route::post('assets/upload', \App\Actions\Assets\Upload::class)->name('assets.upload')->middleware('auth');
 
-#endregion
+//endregion
 
-#region Settings Routes
+//region Settings Routes
 
 Route::prefix('settings')
     ->name('settings.')
@@ -120,23 +128,23 @@ Route::prefix('settings')
     ->group(function () {
         Route::get('profile', \App\Actions\Settings\Profile\Index::class)->name('profile');
 
-    Route::prefix('team')
-        ->name('team.')
-        ->group(function () {
-            Route::get('', \App\Actions\Settings\Team\Index::class)->name('index');
-            Route::get('invitations', \App\Actions\Settings\Team\Invitations::class)
-                ->name('invitations');
-            Route::post('invitation/send', \App\Actions\Settings\Team\SendInvitation::class)
-                ->name('invitation.send');
-            Route::delete('invitation/{id}/delete', \App\Actions\Settings\Team\DeleteInvitation::class)
-                ->name('invitation.delete');
+        Route::prefix('team')
+            ->name('team.')
+            ->group(function () {
+                Route::get('', \App\Actions\Settings\Team\Index::class)->name('index');
+                Route::get('invitations', \App\Actions\Settings\Team\Invitations::class)
+                    ->name('invitations');
+                Route::post('invitation/send', \App\Actions\Settings\Team\SendInvitation::class)
+                    ->name('invitation.send');
+                Route::delete('invitation/{id}/delete', \App\Actions\Settings\Team\DeleteInvitation::class)
+                    ->name('invitation.delete');
 
-            Route::get('roles', \App\Actions\Settings\Team\Roles::class)
-                ->name('roles');
-        });
+                Route::get('roles', \App\Actions\Settings\Team\Roles::class)
+                    ->name('roles');
+            });
 
         Route::get('billing', \App\Actions\Settings\Billing\Index::class)->name('billing');
         Route::get('organization', \App\Actions\Settings\Organization\Index::class)->name('organization');
     });
 
-#endregion
+//endregion

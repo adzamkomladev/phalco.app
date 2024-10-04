@@ -3,7 +3,6 @@
 namespace App\Actions\Auth\Verification;
 
 use App\Models\User;
-use Illuminate\Contracts\Auth\Authenticatable;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class SendEmail
