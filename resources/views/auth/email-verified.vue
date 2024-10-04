@@ -74,7 +74,6 @@ useHead({
     </div>
 </template>
 
-
 <!-- <AuthInnerLayout
         class=""
         title="Congratulations"

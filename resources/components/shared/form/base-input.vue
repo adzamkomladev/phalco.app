@@ -28,7 +28,7 @@ const describeBy = computed(() => `${props.id}-error`);
 
 <template>
     <div>
-        <div class="flex  justify-between  items-center ">
+        <div class="flex justify-between items-center">
             <label
                 v-if="props.label"
                 :for="props.id"

@@ -24,10 +24,6 @@ const forget_password = useForm({
         title="Forget Password"
         description="Enter your email to reset your password "
     >
-
-
-
-
         <form @submit.prevent="forget_password.submit">
             <div class="grid gap-y-8 pt-2">
                 <SharedFormBaseInput
@@ -39,13 +35,11 @@ const forget_password = useForm({
                     placeholder="Email"
                 />
 
-
-
                 <SharedFormSubmitButton
                     :isLoading="forget_password.processing"
                     text="Proceed"
                 />
-                 <p class="mt-2 text-sm  text-gray-600 dark:text-neutral-400">
+                <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
                     Remember your password?
                     <a
                         class="text-primary-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
@@ -56,9 +50,7 @@ const forget_password = useForm({
                 </p>
             </div>
         </form>
-
     </AuthInnerLayout>
-    
 </template>
 
 <!--  <div

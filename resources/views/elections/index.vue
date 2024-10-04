@@ -13,9 +13,7 @@ onMounted(() => {
         },
     );
 });
-
 </script>
-
 
 <template layout="main">
     <!-- Card Section -->
