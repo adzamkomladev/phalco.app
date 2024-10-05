@@ -5,7 +5,6 @@ namespace App\Actions\Voting\Ballots;
 use App\Models\Ballot;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-
 class Show
 {
     use AsAction;

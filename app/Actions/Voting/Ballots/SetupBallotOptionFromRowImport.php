@@ -27,7 +27,7 @@ class SetupBallotOptionFromRowImport
             'ballot_id' => $ballotId,
             'order' => $order,
             'name' => $name,
-            'status' => 'enabled'
+            'status' => 'enabled',
         ]);
     }
 }

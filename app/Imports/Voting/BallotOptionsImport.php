@@ -11,13 +11,7 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithSkipDuplicates;
 use Maatwebsite\Excel\Row;
 
-class BallotOptionsImport implements
-
-    OnEachRow,
-    ShouldQueue,
-    WithChunkReading,
-    WithHeadingRow,
-    WithSkipDuplicates
+class BallotOptionsImport implements OnEachRow, ShouldQueue, WithChunkReading, WithHeadingRow, WithSkipDuplicates
 {
     use Importable;
 

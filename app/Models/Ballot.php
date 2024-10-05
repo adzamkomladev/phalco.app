@@ -22,7 +22,7 @@ class Ballot extends Model
         'position',
         'description',
         'code',
-        'status'
+        'status',
     ];
 
     public function election(): BelongsTo

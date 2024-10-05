@@ -55,7 +55,7 @@ const toggleUploadForm = () => {
                 />
             </div>
 
-             <div class="sm:col-span-3">
+            <div class="sm:col-span-3">
                 <label
                     for="code"
                     class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200"

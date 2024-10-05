@@ -20,7 +20,7 @@ class BallotOption extends Model
         'ballot_id',
         'name',
         'order',
-        'status'
+        'status',
     ];
 
     public function ballot(): BelongsTo

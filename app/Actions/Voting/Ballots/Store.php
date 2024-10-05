@@ -7,7 +7,7 @@ use App\Models\Ballot;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Validation\Rule;
 use Lorisleiva\Actions\ActionRequest;
-use Lorisleiva\Actions\Concerns\AsAction;;
+use Lorisleiva\Actions\Concerns\AsAction;
 
 class Store
 {
@@ -26,7 +26,7 @@ class Store
                 'max:50',
                 Rule::unique('ballots', 'code')
                     ->where(
-                        fn(Builder $query) => $query
+                        fn (Builder $query) => $query
                             ->where('election_id', request()->input('election_id'))
                     ),
             ],
@@ -41,6 +41,7 @@ class Store
             return redirect()->route('voting.ballots.show', ['id' => $ballot->id]);
         } catch (\Exception $e) {
             dd($e);
+
             return back()->with('error', $e->getMessage());
         }
     }
