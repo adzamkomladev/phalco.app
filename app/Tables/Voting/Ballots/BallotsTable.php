@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tables\Voting\PollingStations;
+namespace App\Tables\Voting\Ballots;
 
-use App\Models\PollingStation;
+use App\Models\Ballot;
 use Hybridly\Refining\Filters\CallbackFilter;
 use Hybridly\Refining\Sorts;
 use Hybridly\Tables\Columns;
@@ -10,33 +10,30 @@ use Hybridly\Tables\Table;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Builder as InternalBuilder;
 
-final class PollingStationsTable extends Table
+final class BallotsTable extends Table
 {
-    protected string $model = PollingStation::class;
+    protected string $model = Ballot::class;
 
     protected function defineColumns(): array
     {
         return [
             Columns\TextColumn::make('id')->label('#')->visible(false),
-            Columns\TextColumn::make('name')
-                ->label('Name')
-                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->name)
-                ->extra((fn (PollingStation $pollingStation) => [
-                    'id' => $pollingStation->id,
+            Columns\TextColumn::make('position')
+                ->label('Position')
+                ->transformValueUsing(fn(Ballot $ballot) => $ballot->position)
+                ->extra((fn(Ballot $ballot) => [
+                    'id' => $ballot->id,
                 ])),
             Columns\TextColumn::make('code')->label('Code')
-                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->code),
-            Columns\TextColumn::make('agent')->label('Agent')
-                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->agent?->name)
-                ->extra((fn (PollingStation $pollingStation) => [
-                    'id' => $pollingStation->agent?->id,
-                    'email' => $pollingStation->agent?->email,
-                    'avatar' => $pollingStation->agent?->avatar,
-                ])),
+                ->transformValueUsing(fn(Ballot $ballot) => $ballot->code),
+            Columns\TextColumn::make('options')->label('Ballot Options')
+                ->transformValueUsing(fn(Ballot $ballot) => $ballot->options_count ?? 0),
             Columns\TextColumn::make('election')->label('Election')
-                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->election?->name),
+                ->transformValueUsing(fn(Ballot $ballot) => $ballot->election?->name),
+            Columns\TextColumn::make('status')->label('Status')
+                ->transformValueUsing(fn(Ballot $ballot) => $ballot->status),
             Columns\TextColumn::make('created_at')->label('Created')
-                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->created_at->diffForHumans()),
+                ->transformValueUsing(fn(Ballot $ballot) => $ballot->created_at->diffForHumans()),
 
         ];
     }
@@ -49,7 +46,7 @@ final class PollingStationsTable extends Table
                 name: 'search',
                 callback: function (InternalBuilder $builder, mixed $value, string $property) {
                     $builder->whereAny([
-                        'name',
+                        'position',
                         'code',
                     ], 'ilike', "%{$value}%");
                 }
@@ -70,7 +67,8 @@ final class PollingStationsTable extends Table
 
         return $this->getModel()
             ->query()
-            ->with(['election:id,name', 'agent:id,first_name,last_name,email,avatar'])
+            ->with('election:id,name')
+            ->withCount('options')
             ->where('election_id', $selectedElectionId);
     }
 }
