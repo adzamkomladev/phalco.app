@@ -6,11 +6,11 @@ use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
 
-class SharedData extends Data
+final class ElectionDetailsData extends Data
 {
     public function __construct(
-        public readonly SecurityData $security,
-
-        public readonly ?FlashBagData $flash,
+        #[DataCollectionOf(ElectionData::class)]
+        public readonly DataCollection $all,
+        public readonly ElectionData $selected
     ) {}
 }

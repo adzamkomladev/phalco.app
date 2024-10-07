@@ -120,6 +120,7 @@ Route::prefix('elections')
         Route::post('', \App\Actions\Elections\Store::class)->name('store');
         Route::get('create', \App\Actions\Elections\Create::class)->name('create');
         Route::get('{id}/show', \App\Actions\Elections\Show::class)->name('show');
+    Route::patch('select', \App\Actions\Elections\Show::class)->name('show');
     });
 
 //endregion
