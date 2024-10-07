@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import AuthImage from "../svg/auth.svg";
+import LargeLogo from "../svg/large-logo.svg";
+
 onMounted(() => {
     setTimeout(() => {
         window.HSStaticMethods.autoInit();
@@ -15,13 +18,10 @@ onMounted(() => {
                 class="bg-gray-100 block aspect-square sm:h-full sm:w-[50%] relative p-5 rounded-t-2xl sm:rounded-2xl dark:bg-gray-700 sm:flex"
             >
                 <div class="absolute left:2 top-2 sm:left-5 sm:top-5">
-                    <img
-                        class="sm:h-8"
-                        src="../../public/imgs/phalco_logo.svg"
-                    />
+                    <img class="sm:h-8" :src="LargeLogo" />
                 </div>
                 <div class="self-end blur-sm">
-                    <img src="../../public/imgs/auth.svg" />
+                    <img :src="AuthImage" />
                 </div>
             </div>
             <div

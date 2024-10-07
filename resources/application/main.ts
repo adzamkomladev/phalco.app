@@ -6,6 +6,7 @@ import "preline/preline";
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 
+
 //#region Preline Setup
 
 import { type IStaticMethods } from "preline/preline";
@@ -36,6 +37,15 @@ window.EchoHub = new Echo({
     enabledTransports: ['ws', 'wss'],
 });
 
+//#endregion
+
+//#region Assets setup
+import.meta.glob([
+    '../svg/**',
+    '../img/**',
+    '../fonts/**',
+    '../sample-files/**'
+]);
 //#endregion
 
 initializeHybridly({
