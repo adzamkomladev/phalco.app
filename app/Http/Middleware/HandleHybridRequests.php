@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Data\ElectionData;
-use App\Data\ElectionDetailsData;
+use App\Data\Elections\ElectionData;
+use App\Data\Elections\ElectionDetailsData;
 use App\Data\SecurityData;
 use App\Data\SharedData;
 use App\Data\UserData;
@@ -24,12 +24,11 @@ class HandleHybridRequests extends Middleware
         $userId = $user?->id;
 
         [$elections, $election] = Octane::concurrently([
-            fn() => Election::where('organization', $selectedOrganizationId)
+            fn() => Election::select(['id', 'name'])->where('organization_id', $selectedOrganizationId)
                 ->where('status', 'active')
                 ->get(),
             fn() => cache()->get("elections.selected.{$userId}"),
         ]);
-
         return SharedData::from([
             'security' => SecurityData::from([
                 'user' => UserData::optional($user),

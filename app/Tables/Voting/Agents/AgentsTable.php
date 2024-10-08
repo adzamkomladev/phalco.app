@@ -67,7 +67,7 @@ final class AgentsTable extends Table
 
         return $this->getModel()
             ->query()
-            ->with('organizationMemberships:id,created_at')
+            ->with('organizationMemberships')
             ->withCount('pollingStations')
             ->whereRelation('organizationMemberships', 'organization_id', $selectedOrganizationId)
             ->whereRelation('organizationMemberships', 'organization_role_id', $role?->id);

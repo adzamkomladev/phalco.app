@@ -3,9 +3,7 @@ useHead({
     title: "Voting: New Polling Station",
 });
 
-const props = defineProps<{
-    elections: { id: number; name: string }[];
-}>();
+const elections: any = useProperty("elections.all");
 
 const isUpload = ref(false);
 
@@ -16,13 +14,10 @@ const toggleUploadForm = () => (isUpload.value = !isUpload.value);
     <SharedCommonOverlay title="New Polling Station" size="xl">
         <div class="mt-5">
             <VotingPollingStationsCreateForm
-                :elections="props.elections"
+                :elections="elections"
                 v-if="!isUpload"
             />
-            <VotingPollingStationsUploadForm
-                :elections="props.elections"
-                v-else
-            />
+            <VotingPollingStationsUploadForm :elections="elections" v-else />
             <div>
                 <a
                     class="cursor-pointer text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"

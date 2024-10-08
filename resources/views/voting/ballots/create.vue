@@ -3,15 +3,14 @@ useHead({
     title: "Voting: New Ballot",
 });
 
-const props = defineProps<{
-    elections: { id: number; name: string }[];
-}>();
+const elections: any = useProperty("elections.all");
+
 </script>
 
 <template>
     <SharedCommonOverlay title="New Ballot" size="xl">
         <div class="mt-5">
-            <VotingBallotsFormsCreate :elections="props.elections" />
+            <VotingBallotsFormsCreate :elections="elections" />
         </div>
     </SharedCommonOverlay>
 </template>

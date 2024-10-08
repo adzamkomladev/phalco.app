@@ -33,7 +33,7 @@ Route::prefix('email')
             ->middleware(['signed'])
             ->name('verification.verify');
 
-        Route::get('verified', fn () => hybridly('auth.email-verified'))
+    Route::get('verified', fn() => hybridly('auth.email-verified'))
             ->middleware(['auth'])
             ->name('email.verified');
     });
@@ -43,7 +43,7 @@ Route::prefix('password')
     ->middleware(['guest'])
     ->group(function () {
         Route::post('send/reset-link', \App\Actions\Auth\Password\SendResetLink::class)->name('send.reset-link');
-        Route::get('reset/{token}', fn (string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
+    Route::get('reset/{token}', fn(string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
         Route::post('reset', \App\Actions\Auth\Password\Reset::class)->name('reset');
     });
 
@@ -120,7 +120,7 @@ Route::prefix('elections')
         Route::post('', \App\Actions\Elections\Store::class)->name('store');
         Route::get('create', \App\Actions\Elections\Create::class)->name('create');
         Route::get('{id}/show', \App\Actions\Elections\Show::class)->name('show');
-    Route::patch('select', \App\Actions\Elections\Show::class)->name('show');
+    Route::patch('switch', \App\Actions\Elections\SwitchElection::class)->name('switch');
     });
 
 //endregion

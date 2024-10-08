@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Data;
+namespace App\Data\Elections;
 
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
@@ -11,6 +11,6 @@ final class ElectionDetailsData extends Data
     public function __construct(
         #[DataCollectionOf(ElectionData::class)]
         public readonly DataCollection $all,
-        public readonly ElectionData $selected
+        public readonly ?ElectionData $selected
     ) {}
 }

@@ -70,7 +70,7 @@ final class PollingStationsTable extends Table
 
         return $this->getModel()
             ->query()
-            ->with(['election:id,name', 'agent:id,first_name,last_name,email,avatar'])
+            ->with(['election:id,name', 'agent'])
             ->where('election_id', $selectedElectionId);
     }
 }
