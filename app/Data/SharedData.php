@@ -3,9 +3,7 @@
 namespace App\Data;
 
 use App\Data\Elections\ElectionDetailsData;
-use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
-use Spatie\LaravelData\DataCollection;
 
 class SharedData extends Data
 {

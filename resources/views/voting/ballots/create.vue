@@ -4,7 +4,6 @@ useHead({
 });
 
 const elections: any = useProperty("elections.all");
-
 </script>
 
 <template>

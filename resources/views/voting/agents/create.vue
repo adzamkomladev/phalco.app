@@ -13,10 +13,7 @@ const toggleUploadForm = () => (isUpload.value = !isUpload.value);
 <template>
     <SharedCommonOverlay title="New Agent" size="xl">
         <div class="mt-5">
-            <VotingAgentsFormsCreate
-                :elections="elections"
-                v-if="!isUpload"
-            />
+            <VotingAgentsFormsCreate :elections="elections" v-if="!isUpload" />
             <VotingAgentsFormsUpload :elections="elections" v-else />
             <div>
                 <a

@@ -15,7 +15,9 @@ class SwitchElection
 
         $res = $this->handle($request->user()->id, $request->input('election_id'));
 
-        if (!$res) return back()->with('error', 'Election not found.');
+        if (! $res) {
+            return back()->with('error', 'Election not found.');
+        }
 
         return hybridly()->external(url()->previous());
     }
@@ -24,7 +26,9 @@ class SwitchElection
     {
         $election = Election::find($electionId);
 
-        if (!$election) return null;
+        if (! $election) {
+            return null;
+        }
 
         cache()
             ->set("elections.selected.{$userId}", [

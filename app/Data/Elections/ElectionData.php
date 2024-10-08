@@ -2,7 +2,6 @@
 
 namespace App\Data\Elections;
 
-
 use Spatie\LaravelData\Data;
 
 final class ElectionData extends Data
