@@ -20,23 +20,23 @@ final class PollingStationsTable extends Table
             Columns\TextColumn::make('id')->label('#')->visible(false),
             Columns\TextColumn::make('name')
                 ->label('Name')
-                ->transformValueUsing(fn(PollingStation $pollingStation) => $pollingStation->name)
-                ->extra((fn(PollingStation $pollingStation) => [
+                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->name)
+                ->extra((fn (PollingStation $pollingStation) => [
                     'id' => $pollingStation->id,
                 ])),
             Columns\TextColumn::make('code')->label('Code')
-                ->transformValueUsing(fn(PollingStation $pollingStation) => $pollingStation->code),
+                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->code),
             Columns\TextColumn::make('agent')->label('Agent')
-                ->transformValueUsing(fn(PollingStation $pollingStation) => $pollingStation->agent?->name)
-                ->extra((fn(PollingStation $pollingStation) => [
+                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->agent?->name)
+                ->extra((fn (PollingStation $pollingStation) => [
                     'id' => $pollingStation->agent?->id,
                     'email' => $pollingStation->agent?->email,
                     'avatar' => $pollingStation->agent?->avatar,
                 ])),
             Columns\TextColumn::make('election')->label('Election')
-                ->transformValueUsing(fn(PollingStation $pollingStation) => $pollingStation->election?->name),
+                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->election?->name),
             Columns\TextColumn::make('created_at')->label('Created')
-                ->transformValueUsing(fn(PollingStation $pollingStation) => $pollingStation->created_at->diffForHumans()),
+                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->created_at->diffForHumans()),
 
         ];
     }
