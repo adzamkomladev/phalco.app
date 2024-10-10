@@ -24,7 +24,7 @@ class Voter extends Model
         'username',
         'password',
         'email',
-        'phone'
+        'phone',
     ];
 
     public function votes(): HasMany

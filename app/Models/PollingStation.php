@@ -51,5 +51,4 @@ class PollingStation extends Model
     {
         return $this->hasMany(Voter::class);
     }
-
 }

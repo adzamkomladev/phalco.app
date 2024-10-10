@@ -21,7 +21,7 @@ class Vote extends Model
         'ballot_option_id',
         'polling_station_id',
         'voter_id',
-        'user_id'
+        'user_id',
     ];
 
     public function voter(): BelongsTo
