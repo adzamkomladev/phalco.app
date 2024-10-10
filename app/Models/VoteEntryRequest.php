@@ -12,7 +12,6 @@ class VoteEntryRequest extends Model
     /** @use HasFactory<\Database\Factories\VoteEntryRequestFactory> */
     use HasFactory;
 
-
     /**
      * The attributes that are mass assignable.
      *

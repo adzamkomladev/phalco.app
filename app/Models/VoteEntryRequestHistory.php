@@ -21,7 +21,7 @@ class VoteEntryRequestHistory extends Model
         'user_id',
         'status',
         'comment',
-        'ended_at'
+        'ended_at',
     ];
 
     public function createdBy(): BelongsTo
