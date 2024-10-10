@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @mixin IdeHelperPollingStation
@@ -40,4 +41,15 @@ class PollingStation extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function votes(): HasMany
+    {
+        return $this->hasMany(Vote::class);
+    }
+
+    public function voters(): HasMany
+    {
+        return $this->hasMany(Voter::class);
+    }
+
 }

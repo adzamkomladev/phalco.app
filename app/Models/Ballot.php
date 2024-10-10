@@ -34,4 +34,9 @@ class Ballot extends Model
     {
         return $this->hasMany(BallotOption::class, 'ballot_id', 'id');
     }
+
+    public function votes(): HasMany
+    {
+        return $this->hasMany(Vote::class);
+    }
 }

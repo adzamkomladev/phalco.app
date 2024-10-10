@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class BallotOption extends Model
 {
@@ -26,5 +27,10 @@ class BallotOption extends Model
     public function ballot(): BelongsTo
     {
         return $this->belongsTo(Ballot::class, 'ballot_id', 'id');
+    }
+
+    public function votes(): HasMany
+    {
+        return $this->hasMany(Vote::class);
     }
 }
