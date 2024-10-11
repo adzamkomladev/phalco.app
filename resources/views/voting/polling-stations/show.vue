@@ -10,6 +10,5 @@ const props = defineProps<{
 
 <template layout="main">
     <p>Polling station details</p>
-        <pre>{{ props.pollingStation }}</pre>
-
+    <pre>{{ props.pollingStation }}</pre>
 </template>

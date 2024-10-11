@@ -19,7 +19,7 @@ class Show
     public function handle(int $pollingStationId)
     {
         return PollingStation::with(['election', 'agent', 'voters'])
-        ->withCount(['votes'])
-        ->find($pollingStationId);
+            ->withCount(['votes'])
+            ->find($pollingStationId);
     }
 }

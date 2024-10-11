@@ -224,7 +224,7 @@ watch(search, debounceFn);
                                     Edit
                                 </a> -->
 
-                                 <router-link
+                                <router-link
                                     :href="
                                         route('voting.ballots.show', {
                                             id: +extra(
@@ -234,7 +234,7 @@ watch(search, debounceFn);
                                         })
                                     "
                                     class="inline-flex items-center text-sm font-medium text-blue-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                    >
+                                >
                                     Details
                                 </router-link>
                             </div>
