@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Set up the form
 const verifyOtp = {}
 
 const handleOtpUpdate = (otp: string) => {
@@ -23,9 +22,9 @@ const handleOtpUpdate = (otp: string) => {
                 <SharedFormSubmitButton
                 :loading="false"
                     text="Confirm"
-                    
+
                 />
-                
+
             </div>
         </form>
 
