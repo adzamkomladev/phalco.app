@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import AuthImage from "../svg/auth.svg";
 import LargeLogo from "../svg/large-logo.svg";
 
 onMounted(() => {
@@ -10,24 +9,29 @@ onMounted(() => {
 </script>
 
 <template>
-    <main class="flex sm:p-6 bg-gray-100 sm:bg-white dark:bg-gray-800 selec">
-        <section
-            class="w-full min-h-[calc(100vh-48px)] sm:flex flex-col sm:gap-[5vw] sm:flex-row"
-        >
+    <main class="relative min-h-screen flex bg-white dark:bg-gray-800  sm:landscape:overflow-x-hidde">
+        <section class="flex-1 flex flex-col sm:landscape:gap-x-[5vw] sm:landscape:landscape:flex-row">
+            <!-- cover h not scroll does not affect -->
             <div
-                class="bg-gray-100 block aspect-square sm:h-full sm:w-[50%] relative p-5 rounded-t-2xl sm:rounded-2xl dark:bg-gray-700 sm:flex"
+                class=" sticky h-[30vh]  -top-0 bg-cover block spect-square sm:landscape:h-full sm:landscape:landscape:w-[50%] rounded-t-2xl sm:landscape:rounded-tl-none sm:landscape:rounded-r-2xl dark:bg-gray-700 sm:landscape:flex"
             >
-                <div class="absolute left:2 top-2 sm:left-5 sm:top-5">
-                    <img class="sm:h-8" :src="LargeLogo" />
+                <div class="blur-0 z-50 absolute left-2 top-8 sm:landscape:left-5 sm:landscape:top-5 ">
+                    <img class="h-[1rem]  px-5 sm:h-[2rem] " :src="LargeLogo" />
                 </div>
-                <div class="self-end blur-sm">
-                    <img :src="AuthImage" />
+                <!-- <div class="">Register With Phalco and get new Experience Of Your Ploitical Carrier</div> -->
+                
+
+               
+                <div class="bg-gray-200 shadow sticky bg-center  xl:landscape:bg-bottom bg-contain dark:bg-gray-700 blur-[1.5px] h-[50vh]  flex-1 bg-auth-p bg-no-repeat landscape:h-full  sm:landscape:blur-0">
                 </div>
             </div>
+
+            <!-- scrollable view -->
             <div
-                class="sm:pt-10 sm:px-0 md:pr-20 flex-1 bg-white sm:bg-white dark:bg-gray-800"
+                class="sm:landscape:pt-10  -mt px-[8%] portrait:px-[14%] portrait:  sm:landscape:mt-0 pb-10 sm:landscape:px-0 sm:landscape:pr-[5vw] xl:pr-[8vw] z-50 bg-white rounded-t-[2.5rem] sm:landscape:rounded-t-none flex-1 sm:landscape:overflow-y-auto sm:landscape:h-screen dark:bg-gray-800"
             >
                 <slot />
+
             </div>
         </section>
     </main>

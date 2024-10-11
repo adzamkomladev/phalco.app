@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import useSecurity from "~/resources/composables/security";
-
+import verificationImage from '~/resources/svg/auth-verification-sent.svg'
 useHead({
     title: "Verify Email",
 });
@@ -37,25 +37,32 @@ const startCountdown = () => {
 </script>
 
 <template layout="auth">
-    <AuthInnerLayout class="" title="Verification email sent" description="">
-        <div class="grid gap-5">
-            <p class="text-gray-500">
-                To start using Phalco, confirm your email address with the email
+    <LayoutAuthContent
+ class="" title="Verification email sent" >
+        <div class="grid sm:gap-5">
+            <p class="text-gray-500  text-center sm:landscape:text-left font-normal text-xs sm:text-base md:text-lg">
+                To start using Phalco, confirm your email address  <br class="hidden portrait:block"> with the email
                 we sent to:
-                <strong class="font-bold text-primary-500">{{
-                    user?.email
-                }}</strong>
-            </p>
+                
+               <strong class="font-bold text-primary-500 truncate">
+    <a :href="'https://mail.google.com/mail/u/0/#inbox?compose=new&to=' + user?.email" target="_blank" rel="noopener noreferrer">
+        {{ user?.email }}
+    </a>
+</strong>
 
+            </p>
+            <div class="grid justify-center   dark:opacity-70 sm:landscape:hidden">
+                <img :src="verificationImage" class="h-48"/>
+            </div>
             <div class="relative h-16">
                 <Transition name="fade" appear mode="out-in">
                     <div
                         v-if="resMessage"
                         id="dismiss-alert"
-                        class="absolute inset-0 mb-3 bg-primary-50 border border-primary-200 text-sm text-primary-800 rounded-lg p-4 dark:bg-primary-800/10 dark:border-primary-900 dark:text-primary-500"
+                        class=" inset-0 mb-3 bg-primary-50  border border-primary-300 text-sm text-primary-800 rounded-lg p-4 dark:bg-primary-800/10 dark:border-primary-900 dark:text-primary-500"
                         role="alert"
                     >
-                        <div class="flex">
+                        <div class="flex items-center justify-center gap-2">
                             <div class="shrink-0">
                                 <svg
                                     class="shrink-0 size-4 mt-0.5"
@@ -64,7 +71,7 @@ const startCountdown = () => {
                                     height="24"
                                     viewBox="0 0 24 24"
                                     fill="none"
-                                    stroke="currentColor"
+                                    stroke="#55a2cd"
                                     stroke-width="2"
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
@@ -76,7 +83,7 @@ const startCountdown = () => {
                                 </svg>
                             </div>
                             <div class="ms-2">
-                                <h3 class="text-sm font-medium">
+                                <h3 class="text-xs md:text-sm font-medium">
                                     {{ resMessage }} (You can resend in
                                     {{ countdown }} seconds)
                                 </h3>
@@ -88,6 +95,7 @@ const startCountdown = () => {
                 <Transition name="fade" appear mode="in-out">
                     <div class="absolute inset-0 mb-3">
                         <SharedFormSubmitButton
+                        
                             v-if="showResend"
                             @click="resend()"
                             class="absolute inset-0"
@@ -97,7 +105,7 @@ const startCountdown = () => {
                 </Transition>
             </div>
         </div>
-    </AuthInnerLayout>
+    </LayoutAuthContent>
 </template>
 
 <style scoped>

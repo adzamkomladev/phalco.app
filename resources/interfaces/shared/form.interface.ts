@@ -36,6 +36,11 @@ export interface SearchInputProps extends FormProp {
     placeholder?: string;
 }
 
+export interface SubmitButtonProps{
+   loading?: boolean;
+    text?: string;
+    type?: "submit" | "primary" | "";
+}
 export interface BaseTextareaProps extends FormProp {
     error?: string;
     placeholder?: string;

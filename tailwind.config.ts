@@ -7,6 +7,29 @@ export default {
     ],
     theme: {
         extend: {
+            backgroundImage: {
+    'auth-l': "url('../svg/auth-portrait.svg')",
+    'auth-p': "url('../svg/auth-landscape.svg')"
+  }, screens: {
+        'tall': {
+          'raw': `only screen and (max-height: 960px) and (max-width: 480px)`
+        },
+        'wide': {
+          'raw': `only screen and (max-height: 480px) and (max-width: 960px)`
+        },
+        'portrait': {
+          'raw': '(orientation: portrait)'
+        },
+        'landscape': {
+          'raw': '(orientation: landscape)'
+        },
+        'tallOrWideAndPortrait': {
+          'raw': `only screen and ((max-height: 960px) and (max-width: 480px) or (max-height: 480px) and (max-width: 960px)) and (orientation: portrait)`
+        },
+        'tallOrWideAndLandscape': {
+          'raw': `only screen and ((max-height: 960px) and (max-width: 480px) or (max-height: 480px) and (max-width: 960px)) and (orientation: landscape)`
+        },
+},
             flexBasis: {
                 "1/7": "14.2857143%",
                 "2/7": "28.5714286%",

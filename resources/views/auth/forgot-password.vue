@@ -19,7 +19,7 @@ const forget_password = useForm({
 </script>
 
 <template layout="auth">
-    <AuthInnerLayout
+    <LayoutAuthContent
         class=""
         title="Forget Password"
         description="Enter your email to reset your password "
@@ -36,7 +36,7 @@ const forget_password = useForm({
                 />
 
                 <SharedFormSubmitButton
-                    :isLoading="forget_password.processing"
+                    :loading="forget_password.processing"
                     text="Proceed"
                 />
                 <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
@@ -50,7 +50,7 @@ const forget_password = useForm({
                 </p>
             </div>
         </form>
-    </AuthInnerLayout>
+    </LayoutAuthContent>
 </template>
 
 <!--  <div

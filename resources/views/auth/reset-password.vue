@@ -20,7 +20,7 @@ const register = useForm({
 </script>
 
 <template layout="auth">
-    <AuthInnerLayout
+    <LayoutAuthContent
         class=""
         title="Reset Password"
         description="Enter your email to reset your password "
@@ -46,10 +46,10 @@ const register = useForm({
                 />
 
                 <SharedFormSubmitButton
-                    :isLoading="register.processing"
+                    :loading="register.processing"
                     text="Proceed"
                 />
             </div>
         </form>
-    </AuthInnerLayout>
+    </LayoutAuthContent>
 </template>

@@ -28,7 +28,7 @@ defineExpose({ focus, select });
             <label
                 v-if="props.label"
                 :for="props.id"
-                class="text-sm text-gray-500 dark:text-gray-300"
+                class="text-sm sm:text-base text-gray-500 dark:text-gray-300"
                 >{{ props.label }}</label
             >
         </div>

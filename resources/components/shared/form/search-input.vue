@@ -4,6 +4,7 @@ import { SearchInputProps } from "~/resources/interfaces/shared/form.interface";
 const props = withDefaults(defineProps<SearchInputProps>(), {
     placeholder: "",
 });
+
 const model = defineModel({ required: true });
 
 const input = ref<HTMLInputElement | null>(null);
