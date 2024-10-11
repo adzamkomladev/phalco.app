@@ -9,18 +9,18 @@ onMounted(() => {
 </script>
 
 <template>
-    <main class="relative min-h-screen flex bg-white dark:bg-gray-800  sm:landscape:overflow-x-hidde">
+    <main class="relative min-h-screen flex  bg-white dark:bg-gray-800  sm:landscape:overflow-x-hidde">
         <section class="flex-1 flex flex-col sm:landscape:gap-x-[5vw] sm:landscape:landscape:flex-row">
            <div
-                class=" sticky h-[30vh]  -top-0 bg-cover block spect-square sm:landscape:h-full sm:landscape:landscape:w-[50%] rounded-t-2xl sm:landscape:rounded-tl-none sm:landscape:rounded-r-2xl dark:bg-gray-700 sm:landscape:flex"
+                class=" sticky h-[30vh]  sm:landscape:p-8 sm:landscape:pr-0  -top-0 bg-cover block spect-square sm:landscape:h-full sm:landscape:landscape:w-[50%] rounded-t-2xl sm:landscape:rounded-tl-none sm:landscape:rounded-r-2xl dark:bg-gray-700 sm:landscape:flex"
             >
-                <div class="blur-0 z-50 absolute left-2 top-8 sm:landscape:left-5 sm:landscape:top-5 ">
+                <div class="blur-0 z-50 absolute left-2 p-5 top-8 sm:landscape:left-5 sm:landscape:top-8 ">
                     <img class="h-[1rem]  px-5 sm:h-[2rem] " :src="LargeLogo" />
                 </div>
 
 
 
-                <div class="bg-gray-200 shadow sticky bg-center sm:landscape:rounded-r-3xl  xl:landscape:bg-bottom bg-contain dark:bg-gray-700 blur-[1.5px] h-[50vh]  flex-1 bg-auth-p bg-no-repeat landscape:h-full  sm:landscape:blur-0">
+                <div class="bg-gray-200 shadow sticky bg-center sm:landscape:rounded-3xl  xl:landscape:bg-bottom bg-contain dark:bg-gray-700 blur-[1.5px] h-[50vh]  flex-1 bg-auth-p bg-no-repeat landscape:h-full  sm:landscape:blur-0">
                 </div>
             </div>
 

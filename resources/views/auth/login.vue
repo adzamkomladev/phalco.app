@@ -30,11 +30,8 @@ const login = useForm({
             <AuthGoogleButton />
         </div>
 
-        <div
-            class="py-3 flex items-center text-gray-400 text-base uppercase before:flex-1 before:border-t-2 before:border-gray-200 before:me-6 after:flex-1 after:border-t-2 after:border-gray-200 after:ms-6 dark:text-gray-500 dark:before:border-gray-600 dark:after:border-gray-600"
-        >
-            Or
-        </div>
+             <SharedFormOr/>
+
 
         <form @submit.prevent="login.submit">
             <div class="grid gap-y-4">
