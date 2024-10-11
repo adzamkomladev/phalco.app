@@ -20,7 +20,7 @@ onMounted(() => {
 
 
 
-                <div class="bg-gray-200 shadow sticky bg-center  xl:landscape:bg-bottom bg-contain dark:bg-gray-700 blur-[1.5px] h-[50vh]  flex-1 bg-auth-p bg-no-repeat landscape:h-full  sm:landscape:blur-0">
+                <div class="bg-gray-200 shadow sticky bg-center sm:landscape:rounded-r-3xl  xl:landscape:bg-bottom bg-contain dark:bg-gray-700 blur-[1.5px] h-[50vh]  flex-1 bg-auth-p bg-no-repeat landscape:h-full  sm:landscape:blur-0">
                 </div>
             </div>
 
