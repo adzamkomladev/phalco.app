@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import useSecurity from "~/resources/composables/security";
-import verificationImage from '~/resources/svg/auth-verification-sent.svg'
+import verificationImage from '~/resources/svg/auth/verification_email.svg'
+
 useHead({
     title: "Verify Email",
 });
 
-const ALLOW_RESEND_IN_SECONDS = 10;
+const ALLOW_RESEND_IN_SECONDS = 5;
 
 const { user } = useSecurity();
 
@@ -39,11 +40,11 @@ const startCountdown = () => {
 <template layout="auth">
     <LayoutAuthContent
  class="" title="Verification email sent" >
-        <div class="grid sm:gap-5">
-            <p class="text-gray-500  text-center sm:landscape:text-left font-normal text-xs sm:text-base md:text-lg">
-                To start using Phalco, confirm your email address  <br class="hidden portrait:block"> with the email
+        <div class="grid gap-5 sm:gap-8">
+            <p class="text-gray-500  text-center sm:landscape:text-left font-normal text-sm sm:text-base md:text-lg">
+                To start using Phalco, confirm your email address with the email
                 we sent to:
-                
+
                <strong class="font-bold text-primary-500 truncate">
     <a :href="'https://mail.google.com/mail/u/0/#inbox?compose=new&to=' + user?.email" target="_blank" rel="noopener noreferrer">
         {{ user?.email }}
@@ -51,7 +52,7 @@ const startCountdown = () => {
 </strong>
 
             </p>
-            <div class="grid justify-center   dark:opacity-70 sm:landscape:hidden">
+            <div class="grid justify-center   dark:opacity-70 ">
                 <img :src="verificationImage" class="h-48"/>
             </div>
             <div class="relative h-16">
@@ -95,7 +96,7 @@ const startCountdown = () => {
                 <Transition name="fade" appear mode="in-out">
                     <div class="absolute inset-0 mb-3">
                         <SharedFormSubmitButton
-                        
+
                             v-if="showResend"
                             @click="resend()"
                             class="absolute inset-0"
@@ -103,7 +104,18 @@ const startCountdown = () => {
                         />
                     </div>
                 </Transition>
+                
             </div>
+            <div class="">
+            <p class=" text-sm -mt-4 sm:-mt-8  sm:landscape:text-left text-gray-600 xl:text-base dark:text-neutral-400">
+               Need help ?
+                <router-link preserve-scroll
+                    class="text-primary-300 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
+                >
+                    Contact customer Support
+                </router-link>
+            </p>
+        </div>
         </div>
     </LayoutAuthContent>
 </template>

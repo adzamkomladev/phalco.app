@@ -27,10 +27,10 @@ const login = useForm({
         description="login to continue with Phalco"
     >
         <div>
-            <AuthGoogleButton />
+            <AuthGoogleButton text="Log In with Google"/>
         </div>
 
-             <SharedFormOr/>
+             <SharedFormBaseOr/>
 
 
         <form @submit.prevent="login.submit">
@@ -61,7 +61,7 @@ const login = useForm({
                     </router-link>
                 </p>
 
-             
+
                 <SharedFormSubmitButton
                     :loading="login.processing"
                     text="Login"
@@ -69,7 +69,7 @@ const login = useForm({
             </div>
         </form>
         <div class="">
-            <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
+            <p class="mt-2 text-sm text-gray-600 font-bold dark:text-neutral-400">
                 Not registere yet ?
                 <router-link
                     class="text-primary-twi decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"

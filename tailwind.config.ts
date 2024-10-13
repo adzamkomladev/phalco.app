@@ -8,8 +8,7 @@ export default {
     theme: {
         extend: {
             backgroundImage: {
-    'auth-l': "url('../svg/auth-portrait.svg')",
-    'auth-p': "url('../svg/auth-landscape.svg')"
+    'auth-p': "url('../svg/auth/layout.svg')"
   }, screens: {
         'tall': {
           'raw': `only screen and (max-height: 960px) and (max-width: 480px)`

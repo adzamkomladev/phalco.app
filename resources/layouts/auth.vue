@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LargeLogo from "../svg/large-logo.svg";
+import LargeLogo from "../svg/auth/large-logo.svg";
 
 onMounted(() => {
     setTimeout(() => {
@@ -12,10 +12,10 @@ onMounted(() => {
     <main class="relative min-h-screen flex  bg-white dark:bg-gray-800  sm:landscape:overflow-x-hidde">
         <section class="flex-1 flex flex-col sm:landscape:gap-x-[5vw] sm:landscape:landscape:flex-row">
            <div
-                class=" sticky h-[30vh]  sm:landscape:p-8 sm:landscape:pr-0  -top-0 bg-cover block spect-square sm:landscape:h-full sm:landscape:landscape:w-[50%] rounded-t-2xl sm:landscape:rounded-tl-none sm:landscape:rounded-r-2xl dark:bg-gray-700 sm:landscape:flex"
+                class=" sticky h-[30vh] sm:landscape:p-4 md:landscape:p-8 sm:landscape:pr-0  -top-0 bg-cover block spect-square sm:landscape:h-full sm:landscape:landscape:w-[50%] rounded-t-2xl sm:landscape:rounded-tl-none sm:landscape:rounded-r-2xl  sm:landscape:flex"
             >
-                <div class="blur-0 z-50 absolute left-2 p-5 top-8 sm:landscape:left-5 sm:landscape:top-8 ">
-                    <img class="h-[1rem]  px-5 sm:h-[2rem] " :src="LargeLogo" />
+                <div class="blur-0 z-50 select-none  absolute left-2 p-5 top-8 sm:landscape:left-5 bg-clip-text bg-red-500 sm:landscape:top-8 text-red-600">
+                    <img class="h-[1rem] px-5 sm:h-[1.5rem]  text-transparent bg-transparent" :src="LargeLogo" />
                 </div>
 
 
@@ -25,7 +25,7 @@ onMounted(() => {
             </div>
 
             <div
-                class="sm:landscape:pt-10  -mt px-[8%] portrait:px-[14%] portrait:  sm:landscape:mt-0 pb-10 sm:landscape:px-0 sm:landscape:pr-[5vw] xl:pr-[8vw] z-50 bg-white rounded-t-[2.5rem] sm:landscape:rounded-t-none flex-1 sm:landscape:overflow-y-auto sm:landscape:h-screen dark:bg-gray-800"
+                class="pt-8 sm:landscape:pt-10  -mt px-[10%] sm:portrait:px-[14%] portrait:  sm:landscape:mt-0 pb-10 sm:landscape:px-0 sm:landscape:pr-[5vw] xl:pr-[8vw] z-50 bg-white rounded-t-[2.5rem] sm:landscape:rounded-t-none flex-1 sm:landscape:overflow-y-auto sm:landscape:h-screen dark:bg-gray-800"
             >
                 <slot />
 

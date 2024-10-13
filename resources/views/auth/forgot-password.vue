@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import forgetPassworImage from "~/resources/svg/auth/forgot_password.svg"
+
 useHead({
     title: "Forget Password",
 });
@@ -24,6 +26,9 @@ const forget_password = useForm({
         title="Forget Password"
         description="Enter your email to reset your password "
     >
+    <div class="grid place-items-center">
+        <img class="w-1/2 py-2" :src="forgetPassworImage"/>
+    </div>
         <form @submit.prevent="forget_password.submit">
             <div class="grid gap-y-8 pt-2">
                 <SharedFormBaseInput
@@ -39,7 +44,8 @@ const forget_password = useForm({
                     :loading="forget_password.processing"
                     text="Proceed"
                 />
-                <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
+               
+            </div> <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
                     Remember your password?
                     <a
                         class="text-primary-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
@@ -48,7 +54,6 @@ const forget_password = useForm({
                         Sign in here
                     </a>
                 </p>
-            </div>
         </form>
     </LayoutAuthContent>
 </template>
