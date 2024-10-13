@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { SubmitButtonProps } from "~/resources/interfaces/shared/form.interface";
 
-
 const props = defineProps<SubmitButtonProps>();
-
 </script>
 
 <template>

@@ -35,6 +35,5 @@ const props = withDefaults(defineProps<{ text?: string }>(), {
             />
         </svg>
         {{ props.text }}
-
     </router-link>
 </template>
