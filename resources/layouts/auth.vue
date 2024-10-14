@@ -13,7 +13,7 @@ onMounted(() => {
         class="relative min-h-screen flex bg-white dark:bg-gray-800 sm:landscape:overflow-x-hidde"
     >
         <section
-            class="flex-1 flex flex-col sm:landscape:gap-x-[5vw] sm:landscape:landscape:flex-row"
+            class="flex-1 flex flex-col lg:landscape:gap-x-[4vw] sm:landscape:landscape:flex-row"
         >
             <div
                 class="sticky h-[30vh] sm:landscape:p-4 md:landscape:p-8 sm:landscape:pr-0 -top-0 bg-cover block spect-square sm:landscape:h-full sm:landscape:landscape:w-[50%] rounded-t-2xl sm:landscape:rounded-tl-none sm:landscape:rounded-r-2xl sm:landscape:flex"
