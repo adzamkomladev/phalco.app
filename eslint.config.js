@@ -13,4 +13,7 @@ export default [
     ...pluginVue.configs["flat/essential"],
     { files: ["**/*.vue"], languageOptions: { parserOptions: { parser: tseslint.parser } } },
     ...pluginVue.configs["flat/essential"],
-    ...vueTsEslintConfig()];
+    ...vueTsEslintConfig(),
+    {moduleResolution:'node'}
+
+];
