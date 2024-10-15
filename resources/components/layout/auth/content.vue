@@ -3,7 +3,6 @@ const props = defineProps<{
     title?: string;
     description?: string;
 }>();
-
 </script>
 
 <template>
