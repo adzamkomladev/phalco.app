@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @mixin IdeHelperVoteEntryRequestHistory
+ */
 class VoteEntryRequestHistory extends Model
 {
     /** @use HasFactory<\Database\Factories\VoteEntryRequestHistoryFactory> */
