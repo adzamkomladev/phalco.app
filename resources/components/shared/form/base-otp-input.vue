@@ -8,7 +8,7 @@ const props = withDefaults(defineProps<BaseOtpProps>(), {
 });
 const model = defineModel({ required: true });
 
-const input = ref<HTMLDivElement | null>(null);
+const input = ref<HTMLDivElement | null>(null); // Pin input element
 
 onMounted(() => {
     // Initialize Pin Input
