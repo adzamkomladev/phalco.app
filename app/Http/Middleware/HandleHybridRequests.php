@@ -7,7 +7,9 @@ use App\Data\Elections\ElectionDetailsData;
 use App\Data\SecurityData;
 use App\Data\SharedData;
 use App\Data\UserData;
+use App\Data\Voting\PollingStations\PollingStationData;
 use App\Models\Election;
+use App\Models\PollingStation;
 use Hybridly\Http\Middleware;
 use Laravel\Octane\Facades\Octane;
 
@@ -23,12 +25,19 @@ class HandleHybridRequests extends Middleware
         $selectedOrganizationId = $user?->selected_organization_id;
         $userId = $user?->id;
 
-        [$elections, $election] = Octane::concurrently([
-            fn () => Election::select(['id', 'name'])->where('organization_id', $selectedOrganizationId)
+        [$elections, $election] = Octane::concurrently([fn() => Election::select(['id', 'name'])->where('organization_id', $selectedOrganizationId)
                 ->where('status', 'active')
                 ->get(),
-            fn () => cache()->get("elections.selected.{$userId}"),
+            fn() => cache()->get("elections.selected.{$userId}"),
         ]);
+
+        $pollingStation = null;
+        if ($election) {
+            $pollingStation = PollingStation::where('election_id', $election['id'])
+                ->where('organization_id', $selectedOrganizationId)
+                ->where('user_id', $userId)
+                ->first();
+        }
 
         return SharedData::from([
             'security' => SecurityData::from([
@@ -37,6 +46,7 @@ class HandleHybridRequests extends Middleware
             'elections' => ElectionDetailsData::from([
                 'all' => ElectionData::collect($elections),
                 'selected' => ElectionData::optional($election),
+                'agentPollingStation' => PollingStationData::optional($pollingStation),
             ]),
         ]);
     }
