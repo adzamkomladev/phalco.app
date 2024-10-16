@@ -88,18 +88,18 @@ Route::prefix('voting')
             ->name('ballots.')
             ->group(function () {
 
-        Route::get('create', \App\Actions\Voting\Ballots\Create::class)->name('create');
-        Route::get('{id}/show', \App\Actions\Voting\Ballots\Show::class)->name('show');
-        Route::get('', \App\Actions\Voting\Ballots\Index::class)->name('index');
-        Route::post('', \App\Actions\Voting\Ballots\Store::class)->name('store');
-    });
+                Route::get('create', \App\Actions\Voting\Ballots\Create::class)->name('create');
+                Route::get('{id}/show', \App\Actions\Voting\Ballots\Show::class)->name('show');
+                Route::get('', \App\Actions\Voting\Ballots\Index::class)->name('index');
+                Route::post('', \App\Actions\Voting\Ballots\Store::class)->name('store');
+            });
 
-    Route::prefix('requests')
-    ->name('requests.')
-    ->group(function () {
-        Route::get('', \App\Actions\Voting\Requests\Index::class)->name('index');
-        Route::get('create', \App\Actions\Voting\Requests\Create::class)->name('create');
-    });
+        Route::prefix('requests')
+            ->name('requests.')
+            ->group(function () {
+                Route::get('', \App\Actions\Voting\Requests\Index::class)->name('index');
+                Route::get('create', \App\Actions\Voting\Requests\Create::class)->name('create');
+            });
     });
 
 //endregion

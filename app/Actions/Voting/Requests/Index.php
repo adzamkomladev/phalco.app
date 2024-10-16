@@ -38,7 +38,7 @@ class Index
 
         return [
             'pending' => $pending,
-            'completed' => $completed
+            'completed' => $completed,
         ];
     }
 }
