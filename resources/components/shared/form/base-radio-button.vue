@@ -7,7 +7,8 @@ const props = withDefaults(defineProps<BaseRadioButtonProps<string>>(), {
 const model = defineModel({ required: true });
 </script>
 
-<template><ul class="flex flex-col sm:flex-row">
+<template>
+    <ul class="flex flex-col sm:flex-row">
         <li
             v-for="(option, index) in props.options"
             :key="index"
