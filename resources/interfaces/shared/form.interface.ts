@@ -2,7 +2,7 @@ interface FormProp {
     id?: string;
     label?: string;
     name: string;
-    placeholder?:string;
+    placeholder?: string;
 }
 
 export interface BaseInputProps extends FormProp {
@@ -15,10 +15,9 @@ export interface BaseInputProps extends FormProp {
 
 export interface ButtonProps {
     type?: string;
-    label?:string;
-    loading?:boolean;
+    label?: string;
+    loading?: boolean;
 }
-
 
 export interface BaseCheckboxProps extends FormProp { }
 
@@ -36,8 +35,8 @@ export interface SearchInputProps extends FormProp {
     placeholder?: string;
 }
 
-export interface SubmitButtonProps{
-   loading?: boolean;
+export interface SubmitButtonProps {
+    loading?: boolean;
     text?: string;
     type?: "submit" | "primary" | "";
 }
@@ -47,4 +46,10 @@ export interface BaseTextareaProps extends FormProp {
     required?: boolean;
     autocomplete?: string;
     rows?: number;
+}
+
+
+export interface BaseOtpProps extends FormProp {
+    error?: string;
+    length?: number;
 }

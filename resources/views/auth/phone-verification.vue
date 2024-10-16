@@ -4,6 +4,14 @@ const verifyOtp = {};
 const handleOtpUpdate = (otp: string) => {
     console.log("OTP from child:", otp);
 };
+
+const form = useForm({
+    method: "POST",
+    url: route("elections.store"),
+    fields: {
+        otp: "",
+    },
+});
 </script>
 
 <template layout="auth">
@@ -20,11 +28,20 @@ const handleOtpUpdate = (otp: string) => {
             </strong>
             to verify
         </div>
-        <form>
+        <form @submit.prevent="form.submit">
             <div class="grid gap-y-8 mt-5">
-                <SharedFormBaseOtp :length="4" @updateOtp="handleOtpUpdate" />
+                <!-- <SharedFormBaseOtp :length="4" @updateOtp="handleOtpUpdate" /> -->
+                <SharedFormBaseOtpInput
+                    v-model="form.fields.otp"
+                    name="otp"
+                    :length="6"
+                    :error="form.errors.otp"
+                />
 
-                <SharedFormSubmitButton :loading="false" text="Confirm" />
+                <SharedFormSubmitButton
+                    :loading="form.processing"
+                    text="Confirm"
+                />
             </div>
         </form>
 
