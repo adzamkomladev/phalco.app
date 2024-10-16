@@ -16,6 +16,6 @@ onMounted(async () => {
 </script>
 
 <template>
-    <Icon v-if="Icon" :height="size" :width="size" :style="{color}" />
+    <Icon v-if="Icon" :height="size" :width="size" :style="{ color }" />
     <p v-else></p>
 </template>
