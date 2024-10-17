@@ -33,7 +33,7 @@ const pinInputOptions = JSON.stringify({
     <div
         :id="id"
         ref="input"
-        class="flex gap-x-3  justify-center sm:landscape:justify-start"
+        class="flex gap-x-3 justify-center sm:landscape:justify-start"
         :data-hs-pin-input="pinInputOptions"
     >
         <input
