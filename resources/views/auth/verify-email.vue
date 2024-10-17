@@ -6,13 +6,13 @@ useHead({
     title: "Verify Email",
 });
 
-const ALLOW_RESEND_IN_SECONDS = 5;
+const timeInSeconds = 5;
 
 const { user } = useSecurity();
 
 const showResend = ref(true);
 const resMessage = ref("");
-const countdown = ref(ALLOW_RESEND_IN_SECONDS);
+const countdown = ref(timeInSeconds);
 
 const resend = async () => {
     const res = await router.post(route("verification.send"));
@@ -25,7 +25,7 @@ const resend = async () => {
 };
 
 const startCountdown = () => {
-    countdown.value = ALLOW_RESEND_IN_SECONDS;
+    countdown.value = timeInSeconds;
     const interval = setInterval(() => {
         countdown.value -= 1;
         if (countdown.value <= 0) {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import emailVerifiedImage from "~/resources/svg/auth/congratulations.svg";
+import congratulation from "~/resources/svg/auth/congratulations.svg";
 
 useHead({
     title: "Email Verified",
@@ -12,7 +12,7 @@ useHead({
         decsription="Your email has been successfully verified, Lets get started"
     >
         <template v-slot:image>
-            <img :src="emailVerifiedImage" class="h-48" />
+            <img :src="congratulation" class="h-48" />
         </template>
 
         <router-link :href="route('home')">
