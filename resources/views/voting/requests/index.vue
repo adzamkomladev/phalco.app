@@ -44,7 +44,14 @@ const props = defineProps<{
                 >
                     <p>{{ pending.position }}</p>
                     <p>{{ pending.description }}</p>
-                    <router-link :href="route('voting.requests.create', {ballot_id: pending.id})" >Create Vote Entry Request</router-link>
+                    <router-link
+                        :href="
+                            route('voting.requests.create', {
+                                ballot_id: pending.id,
+                            })
+                        "
+                        >Create Vote Entry Request</router-link
+                    >
                 </li>
             </ul>
         </template>
