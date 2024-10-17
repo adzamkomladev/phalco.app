@@ -1,3 +1,4 @@
 {
-	"extends": "./.hybridly/tsconfig.json"
+    "extends": "./.hybridly/tsconfig.json",
+    "alloeJs":true
 }

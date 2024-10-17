@@ -6,6 +6,7 @@ import "preline/preline";
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 
+
 //#region Preline Setup
 
 import { type IStaticMethods } from "preline/preline";
@@ -38,13 +39,29 @@ window.EchoHub = new Echo({
 
 //#endregion
 
+//#region Assets setup
+import.meta.glob([
+    '../svg/**',
+    '../img/**',
+    '../fonts/**',
+    '../sample-files/**'
+]);
+//#endregion
+
 initializeHybridly({
     enhanceVue: (vue) => {
         const head = createHead();
         head.push({
-            titleTemplate: (title) => title ? `${title} — Phalco` : 'Phalco',
+            titleTemplate: (title) => (title ? `${title} — Phalco` : "Phalco"),
         });
         vue.use(i18n);
         vue.use(head);
+    },
+    progress: {
+        // The default options are as follow:
+        color: "#07689f",
+        delay: 300,
+        includeCSS: true,
+        spinner: false,
     },
 });
