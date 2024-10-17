@@ -65,12 +65,12 @@ final class PollingStationsTable extends Table
     protected function defineQuery(): Builder
     {
         $userId = auth()->id();
-
-        $selectedElectionId = 4;
+        $election = cache()->get("elections.selected.{$userId}");
+        $selectedElectionId = $election['id'] ?? null;
 
         return $this->getModel()
             ->query()
-            ->with(['election', 'agent'])
+            ->with(['election:id,name', 'agent'])
             ->where('election_id', $selectedElectionId);
     }
 }

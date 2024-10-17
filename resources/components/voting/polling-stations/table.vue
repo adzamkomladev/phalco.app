@@ -238,12 +238,24 @@ watch(search, debounceFn);
                         </td>
                         <td class="size-px whitespace-nowrap">
                             <div class="px-6 py-1.5">
-                                <a
+                                <!-- <a
                                     data-hs-overlay="#hs-overlay-create-user"
                                     class="inline-flex items-center text-sm font-medium text-blue-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                                 >
                                     Edit
-                                </a>
+                                </a> -->
+                                <router-link
+                                    :href="
+                                        route('voting.polling-stations.show', {
+                                            id: +extra(
+                                                findColumn('name'),
+                                                'id',
+                                            ),
+                                        })
+                                    "
+                                    class="inline-flex items-center text-sm font-medium text-blue-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                    >Details</router-link
+                                >
                             </div>
                         </td>
                     </tr>

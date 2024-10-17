@@ -34,8 +34,8 @@ const fileUploadOptions = JSON.stringify({
 <template>
     <div>
         <div ref="fileUpload" :data-hs-file-upload="fileUploadOptions">
-            <template data-hs-file-upload-preview="">
-                <div class="size-20">
+            <template data-hs-file-upload-preview=""
+                ><div class="size-20">
                     <img
                         class="w-full object-contain rounded-full"
                         data-dz-thumbnail=""

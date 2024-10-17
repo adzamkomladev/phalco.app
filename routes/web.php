@@ -71,9 +71,10 @@ Route::prefix('voting')
             ->name('polling-stations.')
             ->group(function () {
 
-                Route::get('', \App\Actions\Voting\PollingStations\Index::class)->name('index');
+                Route::get('{id}/show', \App\Actions\Voting\PollingStations\Show::class)->name('show');
                 Route::get('create', \App\Actions\Voting\PollingStations\Create::class)->name('create');
                 Route::post('upload', \App\Actions\Voting\PollingStations\Upload::class)->name('upload');
+                Route::get('', \App\Actions\Voting\PollingStations\Index::class)->name('index');
                 Route::post('', \App\Actions\Voting\PollingStations\Store::class)->name('store');
             });
 
@@ -81,10 +82,28 @@ Route::prefix('voting')
             ->name('agents.')
             ->group(function () {
 
-                Route::get('', \App\Actions\Voting\Agents\Index::class)->name('index');
+                Route::get('{id}/show', \App\Actions\Voting\Agents\Show::class)->name('show');
                 Route::get('create', \App\Actions\Voting\Agents\Create::class)->name('create');
                 Route::post('upload', \App\Actions\Voting\Agents\Upload::class)->name('upload');
+                Route::get('', \App\Actions\Voting\Agents\Index::class)->name('index');
                 Route::post('', \App\Actions\Voting\Agents\Store::class)->name('store');
+            });
+
+        Route::prefix('ballots')
+            ->name('ballots.')
+            ->group(function () {
+
+                Route::get('create', \App\Actions\Voting\Ballots\Create::class)->name('create');
+                Route::get('{id}/show', \App\Actions\Voting\Ballots\Show::class)->name('show');
+                Route::get('', \App\Actions\Voting\Ballots\Index::class)->name('index');
+                Route::post('', \App\Actions\Voting\Ballots\Store::class)->name('store');
+            });
+
+        Route::prefix('requests')
+            ->name('requests.')
+            ->group(function () {
+                Route::get('', \App\Actions\Voting\Requests\Index::class)->name('index');
+                Route::get('create', \App\Actions\Voting\Requests\Create::class)->name('create');
             });
     });
 
@@ -115,6 +134,7 @@ Route::prefix('elections')
         Route::post('', \App\Actions\Elections\Store::class)->name('store');
         Route::get('create', \App\Actions\Elections\Create::class)->name('create');
         Route::get('{id}/show', \App\Actions\Elections\Show::class)->name('show');
+        Route::patch('switch', \App\Actions\Elections\SwitchElection::class)->name('switch');
     });
 
 //endregion

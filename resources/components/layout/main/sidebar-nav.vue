@@ -1,4 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const pollingStationId = useProperty("elections.agentPollingStation.id");
+const electionId = useProperty("elections.selected.id");
+</script>
 
 <template>
     <nav
@@ -1118,6 +1121,191 @@
                                                 "
                                             >
                                                 New Agent
+                                            </router-link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li
+                                class="hs-accordion"
+                                id="voting-accordion-sub-3"
+                            >
+                                <button
+                                    type="button"
+                                    class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200"
+                                    aria-expanded="true"
+                                    aria-controls="voting-accordion-sub-3-child"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-scroll-text"
+                                    >
+                                        <path d="M15 12h-5" />
+                                        <path d="M15 8h-5" />
+                                        <path d="M19 17V5a2 2 0 0 0-2-2H4" />
+                                        <path
+                                            d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"
+                                        />
+                                    </svg>
+                                    Ballots
+
+                                    <svg
+                                        class="hs-accordion-active:block ms-auto hidden size-4"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="m18 15-6-6-6 6" />
+                                    </svg>
+
+                                    <svg
+                                        class="hs-accordion-active:hidden ms-auto block size-4"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="m6 9 6 6 6-6" />
+                                    </svg>
+                                </button>
+
+                                <div
+                                    id="voting-accordion-sub-3-child"
+                                    class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
+                                    role="region"
+                                    aria-labelledby="voting-accordion-sub-3"
+                                >
+                                    <ul class="pt-1 space-y-1">
+                                        <li>
+                                            <router-link
+                                                class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-200"
+                                                :href="
+                                                    route(
+                                                        'voting.ballots.index',
+                                                    )
+                                                "
+                                            >
+                                                Dashboard
+                                            </router-link>
+                                        </li>
+                                        <li>
+                                            <router-link
+                                                class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-200"
+                                                :href="
+                                                    route(
+                                                        'voting.ballots.create',
+                                                    )
+                                                "
+                                            >
+                                                New Ballot
+                                            </router-link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li
+                                class="hs-accordion"
+                                id="voting-accordion-sub-4"
+                            >
+                                <button
+                                    type="button"
+                                    class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200"
+                                    aria-expanded="true"
+                                    aria-controls="voting-accordion-sub-4-child"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-book-copy"
+                                    >
+                                        <path d="M2 16V4a2 2 0 0 1 2-2h11" />
+                                        <path
+                                            d="M22 18H11a2 2 0 1 0 0 4h10.5a.5.5 0 0 0 .5-.5v-15a.5.5 0 0 0-.5-.5H11a2 2 0 0 0-2 2v12"
+                                        />
+                                        <path d="M5 14H4a2 2 0 1 0 0 4h1" />
+                                    </svg>
+                                    Requests
+
+                                    <svg
+                                        class="hs-accordion-active:block ms-auto hidden size-4"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="m18 15-6-6-6 6" />
+                                    </svg>
+
+                                    <svg
+                                        class="hs-accordion-active:hidden ms-auto block size-4"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="m6 9 6 6 6-6" />
+                                    </svg>
+                                </button>
+
+                                <div
+                                    id="voting-accordion-sub-4-child"
+                                    class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
+                                    role="region"
+                                    aria-labelledby="voting-accordion-sub-4"
+                                >
+                                    <ul class="pt-1 space-y-1">
+                                        <li>
+                                            <router-link
+                                                class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-200"
+                                                :href="
+                                                    route(
+                                                        'voting.requests.index',
+                                                        {
+                                                            election_id:
+                                                                electionId,
+                                                            polling_station_id:
+                                                                pollingStationId,
+                                                        },
+                                                    )
+                                                "
+                                            >
+                                                Dashboard
                                             </router-link>
                                         </li>
                                     </ul>

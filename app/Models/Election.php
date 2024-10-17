@@ -49,4 +49,9 @@ class Election extends Model
     {
         return $this->hasMany(ElectionStage::class, 'election_id', 'id')->latest();
     }
+
+    public function voters(): HasMany
+    {
+        return $this->hasMany(Voter::class);
+    }
 }

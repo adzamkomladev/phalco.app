@@ -13,10 +13,7 @@ class Create
 
     public function asController()
     {
-        $elections = $this->handle(request()->user()->selected_organization_id);
-
-        return view('voting.agents.create', ['elections' => $elections])
-            ->base('voting.agents.index');
+        return view('voting.agents.create')->base('voting.agents.index');
     }
 
     public function handle(int $organizationId)
