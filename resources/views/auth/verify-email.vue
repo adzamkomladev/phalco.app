@@ -43,8 +43,8 @@ const startCountdown = () => {
             To start using Phalco, confirm your email address with the email we
             sent to:
 
-            <strong class="font-bold text-primary-500 truncate">
-                <a
+            <strong class="font-bold text-primary-500 truncate"
+                ><a
                     :href="
                         'https://mail.google.com/mail/u/0/#inbox?compose=new&to=' +
                         user?.email
