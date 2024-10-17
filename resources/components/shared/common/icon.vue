@@ -16,6 +16,6 @@ onMounted(async () => {
 </script>
 
 <template>
-    <Icon v-if="Icon" :height="size"  v-bind:style="color ? { color } : null" />
+    <Icon v-if="Icon" :height="size" v-bind:style="color ? { color } : null" />
     <p v-else>!</p>
 </template>

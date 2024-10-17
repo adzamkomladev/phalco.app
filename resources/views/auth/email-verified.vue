@@ -7,8 +7,10 @@ useHead({
 </script>
 
 <template layout="auth">
-   <LayoutAuthContent title="Congratulations" decsription="Your email has been successfully verified, Lets get started">   
-   
+    <LayoutAuthContent
+        title="Congratulations"
+        decsription="Your email has been successfully verified, Lets get started"
+    >
         <template v-slot:image>
             <img :src="emailVerifiedImage" class="h-48" />
         </template>
@@ -29,5 +31,5 @@ useHead({
                 </router-link>
             </p>
         </div>
-</LayoutAuthContent>
+    </LayoutAuthContent>
 </template>
