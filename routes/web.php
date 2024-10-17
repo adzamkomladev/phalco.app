@@ -10,6 +10,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/phone-verif', function () {
+
+    return hybridly('auth.phone-verification');
+})->name('phone-verif');
+
 Route::get('/elections', function () {
     return hybridly('elections.index');
 })->middleware('auth')->name('elections');

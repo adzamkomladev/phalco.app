@@ -66,7 +66,7 @@ const electionId = useProperty("elections.selected.id");
                             <polygon points="12 2 20 7 4 7" />
                         </svg>
                         Elections
-
+                        <!-- <TrialDropDown/> -->
                         <svg
                             class="hs-accordion-active:block ms-auto hidden size-4"
                             xmlns="http://www.w3.org/2000/svg"
