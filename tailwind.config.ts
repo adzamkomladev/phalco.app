@@ -19,8 +19,17 @@ export default {
         '2xtall': {
           'raw': `only screen and (min-height: 1024px)`
         },
-        'wide': {
-          'raw': `only screen and (max-height: 480px) and (max-width: 960px)`
+        '_sm': {
+          'raw': `only screen and (max-width: 640px)`
+        },
+        '_md': {
+          'raw': `only screen and (max-width: 768px)`
+        },
+        '_lg': {
+          'raw': `only screen and (max-width: 1024px)`
+        },
+        '_xl': {
+          'raw': `only screen and (max-width: 1280px)`
         },
         'portrait': {
           'raw': '(orientation: portrait)'

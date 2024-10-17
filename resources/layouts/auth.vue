@@ -30,12 +30,12 @@ onMounted(() => {
                 </div>
 
                 <div
-                    class="bg-gray-200 shadow sticky bg-center sm:landscape:rounded-3xl xl:landscape:bg-bottom bg-contain dark:bg-gray-700 blur-[1.5px] h-[50vh] flex-1 bg-auth-p bg-no-repeat landscape:h-full sm:landscape:blur-0"
+                    class="bg-gray-200 shadow sticky bg-center sm:landscape:rounded-3xl xl:landscape:bg-bottom bg-contain dark:bg-gray-700 blur-[1.5px] h-[50vh] flex-1 bg-auth-p bg-no-repeat sm:landscape:h-full sm:landscape:blur-0"
                 ></div>
             </div>
 
             <div
-                class="pt-8 sm:landscape:pt-10 -mt px-[10%] sm:portrait:px-[14%] portrait: sm:landscape:mt-0 pb-10 sm:landscape:px-0 sm:landscape:pr-[5vw] xl:pr-[8vw] z-50 bg-white rounded-t-[2.5rem] sm:landscape:rounded-t-none flex-1 sm:landscape:overflow-y-auto sm:landscape:h-screen dark:bg-gray-800"
+                class="pt-8 sm:landscape:pt-10 -mt px-[10%] sm:portrait:px-[14%] sm:landscape:mt-0 pb-10 sm:landscape:px-0 sm:landscape:pr-[5vw] xl:pr-[8vw] z-50 bg-white rounded-t-[2.5rem] sm:landscape:rounded-t-none flex-1 sm:landscape:overflow-y-auto sm:landscape:h-screen dark:bg-gray-800"
             >
                 <slot />
             </div>

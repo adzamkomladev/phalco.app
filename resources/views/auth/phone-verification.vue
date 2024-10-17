@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const verifyOtp = {};
-
 const handleOtpUpdate = (otp: string) => {
     console.log("OTP from child:", otp);
 };
@@ -32,7 +31,7 @@ const form = useForm({
                 <SharedFormBaseOtpInput
                     v-model="form.fields.otp"
                     name="otp"
-                    :length="6"
+                    :length="4"
                     :error="form.errors.otp"
                 />
 
@@ -42,7 +41,6 @@ const form = useForm({
                 />
             </div>
         </form>
-
         <div class="">
             <p
                 class="mt-2 text-sm sm:text-base xl:text-lg text-gray-600 dark:text-neutral-400"
