@@ -19,7 +19,7 @@ useHead({
             <SharedFormSubmitButton text="Proceed" />
         </router-link>
 
-        <div class="">
+        <div>
             <p
                 class="text-sm sm:landscape:text-left text-gray-600 xl:text-base dark:text-neutral-400"
             >

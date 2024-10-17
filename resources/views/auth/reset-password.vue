@@ -10,6 +10,7 @@ const register = useForm({
         password: "",
         password_confirmation: "",
     },
+
     hooks: {
         start: () => console.log("The request has started."),
         fail: () => console.log("The request has failed."),
