@@ -8,12 +8,10 @@ useHead({
 
 <template layout="auth">
    <LayoutAuthContent title="Congratulations" decsription="Your email has been successfully verified, Lets get started">   
-  
-    <div>
-      
-        <div class="grid justify-center dark:opacity-70 py-8">
+   
+        <template v-slot:image>
             <img :src="emailVerifiedImage" class="h-48" />
-        </div>
+        </template>
 
         <router-link :href="route('home')">
             <SharedFormSubmitButton text="Proceed" />
@@ -31,6 +29,5 @@ useHead({
                 </router-link>
             </p>
         </div>
-    </div> 
 </LayoutAuthContent>
 </template>

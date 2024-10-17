@@ -18,7 +18,7 @@ const form = useForm({
     <LayoutAuthContent class="" title="Phone Verification" description="">
        
         <template v-slot:description>
-   Enter the 4 digit verification sent to :
+   Enter the 6 digit verification sent to :
             <strong
                 class="text-primary-500 dark:text-primary-700 pr-1 truncate"
             >

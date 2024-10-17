@@ -30,9 +30,9 @@ onMounted(async () => {
             </p>
         </div>
 
-    <div v-if="authImage" class="grid justify-center dark:opacity-90 py-8">
-            <AuthImage  class="h-48" />
-        </div>             
+    <div class="grid justify-center dark:opacity-70">
+        <slot  name="image"/>
+            </div>
     <slot />
     </div>
 </template>

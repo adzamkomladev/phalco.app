@@ -39,11 +39,10 @@ const startCountdown = () => {
 
 <template layout="auth">
     <LayoutAuthContent class="" title="Verification email sent">
-        <div class="grid gap-5 sm:gap-8">
-            <p
-                class="text-gray-500 text-center sm:landscape:text-left font-normal text-sm sm:text-base md:text-lg"
-            >
-                To start using Phalco, confirm your email address with the email
+        
+        
+          <template v-slot:description>
+             To start using Phalco, confirm your email address with the email
                 we sent to:
 
                 <strong class="font-bold text-primary-500 truncate">
@@ -58,10 +57,12 @@ const startCountdown = () => {
                         {{ user?.email }}
                     </a>
                 </strong>
-            </p>
-            <div class="grid justify-center dark:opacity-70">
+          </template>
+          <template v-slot:image>
                 <img :src="verificationImage" class="h-48" />
-            </div>
+
+          </template>
+           
             <div class="relative h-16">
                 <Transition name="fade" appear mode="out-in">
                     <div
@@ -123,7 +124,6 @@ const startCountdown = () => {
                         Contact customer Support
                     </router-link>
                 </p>
-            </div>
         </div>
     </LayoutAuthContent>
 </template>
