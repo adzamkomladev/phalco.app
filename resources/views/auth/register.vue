@@ -33,7 +33,7 @@ const register = useForm({
             <AuthGoogleButton />
         </div>
 
-        <SharedFormBaseOr />
+        <SharedCommonOr />
 
         <form @submit.prevent="register.submit">
             <div class="grid gap-y-5">

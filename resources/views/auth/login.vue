@@ -30,7 +30,7 @@ const login = useForm({
             <AuthGoogleButton text="Log In with Google" />
         </div>
 
-        <SharedFormBaseOr />
+        <SharedCommonOr />
 
         <form @submit.prevent="login.submit">
             <div class="grid gap-y-4">

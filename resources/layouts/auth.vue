@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import LargeLogo from "../svg/auth/large-logo.svg";
-
 onMounted(() => {
     setTimeout(() => {
         window.HSStaticMethods.autoInit();
@@ -10,21 +8,22 @@ onMounted(() => {
 
 <template>
     <main
-        class="relative min-h-screen flex bg-white dark:bg-gray-800 sm:landscape:overflow-x-hidde"
+        class="relative text-red-400 min-h-screen flex bg-white dark:bg-gray-800 sm:landscape:overflow-x-hidde"
     >
         <section
-            class="flex-1 flex flex-col lg:landscape:gap-x-[4vw] sm:landscape:landscape:flex-row"
+            class="flex-1 flex flex-col sm:landscape:gap-x-[4vw] sm:landscape:landscape:flex-row"
         >
             <div
-                class="sticky h-[30vh] sm:landscape:p-4 md:landscape:p-8 sm:landscape:pr-0 -top-0 bg-cover block spect-square sm:landscape:h-full sm:landscape:landscape:w-[50%] rounded-t-2xl sm:landscape:rounded-tl-none sm:landscape:rounded-r-2xl sm:landscape:flex"
+                class="sticky h-[30vh] sm:landscape:p-4  sm:landscape:pr-0 -top-0 bg-cover block spect-square sm:landscape:h-full sm:landscape:landscape:w-[50%] rounded-t-2xl sm:landscape:rounded-tl-none sm:landscape:rounded-r-2xl sm:landscape:flex"
             >
                 <div
-                    class="blur-0 z-50 select-none absolute left-2 p-5 top-8 sm:landscape:left-5 bg-clip-text bg-red-500 sm:landscape:top-8 text-red-600"
+                    class="blur-0 z-50 select-none absolute  sm:left-[5vw] top-[2vh] p-5"
                 >
-                    <img
-                        class="h-[1rem] px-5 sm:h-[1.5rem] text-transparent bg-transparent"
-                        :src="LargeLogo"
-                    />
+                   
+                    <div class="h-[1rem] px-1 sm:h-[1.5rem] text-transparent bg-transparent xtall:sm:scale-150">
+                                            <SharedCommonIcon  name="logo_full" class="text-primary-500" />
+
+                    </div>
                 </div>
 
                 <div

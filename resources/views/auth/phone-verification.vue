@@ -16,18 +16,18 @@ const form = useForm({
 
 <template layout="auth">
     <LayoutAuthContent class="" title="Phone Verification" description="">
-        <div
-            class="text-gray-500 text-base text-center sm:landscape:text-left -mt-5 md:text-xl"
-        >
-            Enter the 4 digit verification sent to :
-            <br class="hidden portrait:block" />
+       
+        <template v-slot:description>
+   Enter the 4 digit verification sent to :
             <strong
                 class="text-primary-500 dark:text-primary-700 pr-1 truncate"
             >
                 +233 345 540 643
             </strong>
             to verify
-        </div>
+        </template>
+         
+      
         <form @submit.prevent="form.submit">
             <div class="grid gap-y-8 mt-5">
                 <!-- <SharedFormBaseOtp :length="4" @updateOtp="handleOtpUpdate" /> -->

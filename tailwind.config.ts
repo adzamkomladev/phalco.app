@@ -11,7 +11,13 @@ export default {
     'auth-p': "url('../svg/auth/layout.svg')"
   }, screens: {
         'tall': {
-          'raw': `only screen and (max-height: 960px) and (max-width: 480px)`
+          'raw': `only screen and (min-height: 640px)`
+        },
+        'xtall': {
+          'raw': `only screen and (min-height: 960px)`
+        },
+        '2xtall': {
+          'raw': `only screen and (min-height: 1024px)`
         },
         'wide': {
           'raw': `only screen and (max-height: 480px) and (max-width: 960px)`
