@@ -34,7 +34,7 @@ class Store
 
             return redirect()->route('voting.requests.index', [
                 'election_id' => $request->input('election_id'),
-                'polling_station_id' => $request->input('polling_station_id')
+                'polling_station_id' => $request->input('polling_station_id'),
             ]);
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
@@ -60,26 +60,26 @@ class Store
         ]);
 
         $entryRequestId = $entryRequest->id;
-        $entriesData = collect($options)->map(fn(array $option) => [
+        $entriesData = collect($options)->map(fn (array $option) => [
             'vote_entry_request_id' => $entryRequestId,
             'ballot_option_id' => $option['id'],
             'votes' => $option['votes'],
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ])->toArray();
 
         [$entries, $entryFile, $entryRequestHistory] = Octane::concurrently([
-            fn() => VoteEntry::insert($entriesData),
-            fn() => VoteEntryFile::create([
+            fn () => VoteEntry::insert($entriesData),
+            fn () => VoteEntryFile::create([
                 'vote_entry_request_id' => $entryRequestId,
                 'url' => $uploadFile,
             ]),
-            fn() => VoteEntryRequestHistory::create([
+            fn () => VoteEntryRequestHistory::create([
                 'vote_entry_request_id' => $entryRequestId,
                 'user_id' => $userId,
                 'status' => 'pending',
-                'comment' => 'Submit request for vote entry'
-            ])
+                'comment' => 'Submit request for vote entry',
+            ]),
         ]);
     }
 }
