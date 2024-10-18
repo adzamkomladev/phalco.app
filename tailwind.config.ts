@@ -8,7 +8,11 @@ export default {
     theme: {
         extend: {
             backgroundImage: {
-    'auth-p': "url('../svg/auth/layout.svg')"
+    'auth-p': "url('../svg/auth/layout.svg')",
+    'land-sm': "url('../svg/welcome/about_bg_sm.svg')",
+    'land-lg': "url('../svg/welcome/about_bg_lg.svg')",
+    'menu-br': "url('../svg/welcome/menu/background.svg')",
+    'community': "url('../svg/welcome/community.png')"
   }, screens: {
         'tall': {
           'raw': `only screen and (min-height: 640px)`

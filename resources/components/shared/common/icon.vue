@@ -4,6 +4,7 @@ const props = withDefaults(
         name?: string;
         size?: number;
         color?: string;
+        square?:boolean;
     }>(),
     { size: 24, name: "diamond" },
 );
@@ -16,6 +17,6 @@ onMounted(async () => {
 </script>
 
 <template>
-    <Icon v-if="Icon" :height="size" v-bind:style="color ? { color } : null" />
+    <Icon v-if="Icon"  :height="size" v-bind:style="color ? { color } : null" />
     <p v-else>!</p>
 </template>

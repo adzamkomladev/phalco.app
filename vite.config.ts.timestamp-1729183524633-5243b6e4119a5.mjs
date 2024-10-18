@@ -1,0 +1,14 @@
+// vite.config.ts
+import { defineConfig } from "file:///home/kgyan/phalco.app/node_modules/vite/dist/node/index.js";
+import hybridly from "file:///home/kgyan/phalco.app/node_modules/hybridly/dist/vite.mjs";
+import svgLoader from "file:///home/kgyan/phalco.app/node_modules/vite-svg-loader/index.js";
+var vite_config_default = defineConfig({
+  plugins: [
+    hybridly(),
+    svgLoader()
+  ]
+});
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcudHMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCIvaG9tZS9rZ3lhbi9waGFsY28uYXBwXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ZpbGVuYW1lID0gXCIvaG9tZS9rZ3lhbi9waGFsY28uYXBwL3ZpdGUuY29uZmlnLnRzXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ltcG9ydF9tZXRhX3VybCA9IFwiZmlsZTovLy9ob21lL2tneWFuL3BoYWxjby5hcHAvdml0ZS5jb25maWcudHNcIjtpbXBvcnQgeyBkZWZpbmVDb25maWcgfSBmcm9tICd2aXRlJ1xuaW1wb3J0IGh5YnJpZGx5IGZyb20gJ2h5YnJpZGx5L3ZpdGUnXG5pbXBvcnQgc3ZnTG9hZGVyIGZyb20gJ3ZpdGUtc3ZnLWxvYWRlcidcblxuXG5leHBvcnQgZGVmYXVsdCBkZWZpbmVDb25maWcoe1xuXHRwbHVnaW5zOiBbXG5cdFx0aHlicmlkbHkoKSxcbiAgICAgICAgc3ZnTG9hZGVyKClcblx0XSxcbn0pXG4iXSwKICAibWFwcGluZ3MiOiAiO0FBQW9QLFNBQVMsb0JBQW9CO0FBQ2pSLE9BQU8sY0FBYztBQUNyQixPQUFPLGVBQWU7QUFHdEIsSUFBTyxzQkFBUSxhQUFhO0FBQUEsRUFDM0IsU0FBUztBQUFBLElBQ1IsU0FBUztBQUFBLElBQ0gsVUFBVTtBQUFBLEVBQ2pCO0FBQ0QsQ0FBQzsiLAogICJuYW1lcyI6IFtdCn0K
