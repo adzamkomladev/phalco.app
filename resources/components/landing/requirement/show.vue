@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 const requirements = [
     "Lorem ipsum dolor sit amet some one is here who cares if its lorem ipsun",
     "Lorem  adipisicing elit. some guys are hidden ",

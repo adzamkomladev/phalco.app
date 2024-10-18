@@ -1,6 +1,4 @@
 <script setup lang="ts">
-
-
 onMounted(() => {
     setTimeout(() => {
         window.HSStaticMethods.autoInit();
