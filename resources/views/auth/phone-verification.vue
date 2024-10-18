@@ -26,7 +26,7 @@ const form = useForm({
         </template>
 
         <form @submit.prevent="form.submit">
-            <div     class="grid  gap-5 w-full">
+            <div class="grid gap-5 w-full">
                 <!-- <SharedFormBaseOtp :length="4" @updateOtp="handleOtpUpdate" /> -->
                 <SharedFormBaseOtpInput
                     v-model="form.fields.otp"

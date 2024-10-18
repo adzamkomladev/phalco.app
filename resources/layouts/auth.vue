@@ -17,7 +17,7 @@ onMounted(() => {
                 class="sticky h-[30vh] sm:landscape:p-4 sm:landscape:pr-0 -top-0 bg-cover block spect-square sm:landscape:h-full sm:landscape:landscape:w-[50%] rounded-t-2xl sm:landscape:rounded-tl-none sm:landscape:rounded-r-2xl sm:landscape:flex"
             >
                 <div
-                    class="blur-0 z-50 select-none absolute sm:left-[5vw] top-[2vh] p-5 "
+                    class="blur-0 z-50 select-none absolute sm:left-[5vw] top-[2vh] p-5"
                 >
                     <div
                         class="h-[1rem] px-1 sm:h-[1.5rem] text-transparent bg-transparent xtall:sm:scale-150"

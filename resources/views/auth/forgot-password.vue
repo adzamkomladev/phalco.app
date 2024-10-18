@@ -27,7 +27,6 @@ const forget_password = useForm({
         description="Enter your email to reset your password "
         :pageImage="forgetPassworImage"
     >
-
         <form @submit.prevent="forget_password.submit">
             <div class="grid gap-y-4 _md:landscape:gap-y-4 sm:gap-y-8 pt-2">
                 <SharedFormBaseInput

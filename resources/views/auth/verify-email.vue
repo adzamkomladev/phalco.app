@@ -38,7 +38,11 @@ const startCountdown = () => {
 </script>
 
 <template layout="auth">
-    <LayoutAuthContent class="" title="Verification email sent" :pageImage="verificationImage">
+    <LayoutAuthContent
+        class=""
+        title="Verification email sent"
+        :pageImage="verificationImage"
+    >
         <template v-slot:description>
             To start using Phalco, confirm your email address with the email we
             sent to:
