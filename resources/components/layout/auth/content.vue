@@ -2,16 +2,7 @@
 const props = defineProps<{
     title?: string;
     description?: string;
-    pageImage?: string;
 }>();
-// const authImage = ref(import(`../../../svg/auth/${props.pageImage}.svg`))
-let authImage = ref(null);
-
-onMounted(async () => {
-    AuthImage.value = await import(
-        `../../../svg/icon/${props.pageImage}.svg?component`
-    );
-});
 </script>
 
 <template>

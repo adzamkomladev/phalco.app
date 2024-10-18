@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import forgetPassworImage from "~/resources/svg/auth/forgot_password.svg";
+import ForgetPasswordImage from "~/resources/svg/auth/forgot_password.svg?url";
 
 useHead({
     title: "Forget Password",
@@ -10,13 +10,7 @@ const forget_password = useForm({
     url: route("password.request"),
     fields: {
         email: "",
-    },
-    hooks: {
-        start: () => console.log("The request has started."),
-        fail: () => console.log("The request has failed."),
-        after: () => console.log("The request has finished."),
-        success: () => console.log("The request has succeeded."),
-    },
+    }
 });
 </script>
 
@@ -27,7 +21,7 @@ const forget_password = useForm({
         description="Enter your email to reset your password "
     >
         <div class="grid place-items-center">
-            <img class="w-1/2 py-2" :src="forgetPassworImage" />
+            <img class="w-1/2 py-2" :src="ForgetPasswordImage" />
         </div>
         <form @submit.prevent="forget_password.submit">
             <div class="grid gap-y-8 pt-2">
@@ -47,12 +41,12 @@ const forget_password = useForm({
             </div>
             <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
                 Remember your password?
-                <a
+                <router-link
                     class="text-primary-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
-                    href="../examples/html/signin.html"
+                    :href="route('login')"
                 >
                     Sign in here
-                </a>
+                </router->
             </p>
         </form>
     </LayoutAuthContent>
