@@ -4,31 +4,43 @@ useHead({
 });
 
 const props = defineProps<{
-    completed: any[];
+    submitted: any[];
     pending: any[];
 }>();
+
+const pollingStationId = useProperty("elections.agentPollingStation.id");
+const electionId = useProperty("elections.selected.id");
+
 </script>
 
 <template layout="main">
     <p>Requests</p>
     <div>
-        <h3 class="h3">Completed</h3>
-        <template v-if="props.completed.length > 0">
+        <h3 class="h3">Submitted</h3>
+        <template v-if="props.submitted.length > 0">
             <ul
                 class="max-w-xs flex flex-col divide-y divide-gray-200 dark:divide-neutral-700"
             >
                 <li
                     class="inline-flex items-center gap-x-2 py-3 px-4 text-sm font-medium text-gray-800 dark:text-white"
-                    v-for="(completed, index) in props.completed"
+                    v-for="(submitted, index) in props.submitted"
                     :key="index"
                 >
-                    <p>{{ completed.position }}</p>
-                    <p>{{ completed.description }}</p>
+                    <p>{{ submitted.ballot.position }}</p>
+                    <p>{{ submitted.ballot.description }}</p>
+                    <p>{{ submitted.status }}</p>
+                    <router-link
+                        :href="
+                            route('voting.requests.show', { id: submitted.id })
+                        "
+                    >
+                        Details
+                    </router-link>
                 </li>
             </ul>
         </template>
         <template v-else>
-            <p>No completed requests</p>
+            <p>No submitted requests</p>
         </template>
     </div>
     <div>
@@ -48,10 +60,13 @@ const props = defineProps<{
                         :href="
                             route('voting.requests.create', {
                                 ballot_id: pending.id,
+                                polling_station_id: pollingStationId,
+                                election_id: electionId,
                             })
                         "
-                        >Create Vote Entry Request</router-link
                     >
+                        Create Vote Entry Request
+                    </router-link>
                 </li>
             </ul>
         </template>

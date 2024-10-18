@@ -24,12 +24,13 @@ class Index
 
     public function handle(int $userId, int $electionId, int $pollingStationId)
     {
-        $completed = VoteEntryRequest::select(['id', 'polling_station_id', 'user_id', 'ballot_id'])
+        $submitted = VoteEntryRequest::with(['ballot:id,position,description'])
+        ->select(['id', 'polling_station_id', 'user_id', 'ballot_id', 'status'])
             ->where('polling_station_id', $pollingStationId)
             ->where('user_id', $userId)
             ->get();
 
-        $ballotIdsToIgnore = $completed->pluck('ballot_id')->toArray();
+        $ballotIdsToIgnore = $submitted->pluck('ballot_id')->toArray();
 
         $pending = Ballot::select(['id', 'election_id', 'position', 'description'])
             ->where('election_id', $electionId)
@@ -38,7 +39,7 @@ class Index
 
         return [
             'pending' => $pending,
-            'completed' => $completed,
+            'submitted' => $submitted,
         ];
     }
 }

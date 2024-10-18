@@ -38,7 +38,7 @@ Route::prefix('email')
             ->middleware(['signed'])
             ->name('verification.verify');
 
-        Route::get('verified', fn () => hybridly('auth.email-verified'))
+    Route::get('verified', fn() => hybridly('auth.email-verified'))
             ->middleware(['auth'])
             ->name('email.verified');
     });
@@ -48,7 +48,7 @@ Route::prefix('password')
     ->middleware(['guest'])
     ->group(function () {
         Route::post('send/reset-link', \App\Actions\Auth\Password\SendResetLink::class)->name('send.reset-link');
-        Route::get('reset/{token}', fn (string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
+    Route::get('reset/{token}', fn(string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
         Route::post('reset', \App\Actions\Auth\Password\Reset::class)->name('reset');
     });
 
@@ -101,10 +101,11 @@ Route::prefix('voting')
 
         Route::prefix('requests')
             ->name('requests.')
-            ->group(function () {
-                Route::get('', \App\Actions\Voting\Requests\Index::class)->name('index');
+    ->group(function () {
                 Route::get('create', \App\Actions\Voting\Requests\Create::class)->name('create');
-                Route::post('store', \App\Actions\Voting\Requests\Store::class)->name('store');
+        Route::get('{id}/show', \App\Actions\Voting\Requests\Show::class)->name('show');
+        Route::get('', \App\Actions\Voting\Requests\Index::class)->name('index');
+        Route::post('', \App\Actions\Voting\Requests\Store::class)->name('store');
             });
     });
 
