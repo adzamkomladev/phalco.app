@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import useSecurity from "~/resources/composables/security";
-import verificationImage from "~/resources/svg/auth/verification_email.svg";
+import VerificationImage from "~/resources/svg/auth/verification_email.svg?url";
 
 useHead({
     title: "Verify Email",
@@ -57,7 +57,7 @@ const startCountdown = () => {
             </strong>
         </template>
         <template v-slot:image>
-            <img :src="verificationImage" class="h-48" />
+            <img :src="VerificationImage" class="h-48" />
         </template>
 
         <div class="relative h-16">

@@ -104,6 +104,7 @@ Route::prefix('voting')
             ->group(function () {
                 Route::get('', \App\Actions\Voting\Requests\Index::class)->name('index');
                 Route::get('create', \App\Actions\Voting\Requests\Create::class)->name('create');
+                Route::post('store', \App\Actions\Voting\Requests\Store::class)->name('store');
             });
     });
 

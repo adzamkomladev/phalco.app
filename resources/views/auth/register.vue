@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-    title: "Register",
+    title: "Register ",
 });
 
 const register = useForm({
@@ -13,12 +13,6 @@ const register = useForm({
         password: "",
         password_confirmation: "",
         agree: false,
-    },
-    hooks: {
-        start: () => console.log("The request has started."),
-        fail: () => console.log("The request has failed."),
-        after: () => console.log("The request has finished."),
-        success: () => console.log("The request has succeeded."),
     },
 });
 </script>

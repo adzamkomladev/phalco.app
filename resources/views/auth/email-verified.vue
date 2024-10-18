@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import congratulation from "~/resources/svg/auth/congratulations.svg";
+import Congratulation from "~/resources/svg/auth/congratulations.svg?url";
 
 useHead({
     title: "Email Verified",
@@ -9,10 +9,10 @@ useHead({
 <template layout="auth">
     <LayoutAuthContent
         title="Congratulations"
-        decsription="Your email has been successfully verified, Lets get started"
+        description="Your email has been successfully verified, Lets get started"
     >
         <template v-slot:image>
-            <img :src="congratulation" class="h-48" />
+            <img :src="Congratulation" class="h-48" />
         </template>
 
         <router-link :href="route('home')">

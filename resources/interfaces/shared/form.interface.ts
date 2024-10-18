@@ -1,4 +1,4 @@
-interface FormProp {
+export interface FormProp {
     id?: string;
     label?: string;
     name: string;
