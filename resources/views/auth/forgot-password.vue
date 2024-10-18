@@ -46,7 +46,7 @@ const forget_password = useForm({
                     :href="route('login')"
                 >
                     Sign in here
-                </router->
+                </router-link>
             </p>
         </form>
     </LayoutAuthContent>
