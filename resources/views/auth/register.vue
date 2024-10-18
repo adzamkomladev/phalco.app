@@ -13,18 +13,11 @@ const register = useForm({
         password: "",
         password_confirmation: "",
         agree: false,
-    },
-    hooks: {
-        start: () => console.log("The request has started."),
-        fail: () => console.log("The request has failed."),
-        after: () => console.log("The request has finished."),
-        success: () => console.log("The request has succeeded."),
-    },
+    }
 });
 </script>
 
-<template layout="auth">
-    <LayoutAuthContent
+<template layout="auth"><LayoutAuthContent
         class=""
         title="Sign Up"
         description="Create new account with phalco"
