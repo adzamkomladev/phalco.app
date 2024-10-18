@@ -26,6 +26,7 @@ const form = useForm({
         upload_file: null,
         polling_station_id: pollingStationId.value,
         election_id: electionId.value,
+        comment: "",
     },
     hooks: {
         success: () => form.reset(),
@@ -40,6 +41,12 @@ const form = useForm({
             v-model="form.fields.options"
             :options="options"
             name="options"
+        />
+        <SharedFormBaseTextarea
+            v-model="form.fields.comment"
+            id="comment"
+            name="comment"
+            label="Comment"
         />
         <SharedFormBaseFileUpload
             file-types="image/*"
