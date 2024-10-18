@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-    title: "Register",
+    title: "Register ",
 });
 
 const register = useForm({
