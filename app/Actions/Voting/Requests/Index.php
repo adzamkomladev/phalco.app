@@ -25,7 +25,7 @@ class Index
     public function handle(int $userId, int $electionId, int $pollingStationId)
     {
         $submitted = VoteEntryRequest::with(['ballot:id,position,description'])
-        ->select(['id', 'polling_station_id', 'user_id', 'ballot_id', 'status'])
+            ->select(['id', 'polling_station_id', 'user_id', 'ballot_id', 'status'])
             ->where('polling_station_id', $pollingStationId)
             ->where('user_id', $userId)
             ->get();

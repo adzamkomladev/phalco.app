@@ -10,7 +10,6 @@ const props = defineProps<{
 
 const pollingStationId = useProperty("elections.agentPollingStation.id");
 const electionId = useProperty("elections.selected.id");
-
 </script>
 
 <template layout="main">

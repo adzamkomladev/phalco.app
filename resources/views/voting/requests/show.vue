@@ -6,7 +6,6 @@ useHead({
 const props = defineProps<{
     voteEntryRequest: any;
 }>();
-
 </script>
 
 <template>
