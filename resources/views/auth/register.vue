@@ -13,11 +13,12 @@ const register = useForm({
         password: "",
         password_confirmation: "",
         agree: false,
-    }
+    },
 });
 </script>
 
-<template layout="auth"><LayoutAuthContent
+<template layout="auth">
+    <LayoutAuthContent
         class=""
         title="Sign Up"
         description="Create new account with phalco"
