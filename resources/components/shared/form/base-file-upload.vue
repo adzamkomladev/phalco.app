@@ -3,7 +3,7 @@ import HSFileUpload from "@preline/file-upload";
 
 const fileUpload = ref<HTMLInputElement | null>(null);
 const model = defineModel({ required: true });
-const props = defineProps<{ error?: string | null }>();
+const props = defineProps<{ error?: string | null, fileTypes?: string | null, path?: string | null }>();
 onMounted(() => {
     // Initialize File Upload
     HSFileUpload.autoInit();
@@ -24,8 +24,8 @@ onMounted(() => {
 });
 
 const fileUploadOptions = JSON.stringify({
-    url: "/assets/upload?path=organizations",
-    acceptedFiles: ".xls,.xlsx,.csv",
+    url: `/assets/upload?path=${props.path || 'organizations'}`,
+    acceptedFiles: props.fileTypes || ".xls,.xlsx,.csv",
     maxFiles: 1,
     extensions: {
         default: {
