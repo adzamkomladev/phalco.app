@@ -10,7 +10,7 @@ const forget_password = useForm({
     url: route("password.request"),
     fields: {
         email: "",
-    }
+    },
 });
 </script>
 
