@@ -80,7 +80,7 @@ class Store
                 'vote_entry_request_id' => $entryRequestId,
                 'user_id' => $userId,
                 'status' => 'pending',
-                'comment' => $comment
+                'comment' => $comment,
             ]),
         ]);
     }
