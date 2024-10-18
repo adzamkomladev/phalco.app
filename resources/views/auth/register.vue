@@ -36,7 +36,7 @@ const register = useForm({
         <SharedCommonOr />
 
         <form @submit.prevent="register.submit">
-            <div class="grid gap-y-5">
+            <div class="grid gap-y-4 _md:landscape:gap-y-4 sm:gap-y-8 pt-2">
                 <div
                     class="grid grid-flow-row portrait:grid-flow-row md:grid-flow-col gap-5 w-full"
                 >

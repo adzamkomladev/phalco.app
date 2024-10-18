@@ -33,7 +33,7 @@ const login = useForm({
         <SharedCommonOr />
 
         <form @submit.prevent="login.submit">
-            <div class="grid gap-y-4">
+            <div class="grid gap-y-4 _md:landscape:gap-y-4 sm:gap-y-8 pt-2">
                 <SharedFormBaseInput
                     v-model="login.fields.email"
                     :error="login.errors.email"

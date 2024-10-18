@@ -4,14 +4,13 @@ const props = defineProps<{
     description?: string;
     pageImage?: string;
 }>();
-// const authImage = ref(import(`../../../svg/auth/${props.pageImage}.svg`))
 </script>
 
 <template>
     <div class="self-end portrait:pt-0 tall:pt-8 xtall:pt-16 md:text-sm">
         <div class="text-center sm:landscape:text-left pb-6  portrait:flex flex-col items-center">
             <p
-                class="text-black dark:text-primary-700 font-black text-2xl sm:text-3xl 2xl:text-4xl"
+                class="text-black dark:text-primary-700 font-black text-2xl _md:landscape:text-2xl sm:text-3xl 2xl:text-4xl"
             >
                 <span v-if="title">{{ title }}</span>
                 <slot v-else name="title" />
