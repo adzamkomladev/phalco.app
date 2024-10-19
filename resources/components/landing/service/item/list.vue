@@ -16,7 +16,7 @@ const props = defineProps<{
         >
             <div class="aspect-square flex items-center justify-center">
                 <SharedCommonIcon
-                    class="h-28 w-28  sm:h-36 sm-w-36 md:h-20 md:w-20"
+                    class="h-28 w-28 sm:h-36 sm-w-36 md:h-20 md:w-20"
                     :name="service.icon.name"
                     :color="service.icon.color"
                 />

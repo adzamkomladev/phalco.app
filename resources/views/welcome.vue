@@ -1,21 +1,18 @@
 <script setup lang="ts">
-
-import  imageWelcomeSm from "~/resources/svg/welcome/landing_sm.svg?url"
-import imageWelcomeLg from    "~/resources/svg/welcome/landing_lg.svg?url"
-
-
+import imageWelcomeSm from "~/resources/svg/welcome/landing_sm.svg?url";
+import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
 </script>
 
 <template>
-    <body class="bg-gray-100 md:text-lg flex flex-col ">
+    <body class="bg-gray-100 md:text-lg flex flex-col">
+        <main
+            id="home"
+            class="bg-gray-[#F6F6F6] scroll-mt-24 md:bg-white max-w-[1600px] self-center"
+        >
+            <LandingHeader />
 
-        <main id="home" class=" bg-gray-[#F6F6F6] scroll-mt-24 md:bg-white  max-w-[1600px] self-center ">
-<LandingHeader />
-            
-           
             <section
-            
-                class="md:pl-[8%] scroll-mt-48  grid grid-cols-12 _md:flex flex-col-reverse overflow-hidden"
+                class="md:pl-[8%] scroll-mt-48 grid grid-cols-12 _md:flex flex-col-reverse overflow-hidden"
             >
                 <div
                     class="col-span-6 bg-white _md:rounded-t-[3rem] px-8 pt-10 gap-2 flex flex-col"
@@ -26,7 +23,9 @@ import imageWelcomeLg from    "~/resources/svg/welcome/landing_lg.svg?url"
                         Election Management made easy
                     </p>
 
-                    <p class="text-gray-700  md:text-pretty md:block _md:w-auto md:w-[120%] lg:w-[130%]">
+                    <p
+                        class="text-gray-700 md:text-pretty md:block _md:w-auto md:w-[120%] lg:w-[130%]"
+                    >
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Cumque itaque exercitationem corporis aliquid quia
                         dolorem ut similique? Deserunt modi tenetur pariatur
@@ -53,39 +52,52 @@ import imageWelcomeLg from    "~/resources/svg/welcome/landing_lg.svg?url"
                         </p>
                     </div>
                 </div>
-                <div class="py-8 col-span-6 ">
-           <img :src="imageWelcomeLg" class="_md:hidden md:block float-right" />
+                <div class="py-8 col-span-6">
+                    <img
+                        :src="imageWelcomeLg"
+                        class="_md:hidden md:block float-right"
+                    />
 
-          <img :src="imageWelcomeSm" class="md:hidden _md:block w-full p-10" />
+                    <img
+                        :src="imageWelcomeSm"
+                        class="md:hidden _md:block w-full p-10"
+                    />
                 </div>
-    </section>
+            </section>
 
-
-
-            <LandingSection class="" id="service" title="Our Service" description="Lorem ipsum dolor sit amet consectetur adipisicing
+            <LandingSection
+                class=""
+                id="service"
+                title="Our Service"
+                description="Lorem ipsum dolor sit amet consectetur adipisicing
                         >Lorem ipsum dolor sit amet consectetur adipisicing
                         elitLorem ipsum dolor sit amet consectetur adipisicing
-                        elit">
-                    <LandingServiceShow class="px-8 md:px-[8%]" />
-
+                        elit"
+            >
+                <LandingServiceShow class="px-8 md:px-[8%]" />
             </LandingSection>
 
-<LandingSection id="contract" class="md:pr-0 " title="About Us" description="Lorem ipsum dolor sit amet consectetur adipisicing
+            <LandingSection
+                id="contract"
+                class="md:pr-0"
+                title="About Us"
+                description="Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Cumque itaque exercitationem corporis aliquin
                             elit. Cumque itaque exercitationem corporis aliquid
-                            .">
-<LandingAboutRequirement class="md:pl-[8%] _md:pl-0"/>
-</LandingSection>
+                            ."
+            >
+                <LandingAboutRequirement class="md:pl-[8%] _md:pl-0" />
+            </LandingSection>
 
-    <LandingSection
-   id="pricing"
-    title="Pricing"
-    description="Lorem ipsum dolor sit amet consectetur adipisicing
+            <LandingSection
+                id="pricing"
+                title="Pricing"
+                description="Lorem ipsum dolor sit amet consectetur adipisicing
                         Lorem ipsum dolor sit amet consectetur adipisicing
                         elitLorem ipsum dolor sit amet consectetur adipisicing
-                        elit">
-
- <LandingPricingShow  class="px-8 md:px-[8%]"/>
+                        elit"
+            >
+                <LandingPricingShow class="px-8 md:px-[8%]" />
             </LandingSection>
 
             <!-- <section class="p-10 bg-white">
@@ -119,11 +131,9 @@ import imageWelcomeLg from    "~/resources/svg/welcome/landing_lg.svg?url"
                     </div>
                 </div>
             </section> -->
-             <div class="md:px-[8%]">
-                    <LandingFooterShow />
-
-            </div>  
+            <div class="md:px-[8%]">
+                <LandingFooterShow />
+            </div>
         </main>
-
     </body>
 </template>
