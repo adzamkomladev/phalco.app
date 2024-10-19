@@ -4,6 +4,7 @@ namespace App\Actions\Voting\PollingStations;
 
 use App\Models\VoteEntryRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
+
 use function Hybridly\view;
 
 class ShowVoteEntryRequest

@@ -23,7 +23,7 @@ class Show
             'election',
             'agent',
             'voters',
-            'voteEntryRequests' => fn(Builder $query) => $query->where('status', 'pending')
+            'voteEntryRequests' => fn (Builder $query) => $query->where('status', 'pending'),
         ])
             ->withCount(['votes'])
             ->find($pollingStationId);

@@ -56,5 +56,4 @@ class PollingStation extends Model
     {
         return $this->hasMany(VoteEntryRequest::class, 'polling_station_id', 'id');
     }
-
 }
