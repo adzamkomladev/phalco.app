@@ -1,16 +1,10 @@
-<script setup lang="ts">
-import congratulation from "~/resources/svg/auth/congratulations.svg?url";
-
-useHead({
-    title: "Email Verified",
-});
-</script>
+<script setup lang="ts">import Congratulation from "~/resources/svg/auth/congratulations.svg?url";useHead({title: "Email Verified",});</script>
 
 <template layout="auth">
     <LayoutAuthContent
         title="Congratulations"
         description="Your email has been successfully verified, Lets get started"
-        :pageImage="congratulation"
+        :pageImage="Congratulation"
     >
         <router-link :href="route('home')">
             <SharedFormSubmitButton text="Proceed" />

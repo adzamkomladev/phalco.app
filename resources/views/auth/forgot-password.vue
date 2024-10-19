@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import forgetPassworImage from "~/resources/svg/auth/forgot_password.svg?url";
+import ForgetPasswordImage from "~/resources/svg/auth/forgot_password.svg?url";
 
 useHead({
     title: "Forget Password",
@@ -25,7 +25,7 @@ const forget_password = useForm({
         class=""
         title="Forget Password"
         description="Enter your email to reset your password "
-        :pageImage="forgetPassworImage"
+        :pageImage="ForgetPasswordImage"
     >
         <form @submit.prevent="forget_password.submit">
             <div
