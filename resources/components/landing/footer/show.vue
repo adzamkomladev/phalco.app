@@ -15,10 +15,12 @@ const socials = ref([
 ]);
 </script>
 <template>
-    <div class="bg-primary-400 px-[9%] py-10  md:bg-white md:text-gray-600 text-white">
-        <div class="md:grid md:grid-cols-12 ">
+    <div
+        class="bg-primary-400 px-[9%] py-10 md:bg-white md:text-gray-600 text-white"
+    >
+        <div class="md:grid md:grid-cols-12">
             <div
-                class="col-span-3 _md:py-8   flex items-center gap-8 justify-center h-5"
+                class="col-span-3 _md:py-8 flex items-center gap-8 justify-center h-5"
             >
                 <SharedCommonIcon
                     name="logo_full"
@@ -63,7 +65,7 @@ const socials = ref([
                 </div>
             </div>
         </div>
-        <div class=" md:text-gray-600 py-10">
+        <div class="md:text-gray-600 py-10">
             <p>2024 Phalco</p>
             <p>Terms of service | Privacy policy</p>
         </div>

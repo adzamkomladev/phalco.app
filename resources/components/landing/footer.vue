@@ -15,7 +15,7 @@ const socials = ref([
 ]);
 </script>
 <template>
-    <div class="bg-primary-300  text-white p-5 flex flex-col sm:flex-row gap-8">
+    <div class="bg-primary-300 text-white p-5 flex flex-col sm:flex-row gap-8">
         <div class="flex items-center gap-8 justify-center h-5">
             <SharedCommonIcon name="logo_full" class="h-24 scale-200" />
         </div>
@@ -23,9 +23,9 @@ const socials = ref([
         <div
             class="grid font-light bg-red-300 grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0"
         >
-            <div class="grid gap-2 ">
+            <div class="grid gap-2">
                 <p class="font-bold">About Us</p>
-                <p >Lorem ipsum</p>
+                <p>Lorem ipsum</p>
                 <p>Lorem ipsum</p>
                 <p>Lorem ipsum</p>
             </div>
