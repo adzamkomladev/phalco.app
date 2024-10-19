@@ -15,7 +15,7 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                 class="md:pl-[8%] pl-0 scroll-mt-48 grid grid-cols-12 _md:flex flex-col-reverse overflow-hidden"
             >
                 <div
-                    class="col-span-6 bg-white _md:rounded-t-[3rem] pt-10 gap-2 flex flex-col"
+                    class="col-span-6 _md:p-[8%] bg-white _md:rounded-t-[3rem] pt-10 gap-2 flex flex-col"
                 >
                     <p
                         class="font-black font-sans text-2xl sm:text-3xl md:block md:w-[130%]"
@@ -74,7 +74,7 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                         elitLorem ipsum dolor sit amet consectetur adipisicing
                         elit"
             >
-                <LandingServiceShow class="px-8 md:px-[8%]" />
+                <LandingServiceShow class="px-[8%]" />
             </LandingSection>
 
             <LandingSection
@@ -131,7 +131,7 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                     </div>
                 </div>
             </section> -->
-            <div class="md:px-[8%] mt-5 md:border-t">
+            <div class="md:border-t">
                 <LandingFooterShow />
             </div>
         </main>

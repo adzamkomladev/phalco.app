@@ -5,7 +5,7 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
 
 <template>
     <article class="py-4 grid grid-cols-10 _md:flex flex-col-reverse">
-        <div class="col-span-5 pl-8">
+        <div class="col-span-5 p-[8%] md:pr-0">
             <p class="font-black font-sans text-2xl sm:text-3xl">
                 Requirements For our Users
             </p>
@@ -33,7 +33,7 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
             class="relative overflow-x-hidden md:bg-about-lg _md:bg-about-sm bg-contain bg-left _md:bg-left bg-no-repeat _md:py-1 flex justify-center col-span-5"
         >
             <img
-                class="transform w-full lg:ml-[15%] md:scale-x-[-1] _md:p-10"
+                class="transform w-full lg:translate-x-10 md:scale-x-[-1] _md:p-10"
                 :src="imageAboutUs"
             />
         </div>
