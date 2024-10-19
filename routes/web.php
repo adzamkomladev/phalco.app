@@ -38,7 +38,7 @@ Route::prefix('email')
             ->middleware(['signed'])
             ->name('verification.verify');
 
-        Route::get('verified', fn () => hybridly('auth.email-verified'))
+    Route::get('verified', fn() => hybridly('auth.email-verified'))
             ->middleware(['auth'])
             ->name('email.verified');
     });
@@ -48,7 +48,7 @@ Route::prefix('password')
     ->middleware(['guest'])
     ->group(function () {
         Route::post('send/reset-link', \App\Actions\Auth\Password\SendResetLink::class)->name('send.reset-link');
-        Route::get('reset/{token}', fn (string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
+    Route::get('reset/{token}', fn(string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
         Route::post('reset', \App\Actions\Auth\Password\Reset::class)->name('reset');
     });
 
@@ -72,6 +72,7 @@ Route::prefix('voting')
             ->group(function () {
 
                 Route::get('{id}/show', \App\Actions\Voting\PollingStations\Show::class)->name('show');
+        Route::get('{id}/show/{voteEntryRequestId}/request', \App\Actions\Voting\PollingStations\ShowVoteEntryRequest::class)->name('show.request');
                 Route::get('create', \App\Actions\Voting\PollingStations\Create::class)->name('create');
                 Route::post('upload', \App\Actions\Voting\PollingStations\Upload::class)->name('upload');
                 Route::get('', \App\Actions\Voting\PollingStations\Index::class)->name('index');

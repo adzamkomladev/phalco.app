@@ -3,6 +3,7 @@
 namespace App\Actions\Voting\PollingStations;
 
 use App\Models\PollingStation;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class Show
@@ -18,7 +19,12 @@ class Show
 
     public function handle(int $pollingStationId)
     {
-        return PollingStation::with(['election', 'agent', 'voters'])
+        return PollingStation::with([
+            'election',
+            'agent',
+            'voters',
+            'voteEntryRequests' => fn(Builder $query) => $query->where('status', 'pending')
+        ])
             ->withCount(['votes'])
             ->find($pollingStationId);
     }
