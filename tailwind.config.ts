@@ -24,16 +24,16 @@ export default {
           'raw': `only screen and (min-height: 1024px)`
         },
         '_sm': {
-          'raw': `only screen and (max-width: 640px)`
+          'raw': `only screen and (max-width: 639px)`
         },
         '_md': {
-          'raw': `only screen and (max-width: 768px)`
+          'raw': `only screen and (max-width: 767px)`
         },
         '_lg': {
-          'raw': `only screen and (max-width: 1024px)`
+          'raw': `only screen and (max-width: 1023px)`
         },
         '_xl': {
-          'raw': `only screen and (max-width: 1280px)`
+          'raw': `only screen and (max-width: 1279px)`
         },
         'portrait': {
           'raw': '(orientation: portrait)'

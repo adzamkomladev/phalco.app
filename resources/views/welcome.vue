@@ -12,10 +12,10 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
             <LandingHeader />
 
             <section
-                class="md:pl-[8%] scroll-mt-48 grid grid-cols-12 _md:flex flex-col-reverse overflow-hidden"
+                class="md:pl-[8%] pl-0 scroll-mt-48 grid grid-cols-12 _md:flex flex-col-reverse overflow-hidden"
             >
                 <div
-                    class="col-span-6 bg-white _md:rounded-t-[3rem] px-8 pt-10 gap-2 flex flex-col"
+                    class="col-span-6 bg-white _md:rounded-t-[3rem] pt-10 gap-2 flex flex-col"
                 >
                     <p
                         class="font-black font-sans text-2xl sm:text-3xl md:block md:w-[130%]"
@@ -24,7 +24,7 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                     </p>
 
                     <p
-                        class="text-gray-700 md:text-pretty md:block _md:w-auto md:w-[120%] lg:w-[130%]"
+                        class="text-gray-700 md:text-pretty md:block _md:w-full md:w-[120%] lg:w-[130%]"
                     >
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Cumque itaque exercitationem corporis aliquid quia
@@ -131,7 +131,7 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                     </div>
                 </div>
             </section> -->
-            <div class="md:px-[8%]">
+            <div class="md:px-[8%] mt-5 md:border-t">
                 <LandingFooterShow />
             </div>
         </main>
