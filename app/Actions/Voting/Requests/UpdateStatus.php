@@ -4,11 +4,11 @@ namespace App\Actions\Voting\Requests;
 
 use App\Models\VoteEntryRequest;
 use App\Models\VoteEntryRequestHistory;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Validation\Rule;
 use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
-use Illuminate\Validation\Rule;
-use Illuminate\Database\Query\Builder;
 
 class UpdateStatus
 {
@@ -23,7 +23,7 @@ class UpdateStatus
                 'required',
                 'int',
                 Rule::exists('vote_entry_requests', 'id')
-                    ->where(fn(Builder $query) => $query->where('status', 'pending')),
+                    ->where(fn (Builder $query) => $query->where('status', 'pending')),
             ],
             'comment' => ['required', 'string'],
             'status' => ['required', 'string', 'in:rejected,confirmed'],
@@ -56,16 +56,16 @@ class UpdateStatus
 
         $now = now();
         Octane::concurrently([
-            fn() => VoteEntryRequest::whereId($voteEntryRequestId)->update(['status' => $status]),
-            fn() => VoteEntryRequestHistory::where('vote_entry_request_id', $voteEntryRequestId)
+            fn () => VoteEntryRequest::whereId($voteEntryRequestId)->update(['status' => $status]),
+            fn () => VoteEntryRequestHistory::where('vote_entry_request_id', $voteEntryRequestId)
                 ->where('ended_at', null)
                 ->update(['ended_at' => $now]),
-            fn() => VoteEntryRequestHistory::create([
+            fn () => VoteEntryRequestHistory::create([
                 'vote_entry_request_id' => $voteEntryRequestId,
                 'user_id' => $userId,
                 'status' => $status,
                 'comment' => $comment,
-            ])
+            ]),
         ]);
 
         if ($status === 'rejected') {

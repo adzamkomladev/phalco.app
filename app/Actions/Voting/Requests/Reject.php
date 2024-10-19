@@ -31,6 +31,7 @@ class Reject
             return back()->with('error', $e->getMessage());
         }
     }
+
     public function handle(int $userId, array $data)
     {
         [
@@ -40,16 +41,16 @@ class Reject
         ] = $data;
 
         Octane::concurrently([
-            fn() => VoteEntryRequest::whereId($voteEntryRequestId)->update(['status' => $status]),
-            fn() => VoteEntryRequestHistory::where('vote_entry_request_id', $voteEntryRequestId)
+            fn () => VoteEntryRequest::whereId($voteEntryRequestId)->update(['status' => $status]),
+            fn () => VoteEntryRequestHistory::where('vote_entry_request_id', $voteEntryRequestId)
                 ->where('ended_at', null)
                 ->update(['ended_at' => now()]),
-            fn() => VoteEntryRequestHistory::create([
+            fn () => VoteEntryRequestHistory::create([
                 'vote_entry_request_id' => $voteEntryRequestId,
                 'user_id' => $userId,
                 'status' => $status,
                 'comment' => $comment,
-            ])
+            ]),
         ]);
 
         if ($status === 'rejected') {
