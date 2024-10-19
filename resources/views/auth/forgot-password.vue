@@ -11,12 +11,6 @@ const forget_password = useForm({
     fields: {
         email: "",
     },
-    hooks: {
-        start: () => console.log("The request has started."),
-        fail: () => console.log("The request has failed."),
-        after: () => console.log("The request has finished."),
-        success: () => console.log("The request has succeeded."),
-    },
 });
 </script>
 
@@ -47,12 +41,12 @@ const forget_password = useForm({
             </div>
             <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
                 Remember your password?
-                <a
+                <router-link
                     class="text-primary-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
-                    href="../examples/html/signin.html"
+                    :href="route('login')"
                 >
                     Sign in here
-                </a>
+                </router-link>
             </p>
         </form>
     </LayoutAuthContent>

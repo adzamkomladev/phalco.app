@@ -23,6 +23,7 @@ class BallotOption extends Model
     protected $fillable = [
         'ballot_id',
         'name',
+        'avatar',
         'order',
         'status',
     ];

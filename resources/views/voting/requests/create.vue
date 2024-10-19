@@ -10,6 +10,6 @@ const props = defineProps<{
 
 <template>
     <SharedCommonOverlay title="New Vote Entry Requests" size="xl">
-        <pre>{{ ballot }}</pre>
+        <VotingRequestsFormsCreate :ballot="ballot" />
     </SharedCommonOverlay>
 </template>
