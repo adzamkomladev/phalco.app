@@ -11,7 +11,7 @@ const props = defineProps<{
 
 <template>
     <div
-        class="flex pb-16 relative flex-col max-w-lg p-6 mx-auto text-left text-gray-900 border border-inherit rounded-xl shadow shadow-gray-500 dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
+        class="flex pb-16 relative flex-col _sm:max-w-80 _md:max-w-96 p-6 mx-auto text-left text-gray-900 border border-inherit rounded-xl shadow shadow-gray-500 dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
     >
         <h3 class="mb-4 text-2xl font-bold capitalize text-left">
             {{ data.type }}

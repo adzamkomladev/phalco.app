@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full flex flex-col">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full flex flex-col scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
     @vite
 </head>
 
-<body class="h-full bg-gray-50 antialiased">
+<body class="h-full bg-gray-50 antialiased !scroll-smooth">
     @hybridly(class: 'h-full')
 </body>
 

@@ -28,7 +28,7 @@ const forget_password = useForm({
         :pageImage="forgetPassworImage"
     >
         <form @submit.prevent="forget_password.submit">
-            <div class="grid gap-y-4 _md:landscape:gap-y-4 sm:gap-y-8 pt-2">
+            <div class="grid gap-y-4 -mt-4 _md:landscape:gap-y-4 sm:gap-y-8 pt-2">
                 <SharedFormBaseInput
                     v-model="forget_password.fields.email"
                     :error="forget_password.errors.email"

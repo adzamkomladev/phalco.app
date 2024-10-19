@@ -42,8 +42,8 @@ const login = useForm({
                     type="email"
                     placeholder="Email address"
                 />
-
-                <SharedFormBaseInput
+<div>
+    <SharedFormBaseInput
                     v-model="login.fields.password"
                     :error="login.errors.password"
                     id="password"
@@ -51,7 +51,7 @@ const login = useForm({
                     type="password"
                     placeholder="Password"
                 />
-                <p class="text-sm text-right">
+                <p class="text-sm text-right p-1">
                     <router-link
                         class="text-primary-twi decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
                         :href="route('password.reset')"
@@ -59,6 +59,8 @@ const login = useForm({
                         forget password
                     </router-link>
                 </p>
+</div>
+                
 
                 <SharedFormSubmitButton
                     :loading="login.processing"

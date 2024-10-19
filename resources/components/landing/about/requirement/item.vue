@@ -13,7 +13,7 @@ const props = defineProps<{ requirement: string }>();
             </div>
         </div>
 
-        <div class="grow pt-0.5 text-gray-500 pb-8 sm:pb-12">
+        <div class="grow pt-0.5 text-gray-600 pb-8 sm:pb-12">
             <p class="">{{ requirement }}</p>
         </div>
     </div>

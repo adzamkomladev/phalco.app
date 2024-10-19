@@ -1,29 +1,21 @@
 <script setup lang="ts">
-const imageWelcomeSm = new URL(
-    "~/resources/svg/welcome/landing_sm.svg",
-    import.meta.url,
-).href;
-const imageWelcomeLg = new URL(
-    "~/resources/svg/welcome/landing_lg.svg",
-    import.meta.url,
-).href;
-const imageAboutUs = new URL(
-    "~/resources/svg/welcome/about_us.svg",
-    import.meta.url,
-).href;
-const imageAboutUsBgLg = new URL(
-    "~/resources/svg/welcome/about_bg_lg.svg",
-    import.meta.url,
-).href;
+
+import  imageWelcomeSm from "~/resources/svg/welcome/landing_sm.svg?url"
+import imageWelcomeLg from    "~/resources/svg/welcome/landing_lg.svg?url"
+
+
 </script>
 
 <template>
-    <body class="bg-gray-100 md:bg-white md:text-lg">
-        <LandingHeader />
+    <body class="bg-gray-100 md:text-lg flex flex-col ">
 
-        <main id="content">
+        <main id="home" class=" bg-gray-[#F6F6F6] scroll-mt-24 md:bg-white  max-w-[1600px] self-center ">
+<LandingHeader />
+            
+           
             <section
-                class="grid grid-cols-12 _md:flex flex-col-reverse overflow-hidden"
+            
+                class="md:pl-[8%] scroll-mt-48  grid grid-cols-12 _md:flex flex-col-reverse overflow-hidden"
             >
                 <div
                     class="col-span-6 bg-white _md:rounded-t-[3rem] px-8 pt-10 gap-2 flex flex-col"
@@ -34,7 +26,7 @@ const imageAboutUsBgLg = new URL(
                         Election Management made easy
                     </p>
 
-                    <p class="text-gray-400 text-balance md:text-pretty">
+                    <p class="text-gray-700  md:text-pretty md:block _md:w-auto md:w-[120%] lg:w-[130%]">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Cumque itaque exercitationem corporis aliquid quia
                         dolorem ut similique? Deserunt modi tenetur pariatur
@@ -61,111 +53,42 @@ const imageAboutUsBgLg = new URL(
                         </p>
                     </div>
                 </div>
-                <div class="py-8 col-span-6">
-                    <img :src="imageWelcomeSm" class="md:hidden w-full p-10" />
-                    <img :src="imageWelcomeLg" class="hidden md:block" />
-                </div>
-            </section>
+                <div class="py-8 col-span-6 ">
+           <img :src="imageWelcomeLg" class="_md:hidden md:block float-right" />
 
-            <section class="bg-white px-8">
-                <div class="flex flex-col pb-8 md:items-center">
-                    <div class="font-black py-2 font-sans text-2xl sm:text-3xl">
-                        Our Service
-                    </div>
-                    <span
-                        class="text-gray-400 block md:text-center md:w-[50rem] text-balance"
-                        >Lorem ipsum dolor sit amet consectetur adipisicing
+          <img :src="imageWelcomeSm" class="md:hidden _md:block w-full p-10" />
+                </div>
+    </section>
+
+
+
+            <LandingSection class="" id="service" title="Our Service" description="Lorem ipsum dolor sit amet consectetur adipisicing
                         >Lorem ipsum dolor sit amet consectetur adipisicing
                         elitLorem ipsum dolor sit amet consectetur adipisicing
-                        elit</span
-                    >
-                </div>
-                <div>
-                    <LandingServiceShow />
-                </div>
-            </section>
-            <section class="bg-no-repeat bg-right bg-white py-10">
-                <article class="py-8 px-8 flex flex-col md:items-center">
-                    <div class="font-black font-sans text-2xl sm:text-3xl">
-                        About Us
-                    </div>
-                    <div>
-                        <span
-                            class="text-gray-400 block md:text-center md:w-[50rem] md:text-balance"
-                            >Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit">
+                    <LandingServiceShow class="px-8 md:px-[8%]" />
+
+            </LandingSection>
+
+<LandingSection id="contract" class="md:pr-0 " title="About Us" description="Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Cumque itaque exercitationem corporis aliquin
                             elit. Cumque itaque exercitationem corporis aliquid
-                            .</span
-                        >
-                    </div>
-                </article>
-                <article
-                    class="py-4 grid grid-cols-10 _md:flex flex-col-reverse"
-                >
-                    <div class="col-span-5 pl-8">
-                        <p class="font-black font-sans text-2xl sm:text-3xl">
-                            Requirements For our Users
-                        </p>
-                        <p>
-                            <span class="text-gray-400 lg:w-[115%] block py-4"
-                                >Lorem ipsum dolor sit amet , quae beatae ullam
-                                tempore ratione repellendus amet dolorem
-                                blanditiis, veritatis animi! Modi veritatis
-                                placeat cupiditate. .</span
-                            >
-                        </p>
-                        <LandingRequirementShow />
-                        <div>
-                            <button
-                                class="rounded-full p-2 bg-primary-500 text-white px-8 flex items-center group justify-center gap-4"
-                            >
-                                <p>Learn more</p>
-                                <SharedCommonIcon
-                                    name="chevron"
-                                    class="h-4 group-hover:opacity-90 transition-all group-hover:translate-x-3"
-                                />
-                            </button>
-                        </div>
-                    </div>
+                            .">
+<LandingAboutRequirement class="md:pl-[8%] _md:pl-0"/>
+</LandingSection>
 
-                    <div
-                        class="relative overflow-hidden _md:bg-land-sm bg-contain bg-right bg-no-repeat _md:py-1 flex justify-center md:scale-x-[-1] transform col-span-5"
-                    >
-                        <img
-                            class="transform absolute md:sm:scale-x-[-1] left-0 -top-[5%] -0 h-[110%] _md:hidden"
-                            :src="imageAboutUsBgLg"
-                        />
-                        <img
-                            class="transform w-full lg:-ml-[15%]"
-                            :src="imageAboutUs"
-                        />
-                    </div>
-                </article>
-            </section>
-
-            <section
-                id="pricing"
-                class="bg-white px-8 py-8 flex flex-col gap-8 place-content-center"
-            >
-                <div class="flex flex-col md:items-center">
-                    <div class="font-black py-2 font-sans text-2xl sm:text-3xl">
-                        Pricing
-                    </div>
-                    <span
-                        class="text-gray-400 block md:text-center md:w-[50rem] text-balance"
-                        >Lorem ipsum dolor sit amet consectetur adipisicing
-                        >Lorem ipsum dolor sit amet consectetur adipisicing
+    <LandingSection
+   id="pricing"
+    title="Pricing"
+    description="Lorem ipsum dolor sit amet consectetur adipisicing
+                        Lorem ipsum dolor sit amet consectetur adipisicing
                         elitLorem ipsum dolor sit amet consectetur adipisicing
-                        elit</span
-                    >
-                </div>
+                        elit">
 
-                <div class="">
-                    <LandingPricingShow />
-                </div>
-            </section>
+ <LandingPricingShow  class="px-8 md:px-[8%]"/>
+            </LandingSection>
 
-            <section class="p-10 bg-white">
+            <!-- <section class="p-10 bg-white">
                 <div
                     class="bg-community h-72 overflow-hidden bg-right rounded-[2rem] bg-cover bg-no-repeat"
                 >
@@ -195,9 +118,12 @@ const imageAboutUsBgLg = new URL(
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
+             <div class="md:px-[8%]">
+                    <LandingFooterShow />
+
+            </div>  
         </main>
 
-        <LandingFooterShow />
     </body>
 </template>

@@ -8,7 +8,7 @@ const requirements = [
 </script>
 
 <template>
-    <LandingRequirementItemList
+    <LandingAboutRequirementItem
         v-for="(req, i) in requirements"
         :key="i"
         :requirement="req"
