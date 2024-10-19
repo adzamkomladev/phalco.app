@@ -7,8 +7,6 @@
             aria-label="Global"
         >
             <div class="flex px-8 justify-between p-4 _md:bg-white">
-                <!-- Logo -->
-
                 <router-link>
                     <SharedCommonIcon
                         class="text-primary-500"
