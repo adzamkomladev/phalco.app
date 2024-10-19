@@ -1,57 +1,42 @@
 <script setup lang="ts">
 const props = defineProps<{
-    ballot: any;
+    voteEntryRequestId: number;
 }>();
-
-const optionsField = props.ballot.options.map((o: { id: number }) => ({
-    id: o.id,
-    votes: 0,
-}));
-const options = props.ballot.options.map(
-    (o: { id: number; avatar?: string; name: string }) => ({
-        id: o.id,
-        avatar: o.avatar,
-        name: o.name,
-    }),
-);
-const pollingStationId = useProperty("elections.agentPollingStation.id");
-const electionId = useProperty("elections.selected.id");
 
 const form = useForm({
     method: "POST",
-    url: route("voting.requests.store"),
+    url: route("voting.requests.status.update"),
     fields: {
-        ballot_id: props.ballot.id,
-        options: optionsField,
-        upload_file: null,
-        polling_station_id: pollingStationId.value,
-        election_id: electionId.value,
+        vote_entry_request_id: props.voteEntryRequestId,
+        status: null,
         comment: "",
     },
     hooks: {
         success: () => form.reset(),
     },
 });
+
+const statuses = [
+    { value: "confirmed", label: "Confirm" },
+    { value: "rejected", label: "Reject" },
+];
 </script>
 
 <template>
     <form @submit.prevent="form.submit">
-        <h4 class="h4 mb-5 font-bold">{{ ballot.position }}</h4>
-        <VotingRequestsFormsOptions
-            v-model="form.fields.options"
-            :options="options"
-            name="options"
+        <SharedFormBaseSelect
+            v-model="form.fields.status"
+            :error="form.errors.status"
+            id="status"
+            name="status"
+            :options="statuses"
+            label="Status"
         />
         <SharedFormBaseTextarea
             v-model="form.fields.comment"
             id="comment"
             name="comment"
             label="Comment"
-        />
-        <SharedFormBaseFileUpload
-            file-types="image/*"
-            path="voting/requests"
-            v-model="form.fields.upload_file"
         />
 
         <div class="mt-8 flex justify-end gap-x-2">
@@ -66,7 +51,7 @@ const form = useForm({
                     aria-label="loading"
                 ></span>
 
-                Submit
+                Update
             </button>
         </div>
     </form>

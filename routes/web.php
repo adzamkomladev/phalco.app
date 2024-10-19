@@ -72,6 +72,7 @@ Route::prefix('voting')
             ->group(function () {
 
                 Route::get('{id}/show', \App\Actions\Voting\PollingStations\Show::class)->name('show');
+                Route::get('{id}/show/{voteEntryRequestId}/request', \App\Actions\Voting\PollingStations\ShowVoteEntryRequest::class)->name('show.request');
                 Route::get('create', \App\Actions\Voting\PollingStations\Create::class)->name('create');
                 Route::post('upload', \App\Actions\Voting\PollingStations\Upload::class)->name('upload');
                 Route::get('', \App\Actions\Voting\PollingStations\Index::class)->name('index');
@@ -102,9 +103,11 @@ Route::prefix('voting')
         Route::prefix('requests')
             ->name('requests.')
             ->group(function () {
-                Route::get('', \App\Actions\Voting\Requests\Index::class)->name('index');
                 Route::get('create', \App\Actions\Voting\Requests\Create::class)->name('create');
-                Route::post('store', \App\Actions\Voting\Requests\Store::class)->name('store');
+                Route::get('{id}/show', \App\Actions\Voting\Requests\Show::class)->name('show');
+                Route::get('', \App\Actions\Voting\Requests\Index::class)->name('index');
+                Route::post('', \App\Actions\Voting\Requests\Store::class)->name('store');
+                Route::post('status/update', \App\Actions\Voting\Requests\UpdateStatus::class)->name('status.update');
             });
     });
 
