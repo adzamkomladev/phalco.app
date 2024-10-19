@@ -1,4 +1,7 @@
-<script setup lang="ts">import Congratulation from "~/resources/svg/auth/congratulations.svg?url";useHead({title: "Email Verified",});</script>
+<script setup lang="ts">
+import Congratulation from "~/resources/svg/auth/congratulations.svg?url";
+useHead({ title: "Email Verified" });
+</script>
 
 <template layout="auth">
     <LayoutAuthContent
