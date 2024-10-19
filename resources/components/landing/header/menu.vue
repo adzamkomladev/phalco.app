@@ -9,7 +9,7 @@ const menus = ref([
 <template>
     <div
         id="navbar-collapse"
-        class="hs-collapse rounded-b-2xl bg-[#ffffffee] _md:bg-menu-br md:bg-clip-text  bg-right-bottom bg-no-repeat shaddow pl-8 hidden overflow-hidden transition-all duration-300 basis-full grow md:block"
+        class="hs-collapse rounded-b-2xl bg-[#ffffffee] _md:bg-menu-br md:bg-clip-text bg-right-bottom bg-no-repeat shaddow pl-8 hidden overflow-hidden transition-all duration-300 basis-full grow md:block"
     >
         <div
             class="grid px-[8%] grid-cols-2 md:flex gap-y-4 pb-2 gap-x-0 mt-5 md:flex-row md:items-center md:justify-end md:gap-y-0 md:gap-x-10 md:mt-0 md:ps-7 _sm:pr-10"
