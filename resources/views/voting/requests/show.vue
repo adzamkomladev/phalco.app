@@ -10,6 +10,10 @@ const props = defineProps<{
 
 <template>
     <SharedCommonOverlay title="Vote Entry Request Details" size="xl">
+        <VotingRequestsFormsUpdateStatus
+            v-if="voteEntryRequest.status === 'pending'"
+            :vote-entry-request-id="voteEntryRequest.id"
+        />
         <pre>{{ voteEntryRequest }}</pre>
     </SharedCommonOverlay>
 </template>
