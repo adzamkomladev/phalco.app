@@ -12,7 +12,7 @@ const props = defineProps<{ title: string; description: string }>();
                 {{ title }}
             </div>
             <span
-                class="text-gray-700 block md:text-center lg:w-[50rem] text-balance "
+                class="text-gray-700 block md:text-center lg:w-[50rem] text-balance"
                 >{{ description }}</span
             >
         </div>
