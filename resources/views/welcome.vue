@@ -12,34 +12,49 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
             <LandingHeader />
 
             <section
+             id="home"
                 class="md:pl-[8%] pl-0 scroll-mt-48 grid grid-cols-12 _md:flex flex-col-reverse overflow-hidden"
             >
                 <div
-                    class="col-span-6 _md:p-[8%] bg-white _md:rounded-t-[3rem] pt-10 gap-2 flex flex-col"
+                    class="col-span-6 _md:p-[8%] bg-white _md:rounded-t-[3rem] pt-10 gap-2 flex flex-col z-10"
                 >
                     <p
-                        class="font-black font-sans text-2xl sm:text-3xl md:block md:w-[130%]"
-                    >
+                        class="font-black font-sans text-2xl sm:text-3xl md:block md:w-[130%] "
+                      v-motion-fade-visible
+                :duration="300"
+                :delay="200"
+                        >
                         Election Management made easy
                     </p>
 
                     <p
-                        class="text-gray-700 md:text-pretty md:block _md:w-full md:w-[120%] lg:w-[130%]"
-                    >
+                        class="text-gray-700 md:text-pretty _md:w-full md:w-[120%] lg:w-[130%]"
+                     v-motion-fade-visible
+                :duration="300"
+                :delay="300"
+                 >
+                 <span class="bg-white inline leading-8">
+
+                
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Cumque itaque exercitationem corporis aliquid quia
                         dolorem ut similique? Deserunt modi tenetur pariatur
                         quam, laboriosam expedita minima nihil reprehenderit non
-                        ad atque.
+                        ad atque. </span>
                     </p>
 
                     <div class="py-2">
                         <button
-                            class="p-2 w-full md:w-52 text-white bg-primary-500 rounded-md font-bold"
+                          v-motion-pop-visible-once
+                :delay="300"
+                            class="p-2 w-full md:w-52 text-white transition-all hover:opacity-90 bg-primary-500 rounded-md font-bold"
                         >
                             Get Started
                         </button>
                         <p
+                  v-motion-fade-visible-once
+                :duration="500"
+                :delay="600"
                             class="my-4 text-sm md:text-base sm:text-base text-gray-600 font-bold dark:text-neutral-400"
                         >
                             Already have an account ?
@@ -52,13 +67,19 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                         </p>
                     </div>
                 </div>
-                <div class="py-8 col-span-6">
+                <div class="py-8 col-span-6 overflow-hidden">
                     <img
+                       v-motion-slide-visible-once-right
+                :duration="500"
+                :delay="400"
                         :src="imageWelcomeLg"
-                        class="_md:hidden md:block float-right"
+                        class="_md:hidden md:block float-right "
                     />
 
                     <img
+                           v-motion-fade-visible
+                :duration="500"
+                :delay="400"
                         :src="imageWelcomeSm"
                         class="md:hidden _md:block w-full p-10"
                     />
@@ -77,6 +98,17 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                 <LandingServiceShow class="px-[8%]" />
             </LandingSection>
 
+<LandingSection
+                id="pricing"
+                title="Pricing"
+                description="Lorem ipsum dolor sit amet consectetur adipisicing
+                        Lorem ipsum dolor sit amet consectetur adipisicing
+                        elitLorem ipsum dolor sit amet consectetur adipisicing
+                        elit"
+            >
+                <LandingPricingShow class="px-8 md:px-[8%]" />
+            </LandingSection>
+
             <LandingSection
                 id="contract"
                 class="md:pr-0"
@@ -89,16 +121,7 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                 <LandingAboutRequirement class="md:pl-[8%] _md:pl-0" />
             </LandingSection>
 
-            <LandingSection
-                id="pricing"
-                title="Pricing"
-                description="Lorem ipsum dolor sit amet consectetur adipisicing
-                        Lorem ipsum dolor sit amet consectetur adipisicing
-                        elitLorem ipsum dolor sit amet consectetur adipisicing
-                        elit"
-            >
-                <LandingPricingShow class="px-8 md:px-[8%]" />
-            </LandingSection>
+            
 
             <!-- <section class="p-10 bg-white">
                 <div
