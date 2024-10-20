@@ -15,7 +15,6 @@ const menus = ref([
             class="grid px-[8%] grid-cols-2 md:flex gap-y-4 pb-2 gap-x-0 mt-5 md:flex-row md:items-center md:justify-end md:gap-y-0 md:gap-x-10 md:mt-0 md:ps-7 _sm:pr-10"
         >
             <LandingHeaderMenuItem
-            
                 v-for="(menu, index) in menus"
                 :to="menu.to"
                 :key="index"

@@ -9,7 +9,7 @@ const requirements = [
 
 <template>
     <LandingAboutRequirementItem
-    :index="i"
+        :index="i"
         v-for="(req, i) in requirements"
         :key="i"
         :requirement="req"

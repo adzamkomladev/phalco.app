@@ -41,7 +41,7 @@ const services = ref([
 <template>
     <div class="grid gap-6 grid-cols-2 md:grid-cols-3 self-center">
         <LandingServiceItemList
-        :index="index"
+            :index="index"
             v-for="(service, index) in services"
             :service="service"
             :key="index"

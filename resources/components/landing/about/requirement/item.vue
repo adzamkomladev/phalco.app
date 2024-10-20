@@ -10,11 +10,12 @@ const props = defineProps<{ requirement: string; index: number }>();
         >
             <div class="relative z-10 size-8 flex justify-center items-center">
                 <SharedCommonIcon
-                  v-motion-pop-visible
-                :duration="200"
-                :delay="60 * index * index"
-                
-                name="hexagon" class="" />
+                    v-motion-pop-visible
+                    :duration="200"
+                    :delay="60 * index * index"
+                    name="hexagon"
+                    class=""
+                />
             </div>
         </div>
 

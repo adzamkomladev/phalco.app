@@ -8,15 +8,16 @@ const props = defineProps<{ title: string; description: string }>();
         class="bg-white py-8 flex flex-col gap-8 place-content-center scroll-mt-20"
     >
         <div class="flex px-[8%] flex-col md:items-center gap-2 py-4">
-            <div 
-              v-motion-fade-visible
+            <div
+                v-motion-fade-visible
                 :duration="300"
                 :delay="200"
-            class="font-black font-sans text-2xl sm:text-3xl">
+                class="font-black font-sans text-2xl sm:text-3xl"
+            >
                 {{ title }}
             </div>
             <span
-              v-motion-fade-visible
+                v-motion-fade-visible
                 :duration="300"
                 :delay="300"
                 class="text-gray-700 block md:text-center lg:w-[50rem] text-balance"

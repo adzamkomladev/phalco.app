@@ -52,7 +52,7 @@ const premium = {
         class="_md:space-y-8 md:grid md:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0"
     >
         <LandingPricingListCard
-        :position="1"
+            :position="1"
             :data="standard"
             class="border-gray-800 bg-white"
         >
@@ -67,7 +67,7 @@ const premium = {
         </LandingPricingListCard>
 
         <LandingPricingListCard
-        :position="2"
+            :position="2"
             :data="professional"
             class="bg-primary-300 text-white border-white"
         >
@@ -81,8 +81,8 @@ const premium = {
             </template>
         </LandingPricingListCard>
         <LandingPricingListCard
-        :position="3"    
-        :data="premium"
+            :position="3"
+            :data="premium"
             class="border-gray-800 bg-white"
         >
             <template v-slot:button>

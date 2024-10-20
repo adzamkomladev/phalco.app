@@ -6,19 +6,20 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
 <template>
     <article class="py-4 grid grid-cols-10 _md:flex flex-col-reverse">
         <div class="col-span-5 p-[8%] md:pr-0 z-10">
-            <p 
-              v-motion-fade-visible
+            <p
+                v-motion-fade-visible
                 :duration="300"
                 :delay="200"
-                class="font-black font-sans text-2xl sm:text-3xl">
+                class="font-black font-sans text-2xl sm:text-3xl"
+            >
                 Requirements For our Users
             </p>
-            <p class=" md:w-[140%] lg:w-[130%] py-4">
-                <span 
-                  v-motion-fade-visible
-                :duration="300"
-                :delay="300"
-                class="text-gray-700 inline bg-white leading-8"
+            <p class="md:w-[140%] lg:w-[130%] py-4">
+                <span
+                    v-motion-fade-visible
+                    :duration="300"
+                    :delay="300"
+                    class="text-gray-700 inline bg-white leading-8"
                     >Lorem ipsum dolor sit amet , quae beatae ullam tempore
                     ratione repellendus amet dolorem blanditiis, veritatis
                     animi! Modi veritatis placeat cupiditate. .</span
@@ -27,10 +28,10 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
             <LandingAboutRequirementLists />
 
             <router-link
-               v-motion-pop-visible
+                v-motion-pop-visible
                 :duration="200"
                 :delay="500"
-                class="w-fit  rounded-full hover:opacity-90 p-2 bg-primary-500 text-white px-8 flex items-center group justify-center gap-4"
+                class="w-fit rounded-full hover:opacity-90 p-2 bg-primary-500 text-white px-8 flex items-center group justify-center gap-4"
             >
                 <p>Learn more</p>
                 <SharedCommonIcon
@@ -41,12 +42,11 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
         </div>
 
         <div
-          v-motion-fade-visible
-                :duration="300"
+            v-motion-fade-visible
+            :duration="300"
             class="relative overflow-x-hidden md:bg-about-lg _md:bg-about-sm bg-contain bg-left _md:bg-left bg-no-repeat _md:py-1 flex justify-center col-span-5"
         >
             <img
-             
                 class="transform w-full lg:translate-x-10 md:scale-x-[-1] _md:p-10"
                 :src="imageAboutUs"
             />
