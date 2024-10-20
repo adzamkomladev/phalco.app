@@ -5,7 +5,7 @@ import './tailwind.css';
 import "preline/preline";
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
-
+import {MotionPlugin} from '@vueuse/motion'
 
 //#region Preline Setup
 
@@ -56,6 +56,7 @@ initializeHybridly({
         });
         vue.use(i18n);
         vue.use(head);
+        vue.use(MotionPlugin);
     },
     progress: {
         // The default options are as follow:
