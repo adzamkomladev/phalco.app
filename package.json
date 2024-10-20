@@ -14,7 +14,7 @@
         "@types/node": "^22.4.0",
         "@unhead/vue": "^1.9.16",
         "@vue/runtime-core": "^3.4.38",
-        "@vueuse/core": "^11.0.0",
+        "@vueuse/core": "^11.1.0",
         "autoprefixer": "^10.4.20",
         "axios": "^1.7.7",
         "chokidar": "^3.6.0",
@@ -45,6 +45,7 @@
         "@preline/file-upload": "^2.4.1",
         "@preline/pin-input": "^2.5.0",
         "@vue/eslint-config-typescript": "^14.0.1",
+        "@vueuse/motion": "^2.2.6",
         "dropzone": "^6.0.0-beta.2",
         "lodash": "^4.17.21",
         "preline": "^2.4.1"
