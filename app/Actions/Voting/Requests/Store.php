@@ -20,6 +20,7 @@ class Store
             'ballot_id' => ['required', 'int', 'exists:ballots,id'],
             'election_id' => ['required', 'int', 'exists:elections,id'],
             'polling_station_id' => ['required', 'int', 'exists:polling_stations,id'],
+            'comment' => ['nullable', 'string'],
             'upload_file' => ['required', 'string', 'url'],
             'options' => ['required', 'array'],
             'options.*.id' => ['required', 'int', 'exists:ballot_options,id'],
@@ -48,7 +49,8 @@ class Store
             'upload_file' => $uploadFile,
             'ballot_id' => $ballotId,
             'polling_station_id' => $pollingStationId,
-            'election_id' => $electionId
+            'election_id' => $electionId,
+            'comment' => $comment
         ] = $data;
 
         $entryRequest = VoteEntryRequest::create([
@@ -68,7 +70,7 @@ class Store
             'updated_at' => now(),
         ])->toArray();
 
-        [$entries, $entryFile, $entryRequestHistory] = Octane::concurrently([
+        defer(fn () => Octane::concurrently([
             fn () => VoteEntry::insert($entriesData),
             fn () => VoteEntryFile::create([
                 'vote_entry_request_id' => $entryRequestId,
@@ -78,8 +80,8 @@ class Store
                 'vote_entry_request_id' => $entryRequestId,
                 'user_id' => $userId,
                 'status' => 'pending',
-                'comment' => 'Submit request for vote entry',
+                'comment' => $comment,
             ]),
-        ]);
+        ]));
     }
 }

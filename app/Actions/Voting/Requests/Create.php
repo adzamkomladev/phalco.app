@@ -15,7 +15,11 @@ class Create
     {
         $data = $this->handle(auth()->id(), request()->input('ballot_id'));
 
-        return view('voting.requests.create', $data)->base('voting.requests.index');
+        return view('voting.requests.create', $data)
+            ->base('voting.requests.index', [
+                'election_id' => request()->input('election_id'),
+                'polling_station_id' => request()->input('polling_station_id'),
+            ]);
     }
 
     public function handle(int $userId, int $ballotId)
