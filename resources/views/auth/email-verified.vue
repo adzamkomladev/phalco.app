@@ -23,5 +23,6 @@ useHead({ title: "Email Verified" });
                 Contact customer Support
             </router-link>
         </p>
+            <SharedAnimationConfetti :mountStart="true" />
     </LayoutAuthContent>
 </template>

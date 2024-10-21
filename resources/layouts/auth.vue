@@ -7,11 +7,14 @@ onMounted(() => {
 </script>
 
 <template>
+    <body class="bg-primary-200 dark:bg-gray-900 bg-logo h-screen w-screen flex items-center justify-center">
+
+   
     <main
-        class="relative text-red-400 min-h-screen flex bg-white dark:bg-gray-800 sm:landscape:overflow-x-hidde"
+        class="relative flex-1 h-full w-full text-red-400 self-center  max-h-[1400px] max-w-[1500px] flex bg-white dark:bg-gray-800 sm:landscape:overflow-hidden"
     >
         <section
-            class="flex-1 flex flex-col sm:landscape:gap-x-[4vw] sm:landscape:landscape:flex-row"
+            class="flex-1 flex flex-col sm:landscape:gap-x-[4%] sm:landscape:landscape:flex-row"
         >
             <div
                 class="sticky h-[30vh] sm:landscape:p-4 sm:landscape:pr-0 -top-0 bg-cover block spect-square sm:landscape:h-full sm:landscape:landscape:w-[50%] rounded-t-2xl sm:landscape:rounded-tl-none sm:landscape:rounded-r-2xl sm:landscape:flex"
@@ -35,14 +38,16 @@ onMounted(() => {
             </div>
 
             <div
-                class="pt-8 sm:landscape:pt-10 -mt px-[10%] sm:portrait:px-[14%] sm:landscape:mt-0 pb-10 sm:landscape:px-0 sm:landscape:pr-[5vw] xl:pr-[8vw] z-50 bg-white rounded-t-[2.5rem] sm:landscape:rounded-t-none flex-1 sm:landscape:overflow-y-auto sm:landscape:h-screen dark:bg-gray-800"
+                class="pt-8 sm:landscape:pt-10 -mt px-[10%] sm:portrait:px-[14%] sm:landscape:mt-0 pb-10 sm:landscape:px-0 sm:landscape:pr-[5vw] xl:pr-[8vw] z-10 bg-white rounded-t-[2.5rem] sm:landscape:rounded-t-none flex-1 sm:landscape:overflow-y-auto sm:landscape:h-screen dark:bg-gray-800"
             >
                 <transition name="fade" mode="out-in">
                     <slot />
                 </transition>
+                
             </div>
         </section>
-    </main>
+    </main> 
+</body>
 </template>
 <style scoped>
 main {
@@ -53,10 +58,10 @@ main {
     opacity: 0;
 }
 .fade-enter-from {
-    transform: skewX(30deg);
+    transform:translateY(5rem) ;
 }
 .fade-leave-to {
-    transform: skewX(-30deg);
+    transform: translateY(-5rem);
 }
 .fade-enter-active,
 .fade-leave-active {

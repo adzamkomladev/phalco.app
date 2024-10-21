@@ -12,7 +12,7 @@ Route::get('/', function () {
 
 Route::get('/phone-verif', function () {
 
-    return hybridly('auth.phone-verification');
+    return hybridly('auth.email-verified');
 })->name('phone-verif');
 
 Route::get('/elections', function () {

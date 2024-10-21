@@ -112,7 +112,7 @@ const startCountdown = () => {
         </div>
         <div class="">
             <p
-                class="text-sm -mt-4 sm:-mt-8 sm:landscape:text-left text-gray-600 xl:text-base dark:text-neutral-400"
+                class="text-sm   sm:landscape:text-left text-gray-600 xl:text-base dark:text-neutral-400"
             >
                 Need help ?
                 <router-link

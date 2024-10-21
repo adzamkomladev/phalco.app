@@ -11,6 +11,7 @@ export default {
                 poppins: ["Poppins", "sans-serif"],
             },
             backgroundImage: {
+                "logo": "url('../svg/icon/logo.svg')",
                 "auth-p": "url('../svg/auth/layout.svg')",
                 "about-sm": "url('../svg/welcome/about_bg_sm.svg')",
                 "about-lg": "url('../svg/welcome/about_bg_lg.svg')",

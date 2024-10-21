@@ -34,10 +34,12 @@ const isActive = computed(() => currentSection.value === props.to);
 <template>
     <a
         :href="'#' + to"
-        class="text-base md:text-lg text-black text-nowrap hover:opacity-90 font-bold capitalize md:py-4 focus:outline-none focus:text-neutral-300"
-        :class="{ 'text-blue-500': isActive }"
+        class="relative group text-base md:text-lg text-black text-nowrap hover:opacity-90 font-bold capitalize md:py-4 focus:outline-none focus:text-neutral-300"
+        :class="{ 'text-primary-500': isActive }"
         aria-current="page"
     >
         {{ to }}
+        <p class="absolute h-[2px] _md:hidden  bg-primary-400 group-hover:w-full transition-all"         :class="{ 'w-full duration-700': isActive,'w-0 duration-400':!isActive }"
+/>
     </a>
 </template>
