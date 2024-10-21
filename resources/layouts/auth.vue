@@ -53,10 +53,10 @@ main {
     opacity: 0;
 }
 .fade-enter-from {
-    transform: translateY(5rem)
+    transform: translateY(5rem);
 }
 .fade-leave-to {
-    transform: translateY(-5rem)
+    transform: translateY(-5rem);
 }
 .fade-enter-active,
 .fade-leave-active {

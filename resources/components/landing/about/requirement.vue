@@ -26,28 +26,21 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
                 >
             </p>
             <LandingAboutRequirementLists />
-<div
-  v-motion-fade-visible
-                :duration="500"
-                :delay="200"
-
->
-
-
-            <router-link
-                v-motion-pop-visible-once
-                :duration="200"
-                :delay="500"
-                class="w-fit rounded-full hover:opacity-90 p-2 bg-primary-500 text-white px-8 flex items-center group justify-center gap-4"
-            >
-                <p>Learn more</p>
-                <SharedCommonIcon
-                    name="chevron"
-                    class="h-4 animate-pulse group-hover:opacity-90 duration-500 transition-all group-hover:translate-x-3"
-                />
-            </router-link>
+            <div v-motion-fade-visible :duration="500" :delay="200">
+                <router-link
+                    v-motion-pop-visible-once
+                    :duration="200"
+                    :delay="500"
+                    class="w-fit rounded-full hover:opacity-90 p-2 bg-primary-500 text-white px-8 flex items-center group justify-center gap-4"
+                >
+                    <p>Learn more</p>
+                    <SharedCommonIcon
+                        name="chevron"
+                        class="h-4 animate-pulse group-hover:opacity-90 duration-500 transition-all group-hover:translate-x-3"
+                    />
+                </router-link>
+            </div>
         </div>
-</div>
         <div
             v-motion-fade-visible
             :duration="300"

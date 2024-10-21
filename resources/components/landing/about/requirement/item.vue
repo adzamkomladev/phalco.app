@@ -4,11 +4,11 @@ const props = defineProps<{ requirement: string; index: number }>();
 
 <template>
     <div
-                v-motion-fade-visible
-                :duration="200"
-                :delay="50 * index * index"
-
-     class="flex gap-x-5 ms-1">
+        v-motion-fade-visible
+        :duration="200"
+        :delay="50 * index * index"
+        class="flex gap-x-5 ms-1"
+    >
         <!-- Icon -->
         <div
             class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-gray-200"
