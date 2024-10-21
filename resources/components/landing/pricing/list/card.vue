@@ -12,7 +12,7 @@ const props = defineProps<{
 
 <template>
     <div
-        v-motion-pop-visible
+        v-motion-pop-visible-once
         :duration="300"
         :delay="100 * position"
         class="flex pb-16 relative flex-col _sm:max-w-80 _md:max-w-96 p-6 mx-auto text-left text-gray-900 border border-inherit rounded-xl shadow shadow-gray-500 dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"

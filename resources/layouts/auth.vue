@@ -53,13 +53,13 @@ main {
     opacity: 0;
 }
 .fade-enter-from {
-    transform: skewX(30deg);
+    transform: translateY(5rem)
 }
 .fade-leave-to {
-    transform: skewX(-30deg);
+    transform: translateY(-5rem)
 }
 .fade-enter-active,
 .fade-leave-active {
-    transition: all 0.2s ease-out;
+    transition: all 0.3s ease-out;
 }
 </style>
