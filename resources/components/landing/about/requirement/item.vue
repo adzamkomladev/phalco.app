@@ -27,7 +27,6 @@ const props = defineProps<{ requirement: string; index: number }>();
             <p
                 class=""
                 v-motion-slide-visible-once-right
-                v-motion-slide-visible-once-right
                 :duration="200"
                 :delay="50 * index * index"
             >
