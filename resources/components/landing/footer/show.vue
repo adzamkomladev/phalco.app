@@ -33,7 +33,7 @@ const socials = ref([
             >
                 <div class="flex flex-col gap-2">
                     <p class="font-bold md:text-black">About Us</p>
-                    <p >Lorem ipsum</p>
+                    <p>Lorem ipsum</p>
                     <p>Lorem ipsum</p>
                     <p>Lorem ipsum</p>
                 </div>
@@ -50,19 +50,21 @@ const socials = ref([
                     <p>Lorem ipsum</p>
                     <p>Lorem ipsum</p>
                     <p>Lorem ipsum</p>
-                   
                 </div>
             </div>
             <div class="flex flex-col col-span-3">
                 <p class="font-black text-xl md:text-black">Contact</p>
                 <p class="font-[50]">Komla Azam :+233 000 0000 000</p>
                 <div class="flex gap-4 text-black">
-                    <button >
-                        <SharedCommonIcon name='apple' class="h-12 " />
+                    <button>
+                        <SharedCommonIcon name="apple" class="h-12" />
                     </button>
-                    <button><SharedCommonIcon name="google" class="w-8 h-8" />
-                        </button>
-                    <button>     <SharedCommonIcon name="x" class="w-12 h-8" /></button>
+                    <button>
+                        <SharedCommonIcon name="google" class="w-8 h-8" />
+                    </button>
+                    <button>
+                        <SharedCommonIcon name="x" class="w-12 h-8" />
+                    </button>
                 </div>
             </div>
         </div>

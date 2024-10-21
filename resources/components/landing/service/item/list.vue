@@ -18,11 +18,11 @@ const props = defineProps<{
             :enter="{ opacity: 1, scale: 1 }"
             :delay="30 * index"
             :duration="210"
-            class="rounded-xl p-4 group flex flex-col md:w-24 md:h-24 aspect-square  items-center justify-center text-center"
+            class="rounded-xl p-4 group flex flex-col md:w-24 md:h-24 aspect-square items-center justify-center text-center"
         >
             <div class="aspect-square flex items-center justify-center">
                 <SharedCommonIcon
-                    class="h-24 w-24 sm:h-36 sm-w-36 md:h-10  transition-all group-hover:scale-105"
+                    class="h-24 w-24 sm:h-36 sm-w-36 md:h-10 transition-all group-hover:scale-105"
                     :name="service.icon.name"
                     :color="service.icon.color"
                 />

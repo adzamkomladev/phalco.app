@@ -4,7 +4,9 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
 </script>
 
 <template>
-    <article class="py-4 mb-10 text-base grid grid-cols-10 _md:flex flex-col-reverse">
+    <article
+        class="py-4 mb-10 text-base grid grid-cols-10 _md:flex flex-col-reverse"
+    >
         <div class="col-span-5 p-[8%] md:pr-0 z-10">
             <p
                 v-motion-fade-visible
@@ -26,8 +28,6 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
                 >
             </p>
             <LandingAboutRequirementLists />
-
-           
         </div>
 
         <div
