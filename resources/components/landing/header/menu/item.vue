@@ -39,7 +39,12 @@ const isActive = computed(() => currentSection.value === props.to);
         aria-current="page"
     >
         {{ to }}
-        <p class="absolute h-[2px] _md:hidden  bg-primary-400 group-hover:w-full transition-all"         :class="{ 'w-full duration-700': isActive,'w-0 duration-400':!isActive }"
-/>
+        <p
+            class="absolute h-[2px] _md:hidden bg-primary-400 group-hover:w-full transition-all"
+            :class="{
+                'w-full duration-700': isActive,
+                'w-0 duration-400': !isActive,
+            }"
+        />
     </a>
 </template>
