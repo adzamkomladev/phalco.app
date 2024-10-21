@@ -1,12 +1,12 @@
 <template>
     <header
-        class="sticky top-0 backdrop-blur-lg shadow-sm md:bg-white _md:rounded-b-xl inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full"
+        class="sticky top-0 backdrop-blur-lg md:bg-white _md:rounded-b-xl inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full"
     >
         <nav
             class="relative w-full md:flex md:items-center md:justify-between md:py-0 lg:mx-auto"
             aria-label="Global"
         >
-            <div class="flex justify-between px-[8%] py-4 _md:bg-white">
+            <div class="flex justify-between px-[8%] py-6 _md:bg-white">
                 <router-link>
                     <SharedCommonIcon
                         class="text-primary-500"

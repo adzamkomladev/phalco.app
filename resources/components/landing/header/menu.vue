@@ -3,7 +3,7 @@ const menus = ref([
     { to: "home" },
     { to: "service" },
     { to: "pricing" },
-    { to: "contract" },
+    { to: "About Us" },
 ]);
 </script>
 <template>

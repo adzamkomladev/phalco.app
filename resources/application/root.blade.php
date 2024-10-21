@@ -9,12 +9,17 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
     @vite(['resources/js/vendor/dropzone/dropzone-min.js', 'resources/js/vendor/loadash/lodash.min.js'])
     @vite
 </head>
 
-<body class="h-full bg-gray-50 antialiased !scroll-smooth">
+<body class="h-full bg-gray-50 antialiased !scroll-smooth font-poppins">
     @hybridly(class: 'h-full')
 </body>
 

@@ -14,14 +14,15 @@ const props = defineProps<{
         <div
             :style="{ backgroundColor: service.icon.color + 60 }"
             v-motion-pop-visible
-            :initial="{ opacity: 0, scale: 0.5 }"
+            :initial="{ opacity: 0.2, scale: 0.9 }"
             :enter="{ opacity: 1, scale: 1 }"
-            :delay="60 * index"
-            class="rounded-xl p-4 group flex flex-col md:w-fit aspect-square items-center justify-center text-center"
+            :delay="30 * index"
+            :duration="210"
+            class="rounded-xl p-4 group flex flex-col md:w-24 md:h-24 aspect-square  items-center justify-center text-center"
         >
             <div class="aspect-square flex items-center justify-center">
                 <SharedCommonIcon
-                    class="h-28 w-28 sm:h-36 sm-w-36 md:h-20 md:w-20 transition-all group-hover:scale-105"
+                    class="h-24 w-24 sm:h-36 sm-w-36 md:h-10  transition-all group-hover:scale-105"
                     :name="service.icon.name"
                     :color="service.icon.color"
                 />
@@ -29,9 +30,9 @@ const props = defineProps<{
 
             <p class="font-bold md:hidden">{{ service.title }}</p>
         </div>
-        <div class="hidden md:block bg-clip-text">
+        <div class="hidden mt-4 md:block bg-clip-text">
             <p
-                class="font-bold text-2xl text-bala group-hover:bg-clip-text group-hover:text-transparent bg-clip-text transition-colors"
+                class="font-bold text-2xl pb-2 group-hover:bg-clip-text group-hover:text-transparent bg-clip-text transition-colors"
                 v-motion-pop
                 :style="{ backgroundColor: service.icon.color }"
                 :delay="index * 60 + 500"

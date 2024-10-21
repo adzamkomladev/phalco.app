@@ -4,22 +4,22 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
 </script>
 
 <template>
-    <article class="py-4 grid grid-cols-10 _md:flex flex-col-reverse">
+    <article class="py-4 mb-10 text-base grid grid-cols-10 _md:flex flex-col-reverse">
         <div class="col-span-5 p-[8%] md:pr-0 z-10">
             <p
                 v-motion-fade-visible
-                :duration="300"
-                :delay="200"
-                class="font-black font-sans text-2xl sm:text-3xl"
+                :duration="270"
+                :delay="60"
+                class="font-bold text-2xl sm:text-3xl"
             >
                 Requirements For our Users
             </p>
             <p class="md:w-[140%] lg:w-[130%] py-4">
                 <span
                     v-motion-fade-visible
-                    :duration="300"
-                    :delay="300"
-                    class="text-gray-700 inline bg-white leading-8"
+                    :duration="60"
+                    :delay="270"
+                    class="text-gray-700 inline backdrop-blur-sm bg-[#ffffffaa] leading-8"
                     >Lorem ipsum dolor sit amet , quae beatae ullam tempore
                     ratione repellendus amet dolorem blanditiis, veritatis
                     animi! Modi veritatis placeat cupiditate. .</span
@@ -27,23 +27,13 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
             </p>
             <LandingAboutRequirementLists />
 
-            <router-link
-                v-motion-pop-visible
-                :duration="200"
-                :delay="500"
-                class="w-fit rounded-full hover:opacity-90 p-2 bg-primary-500 text-white px-8 flex items-center group justify-center gap-4"
-            >
-                <p>Learn more</p>
-                <SharedCommonIcon
-                    name="chevron"
-                    class="h-4 animate-pulse group-hover:opacity-90 duration-500 transition-all group-hover:translate-x-3"
-                />
-            </router-link>
+           
         </div>
 
         <div
             v-motion-fade-visible
-            :duration="300"
+            :delay="50"
+            :duration="270"
             class="relative overflow-x-hidden md:bg-about-lg _md:bg-about-sm bg-contain bg-left _md:bg-left bg-no-repeat _md:py-1 flex justify-center col-span-5"
         >
             <img

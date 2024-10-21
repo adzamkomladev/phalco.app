@@ -7,54 +7,51 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
     <body class="bg-gray-100 md:text-lg flex flex-col">
         <main
             id="home"
-            class="bg-gray-[#F6F6F6] scroll-mt-24 md:bg-white max-w-[1600px] self-center"
+            class="bg-[#F6F6F6] scroll-mt-24 md:bg-white max-w-[1600px] self-center"
         >
             <LandingHeader />
 
             <section
-                id="home"
+             id="home"
                 class="md:pl-[8%] pl-0 scroll-mt-48 grid grid-cols-12 _md:flex flex-col-reverse overflow-hidden"
             >
                 <div
-                    class="col-span-6 _md:p-[8%] bg-white _md:rounded-t-[3rem] pt-10 gap-2 flex flex-col z-10"
+
+                    class="col-span-6 z-10 _md:p-[8%] md:bg-transparent  bg-white _md:rounded-t-[3rem] pt-14 gap-2 flex flex-col"
                 >
                     <p
-                        class="font-black font-sans text-2xl sm:text-3xl md:block md:w-[130%]"
-                        v-motion-fade-visible
-                        :duration="300"
-                        :delay="200"
+                        class="font-black  text-3xl md:text-[3.5rem] inline md:leading-[5rem] md:w-[110%]"
                     >
-                        Election Management made easy
+                    <SharedAnimationBlurReview :delay="0" :duration="0.5" >
+                        Election Management made easy 
+    </SharedAnimationBlurReview>
                     </p>
+                    <p class="md:w-[82%]  lg:w-full">
+                        <span class="text-gray-700 inline backdrop-blur-sm bg-[#ffffffaa] "
+                                  v-motion-fade-visible-once
+                                  :duration="300"
+                                  :delay="500"
 
-                    <p
-                        class="text-gray-700 md:text-pretty _md:w-full md:w-[120%] lg:w-[130%]"
-                        v-motion-fade-visible
-                        :duration="300"
-                        :delay="300"
-                    >
-                        <span class="bg-white inline leading-8">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Cumque itaque exercitationem corporis aliquid
-                            quia dolorem ut similique? Deserunt modi tenetur
-                            pariatur quam, laboriosam expedita minima nihil
-                            reprehenderit non ad atque.
-                        </span>
+  >Lorem ipsum dolor sit amet , quae beatae ullam
+                            tempore ratione repellendus amet dolorem blanditiis,
+                            veritatis animi! Modi veritatis placeat cupiditate.
+                            ratione repellendus amet dolorem blanditiis,
+                            veritatis animi! Modi veritatis placeat cupiditate.
+                            .</span
+                        >
                     </p>
 
                     <div class="py-2">
                         <button
-                            v-motion-pop-visible-once
-                            :delay="300"
-                            class="p-2 w-full md:w-52 text-white transition-all hover:opacity-90 bg-primary-500 rounded-md font-bold"
+                        v-motion-pop-visible-once
+                        :delay="800"
+
+                            class="p-2 w-full md:w-52 text-white bg-primary-500 rounded-md font-bold"
                         >
                             Get Started
                         </button>
                         <p
-                            v-motion-fade-visible-once
-                            :duration="500"
-                            :delay="600"
-                            class="my-4 text-sm md:text-base sm:text-base text-gray-600 font-bold dark:text-neutral-400"
+                            class="my-4 text-sm md:text-base sm:text-base text-gray-600 font-bold dark:text-gray-400 md:hidden"
                         >
                             Already have an account ?
                             <router-link
@@ -66,19 +63,16 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                         </p>
                     </div>
                 </div>
-                <div class="py-8 col-span-6 overflow-hidden">
+                <div class="py-8 items-end col-span-6 md:w-[120%] sticky md:right-0">
                     <img
-                        v-motion-slide-visible-once-right
-                        :duration="500"
-                        :delay="400"
+                        v-motion-pop-visible-once
+                        :delay="950"
+                        :duration="400"
                         :src="imageWelcomeLg"
                         class="_md:hidden md:block float-right"
                     />
 
                     <img
-                        v-motion-fade-visible
-                        :duration="500"
-                        :delay="400"
                         :src="imageWelcomeSm"
                         class="md:hidden _md:block w-full p-10"
                     />
@@ -96,7 +90,6 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
             >
                 <LandingServiceShow class="px-[8%]" />
             </LandingSection>
-
             <LandingSection
                 id="pricing"
                 title="Pricing"
@@ -107,9 +100,8 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
             >
                 <LandingPricingShow class="px-8 md:px-[8%]" />
             </LandingSection>
-
             <LandingSection
-                id="contract"
+                id="About Us"
                 class="md:pr-0"
                 title="About Us"
                 description="Lorem ipsum dolor sit amet consectetur adipisicing
@@ -119,41 +111,11 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
             >
                 <LandingAboutRequirement class="md:pl-[8%] _md:pl-0" />
             </LandingSection>
-
-            <!-- <section class="p-10 bg-white">
-                <div
-                    class="bg-community h-72 overflow-hidden bg-right rounded-[2rem] bg-cover bg-no-repeat"
-                >
-                    <div class="bg-[#0988D090] w-full h-full p-10">
-                        <div
-                            class="bg-[#0988D0ee] p-8 w-2/3 h-full rounded-3xl"
-                        >
-                            <p class="text-white">Join our community now</p>
-                            <p class="text-white text-3xl font-semibold">
-                                Start yor election management today
-                            </p>
-                            <form>
-                                <div class="mb-6 flex pr-14">
-                                    <input
-                                        type="password"
-                                        id="success"
-                                        class="bg-green-50 border border-green-500 text-green-900 dark:text-green-400 text-sm rounded-l-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-green-500"
-                                        placeholder="Confirm Pin"
-                                    />
-                                    <button
-                                        class="bg-[#0BC81E] bg- px-4 rounded-r-lg text-white font-bold text-lg"
-                                    >
-                                        Submit
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
             <div class="md:border-t">
                 <LandingFooterShow />
             </div>
+
+           
         </main>
     </body>
 </template>

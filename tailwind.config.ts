@@ -7,47 +7,51 @@ export default {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                poppins: ["Poppins", "sans-serif"],
+            },
             backgroundImage: {
-    'auth-p': "url('../svg/auth/layout.svg')",
-    'about-sm': "url('../svg/welcome/about_bg_sm.svg')",
-    'about-lg': "url('../svg/welcome/about_bg_lg.svg')",
-    'menu-br': "url('../svg/welcome/menu/background.svg')",
-    'community': "url('../svg/welcome/community.png')"
-  }, screens: {
-        'tall': {
-          'raw': `only screen and (min-height: 640px)`
-        },
-        'xtall': {
-          'raw': `only screen and (min-height: 960px)`
-        },
-        '2xtall': {
-          'raw': `only screen and (min-height: 1024px)`
-        },
-        '_sm': {
-          'raw': `only screen and (max-width: 639px)`
-        },
-        '_md': {
-          'raw': `only screen and (max-width: 767px)`
-        },
-        '_lg': {
-          'raw': `only screen and (max-width: 1023px)`
-        },
-        '_xl': {
-          'raw': `only screen and (max-width: 1279px)`
-        },
-        'portrait': {
-          'raw': '(orientation: portrait)'
-        },
-        'landscape': {
-          'raw': '(orientation: landscape)'
-        },
-        'tallOrWideAndPortrait': {
-          'raw': `only screen and ((max-height: 960px) and (max-width: 480px) or (max-height: 480px) and (max-width: 960px)) and (orientation: portrait)`
-        },
-        'tallOrWideAndLandscape': {
-          'raw': `only screen and ((max-height: 960px) and (max-width: 480px) or (max-height: 480px) and (max-width: 960px)) and (orientation: landscape)`
-        },
-},
+                "auth-p": "url('../svg/auth/layout.svg')",
+                "about-sm": "url('../svg/welcome/about_bg_sm.svg')",
+                "about-lg": "url('../svg/welcome/about_bg_lg.svg')",
+                "menu-br": "url('../svg/welcome/menu/background.svg')",
+                community: "url('../svg/welcome/community.png')",
+            },
+            screens: {
+                tall: {
+                    raw: `only screen and (min-height: 640px)`,
+                },
+                xtall: {
+                    raw: `only screen and (min-height: 960px)`,
+                },
+                "2xtall": {
+                    raw: `only screen and (min-height: 1024px)`,
+                },
+                _sm: {
+                    raw: `only screen and (max-width: 639px)`,
+                },
+                _md: {
+                    raw: `only screen and (max-width: 767px)`,
+                },
+                _lg: {
+                    raw: `only screen and (max-width: 1023px)`,
+                },
+                _xl: {
+                    raw: `only screen and (max-width: 1279px)`,
+                },
+                portrait: {
+                    raw: "(orientation: portrait)",
+                },
+                landscape: {
+                    raw: "(orientation: landscape)",
+                },
+                tallOrWideAndPortrait: {
+                    raw: `only screen and ((max-height: 960px) and (max-width: 480px) or (max-height: 480px) and (max-width: 960px)) and (orientation: portrait)`,
+                },
+                tallOrWideAndLandscape: {
+                    raw: `only screen and ((max-height: 960px) and (max-width: 480px) or (max-height: 480px) and (max-width: 960px)) and (orientation: landscape)`,
+                },
+            },
             flexBasis: {
                 "1/7": "14.2857143%",
                 "2/7": "28.5714286%",
@@ -72,7 +76,7 @@ export default {
                     800: "#044067", // Very dark
                     900: "#032f50", //  Deep dark shade
                 },
-                
+
                 gray: {
                     1: "#fafafa",
                     2: "#e0e0e0",

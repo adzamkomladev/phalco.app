@@ -34,7 +34,7 @@ const isActive = computed(() => currentSection.value === props.to);
 <template>
     <a
         :href="'#' + to"
-        class="text-base text-black hover:opacity-90 font-bold capitalize md:py-4 focus:outline-none focus:text-neutral-300"
+        class="text-base md:text-lg text-black text-nowrap hover:opacity-90 font-bold capitalize md:py-4 focus:outline-none focus:text-neutral-300"
         :class="{ 'text-blue-500': isActive }"
         aria-current="page"
     >
