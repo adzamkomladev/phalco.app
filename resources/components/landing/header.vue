@@ -9,7 +9,7 @@
             <div class="flex justify-between px-[8%] py-6 _md:bg-white">
                 <router-link>
                     <SharedCommonIcon
-                        class="text-primary-500"
+                        class="text-primary-500 w-fit"
                         name="logo_full"
                     />
                 </router-link>

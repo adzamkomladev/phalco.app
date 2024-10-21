@@ -2,9 +2,9 @@
 const props = defineProps<{ offer: string }>();
 </script>
 <template>
-    <li class="flex items-center space-x-3">
+    <li class="flex text-xs items-center space-x-3">
         <div>
-            <SharedCommonIcon size="14" name="check" />
+            <SharedCommonIcon size="10" name="check" />
         </div>
 
         <span class="text-thin">{{ offer }}</span>

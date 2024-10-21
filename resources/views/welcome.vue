@@ -41,13 +41,16 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                     </p>
 
                     <div class="py-2">
+                        <router-link
+                         :href="route('register')">
                         <button
                             v-motion-pop-visible-once
                             :delay="800"
-                            class="p-2 w-full md:w-52 text-white bg-primary-500 rounded-md font-bold"
+                            class="p-2 w-full md:w-52 hover:opacity-90 transition-all hover:scale-105 text-white bg-primary-500 rounded-md font-bold"
                         >
                             Get Started
                         </button>
+                    </router-link>
                         <p
                             class="my-4 text-sm md:text-base sm:text-base text-gray-600 font-bold dark:text-gray-400 md:hidden"
                         >
@@ -62,7 +65,7 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                     </div>
                 </div>
                 <div
-                    class="py-8 items-end col-span-6 md:w-[120%] sticky md:right-0"
+                    class="py-8 items-end col-span-6 md:w-[110%] sticky md:right-0"
                 >
                     <img
                         v-motion-pop-visible-once

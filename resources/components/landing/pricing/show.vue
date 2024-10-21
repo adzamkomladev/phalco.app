@@ -59,7 +59,7 @@ const premium = {
             <template v-slot:button>
                 <a
                     href="#"
-                    class="text-white bg-black w-fit hover:bg-opacity-90 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
+                    class="text-white bg-black w-fit hover:bg-opacity-90 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-xs px-10 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
                 >
                     Purchase</a
                 >
@@ -74,7 +74,7 @@ const premium = {
             <template v-slot:button>
                 <a
                     href="#"
-                    class="text-primary-500 bg-white w-fit hover:bg-primary-50 focus:ring-4 focus:ring-primary-200 font-semibold rounded-lg text-sm px-10 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
+                    class="text-primary-500 bg-white w-fit hover:bg-primary-50 focus:ring-4 focus:ring-primary-200 font-semibold rounded-lg text-xs px-10 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
                 >
                     Purchase</a
                 >
@@ -88,7 +88,7 @@ const premium = {
             <template v-slot:button>
                 <a
                     href="#"
-                    class="text-white bg-black w-fit hover:bg-opacity-90 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
+                    class="text-white bg-black w-fit hover:bg-opacity-90 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-xs px-10 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
                 >
                     Purchase</a
                 >

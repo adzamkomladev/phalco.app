@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex absolute font-bold bg-[#07689fcc] items-center text-white rounded-full -top-4 left-[40%] px-3 -skew-x-2 rotate-[9deg] text-sm gap-1"
+        class="flex absolute font-bold bg-[#07689f] items-center text-white rounded-full -top-4 left-[40%] px-3 -skew-x-2 rotate-[9deg] text-sm gap-1"
     >
         <svg
             width="24"

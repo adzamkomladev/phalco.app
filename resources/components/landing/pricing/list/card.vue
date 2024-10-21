@@ -20,7 +20,7 @@ const props = defineProps<{
         <h3 class="mb-4 text-2xl font-bold capitalize text-left">
             {{ data.type }}
         </h3>
-        <p class="font-light text-inherit sm:text-lg dark:text-gray-400">
+        <p class="font-light text-inherit text-base dark:text-gray-400">
             {{ data.description }}
         </p>
         <div class="flex items-baseline my-4 border-b-2 pb-4 border-inherit">
@@ -28,7 +28,7 @@ const props = defineProps<{
                 >${{ data.amount.value }}</span
             >
             <span class=""
-                ><span class="font-bold text-xl">/</span
+                ><span class="font-bold text-base">/</span
                 >{{ data.amount.rate }}</span
             >
         </div>
