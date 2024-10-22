@@ -18,7 +18,9 @@ const props = defineProps<{
             :duration="410"
             class="rounded-xl p-4 group flex flex-col md:w-24 md:h-24 aspect-square items-center justify-center text-center"
         >
-            <div class="aspect-square flex items-center md:group-hover:scale-105 transition-all duration-300 justify-center">
+            <div
+                class="aspect-square flex items-center md:group-hover:scale-105 transition-all duration-300 justify-center"
+            >
                 <SharedCommonIcon
                     class="h-24 w-24 sm:h-36 sm-w-36 md:h-10 transition-all group-hover:scale-105"
                     :name="service.icon.name"
