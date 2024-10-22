@@ -10,14 +10,16 @@ const props = defineProps<{
 </script>
 
 <template>
-    <div class="group">
+    <div class="group"
+    v-motion-fade-visible
+    :duration="360"
+    :delay="200"
+    >
         <div
             :style="{ backgroundColor: service.icon.color + 60 }"
             v-motion-pop-visible-once
-            :initial="{ opacity: 0.2, scale: 0.8 }"
-            :enter="{ opacity: 1, scale: 1 }"
-            :delay="60 * index"
-            :duration="360"
+            :delay="90 * index"
+            :duration="410"
             class="rounded-xl p-4 group flex flex-col md:w-24 md:h-24 aspect-square items-center justify-center text-center"
         >
             <div class="aspect-square flex items-center justify-center">
@@ -44,6 +46,7 @@ const props = defineProps<{
                 class="text-lg text-pretty text-gray-600 group group-hover:bg-clip-text group-hover:text-transparent bg-clip-text transition-colors"
                 v-motion-pop
                 :delay="index * 60 + 800"
+                :duration="360"
                 :style="{ backgroundColor: service.icon.color }"
             >
                 {{ service.description }}
