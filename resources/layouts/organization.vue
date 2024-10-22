@@ -8,7 +8,7 @@ onMounted(() => {
 
 <template>
     <body
-        class="bg-primary-100 dark:bg-gray-900  h-screen w-screen flex items-center justify-center"
+        class="bg-primary-100 dark:bg-gray-900 h-screen w-screen flex items-center justify-center"
     >
         <main
             class="relative flex-1 h-full w-full self-center max-h-[1400px] max-w-[1500px] flex bg-white dark:bg-gray-800 sm:landscape:overflow-hidden"
@@ -33,7 +33,7 @@ onMounted(() => {
                     </div>
 
                     <div
-                        class="bg-primary-500  bg-[length:90%_90%] bg-[center_top_5rem] shadow sticky sm:landscape:rounded-3xl xl:landscape:bg-bottom dark:bg-gray-700 blur-[1.5px] h-[50vh] flex-1 bg-organization bg-no-repeat sm:landscape:h-full sm:landscape:blur-0"
+                        class="bg-primary-500 bg-[length:90%_90%] bg-[center_top_5rem] shadow sticky sm:landscape:rounded-3xl xl:landscape:bg-bottom dark:bg-gray-700 blur-[1.5px] h-[50vh] flex-1 bg-organization bg-no-repeat sm:landscape:h-full sm:landscape:blur-0"
                     ></div>
                 </div>
 

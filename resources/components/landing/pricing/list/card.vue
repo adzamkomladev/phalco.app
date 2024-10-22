@@ -6,12 +6,12 @@ const props = defineProps<{
         description: string;
         offers: string[];
     };
-    buttonClass:string;
+    buttonClass: string;
     position: number;
 }>();
 </script>
 
-<template >
+<template>
     <div
         v-motion-pop-visible-once
         :duration="360"
@@ -42,13 +42,13 @@ const props = defineProps<{
             />
         </ul>
 
-<a
-                    href="#"
-                    class=" w-48 hover:bg-opacity-90 focus:ring-4 focus:ring-gray-200 font-bold rounded-lg text-sm px-10 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
-                :class="buttonClass"
-                    >
-                    Purchase</a
-                >
+        <a
+            href="#"
+            class="w-48 hover:bg-opacity-90 focus:ring-4 focus:ring-gray-200 font-bold rounded-lg text-sm px-10 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
+            :class="buttonClass"
+        >
+            Purchase</a
+        >
 
         <div v-if="props.data.type === 'professional'">
             <LandingPricingListRatingProfessional />

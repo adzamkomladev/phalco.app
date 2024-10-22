@@ -10,8 +10,8 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
         <div class="col-span-5 p-[8%] md:pr-0 z-10">
             <p
                 v-motion-fade-visible
- :delay="100"
-            :duration="360"
+                :delay="100"
+                :duration="360"
                 class="font-bold text-2xl sm:text-3xl"
             >
                 Requirements For our Users
@@ -19,8 +19,8 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
             <p class="md:w-[140%] lg:w-[130%] py-4">
                 <span
                     v-motion-fade-visible
-                   :delay="90"
-            :duration="360"
+                    :delay="90"
+                    :duration="360"
                     class="text-gray-700 inline backdrop-blur-sm bg-[#ffffffaa] leading-8"
                     >Lorem ipsum dolor sit amet , quae beatae ullam tempore
                     ratione repellendus amet dolorem blanditiis, veritatis

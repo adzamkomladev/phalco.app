@@ -21,17 +21,16 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                     <p
                         class="font-black text-3xl md:text-[3.5rem] inline md:leading-[5rem] md:w-[110%]"
                     >
-                        <SharedAnimationBlurReview
-                        
-                        :delay="0" :duration="0.67">
+                        <SharedAnimationBlurReview :delay="0" :duration="0.67">
                             Election Management made easy
                         </SharedAnimationBlurReview>
                     </p>
                     <p
-                     v-motion-fade-visible
-                     :delay="100"
-                    :duration="360"
-                    class="md:w-[82%] lg:w-full">
+                        v-motion-fade-visible
+                        :delay="100"
+                        :duration="360"
+                        class="md:w-[82%] lg:w-full"
+                    >
                         <span
                             class="text-gray-700 inline backdrop-blur-sm bg-[#ffffffaa]"
                             v-motion-fade-visible-once
@@ -82,8 +81,8 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
 
                     <img
                         v-motion-fade-visible
-                            :duration="360"
-                            :delay="90"
+                        :duration="360"
+                        :delay="90"
                         :src="imageWelcomeSm"
                         class="md:hidden _md:block w-full p-10"
                     />

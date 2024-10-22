@@ -22,7 +22,6 @@ const socials = ref([
             <div
                 class="col-span-4 _md:py-8 flex _md:items-center _md:justify-center"
             >
-          
                 <router-link>
                     <SharedCommonIcon
                         class="text-primary-500 h-8 _md:text-white"
@@ -55,7 +54,6 @@ const socials = ref([
                     <p>Lorem ipsum</p>
                     <p>Lorem ipsum</p>
                 </div>
-               
             </div>
             <div class="flex flex-col col-span-3">
                 <p class="font-black text-xl md:text-black">Contact</p>
