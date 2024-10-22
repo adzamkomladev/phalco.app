@@ -1,11 +1,9 @@
 <script setup lang="ts">
-const props = defineProps<{
-    service: {
-        title: string;
-        description: string;
-        icon: { name: string; color: string };
-    };
-    index: number;
+import { ServiceItemProps } from '~/resources/interfaces/landing/index.interface';
+
+const props = defineProps<{ 
+  service: ServiceItemProps; 
+  index: number;
 }>();
 </script>
 

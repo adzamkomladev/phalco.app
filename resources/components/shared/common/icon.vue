@@ -1,11 +1,8 @@
 <script setup lang="ts">
+import { SharedIconProp } from '~/resources/interfaces/shared/icon.interface';
+
 const props = withDefaults(
-    defineProps<{
-        name?: string;
-        size?: number;
-        color?: string;
-        square?: boolean;
-    }>(),
+    defineProps<SharedIconProp>(),
     { size: 24, name: "diamond" },
 );
 
@@ -18,5 +15,5 @@ onMounted(async () => {
 
 <template>
     <Icon v-if="Icon" :height="size" v-bind:style="color ? { color } : null" />
-    <p v-else>!</p>
+    <p v-else></p>
 </template>

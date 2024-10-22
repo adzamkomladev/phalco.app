@@ -38,7 +38,7 @@ import ImageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                         class="md:w-[82%] lg:w-full"
                     >
                         <span
-                            class="text-gray-700 inline backdrop-blur-sm bg-[#ffffffaa]"
+                            class="text-gray-700 inline bg-[#ffffffaa]"
                             v-motion-fade-visible-once
                             :duration="300"
                             :delay="500"

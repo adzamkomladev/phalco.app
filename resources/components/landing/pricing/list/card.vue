@@ -1,14 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{
-    data: {
-        type: string;
-        amount: { value: number; rate: string };
-        description: string;
-        offers: string[];
-    };
-    buttonClass: string;
-    position: number;
-}>();
+import { PricingCardProps } from '~/resources/interfaces/landing/index.interface';
+
+const props = defineProps<PricingCardProps>();
 </script>
 
 <template>
