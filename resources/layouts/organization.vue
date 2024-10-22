@@ -8,7 +8,7 @@ onMounted(() => {
 
 <template>
     <body
-        class="bg-primary-100 dark:bg-gray-900 h-screen w-screen flex items-center justify-center"
+        class="bg-gray-100 dark:bg-gray-900 h-screen w-screen flex items-center justify-center"
     >
         <main
             class="relative flex-1 h-full w-full self-center max-h-[1400px] max-w-[1500px] flex bg-white dark:bg-gray-800 sm:landscape:overflow-hidden"

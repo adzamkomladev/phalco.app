@@ -8,10 +8,10 @@ onMounted(() => {
 
 <template>
     <body
-        class="bg-primary-200 dark:bg-gray-900 bg-auth h-screen w-screen flex items-center justify-center"
+        class="bg-gray-200 dark:bg-gray-900 h-screen w-screen flex items-center justify-center"
     >
         <main
-            class="relative flex-1 h-full w-full text-red-400 self-center max-h-[1400px] max-w-[1500px] flex bg-white dark:bg-gray-800 sm:landscape:overflow-hidden"
+            class="relative flex-1 h-full w-full text-red-400 self-center max-h-[1400px] max-w-[1800px] flex bg-white dark:bg-gray-800 sm:landscape:overflow-hidden"
         >
             <section
                 class="flex-1 flex flex-col sm:landscape:gap-x-[4%] sm:landscape:landscape:flex-row"
@@ -33,7 +33,7 @@ onMounted(() => {
                     </div>
 
                     <div
-                        class="bg-gray-200 shadow sticky bg-center sm:landscape:rounded-3xl xl:landscape:bg-bottom bg-contain dark:bg-gray-700 blur-[1.5px] h-[50vh] flex-1 bg-auth-p bg-no-repeat sm:landscape:h-full sm:landscape:blur-0"
+                        class="bg-[length:90%_90%] portrait:sm:bg-[center_top_5rem] bg-gray-200 shadow sticky sm:landscape:rounded-3xl xl:landscape:bg-bottom _sm:bg-contain dark:bg-gray-700 blur-[1.5px] h-[50vh] flex-1 bg-auth-p bg-no-repeat sm:landscape:h-full sm:landscape:blur-0"
                     ></div>
                 </div>
 

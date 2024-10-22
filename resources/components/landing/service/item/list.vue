@@ -13,7 +13,7 @@ const props = defineProps<{
     <div class="group">
         <div
             :style="{ backgroundColor: service.icon.color + 60 }"
-            v-motion-pop-once-visible
+            v-motion-pop-visible-once
             :initial="{ opacity: 0.2, scale: 0.8 }"
             :enter="{ opacity: 1, scale: 1 }"
             :delay="60 * index"
