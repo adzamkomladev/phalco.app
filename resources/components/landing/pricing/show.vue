@@ -55,7 +55,7 @@ const premium = {
             :position="1"
             :data="standard"
             buttonClass="text-white bg-black"
-            class="border-gray-800 bg-white"
+            class="border-gray-700 bg-white"
         />
 
         <LandingPricingListCard
@@ -68,7 +68,7 @@ const premium = {
         <LandingPricingListCard
             :position="3"
             :data="premium"
-            class="border-gray-800 bg-white"
+            class="border-gray-700 bg-white"
             buttonClass="text-white bg-black"
         />
     </div>

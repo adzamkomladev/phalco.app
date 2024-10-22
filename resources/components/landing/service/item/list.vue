@@ -18,7 +18,7 @@ const props = defineProps<{
             :duration="410"
             class="rounded-xl p-4 group flex flex-col md:w-24 md:h-24 aspect-square items-center justify-center text-center"
         >
-            <div class="aspect-square flex items-center justify-center">
+            <div class="aspect-square flex items-center md:group-hover:scale-105 transition-all duration-300 justify-center">
                 <SharedCommonIcon
                     class="h-24 w-24 sm:h-36 sm-w-36 md:h-10 transition-all group-hover:scale-105"
                     :name="service.icon.name"
@@ -30,7 +30,7 @@ const props = defineProps<{
         </div>
         <div class="hidden mt-4 md:block bg-clip-text">
             <p
-                class="font-bold text-2xl pb-2 group-hover:bg-clip-text group-hover:text-transparent bg-clip-text transition-colors"
+                class="font-bold text-2xl pb-2 group-hover:bg-clip-text group-hover:text-transparent bg-clip-text transition-colors duration-300"
                 v-motion-pop
                 :style="{ backgroundColor: service.icon.color }"
                 :delay="index * 60 + 500"
@@ -39,7 +39,7 @@ const props = defineProps<{
             </p>
 
             <p
-                class="text-lg text-pretty text-gray-600 group group-hover:bg-clip-text group-hover:text-transparent bg-clip-text transition-colors"
+                class="text-lg text-pretty duration-300 text-gray-600 group group-hover:bg-clip-text group-hover:text-transparent bg-clip-text transition-colors"
                 v-motion-pop
                 :delay="index * 60 + 800"
                 :duration="360"
