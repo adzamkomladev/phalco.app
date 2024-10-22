@@ -22,7 +22,13 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                         class="font-black text-3xl md:text-[3.5rem] inline md:leading-[5rem] md:w-[110%]"
                     >
                         <SharedAnimationBlurReview :delay="0" :duration="0.67">
+                           <p
+                           v-motion-fade-visible
+                        :delay="100"
+                        :duration="360"
+                           >
                             Election Management made easy
+                           </p>
                         </SharedAnimationBlurReview>
                     </p>
                     <p
