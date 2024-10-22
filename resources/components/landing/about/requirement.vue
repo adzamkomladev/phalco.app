@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import imageAboutUs from "~/resources/svg/welcome/about_us.svg?url";
-import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
+import ImageAboutUs from "~/resources/svg/welcome/about_us.svg?url";
 </script>
 
 <template>
@@ -38,7 +37,7 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
         >
             <img
                 class="transform w-full lg:translate-x-10 md:h-[90%] md:absolute md:bottom-0 md:scale-x-[-1] _md:p-10"
-                :src="imageAboutUs"
+                :src="ImageAboutUs"
             />
         </div>
     </article>

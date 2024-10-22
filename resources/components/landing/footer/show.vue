@@ -18,7 +18,7 @@ const socials = ref([
     <div
         class="bg-primary-400 p-[8%] md-[4%] py-14 md:bg-white md:text-gray-600 text-white"
     >
-        <div class="md:grid md:grid-cols-13">
+        <div class="md:grid md:gap-4 md:grid-cols-13">
             <div
                 class="col-span-4 _md:py-8 flex _md:items-center _md:justify-center"
             >
@@ -56,9 +56,11 @@ const socials = ref([
                 </div>
             </div>
             <div class="flex flex-col col-span-3">
-                <p class="font-black text-xl md:text-black">Contact</p>
-                <p class="font-[50]">Komla Azam :+233 000 0000 000</p>
-                <div class="flex gap-4 text-black">
+                <p class="font-bold text-xl md:text-black">Contact</p>
+<p class="font-medium">
+    <a class="md:hidden" href="tel:+233202442452">Komla : +233 202 442 452</a>
+    <a class="_md:hidden" href="skype:+233202442452">Komla : +233 202 442 452</a>
+</p>                <div class="flex gap-4 text-black">
                     <button>
                         <SharedCommonIcon name="apple" class="h-12" />
                     </button>

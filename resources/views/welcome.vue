@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import imageWelcomeSm from "~/resources/svg/welcome/landing_sm.svg?url";
-import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
+import ImageWelcomeSm from "~/resources/svg/welcome/landing_sm.svg?url";
+import ImageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
 </script>
 
 <template>
@@ -81,7 +81,7 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                         v-motion-pop-visible-once
                         :delay="1000"
                         :duration="900"
-                        :src="imageWelcomeLg"
+                        :src="ImageWelcomeLg"
                         class="_md:hidden md:block float-right"
                     />
 
@@ -89,7 +89,7 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
                         v-motion-fade-visible
                         :duration="360"
                         :delay="90"
-                        :src="imageWelcomeSm"
+                        :src="ImageWelcomeSm"
                         class="md:hidden _md:block w-full p-10"
                     />
                 </div>
