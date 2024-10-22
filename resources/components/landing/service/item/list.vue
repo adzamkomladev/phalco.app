@@ -10,11 +10,7 @@ const props = defineProps<{
 </script>
 
 <template>
-    <div class="group"
-    v-motion-fade-visible
-    :duration="360"
-    :delay="200"
-    >
+    <div class="group" v-motion-fade-visible :duration="360" :delay="200">
         <div
             :style="{ backgroundColor: service.icon.color + 60 }"
             v-motion-pop-visible-once
