@@ -13,7 +13,7 @@ import imageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
 
             <section
                 id="home"
-                class="md:pl-[8%] pl-0 scroll-mt-48 grid grid-cols-12 _md:flex flex-col-reverse overflow-hidden"
+                class="md:pl-[8%] pl-0 scroll-mt-48 md:mt-12 grid grid-cols-12 _md:flex flex-col-reverse overflow-hidden"
             >
                 <div
                     class="col-span-6 z-10 _md:p-[8%] md:bg-transparent bg-white _md:rounded-t-[3rem] pt-14 gap-2 flex flex-col"
