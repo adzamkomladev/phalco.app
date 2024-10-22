@@ -13,11 +13,11 @@ const props = defineProps<{
     <div class="group">
         <div
             :style="{ backgroundColor: service.icon.color + 60 }"
-            v-motion-pop-visible
-            :initial="{ opacity: 0.2, scale: 0.9 }"
+            v-motion-pop-once-visible
+            :initial="{ opacity: 0.2, scale: 0.8 }"
             :enter="{ opacity: 1, scale: 1 }"
-            :delay="30 * index"
-            :duration="210"
+            :delay="60 * index"
+            :duration="360"
             class="rounded-xl p-4 group flex flex-col md:w-24 md:h-24 aspect-square items-center justify-center text-center"
         >
             <div class="aspect-square flex items-center justify-center">

@@ -11,12 +11,12 @@ export default {
                 poppins: ["Poppins", "sans-serif"],
             },
             backgroundImage: {
-                "logo": "url('../svg/icon/logo.svg')",
+                logo: "url('../svg/icon/logo.svg')",
                 "auth-p": "url('../svg/auth/layout.svg')",
                 "about-sm": "url('../svg/welcome/about_bg_sm.svg')",
                 "about-lg": "url('../svg/welcome/about_bg_lg.svg')",
                 "menu-br": "url('../svg/welcome/menu/background.svg')",
-                community: "url('../svg/welcome/community.png')",
+                organization: "url('../svg/organization/layout.svg')",
             },
             screens: {
                 tall: {
@@ -60,7 +60,11 @@ export default {
                 "4/7": "57.1428571%",
                 "5/7": "71.4285714%",
                 "6/7": "85.7142857%",
-            },
+            }, 
+            gridTemplateColumns: {
+        '13': 'repeat(13, minmax(0, 1fr))',
+        '14': 'repeat(14, minmax(0, 1fr))',
+      },
             colors: {
                 primary: {
                     dark: "#05486e",

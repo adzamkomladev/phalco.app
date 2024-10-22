@@ -10,8 +10,8 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
         <div class="col-span-5 p-[8%] md:pr-0 z-10">
             <p
                 v-motion-fade-visible
-                :duration="270"
-                :delay="60"
+ :delay="100"
+            :duration="360"
                 class="font-bold text-2xl sm:text-3xl"
             >
                 Requirements For our Users
@@ -19,8 +19,8 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
             <p class="md:w-[140%] lg:w-[130%] py-4">
                 <span
                     v-motion-fade-visible
-                    :duration="60"
-                    :delay="270"
+                   :delay="90"
+            :duration="360"
                     class="text-gray-700 inline backdrop-blur-sm bg-[#ffffffaa] leading-8"
                     >Lorem ipsum dolor sit amet , quae beatae ullam tempore
                     ratione repellendus amet dolorem blanditiis, veritatis
@@ -32,12 +32,12 @@ import imageAboutUsBgLg from "~/resources/svg/welcome/about_bg_lg.svg?url";
 
         <div
             v-motion-fade-visible
-            :delay="50"
-            :duration="270"
-            class="relative overflow-x-hidden md:bg-about-lg _md:bg-about-sm bg-contain bg-left _md:bg-left bg-no-repeat _md:py-1 flex justify-center col-span-5"
+            :delay="90"
+            :duration="360"
+            class="relative overflow-x-hidden md:bg-about-lg _md:bg-about-sm bg-contain bg-right _md:bg-left bg-no-repeat _md:py-1 flex justify-center md:justify-end col-span-5"
         >
             <img
-                class="transform w-full lg:translate-x-10 md:scale-x-[-1] _md:p-10"
+                class="transform w-full lg:translate-x-10 md:h-[90%] md:absolute md:bottom-0 md:scale-x-[-1] _md:p-10"
                 :src="imageAboutUs"
             />
         </div>

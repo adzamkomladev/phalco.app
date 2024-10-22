@@ -52,47 +52,29 @@ const premium = {
         class="_md:space-y-8 md:grid md:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0"
     >
         <LandingPricingListCard
+ 
             :position="1"
             :data="standard"
+            buttonClass="text-white bg-black"
             class="border-gray-800 bg-white"
-        >
-            <template v-slot:button>
-                <a
-                    href="#"
-                    class="text-white bg-black w-fit hover:bg-opacity-90 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-xs px-10 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
-                >
-                    Purchase</a
-                >
-            </template>
-        </LandingPricingListCard>
+        />
+ 
 
         <LandingPricingListCard
+ 
             :position="2"
             :data="professional"
-            class="bg-primary-300 text-white border-white"
-        >
-            <template v-slot:button>
-                <a
-                    href="#"
-                    class="text-primary-500 bg-white w-fit hover:bg-primary-50 focus:ring-4 focus:ring-primary-200 font-semibold rounded-lg text-xs px-10 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
-                >
-                    Purchase</a
-                >
-            </template>
-        </LandingPricingListCard>
+            class="bg-[#0988D0] text-white border-white"
+             buttonClass="border-gray-800 bg-white text-[#0988D0]"
+        />
+          
+       
         <LandingPricingListCard
             :position="3"
             :data="premium"
             class="border-gray-800 bg-white"
-        >
-            <template v-slot:button>
-                <a
-                    href="#"
-                    class="text-white bg-black w-fit hover:bg-opacity-90 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-xs px-10 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
-                >
-                    Purchase</a
-                >
-            </template>
-        </LandingPricingListCard>
+            buttonClass="text-white bg-black"
+        />
+       
     </div>
 </template>

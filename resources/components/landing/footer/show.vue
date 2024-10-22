@@ -16,41 +16,46 @@ const socials = ref([
 </script>
 <template>
     <div
-        class="bg-primary-400 p-[8%] md-[4%] py-10 md:bg-white md:text-gray-600 text-white"
+        class="bg-primary-400 p-[8%] md-[4%] py-14 md:bg-white md:text-gray-600 text-white"
     >
-        <div class="md:grid md:grid-cols-12">
+        <div class="md:grid md:grid-cols-13">
             <div
-                class="col-span-3 _md:py-8 flex items-center gap-8 justify-center h-5"
+                class="col-span-4 _md:py-8 flex _md:items-center _md:justify-center"
             >
-                <SharedCommonIcon
-                    name="logo_full"
-                    class="w-full md:h-10 pr-2 md:mt-4 md:text-primary-500"
-                />
+          
+                <router-link>
+                    <SharedCommonIcon
+                        class="text-primary-500 h-8 _md:text-white"
+                        name="logo_full"
+                    />
+                </router-link>
             </div>
 
             <div
                 class="flex-1 col-span-6 font-thin justify-center text-base grid grid-cols-3 gap-6 xl:gap-10 lg:space-y-0"
             >
-                <div class="flex flex-col gap-2">
-                    <p class="font-bold md:text-black">About Us</p>
+                <div class="flex flex-col gap-2 text-sm">
+                    <p class="font-bold md:text-black text-lg">About Us</p>
                     <p>Lorem ipsum</p>
                     <p>Lorem ipsum</p>
                     <p>Lorem ipsum</p>
                 </div>
-                <div class="flex flex-col gap-2">
-                    <p class="font-bold md:text-black">Producs</p>
+                <div class="flex flex-col gap-2 text-sm">
+                    <p class="font-bold md:text-black text-lg">Product</p>
                     <p>Lorem ipsum</p>
-                    <p>Lorem ipsum</p>
-                    <p>Lorem ipsum</p>
-                    <p>Lorem ipsum</p>
-                </div>
-                <div class="flex font-[100] flex-col gap-2">
-                    <p class="font-bold md:text-black">Campaign</p>
                     <p>Lorem ipsum</p>
                     <p>Lorem ipsum</p>
                     <p>Lorem ipsum</p>
                     <p>Lorem ipsum</p>
                 </div>
+                <div class="flex flex-col gap-2 text-sm">
+                    <p class="font-bold md:text-black text-lg">Campaign</p>
+                    <p>Lorem ipsum</p>
+                    <p>Lorem ipsum</p>
+                    <p>Lorem ipsum</p>
+                    <p>Lorem ipsum</p>
+                </div>
+               
             </div>
             <div class="flex flex-col col-span-3">
                 <p class="font-black text-xl md:text-black">Contact</p>

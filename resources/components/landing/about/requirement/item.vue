@@ -5,8 +5,8 @@ const props = defineProps<{ requirement: string; index: number }>();
 <template>
     <div
         v-motion-fade-visible
-        :duration="270"
-        :delay="60"
+        :duration="360"
+        :delay="90"
         class="flex gap-x-5 ms-1"
     >
         <div
@@ -15,7 +15,7 @@ const props = defineProps<{ requirement: string; index: number }>();
             <div class="relative z-10 size-8 flex justify-center items-center">
                 <SharedCommonIcon
                     v-motion-pop-visible-once
-                    :duration="210"
+                    :duration="360"
                     :delay="60 * index * index"
                     name="hexagon"
                     class=""

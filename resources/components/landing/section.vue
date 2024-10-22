@@ -10,16 +10,16 @@ const props = defineProps<{ title: string; description: string }>();
         <div class="flex px-[8%] flex-col md:items-center gap-2 py-4">
             <div
                 v-motion-fade-visible
-                :duration="200"
-                :delay="100"
+                :duration="300"
+                :delay="90"
                 class="font-bold font-sans text-3xl md:text-5xl"
             >
                 {{ title }}
             </div>
             <span
                 v-motion-fade-visible
-                :duration="250"
-                :delay="100"
+                :duration="360"
+                :delay="90"
                 class="text-gray-700 block md:text-center lg:w-[50rem] text-balance"
                 >{{ description }}</span
             >
