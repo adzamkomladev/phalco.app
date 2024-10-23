@@ -82,11 +82,14 @@ const flash = useProperty("flash");
                         <table
                             class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700"
                         >
-                            
                             <tbody
                                 class="divide-y divide-gray-200 dark:divide-neutral-700"
                             >
-                                <SettingsTeamRoleRow  v-for="role in props.data" :key="role.id" :role="role" />
+                                <SettingsTeamRoleRow
+                                    v-for="role in props.data"
+                                    :key="role.id"
+                                    :role="role"
+                                />
                             </tbody>
                         </table>
                     </div>

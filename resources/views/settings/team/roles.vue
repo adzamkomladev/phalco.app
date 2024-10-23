@@ -5,9 +5,15 @@ const props = defineProps<{
 </script>
 
 <template>
-    <SharedCommonOverlay title="Roles" size="xl"  useSheet description="Invite and manage members" subtitle="Role management" >
-        <div >
-            <SettingsTeamRoleTable :data="props.roles"  />
+    <SharedCommonOverlay
+        title="Roles"
+        size="xl"
+        useSheet
+        description="Invite and manage members"
+        subtitle="Role management"
+    >
+        <div>
+            <SettingsTeamRoleTable :data="props.roles" />
         </div>
     </SharedCommonOverlay>
 </template>

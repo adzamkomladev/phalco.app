@@ -1,7 +1,15 @@
 <script setup lang="ts">
 import { HSOverlay } from "preline/preline";
 
-const props = defineProps<{ title: string;subtitle:string;description:string;useSheet:boolean;pageImage:string; size: string; maxSize?: string }>();
+const props = defineProps<{
+    title: string;
+    subtitle: string;
+    description: string;
+    useSheet: boolean;
+    pageImage: string;
+    size: string;
+    maxSize?: string;
+}>();
 
 const sizeClass = computed(
     () => `max-w-${props.size} w-${props.maxSize || "full"}`,
@@ -43,13 +51,11 @@ watch(show, (newShow: boolean | undefined, _: boolean | undefined) => {
         tabindex="-1"
         aria-labelledby="base-overlay-label"
     >
-        <div
-            class="flex justify-between items-center pt-8"
-        >
+        <div class="flex justify-between items-center pt-8">
             <p
                 class="text-black dark:text-primary-700 font-black text-2xl md:text-3xl lg:text-4xl"
             >
-                {{title}}
+                {{ title }}
             </p>
             <button
                 type="button"
@@ -75,25 +81,23 @@ watch(show, (newShow: boolean | undefined, _: boolean | undefined) => {
                 </svg>
             </button>
         </div>
-            <slot v-if="!useSheet" />
+        <slot v-if="!useSheet" />
 
- <div class="self-end portrait:pt-0 pt-8 md:text-sm">
-        <div
-            class="pb-6 portrait:flex flex-col"
-        >
-         
-
-            <div class="felx flex-col gap-4">
-                <p v-if="subtitle" class="text-lg font-bold lg:text-xl">
-                    {{ subtitle }}
-                </p>
-                <p v-if="description" class="text-sm lg:text-base text-gray-600">
-                    {{ description }}
-                </p>
+        <div class="self-end portrait:pt-0 pt-8 md:text-sm">
+            <div class="pb-6 portrait:flex flex-col">
+                <div class="felx flex-col gap-4">
+                    <p v-if="subtitle" class="text-lg font-bold lg:text-xl">
+                        {{ subtitle }}
+                    </p>
+                    <p
+                        v-if="description"
+                        class="text-sm lg:text-base text-gray-600"
+                    >
+                        {{ description }}
+                    </p>
+                </div>
             </div>
+            <slot />
         </div>
-        <slot />
     </div>
-
-    </div>         
 </template>
