@@ -32,7 +32,6 @@ const professional = {
     ],
 };
 
-
 const premium = {
     type: "premium",
     amount: {

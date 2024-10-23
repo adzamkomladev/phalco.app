@@ -6,7 +6,6 @@ const model = defineModel({ required: true });
 const props = defineProps<{ error?: string | null }>();
 const isUploaded = ref(false);
 
-
 onMounted(() => {
     // Initialize File Upload
     HSFileUpload.autoInit();
@@ -22,12 +21,12 @@ onMounted(() => {
     dropzone.on("complete", (file: any) => {
         const responseData = JSON.parse(file.xhr.responseText);
         model.value = responseData.url;
-        isUploaded.value=true;
+        isUploaded.value = true;
     });
     dropzone.on("removedfile", (_: any) => {
-
-           model.value = null});
-           isUploaded.value=false;
+        model.value = null;
+    });
+    isUploaded.value = false;
 });
 
 const fileUploadOptions = JSON.stringify({
@@ -40,21 +39,21 @@ const fileUploadOptions = JSON.stringify({
 
 <template>
     <div>
-        <div class="relative" ref="fileUpload" :data-hs-file-upload="fileUploadOptions">
-            <template data-hs-file-upload-preview=""
-                >
-                <div
-                class="size-24"
-                >
+        <div
+            class="relative"
+            ref="fileUpload"
+            :data-hs-file-upload="fileUploadOptions"
+        >
+            <template data-hs-file-upload-preview="">
+                <div class="size-24">
                     <img
                         class="w-full object-contain rounded-full"
                         data-dz-thumbnail=""
                     />
-
                 </div>
             </template>
 
-            <div  class="flex group flex-wrap items-center gap-3 sm:gap-5">
+            <div class="flex group flex-wrap items-center gap-3 sm:gap-5">
                 <div
                     class=""
                     data-hs-file-upload-previews=""
@@ -85,10 +84,10 @@ const fileUploadOptions = JSON.stringify({
                 </div>
 
                 <div class="grow">
-                    <div class=" flex items-center gap-x-2">
+                    <div class="flex items-center gap-x-2">
                         <button
                             type="button"
-                            class="py-2   transition-all px-3 inline-flex items-center gap-x-2 text-xs font-medium rounded-md border border-transparent bg-primary-500 text-white hover:opacity-90 focus:outline-none focus:bg-primary-700 disabled:opacity-50 disabled:pointer-events-none"
+                            class="py-2 transition-all px-3 inline-flex items-center gap-x-2 text-xs font-medium rounded-md border border-transparent bg-primary-500 text-white hover:opacity-90 focus:outline-none focus:bg-primary-700 disabled:opacity-50 disabled:pointer-events-none"
                             data-hs-file-upload-trigger=""
                         >
                             <svg
@@ -113,10 +112,10 @@ const fileUploadOptions = JSON.stringify({
                         </button>
                         <button
                             type="button"
-                            class="size-7 items-center pb-[2px]  justify-center aspect-square absolute bottom-[66px] font-black left-[66px] opacity-100 delay-75 hidden group-has-[img]:inline-flex group-has-[img]:opacity-100 transition-all text-sm rounded-full border-2 border-white bg-red-600 text-white leading-[0] hover:bg-opacity-90 hover:scale-110 focus:outline-none focus:bg-gray-50 disabled:pointer-events-none dark:bg-red-900 dark:border-gray-700 dark:text-gray-400 dark:focus:bg-red-800"
+                            class="size-7 items-center pb-[2px] justify-center aspect-square absolute bottom-[66px] font-black left-[66px] opacity-100 delay-75 hidden group-has-[img]:inline-flex group-has-[img]:opacity-100 transition-all text-sm rounded-full border-2 border-white bg-red-600 text-white leading-[0] hover:bg-opacity-90 hover:scale-110 focus:outline-none focus:bg-gray-50 disabled:pointer-events-none dark:bg-red-900 dark:border-gray-700 dark:text-gray-400 dark:focus:bg-red-800"
                             data-hs-file-upload-clear=""
                         >
-                        x
+                            x
                         </button>
                     </div>
                 </div>

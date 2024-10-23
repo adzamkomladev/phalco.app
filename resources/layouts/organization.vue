@@ -14,7 +14,7 @@ onMounted(() => {
             class="relative flex-1 h-full w-full self-center max-h-[1400px] max-w-[1800px] flex bg-white dark:bg-gray-800 sm:landscape:overflow-hidden"
         >
             <section
-                class="flex-1 flex flex-col sm:landscape:gap-x-[4%] sm:landscape:landscape:flex-row "
+                class="flex-1 flex flex-col sm:landscape:gap-x-[4%] sm:landscape:landscape:flex-row"
             >
                 <div
                     class="sticky h-[30vh] sm:landscape:p-6 sm:landscape:pr-0 -top-0 bg-cover block spect-square sm:landscape:h-full sm:landscape:landscape:w-[50%] rounded-t-2xl sm:landscape:rounded-tl-none sm:landscape:rounded-r-2xl sm:landscape:flex"
@@ -33,18 +33,20 @@ onMounted(() => {
                     </div>
 
                     <div
-                        class="bg-primary-500  text-white flex flex-col justify-end  items-center  bg-[length:90%_90%] portrait:md:bg-[length:100%_100%]   bg-[center_top_3rem] sm:landscape:bg-[center_bottom_1rem] shadow sticky sm:landscape:rounded-3xl dark:bg-gray-700 blur-[1.5px] h-[50vh] flex-1 bg-organization bg-no-repeat sm:landscape:h-full sm:landscape:blur-0"
+                        class="bg-primary-500 text-white flex flex-col justify-end items-center bg-[length:90%_90%] portrait:md:bg-[length:100%_100%] bg-[center_top_3rem] sm:landscape:bg-[center_bottom_1rem] shadow sticky sm:landscape:rounded-3xl dark:bg-gray-700 blur-[1.5px] h-[50vh] flex-1 bg-organization bg-no-repeat sm:landscape:h-full sm:landscape:blur-0"
                     >
-                    <div class="pb-[5vh] portrait:hidden inline-flex _md:text-sm _md:pb-4 text-white">
-                            <p class=" text-lg ">Work together with Us</p>          
+                        <div
+                            class="pb-[5vh] portrait:hidden inline-flex _md:text-sm _md:pb-4 text-white"
+                        >
+                            <p class="text-lg">Work together with Us</p>
+                        </div>
                     </div>
-              </div>
                 </div>
 
                 <div
                     class="pt-8 sm:landscape:pt-10 n -mt px-[10%] sm:portrait:px-[18%] sm:landscape:mt-0 pb-10 sm:landscape:px-0 sm:landscape:pr-[5vw] xl:pr-[8vw] z-10 bg-white rounded-t-[2.5rem] sm:landscape:rounded-t-none flex-1 sm:landscape:overflow-y-auto sm:landscape:h-screen dark:bg-gray-800"
                 >
-                    <transition name="fade" mode="out-in" >
+                    <transition name="fade" mode="out-in">
                         <slot />
                     </transition>
                 </div>

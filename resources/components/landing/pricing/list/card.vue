@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PricingCardProps } from '~/resources/interfaces/landing/index.interface';
+import { PricingCardProps } from "~/resources/interfaces/landing/index.interface";
 
 const props = defineProps<PricingCardProps>();
 </script>

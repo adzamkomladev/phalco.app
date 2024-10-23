@@ -1,4 +1,3 @@
-
 <template>
     <span class="relative inline-block px-2">
         <Transition
@@ -42,9 +41,8 @@
     </span>
 </template>
 
-
 <script setup lang="ts">
-import { FlipWordsProps } from '~/resources/interfaces/animation/index.interface';
+import { FlipWordsProps } from "~/resources/interfaces/animation/index.interface";
 
 const props = withDefaults(defineProps<FlipWordsProps>(), {
     duration: 3000,
@@ -95,7 +93,6 @@ watch(isVisible, (newValue) => {
     }
 });
 </script>
-
 
 <style>
 @keyframes fadeInWord {

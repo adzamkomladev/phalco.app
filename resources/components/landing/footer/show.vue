@@ -57,10 +57,15 @@ const socials = ref([
             </div>
             <div class="flex flex-col col-span-3">
                 <p class="font-bold text-xl md:text-black">Contact</p>
-<p class="font-medium">
-    <a class="md:hidden" href="tel:+233202442452">Komla : +233 202 442 452</a>
-    <a class="_md:hidden" href="skype:+233202442452">Komla : +233 202 442 452</a>
-</p>                <div class="flex gap-4 text-black">
+                <p class="font-medium">
+                    <a class="md:hidden" href="tel:+233202442452"
+                        >Komla : +233 202 442 452</a
+                    >
+                    <a class="_md:hidden" href="skype:+233202442452"
+                        >Komla : +233 202 442 452</a
+                    >
+                </p>
+                <div class="flex gap-4 text-black">
                     <button>
                         <SharedCommonIcon name="apple" class="h-12" />
                     </button>

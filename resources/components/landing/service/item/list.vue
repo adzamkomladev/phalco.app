@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ServiceItemProps } from '~/resources/interfaces/landing/index.interface';
+import { ServiceItemProps } from "~/resources/interfaces/landing/index.interface";
 
-const props = defineProps<{ 
-  service: ServiceItemProps; 
-  index: number;
+const props = defineProps<{
+    service: ServiceItemProps;
+    index: number;
 }>();
 </script>
 

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { SharedIconProp } from '~/resources/interfaces/shared/icon.interface';
+import { SharedIconProp } from "~/resources/interfaces/shared/icon.interface";
 
-const props = withDefaults(
-    defineProps<SharedIconProp>(),
-    { size: 24, name: "diamond" },
-);
+const props = withDefaults(defineProps<SharedIconProp>(), {
+    size: 24,
+    name: "diamond",
+});
 
 let Icon = ref(null);
 
