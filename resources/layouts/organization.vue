@@ -33,7 +33,7 @@ onMounted(() => {
                     </div>
 
                     <div
-                        class="bg-primary-500 text-white flex flex-col justify-end items-center bg-[length:85%_85%] bg-[center_top_6vh]  shadow sticky sm:landscape:rounded-3xl dark:bg-gray-700 blur-[1.5px] h-[50vh] flex-1 bg-organization bg-no-repeat sm:landscape:h-full sm:landscape:blur-0"
+                        class="bg-primary-500 text-white flex flex-col justify-end items-center bg-[length:85%_85%] bg-[center_top_6vh] shadow sticky sm:landscape:rounded-3xl dark:bg-gray-700 blur-[1.5px] h-[50vh] flex-1 bg-organization bg-no-repeat sm:landscape:h-full sm:landscape:blur-0"
                     >
                         <div
                             class="pb-[5vh] portrait:hidden inline-flex _md:text-sm _md:pb-4 text-white"
