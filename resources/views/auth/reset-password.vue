@@ -24,10 +24,10 @@ const register = useForm({
     <LayoutAuthContent
         class=""
         title="Reset Password"
-        description="Enter your email to reset your password "
+        description="Enter new password to continue with phalco"
     >
         <form @submit.prevent="register.submit">
-            <div class="grid gap-y-8 pt-2">
+            <div class="grid gap-y-4 _md:landscape:gap-y-4 sm:gap-y-8 pt-2">
                 <SharedFormBaseInput
                     v-model="register.fields.password"
                     :error="register.errors.password"

@@ -33,7 +33,7 @@ const login = useForm({
         <SharedCommonOr />
 
         <form @submit.prevent="login.submit">
-            <div class="grid gap-y-4">
+            <div class="grid gap-y-4 _md:landscape:gap-y-4 sm:gap-y-8 pt-2">
                 <SharedFormBaseInput
                     v-model="login.fields.email"
                     :error="login.errors.email"
@@ -42,23 +42,24 @@ const login = useForm({
                     type="email"
                     placeholder="Email address"
                 />
-
-                <SharedFormBaseInput
-                    v-model="login.fields.password"
-                    :error="login.errors.password"
-                    id="password"
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                />
-                <p class="text-sm text-right">
-                    <router-link
-                        class="text-primary-twi decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
-                        :href="route('password.reset')"
-                    >
-                        forget password
-                    </router-link>
-                </p>
+                <div>
+                    <SharedFormBaseInput
+                        v-model="login.fields.password"
+                        :error="login.errors.password"
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                    />
+                    <p class="text-sm text-right p-1">
+                        <router-link
+                            class="text-primary-twi decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
+                            :href="route('password.reset')"
+                        >
+                            forget password
+                        </router-link>
+                    </p>
+                </div>
 
                 <SharedFormSubmitButton
                     :loading="login.processing"
