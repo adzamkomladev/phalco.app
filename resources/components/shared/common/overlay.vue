@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { HSOverlay } from "preline/preline";
 
-const props = defineProps<{ title: string; size: string; maxSize?: string }>();
+const props = defineProps<{ title: string;subtitle:string;description:string;useSheet:boolean;pageImage:string; size: string; maxSize?: string }>();
 
 const sizeClass = computed(
     () => `max-w-${props.size} w-${props.maxSize || "full"}`,
@@ -38,21 +38,19 @@ watch(show, (newShow: boolean | undefined, _: boolean | undefined) => {
     <div
         ref="overlay"
         id="base-overlay"
-        class="hs-overlay hs-overlay-open:translate-x-0 hidden translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full z-[80] bg-white border-e dark:bg-neutral-800 dark:border-neutral-700"
+        class="hs-overlay text-wrap hs-overlay-open:translate-x-0 _sm:max-w-full px-12 _sm:px-8 sm hidden translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full z-[80] bg-white border-e dark:bg-gray-800"
         role="dialog"
         tabindex="-1"
         aria-labelledby="base-overlay-label"
-        :class="sizeClass"
     >
         <div
-            class="flex justify-between items-center py-3 px-4 border-b dark:border-neutral-700"
+            class="flex justify-between items-center pt-8"
         >
-            <h3
-                id="base-overlay-label"
-                class="font-bold text-gray-800 dark:text-white"
+            <p
+                class="text-black dark:text-primary-700 font-black text-2xl md:text-3xl lg:text-4xl"
             >
-                {{ props.title }}
-            </h3>
+                {{title}}
+            </p>
             <button
                 type="button"
                 class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600"
@@ -77,12 +75,25 @@ watch(show, (newShow: boolean | undefined, _: boolean | undefined) => {
                 </svg>
             </button>
         </div>
-        <div class="p-4">
-            <p class="text-gray-800 dark:text-neutral-400">
-                <!-- Some text as placeholder. In real life you can have the elements
-                you have chosen. Like, text, images, lists, etc. -->
-            </p>
-            <slot />
+            <slot v-if="!useSheet" />
+
+ <div class="self-end portrait:pt-0 pt-8 md:text-sm">
+        <div
+            class="pb-6 portrait:flex flex-col"
+        >
+         
+
+            <div class="felx flex-col gap-4">
+                <p v-if="subtitle" class="text-lg font-bold lg:text-xl">
+                    {{ subtitle }}
+                </p>
+                <p v-if="description" class="text-sm lg:text-base text-gray-600">
+                    {{ description }}
+                </p>
+            </div>
         </div>
+        <slot />
     </div>
+
+    </div>         
 </template>

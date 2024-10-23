@@ -77,65 +77,16 @@ const flash = useProperty("flash");
             <div class="-m-1.5 overflow-x-auto">
                 <div class="p-1.5 min-w-full inline-block align-middle">
                     <div
-                        class="border rounded-lg shadow overflow-hidden dark:border-neutral-700 dark:shadow-gray-900"
+                        class="border rounded-xl shadow overflow-hidden dark:border-neutral-700 dark:shadow-gray-900"
                     >
                         <table
                             class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700"
                         >
-                            <thead class="bg-gray-50 dark:bg-neutral-700">
-                                <tr>
-                                    <th
-                                        scope="col"
-                                        class="px-6 py-3 text-start text-sm font-bold text-gray-900 dark:text-neutral-400"
-                                    >
-                                        All Roles
-                                    </th>
-                                    <th
-                                        scope="col"
-                                        class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
-                                    ></th>
-                                    <th
-                                        scope="col"
-                                        class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
-                                    ></th>
-                                </tr>
-                            </thead>
+                            
                             <tbody
                                 class="divide-y divide-gray-200 dark:divide-neutral-700"
                             >
-                                <tr v-for="role in props.data" :key="role.id">
-                                    <td
-                                        class="size-px whitespace-nowrap ps-6 pe-10 py-4 capitalize font-bold"
-                                    >
-                                        {{ role.name }}
-                                    </td>
-                                    <td
-                                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200"
-                                    >
-                                        <span
-                                            class="py-1 px-1.5 inline-flex items-center gap-x-1 text-xs font-medium bg-teal-100 text-teal-800 rounded-full dark:bg-teal-500/10 dark:text-teal-500"
-                                        >
-                                            <svg
-                                                class="size-2.5"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="16"
-                                                height="16"
-                                                fill="currentColor"
-                                                viewBox="0 0 16 16"
-                                            >
-                                                <path
-                                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
-                                                />
-                                            </svg>
-                                            {{ role.status }}
-                                        </span>
-                                    </td>
-                                    <td
-                                        class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium flex items-center gap-x-2"
-                                    >
-                                        actions
-                                    </td>
-                                </tr>
+                                <SettingsTeamRoleRow  v-for="role in props.data" :key="role.id" :role="role" />
                             </tbody>
                         </table>
                     </div>
