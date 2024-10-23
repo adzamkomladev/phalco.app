@@ -8,10 +8,10 @@ onMounted(() => {
 
 <template>
     <body
-        class="bg-gray-200 dark:bg-gray-900 h-screen w-screen flex items-center justify-center"
+        class="bg-white dark:bg-gray-700 h-screen w-screen flex items-center justify-center"
     >
         <main
-            class="relative flex-1 h-full w-full text-red-400 self-center max-h-[1400px] max-w-[1800px] flex bg-white dark:bg-gray-800 sm:landscape:overflow-hidden"
+            class="relative flex-1 h-full shadow-lg w-full text-red-400 self-center max-h-[1400px] max-w-[1800px] flex bg-white dark:bg-gray-800 sm:landscape:overflow-hidden"
         >
             <section
                 class="flex-1 flex flex-col sm:landscape:gap-x-[4%] sm:landscape:landscape:flex-row"

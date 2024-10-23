@@ -1,4 +1,4 @@
-import { type Config } from 'tailwindcss'
+import { type Config } from "tailwindcss";
 
 export default {
     content: [
@@ -60,26 +60,26 @@ export default {
                 "4/7": "57.1428571%",
                 "5/7": "71.4285714%",
                 "6/7": "85.7142857%",
-            }, 
+            },
             gridTemplateColumns: {
-        '13': 'repeat(13, minmax(0, 1fr))',
-        '14': 'repeat(14, minmax(0, 1fr))',
-      },
+                "13": "repeat(13, minmax(0, 1fr))",
+                "14": "repeat(14, minmax(0, 1fr))",
+            },
             colors: {
                 primary: {
                     dark: "#05486e",
                     twi: "#07689f",
                     light: "#0988d0",
-                    50: "#e3f2f8", // Very light shade
-                    100: "#c2e1ef", // Light shade
-                    200: "#8bc1de", // Lighter shade
-                    300: "#55a2cd", // Mid-light shade
-                    400: "#2b82b8", // Slightly darker than base
-                    500: "#07689f", // Base color
-                    600: "#065c8f", // Darker shade
-                    700: "#054e7b", // Even darker
-                    800: "#044067", // Very dark
-                    900: "#032f50", //  Deep dark shade
+                    50: "#ebf8ff",
+                    100: "#bee3f8",
+                    200: "#90cdf4",
+                    300: "#63b3ed",
+                    400: "#4299e1",
+                    500: "#3182ce",
+                    600: "#2b6cb0",
+                    700: "#2c5282",
+                    800: "#2a4365",
+                    900: "#1A365D",
                 },
 
                 gray: {

@@ -4,6 +4,9 @@ import HSFileUpload from "@preline/file-upload";
 const fileUpload = ref<HTMLInputElement | null>(null);
 const model = defineModel({ required: true });
 const props = defineProps<{ error?: string | null }>();
+const isUploaded = ref(false);
+
+
 onMounted(() => {
     // Initialize File Upload
     HSFileUpload.autoInit();
@@ -19,8 +22,12 @@ onMounted(() => {
     dropzone.on("complete", (file: any) => {
         const responseData = JSON.parse(file.xhr.responseText);
         model.value = responseData.url;
+        isUploaded.value=true;
     });
-    dropzone.on("removedfile", (_: any) => (model.value = null));
+    dropzone.on("removedfile", (_: any) => {
+
+           model.value = null});
+           isUploaded.value=false;
 });
 
 const fileUploadOptions = JSON.stringify({
@@ -33,24 +40,28 @@ const fileUploadOptions = JSON.stringify({
 
 <template>
     <div>
-        <div ref="fileUpload" :data-hs-file-upload="fileUploadOptions">
+        <div class="relative" ref="fileUpload" :data-hs-file-upload="fileUploadOptions">
             <template data-hs-file-upload-preview=""
-                ><div class="size-20">
+                >
+                <div
+                class="size-24"
+                >
                     <img
                         class="w-full object-contain rounded-full"
                         data-dz-thumbnail=""
                     />
+
                 </div>
             </template>
 
-            <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+            <div  class="flex group flex-wrap items-center gap-3 sm:gap-5">
                 <div
-                    class="group"
+                    class=""
                     data-hs-file-upload-previews=""
                     data-hs-file-upload-pseudo-trigger=""
                 >
                     <span
-                        class="group-has-[div]:hidden flex shrink-0 justify-center items-center size-20 border-2 border-dotted border-gray-300 text-gray-400 cursor-pointer rounded-full hover:bg-gray-50 dark:border-neutral-700 dark:text-neutral-600 dark:hover:bg-neutral-700/50"
+                        class="group-has-[img]:hidden flex shrink-0 justify-center items-center size-24 border-2 border-dotted border-gray-300 text-gray-400 cursor-pointer rounded-full hover:bg-gray-50 dark:border-neutral-700 dark:text-neutral-600 dark:hover:bg-neutral-700/50"
                     >
                         <svg
                             class="shrink-0 size-7"
@@ -74,17 +85,17 @@ const fileUploadOptions = JSON.stringify({
                 </div>
 
                 <div class="grow">
-                    <div class="flex items-center gap-x-2">
+                    <div class=" flex items-center gap-x-2">
                         <button
                             type="button"
-                            class="py-2 px-3 inline-flex items-center gap-x-2 text-xs font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                            class="py-2   transition-all px-3 inline-flex items-center gap-x-2 text-xs font-medium rounded-md border border-transparent bg-primary-500 text-white hover:opacity-90 focus:outline-none focus:bg-primary-700 disabled:opacity-50 disabled:pointer-events-none"
                             data-hs-file-upload-trigger=""
                         >
                             <svg
                                 class="shrink-0 size-4"
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
+                                width="36"
+                                height="36"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"
@@ -102,10 +113,10 @@ const fileUploadOptions = JSON.stringify({
                         </button>
                         <button
                             type="button"
-                            class="py-2 px-3 inline-flex items-center gap-x-2 text-xs font-semibold rounded-lg border border-gray-200 bg-white text-gray-500 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                            class="size-7 items-center pb-[2px]  justify-center aspect-square absolute bottom-[66px] font-black left-[66px] opacity-100 delay-75 hidden group-has-[img]:inline-flex group-has-[img]:opacity-100 transition-all text-sm rounded-full border-2 border-white bg-red-600 text-white leading-[0] hover:bg-opacity-90 hover:scale-110 focus:outline-none focus:bg-gray-50 disabled:pointer-events-none dark:bg-red-900 dark:border-gray-700 dark:text-gray-400 dark:focus:bg-red-800"
                             data-hs-file-upload-clear=""
                         >
-                            Delete
+                        x
                         </button>
                     </div>
                 </div>

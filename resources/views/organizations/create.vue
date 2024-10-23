@@ -7,6 +7,7 @@ const create = useForm({
     url: route("organizations.store"),
     fields: {
         name: "",
+        address: "",
         logo: "",
         description: "",
     },
@@ -20,51 +21,50 @@ const create = useForm({
 </script>
 
 <template layout="organization">
-    <div
-        class="bg-white border border-gray-200 shadow-sm mt-7 rounded-xl dark:bg-gray-800 dark:border-gray-700"
-    >
-        <div class="p-4 sm:p-7">
-            <div class="text-center">
-                <h1
-                    class="block text-2xl font-bold text-gray-800 dark:text-white"
-                >
-                    Create an organization
-                </h1>
-            </div>
+    <LayoutOrganisatonContent subtitle="Create an Organisation" description="Invite and manage members">
+
 
             <div class="mt-8">
                 <form @submit.prevent="create.submit">
                     <div class="grid gap-y-6">
+                        <div class="flex flex-col justify-center">
+                        
                         <SharedFormBaseImageUpload
                             v-model="create.fields.logo"
                             :error="create.errors.logo"
                         />
-
+</div>
                         <SharedFormBaseInput
                             v-model="create.fields.name"
                             :error="create.errors.name"
                             id="name"
                             name="name"
-                            label="Name"
+
+                            placeholder="Organisation Name"
+                        />
+                        <SharedFormBaseInput
+                            v-model="create.fields.address"
+                            :error="create.errors.address"
+                            id="name"
+                            name="name"
+                            placeholder="Address"
                         />
 
-                        <SharedFormBaseInput
+                        <SharedFormBaseTextarea
                             v-model="create.fields.description"
                             :error="create.errors.description"
                             id="description"
                             name="description"
-                            label="Description"
+                            placeholder="Description"
                         />
 
-                        <button
-                            type="submit"
-                            class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                            Create
-                        </button>
+                        
+                        <SharedFormSubmitButton text="Create"/>
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
-</template>
+
+
+
+    </LayoutOrganisatonContent>
+    </template>
