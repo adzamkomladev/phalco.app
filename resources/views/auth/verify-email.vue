@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import useSecurity from "~/resources/composables/security";
-import VerificationImage from "~/resources/svg/auth/verification_email.svg?url";
+import verificationImage from "~/resources/svg/auth/verification_email.svg?url";
 
 useHead({
     title: "Verify Email",
@@ -38,7 +38,11 @@ const startCountdown = () => {
 </script>
 
 <template layout="auth">
-    <LayoutAuthContent class="" title="Verification email sent">
+    <LayoutAuthContent
+        class=""
+        title="Verification email sent"
+        :pageImage="verificationImage"
+    >
         <template v-slot:description>
             To start using Phalco, confirm your email address with the email we
             sent to:
@@ -55,9 +59,6 @@ const startCountdown = () => {
                     {{ user?.email }}
                 </a>
             </strong>
-        </template>
-        <template v-slot:image>
-            <img :src="VerificationImage" class="h-48" />
         </template>
 
         <div class="relative h-16">
@@ -111,7 +112,7 @@ const startCountdown = () => {
         </div>
         <div class="">
             <p
-                class="text-sm -mt-4 sm:-mt-8 sm:landscape:text-left text-gray-600 xl:text-base dark:text-neutral-400"
+                class="text-sm sm:landscape:text-left text-gray-600 xl:text-base dark:text-neutral-400"
             >
                 Need help ?
                 <router-link

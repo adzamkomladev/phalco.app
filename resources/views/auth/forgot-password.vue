@@ -19,12 +19,12 @@ const forget_password = useForm({
         class=""
         title="Forget Password"
         description="Enter your email to reset your password "
+        :pageImage="ForgetPasswordImage"
     >
-        <div class="grid place-items-center">
-            <img class="w-1/2 py-2" :src="ForgetPasswordImage" />
-        </div>
         <form @submit.prevent="forget_password.submit">
-            <div class="grid gap-y-8 pt-2">
+            <div
+                class="grid gap-y-4 -mt-4 _md:landscape:gap-y-4 sm:gap-y-8 pt-2"
+            >
                 <SharedFormBaseInput
                     v-model="forget_password.fields.email"
                     :error="forget_password.errors.email"

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import NoOrganization from "~/resources/svg/organization/no_data.svg?url";
+
 useHead({
     title: "Select an Organization",
 });
@@ -6,10 +8,13 @@ const props = defineProps<{
     organizations: App.Data.Organizations.OrganizationData[];
 }>();
 const organizations = props.organizations.map((o) => ({
-    value: o.id!,
-    label: o.name!,
+    id: o.id!,
+    name: o.name!,
+    logo: o.logo!,
 }));
-const isNotEmpty = computed(() => organizations.length !== 0);
+
+const isEmpty = computed(() => organizations.length == 0);
+
 const organization = ref<number | null>(null);
 const loading = ref(false);
 
@@ -32,48 +37,54 @@ watch(
 </script>
 
 <template layout="organization">
-    <div
-        class="bg-white border border-gray-200 shadow-sm mt-7 rounded-xl dark:bg-gray-800 dark:border-gray-700"
+    <LayoutOrganisatonContent
+        :subtitle="isEmpty ? 'No organisation yet !' : 'Select an Organisation'"
+        :description="
+            isEmpty
+                ? 'Create new organiation and manage team'
+                : 'Invite and manage members'
+        "
     >
-        <div class="p-4 sm:p-7">
-            <div class="text-center">
-                <h1
-                    class="block text-2xl font-bold text-gray-800 dark:text-white"
-                >
-                    Create an organization
-                </h1>
-            </div>
-            <div class="mt-8 flex items-center justify-between">
-                <SharedFormBaseSelect
-                    v-if="isNotEmpty"
+        <div class="mt-8">
+            <div v-if="!isEmpty" class="flex flex-col gap-5">
+                <OrganisationSelectButton
+                    @select="organization = $event"
+                    :loading="loading"
                     v-model="organization"
-                    id="organization"
-                    name="organization"
-                    :options="organizations"
+                    v-for="(organisation, index) in organizations"
+                    :key="index"
+                    :organization="organisation"
                 />
-                <router-link
-                    :href="route('organizations.create')"
-                    :class="{ 'w-full': !isNotEmpty }"
-                    class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-plus"
-                    >
-                        <path d="M5 12h14" />
-                        <path d="M12 5v14" />
-                    </svg>
-                    Create Organization
-                </router-link>
+
+                <div class="pb-5">
+                    <SharedCommonOr />
+                </div>
             </div>
+
+            <div class=""></div>
+
+            <div
+                v-if="isEmpty"
+                class="pb-4 grid justify-center dark:opacity-70"
+            >
+                <img
+                    :src="NoOrganization"
+                    class="w-[24vw] portrait:w-[45vw] max-w-72 h-[24vw] portrait:h-[45vw] max-h-72"
+                />
+            </div>
+            <router-link
+                :href="route('organizations.create')"
+                class="text-primary-500 items-center text-xl w-fit justify-self-center gap-5 font-medium flex h-fit"
+                :class="isEmpty && 'w-full text-2xl'"
+            >
+                <span
+                    :class="isEmpty && 'text-primary-500'"
+                    class="text-3xl size-12 leading-[0px] font-semibold rounded-full bg-gray-100 text-gray-700 flex items-center justify-center"
+                    >+</span
+                >
+
+                <span class="">Create New Organization</span>
+            </router-link>
         </div>
-    </div>
+    </LayoutOrganisatonContent>
 </template>
