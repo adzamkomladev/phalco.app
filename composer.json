@@ -32,7 +32,8 @@
         "predis/predis": "^2.0",
         "socialiteproviders/google": "^4.1",
         "spatie/fork": "^1.2",
-        "spatie/laravel-data": "^4.8"
+        "spatie/laravel-data": "^4.8",
+        "unicodeveloper/laravel-paystack": "^1.2"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.1",

@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use Bavix\Wallet\Interfaces\Wallet;
+use Bavix\Wallet\Traits\HasWallet;
+use Bavix\Wallet\Traits\HasWallets;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,9 +16,9 @@ use Laravel\Scout\Searchable;
 /**
  * @mixin IdeHelperOrganization
  */
-class Organization extends Model
+class Organization extends Model implements Wallet
 {
-    use HasFactory, Notifiable, Searchable;
+    use HasWallet, HasWallets, HasFactory, Notifiable, Searchable;
 
     /**
      * The attributes that are mass assignable.

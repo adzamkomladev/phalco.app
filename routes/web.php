@@ -143,6 +143,19 @@ Route::prefix('elections')
 
 //endregion
 
+//region Finance Routes
+
+Route::prefix('finance')
+    ->name('finance.')
+    ->middleware(['verified', EnsureUserHasSelectedOrganization::class])
+    ->group(function () {
+        Route::get('', \App\Actions\Finance\Index::class)->name('index');
+        Route::post('payments/initiate', \App\Actions\Finance\Payments\InitiatePaystackPayment::class)->name('payments.initiate');
+        Route::get('payments/paystack/handle', \App\Actions\Finance\Payments\HandlePaystackWebhook::class)->name('payments.paystack.handle');
+    });
+
+//endregion
+
 //region Uploads Routes
 
 Route::post('assets/upload', \App\Actions\Assets\Upload::class)->name('assets.upload')->middleware('auth');
