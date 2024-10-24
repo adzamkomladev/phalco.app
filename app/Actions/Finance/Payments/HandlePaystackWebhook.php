@@ -20,21 +20,24 @@ class HandlePaystackWebhook
                 redirect()->route('finance.index')->with('error', 'Payment failed! Please try again.');
         } catch (\Exception $e) {
             logger()->error('Payment callback error', ['error' => $e->getMessage()]);
+
             return redirect()->route('finance.index')->with('error', 'Payment failed! Please try again.');
         }
     }
 
     public function handle(array $data)
     {
-        if (!$data['status']) {
+        if (! $data['status']) {
             logger()->error('Payment verification failed', ['paymentDetails' => $data]);
+
             return $this->handleFailedPayment($data);
         }
 
         $payment = Payment::where('reference', $data['data']['reference'])->first();
 
-        if (!$payment) {
+        if (! $payment) {
             logger()->error('Payment not found in database', ['paymentDetails' => $data]);
+
             return $this->handleFailedPayment($data);
         }
 

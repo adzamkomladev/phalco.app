@@ -22,7 +22,7 @@ class HandleSuccessfulPayment
 
         $wallet = $payment->organization->getWallet($payment->metadata['wallet_id']);
 
-        if (!$wallet) {
+        if (! $wallet) {
             return;
         }
 
@@ -34,8 +34,8 @@ class HandleSuccessfulPayment
             'status' => 'success',
             'metadata' => [
                 ...$payment->metadata,
-                'callback_response' => $data
-            ]
+                'callback_response' => $data,
+            ],
         ]);
     }
 }

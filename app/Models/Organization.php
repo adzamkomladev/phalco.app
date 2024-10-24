@@ -18,7 +18,7 @@ use Laravel\Scout\Searchable;
  */
 class Organization extends Model implements Wallet
 {
-    use HasWallet, HasWallets, HasFactory, Notifiable, Searchable;
+    use HasFactory, HasWallet, HasWallets, Notifiable, Searchable;
 
     /**
      * The attributes that are mass assignable.

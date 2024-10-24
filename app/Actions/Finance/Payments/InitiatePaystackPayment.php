@@ -4,10 +4,10 @@ namespace App\Actions\Finance\Payments;
 
 use App\Models\Payment;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 use Unicodeveloper\Paystack\Facades\Paystack;
-use Illuminate\Support\Str;
 
 class InitiatePaystackPayment
 {
@@ -63,8 +63,8 @@ class InitiatePaystackPayment
             'metadata' => [
                 'wallet_id' => $data['wallet_id'],
                 'request' => $paystackRequest,
-                'response' => $paystackResponse
-            ]
+                'response' => $paystackResponse,
+            ],
         ]);
 
         return $paystackResponse['data']['authorization_url'];
