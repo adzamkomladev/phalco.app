@@ -39,11 +39,10 @@ watch(show, (newShow: boolean | undefined, _: boolean | undefined) => {
     <div
         ref="overlay"
         id="base-overlay"
-        class="hs-overlay text-wrap hs-overlay-open:translate-x-0 _sm:w-full px-12 _sm:px-8 hidden  translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full z-[80] bg-white border-e dark:bg-gray-800"
+        class="hs-overlay text-wrap hs-overlay-open:translate-x-0 _sm:w-full px-12 _sm:px-8 hidden translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full z-[80] bg-white border-e dark:bg-gray-800"
         role="dialog"
         tabindex="-1"
         aria-labelledby="base-overlay-label"
-        
     >
         <div class="flex justify-between items-center pt-8">
             <p

@@ -79,12 +79,8 @@ const flash = useProperty("flash");
                     <div
                         class="border rounded-xl shadow overflow-hidden dark:border-neutral-700 dark:shadow-gray-900"
                     >
-                        <table
-                            class="min-w-full"
-                        >
-                            <tbody
-                                class=""
-                            >
+                        <table class="min-w-full">
+                            <tbody class="">
                                 <SettingsTeamRoleRow
                                     v-for="role in props.data"
                                     :key="role.id"
