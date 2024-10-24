@@ -11,6 +11,7 @@ const props = defineProps<{
         useSheet
         description="Invite and manage members"
         subtitle="Role management"
+        class="h-fit"
     >
         <div>
             <SettingsTeamRoleTable :data="props.roles" />

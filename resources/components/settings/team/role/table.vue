@@ -80,10 +80,10 @@ const flash = useProperty("flash");
                         class="border rounded-xl shadow overflow-hidden dark:border-neutral-700 dark:shadow-gray-900"
                     >
                         <table
-                            class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700"
+                            class="min-w-full"
                         >
                             <tbody
-                                class="divide-y divide-gray-200 dark:divide-neutral-700"
+                                class=""
                             >
                                 <SettingsTeamRoleRow
                                     v-for="role in props.data"

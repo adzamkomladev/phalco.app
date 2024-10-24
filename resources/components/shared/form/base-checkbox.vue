@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { BaseCheckboxProps } from "~/resources/interfaces/shared/form.interface";
+import { BaseToggleProps } from "~/resources/interfaces/shared/form.interface";
 
-const props = withDefaults(defineProps<BaseCheckboxProps>(), {
+const props = withDefaults(defineProps<BaseToggleProps>(), {
     id: `input-${Math.random() * 1000}`,
 });
 const model = defineModel({ required: true });

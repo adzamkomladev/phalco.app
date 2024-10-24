@@ -19,7 +19,7 @@ export interface ButtonProps {
     loading?: boolean;
 }
 
-export interface BaseCheckboxProps extends FormProp { }
+export interface BaseToggleProps extends FormProp { }
 
 export interface BaseRadioButtonProps<T> extends FormProp {
     options: { label: string; value: T }[];

@@ -1,15 +1,8 @@
 <script setup lang="ts">
 import { HSOverlay } from "preline/preline";
+import { OverlayProps } from "~/resources/interfaces/shared/overrlay.interface";
 
-const props = defineProps<{
-    title: string;
-    subtitle: string;
-    description: string;
-    useSheet: boolean;
-    pageImage: string;
-    size: string;
-    maxSize?: string;
-}>();
+const props = defineProps<OverlayProps>();
 
 const sizeClass = computed(
     () => `max-w-${props.size} w-${props.maxSize || "full"}`,
@@ -36,8 +29,8 @@ onMounted(() => {
 });
 
 watch(show, (newShow: boolean | undefined, _: boolean | undefined) => {
+    overlayHandler.value?.close();
     if (newShow === undefined) return;
-
     newShow ? overlayHandler.value?.open() : overlayHandler.value?.close();
 });
 </script>
@@ -46,10 +39,11 @@ watch(show, (newShow: boolean | undefined, _: boolean | undefined) => {
     <div
         ref="overlay"
         id="base-overlay"
-        class="hs-overlay text-wrap hs-overlay-open:translate-x-0 _sm:max-w-full px-12 _sm:px-8 sm hidden translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full z-[80] bg-white border-e dark:bg-gray-800"
+        class="hs-overlay text-wrap hs-overlay-open:translate-x-0 _sm:w-full px-12 _sm:px-8 hidden  translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full z-[80] bg-white border-e dark:bg-gray-800"
         role="dialog"
         tabindex="-1"
         aria-labelledby="base-overlay-label"
+        
     >
         <div class="flex justify-between items-center pt-8">
             <p
@@ -64,21 +58,7 @@ watch(show, (newShow: boolean | undefined, _: boolean | undefined) => {
                 data-hs-overlay="#base-overlay"
             >
                 <span class="sr-only">Close</span>
-                <svg
-                    class="shrink-0 size-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
-                    <path d="M18 6 6 18"></path>
-                    <path d="m6 6 12 12"></path>
-                </svg>
+                <SharedCommonIcon name="close" class="" />
             </button>
         </div>
         <slot v-if="!useSheet" />

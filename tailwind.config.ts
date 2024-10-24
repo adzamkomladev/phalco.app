@@ -81,6 +81,32 @@ export default {
                     800: "#2a4365",
                     900: "#1A365D",
                 },
+                forest: {
+                    DEFAULT: "#00980F", // Main color
+                    50: "#E6F7E9", // Very light green
+                    100: "#C3ECC7", // Light green
+                    200: "#80D690", // Soft green
+                    300: "#3ECF5B", // Bright green
+                    400: "#1CB840", // Fresh green
+                    500: "#00980F", // Forest (default)
+                    600: "#00850D", // Slightly darker
+                    700: "#00690B", // Dark forest
+                    800: "#004F08", // Very dark green
+                    900: "#003505", // Almost black green
+                },
+                crimson: {
+                    DEFAULT: "#F5190B", // Main bright red color
+                    50: "#FEE6E5", // Very light red
+                    100: "#FDC6C4", // Light red
+                    200: "#FA8D89", // Soft red
+                    300: "#F7544D", // Bright red
+                    400: "#F52E27", // Intense red
+                    500: "#F5190B", // Crimson (default)
+                    600: "#DA150A", // Slightly darker
+                    700: "#AF1008", // Dark crimson
+                    800: "#850C06", // Very dark red
+                    900: "#5B0804", // Almost black red
+                },
 
                 gray: {
                     1: "#fafafa",

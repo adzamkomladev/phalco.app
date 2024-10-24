@@ -1,39 +1,34 @@
 <script setup lang="ts">
 const props = defineProps<{ role: App.Data.Settings.Team.RoleData }>();
+const status =ref(props.role.status);
+    status.value='active'
+
 </script>
 
 <template>
-    <tr>
-        <td
-            class="size-px whitespace-nowrap ps-6 pe-10 py-4 capitalize font-bold"
+   <tr>
+    <td
+        class="whitespace-nowrap px-6 py-4  _sm:shrink sm:py-3 capitalize text-base"
+    >
+        {{ role.name }}
+    </td>
+    <td
+        class="py-4 sm:py-3 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200"
+    >
+        <span
+            :class="status ==='active' ? 'bg-forest-100 text-forest':'bg-crimson-100 text-crimson' "
+            class="px-2 py-1 inline-flex items-center gap-x-1 text-xs font-medium bg-teal-100 text-teal-800 rounded-full dark:bg-teal-500/10 dark:text-teal-500"
         >
-            {{ role.name }}
-        </td>
-        <td
-            class="py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200"
-        >
-            <span
-                class="py-1 px-1.5 inline-flex items-center gap-x-1 text-xs font-medium bg-teal-100 text-teal-800 rounded-full dark:bg-teal-500/10 dark:text-teal-500"
-            >
-                <svg
-                    class="size-2.5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                >
-                    <path
-                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
-                    />
-                </svg>
-                {{ role.status }}
-            </span>
-        </td>
-        <td
-            class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium flex items-center gap-x-2"
-        >
-            actions
-        </td>
-    </tr>
+            <SharedCommonIcon v-if="status==='active'" name="check" class="size-4 rounded-full text-white p-[2px] bg-forest"/>
+            <SharedCommonIcon v-else name="close" class="text-white rounded-full bg-crimson"/>
+            {{ status }}
+        </span>
+    </td>
+    <td
+        class="px-6 sm:px-4 py-4 sm:py-3 whitespace-nowrap text-end font-medium flex items-center gap-x-2"
+    >
+        <SharedFormBaseSwitch />
+    </td>
+</tr>
+
 </template>
