@@ -25,7 +25,7 @@ const create = useForm({
         subtitle="Create an Organisation"
         description="Invite and manage members"
     >
-        <div class="mt-8">
+        <div class="mt-4">
             <form @submit.prevent="create.submit">
                 <div class="grid gap-y-6">
                     <div class="flex flex-col justify-center">

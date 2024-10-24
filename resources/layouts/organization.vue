@@ -8,10 +8,10 @@ onMounted(() => {
 
 <template>
     <body
-        class="bg-gray-100 dark:bg-gray-900 h-screen w-screen flex items-center justify-center"
+        class="bg-white dark:bg-gray-900 h-screen w-screen flex items-center justify-center"
     >
         <main
-            class="relative flex-1 h-full w-full self-center max-h-[1400px] max-w-[1800px] flex bg-white dark:bg-gray-800 sm:landscape:overflow-hidden"
+            class="relative flex-1 h-full shadow w-full self-center max-h-[1400px] max-w-[1800px] flex bg-white dark:bg-gray-800 sm:landscape:overflow-hidden"
         >
             <section
                 class="flex-1 flex flex-col sm:landscape:gap-x-[4%] sm:landscape:landscape:flex-row"
@@ -33,7 +33,7 @@ onMounted(() => {
                     </div>
 
                     <div
-                        class="bg-primary-500 text-white flex flex-col justify-end items-center bg-[length:90%_90%] portrait:md:bg-[length:100%_100%] bg-[center_top_3rem] sm:landscape:bg-[center_bottom_1rem] shadow sticky sm:landscape:rounded-3xl dark:bg-gray-700 blur-[1.5px] h-[50vh] flex-1 bg-organization bg-no-repeat sm:landscape:h-full sm:landscape:blur-0"
+                        class="bg-primary-500 text-white flex flex-col justify-end items-center bg-[length:85%_85%] bg-[center_top_6vh] shadow sticky sm:landscape:rounded-3xl dark:bg-gray-700 blur-[1.5px] h-[50vh] flex-1 bg-organization bg-no-repeat sm:landscape:h-full sm:landscape:blur-0"
                     >
                         <div
                             class="pb-[5vh] portrait:hidden inline-flex _md:text-sm _md:pb-4 text-white"
