@@ -1,9 +1,6 @@
 <script setup lang="ts">
-
 const pollingStationId = useProperty("elections.agentPollingStation.id");
 const electionId = useProperty("elections.selected.id");
-
-
 </script>
 
 <template>
@@ -13,7 +10,6 @@ const electionId = useProperty("elections.selected.id");
     >
         <div class="flex flex-col justify-between h-full">
             <ul class="flex flex-col space-y-1">
-
                 <li>
                     <router-link
                         class="flex items-center gap-x-3.5 py-2 px-2.5 bg-gray-100 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-white"
@@ -23,8 +19,8 @@ const electionId = useProperty("elections.selected.id");
                         Home
                     </router-link>
                 </li>
-<LayoutMainSidebarSubMenu  />
-<LayoutMainSidebarSubMenu class="hs-accordion" />
+                <LayoutMainSidebarSubMenu />
+                <LayoutMainSidebarSubMenu class="hs-accordion" />
 
                 <!-- Elections -->
                 <li class="hs-accordion" id="elections-accordion">
@@ -34,12 +30,12 @@ const electionId = useProperty("elections.selected.id");
                         aria-expanded="true"
                         aria-controls="elections-accordion-child"
                     >
-                        
                         Elections
                         <!-- <TrialDropDown/> -->
-                        <SharedCommonIcon class="hs-accordion-active:rotate-180 ms-auto" name="chevron"/>
-
-                        
+                        <SharedCommonIcon
+                            class="hs-accordion-active:rotate-180 ms-auto"
+                            name="chevron"
+                        />
                     </button>
 
                     <div
@@ -305,7 +301,7 @@ const electionId = useProperty("elections.selected.id");
                         aria-expanded="true"
                         aria-controls="campaigns-accordion-child"
                     >
-                        <SharedCommonIcon name="campaign_main"/>
+                        <SharedCommonIcon name="campaign_main" />
                         Campaigns
 
                         <svg
@@ -475,7 +471,6 @@ const electionId = useProperty("elections.selected.id");
                         aria-expanded="true"
                         aria-controls="strategies-accordion-child"
                     >
-                        
                         Strategies
 
                         <svg
@@ -552,7 +547,6 @@ const electionId = useProperty("elections.selected.id");
                         aria-expanded="true"
                         aria-controls="donations-accordion-child"
                     >
-                        
                         Donations
 
                         <svg

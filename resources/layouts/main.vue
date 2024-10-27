@@ -13,13 +13,13 @@ const { user } = useSecurity();
 <template>
     <main>
         <!-- ========== HEADER ========== -->
-        <LayoutMainHeaderShow/>
+        <LayoutMainHeaderShow />
         <!-- ========== END HEADER ========== -->
 
         <!-- ========== MAIN CONTENT ========== -->
         <div class="-mt-px">
             <!-- Breadcrumb -->
-           <LayoutMainHeaderBreadcrumb/>
+            <LayoutMainHeaderBreadcrumb />
             <!-- End Breadcrumb -->
         </div>
 
@@ -39,7 +39,10 @@ const { user } = useSecurity();
                         :href="route('home')"
                         aria-label="Phalco"
                     >
-                        <SharedCommonIcon name="logo_full" class="text-blue-700" />
+                        <SharedCommonIcon
+                            name="logo_full"
+                            class="text-blue-700"
+                        />
                     </router-link>
                     <!-- End Logo -->
                 </div>

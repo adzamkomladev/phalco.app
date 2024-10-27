@@ -6,13 +6,11 @@ status.value = "Active";
 
 <template>
     <tr>
-        <td
-            class="whitespace-nowrap px-6 py-4 sm:ps-8  capitalize text-base"
-        >
+        <td class="whitespace-nowrap px-6 py-4 sm:ps-8 capitalize text-base">
             {{ role.name }}
         </td>
         <td
-            class="px-6  py-4 _sm:px-3  whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200"
+            class="px-6 py-4 _sm:px-3 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200"
         >
             <span
                 :class="
@@ -20,7 +18,7 @@ status.value = "Active";
                         ? 'bg-forest-200 text-forest'
                         : 'bg-crimson-200 text-crimson'
                 "
-                class="px-2 py-1 inline-flex items-center gap-x-1 text-xs font-medium rounded-full "
+                class="px-2 py-1 inline-flex items-center gap-x-1 text-xs font-medium rounded-full"
             >
                 <SharedCommonIcon
                     v-if="status.toLowerCase() === 'active'"
@@ -32,7 +30,7 @@ status.value = "Active";
                     name="close"
                     class="text-white rounded-full bg-crimson"
                 />
-                
+
                 {{ status }}
             </span>
         </td>

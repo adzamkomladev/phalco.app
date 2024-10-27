@@ -20,10 +20,16 @@ const description = ref(props.description);
             </p>
 
             <div class="felx flex-col gap-4">
-                <p v-if="subtitle" class="text-lg dark:text-gray-300 font-bold lg:text-xl">
+                <p
+                    v-if="subtitle"
+                    class="text-lg dark:text-gray-300 font-bold lg:text-xl"
+                >
                     {{ subtitle }}
                 </p>
-                <p v-if="description" class="text-sm dark text-gray-400 lg:text-base opacity-80">
+                <p
+                    v-if="description"
+                    class="text-sm dark text-gray-400 lg:text-base opacity-80"
+                >
                     {{ description }}
                 </p>
             </div>

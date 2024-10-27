@@ -12,7 +12,7 @@ const props = defineProps<{
         description="Invite and manage members"
         subtitle="Role management"
         type="sidedrawer"
-       class=""
+        class=""
     >
         <div>
             <SettingsTeamRoleTable :data="props.roles" />
