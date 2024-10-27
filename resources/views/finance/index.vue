@@ -10,11 +10,10 @@ const props = defineProps<{
     stats: any;
     wallets: any;
 }>();
-
 </script>
 
 <template layout="main">
-<pre>{{  wallets }}</pre>
-<pre>{{  stats }}</pre>
-<pre>{{  transactions }}</pre>
+    <pre>{{ wallets }}</pre>
+    <pre>{{ stats }}</pre>
+    <pre>{{ transactions }}</pre>
 </template>

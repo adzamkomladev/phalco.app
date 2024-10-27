@@ -20,15 +20,15 @@ final class TransactionsTable extends Table
             Columns\TextColumn::make('id')->label('#')->visible(false),
             Columns\TextColumn::make('amount')
                 ->label('Amount')
-                ->transformValueUsing(fn(Transaction $transaction) => $transaction->amountInt / 100)
-                ->extra((fn(Transaction $transaction) => ['id' => $transaction->id])),
+                ->transformValueUsing(fn (Transaction $transaction) => $transaction->amountInt / 100)
+                ->extra((fn (Transaction $transaction) => ['id' => $transaction->id])),
             Columns\TextColumn::make('wallet')->label('Wallet')
-                ->transformValueUsing(fn(Transaction $transaction) => $transaction->wallet->name)
-                ->extra((fn(Transaction $transaction) => ['wallet_id' => $transaction->wallet_id])),
+                ->transformValueUsing(fn (Transaction $transaction) => $transaction->wallet->name)
+                ->extra((fn (Transaction $transaction) => ['wallet_id' => $transaction->wallet_id])),
             Columns\TextColumn::make('type')->label('Type')
-                ->transformValueUsing(fn(Transaction $transaction) => $transaction->type),
+                ->transformValueUsing(fn (Transaction $transaction) => $transaction->type),
             Columns\TextColumn::make('created')->label('Created')
-                ->transformValueUsing(fn(Transaction $transaction) => $transaction->created_at),
+                ->transformValueUsing(fn (Transaction $transaction) => $transaction->created_at),
         ];
     }
 
@@ -40,7 +40,7 @@ final class TransactionsTable extends Table
                 name: 'search',
                 callback: function (InternalBuilder $builder, mixed $value, string $property) {
                     $builder->whereAny([
-                        'type'
+                        'type',
                     ], 'ilike', "%{$value}%");
                 }
             ),

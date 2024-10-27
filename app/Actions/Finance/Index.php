@@ -22,12 +22,13 @@ class Index
             return view('finance.index', [
                 'transactions' => TransactionsTable::make(),
                 'stats' => $data['stats'],
-                'wallets' => $data['wallets']
+                'wallets' => $data['wallets'],
             ]);
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
     }
+
     public function handle(int $organizationId)
     {
         $organization = Organization::find($organizationId);
@@ -39,25 +40,25 @@ class Index
             $totalTransactions,
             $transactionTypes
         ] = Octane::concurrently([
-            fn() => [
+            fn () => [
                 'id' => $organization->wallet->id,
                 'balance' => ($organization->balanceInt ?? 0) / 100,
             ],
-            fn() => [
+            fn () => [
                 'id' => $organization->getWallet('nominations')?->id,
-                'balance' => ($organization->getWallet('nominations')?->balanceInt ?? 0) / 100
+                'balance' => ($organization->getWallet('nominations')?->balanceInt ?? 0) / 100,
             ],
-            fn() => [
+            fn () => [
                 'id' => $organization->getWallet('donations')?->id,
-                'balance' => ($organization->getWallet('donations')?->balanceInt ?? 0) / 100
+                'balance' => ($organization->getWallet('donations')?->balanceInt ?? 0) / 100,
             ],
-            fn() => $organization->transactions()->count(),
-            fn() => $organization->transactions()
+            fn () => $organization->transactions()->count(),
+            fn () => $organization->transactions()
                 ->select('type', DB::raw('SUM(amount::integer) as total_sales'))
                 ->where('confirmed', true)
                 ->whereIn('type', ['deposit', 'withdraw'])
                 ->groupBy('type')
-                ->get()
+                ->get(),
         ]);
 
         $totalBalance = $main['balance'] + $nominations['balance'] + $donations['balance'];
@@ -73,7 +74,7 @@ class Index
                 'transactions' => $totalTransactions,
                 'deposits' => abs($transactionTypes->where('type', 'deposit')->first()?->total_sales ?? 0) / 100,
                 'withdrawals' => abs($transactionTypes->where('type', 'withdraw')->first()?->total_sales ?? 0) / 100,
-            ]
+            ],
         ];
     }
 }
