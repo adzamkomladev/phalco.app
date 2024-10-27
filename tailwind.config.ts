@@ -113,6 +113,21 @@ export default {
                     2: "#e0e0e0",
                 },
             },
+
+            keyframes: {
+                expand: {
+                    "0%": { maxHeight: "0px", opacity: "0" },
+                    "100%": { maxHeight: "1000px", opacity: "1" }, // Adjust max-height as needed
+                },
+                collapse: {
+                    "0%": { maxHeight: "1000px", opacity: "1" },
+                    "100%": { maxHeight: "0px", opacity: "0" },
+                },
+            },
+            animation: {
+                expand: "expand 0.3s ease-out forwards",
+                collapse: "collapse 0.3s ease-out forwards",
+            },
         },
     },
     plugins: [require("@tailwindcss/forms"), require("preline/plugin")],

@@ -6,8 +6,14 @@ export interface SheetProps {
     description?: string;
     pageImage?: string;
 }
-export interface OverlayProps extends SheetProps{
+export interface OverlayProps extends SheetProps {
     useSheet?: boolean;
     size?: string;
     maxSize?: string;
+    type?: "modal-center" | "modal-top" | "sidedrawer" | "sidedrawer-center";
+    center?: "all" | "h" | "v" | "none";
+    OverlayClass?: string;
+    outerClass?: string;
+    hideTitle?: string;
+    contentClass?: string;
 }

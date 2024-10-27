@@ -21,10 +21,10 @@ const roles = props.roles.map((role: App.Data.Settings.Team.RoleData) => ({
 </script>
 <template>
     <form @submit.prevent="form.submit">
-        <div class="grid gap-y-3">
-            <div class="flex flex-row justify-between">
+        <div class="grid gap-y-8 px-2">
+            <div class="flex flex-col justify-between gap-y-5">
                 <SharedFormBaseInput
-                    class="basis-3/7"
+                    class="w-"
                     v-model="form.fields.email"
                     :error="form.errors.email"
                     id="email"
@@ -35,7 +35,7 @@ const roles = props.roles.map((role: App.Data.Settings.Team.RoleData) => ({
                 />
 
                 <SharedFormBaseSelect
-                    class="basis-3/7"
+                    class=""
                     v-model="form.fields.role_id"
                     id="role_id"
                     name="role_id"

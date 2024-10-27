@@ -32,12 +32,12 @@ const describeBy = computed(() => `${props.id}-error`);
             <label
                 v-if="props.label"
                 :for="props.id"
-                class="block text-sm mb-2 dark:text-gray-300"
+                class="block text-gray-500  lg:text-base  mb-2 dark:text-gray-300"
             >
                 {{ props.label }}
             </label>
         </div>
-        <div class="relative">
+        <div class="relative   lg:text-base ">
             <input
                 ref="input"
                 :type="props.type"
