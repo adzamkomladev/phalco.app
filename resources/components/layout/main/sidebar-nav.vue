@@ -1,6 +1,9 @@
 <script setup lang="ts">
+
 const pollingStationId = useProperty("elections.agentPollingStation.id");
 const electionId = useProperty("elections.selected.id");
+
+
 </script>
 
 <template>
@@ -10,33 +13,18 @@ const electionId = useProperty("elections.selected.id");
     >
         <div class="flex flex-col justify-between h-full">
             <ul class="flex flex-col space-y-1">
+
                 <li>
                     <router-link
                         class="flex items-center gap-x-3.5 py-2 px-2.5 bg-gray-100 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-white"
                         :href="route('home')"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-house"
-                        >
-                            <path
-                                d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"
-                            />
-                            <path
-                                d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
-                            />
-                        </svg>
+                        <SharedCommonIcon name="home" />
                         Home
                     </router-link>
                 </li>
+<LayoutMainSidebarSubMenu  />
+<LayoutMainSidebarSubMenu class="hs-accordion" />
 
                 <!-- Elections -->
                 <li class="hs-accordion" id="elections-accordion">
@@ -46,56 +34,12 @@ const electionId = useProperty("elections.selected.id");
                         aria-expanded="true"
                         aria-controls="elections-accordion-child"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-landmark"
-                        >
-                            <line x1="3" x2="21" y1="22" y2="22" />
-                            <line x1="6" x2="6" y1="18" y2="11" />
-                            <line x1="10" x2="10" y1="18" y2="11" />
-                            <line x1="14" x2="14" y1="18" y2="11" />
-                            <line x1="18" x2="18" y1="18" y2="11" />
-                            <polygon points="12 2 20 7 4 7" />
-                        </svg>
+                        
                         Elections
                         <!-- <TrialDropDown/> -->
-                        <svg
-                            class="hs-accordion-active:block ms-auto hidden size-4"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path d="m18 15-6-6-6 6" />
-                        </svg>
+                        <SharedCommonIcon class="hs-accordion-active:rotate-180 ms-auto" name="chevron"/>
 
-                        <svg
-                            class="hs-accordion-active:hidden ms-auto block size-4"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
+                        
                     </button>
 
                     <div
@@ -361,21 +305,7 @@ const electionId = useProperty("elections.selected.id");
                         aria-expanded="true"
                         aria-controls="campaigns-accordion-child"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-megaphone"
-                        >
-                            <path d="m3 11 18-5v12L3 14v-3z" />
-                            <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
-                        </svg>
+                        <SharedCommonIcon name="campaign_main"/>
                         Campaigns
 
                         <svg
@@ -545,25 +475,7 @@ const electionId = useProperty("elections.selected.id");
                         aria-expanded="true"
                         aria-controls="strategies-accordion-child"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-folder-kanban"
-                        >
-                            <path
-                                d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"
-                            />
-                            <path d="M8 10v4" />
-                            <path d="M12 10v2" />
-                            <path d="M16 10v6" />
-                        </svg>
+                        
                         Strategies
 
                         <svg
@@ -640,28 +552,7 @@ const electionId = useProperty("elections.selected.id");
                         aria-expanded="true"
                         aria-controls="donations-accordion-child"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-hand-coins"
-                        >
-                            <path
-                                d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"
-                            />
-                            <path
-                                d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"
-                            />
-                            <path d="m2 16 6 6" />
-                            <circle cx="16" cy="9" r="2.9" />
-                            <circle cx="6" cy="5" r="3" />
-                        </svg>
+                        
                         Donations
 
                         <svg
