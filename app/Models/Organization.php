@@ -60,4 +60,9 @@ class Organization extends Model implements Wallet
             'user_id'
         );
     }
+
+    public function getMorphClass()
+    {
+        return 'organization';
+    }
 }
