@@ -20,18 +20,18 @@ final class PaymentsTable extends Table
             Columns\TextColumn::make('id')->label('#')->visible(false),
             Columns\TextColumn::make('amount')
                 ->label('Amount')
-                ->transformValueUsing(fn(Payment $payment) => $payment->amount / 100)
-                ->extra((fn(Payment $payment) => ['id' => $payment->id])),
+                ->transformValueUsing(fn (Payment $payment) => $payment->amount / 100)
+                ->extra((fn (Payment $payment) => ['id' => $payment->id])),
             Columns\TextColumn::make('reference')->label('Reference')
-                ->transformValueUsing(fn(Payment $payment) => $payment->reference),
+                ->transformValueUsing(fn (Payment $payment) => $payment->reference),
             Columns\TextColumn::make('gateway_reference')->label('Gateway Reference')
-                ->transformValueUsing(fn(Payment $payment) => $payment->gateway_reference),
+                ->transformValueUsing(fn (Payment $payment) => $payment->gateway_reference),
             Columns\TextColumn::make('gateway')->label('Gateway')
-                ->transformValueUsing(fn(Payment $payment) => $payment->gateway),
+                ->transformValueUsing(fn (Payment $payment) => $payment->gateway),
             Columns\TextColumn::make('status')->label('Status')
-                ->transformValueUsing(fn(Payment $payment) => $payment->status),
+                ->transformValueUsing(fn (Payment $payment) => $payment->status),
             Columns\TextColumn::make('created')->label('Created')
-                ->transformValueUsing(fn(Payment $payment) => $payment->created_at),
+                ->transformValueUsing(fn (Payment $payment) => $payment->created_at),
         ];
     }
 
