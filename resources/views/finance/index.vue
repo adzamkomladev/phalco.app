@@ -7,6 +7,9 @@ const props = defineProps<{
     transactions: Table<{
         id: number;
     }>;
+    payments: Table<{
+        id: number;
+    }>;
     stats: any;
     wallets: any;
 }>();
@@ -15,5 +18,6 @@ const props = defineProps<{
 <template layout="main">
     <pre>{{ wallets }}</pre>
     <pre>{{ stats }}</pre>
+    <pre>{{ payments }}</pre>
     <pre>{{ transactions }}</pre>
 </template>

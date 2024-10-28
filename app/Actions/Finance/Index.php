@@ -3,6 +3,7 @@
 namespace App\Actions\Finance;
 
 use App\Models\Organization;
+use App\Tables\Finance\PaymentsTable;
 use App\Tables\Finance\TransactionsTable;
 use Illuminate\Support\Facades\DB;
 use Laravel\Octane\Facades\Octane;
@@ -21,6 +22,7 @@ class Index
 
             return view('finance.index', [
                 'transactions' => TransactionsTable::make(),
+                'payments' => PaymentsTable::make(),
                 'stats' => $data['stats'],
                 'wallets' => $data['wallets'],
             ]);
