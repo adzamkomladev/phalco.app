@@ -1,7 +1,5 @@
-<!-- LayoutMainSidebarMenu.vue -->
 <script setup lang="ts">
 import { SideBarMenuProps } from "~/resources/interfaces/layout/main-sidebar.interface";
-import { ref } from "vue";
 
 const props = defineProps<{ menu: SideBarMenuProps }>();
 </script>
@@ -9,7 +7,6 @@ const props = defineProps<{ menu: SideBarMenuProps }>();
 <template>
     <li>
         <SharedAnimationCollapsible>
-            <!-- Primary level menu item -->
             <template v-slot:summary>
                 <LayoutMainSidebarMenuButton :menu="props.menu" />
             </template>
