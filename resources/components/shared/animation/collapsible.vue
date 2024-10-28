@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue';
+import { ref, onMounted, onUnmounted, nextTick, watch } from "vue";
 
 const contentSpan = ref<HTMLElement | null>(null);
 const innerContent = ref<HTMLElement | null>(null);
@@ -33,9 +33,10 @@ const togglePanel = async () => {
 
 const updateContentHeight = async () => {
     await nextTick();
-    contentHeight.value = isExpanded.value && contentSpan.value
-        ? `${contentSpan.value.scrollHeight}px`
-        : '0px';
+    contentHeight.value =
+        isExpanded.value && contentSpan.value
+            ? `${contentSpan.value.scrollHeight}px`
+            : "0px";
 };
 
 let resizeObserver: ResizeObserver | null = null;
@@ -44,7 +45,7 @@ const observeInnerContent = () => {
     if (innerContent.value) {
         resizeObserver = new ResizeObserver(async () => {
             if (isExpanded.value) {
-                await updateContentHeight(); 
+                await updateContentHeight();
             }
         });
         resizeObserver.observe(innerContent.value);
@@ -52,7 +53,7 @@ const observeInnerContent = () => {
 };
 
 onMounted(() => {
-        observeInnerContent();
+    observeInnerContent();
     updateContentHeight();
 });
 

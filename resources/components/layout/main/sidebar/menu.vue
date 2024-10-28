@@ -1,7 +1,7 @@
 <!-- LayoutMainSidebarMenu.vue -->
 <script setup lang="ts">
-import { SideBarMenuProps } from '~/resources/interfaces/layout/main-sidebar.interface';
-import { ref } from 'vue';
+import { SideBarMenuProps } from "~/resources/interfaces/layout/main-sidebar.interface";
+import { ref } from "vue";
 
 const props = defineProps<{ menu: SideBarMenuProps }>();
 </script>
@@ -15,24 +15,36 @@ const props = defineProps<{ menu: SideBarMenuProps }>();
             </template>
 
             <!-- Render submenus if available -->
-            <div v-if="props.menu.sublink && props.menu.sublink.length > 0" role="region" class="flex-grow">
+            <div
+                v-if="props.menu.sublink && props.menu.sublink.length > 0"
+                role="region"
+                class="flex-grow"
+            >
                 <ul class="ps-8 pt-1 space-y-1 flex-grow">
-                    <li v-for="(subMenu, index) in props.menu.sublink" :key="index">
-
+                    <li
+                        v-for="(subMenu, index) in props.menu.sublink"
+                        :key="index"
+                    >
                         <!-- Nested collapsible for sub-submenus -->
-                        <SharedAnimationCollapsible >
+                        <SharedAnimationCollapsible>
                             <template v-slot:summary>
                                 <LayoutMainSidebarMenuButton :menu="subMenu" />
                             </template>
 
                             <!-- Render sub-submenu links -->
                             <ul class="pt-1 space-y-1" v-if="subMenu.sublink">
-                                <li v-for="(subSubMenu, subIndex) in subMenu.sublink" :key="subIndex">
+                                <li
+                                    v-for="(
+                                        subSubMenu, subIndex
+                                    ) in subMenu.sublink"
+                                    :key="subIndex"
+                                >
                                     <SharedAnimationCollapsible class>
                                         <template v-slot:summary>
-                                            <LayoutMainSidebarMenuButton :menu="subSubMenu" />
+                                            <LayoutMainSidebarMenuButton
+                                                :menu="subSubMenu"
+                                            />
                                         </template>
-                                        
                                     </SharedAnimationCollapsible>
                                 </li>
                             </ul>

@@ -9,14 +9,13 @@
             <SharedCommonIcon v-if="menu.icon" :name="menu.icon" />
             {{ menu.label }}
             <SharedCommonIcon
-            v-if="hasSublink"
+                v-if="hasSublink"
                 name="chevron"
                 :class="['ms-auto', !isOpen ? 'rotate-180' : '']"
             />
         </button>
 
         <router-link
-        
             v-if="menu.to && !hasSublink"
             :href="route(menu.to)"
             type="button"
@@ -31,8 +30,7 @@
 <script setup lang="ts">
 import { SideBarMenuProps } from "~/resources/interfaces/layout/main-sidebar.interface";
 
-
-const props = defineProps<{menu:SideBarMenuProps}>();
+const props = defineProps<{ menu: SideBarMenuProps }>();
 
 const isOpen = ref(false);
 
