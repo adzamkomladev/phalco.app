@@ -1,67 +1,136 @@
-[
+import { SideBarMenuProps } from "~/resources/interfaces/layout/main-sidebar.interface";
+const pollingStationId = useProperty("elections.agentPollingStation.id");
+const electionId = useProperty("elections.selected.id");
+
+
+
+export const menus: SideBarMenuProps[] = [
     {
-        labe: "home",
+        label: "home",
         icon: "home",
         to: "home",
     },
     {
         label: "election",
         icon: "election",
-        to: null,
         sublink: [
             {
-                name: "dashboard",
+                label: "dashboard",
                 to: "elections.index",
+                icon: "",
             },
             {
-                name: "new election",
+                label: "new election",
                 to: "elections.create",
+                icon: "",
             },
         ],
     },
     {
-        name: "nominations",
+        label: "nominations",
         icon: "nomination",
-        to: "",
+        sublink: [
+            {
+                label: "dashboard",
+            },
+            {
+                label: "new nomination",
+            },
+        ],
     },
     {
-        name: "campaigns",
-        icon: "campaing",
-        to: "",
+        label: "campaigns",
+        icon: "campaign_main",
     },
     {
-        name: "audiences",
-        icon: "audience",
-        to: "",
+        label: "audiences",
+        icon: "accessibility",
     },
     {
-        name: "campaigns",
-        icon: "campaing",
-        to: "",
-    },
-    {
-        name: "strategies",
+        label: "strategies",
         icon: "strategy",
-        to: "",
     },
     {
-        name: "donations",
+        label: "donations",
         icon: "donation",
-        to: "",
     },
     {
-        name: "voting",
+        label: "voting",
         icon: "vote",
-        to: "",
+        sublink: [
+            {
+                label: "polling station",
+                icon: "polling_station",
+                sublink: [
+                    {
+                        label: "dashboard",
+                        to: "voting.polling-stations.index",
+                        icon: "",
+                    },
+                    {
+                        label: "New polling station",
+                        to: "voting.polling-stations.create",
+                        icon: "",
+                    },
+                ],
+            },
+            {
+                label: "agent",
+                icon: "agent",
+                sublink: [
+                    {
+                        label: "dashboard",
+                        to: "voting.agents.index",
+                        icon: "",
+                    },
+                    {
+                        label: "new agent",
+                        to: "voting.agents.create",
+                        icon: "",
+                    },
+                ],
+            },
+            {
+                label: "ballot",
+                icon: "ballot",
+                sublink: [
+                    {
+                        label: "dashboard",
+                        to: "voting.ballots.index",
+                        icon: "",
+                    },
+                    {
+                        label: "new ballot",
+                        to: "voting.ballots.create",
+                        icon: "",
+                    },
+                ],
+            },
+            {
+                label: "request",
+                icon: "request",
+                to: "voting.ballots.create",
+                sublink: [
+                    {
+                        label: "dashboard",
+                        // to: {
+                        //     name: "voting.requests.index",
+                        //     params: { electionId, pollingStationId },
+                        // },
+                        icon: "",
+                    },
+                ],
+            },
+        ],
     },
     {
-        name: "coalation",
+        label: "coalation",
         icon: "coalation",
-        to: "",
+        to: "password.reset",
     },
     {
-        name: "Finance",
+        label: "Finance",
         icon: "cedi",
-        to: null,
+        to: "password.reset",
     },
 ];
