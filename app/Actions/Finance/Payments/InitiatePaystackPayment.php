@@ -27,9 +27,11 @@ class InitiatePaystackPayment
         try {
             $url = $this->handle($request->user(), $request->all());
             logger('This is the Paystack URL for payment: {url}', ['url' => $url]);
+
             return hybridly()->external($url);
         } catch (\Exception $e) {
             dd($e->getMessage());
+
             return back()->with('error', $e->getMessage());
         }
     }

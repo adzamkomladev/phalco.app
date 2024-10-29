@@ -15,9 +15,9 @@ class HandlePaystackWebhook
         try {
             $data = Paystack::getPaymentData();
 
-            return ($this->handle($data) ?
+            return $this->handle($data) ?
                 redirect()->route('finance.index')->with('success', 'Payment successful!') :
-            redirect()->route('finance.index')->with('error', 'Payment failed! Please try again.'));
+            redirect()->route('finance.index')->with('error', 'Payment failed! Please try again.');
         } catch (\Exception $e) {
             logger()->error('Payment callback error', ['error' => $e->getMessage()]);
 

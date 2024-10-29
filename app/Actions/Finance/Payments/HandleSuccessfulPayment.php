@@ -31,8 +31,9 @@ class HandleSuccessfulPayment
             logger()
                 ->error('Wallet with {wallet_id} not found for payment with gateway reference of {gateway_reference}', [
                     'wallet_id' => $payment->metadata['wallet_id'],
-                    'gateway_reference' => $payment->gateway_reference
+                    'gateway_reference' => $payment->gateway_reference,
                 ]);
+
             return;
         }
         logger('Step 1: This is where you reached');

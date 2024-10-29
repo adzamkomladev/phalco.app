@@ -14,9 +14,10 @@ class Withdraw
     public function asController(int $walletId)
     {
         $wallet = $this->handle($walletId);
+
         return view('finance.withdraw', [
             'wallet_id' => $walletId,
-            'wallet_name' => $wallet?->name
+            'wallet_name' => $wallet?->name,
         ])->base('finance.index');
     }
 

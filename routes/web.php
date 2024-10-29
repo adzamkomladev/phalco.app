@@ -38,7 +38,7 @@ Route::prefix('email')
             ->middleware(['signed'])
             ->name('verification.verify');
 
-    Route::get('verified', fn() => hybridly('auth.email-verified'))
+        Route::get('verified', fn () => hybridly('auth.email-verified'))
             ->middleware(['auth'])
             ->name('email.verified');
     });
@@ -48,7 +48,7 @@ Route::prefix('password')
     ->middleware(['guest'])
     ->group(function () {
         Route::post('send/reset-link', \App\Actions\Auth\Password\SendResetLink::class)->name('send.reset-link');
-    Route::get('reset/{token}', fn(string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
+        Route::get('reset/{token}', fn (string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
         Route::post('reset', \App\Actions\Auth\Password\Reset::class)->name('reset');
     });
 
@@ -150,8 +150,8 @@ Route::prefix('finance')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class])
     ->group(function () {
         Route::get('', \App\Actions\Finance\Index::class)->name('index');
-    Route::get('payments/{walletId}/top-up', \App\Actions\Finance\Payments\TopUp::class)->name('payments.top-up');
-    Route::get('payments/{walletId}/withdraw', \App\Actions\Finance\Payments\Withdraw::class)->name('payments.withdraw');
+        Route::get('payments/{walletId}/top-up', \App\Actions\Finance\Payments\TopUp::class)->name('payments.top-up');
+        Route::get('payments/{walletId}/withdraw', \App\Actions\Finance\Payments\Withdraw::class)->name('payments.withdraw');
         Route::post('payments/initiate', \App\Actions\Finance\Payments\InitiatePaystackPayment::class)->name('payments.initiate');
         Route::get('payments/paystack/handle', \App\Actions\Finance\Payments\HandlePaystackWebhook::class)->name('payments.paystack.handle');
     });

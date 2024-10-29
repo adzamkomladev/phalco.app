@@ -18,7 +18,7 @@ const form = useForm({
         wallet_id: props.wallet_id,
     },
     hooks: {
-        success: () => console.log('34jdfkdjfkdjkfjdkfjdjfkjk'),
+        success: () => console.log("34jdfkdjfkdjkfjdkfjdjfkjk"),
     },
 });
 </script>

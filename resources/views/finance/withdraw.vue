@@ -24,7 +24,10 @@ const form = useForm({
 </script>
 
 <template>
-    <SharedCommonOverlay :title="'Withdraw ' + wallet_name + ' Wallet'" size="2xl">
+    <SharedCommonOverlay
+        :title="'Withdraw ' + wallet_name + ' Wallet'"
+        size="2xl"
+    >
         <div class="mt-5">
             <form @submit.prevent="form.submit">
                 <div class="grid sm:grid-cols-12 gap-2 sm:gap-6">

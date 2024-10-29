@@ -14,9 +14,10 @@ class TopUp
     public function asController(int $walletId)
     {
         $wallet = $this->handle($walletId);
+
         return view('finance.top-up', [
             'wallet_id' => $walletId,
-            'wallet_name' => $wallet->name
+            'wallet_name' => $wallet->name,
         ])->base('finance.index');
     }
 
