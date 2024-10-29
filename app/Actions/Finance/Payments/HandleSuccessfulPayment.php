@@ -4,6 +4,7 @@ namespace App\Actions\Finance\Payments;
 
 use App\Models\Payment;
 use Bavix\Wallet\Models\Wallet;
+use Illuminate\Support\Facades\DB;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class HandleSuccessfulPayment
@@ -36,18 +37,26 @@ class HandleSuccessfulPayment
 
             return;
         }
-        logger('Step 1: This is where you reached');
-        $wallet->deposit($payment->amount, [
-            'payment_id' => $payment->id,
-        ]);
-        logger('Step 2: Another one');
 
-        $payment->update([
-            'status' => 'success',
-            'metadata' => [
-                ...$payment->metadata,
-                'callback_response' => $data,
-            ],
-        ]);
+        try {
+            DB::beginTransaction();
+
+            $wallet->deposit($payment->amount, [
+                'payment_id' => $payment->id,
+            ]);
+
+            $payment->update([
+                'status' => 'success',
+                'metadata' => [
+                    ...$payment->metadata,
+                    'callback_response' => $data,
+                ],
+            ]);
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            throw $e;
+        }
     }
 }

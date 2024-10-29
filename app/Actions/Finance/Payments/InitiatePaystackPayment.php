@@ -26,12 +26,11 @@ class InitiatePaystackPayment
     {
         try {
             $url = $this->handle($request->user(), $request->all());
-            logger('This is the Paystack URL for payment: {url}', ['url' => $url]);
 
             return hybridly()->external($url);
         } catch (\Exception $e) {
-            dd($e->getMessage());
-
+            logger()->error('Initiate payment error', ['error' => $e->getMessage()]);
+            
             return back()->with('error', $e->getMessage());
         }
     }
@@ -52,8 +51,6 @@ class InitiatePaystackPayment
             ],
             'callback_url' => route('finance.payments.paystack.handle'),
         ];
-
-        Log::info('Start here please');
 
         $paystackResponse = Paystack::getAuthorizationResponse($paystackRequest);
 
