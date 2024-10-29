@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d3691454a73d8c670213670a89941014",
+    "content-hash": "15ef44a1be412b03f62618a3a4fbd17e",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1070,6 +1070,99 @@
                 "source": "https://github.com/Bacon/BaconQrCode/tree/v3.0.1"
             },
             "time": "2024-10-01T13:55:55+00:00"
+        },
+        {
+            "name": "bavix/laravel-wallet",
+            "version": "11.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bavix/laravel-wallet.git",
+                "reference": "924aa98ced104a8abfa7c8ca138b59c7c28712ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bavix/laravel-wallet/zipball/924aa98ced104a8abfa7c8ca138b59c7c28712ca",
+                "reference": "924aa98ced104a8abfa7c8ca138b59c7c28712ca",
+                "shasum": ""
+            },
+            "require": {
+                "brick/math": "~0.10",
+                "ext-json": "*",
+                "ext-pdo": "*",
+                "illuminate/contracts": "^11.0",
+                "illuminate/database": "^11.0",
+                "php": "^8.2",
+                "ramsey/uuid": "^4.0"
+            },
+            "require-dev": {
+                "driftingly/rector-laravel": "^1.0",
+                "ergebnis/phpstan-rules": "^2.1",
+                "infection/infection": "~0.27",
+                "larastan/larastan": "^2.8",
+                "laravel/cashier": "^15.0",
+                "nunomaduro/collision": "^8.0",
+                "orchestra/testbench": "^9.0",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^11.0",
+                "rector/rector": "^1.0",
+                "symplify/easy-coding-standard": "^12.1"
+            },
+            "suggest": {
+                "bavix/laravel-wallet-swap": "Addition to the laravel-wallet library for quick setting of exchange rates",
+                "bavix/laravel-wallet-uuid": "Addition to the laravel-wallet library uuid support in laravel-wallet",
+                "bavix/laravel-wallet-warmup": "Addition to the laravel-wallet library for refresh balance wallets"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bavix\\Wallet\\WalletServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bavix\\Wallet\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Babichev Maxim",
+                    "email": "info@babichev.net"
+                }
+            ],
+            "description": "It's easy to work with a virtual wallet.",
+            "homepage": "https://bavix.github.io/laravel-wallet/",
+            "keywords": [
+                "bavix",
+                "credits",
+                "currency",
+                "laravel",
+                "laravel-package",
+                "laravel-wallet",
+                "payments",
+                "virtual",
+                "wallet"
+            ],
+            "support": {
+                "issues": "https://github.com/bavix/laravel-wallet/issues",
+                "source": "https://github.com/bavix/laravel-wallet/tree/11.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.tinkoff.ru/cf/1OkIPwTvTLf",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://opencollective.com/laravel-wallet",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2024-09-11T19:12:11+00:00"
         },
         {
             "name": "brick/math",
@@ -11168,6 +11261,84 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.2.7"
             },
             "time": "2023-12-08T13:03:43+00:00"
+        },
+        {
+            "name": "unicodeveloper/laravel-paystack",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unicodeveloper/laravel-paystack.git",
+                "reference": "4d540e081f63f8ceca42ded5668da8ec93a3a084"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unicodeveloper/laravel-paystack/zipball/4d540e081f63f8ceca42ded5668da8ec93a3a084",
+                "reference": "4d540e081f63f8ceca42ded5668da8ec93a3a084",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6|~7|~8|~9",
+                "illuminate/support": "~6|~7|~8|~9|^10.0|^11.0",
+                "php": "^7.2|^8.0|^8.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.3",
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^8.4|^9.0|^10.5",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Unicodeveloper\\Paystack\\PaystackServiceProvider"
+                    ],
+                    "aliases": {
+                        "Paystack": "Unicodeveloper\\Paystack\\Facades\\Paystack"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Support/helpers.php"
+                ],
+                "psr-4": {
+                    "Unicodeveloper\\Paystack\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "unicodeveloper",
+                    "email": "prosperotemuyiwa@gmail.com"
+                },
+                {
+                    "name": "iamfunsho",
+                    "email": "info@devfunsho.com"
+                }
+            ],
+            "description": "A Laravel Package for Paystack",
+            "keywords": [
+                "github",
+                "laravel",
+                "laravel 6",
+                "laravel 7",
+                "laravel 8",
+                "open source",
+                "payments",
+                "paystack",
+                "paystack.co",
+                "php",
+                "subscription"
+            ],
+            "support": {
+                "issues": "https://github.com/unicodeveloper/laravel-paystack/issues",
+                "source": "https://github.com/unicodeveloper/laravel-paystack/tree/1.2.0"
+            },
+            "time": "2024-04-08T09:40:49+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
