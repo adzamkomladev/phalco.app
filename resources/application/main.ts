@@ -11,6 +11,7 @@ import {MotionPlugin} from '@vueuse/motion'
 
 import { type IStaticMethods } from "preline/preline";
 import HSFileUpload from '@preline/file-upload';
+
 declare global {
     interface Window {
         HSStaticMethods: IStaticMethods;

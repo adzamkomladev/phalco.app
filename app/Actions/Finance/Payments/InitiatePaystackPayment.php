@@ -4,6 +4,7 @@ namespace App\Actions\Finance\Payments;
 
 use App\Models\Payment;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -24,16 +25,18 @@ class InitiatePaystackPayment
     public function asController(ActionRequest $request)
     {
         try {
-            $url = $this->handle(auth()->id(), $request->user()->selected_organization_id, $request->validated());
-
+            $url = $this->handle($request->user(), $request->all());
+            logger('This is the Paystack URL for payment: {url}', ['url' => $url]);
             return hybridly()->external($url);
         } catch (\Exception $e) {
+            dd($e->getMessage());
             return back()->with('error', $e->getMessage());
         }
     }
 
-    public function handle(User $user, int $organizationId, array $data)
+    public function handle(User $user, array $data)
     {
+        $organizationId = $user->selected_organization_id;
         $amount = floatval($data['amount']) * 100;
 
         $paystackRequest = [
@@ -45,8 +48,10 @@ class InitiatePaystackPayment
                 'description' => 'Wallet top up',
                 'type' => 'wallet.top-up',
             ],
-            'callback_url' => route('payments.paystack.handle'),
+            'callback_url' => route('finance.payments.paystack.handle'),
         ];
+
+        Log::info('Start here please');
 
         $paystackResponse = Paystack::getAuthorizationResponse($paystackRequest);
 
@@ -57,7 +62,7 @@ class InitiatePaystackPayment
             'gateway' => 'paystack',
             'status' => 'pending',
             'reference' => (string) Str::ulid(),
-            'external_reference' => $paystackResponse['data']['reference'],
+            'gateway_reference' => $paystackResponse['data']['reference'],
             'currency' => 'GHS',
             'description' => 'Wallet top up',
             'metadata' => [
