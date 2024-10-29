@@ -4,7 +4,6 @@ namespace App\Actions\Finance\Payments;
 
 use App\Models\Payment;
 use App\Models\User;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -30,7 +29,7 @@ class InitiatePaystackPayment
             return hybridly()->external($url);
         } catch (\Exception $e) {
             logger()->error('Initiate payment error', ['error' => $e->getMessage()]);
-            
+
             return back()->with('error', $e->getMessage());
         }
     }
