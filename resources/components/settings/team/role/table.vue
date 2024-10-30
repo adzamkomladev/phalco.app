@@ -88,8 +88,7 @@ const flash = useProperty("flash");
                                 />
                             </tbody>
                         </table>
-                        <div>
-                        </div>
+                        <div></div>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import InvitaionImage from '~/resources/svg/settings/no_invite.svg?src'
-
+import InvitaionImage from "~/resources/svg/settings/no_invite.svg?src";
 
 const props = defineProps<{
     invites: App.Data.Settings.Team.InvitationData[];
@@ -106,26 +105,21 @@ const flash = useProperty("flash");
             <div class="-m-1.5 overflow-x-auto">
                 <div class="p-1.5 inline-block align-middle">
                     <div class=" ">
-                        <table class="" v-if="invites.length > 0"
- >
+                        <table class="" v-if="invites.length > 0">
                             <tbody>
-                              <SettingsTeamInvitationDataInvitee 
-                              v-for="invitee in invites"
-                                    :key="invitee.id" :invitee="invitee"/> 
-
-                                    
-                                    
+                                <SettingsTeamInvitationDataInvitee
+                                    v-for="invitee in invites"
+                                    :key="invitee.id"
+                                    :invitee="invitee"
+                                />
                             </tbody>
-                            
                         </table>
-                        <div 
-                        class="text-primary-500 select-none" 
-                        v-else >
+                        <div class="text-primary-500 select-none" v-else>
+                            <img :src="InvitaionImage" class="w-52" />
 
-                                        <img :src="InvitaionImage" class="w-52"/>
-
-                                        <p class="py-4 text-xs">Pending and expired invites will appear here</p>
-
+                            <p class="py-4 text-xs">
+                                Pending and expired invites will appear here
+                            </p>
                         </div>
                     </div>
                 </div>

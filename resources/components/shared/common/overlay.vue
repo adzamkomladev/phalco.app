@@ -88,7 +88,10 @@ const positionClass = ref(getType());
             <slot v-if="hideTitle" name="title" />
 
             <div class="flex flex-col overflow-hidden flex-grow">
-                <div v-if="!useSheet" class="px-8 _sm:px-[5%] md:px-8 overflow-y-auto max-h-[calc(100vh-80px)]">
+                <div
+                    v-if="!useSheet"
+                    class="px-8 _sm:px-[5%] md:px-8 overflow-y-auto max-h-[calc(100vh-80px)]"
+                >
                     <slot />
                 </div>
 
@@ -120,4 +123,3 @@ const positionClass = ref(getType());
         </div>
     </div>
 </template>
-

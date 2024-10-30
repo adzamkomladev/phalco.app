@@ -35,16 +35,18 @@ const organizations = computed(
                 />
                 {{ user?.current_organization?.name }}
             </div>
-           <SharedCommonIcon name="chevron_double" class="text-gray-500" />
+            <SharedCommonIcon name="chevron_double" class="text-gray-500" />
         </button>
 
         <div
-            class="hs-dropdown-menu border border-gray-50  transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-1 space-y-0.5 mt-2 divide-y divide-gray-200 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700"
+            class="hs-dropdown-menu border border-gray-50 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-1 space-y-0.5 mt-2 divide-y divide-gray-200 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="hs-dropdown-with-dividers"
         >
-            <div class="py-2 first:pt-0 last:pb-0  flex flex-col gap-1 divide-gray-100">
+            <div
+                class="py-2 first:pt-0 last:pb-0 flex flex-col gap-1 divide-gray-100"
+            >
                 <router-link
                     method="PATCH"
                     :href="route('organizations.select')"
@@ -55,7 +57,6 @@ const organizations = computed(
                     :class="{ 'bg-gray-2 rounded-lg': o.isCurrentOrganization }"
                 >
                     <div class="flex gap-x-2 items-center">
-
                         <img
                             class="shrink-0 size-[28px] rounded-full"
                             :src="o.logo || ''"

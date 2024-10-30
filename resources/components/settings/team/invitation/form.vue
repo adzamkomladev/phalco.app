@@ -43,7 +43,7 @@ const roles = props.roles.map((role: App.Data.Settings.Team.RoleData) => ({
                     label="Role"
                 />
             </div>
-<SharedFormSubmitButton text="Send invitation" />
+            <SharedFormSubmitButton text="Send invitation" />
         </div>
     </form>
 </template>

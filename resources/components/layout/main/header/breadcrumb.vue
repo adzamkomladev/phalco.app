@@ -1,9 +1,9 @@
 <script setup lang="ts">
+const { current } = useRoute();
 
-const {current}=useRoute();
-
-
-const crumbs =computed(()=>current?.value?.split('.').filter(n => n !== 'index'))
+const crumbs = computed(() =>
+    current?.value?.split(".").filter((n) => n !== "index"),
+);
 </script>
 
 <template>
@@ -28,7 +28,8 @@ const crumbs =computed(()=>current?.value?.split('.').filter(n => n !== 'index')
             <!-- Breadcrumb -->
             <ol class="ms-3 flex items-center whitespace-nowrap">
                 <li
-                v-for="(crumb, index) in crumbs" :key="index"
+                    v-for="(crumb, index) in crumbs"
+                    :key="index"
                     class="flex items-center text-sm text-gray-800 dark:text-neutral-400"
                 >
                     <SharedCommonIcon
@@ -36,7 +37,6 @@ const crumbs =computed(()=>current?.value?.split('.').filter(n => n !== 'index')
                         class="rotate-90 h-5 text-gray-600"
                     />{{ crumb }}
                 </li>
-               
             </ol>
             <!-- End Breadcrumb -->
         </div>

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 const data = useProperty("elections");
 const elections =
     data.value?.all?.map((e: App.Data.Elections.ElectionData) => ({
@@ -23,15 +22,10 @@ watch(election, async (newElection: number | null, _: number | null) => {
         }
     }
 });
-
-
 </script>
 
-
 <template>
- 
-  
- <SharedFormBaseSelect
+    <SharedFormBaseSelect
         v-if="isNotEmpty"
         v-model="election"
         id="election"
@@ -39,5 +33,3 @@ watch(election, async (newElection: number | null, _: number | null) => {
         :options="elections"
     />
 </template>
-
-

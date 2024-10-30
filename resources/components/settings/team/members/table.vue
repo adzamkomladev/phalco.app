@@ -64,7 +64,7 @@ watch(search, debounceFn);
                                 :href="route('settings.team.invitations')"
                                 class="inline-flex items-center px-3 py-2 text-base font-semibold text-white bg-primary-500 border border-transparent rounded-md cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             >
-                                <SharedCommonIcon name="plus"/>
+                                <SharedCommonIcon name="plus" />
                                 Invites
                             </router-link>
                         </div>
@@ -190,8 +190,9 @@ watch(search, debounceFn);
                             </div>
                         </td>
                         <td class="size-px whitespace-nowrap">
-                            <SharedTableStatus :status="value(findColumn('status'))" />
-
+                            <SharedTableStatus
+                                :status="value(findColumn('status'))"
+                            />
                         </td>
                         <td class="size-px whitespace-nowrap">
                             <div class="px-6 py-3">
