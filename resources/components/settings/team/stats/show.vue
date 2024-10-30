@@ -12,7 +12,7 @@ defineProps<{ stats: App.Data.Settings.Team.InvitationStatsData }>();
 
             <SettingsTeamStatsCard
                 title="Members"
-                color="text-forest-500"
+                type="g"
                 :total="stats.totalMembers"
                 :changePercentage="stats.changeMembers.percentage"
                 :changeTotal="stats.changeMembers.total"
@@ -22,7 +22,7 @@ defineProps<{ stats: App.Data.Settings.Team.InvitationStatsData }>();
 
             <SettingsTeamStatsCard
                 title="invites"
-                color="text-forest-500"
+                type="g"
                 :total="stats.totalInvites"
                 :changePercentage="stats.changeInvites.percentage"
                 :changeTotal="stats.changeInvites.total"
@@ -32,7 +32,7 @@ defineProps<{ stats: App.Data.Settings.Team.InvitationStatsData }>();
 
             <SettingsTeamStatsCard
                 title="Rejections"
-                color="text-crimson-500"
+                type="r"
                 :total="stats.totalRejections"
                 :changePercentage="stats.changeRejections.percentage"
                 :changeTotal="stats.changeRejections.total"

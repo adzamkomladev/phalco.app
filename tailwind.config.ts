@@ -96,20 +96,6 @@ export default {
                     900: "#033049",
                     950: "#021C34",
                 },
-                forest: {
-                    DEFAULT: "#00980F", // Main color
-                    50: "#e6f5e7", // Very light green
-                    100: "#b0dfb5", // Light green
-                    200: "#80D690", // Soft green
-                    300: "#00980f", // Bright green
-                    400: "#00890e", // Fresh green
-                    500: "#007a0c", // Forest (default)
-                    535: "#01D11659", // Forest (default)
-                    600: "#00720b", // Slightly darker
-                    700: "#005b09", // Dark forest
-                    800: "#004407", // Very dark green
-                    900: "#003505", // Almost black green
-                },
                 crimson: {
                     DEFAULT: "#c41409", // Main bright red color
                     50: "#fde8e7",
@@ -124,6 +110,21 @@ export default {
                     800: "#7b0c06",
                     900: "#630a05",
                 },
+                forest: {
+                    DEFAULT: "#00980F", // Main color
+                    50: "#e6f5e7", // Very light green
+                    100: "#b0dfb5", // Light green
+                    200: "#80D690", // Soft green
+                    300: "#00980f", // Bright green
+                    400: "#00890e", // Fresh green
+                    500: "#007a0c", // Forest (default)
+                    535: "#01D11659", // Forest (default)
+                    600: "#00720b", // Slightly darker
+                    700: "#005b09", // Dark forest
+                    800: "#004407", // Very dark green
+                    900: "#003505", // Almost black green
+                },
+                
                 gray: {
                     DEFAULT: "cacaca",
                     1: "#fcfcfc",

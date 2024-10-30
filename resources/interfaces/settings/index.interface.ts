@@ -1,6 +1,6 @@
 export interface SettingsTeamsStatsCard{
     title:string;
-    color:string;
+    type:'g'|'r';
     total:number;
     changePercentage:number;
     changeTotal:number;
