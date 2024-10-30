@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import InvitaionImage from '~/resources/svg/settings/no_invite.svg?src'
+
+
 const props = defineProps<{
-    data: App.Data.Settings.Team.InvitationData[];
+    invites: App.Data.Settings.Team.InvitationData[];
 }>();
 
 const invites = [
@@ -24,7 +27,7 @@ const invites = [
 
         email: "alice.jones@example.com",
         role: { name: "Agent" },
-        picture: "https://randomuser.me/api/portraits/wome/3.jpg",
+        picture: "https://randomuser.me/api/portraits/women/3.jpg",
         status: "pending",
     },
 ];
@@ -103,92 +106,27 @@ const flash = useProperty("flash");
             <div class="-m-1.5 overflow-x-auto">
                 <div class="p-1.5 inline-block align-middle">
                     <div class=" ">
-                        <table class="">
+                        <table class="" v-if="invites.length > 0"
+ >
                             <tbody>
-                                <tr
-                                    v-for="invite in invites"
-                                    :key="invite.id"
-                                    class="group"
-                                >
-                                    <td class="py-3 sm:pr-4 whitespace-nowrap">
-                                        <div class="flex items-center gap-x-3">
-                                            <img
-                                                class="w-10 h-10 rounded-full"
-                                                :src="invite.picture"
-                                                @error="
-                                                    (e) => {
-                                                        if (e.target)
-                                                            (
-                                                                e.target as HTMLImageElement
-                                                            ).src =
-                                                                `https://ui-avatars.com/api/?name=${invite.email}`;
-                                                    }
-                                                "
-                                                alt="Avatar"
-                                            />
-                                            <div>
-                                                <span
-                                                    class="block text-sm text-gray-800 dark:text-gray-200"
-                                                >
-                                                    {{ invite.email }}
-                                                </span>
-                                                <span
-                                                    class="block text-sm text-gray-500 capitalize"
-                                                >
-                                                    {{ invite.role?.name }}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </td>
+                              <SettingsTeamInvitationDataInvitee 
+                              v-for="invitee in invites"
+                                    :key="invitee.id" :invitee="invitee"/> 
 
-                                    <td
-                                        class="sm:px-6 py-4 whitespace-nowrap text-sm font-medium flex text-gray-700 opacity-0 group-hover:opacity-100 transition-all items-center gap-x-2"
-                                    >
-                                        <router-link
-                                            :href="
-                                                route(
-                                                    'settings.team.invitation.send',
-                                                )
-                                            "
-                                            method="POST"
-                                            :data="{
-                                                email: invite.email,
-                                                role: invite.role,
-                                            }"
-                                            class="hover:text-teal-500"
-                                        >
-                                            <SharedCommonIcon name="reload" />
-                                        </router-link>
-                                        <router-link
-                                            :href="
-                                                route(
-                                                    'settings.team.invitation.delete',
-                                                    { id: invite.id },
-                                                )
-                                            "
-                                            method="DELETE"
-                                            class="hover:text-red-500"
-                                        >
-                                            <SharedCommonIcon name="close" />
-                                        </router-link>
-                                    </td>
-
-                                    <!-- Status Column -->
-                                    <td
-                                        :class="
-                                            invite.status === 'expired'
-                                                ? 'text-orange-300'
-                                                : 'text-orange-500'
-                                        "
-                                        class="sm:px-6 text-sm font-medium text-gray-500 capitalize text-right"
-                                    >
-                                        <span class="">
-                                            {{ invite.status }}
-                                        </span>
-                                    </td>
-                                </tr>
+                                    
+                                    
                             </tbody>
+                            
                         </table>
+                        <div 
+                        class="text-primary-500 select-none" 
+                        v-else >
+
+                                        <img :src="InvitaionImage" class="w-52"/>
+
+                                        <p class="py-4 text-xs">Pending and expired invites will appear here</p>
+
+                        </div>
                     </div>
                 </div>
             </div>

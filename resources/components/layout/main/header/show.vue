@@ -1,3 +1,11 @@
+<script setup lang="ts">
+
+const {current}=useRoute();
+
+const showElectionSwitcher =computed(()=>current?.value?.split('.').includes('elections'))
+
+</script>
+
 <template>
     <header
         class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-[48] w-full bg-white border-b text-sm py-2.5 lg:ps-[260px] dark:bg-neutral-800 dark:border-neutral-700"
@@ -12,7 +20,7 @@
                 >
                     <SharedCommonIcon
                         name="logo_full"
-                        class="text-primary-600"
+                        class="text-primary-logo"
                     />
                 </router-link>
                 <!-- End Logo -->
@@ -21,10 +29,11 @@
             <div
                 class="w-full flex items-center justify-end ms-auto md:justify-between gap-x-1 md:gap-x-3"
             >
-                <div class="hidden md:block">
+                <div class="flex grow _sm:hidden"  >
                     <!-- Search Input -->
-                    <div class="relative bg-red-600">
+                    <div class="" v-if="showElectionSwitcher">
                         <ElectionsSwitcher />
+                        
                     </div>
                     <!-- End Search Input -->
                 </div>

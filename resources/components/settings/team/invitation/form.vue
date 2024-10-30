@@ -21,7 +21,7 @@ const roles = props.roles.map((role: App.Data.Settings.Team.RoleData) => ({
 </script>
 <template>
     <form @submit.prevent="form.submit">
-        <div class="grid gap-y-8 px-2">
+        <div class="grid pb-10 gap-y-8 px-2">
             <div class="flex flex-col justify-between gap-y-5">
                 <SharedFormBaseInput
                     class="w-"
@@ -43,13 +43,7 @@ const roles = props.roles.map((role: App.Data.Settings.Team.RoleData) => ({
                     label="Role"
                 />
             </div>
-
-            <button
-                type="submit"
-                class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-            >
-                Send invitation
-            </button>
+<SharedFormSubmitButton text="Send invitation" />
         </div>
     </form>
 </template>

@@ -2,32 +2,30 @@ import { SideBarMenuProps } from "~/resources/interfaces/layout/main-sidebar.int
 const pollingStationId = useProperty("elections.agentPollingStation.id");
 const electionId = useProperty("elections.selected.id");
 
-
-
 export const menus: SideBarMenuProps[] = [
     {
-        label: "home",
+        label: "Home",
         icon: "home",
         to: "home",
     },
     {
-        label: "election",
+        label: "Election",
         icon: "election",
         sublink: [
             {
-                label: "dashboard",
+                label: "Dashboard",
                 to: "elections.index",
                 icon: "",
             },
             {
-                label: "new election",
+                label: "New election",
                 to: "elections.create",
                 icon: "",
             },
         ],
     },
     {
-        label: "nominations",
+        label: "Nominations",
         icon: "nomination",
         sublink: [
             {
@@ -39,31 +37,31 @@ export const menus: SideBarMenuProps[] = [
         ],
     },
     {
-        label: "campaigns",
+        label: "Campaigns",
         icon: "campaign_main",
     },
     {
-        label: "audiences",
+        label: "Audiences",
         icon: "accessibility",
     },
     {
-        label: "strategies",
+        label: "Strategies",
         icon: "strategy",
     },
     {
-        label: "donations",
+        label: "Donations",
         icon: "donation",
     },
     {
-        label: "voting",
+        label: "Voting",
         icon: "vote",
         sublink: [
             {
-                label: "polling station",
+                label: "Polling station",
                 icon: "polling_station",
                 sublink: [
                     {
-                        label: "dashboard",
+                        label: "Dashboard",
                         to: "voting.polling-stations.index",
                         icon: "",
                     },
@@ -75,44 +73,44 @@ export const menus: SideBarMenuProps[] = [
                 ],
             },
             {
-                label: "agent",
+                label: "Agent",
                 icon: "agent",
                 sublink: [
                     {
-                        label: "dashboard",
+                        label: "Dashboard",
                         to: "voting.agents.index",
                         icon: "",
                     },
                     {
-                        label: "new agent",
+                        label: "New agent",
                         to: "voting.agents.create",
                         icon: "",
                     },
                 ],
             },
             {
-                label: "ballot",
+                label: "Ballot",
                 icon: "ballot",
                 sublink: [
                     {
-                        label: "dashboard",
+                        label: "Dashboard",
                         to: "voting.ballots.index",
                         icon: "",
                     },
                     {
-                        label: "new ballot",
+                        label: "New ballot",
                         to: "voting.ballots.create",
                         icon: "",
                     },
                 ],
             },
             {
-                label: "request",
+                label: "Request",
                 icon: "request",
                 to: "voting.ballots.create",
                 sublink: [
                     {
-                        label: "dashboard",
+                        label: "Dashboard",
                         // to: {
                         //     name: "voting.requests.index",
                         //     params: { electionId, pollingStationId },
@@ -124,7 +122,7 @@ export const menus: SideBarMenuProps[] = [
         ],
     },
     {
-        label: "coalation",
+        label: "Coalation",
         icon: "coalation",
         to: "password.reset",
     },

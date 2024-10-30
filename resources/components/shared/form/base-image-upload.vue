@@ -45,9 +45,9 @@ const fileUploadOptions = JSON.stringify({
             :data-hs-file-upload="fileUploadOptions"
         >
             <template data-hs-file-upload-preview="">
-                <div class="size-24">
+                <div class="size-24 ">
                     <img
-                        class="w-full object-contain border rounded-full"
+                        class="w-full aspect-square overflow-hidden object-contain border rounded-full"
                         data-dz-thumbnail=""
                     />
                 </div>

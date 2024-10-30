@@ -54,7 +54,7 @@ watch(search, debounceFn);
                     <div>
                         <div class="inline-flex gap-x-2">
                             <router-link
-                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                class="inline-flex items-center px-3 py-2 text-base font-semibold text-gray-400 bg-white border border-gray-200 rounded-md shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                                 :href="route('settings.team.roles')"
                             >
                                 Roles
@@ -62,24 +62,10 @@ watch(search, debounceFn);
 
                             <router-link
                                 :href="route('settings.team.invitations')"
-                                class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                class="inline-flex items-center px-3 py-2 text-base font-semibold text-white bg-primary-500 border border-transparent rounded-md cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             >
-                                <svg
-                                    class="flex-shrink-0 size-3"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                    fill="none"
-                                >
-                                    <path
-                                        d="M2.63452 7.50001L13.6345 7.5M8.13452 13V2"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                    />
-                                </svg>
-                                Invitations
+                                <SharedCommonIcon name="plus"/>
+                                Invites
                             </router-link>
                         </div>
                     </div>
@@ -111,7 +97,7 @@ watch(search, debounceFn);
                             >
                                 <input
                                     type="checkbox"
-                                    class="text-blue-600 border-gray-300 rounded shrink-0 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                    class="text-primary-600 border-gray-300 rounded shrink-0 focus:ring-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-primary-500 dark:checked:border-primary-500 dark:focus:ring-offset-gray-800"
                                     id="hs-at-with-checkboxes-main"
                                 />
                                 <span class="sr-only">Checkbox</span>
@@ -153,7 +139,7 @@ watch(search, debounceFn);
                                 >
                                     <input
                                         type="checkbox"
-                                        class="text-blue-600 border-gray-300 rounded shrink-0 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                        class="text-primary-600 border-gray-300 rounded shrink-0 focus:ring-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-primary-500 dark:checked:border-primary-500 dark:focus:ring-offset-gray-800"
                                         id="hs-at-with-checkboxes-1"
                                     />
                                     <span class="sr-only">Checkbox</span>
@@ -204,25 +190,8 @@ watch(search, debounceFn);
                             </div>
                         </td>
                         <td class="size-px whitespace-nowrap">
-                            <div class="px-6 py-3">
-                                <span
-                                    class="py-1 px-1.5 inline-flex items-center gap-x-1 text-xs font-medium bg-teal-100 text-teal-800 rounded-full dark:bg-teal-500/10 dark:text-teal-500"
-                                >
-                                    <svg
-                                        class="size-2.5"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="16"
-                                        height="16"
-                                        fill="currentColor"
-                                        viewBox="0 0 16 16"
-                                    >
-                                        <path
-                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
-                                        />
-                                    </svg>
-                                    {{ value(findColumn("status")) }}
-                                </span>
-                            </div>
+                            <SharedTableStatus :status="value(findColumn('status'))" />
+
                         </td>
                         <td class="size-px whitespace-nowrap">
                             <div class="px-6 py-3">
@@ -252,7 +221,7 @@ watch(search, debounceFn);
                             <div class="px-6 py-1.5">
                                 <a
                                     data-hs-overlay="#hs-overlay-create-user"
-                                    class="inline-flex items-center text-sm font-medium text-blue-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                    class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                                 >
                                     Edit
                                 </a>

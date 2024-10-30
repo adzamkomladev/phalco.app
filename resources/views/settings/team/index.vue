@@ -15,7 +15,7 @@ const table = useTable(props, "members");
 
 <template layout="main">
     <div>
-        <SettingsTeamStats :stats="stats" />
+        <SettingsTeamStatsShow :stats="stats" />
         <SettingsTeamMembersTable :table="table" />
     </div>
 </template>

@@ -38,7 +38,7 @@ export interface SearchInputProps extends FormProp {
 export interface SubmitButtonProps {
     loading?: boolean;
     text?: string;
-    type?: "submit" | "primary" | "";
+    type?: "submit" | "simple" | string;
 }
 export interface BaseTextareaProps extends FormProp {
     error?: string;

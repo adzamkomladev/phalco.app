@@ -74,7 +74,7 @@ const flash = useProperty("flash");
             </div>
         </Transition>
         <div class="flex flex-col">
-            <div class="-m-1.5 overflow-x-auto">
+            <div class="overflow-x-auto">
                 <div class="p-1.5 min-w-full inline-block align-middle">
                     <div
                         class="border rounded-xl shadow overflow-hidden dark:border-neutral-700 dark:shadow-gray-900"
@@ -88,6 +88,8 @@ const flash = useProperty("flash");
                                 />
                             </tbody>
                         </table>
+                        <div>
+                        </div>
                     </div>
                 </div>
             </div>

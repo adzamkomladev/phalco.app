@@ -67,50 +67,75 @@ export default {
             },
             colors: {
                 primary: {
+                    DEFAULT: "#06537F", // Main color
                     dark: "#05486e",
-                    twi: "#07689f",
+                    logo: "#07689f",
                     light: "#0988d0",
-                    50: "#ebf8ff",
-                    100: "#bee3f8",
-                    200: "#90cdf4",
-                    300: "#63b3ed",
-                    400: "#4299e1",
-                    500: "#3182ce",
-                    600: "#2b6cb0",
-                    700: "#2c5282",
-                    800: "#2a4365",
-                    900: "#1A365D",
+                    50: "#e6f0f5",
+                    100: "#dae8f1",
+                    200: "#b2d0e1",
+                    300: "#66ABCF",
+                    400: "#3390BF",
+                    500: "#07689F", // Base color
+                    600: "#05496F",
+                    700: "#043E5F",
+                    800: "#03324F",
+                    900: "#02273F",
+                    950: "#011A2B",
+                },
+                secondary: {
+                    50: "#e6f3fa",
+                    100: "#daedf8",
+                    200: "#b3daf0",
+                    300: "#0988d0",
+                    400: "#087abb",
+                    500: "#076da6", // Base color
+                    600: "#07669c",
+                    700: "#05527d",
+                    800: "#043d5e",
+                    900: "#033049",
+                    950: "#021C34",
                 },
                 forest: {
                     DEFAULT: "#00980F", // Main color
-                    50: "#E6F7E9", // Very light green
-                    100: "#C3ECC7", // Light green
+                    50: "#e6f5e7", // Very light green
+                    100: "#b0dfb5", // Light green
                     200: "#80D690", // Soft green
-                    300: "#3ECF5B", // Bright green
-                    400: "#1CB840", // Fresh green
-                    500: "#00980F", // Forest (default)
-                    600: "#00850D", // Slightly darker
-                    700: "#00690B", // Dark forest
-                    800: "#004F08", // Very dark green
+                    300: "#00980f", // Bright green
+                    400: "#00890e", // Fresh green
+                    500: "#007a0c", // Forest (default)
+                    535: "#01D11659", // Forest (default)
+                    600: "#00720b", // Slightly darker
+                    700: "#005b09", // Dark forest
+                    800: "#004407", // Very dark green
                     900: "#003505", // Almost black green
                 },
                 crimson: {
-                    DEFAULT: "#F5190B", // Main bright red color
-                    50: "#FEE6E5", // Very light red
-                    100: "#FDC6C4", // Light red
-                    200: "#FA8D89", // Soft red
-                    300: "#F7544D", // Bright red
-                    400: "#F52E27", // Intense red
-                    500: "#F5190B", // Crimson (default)
-                    600: "#DA150A", // Slightly darker
-                    700: "#AF1008", // Dark crimson
-                    800: "#850C06", // Very dark red
-                    900: "#5B0804", // Almost black red
+                    DEFAULT: "#c41409", // Main bright red color
+                    50: "#fde8e7",
+                    100: "#fbd0cf",
+                    200: "#f8a19f",
+                    300: "#f47170",
+                    400: "#f04141",
+                    500: "#c41409", // base color
+                    535: "#FD6A6159", // base color
+                    600: "#ac1208",
+                    700: "#940f07",
+                    800: "#7b0c06",
+                    900: "#630a05",
                 },
-
                 gray: {
-                    1: "#fafafa",
-                    2: "#e0e0e0",
+                    DEFAULT: "cacaca",
+                    1: "#fcfcfc",
+                    2: "#fafafa",
+                    3: "#f5f5f5",
+                    4: "#e0e0e0",
+                    5: "#cacaca",
+                    6: "#b3b3b3",
+                    7: "#a8a8a8",
+                    8: "#868686",
+                    9: "#656565",
+                    10: "#4e4e4e",
                 },
             },
 

@@ -1,3 +1,11 @@
+<script setup lang="ts">
+
+const {current}=useRoute();
+
+
+const crumbs =computed(()=>current?.value?.split('.').filter(n => n !== 'index'))
+</script>
+
 <template>
     <div
         class="sticky top-0 inset-x-0 z-20 bg-white border-y px-4 sm:px-6 lg:px-8 lg:hidden dark:bg-neutral-800 dark:border-neutral-700"
@@ -20,20 +28,15 @@
             <!-- Breadcrumb -->
             <ol class="ms-3 flex items-center whitespace-nowrap">
                 <li
+                v-for="(crumb, index) in crumbs" :key="index"
                     class="flex items-center text-sm text-gray-800 dark:text-neutral-400"
                 >
-                    Application Layout
                     <SharedCommonIcon
                         name="chevron"
                         class="rotate-90 h-5 text-gray-600"
-                    />
+                    />{{ crumb }}
                 </li>
-                <li
-                    class="text-sm font-semibold text-gray-800 truncate dark:text-neutral-400"
-                    aria-current="page"
-                >
-                    Dashboard
-                </li>
+               
             </ol>
             <!-- End Breadcrumb -->
         </div>

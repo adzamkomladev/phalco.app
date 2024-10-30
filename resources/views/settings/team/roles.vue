@@ -14,7 +14,7 @@ const props = defineProps<{
         type="sidedrawer"
         class=""
     >
-        <div>
+        <div class="">
             <SettingsTeamRoleTable :data="props.roles" />
         </div>
     </SharedCommonOverlay>
