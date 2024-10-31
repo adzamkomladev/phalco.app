@@ -23,12 +23,12 @@
 ::-webkit-scrollbar-thumb {
     background-color: #07689F; /* color of the thumb */
     border-radius: 10px;
-    border: 3px solid #66ABCF; /* padding around thumb for aesthetic */
+    border: 3px solid #07689F20; /* padding around thumb for aesthetic */
 }
 
 /* Handle hover state */
-::-webkit-scrollbar-thumb:hover {
-    background-color: #07689F; /* darker color on hover */
+.scroll_bar::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* darker color on hover */
 }
 
 }
