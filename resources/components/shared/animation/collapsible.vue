@@ -1,14 +1,10 @@
 <template>
     <label class="block cursor-pointer">
         <input class="peer absolute scale-0" type="checkbox" />
-        <div class="flex items-center gap-5">
-            <slot name="summary_left"></slot>
 
             <div @click="togglePanel" ref="summaryRef">
                 <slot name="summary"> 'Summary' </slot>
             </div>
-            <slot name="summary_right"></slot>
-        </div>
 
         <span
             ref="contentSpan"
