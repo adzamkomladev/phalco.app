@@ -127,7 +127,7 @@ watch(search, debounceFn);
                 </thead>
 
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                     <SettingsTeamMembersRow
+                    <SettingsTeamMembersRow
                         v-for="row in table.records"
                         :key="row.key"
                         :row="row"
