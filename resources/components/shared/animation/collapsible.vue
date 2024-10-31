@@ -2,9 +2,9 @@
     <label class="block cursor-pointer">
         <input class="peer absolute scale-0" type="checkbox" />
 
-            <div @click="togglePanel" ref="summaryRef">
-                <slot name="summary"> 'Summary' </slot>
-            </div>
+        <div @click="togglePanel" ref="summaryRef">
+            <slot name="summary"> 'Summary' </slot>
+        </div>
 
         <span
             ref="contentSpan"
