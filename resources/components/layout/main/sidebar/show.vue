@@ -14,7 +14,7 @@ const menus: SideBarMenuProps[] = data;
         data-hs-accordion-always-open
     >
         <div class="flex flex-col justify-between h-full">
-            <ul class="flex flex-col space-y-1">
+            <ul class="flex flex-col space-y-1 2xtall:mt-10">
                 <LayoutMainSidebarMenu
                     v-for="(menu, index) in menus"
                     :key="index"

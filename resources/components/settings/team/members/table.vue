@@ -52,17 +52,17 @@ watch(search, debounceFn);
                     </div>
 
                     <div>
-                        <div class="inline-flex gap-x-2">
+                        <div class="inline-flex gap-x-2 text-center">
                             <router-link
-                                class="inline-flex items-center px-3 py-2 text-base font-medium text-gray-400 bg-white border border-gray-200 rounded-md shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                class="w-24  shrink text-center items-center  py-2 text-base font-medium text-gray-400 bg-white border border-gray-200 rounded-md shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                                 :href="route('settings.team.roles')"
-                            >
+                                >
                                 Roles
                             </router-link>
 
                             <router-link
                                 :href="route('settings.team.invitations')"
-                                class="inline-flex items-center px-3 py-2 text-base font-semibold text-white bg-primary-500 border border-transparent rounded-md cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                class="inline-flex items-center w-24 px-3 py-2 text-sm font-semibold text-white bg-primary-500 border border-transparent rounded-md cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             >
                                 <SharedCommonIcon name="plus" />
                                 Invites

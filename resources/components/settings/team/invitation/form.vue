@@ -21,7 +21,7 @@ const roles = props.roles.map((role: App.Data.Settings.Team.RoleData) => ({
 </script>
 <template>
     <form @submit.prevent="form.submit">
-        <div class="grid pb-10 gap-y-8 px-2">
+        <div class="grid pb-10 gap-y-8 px-5">
             <div class="flex flex-col justify-between gap-y-5">
                 <SharedFormBaseInput
                     class="w-"

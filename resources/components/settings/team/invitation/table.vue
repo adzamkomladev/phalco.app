@@ -5,31 +5,45 @@ const props = defineProps<{
     invites: App.Data.Settings.Team.InvitationData[];
 }>();
 
+
 const invites = [
     {
         id: 1,
         email: "jane.doe@example.com",
         role: { name: "Admin" },
         picture: "https://randomuser.me/api/portraits/women/1.jpg",
-        status: "pending",
+        expires_at:new Date("2024-1-15T10:30"),
+        declined:false,
+ 
     },
     {
         id: 2,
-
         email: "john.smith@example.com",
         role: { name: "Agent" },
         picture: "https://randomuser.me/api/portraits/men/2.jpg",
-        status: "expired",
+        expires_at:new Date ("2023-11-01T14:00"), // Example datetime
+        declined:false,
+
     },
     {
         id: 3,
-
         email: "alice.jones@example.com",
         role: { name: "Agent" },
         picture: "https://randomuser.me/api/portraits/women/3.jpg",
-        status: "pending",
+        expires_at: new Date("2025-12-20T08:45"),
+        declined:false,
+
+    },
+    {
+        id: 3,
+        email: "guybi@somewhere.com",
+        role: { name: "Agent" },
+        picture: "",
+        expires_at: new Date("2025-12-20T08:45"),
+        declined:true,
     },
 ];
+
 
 const flash = useProperty("flash");
 </script>
@@ -101,11 +115,10 @@ const flash = useProperty("flash");
                 </div>
             </div>
         </Transition>
-        <div class="flex flex-col">
-            <div class="-m-1.5 overflow-x-auto">
-                <div class="p-1.5 inline-block align-middle">
-                    <div class=" ">
-                        <table class="" v-if="invites.length > 0">
+        <div class="flex flex-col ">
+            <div class="overflow-x-auto ">
+                <div class=" w-full  inline-block align-middle">
+                        <table class=" w-full" v-if="invites.length > 0">
                             <tbody>
                                 <SettingsTeamInvitationDataInvitee
                                     v-for="invitee in invites"
@@ -121,7 +134,6 @@ const flash = useProperty("flash");
                                 Pending and expired invites will appear here
                             </p>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

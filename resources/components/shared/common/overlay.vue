@@ -58,7 +58,7 @@ const positionClass = ref(getType());
         :class="[positionClass]"
     >
         <div
-            class="max-w-screen _sm:w-full pt-8 pl-8 _sm:px-[5%] md:px-8 h-full flex flex-col"
+            class="max-w-screen _sm:w-full pt-8   h-full flex flex-col"
         >
             <div
                 v-bind:class="
@@ -67,7 +67,7 @@ const positionClass = ref(getType());
                         : 'mb-4'
                 "
                 v-if="!hideTitle"
-                class="flex justify-between pr-8 z-10 items-center"
+                class="flex justify-between z-10 items-center px-10"
             >
                 <p
                     class="text-black font-black text-2xl md:text-3xl lg:text-4xl"
@@ -90,14 +90,14 @@ const positionClass = ref(getType());
             <div class="flex flex-col overflow-hidden flex-grow">
                 <div
                     v-if="!useSheet"
-                    class="px-8 _sm:px-[5%] md:px-8 overflow-y-auto max-h-[calc(100vh-80px)]"
+                    class="overflow-y-auto max-h-[calc(100vh-80px)]"
                 >
                     <slot />
                 </div>
 
                 <div
                     v-if="useSheet"
-                    class="sm:self-en z-50 bg-white pt-8 md:text-sm pr-8 overflow-y-auto max-h-[calc(100vh-80px)] pb-8"
+                    class="sm:self-en px-10 z-50 bg-white pt-8 md:text-sm  overflow-y-auto max-h-[calc(100vh-80px)] pb-8"
                 >
                     <div class="pb-6 portrait:flex flex-col">
                         <div class="flex flex-col gap-4">

@@ -11,7 +11,7 @@ const flash = useProperty("flash");
             <div
                 v-if="flash?.info"
                 id="dismiss-alert"
-                class="mb-3 hs-removing:translate-x-5 hs-removing:opacity-0 transition duration-300 bg-teal-50 border border-teal-200 text-sm text-teal-800 rounded-lg p-4 dark:bg-teal-800/10 dark:border-teal-900 dark:text-teal-500"
+                class="mb-3 hs-removing:translate-x-5  hs-removing:opacity-0 transition duration-300 bg-teal-50 border border-teal-200 text-sm text-teal-800 rounded-lg p-4 dark:bg-teal-800/10 dark:border-teal-900 dark:text-teal-500"
                 role="alert"
                 tabindex="-1"
                 aria-labelledby="hs-dismiss-button-label"
@@ -75,7 +75,6 @@ const flash = useProperty("flash");
         </Transition>
         <div class="flex flex-col">
             <div class="overflow-x-auto">
-                <div class="p-1.5 min-w-full inline-block align-middle">
                     <div
                         class="border rounded-xl shadow overflow-hidden dark:border-neutral-700 dark:shadow-gray-900"
                     >
@@ -88,9 +87,7 @@ const flash = useProperty("flash");
                                 />
                             </tbody>
                         </table>
-                        <div></div>
                     </div>
-                </div>
             </div>
         </div>
     </div>

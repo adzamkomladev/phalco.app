@@ -15,20 +15,20 @@
 
 /* Track (background of scrollbar) */
 ::-webkit-scrollbar-track {
-    background: #f0f0f0; /* track color */
+    background:#fdfdfd; /* track color */
     border-radius: 10px;
 }
 
 /* Thumb (draggable part of the scrollbar) */
 ::-webkit-scrollbar-thumb {
-    background-color: #07689F; /* color of the thumb */
+    background-color: #E1E1E1; /* color of the thumb */
     border-radius: 10px;
-    border: 3px solid #07689F20; /* padding around thumb for aesthetic */
+    border: 3px solid #E1E1E120; /* padding around thumb for aesthetic */
 }
 
 /* Handle hover state */
 .scroll_bar::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* darker color on hover */
+    background-color: #111; /* darker color on hover */
 }
 
 }

@@ -1,4 +1,4 @@
-<svg class="flex-shrink-0 size-4"
+<svg class="flex-shrink-0 size-4" stroke-width="2"
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
-    <path d="M2.63452 7.50001L13.6345 7.5M8.13452 13V2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    <path d="M2.63452 7.50001L13.6345 7.5M8.13452 13V2" stroke="currentColor"  stroke-linecap="round" />
 </svg>

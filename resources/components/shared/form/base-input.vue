@@ -43,13 +43,14 @@ const describeBy = computed(() => `${props.id}-error`);
                 :type="props.type"
                 :id="props.id"
                 :name="props.name"
-                :class="inputClass"
+                :class="[inputClass,]"
                 :placeholder="props.placeholder"
                 :required="props.required"
                 :autocomplete="props.autocomplete"
                 :aria-describedby="describeBy"
                 v-model="model"
             />
+            <!-- <div>{{type.toString()}}</div> -->
             <div
                 v-if="props.error"
                 class="absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3"

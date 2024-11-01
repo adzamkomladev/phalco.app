@@ -15,18 +15,16 @@ export const menus: SideBarMenuProps[] = [
             {
                 label: "Dashboard",
                 to: "elections.index",
-                icon: "",
             },
             {
                 label: "New election",
                 to: "elections.create",
-                icon: "",
             },
         ],
     },
     {
         label: "Nominations",
-        icon: "nomination",
+        icon: "users",
         sublink: [
             {
                 label: "dashboard",
@@ -63,13 +61,11 @@ export const menus: SideBarMenuProps[] = [
                     {
                         label: "Dashboard",
                         to: "voting.polling-stations.index",
-                        icon: "",
-                    },
+                            },
                     {
                         label: "New polling station",
                         to: "voting.polling-stations.create",
-                        icon: "",
-                    },
+                            },
                 ],
             },
             {
@@ -79,13 +75,11 @@ export const menus: SideBarMenuProps[] = [
                     {
                         label: "Dashboard",
                         to: "voting.agents.index",
-                        icon: "",
-                    },
+                            },
                     {
                         label: "New agent",
                         to: "voting.agents.create",
-                        icon: "",
-                    },
+                            },
                 ],
             },
             {
@@ -95,13 +89,11 @@ export const menus: SideBarMenuProps[] = [
                     {
                         label: "Dashboard",
                         to: "voting.ballots.index",
-                        icon: "",
-                    },
+                            },
                     {
                         label: "New ballot",
                         to: "voting.ballots.create",
-                        icon: "",
-                    },
+                            },
                 ],
             },
             {
@@ -115,8 +107,7 @@ export const menus: SideBarMenuProps[] = [
                         //     name: "voting.requests.index",
                         //     params: { electionId, pollingStationId },
                         // },
-                        icon: "",
-                    },
+                            },
                 ],
             },
         ],

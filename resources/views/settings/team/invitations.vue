@@ -1,14 +1,14 @@
 <script setup lang="ts">
+import { defineAsyncComponent, ref, nextTick } from "vue";
+
 const props = defineProps<{
     invitations: App.Data.Settings.Team.InvitationData[];
     roles: App.Data.Settings.Team.RoleData[];
 }>();
 
-const isOpen = ref(false);
-
 const InvitationForm = ref(null);
 
-const loadInvitationForm = () => {
+const loadInvitationForm = async () => {
     if (!InvitationForm.value) {
         InvitationForm.value = defineAsyncComponent({
             delay: 20000,
@@ -16,10 +16,13 @@ const loadInvitationForm = () => {
                 import(
                     "~/resources/components/settings/team/invitation/form.vue"
                 ),
-            //    loadingComponent: LoadingComponent,
-            //   errorComponent: ErrorComponent,
-            //   timeout: 3000
+            // loadingComponent: LoadingComponent,
+            // errorComponent: ErrorComponent,
+            // timeout: 3000
         });
+
+         } else {
+        InvitationForm.value = null;
     }
 };
 </script>
@@ -31,10 +34,10 @@ const loadInvitationForm = () => {
         description="Invite and manage members"
         useSheet
         outerClass=""
-        OverlayClass="h-4 "
+        OverlayClass="h-4"
     >
         <div class="grid gap-y-8 overflow-x-hidden overflow-y-auto">
-            <div class="">
+            <div>
                 <SettingsTeamInvitationTable :data="props.invitations" />
             </div>
 
@@ -48,15 +51,16 @@ const loadInvitationForm = () => {
                 <div class="ml-20">
                     <button
                         @click="loadInvitationForm"
-                        :class="['']"
                         class="text-base"
                     >
-                        Send Invite
+                        {{ InvitationForm ? "Close Invitation Form" : "Send Invite" }}
                     </button>
                 </div>
             </div>
 
-            <invitation-form :roles="props.roles" />
+            <div >
+                <invitation-form v-if="InvitationForm" :roles="props.roles" />
+            </div>
         </div>
     </SharedCommonOverlay>
 </template>
