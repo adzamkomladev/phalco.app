@@ -20,8 +20,7 @@ const loadInvitationForm = async () => {
             // errorComponent: ErrorComponent,
             // timeout: 3000
         });
-
-         } else {
+    } else {
         InvitationForm.value = null;
     }
 };
@@ -49,16 +48,17 @@ const loadInvitationForm = async () => {
                 </router-link>
 
                 <div class="ml-20">
-                    <button
-                        @click="loadInvitationForm"
-                        class="text-base"
-                    >
-                        {{ InvitationForm ? "Close Invitation Form" : "Send Invite" }}
+                    <button @click="loadInvitationForm" class="text-base">
+                        {{
+                            InvitationForm
+                                ? "Close Invitation Form"
+                                : "Send Invite"
+                        }}
                     </button>
                 </div>
             </div>
 
-            <div >
+            <div>
                 <invitation-form v-if="InvitationForm" :roles="props.roles" />
             </div>
         </div>

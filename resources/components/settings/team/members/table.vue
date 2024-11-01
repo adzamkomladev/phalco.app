@@ -54,9 +54,9 @@ watch(search, debounceFn);
                     <div>
                         <div class="inline-flex gap-x-2 text-center">
                             <router-link
-                                class="w-24  shrink text-center items-center  py-2 text-base font-medium text-gray-400 bg-white border border-gray-200 rounded-md shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                class="w-24 shrink text-center items-center py-2 text-base font-medium text-gray-400 bg-white border border-gray-200 rounded-md shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                                 :href="route('settings.team.roles')"
-                                >
+                            >
                                 Roles
                             </router-link>
 

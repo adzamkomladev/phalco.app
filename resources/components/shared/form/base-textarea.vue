@@ -38,7 +38,7 @@ const describeBy = computed(() => `${props.id}-error`);
                 {{ props.label }}
             </label>
         </div>
-        <div class="relative ">
+        <div class="relative">
             <textarea
                 ref="textarea"
                 :id="props.id"

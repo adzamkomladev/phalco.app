@@ -57,9 +57,7 @@ const positionClass = ref(getType());
         aria-labelledby="base-overlay-label"
         :class="[positionClass]"
     >
-        <div
-            class="max-w-screen _sm:w-full pt-8   h-full flex flex-col"
-        >
+        <div class="max-w-screen _sm:w-full pt-8 h-full flex flex-col">
             <div
                 v-bind:class="
                     type === 'sidedrawer-center'
@@ -97,7 +95,7 @@ const positionClass = ref(getType());
 
                 <div
                     v-if="useSheet"
-                    class="sm:self-en px-10 z-50 bg-white pt-8 md:text-sm  overflow-y-auto max-h-[calc(100vh-80px)] pb-8"
+                    class="sm:self-en px-10 z-50 bg-white pt-8 md:text-sm overflow-y-auto max-h-[calc(100vh-80px)] pb-8"
                 >
                     <div class="pb-6 portrait:flex flex-col">
                         <div class="flex flex-col gap-4">

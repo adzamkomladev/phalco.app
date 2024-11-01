@@ -29,7 +29,10 @@ const props = defineProps<{ menu: SideBarMenuProps }>();
                             </template>
 
                             <!-- Render sub-submenu links -->
-                            <ul class="ps-8 pt-1 space-y-1" v-if="subMenu.sublink">
+                            <ul
+                                class="ps-8 pt-1 space-y-1"
+                                v-if="subMenu.sublink"
+                            >
                                 <li
                                     v-for="(
                                         subSubMenu, subIndex
