@@ -88,7 +88,7 @@ const positionClass = ref(getType());
             <div class="flex flex-col overflow-hidden flex-grow">
                 <div
                     v-if="!useSheet"
-                    class="overflow-y-auto max-h-[calc(100vh-80px)]"
+                    class="overflow-y-auto px-10 max-h-[calc(100vh-80px)]"
                 >
                     <slot />
                 </div>

@@ -6,7 +6,7 @@
     html {
         font-family: "Poppins", ui-sans-serif, system-ui;
     }
- 
+
     /* Target the scrollbar */
 ::-webkit-scrollbar {
     width: 6px; /* width for vertical scrollbar */
@@ -15,7 +15,7 @@
 
 /* Track (background of scrollbar) */
 ::-webkit-scrollbar-track {
-    background:#fdfdfd; /* track color */
+    background:#f9f9f9; /* track color */
     border-radius: 10px;
 }
 

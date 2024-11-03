@@ -13,6 +13,14 @@ export interface BaseInputProps extends FormProp {
     error?: string;
 }
 
+
+ export interface BaseDateInputProps extends BaseInputProps {
+     startDate:number;
+     endDate:number;
+     scope:'start'|'end'|'general';
+     type:'datetime';
+ }
+
 export interface ButtonProps {
     type?: string;
     label?: string;

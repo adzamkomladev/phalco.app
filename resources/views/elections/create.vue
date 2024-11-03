@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import StartElectionImage from "~/resources/images/election/start.png?src";
-import ElectionStageProps from "~/resources/interface/election/create.interface";
-import { defaultData } from "~/resources/data/elections/create";
+import {ElectionStageProps} from "~/resources/interfaces/elections/create.interface";
+import { defaultElectionStages } from "~/resources/data/elections/create";
 useHead({
     title: "New Election",
 });
+
+
 
 const form = useForm({
     method: "POST",
@@ -23,10 +25,9 @@ const form = useForm({
 });
 
 onMounted(() => {
-    form.fields.stages = [...defaultData, []];
+    form.fields.stages = [...defaultElectionStages];
 });
 
-// Method to add a new stage
 const addStage = () => {
     form.fields.stages.push({
         title: "",
@@ -37,10 +38,15 @@ const addStage = () => {
     });
 };
 
-// Method to remove a stage by index
+
 const removeStage = (index: number) => {
     form.fields.stages.splice(index, 1);
 };
+
+
+const onSubmit=()=>{
+    console.log(form)
+}
 </script>
 
 <template>
@@ -62,13 +68,22 @@ const removeStage = (index: number) => {
                         the email we sent to:
                     </p>
                 </div>
-                <img :src="StartElectionImage" class="w-40 p-5 pl-0" />
+                <img :src="StartElectionImage" class="w-40 _sm:hidden p-5 pl-0" />
             </div>
 
             <form
                 @submit.prevent="form.submit"
                 class="flex flex-col gap-5 mt-10 px-4 sm:px-8"
             >
+<div>
+<SharedFormBaseImageUpload
+                        v-model="form.fields.logo"
+
+/>
+
+
+</div>
+
                 <div class="sm:col-span-9">
                     <SharedFormBaseInput
                         v-model="form.fields.name"
@@ -89,16 +104,8 @@ const removeStage = (index: number) => {
                     />
                 </div>
                 <div class="flex _sm:flex-col _sm:gap-5">
-                    <div>
-                        <SharedFormBaseInput
-                            v-model="form.fields.start"
-                            :error="form.errors.start"
-                            id="start"
-                            name="start"
-                            type="datetime-local"
-                            placeholder="some"
-                        />
-                    </div>
+
+
 
                     <div>
                         <SharedFormBaseInput
@@ -113,22 +120,16 @@ const removeStage = (index: number) => {
                 </div>
                 <div>
                     <div class="flex flex-col gap-5">
-                        <div
-                            v-for="(stage, index) in form.fields.stages"
-                            :key="index"
-                            class="mt-4"
-                        >
-                            <ElectionsCreateFormStage :stage="stage">
-                                <template v-slot:action>
-                                    <button
-                                        @click.prevent="removeStage(index)"
-                                        class="text-red-500 text-lg rounded-full px-3 aspect-square self-end bg-gray-100 hover:bg-crimson-100"
-                                    >
-                                        -
-                                    </button>
-                                </template>
-                            </ElectionsCreateFormStage>
-                        </div>
+                     <div
+    v-for="(stage, index) in form.fields.stages"
+    :key="index"
+    class="mt-4"
+>
+    <ElectionsCreateFormStage
+     :stage="stage"
+     :removeStage="() => removeStage(index)" />
+</div>
+
                     </div>
 
                     <button
@@ -141,7 +142,7 @@ const removeStage = (index: number) => {
                 </div>
 
                 <div class="py-10">
-                    <SharedFormSubmitButton text="create" />
+                    <SharedFormSubmitButton @click="onSubmit" text="create" />
                 </div>
             </form>
         </div>
