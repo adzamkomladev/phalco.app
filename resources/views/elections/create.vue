@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import StartElectionImage from "~/resources/images/election/start.png?src";
-import {ElectionStageProps} from "~/resources/interfaces/elections/create.interface";
+import { ElectionStageProps } from "~/resources/interfaces/elections/create.interface";
 import { defaultElectionStages } from "~/resources/data/elections/create";
 useHead({
     title: "New Election",
 });
-
-
 
 const form = useForm({
     method: "POST",
@@ -38,15 +36,13 @@ const addStage = () => {
     });
 };
 
-
 const removeStage = (index: number) => {
     form.fields.stages.splice(index, 1);
 };
 
-
-const onSubmit=()=>{
-    console.log(form)
-}
+const onSubmit = () => {
+    console.log(form);
+};
 </script>
 
 <template>
@@ -68,21 +64,19 @@ const onSubmit=()=>{
                         the email we sent to:
                     </p>
                 </div>
-                <img :src="StartElectionImage" class="w-40 _sm:hidden p-5 pl-0" />
+                <img
+                    :src="StartElectionImage"
+                    class="w-40 _sm:hidden p-5 pl-0"
+                />
             </div>
 
             <form
                 @submit.prevent="form.submit"
                 class="flex flex-col gap-5 mt-10 px-4 sm:px-8"
             >
-<div>
-<SharedFormBaseImageUpload
-                        v-model="form.fields.logo"
-
-/>
-
-
-</div>
+                <div>
+                    <SharedFormBaseImageUpload v-model="form.fields.logo" />
+                </div>
 
                 <div class="sm:col-span-9">
                     <SharedFormBaseInput
@@ -104,9 +98,6 @@ const onSubmit=()=>{
                     />
                 </div>
                 <div class="flex _sm:flex-col _sm:gap-5">
-
-
-
                     <div>
                         <SharedFormBaseInput
                             v-model="form.fields.end"
@@ -120,16 +111,16 @@ const onSubmit=()=>{
                 </div>
                 <div>
                     <div class="flex flex-col gap-5">
-                     <div
-    v-for="(stage, index) in form.fields.stages"
-    :key="index"
-    class="mt-4"
->
-    <ElectionsCreateFormStage
-     :stage="stage"
-     :removeStage="() => removeStage(index)" />
-</div>
-
+                        <div
+                            v-for="(stage, index) in form.fields.stages"
+                            :key="index"
+                            class="mt-4"
+                        >
+                            <ElectionsCreateFormStage
+                                :stage="stage"
+                                :removeStage="() => removeStage(index)"
+                            />
+                        </div>
                     </div>
 
                     <button
