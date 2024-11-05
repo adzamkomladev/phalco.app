@@ -39,7 +39,7 @@ const props = defineProps<{
         </div>
         <div class="flex gap-5 _sm:flex-col">
             <div class="basis-1/2">
-                <SharedFormBaseDateInput
+                <SharedFormBaseDatePicker
                     v-model="stage.date.start"
                     id="start"
                     scope="start"
@@ -51,7 +51,7 @@ const props = defineProps<{
             </div>
 
             <div class="basis-1/2">
-                <SharedFormBaseDateInput
+                <SharedFormBaseDatePicker
                     v-model="stage.date.end"
                     id="end"
                     scope="end"
@@ -62,5 +62,7 @@ const props = defineProps<{
                 />
             </div>
         </div>
+                    <span class="text-xs">{{stage.date.start}}{{stage.date.end}}</span>
+
     </div>
 </template>

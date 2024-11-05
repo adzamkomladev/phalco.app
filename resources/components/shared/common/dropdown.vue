@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onBeforeUnmount } from 'vue';
+
+const props = defineProps<{ position: 'top-right' | 'top-left' | 'top-center' | 'bottom-right' | 'bottom-left' | 'bottom-center' }>();
 
 const dialogRef = ref<HTMLDialogElement | null>(null);
 const isVisible = ref(false);
@@ -13,10 +15,7 @@ const toggleDialog = () => {
         } else {
             dialogRef.value.show();
             isVisible.value = true;
-            setTimeout(
-                () => document.addEventListener("click", handleClickOutside),
-                0,
-            );
+            setTimeout(() => document.addEventListener("click", handleClickOutside), 0);
         }
     }
 };
@@ -30,17 +29,39 @@ const handleClickOutside = (event: MouseEvent) => {
 onBeforeUnmount(() => {
     document.removeEventListener("click", handleClickOutside);
 });
+
+// Dynamic positioning styles
+const positionStyle = computed(() => {
+    const baseStyles = ['bg-transparent', 'max-h-screen', 'dark:border', 'transition-opacity','mt-2'];
+
+    switch (props.position) {
+        case 'top-right':
+            return [...baseStyles, 'absolute bottom-full right-0 mb-2'];
+        case 'top-left':
+            return [...baseStyles, 'absolute bottom-full left-0 mb-2'];
+        case 'top-center':
+            return [...baseStyles, 'absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2'];
+        case 'bottom-right':
+            return [...baseStyles, 'absolute bottom-0 right-0 mt-2'];
+        case 'bottom-left':
+            return [...baseStyles, 'absolute bottom-0 left-0 mt-2'];
+        case 'bottom-center':
+            return [...baseStyles, 'absolute bottom-0 left-1/2 transform -translate-x-1/2 mt-2'];
+        default:
+            return baseStyles; // Fallback if no valid position is provided
+    }
+});
 </script>
 
 <template>
     <div class="relative group">
-        <button @click="toggleDialog">
+        <button @click.prevent="toggleDialog">
             <slot name="toggle">button</slot>
         </button>
 
         <dialog
             ref="dialogRef"
-            class="top-full mt-1 bg-transparent max-h-screen dark:border transition-opacity"
+            :class="positionStyle"
         >
             <transition name="fade" mode="out-in">
                 <div v-if="isVisible" class="">

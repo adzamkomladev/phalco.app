@@ -99,8 +99,8 @@ const onSubmit = () => {
                 </div>
                 <div class="flex _sm:flex-col gap-5">
                     <div>
-                        <SharedFormBaseDateInput
-                            v-model:endDate="form.fields.end"
+                        <SharedFormBaseDatePicker
+                            v-model="form.fields.end"
                             id="end"
                             scope="end"
                             type="datetime"
@@ -110,8 +110,8 @@ const onSubmit = () => {
                         />
                     </div>
                     <div>
-                        <SharedFormBaseDateInput
-                            v-model:endDate="form.fields.end"
+                        <SharedFormBaseDatePicker
+                            v-model="form.fields.end"
                             id="end"
                             scope="end"
                             type="datetime"
