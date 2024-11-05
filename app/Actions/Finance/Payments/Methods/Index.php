@@ -13,7 +13,7 @@ class Index
     public function asController()
     {
         return view('finance.payments.methods.index', [
-            'payment_methods' => []
+            'payment_methods' => [],
         ])->base('finance.index');
     }
 
