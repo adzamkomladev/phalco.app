@@ -13,13 +13,13 @@ const props = defineProps<{
             <div class="relative">
                 <input
                     placeholder="Add Stage title"
-                    class="border-transparent peer w-20 min-w-fit p-0 border-none focus:ring-transparent"
+                    class="border-transparent peer p-0 border-none focus:ring-transparent"
                     v-model="stage.title"
                 />
                 <SharedCommonIcon
                     name="edit"
-                    class="hidden absolute peer-hover:block hover:block pointer-events-none left-1/2 top-0 peer-focus:hidden"
-                />
+                    class="hidden h-3 absolute peer-hover:block hover:block pointer-events-none top-2 right-10 peer-focus:hidden"
+                    />
                 <div
                     class="absolute w-0 overflow-hidden peer-focus:left-0 peer-focus:w-full duration-300 transition-all"
                 >
@@ -30,38 +30,40 @@ const props = defineProps<{
             <div>
                 <button
                     @click.prevent="removeStage({ index })"
-                    class="text-red-500 text-3xl rounded-full px-2 aspect-square self-end hover:bg-gray-100"
+                    class="text-red-500 text-3xl rounded-full p-3 leading-[0px] aspect-square self-end hover:bg-gray-100"
                 >
                     -
                 </button>
                 <slot name="action" />
             </div>
         </div>
-        <div class="flex gap-2 _sm:flex-col">
-            <div>
+        <div class="flex gap-5 _sm:flex-col">
+           <div class="basis-1/2">
+            <SharedFormBaseDateInput
+                v-model="stage.date.start"
+                id="start"
+                scope="start"
+                type="datetime"
+                placeholder="MM/DD/YYYY"
+                label="Start Date"
+                :endDate="stage.date.end"
+/>
+           </div>
+
+           <div class="basis-1/2">
                 <SharedFormBaseDateInput
-                    v-model:startDate="stage.date.start"
-                    id="start"
-                    scope="start"
-                    type="datetime"
-                    placeholder="MM/DD/YYYY"
-                    label="Start Date"
-                    :endDate="stage.date.end"
-                />
-                {{ stage.date.start }}
-            </div>
-            <div>
-                <SharedFormBaseDateInput
-                    v-model:endDate="stage.date.end"
-                    id="end"
-                    scope="end"
-                    type="datetime"
-                    placeholder="MM/DD/YYYY"
-                    label="End Date"
-                    :startDate="stage.date.start"
-                />
-                {{ stage.date.end }}
-            </div>
+                v-model="stage.date.end"
+                id="end"
+                scope="end"
+                type="datetime"
+                placeholder="MM/DD/YYYY"
+                label="End Date"
+                :startDate="stage.date.start"
+/>
+
+           </div>
+               
+            
         </div>
     </div>
 </template>

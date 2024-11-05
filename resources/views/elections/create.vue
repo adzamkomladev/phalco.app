@@ -15,7 +15,7 @@ const form = useForm({
         logo: "",
         start: null,
         end: null,
-        stages: [] as ElectionStageProps[], // Set stages as an array of ElectionStageProps
+        stages: [] as ElectionStageProps[],
     },
     hooks: {
         success: () => form.reset(),
@@ -97,16 +97,30 @@ const onSubmit = () => {
                         placeholder="Enter election description"
                     />
                 </div>
-                <div class="flex _sm:flex-col _sm:gap-5">
+                <div class="flex _sm:flex-col gap-5">
                     <div>
-                        <SharedFormBaseInput
-                            v-model="form.fields.end"
-                            :error="form.errors.end"
-                            id="end"
-                            name="end"
-                            type="date"
-                            placeholder="hhh"
-                        />
+                                   <SharedFormBaseDateInput
+                v-model:endDate="form.fields.end"
+                id="end"
+                scope="end"
+                type="datetime"
+                placeholder="MM/DD/YYYY"
+                label="End Date"
+                :startDate="form.fields.start"
+/>
+
+                    </div>
+                    <div>
+                                   <SharedFormBaseDateInput
+                v-model:endDate="form.fields.end"
+                id="end"
+                scope="end"
+                type="datetime"
+                placeholder="MM/DD/YYYY"
+                label="End Date"
+                :startDate="form.fields.start"
+/>
+
                     </div>
                 </div>
                 <div>

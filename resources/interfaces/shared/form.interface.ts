@@ -18,7 +18,7 @@ export interface BaseInputProps extends FormProp {
      startDate:number;
      endDate:number;
      scope:'start'|'end'|'general';
-     type:'datetime';
+     type:'datetime'|'date';
  }
 
 export interface ButtonProps {

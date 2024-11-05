@@ -7,6 +7,9 @@ export default {
     ],
     theme: {
         extend: {
+            boxShadow: {
+                "card": "0 2.7px 6.3px -1px #6b728050",
+            },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
             },
@@ -124,7 +127,7 @@ export default {
                     800: "#004407", // Very dark green
                     900: "#003505", // Almost black green
                 },
-                
+
                 gray: {
                     DEFAULT: "cacaca",
                     1: "#fcfcfc",
