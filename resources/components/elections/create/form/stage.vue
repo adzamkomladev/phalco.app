@@ -19,7 +19,7 @@ const props = defineProps<{
                 <SharedCommonIcon
                     name="edit"
                     class="hidden h-3 absolute peer-hover:block hover:block pointer-events-none top-2 right-10 peer-focus:hidden"
-                    />
+                />
                 <div
                     class="absolute w-0 overflow-hidden peer-focus:left-0 peer-focus:w-full duration-300 transition-all"
                 >
@@ -38,32 +38,29 @@ const props = defineProps<{
             </div>
         </div>
         <div class="flex gap-5 _sm:flex-col">
-           <div class="basis-1/2">
-            <SharedFormBaseDateInput
-                v-model="stage.date.start"
-                id="start"
-                scope="start"
-                type="datetime"
-                placeholder="MM/DD/YYYY"
-                label="Start Date"
-                :endDate="stage.date.end"
-/>
-           </div>
-
-           <div class="basis-1/2">
+            <div class="basis-1/2">
                 <SharedFormBaseDateInput
-                v-model="stage.date.end"
-                id="end"
-                scope="end"
-                type="datetime"
-                placeholder="MM/DD/YYYY"
-                label="End Date"
-                :startDate="stage.date.start"
-/>
+                    v-model="stage.date.start"
+                    id="start"
+                    scope="start"
+                    type="datetime"
+                    placeholder="MM/DD/YYYY"
+                    label="Start Date"
+                    :endDate="stage.date.end"
+                />
+            </div>
 
-           </div>
-               
-            
+            <div class="basis-1/2">
+                <SharedFormBaseDateInput
+                    v-model="stage.date.end"
+                    id="end"
+                    scope="end"
+                    type="datetime"
+                    placeholder="MM/DD/YYYY"
+                    label="End Date"
+                    :startDate="stage.date.start"
+                />
+            </div>
         </div>
     </div>
 </template>

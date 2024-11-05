@@ -9,20 +9,22 @@ const isNotEmpty = computed(() => elections.length !== 0);
 const selectedElection = ref<number | null>(data.value?.selected?.id || null);
 const loading = ref(false);
 
-watch(selectedElection, async (newElection: number | null, _: number | null) => {
-    if (newElection) {
-        loading.value = true;
-        try {
-            const res = await router.patch(route("elections.switch"), {
-                data: { election_id: +newElection },
-            });
-        } catch (error) {
-        } finally {
-            loading.value = false;
+watch(
+    selectedElection,
+    async (newElection: number | null, _: number | null) => {
+        if (newElection) {
+            loading.value = true;
+            try {
+                const res = await router.patch(route("elections.switch"), {
+                    data: { election_id: +newElection },
+                });
+            } catch (error) {
+            } finally {
+                loading.value = false;
+            }
         }
-    }
-});
-
+    },
+);
 </script>
 
 <template>
@@ -33,27 +35,28 @@ watch(selectedElection, async (newElection: number | null, _: number | null) => 
             aria-haspopup="menu"
             aria-expanded="false"
             aria-label="Dropdown"
-            class="rounded-md border  border-gray-200 p-2 gap-4 _sm:gap-2 flex justify-between items-center w-48 _sm:w-fit"
+            class="rounded-md border border-gray-200 p-2 gap-4 _sm:gap-2 flex justify-between items-center w-48 _sm:w-fit"
         >
-<div class="flex gap-2">
-     <span class="size-5 bg-primary-400 rounded-md" />
-     <span>{{ elections.find(e => e.value === selectedElection)?.label || "Select Election" }}</span>
-
-</div>
-           <div class="hs-dropdown-open:opacity-0">
-            <SharedCommonIcon
-                name="chevron"
-                class=" text-gray-300 rotate-180 hs-dropdown-open:rotate-90 group-focus-within:-rotate-90"
-            /> </div>
+            <div class="flex gap-2">
+                <span class="size-5 bg-primary-400 rounded-md" />
+                <span>{{
+                    elections.find((e) => e.value === selectedElection)
+                        ?.label || "Select Election"
+                }}</span>
+            </div>
+            <div class="hs-dropdown-open:opacity-0">
+                <SharedCommonIcon
+                    name="chevron"
+                    class="text-gray-300 rotate-180 hs-dropdown-open:rotate-90 group-focus-within:-rotate-90"
+                />
+            </div>
         </button>
         <div
-            class="hs-dropdown-menu divide-y flex flex-col  transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-64 bg-white shadow-md rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full p-3"
+            class="hs-dropdown-menu divide-y flex flex-col transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-64 bg-white shadow-md rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full p-3"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="hs-dropdown-election"
-
         >
-        
             <button
                 v-for="(election, index) in elections"
                 :key="index"
@@ -64,16 +67,19 @@ watch(selectedElection, async (newElection: number | null, _: number | null) => 
                 aria-expanded="false"
                 aria-label="Dropdown"
             >
-            <div 
-              class="rounded-md hover:bg-gray-100 my-1 p-2 gap-4 _sm:gap-2 flex items-center"
-
-            >
-                 <span 
-                :class="['size-5  rounded-md ',selectedElection === election.value ? 'bg-primary-400':'bg-gray-100' ]"
-                />
-                <span>{{ election.label }}</span>
-            </div>
-               
+                <div
+                    class="rounded-md hover:bg-gray-100 my-1 p-2 gap-4 _sm:gap-2 flex items-center"
+                >
+                    <span
+                        :class="[
+                            'size-5  rounded-md ',
+                            selectedElection === election.value
+                                ? 'bg-primary-400'
+                                : 'bg-gray-100',
+                        ]"
+                    />
+                    <span>{{ election.label }}</span>
+                </div>
             </button>
         </div>
     </div>
