@@ -272,16 +272,23 @@ const describeBy = computed(() => `${props.id}-error`);
             >
                 <SharedFormBaseTimePicker v-model="selectedTime" />
             </div>
-            <div v-if="errorMessage" class="text-red-500  text-sm p-2 text-center">
+            <div
+                v-if="errorMessage"
+                class="text-red-500 text-sm p-2 text-center"
+            >
                 {{ errorMessage }}
             </div>
-   <div class="py-3 px-4 flex items-center justify-end gap-x-2 border-t border-gray-200 dark:border-neutral-700">
-
-      <button             @click="toggleCalendar"
-  type="button" class="py-2 px-3  inline-flex justify-center items-center gap-x-2 text-xs font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-blue-500">
-        Apply
-      </button>
-    </div>
+            <div
+                class="py-3 px-4 flex items-center justify-end gap-x-2 border-t border-gray-200 dark:border-neutral-700"
+            >
+                <button
+                    @click="toggleCalendar"
+                    type="button"
+                    class="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-xs font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                    Apply
+                </button>
+            </div>
         </div>
     </div>
 </template>

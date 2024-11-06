@@ -19,7 +19,7 @@ const invitesData = [
         email: "john.smith@example.com",
         role: { name: "Agent" },
         picture: "https://randomuser.me/api/portraits/men/2.jpg",
-        expires_at: new Date("2023-11-01T14:00"), 
+        expires_at: new Date("2023-11-01T14:00"),
         declined: false,
     },
     {

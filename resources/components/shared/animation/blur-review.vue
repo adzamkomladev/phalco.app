@@ -2,7 +2,7 @@
 const props = defineProps({
     duration: {
         type: Number,
-        default: 1, 
+        default: 1,
     },
     delay: {
         type: Number,
@@ -71,5 +71,3 @@ function getEnter(index: number) {
         </div>
     </div>
 </template>
-
-

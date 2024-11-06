@@ -57,7 +57,7 @@ const positionClass = ref(getType());
         aria-labelledby="base-overlay-label"
         :class="[positionClass]"
     >
-        <div class="max-w-screen _sm:w-full pt-8  h-screen flex flex-col">
+        <div class="max-w-screen _sm:w-full pt-8 h-screen flex flex-col">
             <div
                 v-bind:class="
                     type === 'sidedrawer-center'
@@ -85,7 +85,7 @@ const positionClass = ref(getType());
 
             <slot v-if="hideTitle" name="title" />
 
-            <div class="flex flex-col overflow-hidden flex-grow ">
+            <div class="flex flex-col overflow-hidden flex-grow">
                 <div
                     v-if="!useSheet"
                     class="overflow-y-auto px-10 max-h-[calc(100vh-80px)] bg-white min-h-full"

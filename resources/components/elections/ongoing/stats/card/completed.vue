@@ -13,14 +13,11 @@ const conicStyle = computed(() => ({
 }));
 </script>
 
-
 <template>
     <div class="font-normal text-sm shadow-card _sm:shadow p-[8%] rounded-2xl">
         <div class="text-center">
-            <div class="font-bold  text-xl leading-">
-                Onging Election
-            </div>
-            <div class="text-gray-500 ">
+            <div class="font-bold text-xl leading-">Onging Election</div>
+            <div class="text-gray-500">
                 Stats of current ongoing <br />
                 elections
             </div>
@@ -67,6 +64,3 @@ const conicStyle = computed(() => ({
         </div>
     </div>
 </template>
-
-
-

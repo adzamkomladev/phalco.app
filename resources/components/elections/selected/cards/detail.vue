@@ -1,27 +1,34 @@
 <script setup lang="ts">
-const props=defineProps<{}>();
-
+const props = defineProps<{}>();
 </script>
 
 <template>
-    <SharedCommonCard class="divide-y gap-2 shrink-0  max-w-[25rem] flex flex-col min-w-56">
+    <SharedCommonCard
+        class="divide-y gap-2 shrink-0 max-w-[25rem] flex flex-col min-w-56"
+    >
         <div class="flex justify-between items-center">
             <div class="flex gap-2 items-center">
                 <span class="bg-slate-100 p-2 rounded-lg">
-                    <SharedCommonIcon name="campaign_main" stroke-width="2" class="h-6" />
+                    <SharedCommonIcon
+                        name="campaign_main"
+                        stroke-width="2"
+                        class="h-6"
+                    />
                 </span>
                 <span>Voters</span>
             </div>
             <div>
-              <SharedCommonIcon name="chevron" class="rotate-90 size-6" stroke-width="1" />
+                <SharedCommonIcon
+                    name="chevron"
+                    class="rotate-90 size-6"
+                    stroke-width="1"
+                />
             </div>
-
-
         </div>
-<div class="pt-5 _sm:pt-2 flex justify-between">
+        <div class="pt-5 _sm:pt-2 flex justify-between">
             <div class="">
                 <p class="text-lg font-bold relative w-fit">
-                     120 
+                    120
                     <sup
                         class="text-forest-300 left-full text-[0.6rem] absolute flex items-center"
                         ><SharedCommonIcon name="tri" class="h-2" />
@@ -37,6 +44,5 @@ const props=defineProps<{}>();
                 <p class="text-gray-500">Days left</p>
             </div>
         </div>
-
     </SharedCommonCard>
 </template>

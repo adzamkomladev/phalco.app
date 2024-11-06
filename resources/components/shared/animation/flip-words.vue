@@ -94,8 +94,6 @@ watch(isVisible, (newValue) => {
     </span>
 </template>
 
-
-
 <style>
 @keyframes fadeInWord {
     0% {

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 const props = defineProps<{
     stage: ElectionStageProps;
     removeStage: (args: { index: number }) => void;
@@ -10,9 +9,9 @@ const props = defineProps<{
     <div class="flex flex-col _sm:gap-5">
         <div class="flex justify-between">
             <div class="" v-if="stage.title">
-                {{stage.title}}
+                {{ stage.title }}
             </div>
-        <div class="relative" v-else >
+            <div class="relative" v-else>
                 <input
                     placeholder="Add Stage title"
                     class="border-transparent peer p-0 border-none focus:ring-transparent"
@@ -62,6 +61,5 @@ const props = defineProps<{
                 />
             </div>
         </div>
-
     </div>
 </template>

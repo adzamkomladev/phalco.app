@@ -26,13 +26,13 @@ const isCurrentRoute = computed(() => {
             type="button"
             class="w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200"
         >
-            <SharedCommonIcon  v-if="menu.icon" :name="menu.icon" />
+            <SharedCommonIcon v-if="menu.icon" :name="menu.icon" />
             {{ menu.label }}
             <SharedCommonIcon
-            stroke-width="0"
+                stroke-width="0"
                 v-if="hasSublink"
                 name="chevron"
-                :class="['ms-auto', !isOpen ? 'rotate-180' : '','size-4']"
+                :class="['ms-auto', !isOpen ? 'rotate-180' : '', 'size-4']"
             />
         </button>
         <router-link

@@ -35,7 +35,9 @@ const countdownProgress = ref(78.55);
 
 <template layout="main">
     <!-- Card Section -->
-    <div class="max-w-[85rem] px-4 py-10 text-gray-800 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <div
+        class="max-w-[85rem] px-4 py-10 text-gray-800 sm:px-6 lg:px-8 lg:py-14 mx-auto"
+    >
         <!-- Grid -->
         <div class="py-5">
             <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
@@ -45,9 +47,7 @@ const countdownProgress = ref(78.55);
                 Details all electios and statistics
             </p>
         </div>
-        <div
-            class="grid sm:grid-cols-2 gap-4 sm:gap-6 self-center _sm:px-[5%]"
-        >
+        <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 self-center _sm:px-[5%]">
             <!-- Card -->
 
             <ElectionsOngoingStatsCardCompleted
