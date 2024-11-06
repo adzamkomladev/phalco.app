@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import StartElectionImage from "~/resources/images/election/start.png?src";
+import ElectionStageProps from "~/resources/interface/election/create.interface";
+import { defaultData } from "~/resources/data/elections/create";
 useHead({
     title: "New Election",
 });
@@ -12,50 +15,60 @@ const form = useForm({
         logo: "",
         start: null,
         end: null,
-        stage: "campaigns",
+        stages: [] as ElectionStageProps[], // Set stages as an array of ElectionStageProps
     },
     hooks: {
         success: () => form.reset(),
     },
 });
 
-// Map the stages to the scope of the election
-const stages = [
-    { value: "nominations", label: "Full" },
-    { value: "campaigns", label: "Campaigns" },
-];
+onMounted(() => {
+    form.fields.stages = [...defaultData, []];
+});
+
+// Method to add a new stage
+const addStage = () => {
+    form.fields.stages.push({
+        title: "",
+        date: {
+            start: null,
+            end: null,
+        },
+    });
+};
+
+// Method to remove a stage by index
+const removeStage = (index: number) => {
+    form.fields.stages.splice(index, 1);
+};
 </script>
 
 <template>
-    <SharedCommonOverlay title="New Election" size="xl">
-        <form @submit.prevent="form.submit">
-            <div class="grid sm:grid-cols-12 gap-2 sm:gap-6">
-                <div class="sm:col-span-3">
-                    <label
-                        class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200"
-                    >
-                        Logo
-                    </label>
+    <SharedCommonOverlay
+        class="max-w-xl _sm:max-w-full"
+        title="New Election"
+        size="xl"
+    >
+        <div class="">
+            <div
+                class="flex rounded-3xl bg-secondary-300 dark:bg-secondary-700"
+            >
+                <div class="font-medium p-5 px-10 shrink text-wrap">
+                    <p class="text-gray-50 text-xl dark:text-gray-100">
+                        Start an Election of your choice
+                    </p>
+                    <p class="font-normal text-gray-200">
+                        To start using Phalco, confirm your email address with
+                        the email we sent to:
+                    </p>
                 </div>
-                <!-- End Col -->
+                <img :src="StartElectionImage" class="w-40 p-5 pl-0" />
+            </div>
 
-                <div class="sm:col-span-9">
-                    <SharedFormBaseImageUpload
-                        v-model="form.fields.logo"
-                        :error="form.errors.logo"
-                    />
-                </div>
-
-                <div class="sm:col-span-3">
-                    <label
-                        for="name"
-                        class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200"
-                    >
-                        Name
-                    </label>
-                </div>
-                <!-- End Col -->
-
+            <form
+                @submit.prevent="form.submit"
+                class="flex flex-col gap-5 mt-10 px-4 sm:px-8"
+            >
                 <div class="sm:col-span-9">
                     <SharedFormBaseInput
                         v-model="form.fields.name"
@@ -65,19 +78,8 @@ const stages = [
                         placeholder="Election Name"
                     />
                 </div>
-                <!-- Form Group -->
 
-                <div class="sm:col-span-3">
-                    <label
-                        for="description"
-                        class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200"
-                    >
-                        Description
-                    </label>
-                </div>
-                <!-- End Col -->
-
-                <div class="sm:col-span-9">
+                <div>
                     <SharedFormBaseTextarea
                         v-model="form.fields.description"
                         :error="form.errors.description"
@@ -86,83 +88,62 @@ const stages = [
                         placeholder="Enter election description"
                     />
                 </div>
+                <div class="flex _sm:flex-col _sm:gap-5">
+                    <div>
+                        <SharedFormBaseInput
+                            v-model="form.fields.start"
+                            :error="form.errors.start"
+                            id="start"
+                            name="start"
+                            type="datetime-local"
+                            placeholder="some"
+                        />
+                    </div>
 
-                <div class="sm:col-span-3">
-                    <label
-                        for="start"
-                        class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200"
+                    <div>
+                        <SharedFormBaseInput
+                            v-model="form.fields.end"
+                            :error="form.errors.end"
+                            id="end"
+                            name="end"
+                            type="date"
+                            placeholder="hhh"
+                        />
+                    </div>
+                </div>
+                <div>
+                    <div class="flex flex-col gap-5">
+                        <div
+                            v-for="(stage, index) in form.fields.stages"
+                            :key="index"
+                            class="mt-4"
+                        >
+                            <ElectionsCreateFormStage :stage="stage">
+                                <template v-slot:action>
+                                    <button
+                                        @click.prevent="removeStage(index)"
+                                        class="text-red-500 text-lg rounded-full px-3 aspect-square self-end bg-gray-100 hover:bg-crimson-100"
+                                    >
+                                        -
+                                    </button>
+                                </template>
+                            </ElectionsCreateFormStage>
+                        </div>
+                    </div>
+
+                    <button
+                        @click.prevent="addStage"
+                        class="mt-5 text-forest-300 w-fit p-2 gap-2 text-sm flex items-center border border-forest-300 rounded-md"
                     >
-                        Start Date
-                    </label>
-                </div>
-                <!-- End Col -->
-
-                <div class="sm:col-span-9">
-                    <SharedFormBaseInput
-                        v-model="form.fields.start"
-                        :error="form.errors.start"
-                        id="start"
-                        name="start"
-                        type="datetime-local"
-                    />
+                        <SharedCommonIcon stroke-width="1" name="plus" />
+                        <p class="">Add Another Stage</p>
+                    </button>
                 </div>
 
-                <div class="sm:col-span-3">
-                    <label
-                        for="end"
-                        class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200"
-                    >
-                        End Date
-                    </label>
+                <div class="py-10">
+                    <SharedFormSubmitButton text="create" />
                 </div>
-                <!-- End Col -->
-
-                <div class="sm:col-span-9">
-                    <SharedFormBaseInput
-                        v-model="form.fields.end"
-                        :error="form.errors.end"
-                        id="end"
-                        name="end"
-                        type="datetime-local"
-                    />
-                </div>
-
-                <div class="sm:col-span-3">
-                    <label
-                        for="scope"
-                        class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200"
-                    >
-                        Scope
-                    </label>
-                </div>
-                <!-- End Col -->
-
-                <div class="sm:col-span-9">
-                    <SharedFormBaseRadioButton
-                        v-model="form.fields.stage"
-                        :error="form.errors.stage"
-                        id="scope"
-                        name="stage"
-                        :options="stages"
-                    />
-                </div>
-            </div>
-
-            <div class="mt-8 flex justify-end gap-x-2">
-                <button
-                    type="submit"
-                    class="w-3/12 py-2 px-3 items-center gap-x-2 text-sm text-center font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                >
-                    <span
-                        v-if="form.processing"
-                        class="animate-spin inline-block size-4 border-[3px] border-current border-t-transparent text-white rounded-full"
-                        role="status"
-                        aria-label="loading"
-                    ></span>
-
-                    Create
-                </button>
-            </div>
-        </form>
+            </form>
+        </div>
     </SharedCommonOverlay>
 </template>

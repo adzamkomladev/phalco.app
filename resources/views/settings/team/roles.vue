@@ -5,9 +5,17 @@ const props = defineProps<{
 </script>
 
 <template>
-    <SharedCommonOverlay title="Roles" size="xl">
-        <div class="grid gap-y-8">
-            <SettingsTeamRolesTable :data="props.roles" />
+    <SharedCommonOverlay
+        title="Roles"
+        size="xl"
+        useSheet
+        description="Invite and manage members"
+        subtitle="Role management"
+        type="sidedrawer"
+        class=""
+    >
+        <div class="">
+            <SettingsTeamRoleTable :data="props.roles" />
         </div>
     </SharedCommonOverlay>
 </template>

@@ -22,7 +22,7 @@ const organizations = computed(
         <button
             id="hs-dropdown-with-dividers"
             type="button"
-            class="w-full hs-dropdown-toggle flex items-center justify-between gap-x-3.5 py-2 px-2.5 bg-gray-100 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-white"
+            class="w-full hs-dropdown-toggle flex items-center justify-between gap-x-3.5 py-2 px-2.5 pr-5 bg-gray-2 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-white"
             aria-haspopup="menu"
             aria-expanded="false"
             aria-label="Dropdown"
@@ -35,56 +35,28 @@ const organizations = computed(
                 />
                 {{ user?.current_organization?.name }}
             </div>
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-chevrons-up-down"
-            >
-                <path d="m7 15 5 5 5-5" />
-                <path d="m7 9 5-5 5 5" />
-            </svg>
+            <SharedCommonIcon name="chevron_double" class="text-gray-500" />
         </button>
 
         <div
-            class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-1 space-y-0.5 mt-2 divide-y divide-gray-200 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700"
+            class="hs-dropdown-menu border border-gray-50 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-1 space-y-0.5 mt-2 divide-y divide-gray-200 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="hs-dropdown-with-dividers"
         >
-            <div class="py-2 first:pt-0 last:pb-0">
+            <div
+                class="py-2 first:pt-0 last:pb-0 flex flex-col gap-1 divide-gray-100"
+            >
                 <router-link
                     method="PATCH"
                     :href="route('organizations.select')"
                     :data="{ organization_id: o.id }"
                     v-for="o in organizations"
                     :key="o.id"
-                    class="flex items-center justify-between gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-                    :class="{ 'bg-gray-100': o.isCurrentOrganization }"
+                    class="flex items-center justify-between gap-x-3.5 py-2 px-3 hover:rounded-lg text-sm text-gray-800 hover:bg-gray-1 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
+                    :class="{ 'bg-gray-2 rounded-lg': o.isCurrentOrganization }"
                 >
                     <div class="flex gap-x-2 items-center">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-ellipsis-vertical"
-                        >
-                            <circle cx="12" cy="12" r="1" />
-                            <circle cx="12" cy="5" r="1" />
-                            <circle cx="12" cy="19" r="1" />
-                        </svg>
                         <img
                             class="shrink-0 size-[28px] rounded-full"
                             :src="o.logo || ''"
@@ -98,15 +70,13 @@ const organizations = computed(
                     <svg
                         v-if="o.isCurrentOrganization"
                         xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        class="lucide lucide-check text-teal-500"
+                        class="size-6 text-forest-400"
                     >
                         <path d="M20 6 9 17l-5-5" />
                     </svg>
@@ -114,7 +84,7 @@ const organizations = computed(
             </div>
             <div class="py-2 first:pt-0 last:pb-0">
                 <router-link
-                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
+                    class="flex items-center whitespace-nowrap gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
                     :href="route('organizations.create')"
                 >
                     <svg
