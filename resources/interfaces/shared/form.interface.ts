@@ -19,7 +19,7 @@ export interface ButtonProps {
     loading?: boolean;
 }
 
-export interface BaseCheckboxProps extends FormProp { }
+export interface BaseToggleProps extends FormProp { }
 
 export interface BaseRadioButtonProps<T> extends FormProp {
     options: { label: string; value: T }[];
@@ -38,7 +38,7 @@ export interface SearchInputProps extends FormProp {
 export interface SubmitButtonProps {
     loading?: boolean;
     text?: string;
-    type?: "submit" | "primary" | "";
+    type?: "submit" | "simple" | string;
 }
 export interface BaseTextareaProps extends FormProp {
     error?: string;
