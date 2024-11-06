@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use Bavix\Wallet\Interfaces\Wallet;
+use Bavix\Wallet\Traits\HasWallet;
+use Bavix\Wallet\Traits\HasWallets;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,9 +16,9 @@ use Laravel\Scout\Searchable;
 /**
  * @mixin IdeHelperOrganization
  */
-class Organization extends Model
+class Organization extends Model implements Wallet
 {
-    use HasFactory, Notifiable, Searchable;
+    use HasFactory, HasWallet, HasWallets, Notifiable, Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -56,5 +59,10 @@ class Organization extends Model
             'organization_id',
             'user_id'
         );
+    }
+
+    public function getMorphClass()
+    {
+        return 'organization';
     }
 }

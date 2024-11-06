@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Organization;
 use App\Models\User;
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Model;
@@ -37,6 +38,7 @@ class AppServiceProvider extends ServiceProvider
         Model::unguard();
         Relation::enforceMorphMap([
             'user' => User::class,
+            'organization' => Organization::class,
         ]);
         Date::use(CarbonImmutable::class);
 

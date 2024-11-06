@@ -1,16 +1,3 @@
-<template>
-    <div class="relative flex flex-col w-full items-center justify-center">
-        <!-- Button for manual trigger -->
-        <button
-            v-if="!mountStart"
-            @click="handleClick"
-            class="bg-foreground text-background px-4 py-2 rounded-lg hover:scale-110 transition duration-500"
-        >
-            Trigger Side Cannons
-        </button>
-    </div>
-</template>
-
 <script setup lang="ts">
 import confetti from "canvas-confetti";
 
@@ -63,3 +50,15 @@ onMounted(() => {
     }
 });
 </script>
+<template>
+    <div class="relative flex flex-col w-full items-center justify-center">
+        <!-- Button for manual trigger -->
+        <button
+            v-if="!mountStart"
+            @click="handleClick"
+            class="bg-foreground text-background px-4 py-2 rounded-lg hover:scale-110 transition duration-500"
+        >
+            Trigger Side Cannons
+        </button>
+    </div>
+</template>
