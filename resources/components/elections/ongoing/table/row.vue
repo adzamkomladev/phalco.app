@@ -1,4 +1,7 @@
 <script setup lang="ts">
+
+const props = defineProps<{}>();
+
 const status = ref("active");
 </script>
 

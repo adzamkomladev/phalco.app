@@ -1,23 +1,8 @@
-<template>
-    <div ref="container" :class="class">
-        <div
-            v-for="(child, index) in children"
-            :key="index"
-            v-motion
-            ref="childElements"
-            :initial="getInitial()"
-            :enter="getEnter(index)"
-        >
-            <component :is="child" />
-        </div>
-    </div>
-</template>
-
 <script setup lang="ts">
 const props = defineProps({
     duration: {
         type: Number,
-        default: 1,
+        default: 1, 
     },
     delay: {
         type: Number,
@@ -29,7 +14,7 @@ const props = defineProps({
     },
     yOffset: {
         type: Number,
-        default: 20, // Default offset for animation
+        default: 20,
     },
     class: String,
 });
@@ -40,7 +25,6 @@ const slots = useSlots();
 const children = ref<any>([]);
 
 onMounted(() => {
-    // This will reactively capture all content provided in the default slot
     watchEffect(() => {
         children.value = slots.default ? slots.default() : [];
     });
@@ -72,3 +56,20 @@ function getEnter(index: number) {
     };
 }
 </script>
+
+<template>
+    <div ref="container" :class="props.class">
+        <div
+            v-for="(child, index) in children"
+            :key="index"
+            v-motion
+            ref="childElements"
+            :initial="getInitial()"
+            :enter="getEnter(index)"
+        >
+            <component :is="child" />
+        </div>
+    </div>
+</template>
+
+

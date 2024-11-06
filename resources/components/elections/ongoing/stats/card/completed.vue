@@ -1,57 +1,3 @@
-<template>
-    <div class="font-medium shadow-card _sm:shadow p-[8%] rounded-lg">
-        <div class="text-center">
-            <div class="font-bold sm:text-xl md:text-2xl text-2xl leading-">
-                Onging Election
-            </div>
-            <div class="text-gray-500 font-medium">
-                Stats of current ongoing <br />
-                elections
-            </div>
-        </div>
-        <div class="pt-5 _sm:pt-2 flex justify-between">
-            <div class="">
-                <p class="text-xl font-bold relative w-fit">
-                    {{ numberOfVoters }}
-                    <sup
-                        class="text-forest-300 left-full text-[0.6rem] absolute flex items-center"
-                        ><SharedCommonIcon name="tri" class="h-2" />
-                        <p>+5</p>
-                    </sup>
-                </p>
-                <p class="text-gray-500">voters</p>
-            </div>
-            <div>
-                <p class="text-xl font-bold relative w-fit">
-                    {{ daysLeft }}<span class="ml-2 text-sm">days</span>
-                </p>
-                <p class="text-gray-500">Days left</p>
-            </div>
-        </div>
-        <div class="aspect-[2/1] overflow-hidden px-[8%] pt-[8%]">
-            <div
-                :style="conicStyle"
-                class="transition-all aspect-square rounded-t-full flex justify-center w-full p-[5%] pb-0"
-            >
-                <div
-                    class="aspect-[2/1] bg-white rounded-t-full w-full justify-center flex self-start"
-                >
-                    <div class="h-fit text-center self-end bottom-0">
-                        <div class="font-bold text-3xl md:text-4xl xl:text-5xl">
-                            {{ Math.floor(completionValue) }}%
-                        </div>
-                        <div
-                            class="text-secondary-300 text-xl sm:text-lg md:text-xl font-medium"
-                        >
-                            completed
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-
 <script setup lang="ts">
 import { ElectionsStatsCardCompleteProps } from "~/resources/interfaces/elections/index.interface";
 
@@ -67,4 +13,60 @@ const conicStyle = computed(() => ({
 }));
 </script>
 
-<style scoped></style>
+
+<template>
+    <div class="font-normal text-sm shadow-card _sm:shadow p-[8%] rounded-2xl">
+        <div class="text-center">
+            <div class="font-bold  text-xl leading-">
+                Onging Election
+            </div>
+            <div class="text-gray-500 ">
+                Stats of current ongoing <br />
+                elections
+            </div>
+        </div>
+        <div class="pt-5 _sm:pt-2 flex justify-between">
+            <div class="">
+                <p class="text-lg font-bold relative w-fit">
+                    {{ numberOfVoters }}
+                    <sup
+                        class="text-forest-300 left-full text-[0.6rem] absolute flex items-center"
+                        ><SharedCommonIcon name="tri" class="h-2" />
+                        <p>+5</p>
+                    </sup>
+                </p>
+                <p class="text-gray-500">voters</p>
+            </div>
+            <div>
+                <p class="text-lg font-semibold relative w-fit">
+                    {{ daysLeft }}<span class="ml-2 text-sm">days</span>
+                </p>
+                <p class="text-gray-500">Days left</p>
+            </div>
+        </div>
+        <div class="aspect-[2/1] overflow-hidden px-[10%]">
+            <div
+                :style="conicStyle"
+                class="transition-all aspect-square mt-[13%] rounded-t-full flex justify-center w-full p-[5%] pb-0"
+            >
+                <div
+                    class="aspect-[2/1] bg-white rounded-t-full w-full justify-center flex self-start"
+                >
+                    <div class="h-fit text-center self-end bottom-0">
+                        <div class="font-bold text-3xl md:text-4xl xl:text-5xl">
+                            {{ Number(completionValue.toFixed(2)) }}%
+                        </div>
+                        <div
+                            class="text-secondary-300 text-xl sm:text-lg md:text-xl font-bold leading-none"
+                        >
+                            completed
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref, onBeforeUnmount } from 'vue';
 
-const props = defineProps<{ position: 'top-right' | 'top-left' | 'top-center' | 'bottom-right' | 'bottom-left' | 'bottom-center' }>();
+const props = defineProps<{position?: 'top-right' | 'top-left' | 'top-center' | 'bottom-right' | 'bottom-left' | 'bottom-center'; }>();
 
 const dialogRef = ref<HTMLDialogElement | null>(null);
 const isVisible = ref(false);
@@ -30,7 +29,6 @@ onBeforeUnmount(() => {
     document.removeEventListener("click", handleClickOutside);
 });
 
-// Dynamic positioning styles
 const positionStyle = computed(() => {
     const baseStyles = ['bg-transparent', 'max-h-screen', 'dark:border', 'transition-opacity','mt-2'];
 
@@ -42,14 +40,13 @@ const positionStyle = computed(() => {
         case 'top-center':
             return [...baseStyles, 'absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2'];
         case 'bottom-right':
-            return [...baseStyles, 'absolute bottom-0 right-0 mt-2'];
+            return [...baseStyles, 'absolute  right-0 mt-2'];
         case 'bottom-left':
-            return [...baseStyles, 'absolute bottom-0 left-0 mt-2'];
+            return [...baseStyles, 'absolute  left-0 mt-2'];
         case 'bottom-center':
-            return [...baseStyles, 'absolute bottom-0 left-1/2 transform -translate-x-1/2 mt-2'];
+            return [...baseStyles, 'absolute  left-1/2 transform -translate-x-1/2 mt-2'];
         default:
-            return baseStyles; // Fallback if no valid position is provided
-    }
+            return baseStyles;  }
 });
 </script>
 

@@ -8,7 +8,7 @@ export default {
     theme: {
         extend: {
             boxShadow: {
-                "card": "0 2.7px 6.3px -1px #6b728050",
+                "card": "0 1px 6.3px -1px #6b728070",
             },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
@@ -30,6 +30,9 @@ export default {
                 },
                 "2xtall": {
                     raw: `only screen and (min-height: 1024px)`,
+                },
+                _xs: {
+                    raw: `only screen and (max-width: 500px)`,
                 },
                 _sm: {
                     raw: `only screen and (max-width: 639px)`,

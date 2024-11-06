@@ -5,7 +5,7 @@ const props = defineProps<{
     invites: App.Data.Settings.Team.InvitationData[];
 }>();
 
-const invites = [
+const invitesData = [
     {
         id: 1,
         email: "jane.doe@example.com",
@@ -19,7 +19,7 @@ const invites = [
         email: "john.smith@example.com",
         role: { name: "Agent" },
         picture: "https://randomuser.me/api/portraits/men/2.jpg",
-        expires_at: new Date("2023-11-01T14:00"), // Example datetime
+        expires_at: new Date("2023-11-01T14:00"), 
         declined: false,
     },
     {
@@ -113,10 +113,10 @@ const flash = useProperty("flash");
         <div class="flex flex-col">
             <div class="overflow-x-auto">
                 <div class="w-full inline-block align-middle">
-                    <table class="w-full" v-if="invites.length > 0">
+                    <table class="w-full" v-if="invitesData.length > 0">
                         <tbody>
                             <SettingsTeamInvitationDataInvitee
-                                v-for="invitee in invites"
+                                v-for="invitee in invitesData"
                                 :key="invitee.id"
                                 :invitee="invitee"
                             />

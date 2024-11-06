@@ -1,7 +1,7 @@
 export interface FormProp {
     id?: string;
     label?: string;
-    name: string;
+    name?: string;
     placeholder?: string;
 }
 
@@ -15,10 +15,13 @@ export interface BaseInputProps extends FormProp {
 
 
  export interface BaseDateInputProps extends BaseInputProps {
-     startDate:number;
-     endDate:number;
-     scope:'start'|'end'|'general';
-     type:'datetime'|'date';
+     startDate?: number;
+     endDate?: number;
+     disablePast?: boolean;
+     latestDate?:Date;
+     farthestDate?:Date;
+     scope: "start" | "end" | "general";
+     type: "datetime" | "date";
  }
 
 export interface ButtonProps {

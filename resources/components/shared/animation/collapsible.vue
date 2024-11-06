@@ -1,26 +1,4 @@
-<template>
-    <label class="block cursor-pointer">
-        <input class="peer absolute scale-0" type="checkbox" />
-
-        <div @click="togglePanel" ref="summaryRef">
-            <slot name="summary"> 'Summary' </slot>
-        </div>
-
-        <span
-            ref="contentSpan"
-            class="block overflow-hidden transition-all duration-300 ease-in-out"
-            :style="{ maxHeight: isExpanded ? contentHeight : '0px' }"
-        >
-            <div ref="innerContent">
-                <slot />
-            </div>
-        </span>
-    </label>
-</template>
-
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, nextTick, watch } from "vue";
-
 const contentSpan = ref<HTMLElement | null>(null);
 const innerContent = ref<HTMLElement | null>(null);
 const isExpanded = ref(false);
@@ -64,3 +42,25 @@ onUnmounted(() => {
     }
 });
 </script>
+
+<template>
+    <label class="block cursor-pointer">
+        <input class="peer absolute scale-0" type="checkbox" />
+
+        <div @click="togglePanel" ref="summaryRef">
+            <slot name="summary"> 'Summary' </slot>
+        </div>
+
+        <span
+            ref="contentSpan"
+            class="block overflow-hidden transition-all duration-300 ease-in-out"
+            :style="{ maxHeight: isExpanded ? contentHeight : '0px' }"
+        >
+            <div ref="innerContent">
+                <slot />
+            </div>
+        </span>
+    </label>
+</template>
+
+

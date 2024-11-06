@@ -14,7 +14,7 @@ onMounted(() => {
     );
 });
 
-const countdownProgress = ref(78.6);
+const countdownProgress = ref(78.55);
 
 /*onMounted(() => {
   const countdownInterval = setInterval(() => {
@@ -35,7 +35,7 @@ const countdownProgress = ref(78.6);
 
 <template layout="main">
     <!-- Card Section -->
-    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <div class="max-w-[85rem] px-4 py-10 text-gray-800 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <!-- Grid -->
         <div class="py-5">
             <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
@@ -46,7 +46,7 @@ const countdownProgress = ref(78.6);
             </p>
         </div>
         <div
-            class="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-6xl self-center _sm:px-[5%]"
+            class="grid sm:grid-cols-2 gap-4 sm:gap-6 self-center _sm:px-[5%]"
         >
             <!-- Card -->
 
@@ -90,7 +90,7 @@ const countdownProgress = ref(78.6);
             <div class="-m-1.5 overflow-x-auto">
                 <div class="p-1.5 min-w-full inline-block align-middle">
                     <div
-                        class="bg-white border shadow-card border-gray-200 rounded-xl overflow-hidden dark:bg-neutral-800 dark:border-neutral-700"
+                        class="bg-white border shadow-card border-gray-200 rounded-2xl overflow-hidden dark:bg-neutral-800 dark:border-neutral-700"
                     >
                         <div>
                             <div
@@ -148,7 +148,7 @@ const countdownProgress = ref(78.6);
                             </div>
 
                             <div>
-                                <div class="inline-flex gap-x-2">
+                                <div class="inline-flex py-5 gap-x-2">
                                     <button
                                         type="button"
                                         class="py-1.5 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"

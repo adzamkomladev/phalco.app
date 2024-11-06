@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ElectionStageProps } from "~/resources/interfaces/elctions/create.interface";
 
 const props = defineProps<{
     stage: ElectionStageProps;
@@ -10,11 +9,13 @@ const props = defineProps<{
 <template>
     <div class="flex flex-col _sm:gap-5">
         <div class="flex justify-between">
-            <div class="relative">
+            <div class="" v-if="stage.title">
+                {{stage.title}}
+            </div>
+        <div class="relative" v-else >
                 <input
                     placeholder="Add Stage title"
                     class="border-transparent peer p-0 border-none focus:ring-transparent"
-                    v-model="stage.title"
                 />
                 <SharedCommonIcon
                     name="edit"
@@ -26,7 +27,6 @@ const props = defineProps<{
                     <div class="border-b grow bottom-0 border-gray-200 h-1" />
                 </div>
             </div>
-
             <div>
                 <button
                     @click.prevent="removeStage({ index })"
@@ -62,7 +62,6 @@ const props = defineProps<{
                 />
             </div>
         </div>
-                    <span class="text-xs">{{stage.date.start}}{{stage.date.end}}</span>
 
     </div>
 </template>

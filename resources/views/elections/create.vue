@@ -2,6 +2,7 @@
 import StartElectionImage from "~/resources/images/election/start.png?src";
 import { ElectionStageProps } from "~/resources/interfaces/elections/create.interface";
 import { defaultElectionStages } from "~/resources/data/elections/create";
+
 useHead({
     title: "New Election",
 });
@@ -22,11 +23,16 @@ const form = useForm({
     },
 });
 
+const addedStages = ref(defaultElectionStages.slice(0, 3));
+const removedDefaultStages = ref(
+    defaultElectionStages.slice(3)
+);
+
 onMounted(() => {
-    form.fields.stages = [...defaultElectionStages];
+    form.fields.stages = [...addedStages.value];
 });
 
-const addStage = () => {
+const addCustomStage = () => {
     form.fields.stages.push({
         title: "",
         date: {
@@ -36,8 +42,32 @@ const addStage = () => {
     });
 };
 
+const addToStages = (stageTitle: string) => {
+    const stageIndex = removedDefaultStages.value.findIndex(
+        (stage:ElectionStageProps) => stage.title === stageTitle
+    );
+    if (stageIndex > -1) {
+        const [stage] = removedDefaultStages.value.splice(stageIndex, 1);
+        form.fields.stages.push(stage);
+    }
+};
+
 const removeStage = (index: number) => {
+    const stage = form.fields.stages[index];
     form.fields.stages.splice(index, 1);
+
+    const defaultStageIndex = defaultElectionStages.findIndex(
+        (defaultStage) => defaultStage.title === stage.title
+    );
+    if (defaultStageIndex > -1) {
+        if (
+            !removedDefaultStages.value.some(
+                (removedStage:ElectionStageProps) => removedStage.title === stage.title
+            )
+        ) {
+            removedDefaultStages.value.push(stage);
+        }
+    }
 };
 
 const onSubmit = () => {
@@ -46,34 +76,21 @@ const onSubmit = () => {
 </script>
 
 <template>
-    <SharedCommonOverlay
-        class="max-w-xl _sm:max-w-full"
-        title="New Election"
-        size="xl"
-    >
-        <div class="">
-            <div
-                class="flex rounded-3xl bg-secondary-300 dark:bg-secondary-700"
-            >
+    <SharedCommonOverlay class="max-w-xl _sm:max-w-full" title="New Election" size="xl">
+        <div>
+            <div class="flex rounded-3xl bg-secondary-300 dark:bg-secondary-700">
                 <div class="font-medium p-5 px-10 shrink text-wrap">
                     <p class="text-gray-50 text-xl dark:text-gray-100">
                         Start an Election of your choice
                     </p>
                     <p class="font-normal text-gray-200">
-                        To start using Phalco, confirm your email address with
-                        the email we sent to:
+                        To start using Phalco, confirm your email address with the email we sent to:
                     </p>
                 </div>
-                <img
-                    :src="StartElectionImage"
-                    class="w-40 _sm:hidden p-5 pl-0"
-                />
+                <img :src="StartElectionImage" class="w-40 _sm:hidden p-5 pl-0" />
             </div>
 
-            <form
-                @submit.prevent="form.submit"
-                class="flex flex-col gap-5 mt-10 px-4 sm:px-8"
-            >
+            <form @submit.prevent="form.submit" class="flex flex-col gap-5 mt-10 px-4 sm:px-8">
                 <div>
                     <SharedFormBaseImageUpload v-model="form.fields.logo" />
                 </div>
@@ -97,16 +114,17 @@ const onSubmit = () => {
                         placeholder="Enter election description"
                     />
                 </div>
+
                 <div class="flex _sm:flex-col gap-5">
                     <div>
                         <SharedFormBaseDatePicker
-                            v-model="form.fields.end"
-                            id="end"
-                            scope="end"
+                            v-model="form.fields.start"
+                            id="start"
+                            scope="start"
                             type="datetime"
                             placeholder="MM/DD/YYYY"
-                            label="End Date"
-                            :startDate="form.fields.start"
+                            label="Start Date"
+                            :endDate="form.fields.end"
                         />
                     </div>
                     <div>
@@ -121,6 +139,7 @@ const onSubmit = () => {
                         />
                     </div>
                 </div>
+
                 <div>
                     <div class="flex flex-col gap-5">
                         <div
@@ -134,14 +153,33 @@ const onSubmit = () => {
                             />
                         </div>
                     </div>
+<div class="mt-10">
 
-                    <button
-                        @click.prevent="addStage"
-                        class="mt-5 text-forest-300 w-fit p-2 gap-2 text-sm flex items-center border border-forest-300 rounded-md"
-                    >
-                        <SharedCommonIcon stroke-width="1" name="plus" />
-                        <p class="">Add Another Stage</p>
-                    </button>
+                    <SharedCommonDropdown >
+                        <template v-slot:toggle>
+                            <button class=" text-forest-300 w-fit p-2 gap-2 text-sm flex items-center border border-forest-300 rounded-md">
+                                <SharedCommonIcon stroke-width="1" name="plus" />
+                                <p class="">Add Another Stage</p>
+                            </button>
+                        </template>
+                        <div class="p-2 bg-white shadow-card  rounded-md flex text-gray-700 flex-col gap-1 w-48">
+                            <button
+                            v-for="(stage, index) in removedDefaultStages"
+                            :key="index"
+                            @click.prevent="addToStages(stage.title)"
+                            class="text-left px-2 hover:bg-slate-100 py-1 rounded-md"
+                            >
+                                {{ stage.title }}
+                            </button>
+                            <button
+                            disable
+                            @click.prevent="addCustomStage"
+                            class="px-2 text-left disabled:opacity-50">
+                                custom stage
+                            </button>
+                        </div>
+                    </SharedCommonDropdown>
+                        </div>
                 </div>
 
                 <div class="py-10">
@@ -150,4 +188,5 @@ const onSubmit = () => {
             </form>
         </div>
     </SharedCommonOverlay>
+
 </template>
