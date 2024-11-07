@@ -24,6 +24,10 @@ class Store
             'start' => ['required', 'date'],
             'end' => ['required', 'date'],
             'stage' => ['required', 'string', 'in:campaigns,nominations'],
+            'stages' => ['required', 'array'],
+            'stages.*.name' => ['required', 'string'],
+            'stages.*.start' => ['required', 'date'],
+            'stages.*.end' => ['required', 'date'],
         ];
     }
 
