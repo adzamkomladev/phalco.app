@@ -24,21 +24,21 @@ export const defaultElectionStages: ElectionStageProps[] = [
     {
         title: "Voting",
         date: {
-            start: new Date("2024-02-15T08:00:00"), 
-            end: new Date("2024-02-15T18:00:00"), 
+            start: new Date("2024-09-15T08:00:00"), 
+            end: new Date("2024-12-30T18:00:00"), 
         },
     },
     {
         title: "Collation",
         date: {
-            start: new Date("2024-02-16T09:00:00"), 
-            end: new Date("2024-02-16T23:59:00"), 
+            start: new Date("2025-01-01T09:00:00"), 
+            end: new Date("2025-01-09T23:59:00"), 
     }},
     {
         title: "Result",
         date: {
-            start: new Date("2024-02-17T10:00:00"), 
-            end: new Date("2024-02-17T12:00:00"), 
+            start: new Date("2025-2-10T10:00:00"), 
+            end: new Date("2025-02-17T12:00:00"), 
         },
     },
 ];

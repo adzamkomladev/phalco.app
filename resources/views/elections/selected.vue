@@ -30,7 +30,7 @@ useHead({
                 <span class="font-bold text-2xl">Phalco</span>
             </div>
             <div
-                class="grid grid-cols-4 xl:grid-cols-5 _xs:divide-y _xs:grid-cols-2 gap-6 py-2"
+                class="grid text-sm grid-cols-4 xl:grid-cols-5 _xs:divide-y _xs:grid-cols-2 gap-6 py-2"
             >
                 <div class="grid grid-rows-2 _xs:gap-2 col-span-2">
                     <div class="grid grid-cols-2 gap-4 col-span-2">
@@ -79,14 +79,14 @@ useHead({
                             <span class="text-gray-500">
                                 <div class="flex items-center gap-x-3">
                                     <img
-                                        class="inline-block size-[38px] rounded-full"
+                                        class="inline-block size-[25px] rounded-full"
                                         src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
                                         alt="Avatar"
                                     />
                                     <div class="grow">
                                         <span
-                                            class="block text-sm font-medium text-gray-500 dark:text-neutral-200"
-                                            >General Election 2024</span
+                                            class="block text-xs font-medium text-gray-500 dark:text-neutral-200"
+                                            >Dr Samuel</span
                                         >
                                     </div>
                                 </div>
@@ -116,9 +116,10 @@ useHead({
         </div>
 
         <div
-            class="grid xl:grid-cols-2 2xl:grid-cols-4 gap-4 sm:gap-6 _sm:px-[5%]"
+            class="grid grid-cols-7 gap-4 sm:gap-6 _sm:px-[5%]"
         >
-            <ElectionsSelectedCardsTimeline />
+            <ElectionsSelectedCardsStagesCampaign class="col-span-4 "/>
+            <ElectionsSelectedCardsTimeline class="col-span-3" />
         </div>
     </div>
 </template>

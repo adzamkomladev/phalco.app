@@ -6,10 +6,10 @@ const props = defineProps<{}>();
 
 <template>
     <SharedCommonCard
-        class="gap-2 _sm:w-5/6 shrink-0 max-w-[25rem] flex flex-col min-w-60"
+        class="gap-2  shrink-0  flex flex-col "
     >
         <div class="text-center">
-            <h2 class="text-xl font-medium text-gray-800 dark:text-gray-200">
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
                 Election Details
             </h2>
             <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -21,13 +21,13 @@ const props = defineProps<{}>();
             <div class="font-medium pt-2">with date</div>
             <div>
                 <ElectionsSelectedCardsTimelineItem
-                    v-for="stage in defaultElectionStages"
+                    v-for="(stage,index) in defaultElectionStages"
                     :key="stage.title"
                     :stage="stage"
+                    :index="index"
                 />
-                <ElectionsSelectedCardsTimelineItem />
-                <ElectionsSelectedCardsTimelineItem />
-                <ElectionsSelectedCardsTimelineItem />
+              <div class="grid grid-cols-7 "> <div class="col-start-3 grid place-content-center "> <div class="p-1 rounded-full mt-1 aspect-square border grid place-items-center"> <SharedCommonIcon name="branch" class="h-4 mt-[2px]"  /></div></div> 
+            </div>
             </div>
         </div>
     </SharedCommonCard>

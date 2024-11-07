@@ -4,7 +4,7 @@ const props = defineProps<{}>();
 
 <template>
     <SharedCommonCard
-        class="divide-y gap-2 shrink-0 max-w-[25rem] flex flex-col min-w-56"
+        class="divide-y text-sm gap-2 shrink-0 max-w-[25rem] flex flex-col min-w-56"
     >
         <div class="flex justify-between items-center">
             <div class="flex gap-2 items-center">
@@ -15,19 +15,19 @@ const props = defineProps<{}>();
                         class="h-6"
                     />
                 </span>
-                <span>Voters</span>
+                <span class="font-semibold text-base">Voters</span>
             </div>
-            <div>
+            <router-link class="p-1 rounded-full hover:bg-slate-100 group">
                 <SharedCommonIcon
                     name="chevron"
-                    class="rotate-90 size-6"
+                    class="rotate-90 size-6 group-hover:translate-x-1 transition-all duration-300 group-hover:text-primary-300"
                     stroke-width="1"
                 />
-            </div>
+            </router-link>
         </div>
         <div class="pt-5 _sm:pt-2 flex justify-between">
             <div class="">
-                <p class="text-lg font-bold relative w-fit">
+                <p class="text-base font-bold relative w-fit">
                     120
                     <sup
                         class="text-forest-300 left-full text-[0.6rem] absolute flex items-center"
@@ -38,7 +38,7 @@ const props = defineProps<{}>();
                 <p class="text-gray-500">voters</p>
             </div>
             <div>
-                <p class="text-lg font-semibold relative w-fit">
+                <p class=" font-semibold relative w-fit">
                     68<span class="ml-2 text-sm">days</span>
                 </p>
                 <p class="text-gray-500">Days left</p>
