@@ -26,7 +26,7 @@ class Index
         $networks = cache()
             ->flexible('payments.methods', [604800, 604900], function () {
                 $response = Http::withHeaders([
-                    'Authorization' => 'Bearer ' . config('paystack.secretKey'),
+                    'Authorization' => 'Bearer '.config('paystack.secretKey'),
                     'Content-Type' => 'application/json',
                 ])->get('https://api.paystack.co/bank', ['country' => 'ghana']);
 
@@ -39,11 +39,12 @@ class Index
                 }
 
                 return collect($networks)
-                    ->filter(fn($network) => $network['type'] == 'mobile_money');
+                    ->filter(fn ($network) => $network['type'] == 'mobile_money');
             });
+
         return [
             'methods' => PaymentMethodData::collect($data),
-            'networks' => NetworkData::collect($networks->values())
+            'networks' => NetworkData::collect($networks->values()),
         ];
     }
 }

@@ -26,6 +26,6 @@ class PaymentMethod extends Model
         'channel_code',
         'channel_name',
         'status',
-        'gateway_reference'
+        'gateway_reference',
     ];
 }

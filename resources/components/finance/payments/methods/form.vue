@@ -45,7 +45,7 @@ const mobileMoneyNetworks = props.networks?.map(
                     for="account_name"
                     class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200"
                 >
-                   Account Name
+                    Account Name
                 </label>
             </div>
 

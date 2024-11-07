@@ -51,11 +51,10 @@ class Store
         }
     }
 
-
     public function handle(int $userId, int $organizationId, array $data)
     {
         $res = Http::withHeaders([
-            'Authorization' => 'Bearer ' . config('paystack.secretKey'),
+            'Authorization' => 'Bearer '.config('paystack.secretKey'),
             'Content-Type' => 'application/json',
         ])->post('https://api.paystack.co/transferrecipient', [
             'type' => $data['channel_code'],
@@ -65,17 +64,18 @@ class Store
             'currency' => 'GHS',
         ]);
 
-        if (!$res->successful() || !$res->json()['status']) {
+        if (! $res->successful() || ! $res->json()['status']) {
             logger()->error('Failed to create transfer recipient on paystack', [
                 'response' => $res->json(),
             ]);
+
             return null;
         }
 
         $gatewayReference = $res->json()['data']['recipient_code'];
 
         $network = cache('payments.methods')
-        ->firstWhere('code', $data['network_code'])
+            ->firstWhere('code', $data['network_code'])
         ?? ['name' => $data['network_code']];
 
         return PaymentMethod::create([

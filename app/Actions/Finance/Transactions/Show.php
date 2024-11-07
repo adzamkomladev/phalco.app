@@ -15,6 +15,7 @@ class Show
         return view('finance.transactions.show', $this->handle($id))
             ->base('finance.index');
     }
+
     public function handle(int $transactionId)
     {
         return [
