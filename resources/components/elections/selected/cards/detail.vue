@@ -38,7 +38,7 @@ const props = defineProps<{}>();
                 <p class="text-gray-500">voters</p>
             </div>
             <div>
-                <p class=" font-semibold relative w-fit">
+                <p class="font-semibold relative w-fit">
                     68<span class="ml-2 text-sm">days</span>
                 </p>
                 <p class="text-gray-500">Days left</p>
