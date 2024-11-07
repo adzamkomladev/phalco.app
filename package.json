@@ -49,6 +49,7 @@
         "@vueuse/motion": "^2.2.6",
         "canvas-confetti": "^1.9.3",
         "dropzone": "^6.0.0-beta.2",
+        "laravel-vite-plugin": "^1.0.5",
         "lodash": "^4.17.21",
         "preline": "^2.4.1"
     }
