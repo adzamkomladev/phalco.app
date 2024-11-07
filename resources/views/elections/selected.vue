@@ -113,13 +113,14 @@ useHead({
             <ElectionsSelectedCardsDetail />
         </div>
 
-        <div class="grid grid-cols-7 _md:flex flex-col gap-4 sm:gap-6 _sm:px-[5%]">
+        <div
+            class="grid grid-cols-7 _md:flex flex-col gap-4 sm:gap-6 _sm:px-[5%]"
+        >
             <!-- <ElectionsSelectedCardsStagesVoting class="" />
             <ElectionsSelectedCardsStagesNomination class="" />
             <ElectionsSelectedCardsFinance class="" /> -->
             <ElectionsSelectedCardsStagesCampaign class="" />
-             <ElectionsSelectedCardsTimeline class="" />
-
+            <ElectionsSelectedCardsTimeline class="" />
         </div>
     </div>
 </template>

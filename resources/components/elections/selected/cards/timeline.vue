@@ -3,7 +3,9 @@ import { defaultElectionStages } from "~/resources/data/elections/create";
 </script>
 
 <template>
-    <SharedCommonCard class="gap-2 col-span-3 col-start-5 shrink-0 flex flex-col">
+    <SharedCommonCard
+        class="gap-2 col-span-3 col-start-5 shrink-0 flex flex-col"
+    >
         <div class="text-center">
             <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
                 Election Details
@@ -22,7 +24,7 @@ import { defaultElectionStages } from "~/resources/data/elections/create";
                     :stage="stage"
                     :index="index"
                 />
-                <div class="grid grid-cols-7 ">
+                <div class="grid grid-cols-7">
                     <div class="col-start-3 grid place-content-center">
                         <div
                             class="p-1 rounded-full mt-1 aspect-square border grid place-items-center"

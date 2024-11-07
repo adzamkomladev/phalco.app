@@ -15,7 +15,6 @@ onMounted(() => {
 });
 
 const countdownProgress = 78.55;
-
 </script>
 
 <template layout="main">
@@ -70,7 +69,7 @@ const countdownProgress = 78.55;
     </div>
     <!-- End Card Section -->
     <!-- Table Section -->
-    <div class="max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8  mx-auto">
+    <div class="max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 mx-auto">
         <div class="flex flex-col">
             <div class="-m-1.5 overflow-x-auto">
                 <div class="p-1.5 min-w-full inline-block align-middle">
@@ -136,7 +135,7 @@ const countdownProgress = 78.55;
                                 <div class="inline-flex py-5 gap-x-2">
                                     <button
                                         type="button"
-                                        class="py-1.5 px-2  inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                                        class="py-1.5 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
                                     >
                                         <SharedCommonIcon
                                             name="chevron"

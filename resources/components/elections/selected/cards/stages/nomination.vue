@@ -15,51 +15,60 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
                 Lorem ipsum dolor sit, amet consectetur
             </p>
         </div>
-<div class="flex flex-col gap-5">
-<SharedCommonProgressBar title="Nomination Progress" :progress="47" :total="200" width="75%" height="16px" />
-<div class="text-gray-500 flex gap-4 items-center text-xs ">
-    <span class="size-3 bg-secondary-300 block" /><span>Successfull Nominations :<span class="text-gray-700">120</span></span>
-</div>
-</div>
+        <div class="flex flex-col gap-5">
+            <SharedCommonProgressBar
+                title="Nomination Progress"
+                :progress="47"
+                :total="200"
+                width="75%"
+                height="16px"
+            />
+            <div class="text-gray-500 flex gap-4 items-center text-xs">
+                <span class="size-3 bg-secondary-300 block" /><span
+                    >Successfull Nominations :<span class="text-gray-700"
+                        >120</span
+                    ></span
+                >
+            </div>
+        </div>
 
-<div class="flex flex-col justify-around h-full">
-<div class="flex gap-5">
-    <span class="rounded-md bg-slate-100 p-1">
-        <sharedCommonIcon name="users"/>
-    </span>
-    <div>
-        <p class="font-semibold text-lg">Total nominees</p>
-        <p class="font-medium text-base">145,078</p>
-    </div>
-</div>
-<div class="flex gap-5">
-    <span class="rounded-md bg-slate-100 p-1">
-        <sharedCommonIcon name="users"/>
-    </span>
-    <div>
-        <p class="font-semibold text-lg">Total nominees</p>
-        <p class="font-medium text-base">145,078</p>
-    </div>
-</div>
-<div class="flex gap-5">
-    <span class="rounded-md bg-slate-100 p-1">
-        <sharedCommonIcon name="users"/>
-    </span>
-    <div>
-        <p class="font-semibold text-lg">Total nominees</p>
-        <p class="font-medium text-base">145,078</p>
-    </div>
-</div>
-<div class="flex gap-5">
-    <span class="rounded-md bg-slate-100 p-1">
-        <sharedCommonIcon name="users"/>
-    </span>
-    <div>
-        <p class="font-semibold text-lg">Total nominees</p>
-        <p class="font-medium text-base">145,078</p>
-    </div>
-</div>
-</div>
-        
+        <div class="flex flex-col justify-around h-full">
+            <div class="flex gap-5">
+                <span class="rounded-md bg-slate-100 p-1">
+                    <sharedCommonIcon name="users" />
+                </span>
+                <div>
+                    <p class="font-semibold text-lg">Total nominees</p>
+                    <p class="font-medium text-base">145,078</p>
+                </div>
+            </div>
+            <div class="flex gap-5">
+                <span class="rounded-md bg-slate-100 p-1">
+                    <sharedCommonIcon name="users" />
+                </span>
+                <div>
+                    <p class="font-semibold text-lg">Total nominees</p>
+                    <p class="font-medium text-base">145,078</p>
+                </div>
+            </div>
+            <div class="flex gap-5">
+                <span class="rounded-md bg-slate-100 p-1">
+                    <sharedCommonIcon name="users" />
+                </span>
+                <div>
+                    <p class="font-semibold text-lg">Total nominees</p>
+                    <p class="font-medium text-base">145,078</p>
+                </div>
+            </div>
+            <div class="flex gap-5">
+                <span class="rounded-md bg-slate-100 p-1">
+                    <sharedCommonIcon name="users" />
+                </span>
+                <div>
+                    <p class="font-semibold text-lg">Total nominees</p>
+                    <p class="font-medium text-base">145,078</p>
+                </div>
+            </div>
+        </div>
     </SharedCommonCard>
 </template>
