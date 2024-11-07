@@ -192,7 +192,7 @@ const onSubmit = () => {
                                     {{ stage.title }}
                                 </button>
                                 <button
-                                    disable
+                                    disabled
                                     @click.prevent="addCustomStage"
                                     class="px-2 text-left disabled:opacity-50"
                                 >
