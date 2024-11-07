@@ -4,7 +4,6 @@ namespace App\Rules\Finance;
 
 use Bavix\Wallet\Models\Wallet;
 use Closure;
-
 use Illuminate\Contracts\Validation\DataAwareRule;
 use Illuminate\Contracts\Validation\ValidationRule;
 

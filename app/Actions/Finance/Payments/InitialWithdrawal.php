@@ -4,9 +4,9 @@ namespace App\Actions\Finance\Payments;
 
 use App\Models\Payment;
 use App\Rules\Finance\AdequateBalance;
+use Illuminate\Support\Str;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
-use Illuminate\Support\Str;
 
 class InitialWithdrawal
 {
@@ -47,7 +47,7 @@ class InitialWithdrawal
             'description' => 'Wallet withdrawal',
             'metadata' => [
                 'wallet_id' => $data['wallet_id'],
-                'payment_method_id' => $data['payment_method_id']
+                'payment_method_id' => $data['payment_method_id'],
             ],
         ]);
 

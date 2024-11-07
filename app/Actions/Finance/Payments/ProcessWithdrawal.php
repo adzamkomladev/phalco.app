@@ -10,7 +10,6 @@ class ProcessWithdrawal
 
     public string $jobQueue = 'payments';
 
-
     public function asJob(int $paymentId): void
     {
         try {
