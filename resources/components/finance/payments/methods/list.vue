@@ -1,5 +1,7 @@
 <script setup lang="ts">
-defineProps<{ methods: any[] }>();
+const props = defineProps<{ methods: App.Data.Finance.PaymentMethodData[] }>();
+
+console.log(props.methods);
 </script>
 <template>
     <ul>

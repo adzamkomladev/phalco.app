@@ -1,21 +1,27 @@
 <script setup lang="ts">
+const props = defineProps<{
+    networks: App.Data.Finance.NetworkData[];
+}>();
+
+console.log(props.networks);
+
 const form = useForm({
     method: "POST",
     url: route("finance.payments.methods.store"),
     fields: {
-        name: "",
+        account_name: "",
         account_number: "",
-        type: "",
-        network: "",
+        channel_code: "",
+        network_code: "",
     },
     hooks: {
         success: () => form.reset(),
     },
 });
 
-const types = [
+const channels = [
     { label: "Mobile Money", value: "mobile_money" },
-    { label: "Bank", value: "bank" },
+    // { label: "Bank", value: "bank" },
 ];
 
 const bankNetworks = [
@@ -23,11 +29,12 @@ const bankNetworks = [
     { label: "GT Bank", value: "gtbank" },
 ];
 
-const mobileMoneyNetworks = [
-    { label: "MTN", value: "mtn" },
-    { label: "AirtelTigo", value: "airteltigo" },
-    { label: "Telecel", value: "telecel" },
-];
+const mobileMoneyNetworks = props.networks?.map(
+    (network: App.Data.Finance.NetworkData) => ({
+        label: network.name,
+        value: network.code,
+    }),
+);
 </script>
 <template>
     <form @submit.prevent="form.submit">
@@ -35,19 +42,19 @@ const mobileMoneyNetworks = [
         <div class="grid sm:grid-cols-12 gap-2 sm:gap-6">
             <div class="sm:col-span-3">
                 <label
-                    for="name"
+                    for="account_name"
                     class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200"
                 >
-                    Name
+                   Account Name
                 </label>
             </div>
 
             <div class="sm:col-span-9">
                 <SharedFormBaseInput
-                    v-model="form.fields.name"
-                    :error="form.errors.name"
-                    id="name"
-                    name="name"
+                    v-model="form.fields.account_name"
+                    :error="form.errors.account_name"
+                    id="account_name"
+                    name="account_name"
                     placeholder="Full Name on Payment Method"
                 />
             </div>
@@ -75,23 +82,23 @@ const mobileMoneyNetworks = [
                     for="type"
                     class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200"
                 >
-                    Type
+                    Channel
                 </label>
             </div>
             <div class="sm:col-span-9">
                 <SharedFormBaseSelect
-                    v-model="form.fields.type"
-                    :error="form.errors.type"
-                    id="type"
-                    name="type"
-                    :options="types"
-                    placeholder="Payment Method Type..."
+                    v-model="form.fields.channel_code"
+                    :error="form.errors.channel_code"
+                    id="channel_code"
+                    name="channel_code"
+                    :options="channels"
+                    placeholder="Payment Method Channel..."
                 />
             </div>
 
             <div class="sm:col-span-3">
                 <label
-                    for="network"
+                    for="network_code"
                     class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200"
                 >
                     Network
@@ -99,12 +106,12 @@ const mobileMoneyNetworks = [
             </div>
             <div class="sm:col-span-9">
                 <SharedFormBaseSelect
-                    v-model="form.fields.network"
-                    :error="form.errors.network"
-                    id="network"
-                    name="network"
+                    v-model="form.fields.network_code"
+                    :error="form.errors.network_code"
+                    id="network_code"
+                    name="network_code"
                     :options="
-                        form.fields.network === 'bank'
+                        form.fields.channel_code === 'bank'
                             ? bankNetworks
                             : mobileMoneyNetworks
                     "
