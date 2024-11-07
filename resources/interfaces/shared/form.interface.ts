@@ -15,8 +15,8 @@ export interface BaseInputProps extends FormProp {
 
 
  export interface BaseDateInputProps extends BaseInputProps {
-     startDate?: number;
-     endDate?: number;
+     startDate?: Date|null;
+     endDate?: Date|null;
      disablePast?: boolean;
      latestDate?:Date;
      farthestDate?:Date;

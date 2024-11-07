@@ -1,55 +1,52 @@
 <script setup lang="ts">
 import { defaultElectionStages } from "~/resources/data/elections/create";
-import CampaignImage from "~/resources/images/election/campaign.png?src";
-const props = defineProps<{}>();
+const chartData = [
+   { label: "Result", value: 10 }, 
+   { label: "Vetting", value: 15 },
+  { label: "Nominations", value: 55 },
+  { label: "Campaigning", value: 5 },
+  { label: "Voting", value: 8 },
+  { label: "Collation", value: 17 },
+
+];
+
 </script>
 
 <template>
-    <SharedCommonCard class="gap-2 shrink-0 flex flex-col">
+    <SharedCommonCard class="gap-2 shrink-0 col-span-4 flex flex-col gap-5">
+        <div class="gap-2 flex  flex-col">
+
         <div class="font-semibold text-lg text-center">
             13 Sep- 25 Sep, 2024
         </div>
         <div class="text-center">
             <h2 class="text-lg font-medium text-gray-800 dark:text-gray-200">
-                Election Details
+                Voting Details
             </h2>
             <p class="text-sm text-gray-600 dark:text-gray-400">
                 Lorem ipsum dolor sit, amet consectetur
             </p>
         </div>
+        </div>
 
         <div class="flex flex-col gap-5 h-full">
-            <div class="flex bg-secondary-300 rounded-xl pr-2 p-5 text-white">
-                <div class="flex flex-col gap-">
-                    <div class="flex items-center gap-2">
-                        <img
-                            class="inline-block size-16 rounded-full aspect-square"
-                            src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
-                            alt="Avatar"
-                        />
-                        <span class="text-base">Komla Adzam</span>
+            <div class="grid grid-cols-7 ">
+                <div class="col-span-3"> <SharedChartPie :data="chartData" /></div>
+                <div class="col-span-4 flex flex-col text-xs  sm:whitespace-nowrap  p-2 pr-0 gap-4 justify-center">
+                    <div class="grid gap-4 grid-cols-2 ">
+<div>
+    <p class="text-gray-500">Total ballots</p>
+    <p class="font-bold text-sm">4,327</p>
+</div>
+<div>
+    <p class="text-gray-500">Total voters</p>
+    <p class="font-bold text-sm">4,327</p>
+</div>
                     </div>
-                    <div class="flex flex-col gap-2">
-                        <h1 class="text-lg font-medium">Campaign Message</h1>
-                        <p
-                            class="inline-block text-xs font-light _md:w-[120%] text-balan"
-                        >
-                            To start using Phalco, confirm your email address
-                            with the email we sent to:
-                        </p>
-                        <button
-                            class="border text-sm w-fit rounded-md p-2 border-secondary-200"
-                        >
-                            View Message
-                        </button>
-                    </div>
-                </div>
-                <div class="basis-3/7 shrink-0">
-                    <img
-                        class="inline-block rounded-full"
-                        :src="CampaignImage"
-                        alt="Avatar"
-                    />
+                    <div>
+    <p class="text-gray-500">Time Remaining</p>
+    <p class="font-bold text-lg sm:text-3xl ">56:90:56</p>
+</div>
                 </div>
             </div>
 
@@ -65,7 +62,7 @@ const props = defineProps<{}>();
                         </span>
                         <div>
                             <p class="font-semibold text-base">
-                                Total Supporters
+                                Total Candidates
                             </p>
                             <p class="font-semibold text-sm">145,078</p>
                         </div>
@@ -82,14 +79,14 @@ const props = defineProps<{}>();
                     <div class="flex gap-4 items-center">
                         <span class="bg-slate-100 p-2 rounded-lg">
                             <SharedCommonIcon
-                                name="donation"
+                                name="polling_station"
                                 stroke-width="2"
                                 class="h-6"
                             />
                         </span>
                         <div>
                             <p class="font-semibold text-base">
-                                Total Donations
+                                Total Polling Staton
                             </p>
                             <p class="font-semibold text-sm">15,576</p>
                         </div>
@@ -103,6 +100,9 @@ const props = defineProps<{}>();
                     </div>
                 </div>
             </SharedCommonCard>
+            <router-link class="text-center text-secondary-300">
+Move to dashboard page
+            </router-link>
         </div>
     </SharedCommonCard>
 </template>

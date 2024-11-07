@@ -39,12 +39,8 @@ const defaulSelectClass =
                 <span class="text-base">{{ selectedLabel }}</span>
                 <div v-if="!selectClass" class="flex items-center flex-col">
                     <SharedCommonIcon
-                        name="chevron"
-                        class="text-gray-700 -mb-2"
-                    />
-                    <SharedCommonIcon
-                        name="chevron"
-                        class="text-gray-700 rotate-180"
+                        name="chevron_double"
+                        class="text-gray-700 h-4"
                     />
                 </div>
             </button>

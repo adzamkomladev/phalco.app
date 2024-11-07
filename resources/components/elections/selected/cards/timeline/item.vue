@@ -30,7 +30,7 @@ const isOngoing =
 
         <div
             :class="[isPast ? 'after:bg-crimson-300' : 'after:bg-gray-300']"
-            class="relative last:after:hidden col-span-1 after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px]"
+            class="relative last:after:hidden col-span-1 after:absolute after:top-8 after:bottom-0  flex justify-center after:w-px after:-translate-x-[0.5px]"
         >
             <div class="relative z-10 size-8 flex justify-center items-center">
                 <span

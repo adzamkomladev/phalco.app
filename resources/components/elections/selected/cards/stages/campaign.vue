@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { defaultElectionStages } from "~/resources/data/elections/create";
 import CampaignImage from "~/resources/images/election/campaign.png?src";
-const props = defineProps<{}>();
 </script>
 
 <template>
-    <SharedCommonCard class="gap-2 shrink-0 flex flex-col">
+    <SharedCommonCard class="gap-2 shrink-0 flex flex-col col-span-4">
         <div class="font-semibold text-lg text-center">
             13 Sep- 25 Sep, 2024
         </div>

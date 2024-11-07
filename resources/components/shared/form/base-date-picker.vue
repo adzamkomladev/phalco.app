@@ -9,7 +9,6 @@ const props = withDefaults(defineProps<BaseDateInputProps>(), {
     autocomplete: "on",
     scope: "general",
     default: "datetime",
-    // farthestDate: disablePast:true ?;
 });
 
 const model = defineModel({ required: true });
