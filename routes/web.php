@@ -149,11 +149,17 @@ Route::prefix('finance')
     ->name('finance.')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class])
     ->group(function () {
-        Route::get('', \App\Actions\Finance\Index::class)->name('index');
+        Route::get('transactions/{id}/show', \App\Actions\Finance\Transactions\Show::class)->name('transactions.show');
+
+        Route::get('payments/{id}/show', \App\Actions\Finance\Payments\Show::class)->name('payments.show');
         Route::get('payments/{walletId}/top-up', \App\Actions\Finance\Payments\TopUp::class)->name('payments.top-up');
         Route::get('payments/{walletId}/withdraw', \App\Actions\Finance\Payments\Withdraw::class)->name('payments.withdraw');
         Route::post('payments/initiate', \App\Actions\Finance\Payments\InitiatePaystackPayment::class)->name('payments.initiate');
         Route::get('payments/paystack/handle', \App\Actions\Finance\Payments\HandlePaystackWebhook::class)->name('payments.paystack.handle');
+        Route::get('payments/methods', \App\Actions\Finance\Payments\Methods\Index::class)->name('payments.methods.index');
+        Route::post('payments/methods', \App\Actions\Finance\Payments\Methods\Store::class)->name('payments.methods.store');
+
+        Route::get('', \App\Actions\Finance\Index::class)->name('index');
     });
 
 //endregion

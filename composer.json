@@ -29,6 +29,10 @@
         "maantje/pulse-database": "^0.2.0",
         "maatwebsite/excel": "^3.1",
         "meilisearch/meilisearch-php": "^1.9",
+        "open-telemetry/exporter-otlp": "*",
+        "open-telemetry/opentelemetry-auto-slim": "*",
+        "open-telemetry/sdk": "*",
+        "php-http/guzzle7-adapter": "*",
         "predis/predis": "^2.0",
         "socialiteproviders/google": "^4.1",
         "spatie/fork": "^1.2",
@@ -69,7 +73,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "tbachert/spi": true
         }
     },
     "minimum-stability": "stable",
