@@ -11,7 +11,9 @@ const chartData = [
 </script>
 
 <template>
-    <SharedCommonCard class="p-[5%] py-10 shrink-0 col-span-4 flex flex-col gap-5">
+    <SharedCommonCard
+        class="p-[5%] py-10 shrink-0 col-span-4 flex flex-col gap-5"
+    >
         <div class="gap-2 flex flex-col">
             <div class="font-bold text-xl text-center">
                 13 Sep- 25 Sep, 2024
@@ -38,7 +40,7 @@ const chartData = [
                 >
                     <div class="grid gap-4 grid-cols-2 xs:hidden">
                         <div>
-                            <p class="text-gray-500 ">Total ballots</p>
+                            <p class="text-gray-500">Total ballots</p>
                             <p class="font-bold text-sm">4,327</p>
                         </div>
                         <div>
@@ -47,7 +49,7 @@ const chartData = [
                         </div>
                     </div>
                     <div>
-                        <p class="text-gray-500 ">Time Remaining</p>
+                        <p class="text-gray-500">Time Remaining</p>
                         <p class="font-bold text-3xl">56:90:56</p>
                     </div>
                 </div>
@@ -68,9 +70,7 @@ const chartData = [
                             />
                         </span>
                         <div>
-                            <p class="font-bold text-lg">
-                                Total Candidates
-                            </p>
+                            <p class="font-bold text-lg">Total Candidates</p>
                             <p class="font-semibold text-sm">145,078</p>
                         </div>
                     </div>

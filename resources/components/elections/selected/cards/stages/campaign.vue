@@ -70,9 +70,7 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
                             />
                         </span>
                         <div>
-                            <p class="font-bold text-lg">
-                                Total Supporters
-                            </p>
+                            <p class="font-bold text-lg">Total Supporters</p>
                             <p class="font-semibold text-sm">145,078</p>
                         </div>
                     </div>
@@ -96,9 +94,7 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
                             />
                         </span>
                         <div>
-                            <p class="font-bold text-lg">
-                                Total Donations
-                            </p>
+                            <p class="font-bold text-lg">Total Donations</p>
                             <p class="font-semibold text-sm">15,576</p>
                         </div>
                     </div>

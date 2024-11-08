@@ -3,7 +3,9 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
 </script>
 
 <template>
-    <SharedCommonCard class="gap-5 shrink-0 col-span-4 px-[10%] flex flex-col py-10">
+    <SharedCommonCard
+        class="gap-5 shrink-0 col-span-4 px-[10%] flex flex-col py-10"
+    >
         <div class="font-semibold text-lg text-center">
             13 Sep- 25 Sep, 2024
         </div>
@@ -22,10 +24,11 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
                 :total="200"
                 width="75%"
                 height="16px"
-
             />
             <div class="text-gray-500 flex gap-4 items-center text-xs">
-                <span class="size-3 bg-secondary-300 dark:bg-secondary-700 block" /><span
+                <span
+                    class="size-3 bg-secondary-300 dark:bg-secondary-700 block"
+                /><span
                     >Successfull Nominations :<span class="text-gray-700"
                         >120</span
                     ></span

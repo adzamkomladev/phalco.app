@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import  {SelectedElectionDetailsCard} from '~/resources/interfaces/elections/selected.interface'
+import { SelectedElectionDetailsCard } from "~/resources/interfaces/elections/selected.interface";
 
 const props = defineProps<SelectedElectionDetailsCard>();
 </script>
@@ -19,10 +19,9 @@ const props = defineProps<SelectedElectionDetailsCard>();
                         class="h-6 aspect-square"
                     />
                 </span>
-                <span class="font-semibold text-base">{{title}}</span>
+                <span class="font-semibold text-base">{{ title }}</span>
             </div>
             <router-link
-            
                 class="p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 group"
             >
                 <SharedCommonIcon
@@ -35,20 +34,20 @@ const props = defineProps<SelectedElectionDetailsCard>();
         <div class="pt-5 _sm:pt-2 flex justify-between">
             <div class="">
                 <p class="text-base font-bold relative w-fit">
-                    {{leftValue}}
+                    {{ leftValue }}
                     <sup
                         class="text-forest-300 left-full text-[0.6rem] absolute flex items-center"
                         ><SharedCommonIcon name="tri" class="h-2" />
                         <p>+5</p>
                     </sup>
                 </p>
-                <p class="text-gray-500">{{leftLable}}</p>
+                <p class="text-gray-500">{{ leftLable }}</p>
             </div>
             <div>
                 <p class="font-semibold relative w-fit">
-                    {{rightValue}}
+                    {{ rightValue }}
                 </p>
-                <p class="text-gray-500">{{rightLable}}</p>
+                <p class="text-gray-500">{{ rightLable }}</p>
             </div>
         </div>
     </SharedCommonCard>
