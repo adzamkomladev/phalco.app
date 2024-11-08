@@ -10,9 +10,7 @@ const props = defineProps<SelectedElectionDetailsCard>();
     >
         <div class="flex justify-between items-center">
             <div class="flex gap-2 items-center">
-                <span
-                    class="bg-slate-100 dark:bg-slate-700  p-2 rounded-lg"
-                >
+                <span class="bg-slate-100 dark:bg-slate-700 p-2 rounded-lg">
                     <SharedCommonIcon
                         :name="icon"
                         stroke-width="1.5"
