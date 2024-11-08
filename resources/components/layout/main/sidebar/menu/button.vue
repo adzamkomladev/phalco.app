@@ -24,7 +24,7 @@ const isCurrentRoute = computed(() => {
             v-if="!menu.to || hasSublink"
             @click="toggleSublink"
             type="button"
-            class="w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:focus:bg-slate-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-400"
+            class="w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:focus:bg-slate-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-300"
         >
             <SharedCommonIcon
                 v-if="menu.icon"
@@ -48,7 +48,7 @@ const isCurrentRoute = computed(() => {
                     : 'hover:bg-gray-100',
                 menu.icon ? 'px-1.5' : 'pl-3.5',
             ]"
-            class="w-full text-start transition-all duration-300 flex items-center gap-x-3.5 py-2 text-sm text-gray-800 rounded-lg dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-400"
+            class="w-full text-start transition-all duration-300 flex items-center gap-x-3.5 py-2 text-sm text-gray-800 rounded-lg dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-300"
         >
             <SharedCommonIcon
                 :name="menu.icon"

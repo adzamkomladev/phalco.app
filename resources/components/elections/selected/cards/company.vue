@@ -4,7 +4,7 @@
     <SharedCommonCard class="divide-y dark:divide-gray-500 gap-2 flex flex-col">
         <div class="flex items-center gap-2">
             <span
-                class="rounded-full bg-primary-500 dark:bg-primary-800 w-fit aspect-square p-2 flex items-center justify-center"
+                class="rounded-full bg-primary-500 dark:bg-primary-600 w-fit aspect-square p-2 flex items-center justify-center"
             >
                 <SharedCommonIcon name="logo" class="text-white" />
             </span>

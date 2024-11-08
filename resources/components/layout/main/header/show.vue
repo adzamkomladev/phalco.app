@@ -1,9 +1,5 @@
 <script setup lang="ts">
-const { current } = useRoute();
 
-const showElectionSwitcher = computed(() =>
-    current?.value?.split(".").includes("elections"),
-);
 </script>
 
 <template>
@@ -31,7 +27,7 @@ const showElectionSwitcher = computed(() =>
             >
                 <div class="flex grow _sm:hidden">
                     <!-- Search Input -->
-                    <div class="" v-if="showElectionSwitcher">
+                    <div class="">
                         <ElectionsSwitcher />
                     </div>
                     <!-- End Search Input -->
