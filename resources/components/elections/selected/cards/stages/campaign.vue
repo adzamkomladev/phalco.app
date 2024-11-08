@@ -3,7 +3,9 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
 </script>
 
 <template>
-    <SharedCommonCard class="gap-2 shrink-0 dark:text-gray-400 flex flex-col col-span-4">
+    <SharedCommonCard
+        class="gap-2 shrink-0 dark:text-gray-400 flex flex-col col-span-4"
+    >
         <div class="font-semibold text-lg text-center">
             13 Sep- 25 Sep, 2024
         </div>
@@ -17,7 +19,9 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
         </div>
 
         <div class="flex flex-col gap-5 h-full">
-            <div class="flex bg-secondary-300 dark:bg-primary-800   rounded-xl pr-2 p-5">
+            <div
+                class="flex bg-secondary-300 dark:bg-primary-800 rounded-xl pr-2 p-5"
+            >
                 <div class="flex flex-col gap-">
                     <div class="flex items-center gap-2">
                         <img
@@ -30,13 +34,13 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
                     <div class="flex flex-col gap-2">
                         <h1 class="text-lg font-medium">Campaign Message</h1>
                         <p
-                            class="inline-block text-xs font-light sm:_md:w-[120%]  text-balan"
+                            class="inline-block text-xs font-light sm:_md:w-[120%] text-balan"
                         >
                             To start using Phalco, confirm your email address
                             with the email we sent to:
                         </p>
                         <button
-                            class="border text-sm w-fit rounded-md p-2  border-secondary-200 dark:border-secondary-500 dark:text-primary-400"
+                            class="border text-sm w-fit rounded-md p-2 border-secondary-200 dark:border-secondary-500 dark:text-primary-400"
                         >
                             View Message
                         </button>
@@ -51,14 +55,18 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
                 </div>
             </div>
 
-            <SharedCommonCard class="divide-y dark:divide-gray-500 grow text-sm gap-2 flex flex-col">
+            <SharedCommonCard
+                class="divide-y dark:divide-gray-500 grow text-sm gap-2 flex flex-col"
+            >
                 <div class="flex justify-between items-center grow">
                     <div class="flex gap-4 items-center">
-                        <span class="bg-slate-100 dark:bg-slate-700 p-2 rounded-lg">
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700 p-2 rounded-lg"
+                        >
                             <SharedCommonIcon
                                 name="users"
                                 stroke-width="2"
-                                class="h-6  dark:text-blue-500"
+                                class="h-6 dark:text-blue-500"
                             />
                         </span>
                         <div>
@@ -78,7 +86,9 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
                 </div>
                 <div class="flex justify-between items-center grow pt-4">
                     <div class="flex gap-4 items-center">
-                        <span class="bg-slate-100 dark:bg-slate-700 p-2 rounded-lg">
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700 p-2 rounded-lg"
+                        >
                             <SharedCommonIcon
                                 name="donation"
                                 stroke-width="2"

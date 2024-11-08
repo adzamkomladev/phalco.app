@@ -7,7 +7,7 @@ useHead({
 
 <template layout="main">
     <div
-        class="max-w-[85rem] px-4 py-5 flex flex-col gap-8  text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 lg:py-14 mx-auto"
+        class="max-w-[85rem] px-4 py-5 flex flex-col gap-8 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 lg:py-14 mx-auto"
     >
         <div class="">
             <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
@@ -18,7 +18,7 @@ useHead({
             </p>
         </div>
 
-       <ElectionsSelectedCardsCompany/>
+        <ElectionsSelectedCardsCompany />
 
         <div class="">
             <h2 class="text-xl font-medium text-gray-800 dark:text-gray-200">
@@ -30,13 +30,12 @@ useHead({
         </div>
 
         <div
-            class="grid md:grid-cols-2 _md:flex flex-col items-center px-auto xl:grid-cols-4 gap-4 sm:gap-6 "
+            class="grid md:grid-cols-2 _md:flex flex-col items-center px-auto xl:grid-cols-4 gap-4 sm:gap-6"
         >
-            <ElectionsSelectedCardsDetail class="grow w-full"/>
-            <ElectionsSelectedCardsDetail class="grow w-full"/>
-            <ElectionsSelectedCardsDetail class="grow w-full"/>
-            <ElectionsSelectedCardsDetail class="grow w-full"/>
-        
+            <ElectionsSelectedCardsDetail class="grow w-full" />
+            <ElectionsSelectedCardsDetail class="grow w-full" />
+            <ElectionsSelectedCardsDetail class="grow w-full" />
+            <ElectionsSelectedCardsDetail class="grow w-full" />
         </div>
 
         <div

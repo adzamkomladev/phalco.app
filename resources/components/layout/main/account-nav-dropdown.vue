@@ -31,9 +31,7 @@ const { user } = useSecurity();
                 <p class="text-sm text-gray-500 dark:text-gray-500">
                     Signed in as
                 </p>
-                <p
-                    class="text-sm font-medium text-gray-800 dark:text-gray-200"
-                >
+                <p class="text-sm font-medium text-gray-800 dark:text-gray-200">
                     {{ user?.name }}
                 </p>
             </div>

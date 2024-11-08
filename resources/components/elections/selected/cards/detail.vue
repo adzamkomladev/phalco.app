@@ -19,10 +19,12 @@ const props = defineProps<{}>();
                 </span>
                 <span class="font-semibold text-base">Voters</span>
             </div>
-            <router-link class="p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 group">
+            <router-link
+                class="p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 group"
+            >
                 <SharedCommonIcon
                     name="chevron"
-                    class="rotate-90 dark:text-gray-400 size-6 group-hover:translate-x-1 transition-all duration-300 group-hover:text-primary-300 dark:group-hover:text-primary-500 "
+                    class="rotate-90 dark:text-gray-400 size-6 group-hover:translate-x-1 transition-all duration-300 group-hover:text-primary-300 dark:group-hover:text-primary-500"
                     stroke-width="1"
                 />
             </router-link>

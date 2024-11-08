@@ -22,7 +22,7 @@ const organizations = computed(
         <button
             id="hs-dropdown-with-dividers"
             type="button"
-            class="w-full hs-dropdown-toggle flex items-center justify-between gap-x-3.5 py-2 px-2.5 pr-5 bg-gray-2  text-sm text-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-700 dark:bg-slate-700 dark:text-white"
+            class="w-full hs-dropdown-toggle flex items-center justify-between gap-x-3.5 py-2 px-2.5 pr-5 bg-gray-2 text-sm text-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-700 dark:bg-slate-700 dark:text-white"
             aria-haspopup="menu"
             aria-expanded="false"
             aria-label="Dropdown"
@@ -54,7 +54,10 @@ const organizations = computed(
                     v-for="o in organizations"
                     :key="o.id"
                     class="flex items-center justify-between gap-x-3.5 py-2 px-3 hover:rounded-lg text-sm text-gray-800 hover:bg-gray-1 dark:hover:bg-slate-700 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700"
-                    :class="{ 'bg-gray-2 dark:bg-slate-700 rounded-lg': o.isCurrentOrganization }"
+                    :class="{
+                        'bg-gray-2 dark:bg-slate-700 rounded-lg':
+                            o.isCurrentOrganization,
+                    }"
                 >
                     <div class="flex gap-x-2 items-center">
                         <img

@@ -23,13 +23,13 @@ const props = defineProps<{
                 <div
                     class="absolute w-0 overflow-hidden peer-focus:left-0 peer-focus:w-full duration-300 transition-all"
                 >
-                    <div class="border-b grow bottom-0  h-1" />
+                    <div class="border-b grow bottom-0 h-1" />
                 </div>
             </div>
             <div>
                 <button
                     @click.prevent="removeStage({ index })"
-                    class="text-red-500 text-3xl rounded-full p-3 leading-[0px] aspect-square self-end hover:bg-gray-100  dark:hover:bg-gray-700"
+                    class="text-red-500 text-3xl rounded-full p-3 leading-[0px] aspect-square self-end hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
                     -
                 </button>

@@ -21,7 +21,7 @@ const props = defineProps<{
         <SharedCommonIcon
             v-else
             name="close"
-            class="size-4 text-white  rounded-full bg-crimson"
+            class="size-4 text-white rounded-full bg-crimson"
         />
         {{ status }}
     </span>

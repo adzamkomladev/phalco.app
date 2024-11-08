@@ -67,14 +67,12 @@ const positionClass = ref(getType());
                 v-if="!hideTitle"
                 class="flex justify-between z-10 items-center px-10"
             >
-                <p
-                    class=" font-black text-2xl md:text-3xl lg:text-4xl"
-                >
+                <p class="font-black text-2xl md:text-3xl lg:text-4xl">
                     {{ title }}
                 </p>
                 <button
                     type="button"
-                    class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent  text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none"
+                    class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none"
                     aria-label="Close"
                     data-hs-overlay="#base-overlay"
                 >
@@ -88,14 +86,14 @@ const positionClass = ref(getType());
             <div class="flex flex-col overflow-hidden flex-grow">
                 <div
                     v-if="!useSheet"
-                    class="overflow-y-auto px-10 max-h-[calc(100vh-80px)]   min-h-full"
+                    class="overflow-y-auto px-10 max-h-[calc(100vh-80px)] min-h-full"
                 >
                     <slot />
                 </div>
 
                 <div
                     v-if="useSheet"
-                    class="sm:self-en px-10 z-50  pt-8 md:text-sm overflow-y-auto min-h-full max-h-[calc(100vh-80px)] pb-8"
+                    class="sm:self-en px-10 z-50 pt-8 md:text-sm overflow-y-auto min-h-full max-h-[calc(100vh-80px)] pb-8"
                 >
                     <div class="pb-6 portrait:flex flex-col">
                         <div class="flex flex-col gap-4">
