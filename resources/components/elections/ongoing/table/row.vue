@@ -11,7 +11,7 @@ const status = ref("active");
                 <label for="hs-at-with-checkboxes-1" class="flex">
                     <input
                         type="checkbox"
-                        class="shrink-0 border-gray-300 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                        class="shrink-0 border-gray-300 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
                         id="hs-at-with-checkboxes-1"
                     />
                     <span class="sr-only">Checkbox</span>
@@ -28,11 +28,11 @@ const status = ref("active");
                     />
                     <div class="grow">
                         <span
-                            class="block text-sm font-semibold text-gray-800 dark:text-neutral-200"
+                            class="block text-sm font-semibold text-gray-800 dark:text-gray-200"
                             >General Election 2024</span
                         >
                         <span
-                            class="block text-sm text-gray-500 dark:text-neutral-500"
+                            class="block text-sm text-gray-500 dark:text-gray-500"
                             >komla@yopmail.com</span
                         >
                     </div>

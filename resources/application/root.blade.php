@@ -19,7 +19,7 @@
     @vite
 </head>
 
-<body class="h-full bg-gray- antialiased !scroll-smooth font-poppins">
+<body class="h-full bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-300 antialiased !scroll-smooth font-poppins">
     @hybridly(class: 'h-full')
 </body>
 

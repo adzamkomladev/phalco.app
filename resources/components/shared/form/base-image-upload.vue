@@ -60,7 +60,7 @@ const fileUploadOptions = JSON.stringify({
                     data-hs-file-upload-pseudo-trigger=""
                 >
                     <span
-                        class="group-has-[img]:hidden flex shrink-0 justify-center items-center size-24 border-2 border-dotted border-gray-300 text-gray-400 cursor-pointer rounded-full hover:bg-gray-50 dark:border-neutral-700 dark:text-neutral-600 dark:hover:bg-neutral-700/50"
+                        class="group-has-[img]:hidden flex shrink-0 justify-center items-center size-24 border-2 border-dotted border-gray-300 text-gray-400 cursor-pointer rounded-full hover:bg-gray-50 dark:border-gray-700 dark:text-gray-600 dark:hover:bg-gray-700/50"
                     >
                         <svg
                             class="shrink-0 size-7"
@@ -87,7 +87,7 @@ const fileUploadOptions = JSON.stringify({
                     <div class="flex items-center gap-x-2">
                         <button
                             type="button"
-                            class="py-2 transition-all px-3 inline-flex items-center gap-x-2 text-xs font-medium rounded-md border border-transparent bg-primary-500 text-white hover:opacity-90 focus:outline-none focus:bg-primary-700 disabled:opacity-50 disabled:pointer-events-none"
+                            class="py-2 transition-all px-3 inline-flex items-center gap-x-2 text-xs font-medium rounded-md border border-transparent bg-primary-500  dark:bg-primary-800  hover:opacity-90 focus:outline-none focus:bg-primary-700 disabled:opacity-50 disabled:pointer-events-none"
                             data-hs-file-upload-trigger=""
                         >
                             <svg

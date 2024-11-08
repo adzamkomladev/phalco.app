@@ -67,12 +67,12 @@ const fileUploadOptions = JSON.stringify({
         <div ref="fileUpload" :data-hs-file-upload="fileUploadOptions">
             <template data-hs-file-upload-preview="">
                 <div
-                    class="p-3 bg-white border border-solid border-gray-300 rounded-xl dark:bg-neutral-800 dark:border-neutral-600"
+                    class="p-3 bg-white border border-solid border-gray-300 rounded-xl dark:bg-gray-800 dark:border-gray-600"
                 >
                     <div class="mb-1 flex justify-between items-center">
                         <div class="flex items-center gap-x-3">
                             <span
-                                class="size-10 flex justify-center items-center border border-gray-200 text-gray-500 rounded-lg dark:border-neutral-700 dark:text-neutral-500"
+                                class="size-10 flex justify-center items-center border border-gray-200 text-gray-500 rounded-lg dark:border-gray-700 dark:text-gray-500"
                                 data-hs-file-upload-file-icon=""
                             >
                                 <img
@@ -93,7 +93,7 @@ const fileUploadOptions = JSON.stringify({
                                     ></span>
                                 </p>
                                 <p
-                                    class="text-xs text-gray-500 dark:text-neutral-500"
+                                    class="text-xs text-gray-500 dark:text-gray-500"
                                     data-hs-file-upload-file-size=""
                                 ></p>
                             </div>
@@ -101,7 +101,7 @@ const fileUploadOptions = JSON.stringify({
                         <div class="flex items-center gap-x-2">
                             <button
                                 type="button"
-                                class="text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+                                class="text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800 dark:text-gray-500 dark:hover:text-gray-200 dark:focus:text-gray-200"
                                 data-hs-file-upload-remove=""
                             >
                                 <svg
@@ -142,7 +142,7 @@ const fileUploadOptions = JSON.stringify({
 
                     <div class="flex items-center gap-x-3 whitespace-nowrap">
                         <div
-                            class="flex w-full h-2 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700"
+                            class="flex w-full h-2 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700"
                             role="progressbar"
                             aria-valuenow="0"
                             aria-valuemin="0"
@@ -167,12 +167,12 @@ const fileUploadOptions = JSON.stringify({
             </template>
 
             <div
-                class="cursor-pointer p-12 flex justify-center bg-white border border-dashed border-gray-300 rounded-xl dark:bg-neutral-800 dark:border-neutral-600"
+                class="cursor-pointer p-12 flex justify-center bg-white border border-dashed border-gray-300 rounded-xl dark:bg-gray-800 dark:border-gray-600"
                 data-hs-file-upload-trigger=""
             >
                 <div class="text-center">
                     <span
-                        class="inline-flex justify-center items-center size-16 bg-gray-100 text-gray-800 rounded-full dark:bg-neutral-700 dark:text-neutral-200"
+                        class="inline-flex justify-center items-center size-16 bg-gray-100 text-gray-800 rounded-full dark:bg-gray-700 dark:text-gray-200"
                     >
                         <svg
                             class="shrink-0 size-6"
@@ -198,17 +198,17 @@ const fileUploadOptions = JSON.stringify({
                         class="mt-4 flex flex-wrap justify-center text-sm leading-6 text-gray-600"
                     >
                         <span
-                            class="pe-1 font-medium text-gray-800 dark:text-neutral-200"
+                            class="pe-1 font-medium text-gray-800 dark:text-gray-200"
                         >
                             Drop your file here or
                         </span>
                         <span
-                            class="bg-white font-semibold text-blue-600 hover:text-blue-700 rounded-lg decoration-2 hover:underline focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 dark:bg-neutral-800 dark:text-blue-500 dark:hover:text-blue-600"
+                            class="bg-white font-semibold text-blue-600 hover:text-blue-700 rounded-lg decoration-2 hover:underline focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 dark:bg-gray-800 dark:text-blue-500 dark:hover:text-blue-600"
                             >browse</span
                         >
                     </div>
 
-                    <p class="mt-1 text-xs text-gray-400 dark:text-neutral-400">
+                    <p class="mt-1 text-xs text-gray-400 dark:text-gray-400">
                         Pick a file up to 2MB.
                     </p>
                 </div>

@@ -24,7 +24,7 @@ const selectOption = (option: string | number) => {
 const selectedLabel = computed(() => selected.value ?? "Select");
 
 const defaulSelectClass =
-    "py-2 px-3 justify-between gap-2 w-[4rem] min-w-fit flex items-center cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus-within:border-blue-500 focus:ring-red-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400";
+    "py-2 px-3 justify-between gap-2 w-[4rem] min-w-fit flex items-center cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus-within:border-blue-500 focus:ring-red-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400";
 </script>
 
 <template>

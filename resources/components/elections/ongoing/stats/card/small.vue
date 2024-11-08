@@ -9,10 +9,10 @@ const props = withDefaults(defineProps<ElectionsStatsCardSmallProps>(), {
 </script>
 
 <template>
-    <div
+    <SharedCommonCard
         class="font-medium flex flex-col justify-center shadow-card _sm:shadow p-5 rounded-2xl relative"
     >
-        <div class="bg-gray-100 w-fit mb-2 p-3 rounded-lg">
+        <div class="bg-gray-100 dark:bg-gray-700 w-fit mb-2 p-3 rounded-lg">
             <SharedCommonIcon
                 :name="icon"
                 class="rounded text-primary-500 size-7"
@@ -21,8 +21,8 @@ const props = withDefaults(defineProps<ElectionsStatsCardSmallProps>(), {
         </div>
 
         <div class="font-bold">{{ description }}</div>
-        <div class="text-gray-700">{{ value }}</div>
+        <div class="text-gray-700 dark:text-gray-400">{{ value }}</div>
 
         <slot />
-    </div>
+    </SharedCommonCard>
 </template>

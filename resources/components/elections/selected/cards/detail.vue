@@ -4,11 +4,13 @@ const props = defineProps<{}>();
 
 <template>
     <SharedCommonCard
-        class="divide-y text-sm gap-2 shrink-0 max-w-[25rem] flex flex-col min-w-56"
+        class="divide-y dark:divide-gray-500 text-sm gap-2 shrink-0 max-w-[25rem] flex flex-col min-w-56"
     >
         <div class="flex justify-between items-center">
             <div class="flex gap-2 items-center">
-                <span class="bg-slate-100 p-2 rounded-lg">
+                <span
+                    class="bg-slate-100 dark:bg-slate-700 dark:text-primary-500 p-2 rounded-lg"
+                >
                     <SharedCommonIcon
                         name="campaign_main"
                         stroke-width="2"
@@ -17,10 +19,10 @@ const props = defineProps<{}>();
                 </span>
                 <span class="font-semibold text-base">Voters</span>
             </div>
-            <router-link class="p-1 rounded-full hover:bg-slate-100 group">
+            <router-link class="p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 group">
                 <SharedCommonIcon
                     name="chevron"
-                    class="rotate-90 size-6 group-hover:translate-x-1 transition-all duration-300 group-hover:text-primary-300"
+                    class="rotate-90 dark:text-gray-400 size-6 group-hover:translate-x-1 transition-all duration-300 group-hover:text-primary-300 dark:group-hover:text-primary-500 "
                     stroke-width="1"
                 />
             </router-link>

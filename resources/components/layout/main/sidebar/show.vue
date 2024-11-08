@@ -10,7 +10,7 @@ const menus: SideBarMenuProps[] = data;
 
 <template>
     <nav
-        class="hs-accordion-group p-3 w-full flex flex-col flex-wrap h-full"
+        class="hs-accordion-group  p-3 w-full flex flex-col flex-wrap h-full"
         data-hs-accordion-always-open
     >
         <div class="flex flex-col justify-between h-full">

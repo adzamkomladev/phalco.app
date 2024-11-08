@@ -82,7 +82,7 @@ const onSubmit = () => {
     >
         <div>
             <div
-                class="flex rounded-3xl bg-secondary-300 dark:bg-secondary-700"
+                class="flex rounded-3xl bg-secondary-300 dark:bg-secondary-800"
             >
                 <div class="font-medium p-5 px-10 shrink text-wrap">
                     <p class="text-gray-50 text-xl dark:text-gray-100">
@@ -179,7 +179,7 @@ const onSubmit = () => {
                                 </button>
                             </template>
                             <div
-                                class="p-2 bg-white shadow-card rounded-md flex text-gray-700 flex-col gap-1 w-48"
+                                class="p-2 bg-white  dark:bg-gray-800 shadow-card dark:shadow-gray-900 rounded-md flex text-gray-700 dark:text-gray-300  flex-col gap-1 w-48"
                             >
                                 <button
                                     v-for="(
@@ -187,7 +187,7 @@ const onSubmit = () => {
                                     ) in removedDefaultStages"
                                     :key="index"
                                     @click.prevent="addToStages(stage.title)"
-                                    class="text-left px-2 hover:bg-slate-100 py-1 rounded-md"
+                                    class="text-left px-2 hover:bg-slate-100 dark:hover:bg-slate-700  py-1 rounded-md"
                                 >
                                     {{ stage.title }}
                                 </button>

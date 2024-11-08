@@ -20,7 +20,7 @@ const countdownProgress = 78.55;
 <template layout="main">
     <!-- Card Section -->
     <div
-        class="max-w-[85rem] px-4 py-10 text-gray-800 sm:px-6 lg:px-8 lg:py-14 mx-auto"
+        class="max-w-[85rem] px-4 py-10 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 lg:py-14 mx-auto"
     >
         <!-- Grid -->
         <div class="py-5">
@@ -74,7 +74,7 @@ const countdownProgress = 78.55;
             <div class="-m-1.5 overflow-x-auto">
                 <div class="p-1.5 min-w-full inline-block align-middle">
                     <div
-                        class="bg-white border shadow-card border-gray-200 rounded-2xl overflow-hidden dark:bg-neutral-800 dark:border-neutral-700"
+                        class="bg-white border shadow-card border-gray-200 rounded-2xl overflow-hidden dark:bg-gray-800 dark:border-gray-700"
                     >
                         <div>
                             <div
@@ -95,7 +95,7 @@ const countdownProgress = 78.55;
                             </div>
 
                             <div
-                                class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
+                                class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700"
                             >
                                 <!-- Input -->
                                 <SharedFormSearchInput
@@ -117,14 +117,14 @@ const countdownProgress = 78.55;
                         <ElectionsOngoingTable />
 
                         <div
-                            class="px-6 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-neutral-700"
+                            class="px-6 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-gray-700"
                         >
                             <div>
                                 <p
-                                    class="text-sm text-gray-600 dark:text-neutral-400"
+                                    class="text-sm text-gray-600 dark:text-gray-400"
                                 >
                                     <span
-                                        class="font-semibold text-gray-800 dark:text-neutral-200"
+                                        class="font-semibold text-gray-800 dark:text-gray-200"
                                         >12</span
                                     >
                                     results
@@ -135,7 +135,7 @@ const countdownProgress = 78.55;
                                 <div class="inline-flex py-5 gap-x-2">
                                     <button
                                         type="button"
-                                        class="py-1.5 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                                        class="py-1.5 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800 dark:focus:bg-gray-800"
                                     >
                                         <SharedCommonIcon
                                             name="chevron"
@@ -146,7 +146,7 @@ const countdownProgress = 78.55;
 
                                     <button
                                         type="button"
-                                        class="py-1.5 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                                        class="py-1.5 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800 dark:focus:bg-gray-800"
                                     >
                                         Next
                                         <SharedCommonIcon

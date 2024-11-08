@@ -177,9 +177,9 @@ const handleClickOutside = (event: Event) => {
 const datePicker = ref<HTMLElement | null>(null);
 
 const classes = {
-    input: "py-3 font-light peer shadow-sm px-4 text-[1.15rem] lg:text-lg block text-gray-700 w-full border-gray-200 rounded-md text-sm focus:border-primary-500 focus:ring-primary-500 disabled:opacity-50 placeholder:text-gray-500 placeholder:text-[1rem] disabled:pointer-events-none dark:bg-transparent dark:border-gray-600 dark:text-neutral-400 dark:placeholder-gray-500 dark:focus:ring-neutral-600",
+    input: "py-3 font-light peer shadow-sm px-4 text-[1.15rem] lg:text-lg block text-gray-700 w-full border-gray-200 rounded-md text-sm focus:border-primary-500 focus:ring-primary-500 disabled:opacity-50 placeholder:text-gray-500 placeholder:text-[1rem] disabled:pointer-events-none dark:bg-transparent dark:border-gray-600 dark:text-gray-400 dark:placeholder-gray-500 dark:focus:ring-gray-600",
     inputError:
-        "py-3 px-4 block w-full peer border-red-500 rounded-lg text-sm focus:border-red-500 focus:ring-red-500 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400",
+        "py-3 px-4 block w-full peer border-red-500 rounded-lg text-sm focus:border-red-500 focus:ring-red-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400",
 };
 const inputClass = computed(() =>
     props.error ? classes.inputError : classes.input,
@@ -206,7 +206,7 @@ const describeBy = computed(() => `${props.id}-error`);
 
         <div
             :class="[
-                'w-80 py-5  px-2 transition-all min-h-full duration-300 -left-10 mt-2 absolute z-50 flex-col bg-white border shadow-lg rounded-xl  dark:bg-neutral-900 dark:border-neutral-700',
+                'w-80 py-5  px-2 transition-all min-h-full duration-300 -left-10 mt-2 absolute z-50 flex-col bg-white border shadow-lg rounded-xl  dark:bg-gray-900 dark:border-gray-700',
                 calendarVisible
                     ? 'opacity-100  translate-y-0 pointer-events-auto'
                     : 'opacity-0 h-0 translate-y-5 pointer-events-none',
@@ -215,7 +215,7 @@ const describeBy = computed(() => `${props.id}-error`);
             <div class="flex items-center justify-between">
                 <button
                     type="button"
-                    class="size-8 flex justify-center items-center text-gray-800 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                    class="size-8 flex justify-center items-center text-gray-800 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:bg-gray-800"
                     aria-label="Previous"
                     @click.prevent="changeMonth(-1)"
                     :disabled="isPastMonth(year, month - 1)"
@@ -230,7 +230,7 @@ const describeBy = computed(() => `${props.id}-error`);
                 </div>
 
                 <button
-                    class="size-8 justify-center items-center text-gray-800 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                    class="size-8 justify-center items-center text-gray-800 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:bg-gray-800"
                     aria-label="Next"
                     @click.prevent="changeMonth(1)"
                     :disabled="isPastMonth(year, month + 1)"
@@ -240,7 +240,7 @@ const describeBy = computed(() => `${props.id}-error`);
             </div>
             <div class="grid grid-cols-7 gap-2 pb-1.5">
                 <div
-                    class="m-px w-10 block text-center text-sm text-gray-500 dark:text-neutral-500"
+                    class="m-px w-10 block text-center text-sm text-gray-500 dark:text-gray-500"
                     v-for="day in days"
                     :key="day"
                 >
@@ -258,7 +258,7 @@ const describeBy = computed(() => `${props.id}-error`);
                                 ? 'bg-blue-500 text-white'
                                 : 'hover:border-blue-600 hover:text-blue-600'
                             : 'opacity-40 pointer-events-none ',
-                        ' size-8 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full  disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200',
+                        ' size-8 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full  disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:border-blue-600 focus:text-blue-600 dark:text-gray-200',
                     ]"
                     @click="selectDay(day)"
                 >
@@ -278,7 +278,7 @@ const describeBy = computed(() => `${props.id}-error`);
                 {{ errorMessage }}
             </div>
             <div
-                class="py-3 px-4 flex items-center justify-end gap-x-2 border-t border-gray-200 dark:border-neutral-700"
+                class="py-3 px-4 flex items-center justify-end gap-x-2 border-t border-gray-200 dark:border-gray-700"
             >
                 <button
                     @click="toggleCalendar"

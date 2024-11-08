@@ -22,7 +22,7 @@ const organizations = computed(
         <button
             id="hs-dropdown-with-dividers"
             type="button"
-            class="w-full hs-dropdown-toggle flex items-center justify-between gap-x-3.5 py-2 px-2.5 pr-5 bg-gray-2 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-white"
+            class="w-full hs-dropdown-toggle flex items-center justify-between gap-x-3.5 py-2 px-2.5 pr-5 bg-gray-2  text-sm text-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-700 dark:bg-slate-700 dark:text-white"
             aria-haspopup="menu"
             aria-expanded="false"
             aria-label="Dropdown"
@@ -39,7 +39,7 @@ const organizations = computed(
         </button>
 
         <div
-            class="hs-dropdown-menu border border-gray-50 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-1 space-y-0.5 mt-2 divide-y divide-gray-200 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700"
+            class="hs-dropdown-menu border border-gray-50 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-1 space-y-0.5 mt-2 divide-y divide-gray-200 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="hs-dropdown-with-dividers"
@@ -53,8 +53,8 @@ const organizations = computed(
                     :data="{ organization_id: o.id }"
                     v-for="o in organizations"
                     :key="o.id"
-                    class="flex items-center justify-between gap-x-3.5 py-2 px-3 hover:rounded-lg text-sm text-gray-800 hover:bg-gray-1 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-                    :class="{ 'bg-gray-2 rounded-lg': o.isCurrentOrganization }"
+                    class="flex items-center justify-between gap-x-3.5 py-2 px-3 hover:rounded-lg text-sm text-gray-800 hover:bg-gray-1 dark:hover:bg-slate-700 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700"
+                    :class="{ 'bg-gray-2 dark:bg-slate-700 rounded-lg': o.isCurrentOrganization }"
                 >
                     <div class="flex gap-x-2 items-center">
                         <img
@@ -84,7 +84,7 @@ const organizations = computed(
             </div>
             <div class="py-2 first:pt-0 last:pb-0">
                 <router-link
-                    class="flex items-center whitespace-nowrap gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
+                    class="flex items-center whitespace-nowrap gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700"
                     :href="route('organizations.create')"
                 >
                     <svg
@@ -108,7 +108,7 @@ const organizations = computed(
 
             <div class="py-2 first:pt-0 last:pb-0">
                 <router-link
-                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
+                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700"
                     :href="route('settings.team.index')"
                 >
                     <svg

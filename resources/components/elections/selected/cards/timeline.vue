@@ -4,10 +4,10 @@ import { defaultElectionStages } from "~/resources/data/elections/create";
 
 <template>
     <SharedCommonCard
-        class="gap-2 col-span-3 col-start-5 shrink-0 flex flex-col"
+        class="gap-2 col-span-3 col-start-5 shrink-0 flex flex-col "
     >
         <div class="text-center">
-            <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
+            <h2 class="text-xl font-semibold ">
                 Election Details
             </h2>
             <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -31,7 +31,7 @@ import { defaultElectionStages } from "~/resources/data/elections/create";
                         >
                             <SharedCommonIcon
                                 name="branch"
-                                class="h-4 mt-[2px]"
+                                class="h-4 mt-[2px] "
                             />
                         </div>
                     </div>
