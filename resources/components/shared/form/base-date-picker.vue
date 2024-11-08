@@ -283,7 +283,7 @@ const describeBy = computed(() => `${props.id}-error`);
                 <button
                     @click="toggleCalendar"
                     type="button"
-                    class="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-xs font-medium rounded-lg border border-transparent bg-secondary-300 dark:bg-secondary-700  text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-xs font-medium rounded-lg border border-transparent bg-secondary-300 dark:bg-secondary-700 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                     Apply
                 </button>
