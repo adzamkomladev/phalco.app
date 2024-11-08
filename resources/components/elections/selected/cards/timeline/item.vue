@@ -31,7 +31,7 @@ const isOngoing =
         <div
             :class="[
                 isPast
-                    ? 'after:bg-crimson-300 dark:after:bg-crimson-600'
+                    ? 'after:bg-forest-300 dark:after:bg-forest-600'
                     : 'after:bg-gray-300 dark:after:bg-gray-400',
             ]"
             class="relative last:after:hidden col-span-1 after:absolute after:top-8 after:bottom-0 flex justify-center after:w-px after:-translate-x-[0.5px]"
@@ -40,16 +40,16 @@ const isOngoing =
                 <span
                     :class="[
                         isPast
-                            ? 'bg-crimson-300 dark:bg-crimson-600'
+                            ? 'bg-forest-300 dark:bg-forest-600'
                             : !isOngoing && 'bg-gray-300 dark:bg-gray-500',
                         isOngoing
-                            ? 'animate-ping size-4 bg-forest-200 dark:bg-forest'
+                            ? 'animate-ping size-4 bg-primary-300 dark:bg-primary'
                             : 'size-3 ',
                     ]"
                     class="rounded-full"
                 />
                 <span
-                    class="size-3 absolute bg-forest-300 dark:bg-forest-700 rounded-full"
+                    class="size-3 absolute bg-primary-500 dark:bg-primary rounded-full"
                     v-if="isOngoing"
                 />
             </div>

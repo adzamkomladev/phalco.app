@@ -11,14 +11,14 @@ const chartData = [
 </script>
 
 <template>
-    <SharedCommonCard class="gap-2 shrink-0 col-span-4 flex flex-col gap-5">
+    <SharedCommonCard class="p-[5%] py-10 shrink-0 col-span-4 flex flex-col gap-5">
         <div class="gap-2 flex flex-col">
-            <div class="font-semibold text-lg text-center">
+            <div class="font-bold text-xl text-center">
                 13 Sep- 25 Sep, 2024
             </div>
             <div class="text-center">
                 <h2
-                    class="text-lg font-medium text-gray-800 dark:text-gray-200"
+                    class="text-lg font-semibold text-gray-800 dark:text-gray-200"
                 >
                     Voting Details
                 </h2>
@@ -29,16 +29,16 @@ const chartData = [
         </div>
 
         <div class="flex flex-col gap-5 h-full">
-            <div class="grid grid-cols-7">
-                <div class="col-span-3">
+            <div class="grid grid-cols-7 gap-[5%] _xs:gap-0">
+                <div class="col-span-3 _xs:col-span-7 _xs:px-10">
                     <SharedChartPie :data="chartData" />
                 </div>
                 <div
-                    class="col-span-4 flex flex-col text-xs sm:whitespace-nowrap p-2 pr-0 gap-4 justify-center"
+                    class="col-span-4 _xs:text-center _xs:col-span-7 flex flex-col text-xs sm:whitespace-nowrap p-2 pr-0 gap-4 justify-center"
                 >
-                    <div class="grid gap-4 grid-cols-2">
+                    <div class="grid gap-4 grid-cols-2 xs:hidden">
                         <div>
-                            <p class="text-gray-500">Total ballots</p>
+                            <p class="text-gray-500 ">Total ballots</p>
                             <p class="font-bold text-sm">4,327</p>
                         </div>
                         <div>
@@ -47,14 +47,14 @@ const chartData = [
                         </div>
                     </div>
                     <div>
-                        <p class="text-gray-500">Time Remaining</p>
-                        <p class="font-bold text-lg sm:text-3xl">56:90:56</p>
+                        <p class="text-gray-500 ">Time Remaining</p>
+                        <p class="font-bold text-3xl">56:90:56</p>
                     </div>
                 </div>
             </div>
 
             <SharedCommonCard
-                class="divide-y dark:divide-gray-600 grow text-sm gap-2 flex flex-col"
+                class="divide-y h-60 divide-gray-300 dark:divide-gray-600 text-sm gap-2 flex flex-col"
             >
                 <div class="flex justify-between items-center grow">
                     <div class="flex gap-4 items-center">
@@ -68,7 +68,7 @@ const chartData = [
                             />
                         </span>
                         <div>
-                            <p class="font-semibold text-base">
+                            <p class="font-bold text-lg">
                                 Total Candidates
                             </p>
                             <p class="font-semibold text-sm">145,078</p>
@@ -94,7 +94,7 @@ const chartData = [
                             />
                         </span>
                         <div>
-                            <p class="font-semibold text-base">
+                            <p class="font-bold text-lg">
                                 Total Polling Staton
                             </p>
                             <p class="font-semibold text-sm">15,576</p>

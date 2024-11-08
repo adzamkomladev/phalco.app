@@ -11,7 +11,7 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
         </div>
         <div class="text-center">
             <h2 class="text-lg font-medium text-gray-800 dark:text-gray-200">
-                Campaign Details
+                Campaigning stage
             </h2>
             <p class="text-sm text-gray-600 dark:text-gray-400">
                 Lorem ipsum dolor sit, amet consectetur
@@ -56,21 +56,21 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
             </div>
 
             <SharedCommonCard
-                class="divide-y dark:divide-gray-500 grow text-sm gap-2 flex flex-col"
+                class="divide-y divide-gray-300 dark:divide-gray-600 grow text-sm gap-2 flex flex-col"
             >
                 <div class="flex justify-between items-center grow">
                     <div class="flex gap-4 items-center">
                         <span
-                            class="bg-slate-100 dark:bg-slate-700 p-2 rounded-lg"
+                            class="bg-slate-100 dark:bg-gray-700 p-2 rounded-lg"
                         >
                             <SharedCommonIcon
                                 name="users"
                                 stroke-width="2"
-                                class="h-6 dark:text-blue-500"
+                                class="h-6"
                             />
                         </span>
                         <div>
-                            <p class="font-semibold text-base">
+                            <p class="font-bold text-lg">
                                 Total Supporters
                             </p>
                             <p class="font-semibold text-sm">145,078</p>
@@ -87,16 +87,16 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
                 <div class="flex justify-between items-center grow pt-4">
                     <div class="flex gap-4 items-center">
                         <span
-                            class="bg-slate-100 dark:bg-slate-700 p-2 rounded-lg"
+                            class="bg-slate-100 dark:bg-gray-700 p-2 rounded-lg"
                         >
                             <SharedCommonIcon
-                                name="donation"
+                                name="polling_station"
                                 stroke-width="2"
-                                class="h-6 dark:text-blue-500"
+                                class="h-6"
                             />
                         </span>
                         <div>
-                            <p class="font-semibold text-base">
+                            <p class="font-bold text-lg">
                                 Total Donations
                             </p>
                             <p class="font-semibold text-sm">15,576</p>

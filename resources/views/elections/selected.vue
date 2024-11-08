@@ -32,14 +32,42 @@ useHead({
         <div
             class="grid md:grid-cols-2 _md:flex flex-col items-center px-auto xl:grid-cols-4 gap-4 sm:gap-6"
         >
-            <ElectionsSelectedCardsDetail class="grow w-full" />
-            <ElectionsSelectedCardsDetail class="grow w-full" />
-            <ElectionsSelectedCardsDetail class="grow w-full" />
-            <ElectionsSelectedCardsDetail class="grow w-full" />
-        </div>
+            <ElectionsSelectedCardsDetail 
+            :title="'Campaign'"
+            icon="campaign_main"
+            :leftValue="123"
+            leftLable="active"
+            :rightValue="123"
+            rightLable="inactive"
+            class="grow w-full" />
+            <ElectionsSelectedCardsDetail 
+            :title="'Voters'"
+            icon="thumb_up"
+            :leftValue="12"
+            leftLable="Accepted"
+            :rightValue="156"
+            rightLable="declined"
+            class="grow w-full" />
+            <ElectionsSelectedCardsDetail 
+            :title="'Nominations'"
+            icon="users"
+            :leftValue="120"
+            leftLable="active"
+            :rightValue="64"
+            rightLable="inactive"
+            class="grow w-full" />
+            <ElectionsSelectedCardsDetail 
+            :title="'Polling Station'"
+            icon="polling_station"
+            :leftValue="123"
+            leftLable="active"
+            :rightValue="123"
+            rightLable="inactive"
+            class="grow w-full" />
+          </div>
 
         <div
-            class="grid grid-cols-7 _md:flex flex-col gap-4 sm:gap-6 _sm:px-[5%]"
+            class="grid grid-cols-7 _md:flex flex-col gap-4 sm:gap-6"
         >
             <ElectionsSelectedCardsStagesVoting class="" />
             <ElectionsSelectedCardsTimeline class="" />

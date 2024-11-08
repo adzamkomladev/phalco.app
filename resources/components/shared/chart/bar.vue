@@ -41,11 +41,12 @@
                     ${{ item }}
                 </span>
                 <div
+         
                     :style="{ backgroundColor: colors[index] || defaultColor }"
-                    class="bar w-[50%] grow rounded-t transition-all duration-300 ease-in-out"
+                    class="bar w-[50%] grow rounded-t  transition-all duration-300 ease-in-out"
                 ></div>
                 <span
-                    class="text-xs font-medium mt- absolute top-full text-gray-500"
+                    class="text-xs font-medium mt-4 md:text-[0.6rem] xl:text-xs absolute top-full text-gray-500"
                     >{{ labels[index] }}</span
                 >
             </div>
@@ -57,7 +58,7 @@
 import { barChatProps } from "~/resources/interfaces/chats/index.interface";
 
 const props = withDefaults(defineProps<barChatProps>(), {
-    defaultColor: "#2563EBaa",
+    defaultColor: "#07689F",
 });
 
 const values = computed(() =>

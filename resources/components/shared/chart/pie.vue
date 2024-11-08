@@ -51,7 +51,7 @@ const conicStyle = computed(() => {
             :delay="100"
             :duration="210"
             :style="conicStyle"
-            class="aspect-square rounded-full w-full flex justify-center items-center mb-6"
+            class="aspect-square shadow-card  rounded-full w-full flex justify-center items-center mb-6"
         >
             <div
                 class="aspect-square bg-white dark:bg-gray-800 rounded-full w-1/2"
