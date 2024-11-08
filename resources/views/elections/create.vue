@@ -82,13 +82,13 @@ const onSubmit = () => {
     >
         <div>
             <div
-                class="flex rounded-3xl bg-secondary-300 dark:bg-secondary-800"
+                class="flex rounded-3xl bg-secondary-300   dark:bg-gradient-to-r from-secondary-950 to-secondary-800"
             >
                 <div class="font-medium p-5 px-10 shrink text-wrap">
                     <p class="text-gray-50 text-xl dark:text-gray-100">
                         Start an Election of your choice
                     </p>
-                    <p class="font-normal text-gray-200">
+                    <p class="font-normal text-sm dark:text-gray-300 text-gray-200">
                         To start using Phalco, confirm your email address with
                         the email we sent to:
                     </p>

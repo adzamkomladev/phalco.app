@@ -13,7 +13,7 @@
         <div
             class="grid text-sm grid-cols-4 xl:grid-cols-5 _xs:divide-y dark:divide-gray-500 _xs:grid-cols-2 gap-6 py-2"
         >
-            <div class="grid grid-rows-2 _xs:gap-2 col-span-2">
+            <div class="grid grid-rows-2 gap-2  col-span-2">
                 <div class="grid grid-cols-2 gap-4 col-span-2">
                     <div class="flex gap-4">
                         <SharedCommonIcon name="location" />

@@ -87,7 +87,7 @@ const fileUploadOptions = JSON.stringify({
                     <div class="flex items-center gap-x-2">
                         <button
                             type="button"
-                            class="py-2 transition-all px-3 inline-flex items-center gap-x-2 text-xs font-medium rounded-md border border-transparent bg-primary-500 dark:bg-primary-800 hover:opacity-90 focus:outline-none focus:bg-primary-700 disabled:opacity-50 disabled:pointer-events-none"
+                            class="py-2 transition-all px-3 inline-flex items-center gap-x-2 text-xs text-white font-medium rounded-md border border-transparent bg-primary-500 dark:bg-primary-800 hover:opacity-90 focus:outline-none focus:bg-primary-700 disabled:opacity-50 disabled:pointer-events-none"
                             data-hs-file-upload-trigger=""
                         >
                             <svg

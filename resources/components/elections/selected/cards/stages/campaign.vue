@@ -20,7 +20,7 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
 
         <div class="flex flex-col gap-5 h-full">
             <div
-                class="flex bg-secondary-300 dark:bg-primary-800 rounded-xl pr-2 p-5"
+                class="flex text-white dark:text-gray-200 bg-secondary-300 dark:bg-primary-800 rounded-xl pr-2 p-5"
             >
                 <div class="flex flex-col gap-">
                     <div class="flex items-center gap-2">

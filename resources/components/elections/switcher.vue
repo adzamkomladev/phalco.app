@@ -38,7 +38,7 @@ watch(
             class="rounded-md border border-gray-200 dark:border-gray-600 p-2 gap-4 _sm:gap-2 flex justify-between items-center w-48 _sm:w-fit"
         >
             <div class="flex gap-2">
-                <span class="size-5 bg-primary-400 rounded-md" />
+                <span class="size-5 bg-primary-400 dark:bg-primary-600 rounded-md" />
                 <span>{{
                     elections.find((e) => e.value === selectedElection)
                         ?.label || "Select Election"
@@ -68,7 +68,7 @@ watch(
                 aria-label="Dropdown"
             >
                 <div
-                    class="rounded-md hover:bg-gray-100 my-1 p-2 gap-4 _sm:gap-2 flex items-center"
+                    class="rounded-md hover:bg-gray-100 dark:hover:bg-slate-700 my-1 p-2 gap-4 _sm:gap-2 flex items-center"
                 >
                     <span
                         :class="[

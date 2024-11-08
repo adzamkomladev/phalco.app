@@ -29,7 +29,7 @@ const props = defineProps<{
             <div>
                 <button
                     @click.prevent="removeStage({ index })"
-                    class="text-red-500 text-3xl rounded-full p-3 leading-[0px] aspect-square self-end hover:bg-gray-100 dark:hover:bg-gray-700"
+                    class="text-red-500 text-3xl rounded-full p-2 leading-[0px] mb-2 aspect-square self-end hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
                     -
                 </button>

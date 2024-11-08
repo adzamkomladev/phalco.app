@@ -79,7 +79,7 @@ const positionStyle = computed(() => {
             <slot name="toggle">button</slot>
         </button>
 
-        <dialog ref="dialogRef" class="border-none" :class="positionStyle">
+        <dialog ref="dialogRef" class="border-none border-transparent" :class="positionStyle">
             <transition name="fade" mode="out-in">
                 <div v-if="isVisible" class="">
                     <slot>content</slot>
