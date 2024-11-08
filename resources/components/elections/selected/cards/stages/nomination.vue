@@ -9,7 +9,7 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
         </div>
         <div class="text-center">
             <h2 class="text-lg font-medium text-gray-800 dark:text-gray-200">
-                Election Details
+                Nomination Details
             </h2>
             <p class="text-sm text-gray-600 dark:text-gray-400">
                 Lorem ipsum dolor sit, amet consectetur
@@ -34,39 +34,39 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
 
         <div class="flex flex-col justify-around h-full">
             <div class="flex gap-5">
-                <span class="rounded-md bg-slate-100 p-1">
-                    <sharedCommonIcon name="users" />
+                 <span class="rounded-md  aspect-square bg-slate-100 size-10 dark:bg-gray-700 p-2">
+                    <sharedCommonIcon name="users" class="h-6" />
                 </span>
                 <div>
                     <p class="font-semibold text-lg">Total nominees</p>
-                    <p class="font-medium text-base">145,078</p>
+                    <p class="font-medium dark:font-normal text-base">145,078</p>
                 </div>
             </div>
             <div class="flex gap-5">
-                <span class="rounded-md bg-slate-100 p-1">
-                    <sharedCommonIcon name="users" />
+                <span class="rounded-md  aspect-square bg-slate-100 size-10 dark:bg-gray-700 p-2">
+                    <sharedCommonIcon name="users" class="h-6" />
                 </span>
                 <div>
                     <p class="font-semibold text-lg">Total nominees</p>
-                    <p class="font-medium text-base">145,078</p>
+                    <p class="font-medium  dark:font-normal text-base">145,078</p>
                 </div>
             </div>
             <div class="flex gap-5">
-                <span class="rounded-md bg-slate-100 p-1">
-                    <sharedCommonIcon name="users" />
+                <span class="rounded-md  aspect-square bg-slate-100 size-10 dark:bg-gray-700 p-2">
+                    <sharedCommonIcon name="users" class="h-6" />
                 </span>
                 <div>
                     <p class="font-semibold text-lg">Total nominees</p>
-                    <p class="font-medium text-base">145,078</p>
+                    <p class="font-medium dark:font-normal text-base">145,078</p>
                 </div>
             </div>
             <div class="flex gap-5">
-                <span class="rounded-md bg-slate-100 p-1">
-                    <sharedCommonIcon name="users" />
+                <span class="rounded-md  aspect-square bg-slate-100 size-10 dark:bg-gray-700 p-2">
+                    <sharedCommonIcon name="users" class="h-6" />
                 </span>
                 <div>
                     <p class="font-semibold text-lg">Total nominees</p>
-                    <p class="font-medium text-base">145,078</p>
+                    <p class="font-medium dark:font-normal text-base">145,078</p>
                 </div>
             </div>
         </div>

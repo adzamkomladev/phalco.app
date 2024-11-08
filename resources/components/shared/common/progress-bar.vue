@@ -29,7 +29,7 @@ const props = withDefaults(defineProps<ProgressBarProps>(), {
     width: "100%",
     height: "8px",
     loadedClass: "bg-secondary-300 dark:bg-secondary-500 ",
-    unloadedClass: "bg-gray-200 dark:bg-neutral-700 w-full h-3 ",
+    unloadedClass: "bg-gray-200 dark:bg-gray-700 w-full h-3 ",
     total: 100,
 });
 

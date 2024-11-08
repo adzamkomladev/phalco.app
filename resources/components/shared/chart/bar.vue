@@ -24,7 +24,7 @@
                             ).toFixed(2)
                         }}
                     </div>
-                    <div class="w-full grow border-b-[1px] self-end"></div>
+                    <div class="w-full grow border-b-[1px] dark:border-gray-700 self-end"></div>
                 </div>
             </div>
             <div
@@ -55,7 +55,7 @@
 import { barChatProps } from "~/resources/interfaces/chats/index.interface";
 
 const props = withDefaults(defineProps<barChatProps>(), {
-    defaultColor: "#2563EB",
+    defaultColor: "#2563EBaa",
 });
 
 const values = computed(() =>

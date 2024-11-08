@@ -7,16 +7,16 @@ interface PieChartData {
 const props = defineProps<{ data: PieChartData[] }>();
 
 const blueShades = [
-    "#EFF6FF",
-    "#DBEAFE",
-    "#BFDBFE",
-    "#93C5FD",
-    "#60A5FA",
-    "#3B82F6",
-    "#2563EB",
-    "#1D4ED8",
-    "#1E40AF",
-    "#1E3A8A",
+    "#EFF6FFdd",
+    "#DBEAFEdd",
+    "#BFDBFEdd",
+    "#93C5FDdd",
+    "#60A5Fdda",
+    "#3B82F6dd",
+    "#2563EBdd",
+    "#1D4ED8dd",
+    "#1E40AFdd",
+    "#1E3A8dda",
 ];
 
 const total = computed(() =>
@@ -53,7 +53,7 @@ const conicStyle = computed(() => {
             :style="conicStyle"
             class="aspect-square rounded-full w-full flex justify-center items-center mb-6"
         >
-            <div class="aspect-square bg-white rounded-full w-1/2"></div>
+            <div class="aspect-square bg-white dark:bg-gray-800 rounded-full w-1/2"></div>
         </div>
 
         <!-- Legend below pie chart -->

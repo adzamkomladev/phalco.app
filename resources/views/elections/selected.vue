@@ -41,9 +41,15 @@ useHead({
         <div
             class="grid grid-cols-7 _md:flex flex-col gap-4 sm:gap-6 _sm:px-[5%]"
         >
-            <!-- <ElectionsSelectedCardsStagesVoting class="" />
+            <ElectionsSelectedCardsStagesVoting class="" />
+                        <ElectionsSelectedCardsTimeline class="" />
+
             <ElectionsSelectedCardsStagesNomination class="" />
-            <ElectionsSelectedCardsFinance class="" /> -->
+                        <ElectionsSelectedCardsTimeline class="" />
+
+            <ElectionsSelectedCardsFinance class="" />
+                        <ElectionsSelectedCardsTimeline class="" />
+
             <ElectionsSelectedCardsStagesCampaign class="" />
             <ElectionsSelectedCardsTimeline class="" />
         </div>
