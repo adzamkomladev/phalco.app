@@ -5,8 +5,9 @@ import './tailwind.css';
 import "preline/preline";
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
-import {MotionPlugin} from '@vueuse/motion'
-
+import { MotionPlugin } from '@vueuse/motion'
+import '../js/vendor/dropzone/dropzone-min.js';
+import '../js/vendor/lodash/lodash.min.js';
 //#region Preline Setup
 
 import { type IStaticMethods } from "preline/preline";
