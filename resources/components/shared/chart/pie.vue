@@ -53,7 +53,9 @@ const conicStyle = computed(() => {
             :style="conicStyle"
             class="aspect-square rounded-full w-full flex justify-center items-center mb-6"
         >
-            <div class="aspect-square bg-white dark:bg-gray-800 rounded-full w-1/2"></div>
+            <div
+                class="aspect-square bg-white dark:bg-gray-800 rounded-full w-1/2"
+            ></div>
         </div>
 
         <!-- Legend below pie chart -->

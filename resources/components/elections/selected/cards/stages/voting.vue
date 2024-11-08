@@ -53,10 +53,14 @@ const chartData = [
                 </div>
             </div>
 
-            <SharedCommonCard class="divide-y dark:divide-gray-600 grow text-sm gap-2 flex flex-col">
+            <SharedCommonCard
+                class="divide-y dark:divide-gray-600 grow text-sm gap-2 flex flex-col"
+            >
                 <div class="flex justify-between items-center grow">
                     <div class="flex gap-4 items-center">
-                        <span class="bg-slate-100 dark:bg-gray-700 p-2 rounded-lg">
+                        <span
+                            class="bg-slate-100 dark:bg-gray-700 p-2 rounded-lg"
+                        >
                             <SharedCommonIcon
                                 name="users"
                                 stroke-width="2"
@@ -80,7 +84,9 @@ const chartData = [
                 </div>
                 <div class="flex justify-between items-center grow pt-4">
                     <div class="flex gap-4 items-center">
-                        <span class="bg-slate-100 dark:bg-gray-700 p-2 rounded-lg">
+                        <span
+                            class="bg-slate-100 dark:bg-gray-700 p-2 rounded-lg"
+                        >
                             <SharedCommonIcon
                                 name="polling_station"
                                 stroke-width="2"

@@ -24,7 +24,9 @@
                             ).toFixed(2)
                         }}
                     </div>
-                    <div class="w-full grow border-b-[1px] dark:border-gray-700 self-end"></div>
+                    <div
+                        class="w-full grow border-b-[1px] dark:border-gray-700 self-end"
+                    ></div>
                 </div>
             </div>
             <div
