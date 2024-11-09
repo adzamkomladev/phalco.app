@@ -15,7 +15,7 @@ const showInviteForm = ref(false);
         useSheet
         outerClass=""
         OverlayClass=""
-        class="sm:min-w-[29rem] "
+        class="sm:min-w-[29rem]"
     >
         <div class="grid gap-y-8 overflow-x-hidden overflow-y-auto">
             <div>
@@ -24,7 +24,7 @@ const showInviteForm = ref(false);
 
             <div class="flex font-medium items-center text-primary-300">
                 <router-link
-                    class="w-fit text-primary-300 gap-1 flex items-center rounded-lg py-1 px-2  text-sm border border-primary-400"
+                    class="w-fit text-primary-300 gap-1 flex items-center rounded-lg py-1 px-2 text-sm border border-primary-400"
                 >
                     Send Link<SharedCommonIcon name="link" class="size-3" />
                 </router-link>

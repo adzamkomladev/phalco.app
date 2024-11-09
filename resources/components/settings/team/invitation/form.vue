@@ -21,7 +21,7 @@ const roles = props.roles.map((role: App.Data.Settings.Team.RoleData) => ({
 </script>
 <template>
     <form @submit.prevent="form.submit">
-        <div class="grid pb-10 gap-y-8 ">
+        <div class="grid pb-10 gap-y-8">
             <div class="flex flex-col justify-between gap-y-5">
                 <SharedFormBaseInput
                     class="w-"
@@ -39,7 +39,7 @@ const roles = props.roles.map((role: App.Data.Settings.Team.RoleData) => ({
                     optionsClass="w-60 w-full "
                     optionClass="py-1 text-sm capitalize"
                     placeholder="select role"
-                    :hideOnSelect=true
+                    :hideOnSelect="true"
                     v-model="form.fields.role_id"
                     id="role_id"
                     name="role_id"

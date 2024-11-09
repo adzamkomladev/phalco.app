@@ -156,27 +156,25 @@ const onSubmit = () => {
 
                 <div>
                     <div class="flex flex-col gap-5">
-                 
-
-                 
                         <div
                             v-for="(stage, index) in form.fields.stages"
                             :key="index"
                             class="mt-4"
-                        > <transition name="fade" v-if="form.fields.stages.includes(stage)">
-    <div>
-        <ElectionsCreateFormStage
-            :stage="stage"
-            :removeStage="() => removeStage(index)"
-        />
-    </div>
-</transition>
-
-                        </div>   
-                    
-                     
+                        >
+                            <transition
+                                name="fade"
+                                v-if="form.fields.stages.includes(stage)"
+                            >
+                                <div>
+                                    <ElectionsCreateFormStage
+                                        :stage="stage"
+                                        :removeStage="() => removeStage(index)"
+                                    />
+                                </div>
+                            </transition>
+                        </div>
                     </div>
-                    <div class="mt-10 bg-red-100 ">
+                    <div class="mt-10 bg-red-100">
                         <SharedCommonDropdown>
                             <template v-slot:toggle>
                                 <button
@@ -225,12 +223,11 @@ const onSubmit = () => {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease; /* Adjust duration as needed */
+    transition: opacity 0.5s ease; /* Adjust duration as needed */
 }
 
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0;
+    opacity: 0;
 }
 </style>
-

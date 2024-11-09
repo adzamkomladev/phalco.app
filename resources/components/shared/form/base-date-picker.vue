@@ -238,9 +238,9 @@ const describeBy = computed(() => `${props.id}-error`);
                     &gt;
                 </button>
             </div>
-            <div class="grid grid-cols-7 gap-2 pb-1.5 text-center px-2 ">
+            <div class="grid grid-cols-7 gap-2 pb-1.5 text-center px-2">
                 <div
-                    class="  block text-center text-sm text-gray-500 dark:text-gray-500"
+                    class="block text-center text-sm text-gray-500 dark:text-gray-500"
                     v-for="day in days"
                     :key="day"
                 >
