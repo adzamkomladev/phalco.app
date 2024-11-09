@@ -12,6 +12,7 @@ use Illuminate\Foundation\Http\HtmlDumper;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Octane\Facades\Octane;
@@ -66,6 +67,12 @@ class AppServiceProvider extends ServiceProvider
             $event->extendSocialite('google', \SocialiteProviders\Google\Provider::class);
         });
 
+        //endregion
+
+        // region Pulse
+        Gate::define('viewPulse', function (User $user) {
+            return $user->canViewTelescope();
+        });
         //endregion
     }
 }

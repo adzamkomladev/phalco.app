@@ -2,6 +2,7 @@
 
 namespace App\Actions\Assets;
 
+use Illuminate\Support\Facades\Storage;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -32,7 +33,7 @@ class Upload
             if (app()->isProduction()) {
                 $path = $request->file->storePubliclyAs("uploads/{$storagePath}", $file->hashName());
 
-                return asset($path);
+                return Storage::url($path);
             }
 
             $path = $request->file->storePubliclyAs("uploads/{$storagePath}", $file->hashName(), 'public');
