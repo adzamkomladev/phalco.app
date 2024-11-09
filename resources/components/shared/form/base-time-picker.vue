@@ -66,16 +66,19 @@ watch(selectedAmpm, (newAmpm: string) => {
 <template>
     <div class="flex gap-2 items-center">
         <SharedFormSelect
+        optionClass="py-2"
             v-model="selectedHour"
             :options="hours"
             position="top-center"
         /><span class="text-lg text-gray-700">:</span>
         <SharedFormSelect
+                optionClass="py-2"
             v-model="selectedMinute"
             :options="minutes"
             position="top-center"
         />
         <SharedFormSelect
+                optionClass="py-2"
             v-model="selectedAmpm"
             :options="ampmOptions"
             position="bottom-center"

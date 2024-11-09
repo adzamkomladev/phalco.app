@@ -206,13 +206,13 @@ const describeBy = computed(() => `${props.id}-error`);
 
         <div
             :class="[
-                'w-80 py-5  px-2 transition-all min-h-full duration-300 -left-10 mt-2 absolute z-50 flex-col bg-white border shadow-lg rounded-xl  dark:bg-gray-900 dark:border-gray-700',
+                'w-80 py-5   transition-all min-h-full duration-300 -left-10 mt-2 absolute z-50 flex-col bg-white border shadow-lg rounded-xl  dark:bg-gray-900 dark:border-gray-700',
                 calendarVisible
                     ? 'opacity-100  translate-y-0 pointer-events-auto'
                     : 'opacity-0 h-0 translate-y-5 pointer-events-none',
             ]"
         >
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between px-2">
                 <button
                     type="button"
                     class="size-8 flex justify-center items-center text-gray-800 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:bg-gray-800"
@@ -224,7 +224,7 @@ const describeBy = computed(() => `${props.id}-error`);
                 </button>
 
                 <div
-                    class="col-span-3 flex justify-center items-center gap-x-1"
+                    class="col-span-3 flex text-sm justify-center items-center gap-x-1"
                 >
                     <span> {{ months[month] }} / {{ year }} </span>
                 </div>
@@ -238,16 +238,16 @@ const describeBy = computed(() => `${props.id}-error`);
                     &gt;
                 </button>
             </div>
-            <div class="grid grid-cols-7 gap-2 pb-1.5">
+            <div class="grid grid-cols-7 gap-2 pb-1.5 text-center px-2 ">
                 <div
-                    class="m-px w-10 block text-center text-sm text-gray-500 dark:text-gray-500"
+                    class="  block text-center text-sm text-gray-500 dark:text-gray-500"
                     v-for="day in days"
                     :key="day"
                 >
                     {{ day.slice(0, 2) }}
                 </div>
             </div>
-            <div class="grid grid-cols-7 gap-2">
+            <div class="grid grid-cols-7 gap-1 text-sm px-2">
                 <div
                     v-for="day in monthDetails"
                     :disabled="day.month != 0"
@@ -255,10 +255,10 @@ const describeBy = computed(() => `${props.id}-error`);
                     :class="[
                         day.month === 0
                             ? day.timestamp === selectedDay
-                                ? 'bg-blue-500 dark:bg-secondary-700 text-white'
+                                ? 'bg-blue-500  dark:bg-secondary-700 text-white'
                                 : 'hover:border-secondary-600 hover:text-secondary-600'
                             : 'opacity-40 pointer-events-none ',
-                        ' size-8 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full  disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:border-blue-600 focus:text-blue-600 dark:text-gray-200',
+                        ' size-8 flex justify-center items-center cursor-pointer border border-transparent  text-gray-800 rounded-full  disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:border-blue-600 focus:text-blue-600 dark:text-gray-200',
                     ]"
                     @click="selectDay(day)"
                 >

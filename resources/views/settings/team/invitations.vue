@@ -14,7 +14,8 @@ const showInviteForm = ref(false);
         description="Manage and send organization invites"
         useSheet
         outerClass=""
-        OverlayClass="h-4"
+        OverlayClass=""
+        class="sm:min-w-[29rem] "
     >
         <div class="grid gap-y-8 overflow-x-hidden overflow-y-auto">
             <div>
@@ -23,15 +24,15 @@ const showInviteForm = ref(false);
 
             <div class="flex font-medium items-center text-primary-300">
                 <router-link
-                    class="w-fit text-primary-300 gap-2 flex items-center rounded-lg p-2 text-base border-2 border-primary-400"
+                    class="w-fit text-primary-300 gap-1 flex items-center rounded-lg py-1 px-2  text-sm border border-primary-400"
                 >
-                    Send Link<SharedCommonIcon name="link" class="size-5" />
+                    Send Link<SharedCommonIcon name="link" class="size-3" />
                 </router-link>
 
                 <div class="ml-20">
                     <button
                         @click="showInviteForm = !showInviteForm"
-                        class="text-base"
+                        class="text-sm font-normal"
                     >
                         {{
                             showInviteForm

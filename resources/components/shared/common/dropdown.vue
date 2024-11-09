@@ -7,7 +7,12 @@ const props = defineProps<{
         | "bottom-right"
         | "bottom-left"
         | "bottom-center";
+    hideContentOnSelect ?:boolean;
+    buttonClass?:string;
+    dialogClass?:string;
 }>();
+
+const emits = defineEmits(["toggle"]); 
 
 const dialogRef = ref<HTMLDialogElement | null>(null);
 const isVisible = ref(false);
@@ -26,8 +31,16 @@ const toggleDialog = () => {
                 0,
             );
         }
+        emits("toggle", isVisible.value); 
     }
 };
+
+const hideOnContentClick=()=>{
+    if(props.hideContentOnSelect){
+        toggleDialog()
+
+    }
+}
 
 const handleClickOutside = (event: MouseEvent) => {
     if (dialogRef.value && !dialogRef.value.contains(event.target as Node)) {
@@ -45,47 +58,52 @@ const positionStyle = computed(() => {
         "max-h-screen",
         "dark:border",
         "transition-opacity",
-        "mt-2",
+        "mt-1  ",
     ];
 
     switch (props.position) {
         case "top-right":
-            return [...baseStyles, "absolute bottom-full right-0 mb-2"];
+            return [...baseStyles, "absolute bottom-full right-0 mb-1"];
         case "top-left":
-            return [...baseStyles, "absolute bottom-full left-0 mb-2"];
+            return [...baseStyles, "absolute bottom-full left-0 mb-1"];
         case "top-center":
             return [
                 ...baseStyles,
-                "absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2",
+                "absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1",
             ];
         case "bottom-right":
-            return [...baseStyles, "absolute  right-0 mt-2"];
+            return [...baseStyles, "absolute right-0 mt-1"];
         case "bottom-left":
-            return [...baseStyles, "absolute  left-0 mt-2"];
+            return [...baseStyles, "absolute left-0 mt-1"];
         case "bottom-center":
             return [
                 ...baseStyles,
-                "absolute  left-1/2 transform -translate-x-1/2 mt-2",
+                "absolute left-1/2 transform -translate-x-1/2 top-full mt-1",
             ];
         default:
-            return baseStyles;
+            return baseStyles ;
     }
 });
 </script>
 
 <template>
-    <div class="relative group">
-        <button @click.prevent="toggleDialog">
-            <slot name="toggle">button</slot>
+    <div class="relative flex  group">
+        <button @click.prevent="toggleDialog" :class="buttonClass" >
+            <slot name="toggle" class="grow flex">button</slot>
         </button>
 
         <dialog
+
             ref="dialogRef"
             class="border-none border-transparent"
-            :class="positionStyle"
+            :class="[positionStyle,dialogClass]"
         >
             <transition name="fade" mode="out-in">
-                <div v-if="isVisible" class="">
+                <div 
+                
+                @click.prevent="hideOnContentClick"
+                v-if="isVisible"  
+                class="w-full ">
                     <slot>content</slot>
                 </div>
             </transition>
