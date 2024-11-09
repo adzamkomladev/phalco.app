@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Gate;
 use App\Models\Organization;
 use App\Models\User;
 use Carbon\CarbonImmutable;
@@ -66,6 +67,12 @@ class AppServiceProvider extends ServiceProvider
             $event->extendSocialite('google', \SocialiteProviders\Google\Provider::class);
         });
 
+        //endregion
+
+        // region Pulse
+        Gate::define('viewPulse', function (User $user) {
+            return $user->canViewTelescope();
+        });
         //endregion
     }
 }
