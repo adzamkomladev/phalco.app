@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NoOrganization from "~/resources/svg/organization/no_data.svg?url";
+import NoOrganizationImage from "~/resources/svg/organization/no_data.svg?url";
 
 useHead({
     title: "Select an Organization",
@@ -38,11 +38,9 @@ watch(
 
 <template layout="organization">
     <LayoutOrganisatonContent
-        :subtitle="isEmpty ? 'No organisation yet !' : 'Select an Organisation'"
+        :subtitle="isEmpty ? 'No organization yet !' : 'Select an Organization'"
         :description="
-            isEmpty
-                ? 'Create new organiation and manage team'
-                : 'Invite and manage members'
+            isEmpty ? 'Create a new organization' : 'Select an organization'
         "
     >
         <div class="mt-8">
@@ -51,9 +49,9 @@ watch(
                     @select="organization = $event"
                     :loading="loading"
                     v-model="organization"
-                    v-for="(organisation, index) in organizations"
+                    v-for="(org, index) in organizations"
                     :key="index"
-                    :organization="organisation"
+                    :organization="org"
                 />
 
                 <div class="pb-5">
@@ -68,7 +66,7 @@ watch(
                 class="pb-4 grid justify-center dark:opacity-70"
             >
                 <img
-                    :src="NoOrganization"
+                    :src="NoOrganizationImage"
                     class="w-[24vw] portrait:w-[45vw] max-w-72 h-[24vw] portrait:h-[45vw] max-h-72"
                 />
             </div>

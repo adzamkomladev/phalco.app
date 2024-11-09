@@ -1,43 +1,24 @@
 <script setup lang="ts">
-import { defineAsyncComponent, ref, nextTick } from "vue";
-
 const props = defineProps<{
     invitations: App.Data.Settings.Team.InvitationData[];
     roles: App.Data.Settings.Team.RoleData[];
 }>();
 
-const InvitationForm = ref(null);
-
-const loadInvitationForm = async () => {
-    if (!InvitationForm.value) {
-        InvitationForm.value = defineAsyncComponent({
-            delay: 20000,
-            loader: () =>
-                import(
-                    "~/resources/components/settings/team/invitation/form.vue"
-                ),
-            // loadingComponent: LoadingComponent,
-            // errorComponent: ErrorComponent,
-            // timeout: 3000
-        });
-    } else {
-        InvitationForm.value = null;
-    }
-};
+const showInviteForm = ref(false);
 </script>
 
 <template>
     <SharedCommonOverlay
         title="Invitations"
-        subtitle="Pending Invites"
-        description="Invite and manage members"
+        subtitle=""
+        description="Manage and send organization invites"
         useSheet
         outerClass=""
         OverlayClass="h-4"
     >
         <div class="grid gap-y-8 overflow-x-hidden overflow-y-auto">
             <div>
-                <SettingsTeamInvitationTable :data="props.invitations" />
+                <SettingsTeamInvitationTable :invites="invitations" />
             </div>
 
             <div class="flex font-medium items-center text-primary-300">
@@ -48,9 +29,12 @@ const loadInvitationForm = async () => {
                 </router-link>
 
                 <div class="ml-20">
-                    <button @click="loadInvitationForm" class="text-base">
+                    <button
+                        @click="showInviteForm = !showInviteForm"
+                        class="text-base"
+                    >
                         {{
-                            InvitationForm
+                            showInviteForm
                                 ? "Close Invitation Form"
                                 : "Send Invite"
                         }}
@@ -59,8 +43,24 @@ const loadInvitationForm = async () => {
             </div>
 
             <div>
-                <invitation-form v-if="InvitationForm" :roles="props.roles" />
+                <Transition>
+                    <SettingsTeamInvitationForm
+                        v-if="showInviteForm"
+                        :roles="roles"
+                    />
+                </Transition>
             </div>
         </div>
     </SharedCommonOverlay>
 </template>
+
+<style scoped>
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.8s ease;
+}
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+</style>

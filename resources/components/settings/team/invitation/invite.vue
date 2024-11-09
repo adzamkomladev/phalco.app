@@ -1,6 +1,9 @@
 <script setup lang="ts">
-const props = defineProps<{ invitee: App.Data.Settings.Team.InvitationData }>();
-const expired = new Date(props.invitee.expires_at).getTime() < Date.now();
+const props = defineProps<{ invite: App.Data.Settings.Team.InvitationData }>();
+const expired = new Date(props.invite.expires_at).getTime() < Date.now();
+const picture =
+    props.invite.picture ||
+    `https://ui-avatars.com/api/?name=${props.invite.email}`;
 </script>
 
 <template>
@@ -9,22 +12,15 @@ const expired = new Date(props.invitee.expires_at).getTime() < Date.now();
             <div class="flex items-center gap-x-3">
                 <img
                     class="w-10 block shrink-0 h-10 rounded-full"
-                    :src="invitee.picture"
-                    @error="
-                        (e) => {
-                            if (e.target)
-                                (e.target as HTMLImageElement).src =
-                                    `https://ui-avatars.com/api/?name=${invitee.email}`;
-                        }
-                    "
+                    :src="picture"
                     alt="Avatar"
                 />
                 <div class="font-medium">
                     <span class="block text-sm text-black dark:text-gray-200">
-                        {{ invitee.email }}
+                        {{ invite.email }}
                     </span>
                     <span class="block text-sm text-gray-400 capitalize">
-                        {{ invitee.role?.name }}
+                        {{ invite.role?.name }}
                     </span>
                 </div>
             </div>
@@ -38,8 +34,8 @@ const expired = new Date(props.invitee.expires_at).getTime() < Date.now();
                     :href="route('settings.team.invitation.send')"
                     method="POST"
                     :data="{
-                        email: invitee.email,
-                        role: invitee.role,
+                        email: invite.email,
+                        role: invite.role,
                     }"
                     class="hover:text-primary-300 group/reload p-1"
                 >
@@ -53,7 +49,7 @@ const expired = new Date(props.invitee.expires_at).getTime() < Date.now();
                 <router-link
                     :href="
                         route('settings.team.invitation.delete', {
-                            id: invitee.id,
+                            id: invite.id,
                         })
                     "
                     method="DELETE"
@@ -69,7 +65,7 @@ const expired = new Date(props.invitee.expires_at).getTime() < Date.now();
         <!-- Status Column -->
         <td
             :class="
-                invitee.declined
+                invite.declined
                     ? 'text-[#F5190B]'
                     : expired
                       ? 'text-gray-400'
@@ -79,7 +75,7 @@ const expired = new Date(props.invitee.expires_at).getTime() < Date.now();
         >
             <span class="">
                 {{
-                    invitee.declined
+                    invite.declined
                         ? "Declined"
                         : expired
                           ? "Expired"
