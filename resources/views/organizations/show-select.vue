@@ -73,10 +73,8 @@ watch(
             <router-link
                 :href="route('organizations.create')"
                 class="text-primary-500 items-center text-xl w-fit justify-self-center gap-5 font-medium flex h-fit"
-                :class="isEmpty && 'w-full text-2xl'"
             >
                 <span
-                    :class="isEmpty && 'text-primary-500'"
                     class="text-3xl size-12 leading-[0px] font-semibold rounded-full bg-gray-100 text-gray-700 flex items-center justify-center"
                     >+</span
                 >
