@@ -23,7 +23,7 @@
         "eslint-plugin-vue": "^9.29.0",
         "globals": "^15.11.0",
         "husky": "^9.1.6",
-        "hybridly": "^0.7.14",
+        "hybridly": "^0.7.15",
         "laravel-echo": "^1.16.1",
         "postcss": "^8.4.41",
         "prettier": "3.3.3",
@@ -33,7 +33,7 @@
         "typescript-eslint": "^8.8.1",
         "vite": "^5.0",
         "vite-svg-loader": "^5.1.0",
-        "vue": "^3.5.5",
+        "vue": "^3.5.12",
         "vue-i18n": "^9.14.0"
     },
     "postcss": {
@@ -49,6 +49,7 @@
         "@vueuse/motion": "^2.2.6",
         "canvas-confetti": "^1.9.3",
         "dropzone": "^6.0.0-beta.2",
+        "laravel-vite-plugin": "^1.0.5",
         "lodash": "^4.17.21",
         "preline": "^2.4.1"
     }

@@ -120,6 +120,6 @@ export const menus: SideBarMenuProps[] = [
     {
         label: "Finance",
         icon: "cedi",
-        to: "password.reset",
+        to: "finance.index",
     },
 ];
