@@ -54,7 +54,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/rs-favicon.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/rs-favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/rs-favicon.png">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/site.webmanifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
