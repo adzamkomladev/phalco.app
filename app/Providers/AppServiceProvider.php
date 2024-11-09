@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Gate;
 use App\Models\Organization;
 use App\Models\User;
 use Carbon\CarbonImmutable;
@@ -13,6 +12,7 @@ use Illuminate\Foundation\Http\HtmlDumper;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Octane\Facades\Octane;

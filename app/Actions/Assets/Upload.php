@@ -2,9 +2,9 @@
 
 namespace App\Actions\Assets;
 
+use Illuminate\Support\Facades\Storage;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
-use Illuminate\Support\Facades\Storage;
 
 class Upload
 {
