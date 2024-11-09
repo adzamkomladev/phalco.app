@@ -53,10 +53,10 @@ const login = useForm({
                     />
                     <p class="text-sm text-right p-1">
                         <router-link
-                            class="text-primary-twi decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
+                            class="text-gray-700 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
                             :href="route('password.reset')"
                         >
-                            forget password
+                            forget passwords
                         </router-link>
                     </p>
                 </div>

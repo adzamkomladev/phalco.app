@@ -2,6 +2,12 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full flex flex-col scroll-smooth">
 
 <head>
+     <meta property="og:title" content="Phalco" />
+  <meta property="og:description" content="Simplify election management and engage your community seamlessly" />
+  <meta property="og:url" content="https://wwww.phalco.africa.com" />
+  <meta property="og:image" content="/android-chrome-192x192.png" />
+  <meta property="og:type" content="website" />
+</head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
