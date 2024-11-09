@@ -4,6 +4,7 @@ namespace App\Actions\Assets;
 
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
+use Illuminate\Support\Str;
 
 class Upload
 {
@@ -32,7 +33,7 @@ class Upload
             if (app()->isProduction()) {
                 $path = $request->file->storePubliclyAs("uploads/{$storagePath}", $file->hashName());
 
-                return asset($path);
+                return Str::start($path, config('filesystems.disks.contabo.url') . '/');
             }
 
             $path = $request->file->storePubliclyAs("uploads/{$storagePath}", $file->hashName(), 'public');
