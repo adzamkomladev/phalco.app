@@ -1,4 +1,8 @@
 <script setup lang="ts">
+onMounted(() => {
+    window.HSStaticMethods.autoInit();
+});
+
 const data = useProperty("elections");
 const elections =
     data.value?.all?.map((e: App.Data.Elections.ElectionData) => ({

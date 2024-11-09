@@ -22,8 +22,8 @@ const create = useForm({
 
 <template layout="organization">
     <LayoutOrganisatonContent
-        subtitle="Create an Organisation"
-        description="Invite and manage members"
+        subtitle="Create an Organization"
+        description="Enter organization details"
     >
         <div class="mt-4">
             <form @submit.prevent="create.submit">
