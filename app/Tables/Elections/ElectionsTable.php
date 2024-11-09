@@ -20,16 +20,16 @@ final class ElectionsTable extends Table
             Columns\TextColumn::make('id')->label('#')->visible(false),
             Columns\TextColumn::make('name')
                 ->label('Name')
-                ->extra((fn(Election $election) => [
+                ->extra((fn (Election $election) => [
                     'id' => $election->id,
                     'creator' => $election->createdBy->name,
                     'logo' => $election->logo,
                 ])),
             Columns\TextColumn::make('status')->label('Status'),
             Columns\TextColumn::make('current_stage')->label('Current Stage')
-                ->transformValueUsing(fn(Election $election) => 'voting'),
+                ->transformValueUsing(fn (Election $election) => 'voting'),
             Columns\TextColumn::make('created_at')->label('Created')
-                ->transformValueUsing(fn(Election $election) => $election->created_at->diffForHumans()),
+                ->transformValueUsing(fn (Election $election) => $election->created_at->diffForHumans()),
         ];
     }
 
@@ -54,6 +54,7 @@ final class ElectionsTable extends Table
     protected function defineQuery(): Builder
     {
         $selectedOrganizationId = auth()->user()->selected_organization_id;
+
         return $this->getModel()
             ->query()
             ->select(['id', 'user_id', 'organization_id', 'name', 'status', 'logo', 'created_at'])
