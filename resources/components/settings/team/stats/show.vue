@@ -2,7 +2,7 @@
 defineProps<{ stats: App.Data.Settings.Team.InvitationStatsData }>();
 </script>
 <template>
-    <div class="max-w-[85rem] px-4 pb-8 sm:px-6 lg:px-8  mx-auto">
+    <div class="max-w-[85rem] px-4 pb-8 sm:px-6 lg:px-8 mx-auto">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             <SettingsTeamStatsCard
                 title="Members"
