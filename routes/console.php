@@ -2,6 +2,8 @@
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Cache;
+use Laravel\Octane\Facades\Octane;
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
