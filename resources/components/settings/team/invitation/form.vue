@@ -36,7 +36,7 @@ const roles = props.roles.map((role: App.Data.Settings.Team.RoleData) => ({
 
                 <SharedFormSelect
                     selectClass="w-full"
-                    optionsClass="w-60 w-full "
+                    optionsClass="w-60 "
                     optionClass="py-1 text-sm capitalize"
                     placeholder="select role"
                     :hideOnSelect="true"

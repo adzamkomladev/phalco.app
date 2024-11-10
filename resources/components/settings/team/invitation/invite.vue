@@ -1,5 +1,8 @@
 <script setup lang="ts">
-const props = defineProps<{ invite: App.Data.Settings.Team.InvitationData }>();
+const props = defineProps<{ invitef?: App.Data.Settings.Team.InvitationData }>();
+
+
+
 const expired = new Date(props.invite.expires_at).getTime() < Date.now();
 const picture =
     props.invite.picture ||
@@ -27,7 +30,7 @@ const picture =
         </td>
 
         <td
-            class="sm:px-6 py-2 whitespace-nowrap text-sm font-medium flex text-gray-700 opacity-0 group-hover:opacity-100 transition-all group-hover:delay-150 items-center gap-x-3"
+            class="sm:pl-6 py-2 whitespace-nowrap text-sm font-medium flex text-gray-700 opacity-0 group-hover:opacity-100 transition-all group-hover:delay-150 items-center gap-x-3"
         >
             <abbr title="resend invitation">
                 <router-link
@@ -71,7 +74,7 @@ const picture =
                       ? 'text-gray-400'
                       : 'text-[#D8824C]'
             "
-            class="sm:px-6 text-sm font-medium capitalize text-right"
+            class="sm:pr-6 pl-0 text-sm font-medium capitalize text-right"
         >
             <span class="">
                 {{

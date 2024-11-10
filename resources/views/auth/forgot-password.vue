@@ -39,10 +39,10 @@ const forget_password = useForm({
                     text="Proceed"
                 />
             </div>
-            <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
                 Remember your password?
                 <router-link
-                    class="text-primary-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
+                    class="text-primary-500 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
                     :href="route('login')"
                 >
                     Sign in here

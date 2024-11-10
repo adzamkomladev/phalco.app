@@ -9,7 +9,7 @@ const elections =
         value: e.id,
         label: e.name,
     })) || [];
-const isNotEmpty = computed(() => elections.length !== 0);
+const isEmpty = computed(() => elections.length == 0);
 const selectedElection = ref<number | null>(data.value?.selected?.id || null);
 const loading = ref(false);
 
@@ -32,7 +32,9 @@ watch(
 </script>
 
 <template>
-    <div class="hs-dropdown [--placement:bottom-left] relative inline-flex">
+    <div
+    v-if="!isEmpty"
+    class="hs-dropdown [--placement:bottom-left] relative inline-flex">
         <button
             id="hs-dropdown-election"
             type="button"

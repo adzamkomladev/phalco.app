@@ -30,9 +30,9 @@ const register = useForm({
         <SharedCommonOr />
 
         <form @submit.prevent="register.submit">
-            <div class="grid gap-y-4 _md:landscape:gap-y-4 sm:gap-y-8 pt-2">
+            <div class="grid gap-y-4 sm:gap-y-6  pt-2">
                 <div
-                    class="grid grid-flow-row portrait:grid-flow-row md:grid-flow-col gap-5 w-full"
+                    class="grid grid-flow-row portrait:grid-flow-row md:grid-flow-col gap-4 sm:gap-6  w-full"
                 >
                     <SharedFormBaseInput
                         v-model="register.fields.first_name"
@@ -86,20 +86,22 @@ const register = useForm({
                     name="agree"
                     label="I accept the Terms and Conditions"
                 /> -->
-
-                <SharedFormSubmitButton
+<div class="py-3">
+  <SharedFormSubmitButton
                     :loading="register.processing"
                     text="Sign  Up"
-                />
+                />  
+</div>
+                
             </div>
         </form>
         <div class="">
             <p
-                class="mt-2 text-sm sm:text-base text-gray-600 font-bold dark:text-neutral-400"
+                class="mt-3 text-sm sm:text-base text-black font-medium dark:text-gray-400"
             >
                 Already have an account ?
                 <router-link
-                    class="text-primary-twi decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
+                    class="text-primary-500 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
                     :href="route('login')"
                 >
                     Login

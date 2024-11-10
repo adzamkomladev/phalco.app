@@ -33,7 +33,7 @@ const login = useForm({
         <SharedCommonOr />
 
         <form @submit.prevent="login.submit">
-            <div class="grid gap-y-4 _md:landscape:gap-y-4 sm:gap-y-8 pt-2">
+            <div class="grid gap-y-4 sm:gap-y-6 pt-2">
                 <SharedFormBaseInput
                     v-model="login.fields.email"
                     :error="login.errors.email"
@@ -69,11 +69,11 @@ const login = useForm({
         </form>
         <div class="">
             <p
-                class="mt-2 text-sm text-gray-600 font-bold dark:text-neutral-400"
+                class="mt-5 text-sm text-black font-medium dark:text-gray-400"
             >
                 Not registere yet ?
                 <router-link
-                    class="text-primary-twi decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
+                    class="text-primary-500 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
                     :href="route('register')"
                 >
                     Create an account

@@ -9,6 +9,8 @@ const prev = computed(() => paginator?.links?.[0]);
 const current = computed(() => paginator?.links?.[1]);
 const next = computed(() => paginator?.links?.[2]);
 
+
+
 const findColumn = (name: string) =>
     table.columns.find((column: any) => column?.name === name)!;
 const findFilter = (name: string) =>
@@ -96,34 +98,13 @@ watch(search, debounceFn);
                                             >
                                         </label>
                                     </th>
-
-                                    <th
-                                        v-for="(col, index) in table.columns"
-                                        :key="index"
-                                        scope="col"
-                                        :class="{
-                                            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start':
-                                                index === 0,
-                                            'px-6 py-3 text-start': index !== 0,
-                                        }"
-                                    >
-                                        <span
-                                            v-if="col.isSortable"
-                                            class="cursor-pointer"
-                                            @click="
-                                                col.toggleSort('created_at')
-                                            "
-                                        >
-                                            ^v
-                                        </span>
-                                        <div class="flex items-center gap-x-2">
-                                            <span
-                                                class="text-xs font-semibold tracking-wide text-gray-800 uppercase dark:text-gray-200"
-                                            >
-                                                {{ col.label }}
-                                            </span>
-                                        </div>
-                                    </th>
+                            <SharedTableTh 
+                                v-for="(col, index) in table.columns"
+                                :column="col"
+                                :key="index"
+                                :index="index"
+                                />
+                                    
                                     <th
                                         scope="col"
                                         class="px-6 py-3 text-end"
