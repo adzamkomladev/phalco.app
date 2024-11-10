@@ -26,14 +26,14 @@ const totalUsers = ref(0);
 
 const countdownProgress = 78.55;
 const table = useTable(props, "elections");
-onMounted(()=>{
-    console.log(table,"teble election")
-})
+onMounted(() => {
+    console.log(table, "teble election");
+});
 </script>
 
 <template layout="main">
     <!-- Card Section -->
-     
+
     <div
         class="max-w-[85rem] px-4 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
     >

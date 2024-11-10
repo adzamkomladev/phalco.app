@@ -30,9 +30,9 @@ const register = useForm({
         <SharedCommonOr />
 
         <form @submit.prevent="register.submit">
-            <div class="grid gap-y-4 sm:gap-y-6  pt-2">
+            <div class="grid gap-y-4 sm:gap-y-6 pt-2">
                 <div
-                    class="grid grid-flow-row portrait:grid-flow-row md:grid-flow-col gap-4 sm:gap-6  w-full"
+                    class="grid grid-flow-row portrait:grid-flow-row md:grid-flow-col gap-4 sm:gap-6 w-full"
                 >
                     <SharedFormBaseInput
                         v-model="register.fields.first_name"
@@ -86,13 +86,12 @@ const register = useForm({
                     name="agree"
                     label="I accept the Terms and Conditions"
                 /> -->
-<div class="py-3">
-  <SharedFormSubmitButton
-                    :loading="register.processing"
-                    text="Sign  Up"
-                />  
-</div>
-                
+                <div class="py-3">
+                    <SharedFormSubmitButton
+                        :loading="register.processing"
+                        text="Sign  Up"
+                    />
+                </div>
             </div>
         </form>
         <div class="">

@@ -4,15 +4,12 @@ useHead({ title: "Email Verified" });
 </script>
 
 <template layout="auth">
-    <LayoutAuthContent
-        title="Congratulations"
-        :pageImage="Congratulation"
-    >
-           <template v-slot:description>
-<div class="mt-4">
-    our email has been successfully verified, Lets get started
-</div>
-           </template>
+    <LayoutAuthContent title="Congratulations" :pageImage="Congratulation">
+        <template v-slot:description>
+            <div class="mt-4">
+                our email has been successfully verified, Lets get started
+            </div>
+        </template>
 
         <router-link :href="route('home')">
             <SharedFormSubmitButton text="Proceed" />
@@ -23,7 +20,7 @@ useHead({ title: "Email Verified" });
         >
             Need help ?
             <router-link
-                class="text-primary-500 hover:underline focus:outline-none focus:underline  dark:text-blue-500"
+                class="text-primary-500 hover:underline focus:outline-none focus:underline dark:text-blue-500"
             >
                 Contact customer Support
             </router-link>

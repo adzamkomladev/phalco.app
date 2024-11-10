@@ -17,15 +17,15 @@ const form = useForm({
 <template layout="auth">
     <LayoutAuthContent class="" title="Phone Verification" description="">
         <template v-slot:description>
-            <div class="mt-3">        
-            Enter the 6 digit verification sent to :
-            <strong
-                class="text-primary-500 dark:text-primary-700 pr-1 truncate"
-            >
-                +233 345 540 643
-            </strong>
-            to verify
-        </div>
+            <div class="mt-3">
+                Enter the 6 digit verification sent to :
+                <strong
+                    class="text-primary-500 dark:text-primary-700 pr-1 truncate"
+                >
+                    +233 345 540 643
+                </strong>
+                to verify
+            </div>
         </template>
 
         <form @submit.prevent="form.submit">

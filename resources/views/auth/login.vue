@@ -68,9 +68,7 @@ const login = useForm({
             </div>
         </form>
         <div class="">
-            <p
-                class="mt-5 text-sm text-black font-medium dark:text-gray-400"
-            >
+            <p class="mt-5 text-sm text-black font-medium dark:text-gray-400">
                 Not registere yet ?
                 <router-link
                     class="text-primary-500 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"

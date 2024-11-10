@@ -33,8 +33,9 @@ watch(
 
 <template>
     <div
-    v-if="!isEmpty"
-    class="hs-dropdown [--placement:bottom-left] relative inline-flex">
+        v-if="!isEmpty"
+        class="hs-dropdown [--placement:bottom-left] relative inline-flex"
+    >
         <button
             id="hs-dropdown-election"
             type="button"

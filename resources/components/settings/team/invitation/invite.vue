@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{ invitef?: App.Data.Settings.Team.InvitationData }>();
-
-
+const props = defineProps<{
+    invitef?: App.Data.Settings.Team.InvitationData;
+}>();
 
 const expired = new Date(props.invite.expires_at).getTime() < Date.now();
 const picture =

@@ -9,8 +9,6 @@ const prev = computed(() => paginator?.links?.[0]);
 const current = computed(() => paginator?.links?.[1]);
 const next = computed(() => paginator?.links?.[2]);
 
-
-
 const findColumn = (name: string) =>
     table.columns.find((column: any) => column?.name === name)!;
 const findFilter = (name: string) =>
@@ -98,13 +96,13 @@ watch(search, debounceFn);
                                             >
                                         </label>
                                     </th>
-                            <SharedTableTh 
-                                v-for="(col, index) in table.columns"
-                                :column="col"
-                                :key="index"
-                                :index="index"
-                                />
-                                    
+                                    <SharedTableTh
+                                        v-for="(col, index) in table.columns"
+                                        :column="col"
+                                        :key="index"
+                                        :index="index"
+                                    />
+
                                     <th
                                         scope="col"
                                         class="px-6 py-3 text-end"

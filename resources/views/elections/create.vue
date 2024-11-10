@@ -161,25 +161,22 @@ const onSubmit = () => {
                             :key="index"
                             class="mt-4"
                         >
-                         
-                                <div>
-                                  <transition
-                            >
-                                    <ElectionsCreateFormStage  
-                                         v-if="form.fields.stages.includes(stage)"
-
-                                          name="fade"
+                            <div>
+                                <transition>
+                                    <ElectionsCreateFormStage
+                                        v-if="
+                                            form.fields.stages.includes(stage)
+                                        "
+                                        name="fade"
                                         :stage="stage"
                                         :removeStage="() => removeStage(index)"
-                                    />                            
+                                    />
                                 </transition>
-
-                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-10 ">
-                        <SharedCommonDropdown
-                        >
+                    <div class="mt-10">
+                        <SharedCommonDropdown>
                             <template v-slot:toggle>
                                 <button
                                     class="text-forest-300 w-fit p-2 gap-2 text-sm flex items-center border border-forest-300 rounded-md"
