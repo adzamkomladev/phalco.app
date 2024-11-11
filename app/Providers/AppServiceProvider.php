@@ -45,19 +45,19 @@ class AppServiceProvider extends ServiceProvider
 
         //region Octane
 
-        // Octane::tick('test-ticker-1', function () {
-        //     logger('Start test-ticker-1');
+        Octane::tick('test-ticker-1', function () {
+            logger('Start test-ticker-1');
 
-        //     Cache::store('octane')->put('application', 'Phalco', 60);
+            Cache::store('octane')->put('application', 'Phalco', 60);
 
-        //     Octane::table('users')->set('123', [
-        //         'name' => fake()->name(),
-        //         'email' => fake()->unique()->safeEmail(),
-        //         'age' => fake()->numberBetween(18, 100),
-        //     ]);
+            Octane::table('users')->set('123', [
+                'name' => fake()->name(),
+                'email' => fake()->unique()->safeEmail(),
+                'age' => fake()->numberBetween(18, 100),
+            ]);
 
-        //     logger('End test-ticker-1');
-        // })->seconds(101);
+            logger('End test-ticker-1');
+        })->seconds(101);
 
         //endregion
 
