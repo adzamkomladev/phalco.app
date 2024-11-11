@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { selectProps } from "~/resources/interfaces/shared/form.interface";
+import { BaseAdvanceSelectProps } from "~/resources/interfaces/shared/form.interface";
 
-const props = defineProps<selectProps>();
+const props = defineProps<BaseAdvanceSelectProps>();
 
 const emits = defineEmits(["update:modelValue"]);
 

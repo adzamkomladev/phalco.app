@@ -25,10 +25,16 @@ onMounted(() => {
                         <div
                             class="h-[1rem] px-1 sm:h-[1.5rem] text-transparent bg-transparent xtall:sm:scale-150"
                         >
-                            <SharedCommonIcon
+                        <router-link
+                        href="/"
+                        >
+                             <SharedCommonIcon
+
                                 name="logo_full"
                                 class="text-primary-500"
                             />
+                        </router-link>
+
                         </div>
                     </div>
 
@@ -38,7 +44,7 @@ onMounted(() => {
                 </div>
 
                 <div
-                    class="portrait:pt-8 landscape:pt-[5vh] -mt px-[10%] sm:portrait:px-[14%] sm:landscape:mt- pb-10 sm:landscape:px-0 sm:landscape:pr-[5vw] xl:pr-[8vw] z-10 bg-white rounded-t-[2.5rem] sm:landscape:rounded-t-none flex-1 sm:landscape:overflow-y-auto sm:landscape:h-screen dark:bg-gray-800"
+                    class="portrait:pt-8 landscape:pt-[5vh] 2xtall:landscape:pt-10 -mt px-[10%] sm:portrait:px-[14%] sm:landscape:mt- pb-10 sm:landscape:px-0 sm:landscape:pr-[5vw] xl:pr-[8vw] z-10 bg-white rounded-t-[2.5rem] sm:landscape:rounded-t-none flex-1 sm:landscape:overflow-y-auto sm:landscape:h-screen dark:bg-gray-800"
                 >
                     <transition name="fade" mode="out-in">
                         <slot />

@@ -65,7 +65,7 @@ export interface BaseOtpProps extends FormProp {
     length?: number;
 }
 
-export interface selectProps extends FormProp{
+export interface BaseAdvanceSelectProps extends FormProp{
     modelValue: string | number;
     options: Array<string | number | {label:string,value:string}>;
     position?:
