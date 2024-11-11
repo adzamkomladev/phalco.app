@@ -50,7 +50,9 @@ const conicStyle = computed(() => ({
                     class="aspect-[2/1] bg-white dark:bg-gray-800 rounded-t-full w-full justify-center flex self-start"
                 >
                     <div class="h-fit text-center self-end bottom-0">
-                        <div class="font-bold text-3xl md:text-4xl  sm:_lg:text-xl   xl:text-5xl">
+                        <div
+                            class="font-bold text-3xl md:text-4xl sm:_lg:text-xl xl:text-5xl"
+                        >
                             {{ Number(completionValue.toFixed(2)) }}%
                         </div>
                         <div

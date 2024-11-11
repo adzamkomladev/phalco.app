@@ -25,16 +25,12 @@ onMounted(() => {
                         <div
                             class="h-[1rem] px-1 sm:h-[1.5rem] text-transparent bg-transparent xtall:sm:scale-150"
                         >
-                        <router-link
-                        href="/"
-                        >
-                             <SharedCommonIcon
-
-                                name="logo_full"
-                                class="text-primary-500"
-                            />
-                        </router-link>
-
+                            <router-link href="/">
+                                <SharedCommonIcon
+                                    name="logo_full"
+                                    class="text-primary-500"
+                                />
+                            </router-link>
                         </div>
                     </div>
 
