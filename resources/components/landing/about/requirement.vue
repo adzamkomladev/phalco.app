@@ -36,7 +36,7 @@ import ImageAboutUs from "~/resources/images/welcome/about_us.webp?url";
             class="relative overflow-x-hidden md:bg-about-lg _md:bg-about-sm bg-contain bg-right _md:bg-left bg-no-repeat _md:py-1 flex justify-center md:justify-end col-span-5"
         >
             <img
-                class="transform  lg:translate-x-10 md:h-[90%] md:w-auto md:absolute md:bottom-0 md:scale-x-[-1] _md:p-10"
+                class="transform lg:translate-x-10 md:h-[90%] md:w-auto md:absolute md:bottom-0 md:scale-x-[-1] _md:p-10"
                 :src="ImageAboutUs"
             />
         </div>
