@@ -2,6 +2,8 @@
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Cache;
+use Laravel\Octane\Facades\Octane;
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
@@ -23,3 +25,9 @@ Artisan::command('view-octane-tests', function () {
 Artisan::command('telescope:prune --hours=720', fn () => $this->info('Telescope data from 30 days ago deleted'))
     ->daily();
 Artisan::command('horizon:snapshot', fn () => $this->info('Horizon snapshot'))->everyFiveMinutes();
+
+// Sort of quick fix for Pulse memory issues
+// TODO: Fix pulse:check memory issues properly
+Artisan::command('pulse:restart', fn () => $this->info('Pulse Restarted'))
+    ->purpose('Restart pulse to clear memory hogging situation')
+    ->hourly();
