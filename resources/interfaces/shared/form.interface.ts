@@ -14,15 +14,15 @@ export interface BaseInputProps extends FormProp {
 }
 
 
- export interface BaseDateInputProps extends BaseInputProps {
-     startDate?: Date|null;
-     endDate?: Date|null;
-     disablePast?: boolean;
-     latestDate?:Date;
-     farthestDate?:Date;
-     scope: "start" | "end" | "general";
-     type: "datetime" | "date";
- }
+export interface BaseDateInputProps extends BaseInputProps {
+    startDate?: Date | null;
+    endDate?: Date | null;
+    disablePast?: boolean;
+    latestDate?: Date;
+    farthestDate?: Date;
+    scope: "start" | "end" | "general";
+    type: "datetime" | "date";
+}
 
 export interface ButtonProps {
     type?: string;
@@ -65,19 +65,19 @@ export interface BaseOtpProps extends FormProp {
     length?: number;
 }
 
-export interface selectProps extends FormProp{
-    modelValue: string | number;
-    options: Array<string | number | {label:string,value:string}>;
+export interface selectProps extends FormProp {
+    modelValue: string | number | null;
+    options: Array<string | number | { label: any, value: any }>;
     position?:
-        | "top-right"
-        | "top-left"
-        | "top-center"
-        | "bottom-right"
-        | "bottom-left"
-        | "bottom-center";
+    | "top-right"
+    | "top-left"
+    | "top-center"
+    | "bottom-right"
+    | "bottom-left"
+    | "bottom-center";
     selectedClass?: string;
     selectClass?: string;
-    optionClass?:string;
-    optionsClass?:string;
-    hideOnSelect?:boolean;
+    optionClass?: string;
+    optionsClass?: string;
+    hideOnSelect?: boolean;
 }
