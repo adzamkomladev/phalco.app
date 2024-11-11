@@ -19,7 +19,7 @@ export default {
             },
             backgroundImage: {
                 logo: "url('../svg/icon/logo.svg')",
-                "auth-p": "url('../svg/auth/layout.svg')",
+                "auth-p": "url('../images/layout/auth.webp')",
                 "about-sm": "url('../svg/welcome/about_bg_sm.svg')",
                 "about-lg": "url('../svg/welcome/about_bg_lg.svg')",
                 "menu-br": "url('../svg/welcome/menu/background.svg')",

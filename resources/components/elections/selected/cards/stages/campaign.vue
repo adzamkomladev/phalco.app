@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CampaignImage from "~/resources/images/election/campaign.png?src";
+import CampaignImage from "~/resources/images/election/campaign.webp?src";
 </script>
 
 <template>

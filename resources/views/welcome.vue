@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ImageWelcomeSm from "~/resources/svg/welcome/landing_sm.svg?url";
-import ImageWelcomeLg from "~/resources/svg/welcome/landing_lg.svg?url";
+import ImageWelcomeSm from "~/resources/images/welcome/landing_sm.webp?url";
+import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
 </script>
 
 <template>

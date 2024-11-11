@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import StartElectionImage from "~/resources/images/election/start.png?src";
+import StartElectionImage from "~/resources/images/election/start.webp?src";
 import { ElectionStageProps } from "~/resources/interfaces/elections/create.interface";
 import { defaultElectionStages } from "~/resources/data/elections/create";
 
