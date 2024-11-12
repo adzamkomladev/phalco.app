@@ -156,7 +156,7 @@ const onSubmit = () => {
                     >
                         Election Stages
                     </h2>
-                    <div class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-4 " >
                         <div
                             v-for="(stage, index) in form.fields.stages"
                             :key="index"
@@ -176,7 +176,7 @@ const onSubmit = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="mt-10">
+                    <div class="mt-5">
                         <SharedCommonDropdown>
                             <template v-slot:toggle>
                                 <button
@@ -214,7 +214,7 @@ const onSubmit = () => {
                     </div>
                 </div>
 
-                <div class="py-10 -z-10">
+                <div class="pt-2 -z-10">
                     <SharedFormSubmitButton @click="onSubmit" text="create" />
                 </div>
             </form>
