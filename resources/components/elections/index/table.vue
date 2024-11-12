@@ -140,10 +140,10 @@ watch(search, debounceFn);
                                 </p>
                             </div>
 
-                            <div>
-                                <div class="inline-flex gap-x-2">
+                            <div v-if="prev.url || next.url">
+                                <div class="inline-flex  gap-x-2">
                                     <router-link
-                                        v-if="!prev.url"
+                                        v-if="prev.url"
                                         type="button"
                                         :href="prev.url"
                                         class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
@@ -156,7 +156,7 @@ watch(search, debounceFn);
                                     </router-link>
 
                                     <router-link
-                                        v-if="!next.url"
+                                        v-if="next.url"
                                         type="button"
                                         :href="next.url"
                                         class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"

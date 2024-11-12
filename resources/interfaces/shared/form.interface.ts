@@ -14,15 +14,15 @@ export interface BaseInputProps extends FormProp {
 }
 
 
- export interface BaseDateInputProps extends BaseInputProps {
-     startDate?: Date|null;
-     endDate?: Date|null;
-     disablePast?: boolean;
-     latestDate?:Date;
-     farthestDate?:Date;
-     scope: "start" | "end" | "general";
-     type: "datetime" | "date";
- }
+export interface BaseDateInputProps extends BaseInputProps {
+    startDate?: Date | null;
+    endDate?: Date | null;
+    disablePast?: boolean;
+    latestDate?: Date;
+    farthestDate?: Date;
+    scope: "start" | "end" | "general";
+    type: "datetime" | "date";
+}
 
 export interface ButtonProps {
     type?: string;
@@ -69,15 +69,16 @@ export interface BaseAdvanceSelectProps extends FormProp{
     modelValue: string | number;
     options: Array<string | number | {label:string,value:string}>;
     position?:
-        | "top-right"
-        | "top-left"
-        | "top-center"
-        | "bottom-right"
-        | "bottom-left"
-        | "bottom-center";
+    | "top-right"
+    | "top-left"
+    | "top-center"
+    | "bottom-right"
+    | "bottom-left"
+    | "bottom-center";
     selectedClass?: string;
     selectClass?: string;
-    optionClass?:string;
-    optionsClass?:string;
-    hideOnSelect?:boolean;
+    optionClass?: string;
+    optionsClass?: string;
+    hideOnSelect?: boolean;
 }
+

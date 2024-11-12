@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-    invitef?: App.Data.Settings.Team.InvitationData;
+    invite: App.Data.Settings.Team.InvitationData;
 }>();
 
 const expired = new Date(props.invite.expires_at).getTime() < Date.now();
