@@ -6,9 +6,9 @@ const props = defineProps<{
 </script>
 
 <template>
-    <div class="flex flex-col _sm:gap-5">
-        <div class="flex justify-between">
-            <div class="" v-if="stage.title">
+    <div class="flex flex-col  relative">
+        <div class="flex justify-between ">
+            <div class="text-medium" v-if="stage.title">
                 {{ stage.title }}
             </div>
             <div class="relative" v-else>
@@ -29,7 +29,7 @@ const props = defineProps<{
             <div>
                 <button
                     @click.prevent="removeStage({ index })"
-                    class="text-red-500 text-3xl rounded-full p-2 leading-[0px] mb-2 aspect-square self-end hover:bg-gray-100 dark:hover:bg-gray-700"
+                    class="text-red-500 text-3xl rounded-full p-2 leading-[0px]  aspect-square hover:bg-gray-100 dark:hover:bg-gray-700 absolute right-0 top-0"
                 >
                     -
                 </button>
@@ -43,7 +43,7 @@ const props = defineProps<{
                     id="start"
                     scope="start"
                     type="datetime"
-                    placeholder="MM/DD/YYYY"
+                    placeholder="mm/dd/yyyy"
                     label="Start Date"
                     :endDate="stage.date.end"
                 />
@@ -55,7 +55,7 @@ const props = defineProps<{
                     id="end"
                     scope="end"
                     type="datetime"
-                    placeholder="MM/DD/YYYY"
+                    placeholder="mm/dd/yyyy"
                     label="End Date"
                     :startDate="stage.date.start"
                 />

@@ -177,7 +177,7 @@ const handleClickOutside = (event: Event) => {
 const datePicker = ref<HTMLElement | null>(null);
 
 const classes = {
-    input: "py-3 font-light peer cursor-pointer shadow-sm px-4 text-[1.15rem] lg:text-lg block text-gray-700 w-full border-gray-200 rounded-md text-sm focus:border-primary-500 focus:ring-primary-500 disabled:opacity-50 placeholder:text-gray-500 placeholder:text-[1rem] disabled:pointer-events-none dark:bg-transparent dark:border-gray-600 dark:text-gray-400 dark:placeholder-gray-500 dark:focus:ring-gray-600",
+    input: "py-3 font-light peer cursor-pointer px-4 text-sm  block text-gray-700 w-full border-gray-200 rounded-md text-sm focus:border-primary-500 focus:ring-primary-500 disabled:opacity-50 placeholder:text-gray-500  disabled:pointer-events-none dark:bg-transparent dark:border-gray-600 dark:text-gray-400 dark:placeholder-gray-500 dark:focus:ring-gray-600",
     inputError:
         "py-3 px-4 block w-full cursor-pointer text-red-500 peer border-red-500 rounded-lg text-sm focus:border-red-500 focus:ring-red-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400",
 };
@@ -189,6 +189,17 @@ const describeBy = computed(() => `${props.id}-error`);
 
 <template>
     <div ref="datePicker" class="relative">
+        
+        <div class="flex justify-between items-center">
+            <label
+                v-if="props.label"
+                :for="props.id"
+                class="block text-gray-500 lg:text-base mb-2 dark:text-gray-300"
+            >
+                {{ props.label }}
+            </label>
+        </div>
+        <div class="relative">
         <input
             type="text"
             readonly
@@ -207,26 +218,27 @@ const describeBy = computed(() => `${props.id}-error`);
         <SharedCommonIcon
             v-else
             name="calendar"
-            class="absolute h-5 right-3 top-3 text-gray-700 pointer-events-none"
+            class="absolute h-5 right-3 top-3 text-gray-500 pointer-events-none"
         />
-
+</div>
         <div
             :class="[
-                'w-80 py-5   transition-all min-h-full duration-300 -left-10 mt-2 absolute z-50 flex-col bg-white border shadow-lg rounded-xl  dark:bg-gray-900 dark:border-gray-700',
+                'w-80 py-5   transition-all min-h-full duration-300  mt-1 absolute z-50 flex-col bg-white border shadow-lg rounded-xl  dark:bg-gray-900 dark:border-gray-700',
                 calendarVisible
                     ? 'opacity-100  translate-y-0 pointer-events-auto'
                     : 'opacity-0 h-0 translate-y-5 pointer-events-none',
-            ]"
+            ,scope=='end' && 'sm:right-0']"
         >
             <div class="flex items-center justify-between px-2">
                 <button
                     type="button"
-                    class="size-8 flex justify-center items-center text-gray-800 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:bg-gray-800"
+                    class="size-8 flex justify-center items-center text-gray-800 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none dark:text-gray-400 dark:hover:bg-gray-800"
                     aria-label="Previous"
                     @click.prevent="changeMonth(-1)"
                     :disabled="isPastMonth(year, month - 1)"
                 >
-                    &lt;
+              <SharedCommonIcon name="chevron" stroke-width="0.2" class="-rotate-90  h-5" />
+
                 </button>
 
                 <div
@@ -236,12 +248,12 @@ const describeBy = computed(() => `${props.id}-error`);
                 </div>
 
                 <button
-                    class="size-8 justify-center items-center text-gray-800 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:bg-gray-800"
+                    class="size-8 flex justify-center items-center text-gray-800 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none  dark:text-gray-400 dark:hover:bg-gray-800"
                     aria-label="Next"
                     @click.prevent="changeMonth(1)"
                     :disabled="isPastMonth(year, month + 1)"
                 >
-                    &gt;
+                   <SharedCommonIcon name="chevron" stroke-width="0.2" class="rotate-90  h-5" />
                 </button>
             </div>
             <div class="grid grid-cols-7 gap-2 pb-1.5 text-center px-2">
@@ -261,10 +273,10 @@ const describeBy = computed(() => `${props.id}-error`);
                     :class="[
                         day.month === 0
                             ? day.timestamp === selectedDay
-                                ? 'bg-blue-500  dark:bg-secondary-700 text-white'
+                                ? 'bg-primary-500  dark:bg-secondary-700 text-white'
                                 : 'hover:border-secondary-600 hover:text-secondary-600'
                             : 'opacity-40 pointer-events-none ',
-                        ' size-8 flex justify-center items-center cursor-pointer border border-transparent  text-gray-800 rounded-full  disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:border-blue-600 focus:text-blue-600 dark:text-gray-200',
+                        ' size-8 flex justify-center items-center cursor-pointer border border-transparent  text-gray-800 rounded-full  disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:border-primary-600 focus:text-primary-600 dark:text-gray-200',
                     ]"
                     @click="selectDay(day)"
                 >
@@ -289,7 +301,7 @@ const describeBy = computed(() => `${props.id}-error`);
                 <button
                     @click="toggleCalendar"
                     type="button"
-                    class="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-xs font-medium rounded-lg border border-transparent bg-secondary-300 dark:bg-secondary-700 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-xs font-medium rounded-lg border border-transparent bg-secondary-300 dark:bg-secondary-700 text-white hover:bg-primary-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-primary-500"
                 >
                     Apply
                 </button>

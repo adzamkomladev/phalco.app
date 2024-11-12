@@ -23,8 +23,8 @@ const form = useForm({
     },
 });
 
-const addedStages = ref(defaultElectionStages.slice(0, 3));
-const removedDefaultStages = ref(defaultElectionStages.slice(3));
+const addedStages = ref(defaultElectionStages.slice(0, 1));
+const removedDefaultStages = ref(defaultElectionStages.slice(1));
 
 onMounted(() => {
     form.fields.stages = [...addedStages.value];
@@ -89,7 +89,7 @@ const onSubmit = () => {
                         Start an Election of your choice
                     </p>
                     <p
-                        class="font-normal text-sm dark:text-gray-300 text-gray-200"
+                        class="font-normal text-sm dark:text-gray-300 text-gray-100"
                     >
                         To start using Phalco, confirm your email address with
                         the email we sent to:
@@ -97,7 +97,7 @@ const onSubmit = () => {
                 </div>
                 <img
                     :src="StartElectionImage"
-                    class="w-40 _sm:hidden p-5 pl-0"
+                    class="w-40  p-5 pl-0"
                 />
             </div>
 
@@ -136,7 +136,7 @@ const onSubmit = () => {
                             id="start"
                             scope="start"
                             type="datetime"
-                            placeholder="MM/DD/YYYY"
+                            placeholder="mm/dd/yyyy"
                             label="Start Date"
                             :endDate="form.fields.end"
                         />
@@ -147,19 +147,21 @@ const onSubmit = () => {
                             id="end"
                             scope="end"
                             type="datetime"
-                            placeholder="MM/DD/YYYY"
+                            placeholder="mm/dd/yyyy"
                             label="End Date"
                             :startDate="form.fields.start"
                         />
                     </div>
                 </div>
-
                 <div>
-                    <div class="flex flex-col gap-5">
+                   <h2 class="text-lg py-2   font-semibold text-gray-800 dark:text-gray-200">
+                    Election Stages 
+                    </h2>
+                    <div class="flex flex-col gap-4">
                         <div
                             v-for="(stage, index) in form.fields.stages"
                             :key="index"
-                            class="mt-4"
+                            class=""
                         >
                             <div>
                                 <transition>
@@ -189,7 +191,7 @@ const onSubmit = () => {
                                 </button>
                             </template>
                             <div
-                                class="p-2 bg-white dark:bg-gray-800 shadow-card dark:shadow-gray-900 rounded-md flex text-gray-700 dark:text-gray-300 flex-col gap-1 w-48"
+                                class="p-2 bg-white dark:bg-gray-800 shadow-card dark:shadow-gray-900 rounded-md text-sm flex text-gray-700 dark:text-gray-300 flex-col gap-1 w-48"
                             >
                                 <button
                                     v-for="(
@@ -197,7 +199,7 @@ const onSubmit = () => {
                                     ) in removedDefaultStages"
                                     :key="index"
                                     @click.prevent="addToStages(stage.title)"
-                                    class="text-left px-2 hover:bg-slate-100 dark:hover:bg-slate-700 py-1 rounded-md"
+                                    class="text-left px-2 hover:bg-slate-100 dark:hover:bg-slate-700 py-1 rounded-md "
                                 >
                                     {{ stage.title }}
                                 </button>
@@ -213,7 +215,7 @@ const onSubmit = () => {
                     </div>
                 </div>
 
-                <div class="py-10">
+                <div class="py-10 -z-10">
                     <SharedFormSubmitButton @click="onSubmit" text="create" />
                 </div>
             </form>
