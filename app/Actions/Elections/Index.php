@@ -25,18 +25,18 @@ class Index
     public function handle(int $organizationId)
     {
         $ongoingElection = Election::select(['id', 'organization_id', 'status', 'end', 'start'])
-        ->where('organization_id', $organizationId)
+            ->where('organization_id', $organizationId)
             ->where('status', 'active')
             ->first();
 
-        if (!$ongoingElection) {
+        if (! $ongoingElection) {
             return [
                 'stats' => StatsData::from([
                     'ongoing' => OngoingStatsData::optional(null),
                     'totalSpent' => 0,
-                    'totalCampaigns' => 0
+                    'totalCampaigns' => 0,
                 ]),
-                'elections' => ElectionsTable::make()
+                'elections' => ElectionsTable::make(),
             ];
         }
 
@@ -47,11 +47,11 @@ class Index
             $totalVotersCurrently,
             $totalVotersOneDayAgo
         ] = Octane::concurrently([
-            fn() => Voter::where('election_id', $electionId)
+            fn () => Voter::where('election_id', $electionId)
                 ->count(),
-            fn() => Voter::where('election_id', $electionId)
+            fn () => Voter::where('election_id', $electionId)
                 ->whereDate('created_at', '<', $dayAgo)
-                ->count()
+                ->count(),
         ]);
 
         $totalVotersChange = $totalVotersCurrently - $totalVotersOneDayAgo;
@@ -65,13 +65,13 @@ class Index
                     'totalVoters' => $totalVotersCurrently,
                     'totalVotersChange' => $totalVotersChange,
                     'daysLeft' => $daysLeftToComplete,
-                    'completionPercentage' => $totalDaysSoFarForOngoingElection / $totalDaysForOngoingElection * 100
+                    'completionPercentage' => $totalDaysSoFarForOngoingElection / $totalDaysForOngoingElection * 100,
 
                 ]),
                 'totalSpent' => 0,
-                'totalCampaigns' => 0
+                'totalCampaigns' => 0,
             ]),
-            'elections' => ElectionsTable::make()
+            'elections' => ElectionsTable::make(),
         ];
     }
 }
