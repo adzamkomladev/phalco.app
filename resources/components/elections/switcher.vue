@@ -33,7 +33,7 @@ watch(
 
 <template>
     <div
-        v-if="isEmpty"
+        v-if="!isEmpty"
         class="hs-dropdown [--placement:bottom-left] relative inline-flex"
     >
         <button
