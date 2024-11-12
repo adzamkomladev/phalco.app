@@ -42,16 +42,18 @@ watch(
             aria-haspopup="menu"
             aria-expanded="false"
             aria-label="Dropdown"
-            class="rounded-md border border-gray-200 dark:border-gray-600 p-2 gap-4 _sm:gap-2 flex justify-between w-fit items-center  _sm:w-fit"
+            class="rounded-md border border-gray-200 dark:border-gray-600 p-2 gap-4 _sm:gap-2 flex justify-between w-fit items-center _sm:w-fit"
         >
             <div class="flex gap-2">
                 <p
                     class="size-5 bg-primary-400 dark:bg-primary-600 rounded-md"
                 />
-                <p class="max-w-40  truncate">{{
-                    elections.find((e) => e.value === selectedElection)
-                        ?.label || "Select Election for us please "
-                }}</p>
+                <p class="max-w-40 truncate">
+                    {{
+                        elections.find((e) => e.value === selectedElection)
+                            ?.label || "Select Election for us please "
+                    }}
+                </p>
             </div>
             <div class="hs-dropdown-open:opacity-0">
                 <SharedCommonIcon

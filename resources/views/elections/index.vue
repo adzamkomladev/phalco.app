@@ -54,7 +54,7 @@ onMounted(() => {
                 :daysLeft="10"
                 numberOfVoters="1500"
             />
-            
+
             <div class="flex flex-col gap-4 sm:gap-6">
                 <!-- amount card -->
                 <ElectionsIndexStatsCardSmall
