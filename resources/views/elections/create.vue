@@ -156,7 +156,7 @@ const onSubmit = () => {
                     >
                         Election Stages
                     </h2>
-                    <div class="flex flex-col gap-4 " >
+                    <div class="flex flex-col gap-4">
                         <div
                             v-for="(stage, index) in form.fields.stages"
                             :key="index"
