@@ -6,8 +6,8 @@ const props = defineProps<{
 </script>
 
 <template>
-    <div class="flex flex-col  relative">
-        <div class="flex justify-between ">
+    <div class="flex flex-col relative">
+        <div class="flex justify-between">
             <div class="text-medium" v-if="stage.title">
                 {{ stage.title }}
             </div>
@@ -29,7 +29,7 @@ const props = defineProps<{
             <div>
                 <button
                     @click.prevent="removeStage({ index })"
-                    class="text-red-500 text-3xl rounded-full p-2 leading-[0px]  aspect-square hover:bg-gray-100 dark:hover:bg-gray-700 absolute right-0 top-0"
+                    class="text-red-500 text-3xl rounded-full p-2 leading-[0px] aspect-square hover:bg-gray-100 dark:hover:bg-gray-700 absolute right-0 top-0"
                 >
                     -
                 </button>

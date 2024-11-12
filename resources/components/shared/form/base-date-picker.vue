@@ -189,7 +189,6 @@ const describeBy = computed(() => `${props.id}-error`);
 
 <template>
     <div ref="datePicker" class="relative">
-        
         <div class="flex justify-between items-center">
             <label
                 v-if="props.label"
@@ -200,34 +199,36 @@ const describeBy = computed(() => `${props.id}-error`);
             </label>
         </div>
         <div class="relative">
-        <input
-            type="text"
-            readonly
-            @click="toggleCalendar"
-            v-model="formattedDateTime"
-            :class="inputClass"
-            :placeholder="props.placeholder"
-            :required="props.required"
-            :error="errorMessage"
-        />
-        <SharedCommonIcon
-            v-if="errorMessage"
-            name="error"
-            class="absolute h-5 right-3 top-3 text-red-500 pointer-events-none"
-        />
-        <SharedCommonIcon
-            v-else
-            name="calendar"
-            class="absolute h-5 right-3 top-3 text-gray-500 pointer-events-none"
-        />
-</div>
+            <input
+                type="text"
+                readonly
+                @click="toggleCalendar"
+                v-model="formattedDateTime"
+                :class="inputClass"
+                :placeholder="props.placeholder"
+                :required="props.required"
+                :error="errorMessage"
+            />
+            <SharedCommonIcon
+                v-if="errorMessage"
+                name="error"
+                class="absolute h-5 right-3 top-3 text-red-500 pointer-events-none"
+            />
+            <SharedCommonIcon
+                v-else
+                name="calendar"
+                class="absolute h-5 right-3 top-3 text-gray-500 pointer-events-none"
+            />
+        </div>
         <div
             :class="[
                 'w-80 py-5   transition-all min-h-full duration-300  mt-1 absolute z-50 flex-col bg-white border shadow-lg rounded-xl  dark:bg-gray-900 dark:border-gray-700',
                 calendarVisible
                     ? 'opacity-100  translate-y-0 pointer-events-auto'
                     : 'opacity-0 h-0 translate-y-5 pointer-events-none',
-            ,scope=='end' && 'sm:right-0']"
+                ,
+                scope == 'end' && 'sm:right-0',
+            ]"
         >
             <div class="flex items-center justify-between px-2">
                 <button
@@ -237,8 +238,11 @@ const describeBy = computed(() => `${props.id}-error`);
                     @click.prevent="changeMonth(-1)"
                     :disabled="isPastMonth(year, month - 1)"
                 >
-              <SharedCommonIcon name="chevron" stroke-width="0.2" class="-rotate-90  h-5" />
-
+                    <SharedCommonIcon
+                        name="chevron"
+                        stroke-width="0.2"
+                        class="-rotate-90 h-5"
+                    />
                 </button>
 
                 <div
@@ -248,12 +252,16 @@ const describeBy = computed(() => `${props.id}-error`);
                 </div>
 
                 <button
-                    class="size-8 flex justify-center items-center text-gray-800 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none  dark:text-gray-400 dark:hover:bg-gray-800"
+                    class="size-8 flex justify-center items-center text-gray-800 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none dark:text-gray-400 dark:hover:bg-gray-800"
                     aria-label="Next"
                     @click.prevent="changeMonth(1)"
                     :disabled="isPastMonth(year, month + 1)"
                 >
-                   <SharedCommonIcon name="chevron" stroke-width="0.2" class="rotate-90  h-5" />
+                    <SharedCommonIcon
+                        name="chevron"
+                        stroke-width="0.2"
+                        class="rotate-90 h-5"
+                    />
                 </button>
             </div>
             <div class="grid grid-cols-7 gap-2 pb-1.5 text-center px-2">

@@ -95,10 +95,7 @@ const onSubmit = () => {
                         the email we sent to:
                     </p>
                 </div>
-                <img
-                    :src="StartElectionImage"
-                    class="w-40  p-5 pl-0"
-                />
+                <img :src="StartElectionImage" class="w-40 p-5 pl-0" />
             </div>
 
             <form
@@ -154,8 +151,10 @@ const onSubmit = () => {
                     </div>
                 </div>
                 <div>
-                   <h2 class="text-lg py-2   font-semibold text-gray-800 dark:text-gray-200">
-                    Election Stages 
+                    <h2
+                        class="text-lg py-2 font-semibold text-gray-800 dark:text-gray-200"
+                    >
+                        Election Stages
                     </h2>
                     <div class="flex flex-col gap-4">
                         <div
@@ -199,7 +198,7 @@ const onSubmit = () => {
                                     ) in removedDefaultStages"
                                     :key="index"
                                     @click.prevent="addToStages(stage.title)"
-                                    class="text-left px-2 hover:bg-slate-100 dark:hover:bg-slate-700 py-1 rounded-md "
+                                    class="text-left px-2 hover:bg-slate-100 dark:hover:bg-slate-700 py-1 rounded-md"
                                 >
                                     {{ stage.title }}
                                 </button>
