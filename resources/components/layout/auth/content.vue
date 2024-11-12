@@ -19,7 +19,7 @@ const props = defineProps<{
             </p>
             <div>
                 <p
-                    class="text-gray-500 portrait:max-w-[22rem] max-w-[28rem] block text-wrap text-base md:text-lg"
+                    class="text-gray-500 portrait:max-w-[22rem] max-w-[28rem] block text-wrap text-base"
                 >
                     <span v-if="description">{{ description }}</span>
                     <slot v-else name="description" />

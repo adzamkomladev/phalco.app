@@ -38,7 +38,7 @@ onMounted(() => {
         class="max-w-[85rem] px-4 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
     >
         <!-- Grid -->
-        <div class="py-5">
+        <div class="pb-5">
             <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
                 Elections
             </h2>
@@ -49,14 +49,15 @@ onMounted(() => {
         <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 self-center _sm:px-[5%]">
             <!-- Card -->
 
-            <ElectionsOngoingStatsCardCompleted
+            <ElectionsIndexStatsCardCompleted
                 :completionValue="countdownProgress"
                 :daysLeft="10"
                 numberOfVoters="1500"
             />
+            
             <div class="flex flex-col gap-4 sm:gap-6">
                 <!-- amount card -->
-                <ElectionsOngoingStatsCardSmall
+                <ElectionsIndexStatsCardSmall
                     icon="cedi"
                     description="Total Amount spent on Election"
                     :value="'₵' + '150'"
@@ -64,7 +65,7 @@ onMounted(() => {
                 />
 
                 <!-- amount card -->
-                <ElectionsOngoingStatsCardSmall
+                <ElectionsIndexStatsCardSmall
                     icon="campaign_main"
                     description="Total election Campaigns"
                     :value="'3'"
@@ -77,7 +78,7 @@ onMounted(() => {
                             stroke-width="2"
                         />
                     </div>
-                </ElectionsOngoingStatsCardSmall>
+                </ElectionsIndexStatsCardSmall>
             </div>
         </div>
         <!-- End Grid -->

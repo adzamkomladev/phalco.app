@@ -11,7 +11,7 @@ onMounted(() => {
         class="bg-white dark:bg-gray-700 h-screen w-screen flex items-center justify-center"
     >
         <main
-            class="relative flex-1 h-full shadow-lg w-full text-red-400 self-center max-h-[1400px] max-w-[1800px] flex bg-white dark:bg-gray-800 sm:landscape:overflow-hidden"
+            class="relative flex-1 h-full  w-full text-red-400 self-center max-h-[1400px] max-w-[1800px] flex bg-white dark:bg-gray-800 sm:landscape:overflow-hidden"
         >
             <section
                 class="flex-1 flex flex-col sm:landscape:gap-x-[4%] sm:landscape:landscape:flex-row"
@@ -20,15 +20,15 @@ onMounted(() => {
                     class="sticky h-[30vh] sm:landscape:p-4 sm:landscape:pr-0 -top-0 bg-cover block spect-square sm:landscape:h-full sm:landscape:landscape:w-[50%] rounded-t-2xl sm:landscape:rounded-tl-none sm:landscape:rounded-r-2xl sm:landscape:flex"
                 >
                     <div
-                        class="blur-0 z-50 select-none absolute sm:left-[5vw] top-[2vh] p-5"
+                        class="blur-0 z-50 select-none absolute sm:left-[3rem]  top-[2rem] p-5"
                     >
                         <div
-                            class="h-[1rem] px-1 sm:h-[1.5rem] text-transparent bg-transparent xtall:sm:scale-150"
+                            class="h-[1rem] px-1 sm:h-[1.5rem]  text-transparent  bg-transparent "
                         >
                             <router-link href="/">
                                 <SharedCommonIcon
                                     name="logo_full"
-                                    class="text-primary-500"
+                                    class="text-primary-500 h-full"
                                 />
                             </router-link>
                         </div>

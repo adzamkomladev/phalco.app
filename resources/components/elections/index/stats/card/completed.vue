@@ -16,7 +16,7 @@ const conicStyle = computed(() => ({
 <template>
     <SharedCommonCard class="font-normal text-sm p-[8%] rounded-2xl">
         <div class="text-center">
-            <div class="font-bold text-xl leading-">Onging Election</div>
+            <div class="text-2xl font-semibold text-gray-800 dark:text-gray-200">Onging Election</div>
             <div class="text-gray-500">
                 Stats of current ongoing <br />
                 elections
@@ -24,7 +24,7 @@ const conicStyle = computed(() => ({
         </div>
         <div class="pt-5 _sm:pt-2 flex justify-between">
             <div class="">
-                <p class="text-lg font-bold relative w-fit">
+                <p class="text-2xl font-semibold text-gray-800 dark:text-gray-200 relative w-fit">
                     {{ numberOfVoters }}
                     <sup
                         class="text-forest-300 left-full text-[0.6rem] absolute flex items-center"
@@ -35,7 +35,7 @@ const conicStyle = computed(() => ({
                 <p class="text-gray-500">voters</p>
             </div>
             <div>
-                <p class="text-lg font-semibold relative w-fit">
+                <p class="text-2xl font-semibold text-gray-800 dark:text-gray-200 relative w-fit">
                     {{ daysLeft }}<span class="ml-2 text-sm">days</span>
                 </p>
                 <p class="text-gray-500">Days left</p>
@@ -51,12 +51,12 @@ const conicStyle = computed(() => ({
                 >
                     <div class="h-fit text-center self-end bottom-0">
                         <div
-                            class="font-bold text-3xl md:text-4xl sm:_lg:text-xl xl:text-5xl"
+                            class="font-bold  sm:text-3xl text-5xl _xs:text-3xl md:text-4xl  xl:text-5xl"
                         >
                             {{ Number(completionValue.toFixed(2)) }}%
                         </div>
                         <div
-                            class="text-secondary-300 text-xl sm:text-lg md:text-xl font-bold leading-none"
+                            class="text-secondary-300  text-xl  sm:text-lg md:text-xl font-bold leading-none"
                         >
                             completed
                         </div>

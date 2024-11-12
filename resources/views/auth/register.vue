@@ -21,10 +21,10 @@ const register = useForm({
     <LayoutAuthContent
         class=""
         title="Sign Up"
-        description="Create new account with phalco"
+        description="Create a new account with Phalco"
     >
         <div>
-            <AuthGoogleButton />
+            <AuthGoogleButton text="Sign Up with google" />
         </div>
 
         <SharedCommonOr />

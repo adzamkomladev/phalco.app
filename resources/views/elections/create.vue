@@ -103,7 +103,7 @@ const onSubmit = () => {
 
             <form
                 @submit.prevent="form.submit"
-                class="flex flex-col gap-5 mt-10 px-4 sm:px-8"
+                class="flex flex-col gap-5 mt-10  "
             >
                 <div>
                     <SharedFormBaseImageUpload v-model="form.fields.logo" />
@@ -123,14 +123,15 @@ const onSubmit = () => {
                     <SharedFormBaseTextarea
                         v-model="form.fields.description"
                         :error="form.errors.description"
+                        
                         id="description"
                         name="description"
                         placeholder="Enter election description"
                     />
                 </div>
 
-                <div class="flex _sm:flex-col gap-5">
-                    <div>
+                <div class="flex  _sm:flex-col gap-5 ">
+            <div class="basis-1/2">
                         <SharedFormBaseDatePicker
                             v-model="form.fields.start"
                             id="start"
@@ -141,7 +142,7 @@ const onSubmit = () => {
                             :endDate="form.fields.end"
                         />
                     </div>
-                    <div>
+            <div class="basis-1/2">
                         <SharedFormBaseDatePicker
                             v-model="form.fields.end"
                             id="end"
