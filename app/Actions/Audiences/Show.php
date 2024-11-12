@@ -17,9 +17,10 @@ class Show
     public function handle(int $id)
     {
         $audience = Audience::find($id);
+
         return [
             'audience' => $audience,
-            'contacts' => []
+            'contacts' => [],
         ];
     }
 }

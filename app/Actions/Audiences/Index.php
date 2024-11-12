@@ -4,6 +4,7 @@ namespace App\Actions\Audiences;
 
 use App\Tables\Audience\AudiencesTable;
 use Lorisleiva\Actions\Concerns\AsAction;
+
 use function Hybridly\view;
 
 class Index
@@ -21,7 +22,7 @@ class Index
             'stats' => [
                 'totalContacts' => 0,
             ],
-            'audiences' => AudiencesTable::make()
+            'audiences' => AudiencesTable::make(),
         ];
     }
 }

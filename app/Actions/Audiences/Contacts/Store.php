@@ -2,7 +2,6 @@
 
 namespace App\Actions\Audiences\Contacts;
 
-use App\Models\Audience;
 use App\Models\Contact;
 use Carbon\Carbon;
 use Lorisleiva\Actions\ActionRequest;

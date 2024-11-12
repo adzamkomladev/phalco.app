@@ -14,7 +14,7 @@ class Store
         return [
             'name' => ['required', 'max:100'],
             'description' => ['nullable', 'string'],
-            'uploaded_file' => ['required', 'url']
+            'uploaded_file' => ['required', 'url'],
         ];
     }
 

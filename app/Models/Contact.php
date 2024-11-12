@@ -35,8 +35,6 @@ class Contact extends Model
 
     /**
      * Get the user that created the Contact
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function createdBy(): BelongsTo
     {

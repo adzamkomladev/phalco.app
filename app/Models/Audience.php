@@ -27,8 +27,6 @@ class Audience extends Model
 
     /**
      * Get the contacts that are associated with the Audience
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function contacts(): HasMany
     {
@@ -37,8 +35,6 @@ class Audience extends Model
 
     /**
      * Get the organization that owns the Audience
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function organization(): BelongsTo
     {
@@ -47,8 +43,6 @@ class Audience extends Model
 
     /**
      * Get the user that created the Audience
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function createdBy(): BelongsTo
     {
