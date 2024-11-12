@@ -141,7 +141,7 @@ watch(search, debounceFn);
                             </div>
 
                             <div v-if="prev.url || next.url">
-                                <div class="inline-flex  gap-x-2">
+                                <div class="inline-flex gap-x-2">
                                     <router-link
                                         v-if="prev.url"
                                         type="button"
