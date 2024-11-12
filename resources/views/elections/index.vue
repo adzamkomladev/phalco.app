@@ -4,6 +4,7 @@ useHead({
 });
 
 const props = defineProps<{
+    stats: App.Data.Elections.Index.StatsData;
     elections: Table<{
         id: number;
         name: string;
@@ -26,9 +27,6 @@ const totalUsers = ref(0);
 
 const countdownProgress = 78.55;
 const table = useTable(props, "elections");
-onMounted(() => {
-    console.log(table, "teble election");
-});
 </script>
 
 <template layout="main">
@@ -49,26 +47,22 @@ onMounted(() => {
         <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 self-center _sm:px-[5%]">
             <!-- Card -->
 
-            <ElectionsIndexStatsCardCompleted
-                :completionValue="countdownProgress"
-                :daysLeft="10"
-                numberOfVoters="1500"
-            />
+            <ElectionsIndexStatsCardOngoing :stats="stats.ongoing" />
 
             <div class="flex flex-col gap-4 sm:gap-6">
                 <!-- amount card -->
                 <ElectionsIndexStatsCardSmall
                     icon="cedi"
-                    description="Total Amount spent on Election"
-                    :value="'₵' + '150'"
+                    description="Total amount spent on all elections"
+                    :value="'₵' + stats.totalSpent"
                     class="grow"
                 />
 
                 <!-- amount card -->
                 <ElectionsIndexStatsCardSmall
                     icon="campaign_main"
-                    description="Total election Campaigns"
-                    :value="'3'"
+                    description="Total elections campaigns"
+                    :value="stats.totalCampaigns + ''"
                     class="grow"
                 >
                     <div class="absolute top-5 right-5">

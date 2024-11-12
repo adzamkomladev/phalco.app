@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { ElectionsStatsCardCompleteProps } from "~/resources/interfaces/elections/index.interface";
+const props = defineProps<{
+    stats: App.Data.Elections.Index.OngoingStatsData | null;
+}>();
 
-const props = defineProps<ElectionsStatsCardCompleteProps>();
-
-const conicStyle = computed(() => ({
-    background: `conic-gradient(
-    from 270deg,
-    #0988D0 0deg ${props.completionValue * 1.8}deg,
-    transparent ${props.completionValue * 1.8}deg ${(props.completionValue + 2) * 1.8}deg,
-    #BFDBFE ${(props.completionValue + 2) * 1.8}deg 180deg
-  )`,
-}));
+// const conicStyle = computed(() => ({
+//     background: `conic-gradient(
+//     from 270deg,
+//     #0988D0 0deg ${props.stats?.completionPercentage * 1.8}deg,
+//     transparent ${props.stats?.completionPercentage * 1.8}deg ${(props.stats?.completionPercentage + 2) * 1.8}deg,
+//     #BFDBFE ${(props.stats?.completionPercentage + 2) * 1.8}deg 180deg
+//   )`,
+// }));
+const conicStyle = null;
 </script>
 
 <template>
@@ -19,7 +20,7 @@ const conicStyle = computed(() => ({
             <div
                 class="text-2xl font-semibold text-gray-800 dark:text-gray-200"
             >
-                Onging Election
+                Ongoing Election
             </div>
             <div class="text-gray-500">
                 Stats of current ongoing <br />
@@ -31,11 +32,11 @@ const conicStyle = computed(() => ({
                 <p
                     class="text-2xl font-semibold text-gray-800 dark:text-gray-200 relative w-fit"
                 >
-                    {{ numberOfVoters }}
+                    {{ stats?.totalVoters }}
                     <sup
                         class="text-forest-300 left-full text-[0.6rem] absolute flex items-center"
                         ><SharedCommonIcon name="tri" class="h-2" />
-                        <p>+5</p>
+                        <p>+{{ stats?.totalVotersChange }}</p>
                     </sup>
                 </p>
                 <p class="text-gray-500">voters</p>
@@ -44,7 +45,7 @@ const conicStyle = computed(() => ({
                 <p
                     class="text-2xl font-semibold text-gray-800 dark:text-gray-200 relative w-fit"
                 >
-                    {{ daysLeft }}<span class="ml-2 text-sm">days</span>
+                    {{ stats?.daysLeft }}<span class="ml-2 text-sm">days</span>
                 </p>
                 <p class="text-gray-500">Days left</p>
             </div>
@@ -61,7 +62,9 @@ const conicStyle = computed(() => ({
                         <div
                             class="font-bold sm:text-3xl text-5xl _xs:text-3xl md:text-4xl xl:text-5xl"
                         >
-                            {{ Number(completionValue.toFixed(2)) }}%
+                            {{
+                                Number(stats?.completionPercentage.toFixed(2))
+                            }}%
                         </div>
                         <div
                             class="text-secondary-300 text-xl sm:text-lg md:text-xl font-bold leading-none"
