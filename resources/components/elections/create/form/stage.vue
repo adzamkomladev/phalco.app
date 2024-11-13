@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ElectionStageProps } from '~/resources/interfaces/elections/create.interface';
+import { ElectionStageProps } from "~/resources/interfaces/elections/create.interface";
 
 const props = defineProps<{
     stage: ElectionStageProps;

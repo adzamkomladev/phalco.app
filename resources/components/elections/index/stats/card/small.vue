@@ -23,11 +23,13 @@ const props = withDefaults(defineProps<ElectionsStatsCardSmallProps>(), {
         </div>
         <div>
             <div
-                class="sm:whitespace-nowrap _xs:text-xs sm:_md:text-xs lg:text-sm  xl:text-xl 2xl:text-2xl font-semibold text-gray-800 dark:text-gray-200"
+                class="sm:whitespace-nowrap _xs:text-xs sm:_md:text-xs lg:text-sm xl:text-xl 2xl:text-2xl font-semibold text-gray-800 dark:text-gray-200"
             >
                 {{ description }}
             </div>
-            <div class="text-gray-700 sm:text-xl dark:text-gray-400 font-semibold">
+            <div
+                class="text-gray-700 sm:text-xl dark:text-gray-400 font-semibold"
+            >
                 {{ value }}
             </div>
         </div>

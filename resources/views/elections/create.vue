@@ -68,7 +68,6 @@ const removeStage = (index: number) => {
         }
     }
 };
-
 </script>
 
 <template>

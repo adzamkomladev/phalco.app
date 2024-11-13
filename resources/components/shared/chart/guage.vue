@@ -1,10 +1,9 @@
-
 <script setup lang="ts">
-const props = defineProps<{completed:number}>();
+const props = defineProps<{ completed: number }>();
 
-const gap=computed(()=>{
- return   props.completed <=0 ? 0 :1.5
-})
+const gap = computed(() => {
+    return props.completed <= 0 ? 0 : 1.5;
+});
 
 const conicStyle = computed(() => ({
     background: `conic-gradient(
@@ -18,29 +17,27 @@ const conicStyle = computed(() => ({
 </script>
 
 <template>
- <div class="aspect-[2/1] overflow-hidden px-[10%]  pt-[10%]  ">
+    <div class="aspect-[2/1] overflow-hidden px-[10%] pt-[10%]">
+        <div
+            :style="conicStyle"
+            class="transition-all aspect-square rounded-t-full flex justify-center w-full p-[5%] pb-0"
+        >
             <div
-                :style="conicStyle"
-                class="transition-all aspect-square   rounded-t-full flex justify-center w-full p-[5%] pb-0"
+                class="aspect-[2/1] bg-white dark:bg-gray-800 rounded-t-full w-full justify-center flex self-start"
             >
-                <div
-                    class="aspect-[2/1] bg-white dark:bg-gray-800 rounded-t-full w-full justify-center flex self-start"
-                >
-                    <div class="h-fit text-center self-end bottom-0">
-                        <div
-                            class="font-bold sm:text-3xl text-5xl _xs:text-3xl md:text-4xl xl:text-5xl"
-                        >
-                            {{
-                                Number(completed.toFixed(2) || 0 )
-                            }}%
-                        </div>
-                        <div
-                            class="text-secondary-300 text-xl sm:text-lg md:text-xl font-bold leading-none"
-                        >
-                            completed
-                        </div>
+                <div class="h-fit text-center self-end bottom-0">
+                    <div
+                        class="font-bold sm:text-3xl text-5xl _xs:text-3xl md:text-4xl xl:text-5xl"
+                    >
+                        {{ Number(completed.toFixed(2) || 0) }}%
+                    </div>
+                    <div
+                        class="text-secondary-300 text-xl sm:text-lg md:text-xl font-bold leading-none"
+                    >
+                        completed
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </template>

@@ -130,16 +130,16 @@ watch(search, debounceFn);
                                 <p
                                     class="text-sm text-gray-600 dark:text-gray-400"
                                 >
-                                    <span v-if="table.paginator?.meta?.total >=0"
+                                    <span
+                                        v-if="table.paginator?.meta?.total >= 0"
                                         class="font-semibold text-gray-800 dark:text-gray-200"
-                                        >
-                                        {{
-                                            table.paginator?.meta?.total 
-                                        }} <span class="font-normal">elections</span></span
                                     >
-                                    <span v-else>
-                                     No election yet
-                                    </span>
+                                        {{ table.paginator?.meta?.total }}
+                                        <span class="font-normal"
+                                            >elections</span
+                                        ></span
+                                    >
+                                    <span v-else> No election yet </span>
                                 </p>
                             </div>
 
