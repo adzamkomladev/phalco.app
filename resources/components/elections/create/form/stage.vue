@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ElectionStageProps } from '~/resources/interfaces/elections/create.interface';
+
 const props = defineProps<{
     stage: ElectionStageProps;
     removeStage: (args: { index: number }) => void;
@@ -39,13 +41,13 @@ const props = defineProps<{
         <div class="flex gap-5 _sm:flex-col">
             <div class="basis-1/2">
                 <SharedFormBaseDatePicker
-                    v-model="stage.date.start"
+                    v-model="stage.start"
                     id="start"
                     scope="start"
                     type="datetime"
                     placeholder="mm/dd/yyyy"
                     label="Start Date"
-                    :endDate="stage.date.end"
+                    :endDate="stage.end"
                 />
             </div>
 

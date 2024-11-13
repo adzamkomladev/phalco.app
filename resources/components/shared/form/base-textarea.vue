@@ -17,7 +17,7 @@ defineExpose({ focus, select });
 
 const classes = {
     textarea:
-        "py-2 px-3 block w-full  min-h-28 h-28 max-h-48 placeholder:text-gray-500  placeholder:text-base text-gray-700 border-gray-200 rounded-lg md:text-lg bg-transparent focus:border-primary-500 focus:ring-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:border-gray-700 dark:text-gray-400 dark:placeholder-gray-500 dark:focus:ring-gray-600",
+        "py-2 px-3 block w-full  min-h-28 h-28 max-h-48 placeholder:text-gray-500  placeholder:text-base text-gray-700 border-gray-200 rounded-lg text-base bg-transparent focus:border-primary-500 focus:ring-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:border-gray-700 dark:text-gray-400 dark:placeholder-gray-500 dark:focus:ring-gray-600",
     textareaError:
         "py-3 px-4 block w-full  min-h-28 h-28 max-h-48 border-red-500 rounded-lg text-sm focus:border-red-500 bg-transparent focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none dark:border-gray-700 dark:text-gray-400 dark:placeholder-gray-500 dark:focus:ring-gray-600",
 };

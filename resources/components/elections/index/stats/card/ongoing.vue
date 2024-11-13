@@ -3,22 +3,15 @@ const props = defineProps<{
     stats: App.Data.Elections.Index.OngoingStatsData | null;
 }>();
 
-// const conicStyle = computed(() => ({
-//     background: `conic-gradient(
-//     from 270deg,
-//     #0988D0 0deg ${props.stats?.completionPercentage * 1.8}deg,
-//     transparent ${props.stats?.completionPercentage * 1.8}deg ${(props.stats?.completionPercentage + 2) * 1.8}deg,
-//     #BFDBFE ${(props.stats?.completionPercentage + 2) * 1.8}deg 180deg
-//   )`,
-// }));
-const conicStyle = null;
+const completed=ref(props.stats?.completionPercentage ||10)
+// const conicStyle = null;
 </script>
 
 <template>
-    <SharedCommonCard class="font-normal text-sm p-[8%] rounded-2xl">
+    <SharedCommonCard class="font-normal  text-sm p-[8%]     rounded-2xl">
         <div class="text-center">
             <div
-                class="text-2xl font-semibold text-gray-800 dark:text-gray-200"
+                class="text-2xl _sm:text-lg font-semibold text-gray-800 dark:text-gray-200"
             >
                 Ongoing Election
             </div>
@@ -32,48 +25,24 @@ const conicStyle = null;
                 <p
                     class="text-2xl font-semibold text-gray-800 dark:text-gray-200 relative w-fit"
                 >
-                    {{ stats?.totalVoters }}
+                    {{ stats?.totalVoters ||0 }}
                     <sup
                         class="text-forest-300 left-full text-[0.6rem] absolute flex items-center"
                         ><SharedCommonIcon name="tri" class="h-2" />
-                        <p>+{{ stats?.totalVotersChange }}</p>
+                        <p>+{{ stats?.totalVotersChange ||0 }}</p>
                     </sup>
                 </p>
                 <p class="text-gray-500">voters</p>
             </div>
             <div>
                 <p
-                    class="text-2xl font-semibold text-gray-800 dark:text-gray-200 relative w-fit"
+                    class="text-2xl font-semibold text-gray-800 dark:text-gray-200 w-fit"
                 >
                     {{ stats?.daysLeft }}<span class="ml-2 text-sm">days</span>
                 </p>
                 <p class="text-gray-500">Days left</p>
             </div>
         </div>
-        <div class="aspect-[2/1] overflow-hidden px-[10%]">
-            <div
-                :style="conicStyle"
-                class="transition-all aspect-square mt-[13%] rounded-t-full flex justify-center w-full p-[5%] pb-0"
-            >
-                <div
-                    class="aspect-[2/1] bg-white dark:bg-gray-800 rounded-t-full w-full justify-center flex self-start"
-                >
-                    <div class="h-fit text-center self-end bottom-0">
-                        <div
-                            class="font-bold sm:text-3xl text-5xl _xs:text-3xl md:text-4xl xl:text-5xl"
-                        >
-                            {{
-                                Number(stats?.completionPercentage.toFixed(2))
-                            }}%
-                        </div>
-                        <div
-                            class="text-secondary-300 text-xl sm:text-lg md:text-xl font-bold leading-none"
-                        >
-                            completed
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <SharedChartGuage :completed ="completed" />
     </SharedCommonCard>
 </template>

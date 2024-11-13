@@ -69,9 +69,6 @@ const removeStage = (index: number) => {
     }
 };
 
-const onSubmit = () => {
-    console.log(form);
-};
 </script>
 
 <template>
@@ -150,7 +147,7 @@ const onSubmit = () => {
                         />
                     </div>
                 </div>
-                <div>
+                <div class="peer">
                     <h2
                         class="text-lg py-2 font-semibold text-gray-800 dark:text-gray-200"
                     >
@@ -176,7 +173,7 @@ const onSubmit = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="mt-5">
+                    <div class="mt-5 peer">
                         <SharedCommonDropdown>
                             <template v-slot:toggle>
                                 <button
@@ -214,8 +211,8 @@ const onSubmit = () => {
                     </div>
                 </div>
 
-                <div class="pt-2 -z-10">
-                    <SharedFormSubmitButton @click="onSubmit" text="create" />
+                <div class="pt-2 peer-focus-within:-z-10">
+                    <SharedFormSubmitButton text="create" />
                 </div>
             </form>
         </div>

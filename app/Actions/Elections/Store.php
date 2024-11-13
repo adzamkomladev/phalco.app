@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Actions\Elections;
-
 use App\Events\Elections\ElectionCreated;
 use App\Models\Election;
 use App\Models\ElectionActivity;
@@ -12,8 +11,7 @@ use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class Store
-{
-    use AsAction;
+{    use AsAction;
 
     public function rules(): array
     {

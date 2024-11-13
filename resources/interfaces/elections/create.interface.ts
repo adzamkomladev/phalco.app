@@ -1,10 +1,8 @@
 export interface ElectionStageProps {
     title: string;
-    date:{
         start:Date |null;
         end: Date |null;
 
-    }
 }
 
 export interface ElectionFormProps {
@@ -13,5 +11,5 @@ export interface ElectionFormProps {
     description: string;
     startDate: Date;
     endDate: Date;
-    stages: ElectionStage[];
+    stages: ElectionStageProps[];
 }

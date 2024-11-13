@@ -177,9 +177,9 @@ const handleClickOutside = (event: Event) => {
 const datePicker = ref<HTMLElement | null>(null);
 
 const classes = {
-    input: "py-3 font-light peer cursor-pointer px-4 text-sm  block text-gray-700 w-full border-gray-200 rounded-md text-sm focus:border-primary-500 focus:ring-primary-500 disabled:opacity-50 placeholder:text-gray-500  disabled:pointer-events-none dark:bg-transparent dark:border-gray-600 dark:text-gray-400 dark:placeholder-gray-500 dark:focus:ring-gray-600",
+    input: "py-3 font-light peer cursor-pointer px-4 text-base  block text-gray-700 w-full border-gray-200 rounded-md text-sm focus:border-primary-500 focus:ring-primary-500 disabled:opacity-50 placeholder:text-gray-500  disabled:pointer-events-none dark:bg-transparent dark:border-gray-600 dark:text-gray-400 dark:placeholder-gray-500 dark:focus:ring-gray-600",
     inputError:
-        "py-3 px-4 block w-full cursor-pointer text-red-500 peer border-red-500 rounded-lg text-sm focus:border-red-500 focus:ring-red-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400",
+        "py-3 px-4 block w-full cursor-pointer text-base text-red-500 peer border-red-500 rounded-lg text-sm focus:border-red-500 focus:ring-red-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400",
 };
 const inputClass = computed(() =>
     errorMessage.value ? classes.inputError : classes.input,
