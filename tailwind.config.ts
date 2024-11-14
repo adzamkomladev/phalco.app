@@ -5,12 +5,17 @@ export default {
         "./node_modules/preline/preline.js",
         "./resources/**/*.{js,ts,vue,blade.php}",
     ],
+    
     theme: {
         extend: {
             backgroundImage: {
                 "gradient-to-45":
                     "linear-gradient(45deg, var(--tw-gradient-stops))",
             },
+aspectRation:{
+    card:'3.374/2.125'
+}
+            ,
             boxShadow: {
                 card: "0 1px 6.3px -1px #6b728070",
             },
