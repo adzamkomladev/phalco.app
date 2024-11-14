@@ -12,7 +12,6 @@ const props = withDefaults(defineProps<ElectionsStatsCardSmallProps>(), {
     <SharedCommonCard
         class="font-medium aspect-[3.374/2.125] p-8 sm:_lg:p-6 flex flex-col justify-center shadow-card _sm:shadow _sm:p-5 rounded-2xl relative"
     >
-    hddddddddddddddddsssssssssssssssssss
-
+        hddddddddddddddddsssssssssssssssssss
     </SharedCommonCard>
 </template>

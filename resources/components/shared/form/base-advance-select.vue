@@ -47,7 +47,10 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
             </button>
         </template>
 
-        <div :class="[defaultOptionsClass, optionsClass]" v-if="options.length > 0">
+        <div
+            :class="[defaultOptionsClass, optionsClass]"
+            v-if="options.length > 0"
+        >
             <button
                 v-for="(option, index) in options"
                 :key="index"
