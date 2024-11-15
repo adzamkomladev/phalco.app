@@ -52,7 +52,7 @@ class Store
             'last_name' => $data['last_name'],
             'other_names' => $data['other_names'],
             'gender' => $data['gender'],
-            'date_of_birth' => $data['date_of_birth'] ? Carbon::parse($data['date_of_birth']) : null,
+            'date_of_birth' => null,
             'avatar' => $data['avatar'],
             'email' => $data['email'],
             'phone' => $data['phone'],

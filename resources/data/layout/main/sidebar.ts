@@ -41,6 +41,16 @@ export const menus: SideBarMenuProps[] = [
     {
         label: "Audiences",
         icon: "accessibility",
+        sublink: [
+            {
+                label: "Dashboard",
+                to: "audiences.index",
+            },
+            {
+                label: "New audience",
+                to: "audiences.create",
+            },
+        ],
     },
     {
         label: "Strategies",
@@ -61,11 +71,11 @@ export const menus: SideBarMenuProps[] = [
                     {
                         label: "Dashboard",
                         to: "voting.polling-stations.index",
-                            },
+                    },
                     {
                         label: "New polling station",
                         to: "voting.polling-stations.create",
-                            },
+                    },
                 ],
             },
             {
@@ -75,11 +85,11 @@ export const menus: SideBarMenuProps[] = [
                     {
                         label: "Dashboard",
                         to: "voting.agents.index",
-                            },
+                    },
                     {
                         label: "New agent",
                         to: "voting.agents.create",
-                            },
+                    },
                 ],
             },
             {
@@ -89,11 +99,11 @@ export const menus: SideBarMenuProps[] = [
                     {
                         label: "Dashboard",
                         to: "voting.ballots.index",
-                            },
+                    },
                     {
                         label: "New ballot",
                         to: "voting.ballots.create",
-                            },
+                    },
                 ],
             },
             {
@@ -107,7 +117,7 @@ export const menus: SideBarMenuProps[] = [
                         //     name: "voting.requests.index",
                         //     params: { electionId, pollingStationId },
                         // },
-                            },
+                    },
                 ],
             },
         ],
