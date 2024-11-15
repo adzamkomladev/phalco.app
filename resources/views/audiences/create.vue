@@ -47,7 +47,9 @@ const form = useForm({
                 />
             </div>
             <div>
-                <SharedFormBaseFileUpload v-model="form.fields.uploaded_contacts" />
+                <SharedFormBaseFileUpload
+                    v-model="form.fields.uploaded_contacts"
+                />
             </div>
 
             <div class="py-10">

@@ -3,8 +3,6 @@
 namespace App\Imports\Audiences;
 
 use App\Actions\Audiences\Contacts\Store;
-use App\Models\Contact;
-use Carbon\Carbon;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\OnEachRow;

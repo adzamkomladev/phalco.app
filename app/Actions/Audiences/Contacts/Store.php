@@ -3,7 +3,6 @@
 namespace App\Actions\Audiences\Contacts;
 
 use App\Models\Contact;
-use Carbon\Carbon;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 

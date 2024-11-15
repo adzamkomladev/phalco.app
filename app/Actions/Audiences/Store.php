@@ -34,9 +34,9 @@ class Store
     /**
      * Handles the creation of a new Audience.
      *
-     * @param int $userId The ID of the user creating the audience.
-     * @param int $organizationId The ID of the organization to which the audience belongs.
-     * @param array $data The data for creating the audience, including 'name' and 'description'.
+     * @param  int  $userId  The ID of the user creating the audience.
+     * @param  int  $organizationId  The ID of the organization to which the audience belongs.
+     * @param  array  $data  The data for creating the audience, including 'name' and 'description'.
      * @return Audience The newly created Audience instance.
      */
     public function handle(int $userId, int $organizationId, array $data): Audience
