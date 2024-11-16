@@ -21,15 +21,15 @@ final class BallotsTable extends Table
         return [
             Columns\TextColumn::make('id')->label('#')->visible(false),
             Columns\TextColumn::make('position')->label('Position')
-                ->extra((fn(Ballot $ballot) => ['id' => $ballot->id])),
+                ->extra((fn (Ballot $ballot) => ['id' => $ballot->id])),
             Columns\TextColumn::make('code')->label('Code'),
             Columns\TextColumn::make('options')->label('Ballot Options')
-            ->transformValueUsing(fn(Ballot $ballot) => $ballot->options_count ?? 0),
+                ->transformValueUsing(fn (Ballot $ballot) => $ballot->options_count ?? 0),
             Columns\TextColumn::make('election')->label('Election')
-                ->transformValueUsing(fn(Ballot $ballot) => $ballot->election?->name),
+                ->transformValueUsing(fn (Ballot $ballot) => $ballot->election?->name),
             Columns\TextColumn::make('status')->label('Status'),
             Columns\TextColumn::make('created_at')->label('Created')
-                ->transformValueUsing(fn(Ballot $ballot) => $ballot->created_at->diffForHumans()),
+                ->transformValueUsing(fn (Ballot $ballot) => $ballot->created_at->diffForHumans()),
 
         ];
     }
@@ -61,6 +61,6 @@ final class BallotsTable extends Table
             ->query()
             ->with('election:id,name')
             ->withCount('options')
-        ->where('election_id', $this->electionId);
+            ->where('election_id', $this->electionId);
     }
 }

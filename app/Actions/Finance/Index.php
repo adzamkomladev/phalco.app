@@ -35,20 +35,20 @@ class Index
             $totalTransactions,
             $transactionTypes
         ] = Octane::concurrently([
-                fn() => [
+            fn () => [
                 'id' => $organization->wallet->id,
                 'balance' => ($organization->balanceInt ?? 0) / 100,
             ],
-            fn() => [
+            fn () => [
                 'id' => $organization->getWallet('nominations')?->id,
                 'balance' => ($organization->getWallet('nominations')?->balanceInt ?? 0) / 100,
             ],
-            fn() => [
+            fn () => [
                 'id' => $organization->getWallet('donations')?->id,
                 'balance' => ($organization->getWallet('donations')?->balanceInt ?? 0) / 100,
             ],
-            fn() => $organization->transactions()->count(),
-            fn() => $organization->transactions()
+            fn () => $organization->transactions()->count(),
+            fn () => $organization->transactions()
                 ->select('type', DB::raw('SUM(amount::integer) as total_sales'))
                 ->where('confirmed', true)
                 ->whereIn('type', ['deposit', 'withdraw'])

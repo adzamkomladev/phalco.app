@@ -40,10 +40,9 @@ class Contact extends Model
     protected function name(): Attribute
     {
         return Attribute::make(
-            get: fn(mixed $value, array $attributes) => "{$attributes['first_name']} {$attributes['other_names']} {$attributes['last_name']}",
+            get: fn (mixed $value, array $attributes) => "{$attributes['first_name']} {$attributes['other_names']} {$attributes['last_name']}",
         )->shouldCache();
     }
-
 
     /**
      * Get the user that created the Contact

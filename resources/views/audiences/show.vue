@@ -23,7 +23,11 @@ const table = useTable(props, "contacts");
     <p>Audience details</p>
     <pre>{{ audience }}</pre>
     <div>
-        <div class="mb-4" v-for="(contact,index) in contacts.records" :key="index">
+        <div
+            class="mb-4"
+            v-for="(contact, index) in contacts.records"
+            :key="index"
+        >
             <router-link
                 :href="
                     route('audiences.contacts.show', {

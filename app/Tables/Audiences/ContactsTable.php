@@ -21,15 +21,15 @@ final class ContactsTable extends Table
         return [
             Columns\TextColumn::make('id')->label('#')->visible(false),
             Columns\TextColumn::make('name')->label('Name')
-                ->transformValueUsing(fn(Contact $contact) => $contact->name)
-                ->extra((fn(Contact $contact) => ['id' => $contact->id])),
+                ->transformValueUsing(fn (Contact $contact) => $contact->name)
+                ->extra((fn (Contact $contact) => ['id' => $contact->id])),
             Columns\TextColumn::make('phone')->label('Phone'),
             Columns\TextColumn::make('email')->label('Email Address'),
             Columns\TextColumn::make('date_of_birth')->label('Date of Birth'),
             Columns\TextColumn::make('address')->label('Address'),
             Columns\TextColumn::make('city')->label('City'),
             Columns\TextColumn::make('created_at')->label('Created')
-                ->transformValueUsing(fn(Contact $contact) => $contact->created_at->diffForHumans()),
+                ->transformValueUsing(fn (Contact $contact) => $contact->created_at->diffForHumans()),
         ];
     }
 

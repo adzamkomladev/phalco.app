@@ -31,12 +31,12 @@ class Index
             $changeInvites,
             $totalRejections,
             $changeRejections
-        ] = Octane::concurrently([fn() => $this->totalMembers($organizationId),
-            fn() => $this->membershipChange($organizationId),
-            fn() => $this->totalInvites($organizationId),
-            fn() => $this->invitesChange($organizationId),
-            fn() => $this->totalRejections($organizationId),
-            fn() => $this->rejectionsChange($organizationId),
+        ] = Octane::concurrently([fn () => $this->totalMembers($organizationId),
+            fn () => $this->membershipChange($organizationId),
+            fn () => $this->totalInvites($organizationId),
+            fn () => $this->invitesChange($organizationId),
+            fn () => $this->totalRejections($organizationId),
+            fn () => $this->rejectionsChange($organizationId),
         ]);
 
         return [
@@ -58,7 +58,7 @@ class Index
             ->remember(
                 'team.total.members',
                 60 * 60,
-            fn() => OrganizationMembership::active()->where('organization_id', $organizationId)->count()
+                fn () => OrganizationMembership::active()->where('organization_id', $organizationId)->count()
             );
     }
 
@@ -92,7 +92,7 @@ class Index
             ->remember(
                 'team.total.invites',
                 60 * 60,
-            fn() => OrganizationInvitation::where('organization_id', $organizationId)->count()
+                fn () => OrganizationInvitation::where('organization_id', $organizationId)->count()
             );
     }
 
@@ -124,7 +124,7 @@ class Index
             ->remember(
                 'team.total.rejections',
                 60 * 60,
-            fn() => OrganizationInvitation::rejected()->where('organization_id', $organizationId)->count()
+                fn () => OrganizationInvitation::rejected()->where('organization_id', $organizationId)->count()
             );
     }
 

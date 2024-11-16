@@ -2,7 +2,6 @@
 
 namespace App\Tables\Voting\Agents;
 
-use App\Models\OrganizationRole;
 use App\Models\User;
 use Hybridly\Refining\Filters\CallbackFilter;
 use Hybridly\Refining\Sorts;
@@ -26,16 +25,16 @@ final class AgentsTable extends Table
             Columns\TextColumn::make('id')->label('#')->visible(false),
             Columns\TextColumn::make('name')
                 ->label('Name')
-                ->transformValueUsing(fn(User $user) => $user->name)
-                ->extra((fn(User $user) => [
+                ->transformValueUsing(fn (User $user) => $user->name)
+                ->extra((fn (User $user) => [
                     'id' => $user->id,
                     'email' => $user->email,
                     'avatar' => $user->avatar,
                 ])),
             Columns\TextColumn::make('polling_stations')->label('Polling Stations')
-            ->transformValueUsing(fn(User $user) => $user->polling_stations_count ?? 0),
+                ->transformValueUsing(fn (User $user) => $user->polling_stations_count ?? 0),
             Columns\TextColumn::make('added_on')->label('Added On')
-                ->transformValueUsing(fn(User $user) => $user->organizationMemberships->first()->created_at->diffForHumans()),
+                ->transformValueUsing(fn (User $user) => $user->organizationMemberships->first()->created_at->diffForHumans()),
 
         ];
     }
@@ -69,7 +68,7 @@ final class AgentsTable extends Table
             ->query()
             ->with('organizationMemberships')
             ->withCount('pollingStations')
-        ->whereRelation('organizationMemberships', 'organization_id', $this->organizationId)
+            ->whereRelation('organizationMemberships', 'organization_id', $this->organizationId)
             ->whereRelation('organizationMemberships', 'organization_role_id', $this->roleId);
     }
 }
