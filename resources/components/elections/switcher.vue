@@ -31,9 +31,7 @@ watch(
 </script>
 
 <template>
-    <div
-        class="hs-dropdown [--placement:bottom-left] relative inline-flex"
-    >
+    <div class="hs-dropdown [--placement:bottom-left] relative inline-flex">
         <button
             id="hs-dropdown-election"
             type="button"
