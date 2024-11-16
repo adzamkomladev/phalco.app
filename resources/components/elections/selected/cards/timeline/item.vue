@@ -15,9 +15,9 @@ const formatDate = (dateString: Date | null) => {
     });
 };
 
-const isPast = new Date() > props?.stage?.date?.end;
+const isPast = new Date() > props?.stage?.end;
 const isOngoing =
-    props?.stage?.date?.start < new Date() && new Date() < props.stage.date.end;
+    props?.stage?.start < new Date() && new Date() < props.stage.end;
 </script>
 
 <template>
@@ -26,7 +26,7 @@ const isOngoing =
         :delay="50 * index"
         class="grid grid-cols-7 gap-x-5 ms-1"
     >
-        <div class="text-xs col-span-2">{{ formatDate(stage.date.start) }}</div>
+        <div class="text-xs col-span-2">{{ formatDate(stage.start) }}</div>
 
         <div
             :class="[
