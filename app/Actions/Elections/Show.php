@@ -17,7 +17,30 @@ class Show
     public function handle(int $electionId)
     {
         return [
-            'election' => Election::find($electionId),
+            'election' => Election::with([
+                'stages:id,election_id,stage,start,end,reason',
+                'createdBy:id,first_name,last_name,email,avatar'
+            ])
+                ->withCount('voters')
+                ->find($electionId),
+            'stats' => [
+                'voters' => [
+                    'total' => 0,
+                    'voted' => 0,
+                ],
+                'nominations' => [
+                    'submitted' => 0,
+                    'approved' => 0
+                ],
+                'pollingStations' => [
+                    'total' => 0,
+                    'active' => 0
+                ],
+                'campaigns' => [
+                    'total' => 0,
+                    'active' => 0
+                ]
+            ],
         ];
     }
 }
