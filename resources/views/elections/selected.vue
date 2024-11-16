@@ -8,7 +8,6 @@ useHead({
     title: "Election Details",
 });
 
-
 const props = defineProps<{
     election: Election;
     stats: Stats;
