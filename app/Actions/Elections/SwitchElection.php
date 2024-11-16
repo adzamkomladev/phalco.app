@@ -34,6 +34,7 @@ class SwitchElection
             ->set("elections.selected.{$userId}", [
                 'id' => $election->id,
                 'name' => $election->name,
+            'logo' => $election->logo,
             ]);
 
         return $election;
