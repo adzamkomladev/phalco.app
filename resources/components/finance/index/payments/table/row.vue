@@ -3,8 +3,8 @@ const props = defineProps<{
     // row: { key: any; value: any; extra: any };
     // columns: any[];
     // findColumn: (name: string) => any;
-    key:number;
-    row:any;
+    key: number;
+    row: any;
 }>();
 
 // const { key, value, extra } = props.row;
@@ -37,48 +37,52 @@ const props = defineProps<{
                             class="block text-sm font-semibold text-gray-800 dark:text-gray-200"
                         >
                             <!-- {{ value(findColumn("name")) }} -->
-                              {{ row.name }}
+                            {{ row.name }}
                         </span>
                         <span class="block text-sm text-gray-600">
                             <!-- {{ extra(findColumn("description")) }} -->
-                               {{ row.description }}
-
+                            {{ row.description }}
                         </span>
                     </div>
                 </div>
             </div>
         </td>
         <td class="h-px w-72 whitespace-nowrap">
-            <div class="px-6 py-3"
-            :class="[row.amount >=0 ?'text-forest-300':'text-crimson-500']"
+            <div
+                class="px-6 py-3"
+                :class="[
+                    row.amount >= 0 ? 'text-forest-300' : 'text-crimson-500',
+                ]"
             >
-               {{row.amount}} 
-         <!-- {{ value(findColumn("amount")) }} -->    
-        </div>
+                {{ row.amount }}
+                <!-- {{ value(findColumn("amount")) }} -->
+            </div>
         </td>
         <td class="size-px whitespace-nowrap text-gray-600">
             <div class="px-6 py-3">
-                               <!-- <SharedTableStatus :status="value(findColumn('status'))" /> -->
+                <!-- <SharedTableStatus :status="value(findColumn('status'))" /> -->
 
-            {{ row.reference }}
-                            </div>
+                {{ row.reference }}
+            </div>
         </td>
         <td class="size-px whitespace-nowrap text-gray-600">
             <div class="px-6 py-3">
-                               <!-- <SharedTableStatus :status="value(findColumn('status'))" /> -->
-<span 
-    
-
-    :class="[row.status =='completed' ?'bg-forest-200 text-forest-700':'bg-crimson-100 text-crimson-500','rounded-full py-1 px-4 text-xs ']"
-     >
-    {{row.status}}
-</span>
-            
-                            </div>
+                <!-- <SharedTableStatus :status="value(findColumn('status'))" /> -->
+                <span
+                    :class="[
+                        row.status == 'completed'
+                            ? 'bg-forest-200 text-forest-700'
+                            : 'bg-crimson-100 text-crimson-500',
+                        'rounded-full py-1 px-4 text-xs ',
+                    ]"
+                >
+                    {{ row.status }}
+                </span>
+            </div>
         </td>
         <td class="size-px whitespace-nowrap text-gray-600">
             <!-- <div class="px-6 py-3">{{ value(findColumn("created_at")) }}</div> -->
-       {{row.completed_on}}
+            {{ row.completed_on }}
         </td>
         <td class="size-px whitespace-nowrap">
             <div class="px-6 py-1.5">
@@ -86,7 +90,6 @@ const props = defineProps<{
                     data-hs-overlay="#hs-overlay-create-user"
                     class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
-                    
                 </a>
             </div>
         </td>

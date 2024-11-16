@@ -25,60 +25,58 @@ const props = defineProps<{
 //     800,
 // );
 
-const damy_table =[
-  {
-    "image": "https://example.com/image1.jpg",
-    "name": "John Doe",
-    "description": "Purchase of office supplies",
-    "status": "completed",
-    "amount": 120.50,
-    "reference": "TRX1234567890",
-    "completed_on": "2024-11-15T14:30:00"
-  },
-  {
-    "image": "https://example.com/image2.jpg",
-    "name": "Jane Smith",
-    "description": "Monthly subscription fee",
-    "status": "completed",
-    "amount": 49.99,
-    "reference": "TRX0987654321",
-    "completed_on": "2024-11-10T10:15:00"
-  },
-  {
-    "image": "https://example.com/image3.jpg",
-    "name": "Michael Brown",
-    "description": "Refund for returned product",
-    "status": "incomplete",
-    "amount": -75.00,
-    "reference": "TRX1122334455",
-    "completed_on": "2024-11-08T08:45:00"
-  },
-  {
-    "image": "https://example.com/image4.jpg",
-    "name": "Emily Jones",
-    "description": "Online course payment",
-    "status": "completed",
-    "amount": 200.00,
-    "reference": "TRX6677889900",
-    "completed_on": "2024-11-14T16:20:00"
-  },
-  {
-    "image": "https://example.com/image5.jpg",
-    "name": "Chris Wilson",
-    "description": "Donation to charity",
-    "status": "incomplete",
-    "amount": -150.00,
-    "reference": "TRX5544332211",
-    "completed_on": "2024-11-12T12:00:00"
-  }
-]
-
-
+const damy_table = [
+    {
+        image: "https://example.com/image1.jpg",
+        name: "John Doe",
+        description: "Purchase of office supplies",
+        status: "completed",
+        amount: 120.5,
+        reference: "TRX1234567890",
+        completed_on: "2024-11-15T14:30:00",
+    },
+    {
+        image: "https://example.com/image2.jpg",
+        name: "Jane Smith",
+        description: "Monthly subscription fee",
+        status: "completed",
+        amount: 49.99,
+        reference: "TRX0987654321",
+        completed_on: "2024-11-10T10:15:00",
+    },
+    {
+        image: "https://example.com/image3.jpg",
+        name: "Michael Brown",
+        description: "Refund for returned product",
+        status: "incomplete",
+        amount: -75.0,
+        reference: "TRX1122334455",
+        completed_on: "2024-11-08T08:45:00",
+    },
+    {
+        image: "https://example.com/image4.jpg",
+        name: "Emily Jones",
+        description: "Online course payment",
+        status: "completed",
+        amount: 200.0,
+        reference: "TRX6677889900",
+        completed_on: "2024-11-14T16:20:00",
+    },
+    {
+        image: "https://example.com/image5.jpg",
+        name: "Chris Wilson",
+        description: "Donation to charity",
+        status: "incomplete",
+        amount: -150.0,
+        reference: "TRX5544332211",
+        completed_on: "2024-11-12T12:00:00",
+    },
+];
 
 // watch(search, debounceFn);
 </script>
 <template>
-    <div class="max-w-[85rem]  pb-10 mx-auto ">
+    <div class="max-w-[85rem] pb-10 mx-auto">
         <div class="flex flex-col">
             <div class="-m-1.5 overflow-x-auto">
                 <div class="p-1.5 min-w-full inline-block align-middle">
@@ -118,8 +116,6 @@ const damy_table =[
                                     placeholder="Search for elections"
                                     name="search"
                                 />
-
-                         
                             </div>
                         </div>
 
@@ -152,76 +148,68 @@ const damy_table =[
                                         :key="index"
                                         :index="index"
                                     /> -->
-<th></th>
+                                    <th></th>
                                     <th
-        scope="column"
-        :class="{
-            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start': false,
-            'px-6 py-3 text-start': true,
-        }"
-    >
-        <div
-            class="flex items-center gap-x-2"
-        >
-            <span
-                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200"
-            >
-               Amount
-            </span>
-        </div>
-    </th>
-<th
-        scope="column"
-        :class="{
-            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start': false,
-            'px-6 py-3 text-start': true,
-        }"
-    >
-        <div
-            class="flex items-center gap-x-2"
-        >
-            <span
-                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200"
-            >
-               Reference
-            </span>
-        </div>
-    </th>
-<th
-        scope="column"
-        :class="{
-            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start': false,
-            'px-6 py-3 text-start': true,
-        }"
-    >
-        <div
-            class="flex items-center gap-x-2"
-        >
-            <span
-                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200"
-            >
-               Status
-            </span>
-        </div>
-    </th>
-<th
-        scope="column"
-        :class="{
-            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start': false,
-            'px-6 py-3 text-start': true,
-        }"
-    >
-        <div
-            class="flex items-center gap-x-2"
-        >
-            <span
-                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200"
-            >
-               Compeed On
-            </span>
-        </div>
-    </th>
-                           <th
+                                        scope="column"
+                                        :class="{
+                                            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start': false,
+                                            'px-6 py-3 text-start': true,
+                                        }"
+                                    >
+                                        <div class="flex items-center gap-x-2">
+                                            <span
+                                                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200"
+                                            >
+                                                Amount
+                                            </span>
+                                        </div>
+                                    </th>
+                                    <th
+                                        scope="column"
+                                        :class="{
+                                            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start': false,
+                                            'px-6 py-3 text-start': true,
+                                        }"
+                                    >
+                                        <div class="flex items-center gap-x-2">
+                                            <span
+                                                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200"
+                                            >
+                                                Reference
+                                            </span>
+                                        </div>
+                                    </th>
+                                    <th
+                                        scope="column"
+                                        :class="{
+                                            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start': false,
+                                            'px-6 py-3 text-start': true,
+                                        }"
+                                    >
+                                        <div class="flex items-center gap-x-2">
+                                            <span
+                                                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200"
+                                            >
+                                                Status
+                                            </span>
+                                        </div>
+                                    </th>
+                                    <th
+                                        scope="column"
+                                        :class="{
+                                            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start': false,
+                                            'px-6 py-3 text-start': true,
+                                        }"
+                                    >
+                                        <div class="flex items-center gap-x-2">
+                                            <span
+                                                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200"
+                                            >
+                                                Compeed On
+                                            </span>
+                                        </div>
+                                    </th>
+                                    <th
                                         scope="col"
                                         class="px-6 py-3 text-end"
                                     ></th>
@@ -241,9 +229,8 @@ const damy_table =[
                                 <FinanceIndexTableRow
                                     v-for="row in damy_table"
                                     :key="key"
-                                    :row="row"                                  
+                                    :row="row"
                                 />
-
                             </tbody>
                         </table>
                         <!-- Footer -->
