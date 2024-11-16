@@ -87,7 +87,7 @@ watch(search, debounceFn);
                                         >
                                             <input
                                                 type="checkbox"
-                                                class="text-primary-600 border-gray-300 rounded shrink-0 focus:ring-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-primary-500 dark:checked:border-primary-500 dark:focus:ring-offset-gray-800"
+                                                class="text-blue-600 border-gray-300 rounded shrink-0 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
                                                 id="hs-at-with-checkboxes-main"
                                             />
                                             <span class="sr-only"
@@ -95,13 +95,25 @@ watch(search, debounceFn);
                                             >
                                         </label>
                                     </th>
-                                    <SharedTableTh
-                                        v-for="(col, index) in table.columns"
-                                        :column="col"
-                                        :key="index"
-                                        :index="index"
-                                    />
 
+                                    <th
+                                        v-for="(col, index) in table.columns"
+                                        :key="index"
+                                        scope="col"
+                                        :class="{
+                                            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start':
+                                                index === 0,
+                                            'px-6 py-3 text-start': index !== 0,
+                                        }"
+                                    >
+                                        <div class="flex items-center gap-x-2">
+                                            <span
+                                                class="text-xs font-semibold tracking-wide text-gray-800 uppercase dark:text-gray-200"
+                                            >
+                                                {{ col.label }}
+                                            </span>
+                                        </div>
+                                    </th>
                                     <th
                                         scope="col"
                                         class="px-6 py-3 text-end"

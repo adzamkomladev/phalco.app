@@ -14,37 +14,33 @@ final class PollingStationsTable extends Table
 {
     protected string $model = PollingStation::class;
 
+    public function __construct(public readonly ?int $electionId) {}
+
     protected function defineColumns(): array
     {
         return [
             Columns\TextColumn::make('id')->label('#')->visible(false),
-            Columns\TextColumn::make('name')
-                ->label('Name')
-                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->name)
-                ->extra((fn (PollingStation $pollingStation) => [
-                    'id' => $pollingStation->id,
-                ])),
-            Columns\TextColumn::make('code')->label('Code')
-                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->code),
+            Columns\TextColumn::make('name')->label('Name')
+                ->extra((fn(PollingStation $pollingStation) => ['id' => $pollingStation->id])),
+            Columns\TextColumn::make('code')->label('Code'),
             Columns\TextColumn::make('agent')->label('Agent')
-                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->agent?->name)
-                ->extra((fn (PollingStation $pollingStation) => [
+                ->transformValueUsing(fn(PollingStation $pollingStation) => $pollingStation->agent?->name)
+                ->extra((fn(PollingStation $pollingStation) => [
                     'id' => $pollingStation->agent?->id,
                     'email' => $pollingStation->agent?->email,
                     'avatar' => $pollingStation->agent?->avatar,
                 ])),
             Columns\TextColumn::make('election')->label('Election')
-                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->election?->name),
+                ->transformValueUsing(fn(PollingStation $pollingStation) => $pollingStation->election?->name),
             Columns\TextColumn::make('created_at')->label('Created')
-                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->created_at->diffForHumans()),
-
+                ->transformValueUsing(fn(PollingStation $pollingStation) => $pollingStation->created_at->diffForHumans()),
         ];
     }
 
     protected function defineRefiners(): array
     {
         return [
-            Sorts\Sort::make('id'),
+            Sorts\Sort::make('created_at'),
             CallbackFilter::make(
                 name: 'search',
                 callback: function (InternalBuilder $builder, mixed $value, string $property) {
@@ -64,13 +60,9 @@ final class PollingStationsTable extends Table
 
     protected function defineQuery(): Builder
     {
-        $userId = auth()->id();
-        $election = cache()->get("elections.selected.{$userId}");
-        $selectedElectionId = $election['id'] ?? null;
-
         return $this->getModel()
             ->query()
             ->with(['election:id,name', 'agent'])
-            ->where('election_id', $selectedElectionId);
+            ->where('election_id', $this->electionId);
     }
 }

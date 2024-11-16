@@ -174,6 +174,7 @@ Route::prefix('audiences')
         Route::post('', \App\Actions\Audiences\Store::class)->name('store');
         Route::get('create', \App\Actions\Audiences\Create::class)->name('create');
         Route::get('{id}/show', \App\Actions\Audiences\Show::class)->name('show');
+    Route::get('{id}/show/contacts/{contactId}/show', \App\Actions\Audiences\Contacts\Show::class)->name('contacts.show');
     });
 
 //endregion

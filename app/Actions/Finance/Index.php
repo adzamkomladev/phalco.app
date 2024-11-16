@@ -18,14 +18,7 @@ class Index
     public function asController()
     {
         try {
-            $data = $this->handle(request()->user()->selected_organization_id);
-
-            return view('finance.index', [
-                'transactions' => TransactionsTable::make(),
-                'payments' => PaymentsTable::make(),
-                'stats' => $data['stats'],
-                'wallets' => $data['wallets'],
-            ]);
+            return view('finance.index', $this->handle(request()->user()->selected_organization_id));
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
@@ -42,20 +35,20 @@ class Index
             $totalTransactions,
             $transactionTypes
         ] = Octane::concurrently([
-            fn () => [
+                fn() => [
                 'id' => $organization->wallet->id,
                 'balance' => ($organization->balanceInt ?? 0) / 100,
             ],
-            fn () => [
+            fn() => [
                 'id' => $organization->getWallet('nominations')?->id,
                 'balance' => ($organization->getWallet('nominations')?->balanceInt ?? 0) / 100,
             ],
-            fn () => [
+            fn() => [
                 'id' => $organization->getWallet('donations')?->id,
                 'balance' => ($organization->getWallet('donations')?->balanceInt ?? 0) / 100,
             ],
-            fn () => $organization->transactions()->count(),
-            fn () => $organization->transactions()
+            fn() => $organization->transactions()->count(),
+            fn() => $organization->transactions()
                 ->select('type', DB::raw('SUM(amount::integer) as total_sales'))
                 ->where('confirmed', true)
                 ->whereIn('type', ['deposit', 'withdraw'])
@@ -77,6 +70,8 @@ class Index
                 'deposits' => abs($transactionTypes->where('type', 'deposit')->first()?->total_sales ?? 0) / 100,
                 'withdrawals' => abs($transactionTypes->where('type', 'withdraw')->first()?->total_sales ?? 0) / 100,
             ],
+            'transactions' => TransactionsTable::make(['organizationId' => $organizationId]),
+            'payments' => PaymentsTable::make(['organizationId' => $organizationId]),
         ];
     }
 }

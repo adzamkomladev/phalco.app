@@ -3,6 +3,7 @@
 namespace App\Actions\Audiences;
 
 use App\Models\Audience;
+use App\Tables\Audiences\ContactsTable;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class Show
@@ -20,7 +21,7 @@ class Show
 
         return [
             'audience' => $audience,
-            'contacts' => [],
+            'contacts' => ContactsTable::make(['audienceId' => $id]),
         ];
     }
 }

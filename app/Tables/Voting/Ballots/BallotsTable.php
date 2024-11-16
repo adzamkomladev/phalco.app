@@ -14,26 +14,22 @@ final class BallotsTable extends Table
 {
     protected string $model = Ballot::class;
 
+    public function __construct(public readonly ?int $electionId) {}
+
     protected function defineColumns(): array
     {
         return [
             Columns\TextColumn::make('id')->label('#')->visible(false),
-            Columns\TextColumn::make('position')
-                ->label('Position')
-                ->transformValueUsing(fn (Ballot $ballot) => $ballot->position)
-                ->extra((fn (Ballot $ballot) => [
-                    'id' => $ballot->id,
-                ])),
-            Columns\TextColumn::make('code')->label('Code')
-                ->transformValueUsing(fn (Ballot $ballot) => $ballot->code),
+            Columns\TextColumn::make('position')->label('Position')
+                ->extra((fn(Ballot $ballot) => ['id' => $ballot->id])),
+            Columns\TextColumn::make('code')->label('Code'),
             Columns\TextColumn::make('options')->label('Ballot Options')
-                ->transformValueUsing(fn (Ballot $ballot) => $ballot->options_count ?? 0),
+            ->transformValueUsing(fn(Ballot $ballot) => $ballot->options_count ?? 0),
             Columns\TextColumn::make('election')->label('Election')
-                ->transformValueUsing(fn (Ballot $ballot) => $ballot->election?->name),
-            Columns\TextColumn::make('status')->label('Status')
-                ->transformValueUsing(fn (Ballot $ballot) => $ballot->status),
+                ->transformValueUsing(fn(Ballot $ballot) => $ballot->election?->name),
+            Columns\TextColumn::make('status')->label('Status'),
             Columns\TextColumn::make('created_at')->label('Created')
-                ->transformValueUsing(fn (Ballot $ballot) => $ballot->created_at->diffForHumans()),
+                ->transformValueUsing(fn(Ballot $ballot) => $ballot->created_at->diffForHumans()),
 
         ];
     }
@@ -41,7 +37,7 @@ final class BallotsTable extends Table
     protected function defineRefiners(): array
     {
         return [
-            Sorts\Sort::make('id'),
+            Sorts\Sort::make('created_at'),
             CallbackFilter::make(
                 name: 'search',
                 callback: function (InternalBuilder $builder, mixed $value, string $property) {
@@ -61,14 +57,10 @@ final class BallotsTable extends Table
 
     protected function defineQuery(): Builder
     {
-        $userId = auth()->id();
-        $election = cache()->get("elections.selected.{$userId}");
-        $selectedElectionId = $election['id'] ?? null;
-
         return $this->getModel()
             ->query()
             ->with('election:id,name')
             ->withCount('options')
-            ->where('election_id', $selectedElectionId);
+        ->where('election_id', $this->electionId);
     }
 }
