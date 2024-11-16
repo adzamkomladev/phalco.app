@@ -1,8 +1,8 @@
 export interface ElectionStageProps {
     title: string;
-        start:Date |null;
-        end: Date |null;
-
+    name: string;
+    start: Date | null;
+    end: Date | null;
 }
 
 export interface ElectionFormProps {
