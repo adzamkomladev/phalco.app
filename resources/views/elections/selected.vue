@@ -1,8 +1,18 @@
 <script setup lang="ts">
-const selectedElection = ref("slected election");
+import {
+    Election,
+    Stats,
+} from "~/resources/interfaces/elections/selected.interface";
+
 useHead({
-    title: selectedElection,
+    title: "Election Details",
 });
+
+
+const props = defineProps<{
+    election: Election;
+    stats: Stats;
+}>();
 </script>
 
 <template layout="main">

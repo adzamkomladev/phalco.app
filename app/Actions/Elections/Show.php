@@ -18,10 +18,9 @@ class Show
     {
         return [
             'election' => Election::with([
-                'stages:id,election_id,stage,start,end,reason',
-                'createdBy:id,first_name,last_name,email,avatar',
-            ])
-                ->withCount('voters')
+                'stages:id,election_id,stage,start,end',
+                'createdBy:id,selected_organization_id,first_name,last_name,email,avatar',
+            ])->withCount('voters')
                 ->find($electionId),
             'stats' => [
                 'voters' => [

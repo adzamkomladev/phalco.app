@@ -24,7 +24,6 @@ class ElectionStage extends Model
         'end',
         'start',
         'stage',
-        'reason',
     ];
 
     public function election(): BelongsTo
