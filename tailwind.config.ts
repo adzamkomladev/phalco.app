@@ -5,17 +5,16 @@ export default {
         "./node_modules/preline/preline.js",
         "./resources/**/*.{js,ts,vue,blade.php}",
     ],
-    
+
     theme: {
         extend: {
             backgroundImage: {
                 "gradient-to-45":
                     "linear-gradient(45deg, var(--tw-gradient-stops))",
             },
-aspectRation:{
-    card:'3.374/2.125'
-}
-            ,
+            aspectRation: {
+                card: "3.374/2.125",
+            },
             boxShadow: {
                 card: "0 1px 6.3px -1px #6b728070",
             },
@@ -113,17 +112,17 @@ aspectRation:{
                 },
                 crimson: {
                     DEFAULT: "#c41409", // Main bright red color
-                    50: "#fde8e7",
-                    100: "#fbd0cf",
-                    200: "#f8a19f",
-                    300: "#f47170",
-                    400: "#f04141",
-                    500: "#c41409", // base color
-                    535: "#FD6A6159", // base color
-                    600: "#ac1208",
-                    700: "#940f07",
-                    800: "#7b0c06",
-                    900: "#630a05",
+                    50: "#ffe8e7",
+                    100: "#fee8e7",
+                    200: "#feddda",
+                    300: "#fcb8b3",
+                    400: "#f5190b",
+                    500: "#dd170a", // base color
+                    535: "#c41409", // base color
+                    600: "#b81308",
+                    700: "#930f07",
+                    800: "#6e0b05",
+                    900: "#560904",
                 },
                 forest: {
                     DEFAULT: "#00980F", // Main color

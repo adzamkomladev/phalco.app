@@ -31,7 +31,7 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
 <template>
     <SharedCommonDropdown
         buttonClass="w-full"
-        dialogClass=" "
+        dialogClass="z-50 "
         :position="position"
         :hideContentOnSelect="hideOnSelect"
     >
