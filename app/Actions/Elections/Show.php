@@ -19,7 +19,7 @@ class Show
         return [
             'election' => Election::with([
                 'stages:id,election_id,stage,start,end,reason',
-                'createdBy:id,first_name,last_name,email,avatar'
+                'createdBy:id,first_name,last_name,email,avatar',
             ])
                 ->withCount('voters')
                 ->find($electionId),
@@ -30,16 +30,16 @@ class Show
                 ],
                 'nominations' => [
                     'submitted' => 0,
-                    'approved' => 0
+                    'approved' => 0,
                 ],
                 'pollingStations' => [
                     'total' => 0,
-                    'active' => 0
+                    'active' => 0,
                 ],
                 'campaigns' => [
                     'total' => 0,
-                    'active' => 0
-                ]
+                    'active' => 0,
+                ],
             ],
         ];
     }
