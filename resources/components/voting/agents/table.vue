@@ -7,7 +7,6 @@ const table = props.table;
 
 const paginator: any = table.paginator;
 const prev = computed(() => paginator?.links?.[0]);
-const current = computed(() => paginator?.links?.[1]);
 const next = computed(() => paginator?.links?.[2]);
 const total = computed(() => paginator?.meta?.total);
 
@@ -17,8 +16,7 @@ const findFilter = (name: string) =>
     table.filters.find((filter: any) => filter.name === name)!;
 
 const searchFilter = findFilter("search");
-
-const search = ref("");
+const search = useQueryParameter("filters[search]");
 
 const debounceFn = useDebounceFn(
     () =>
