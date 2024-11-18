@@ -24,7 +24,7 @@ class Show
             ->find($electionId);
 
         $stage = $election->stages->first(
-            fn(ElectionStage $value, int $key) => $value->start < now() && $value->end >= now(),
+            fn (ElectionStage $value, int $key) => $value->start < now() && $value->end >= now(),
         );
 
         $stageStats = null;
