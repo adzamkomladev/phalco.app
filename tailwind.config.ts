@@ -164,6 +164,9 @@ export default {
                 expand: "expand 0.3s ease-out forwards",
                 collapse: "collapse 0.3s ease-out forwards",
             },
+            translate: {
+                "-full": "-100%",
+            },
         },
     },
     plugins: [require("@tailwindcss/forms"), require("preline/plugin")],

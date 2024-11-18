@@ -5,11 +5,13 @@ import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
 
 <template>
     <body class="bg-gray-100 md:text-lg flex flex-col">
+         <WelcomeHeader />
         <main
             id="home"
             class="bg-[#F6F6F6] scroll-mt-24 md:bg-white max-w-[1600px] self-center"
         >
-            <LandingHeader />
+           
+            
 
             <section
                 id="home"
@@ -117,7 +119,7 @@ import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
                 <LandingPricingShow class="px-8 md:px-[8%]" />
             </LandingSection>
             <LandingSection
-                id="About Us"
+                id="about Us"
                 class="md:pr-0"
                 title="About Us"
                 description="Lorem ipsum dolor sit amet consectetur adipisicing
