@@ -2,43 +2,33 @@ import { ElectionStageProps } from "~/resources/interfaces/elections/create.inte
 
 export const defaultElectionStages: ElectionStageProps[] = [
     {
-        title: "Vetting",
-        date: {
-            start: new Date("2024-01-10T09:00:00"),
-            end: new Date("2024-01-12T17:00:00"),
-        },
-    },
-    {
-        title: "Nominations",
-        date: {
-            start: new Date("2024-01-15T09:00:00"),
-            end: new Date("2024-01-18T17:00:00"),}
-    },
-    {
-        title: "Campaigning",
-        date: {
-            start: new Date("2024-01-20T09:00:00"),
-            end: new Date("2024-02-10T17:00:00"),
-        },
-    },
-    {
         title: "Voting",
-        date: {
-            start: new Date("2024-09-15T08:00:00"),
-            end: new Date("2024-12-30T18:00:00"),
-        },
+        name: "voting",
+        start: null,
+        end: null,
+    },
+    {
+        title: "Vetting",
+        name: "vetting",
+        start: null,
+        end:null,
+    },
+    {
+        title: "Campaigns",
+        name: "campaigns",
+        start: null,
+        end:null,
     },
     {
         title: "Collation",
-        date: {
-            start: new Date("2025-01-01T09:00:00"),
-            end: new Date("2025-01-09T23:59:00"),
-    }},
-    {
-        title: "Result",
-        date: {
-            start: new Date("2025-02-10T10:00:00"),
-            end: new Date("2025-02-17T12:00:00"),
-        },
+        name: "collation",
+        start: null,
+        end:null,
     },
+    {
+        title: "Nominations",
+        name: "nominations",
+        start: null,
+        end:null,
+    }
 ];

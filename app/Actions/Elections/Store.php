@@ -23,7 +23,6 @@ class Store
             'description' => ['nullable', 'string'],
             'start' => ['required', 'date'],
             'end' => ['required', 'date'],
-            'stage' => ['required', 'string', 'in:campaigns,nominations'],
             'stages' => ['required', 'array'],
             'stages.*.name' => ['required', 'string'],
             'stages.*.start' => ['required', 'date'],
@@ -40,6 +39,9 @@ class Store
 
     public function handle(int $userId, int $organizationId, array $data)
     {
+        $stages = collect($data['stages'])->sortBy('start');
+        $stage = $stages->first();
+
         $election = Election::create([
             'name' => $data['name'],
             'logo' => $data['logo'],
@@ -49,24 +51,30 @@ class Store
             'organization_id' => $organizationId,
             'user_id' => $userId,
             'status' => 'active',
-            'stage' => $data['stage'],
+            'stage' => $stage['name'],
         ]);
 
         $electionId = $election->id;
 
-        Octane::concurrently([
-            fn () => ElectionActivity::create([
+        $stagesToBeCreated = $stages
+            ->map(fn ($stage) => [
                 'election_id' => $electionId,
-                'status' => 'active',
+                'stage' => $stage['name'],
+                'start' => Carbon::parse($stage['start']),
+                'end' => Carbon::parse($stage['end']),
                 'user_id' => $userId,
-                'reason' => 'Create new election',
-            ]),
-            fn () => ElectionStage::create([
-                'election_id' => $electionId,
-                'stage' => $data['stage'],
-                'user_id' => $userId,
-                'reason' => 'Create new election for campaigns',
-            ]),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ])
+            ->toArray();
+
+        Octane::concurrently([fn () => ElectionActivity::create([
+            'election_id' => $electionId,
+            'status' => 'active',
+            'user_id' => $userId,
+            'reason' => 'Create new election',
+        ]),
+            fn () => ElectionStage::insert($stagesToBeCreated),
         ]);
 
         ElectionCreated::dispatch($election->id);

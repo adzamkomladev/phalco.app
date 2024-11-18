@@ -18,14 +18,7 @@ class Index
     public function asController()
     {
         try {
-            $data = $this->handle(request()->user()->selected_organization_id);
-
-            return view('finance.index', [
-                'transactions' => TransactionsTable::make(),
-                'payments' => PaymentsTable::make(),
-                'stats' => $data['stats'],
-                'wallets' => $data['wallets'],
-            ]);
+            return view('finance.index', $this->handle(request()->user()->selected_organization_id));
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
@@ -77,6 +70,8 @@ class Index
                 'deposits' => abs($transactionTypes->where('type', 'deposit')->first()?->total_sales ?? 0) / 100,
                 'withdrawals' => abs($transactionTypes->where('type', 'withdraw')->first()?->total_sales ?? 0) / 100,
             ],
+            'transactions' => TransactionsTable::make(['organizationId' => $organizationId]),
+            'payments' => PaymentsTable::make(['organizationId' => $organizationId]),
         ];
     }
 }

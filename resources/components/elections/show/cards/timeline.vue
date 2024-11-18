@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { defaultElectionStages } from "~/resources/data/elections/create";
+import { Stage } from "~/resources/interfaces/elections/selected.interface";
+
+const props = defineProps<{ stages: Stage[] }>();
 </script>
 
 <template>
@@ -13,12 +15,12 @@ import { defaultElectionStages } from "~/resources/data/elections/create";
             </p>
         </div>
 
-        <div>
+        <div class="grow flex flex-col">
             <div class="font-medium pt-2">with date</div>
-            <div>
-                <ElectionsSelectedCardsTimelineItem
-                    v-for="(stage, index) in defaultElectionStages"
-                    :key="stage.title"
+            <div class="grow flex flex-col">
+                <ElectionsShowCardsTimelineItem
+                    v-for="(stage, index) in stages"
+                    :key="index"
                     :stage="stage"
                     :index="index"
                 />

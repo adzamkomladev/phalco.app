@@ -33,10 +33,9 @@ onMounted(() => {
 const addCustomStage = () => {
     form.fields.stages.push({
         title: "",
-        date: {
-            start: null,
-            end: null,
-        },
+        name: "",
+        start: null,
+        end: null,
     });
 };
 
@@ -108,7 +107,7 @@ const removeStage = (index: number) => {
                         :error="form.errors.name"
                         id="name"
                         name="name"
-                        placeholder="Election Name"
+                        placeholder="Name"
                     />
                 </div>
 
@@ -118,7 +117,7 @@ const removeStage = (index: number) => {
                         :error="form.errors.description"
                         id="description"
                         name="description"
-                        placeholder="Enter election description"
+                        placeholder="Description"
                     />
                 </div>
 
@@ -166,7 +165,8 @@ const removeStage = (index: number) => {
                                         "
                                         name="fade"
                                         :stage="stage"
-                                        :removeStage="() => removeStage(index)"
+                                        :index="index"
+                                        @remove-stage="removeStage"
                                     />
                                 </transition>
                             </div>
@@ -203,7 +203,7 @@ const removeStage = (index: number) => {
                                     @click.prevent="addCustomStage"
                                     class="px-2 text-left disabled:opacity-50"
                                 >
-                                    custom stage
+                                    Custom stage
                                 </button>
                             </div>
                         </SharedCommonDropdown>

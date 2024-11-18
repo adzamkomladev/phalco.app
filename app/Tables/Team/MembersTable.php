@@ -14,6 +14,8 @@ final class MembersTable extends Table
 {
     protected string $model = User::class;
 
+    public function __construct(public readonly int $organizationId) {}
+
     protected function defineColumns(): array
     {
         return [
@@ -66,13 +68,10 @@ final class MembersTable extends Table
 
     protected function defineQuery(): Builder
     {
-        $selectedOrganizationId = auth()->user()->selected_organization_id;
-
         return $this->getModel()
             ->query()
-            ->whereRelation('organizationMemberships', 'organization_id', $selectedOrganizationId)
-            ->with([
-                'organizationMemberships' => fn ($query) => $query->where('organization_id', $selectedOrganizationId),
+            ->whereRelation('organizationMemberships', 'organization_id', $this->organizationId)
+            ->with(['organizationMemberships' => fn ($query) => $query->where('organization_id', $this->organizationId),
             ]);
     }
 }

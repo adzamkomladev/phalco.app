@@ -9,7 +9,7 @@ const { key, value, extra } = props.row;
 </script>
 
 <template>
-    <tr :key="key">
+    <tr :key="key" class="text-sm">
         <td class="size-px whitespace-nowrap">
             <div class="ps-6 py-3">
                 <label for="hs-at-with-checkboxes-1" class="flex">
@@ -22,8 +22,8 @@ const { key, value, extra } = props.row;
                 </label>
             </div>
         </td>
-        <td class="size-px whitespace-nowrap">
-            <div class="py-3 ps-6 lg:ps-3 xl:ps-0 pe-6">
+        <td class="size-px w w-full max-w-40 bg-red">
+            <div class="py-3 ps-6 lg:ps-3 pe-6">
                 <div class="flex items-center gap-x-3">
                     <img
                         class="inline-block size-[38px] rounded-full"
@@ -32,7 +32,7 @@ const { key, value, extra } = props.row;
                     />
                     <div class="grow">
                         <span
-                            class="block text-sm font-semibold text-gray-800 dark:text-gray-200"
+                            class="block lg:whitespace-nowrap font-semibold text-gray-800 dark:text-gray-200"
                         >
                             {{ value(findColumn("name")) }}
                         </span>
@@ -43,8 +43,8 @@ const { key, value, extra } = props.row;
                 </div>
             </div>
         </td>
-        <td class="h-px w-72 whitespace-nowrap">
-            <div class="px-6 py-3">
+        <td class="h-px whitespace-nowrap">
+            <div class="px-6 py-3 text-sm">
                 <SharedTableStatus :status="value(findColumn('status'))" />
             </div>
         </td>
@@ -57,13 +57,17 @@ const { key, value, extra } = props.row;
             <div class="px-6 py-3">{{ value(findColumn("created_at")) }}</div>
         </td>
         <td class="size-px whitespace-nowrap">
-            <div class="px-6 py-1.5">
-                <a
-                    data-hs-overlay="#hs-overlay-create-user"
+            <div class="px-6 py-1.5 xl:pr-20">
+                <router-link
+                    :href="
+                        route('elections.show', {
+                            id: +extra(findColumn('name'), 'id'),
+                        })
+                    "
                     class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
                     Details
-                </a>
+                </router-link>
             </div>
         </td>
     </tr>

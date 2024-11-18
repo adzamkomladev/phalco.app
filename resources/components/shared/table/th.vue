@@ -6,9 +6,10 @@ const props = defineProps<{ column: any; index: number }>();
     <th
         scope="column"
         :class="{
-            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start': index === 0,
+            'py-3 ps-6  lg:ps-3  pe-6 text-start': index === 0,
             'px-6 py-3 text-start': index !== 0,
         }"
+        class=""
     >
         <div
             class="flex items-center gap-x-2"
@@ -19,10 +20,13 @@ const props = defineProps<{ column: any; index: number }>();
                     }
                 }
             "
-            :class="{ 'cursor-pointer': column.isSortable }"
+            :class="[
+                column.isSortable && 'cursor-pointer',
+                index != 0 ? 'place-content-center' : '',
+            ]"
         >
             <span
-                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200"
+                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200 sm:text-nowrap"
             >
                 {{ column.label }}
                 <span

@@ -2,7 +2,6 @@
 
 namespace App\Tables\Voting\Agents;
 
-use App\Models\OrganizationRole;
 use App\Models\User;
 use Hybridly\Refining\Filters\CallbackFilter;
 use Hybridly\Refining\Sorts;
@@ -14,6 +13,11 @@ use Illuminate\Database\Eloquent\Builder as InternalBuilder;
 final class AgentsTable extends Table
 {
     protected string $model = User::class;
+
+    public function __construct(
+        public readonly int $organizationId,
+        public readonly int $roleId
+    ) {}
 
     protected function defineColumns(): array
     {
@@ -60,16 +64,11 @@ final class AgentsTable extends Table
 
     protected function defineQuery(): Builder
     {
-        $selectedOrganizationId = auth()->user()->selected_organization_id;
-        $role = OrganizationRole::where('organization_id', $selectedOrganizationId)
-            ->where('name', 'agent')
-            ->first();
-
         return $this->getModel()
             ->query()
             ->with('organizationMemberships')
             ->withCount('pollingStations')
-            ->whereRelation('organizationMemberships', 'organization_id', $selectedOrganizationId)
-            ->whereRelation('organizationMemberships', 'organization_role_id', $role?->id);
+            ->whereRelation('organizationMemberships', 'organization_id', $this->organizationId)
+            ->whereRelation('organizationMemberships', 'organization_role_id', $this->roleId);
     }
 }

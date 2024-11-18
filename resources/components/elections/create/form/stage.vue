@@ -3,7 +3,11 @@ import { ElectionStageProps } from "~/resources/interfaces/elections/create.inte
 
 const props = defineProps<{
     stage: ElectionStageProps;
-    removeStage: (args: { index: number }) => void;
+    index: number;
+}>();
+
+const emit = defineEmits<{
+    removeStage: [index: number];
 }>();
 </script>
 
@@ -30,7 +34,7 @@ const props = defineProps<{
             </div>
             <div>
                 <button
-                    @click.prevent="removeStage({ index })"
+                    @click.prevent="emit('removeStage', index)"
                     class="text-red-500 text-3xl rounded-full p-2 leading-[0px] aspect-square hover:bg-gray-100 dark:hover:bg-gray-700 absolute right-0 top-0"
                 >
                     -
@@ -53,13 +57,13 @@ const props = defineProps<{
 
             <div class="basis-1/2">
                 <SharedFormBaseDatePicker
-                    v-model="stage.date.end"
+                    v-model="stage.end"
                     id="end"
                     scope="end"
                     type="datetime"
                     placeholder="mm/dd/yyyy"
                     label="End Date"
-                    :startDate="stage.date.start"
+                    :startDate="stage.start"
                 />
             </div>
         </div>
