@@ -2,6 +2,8 @@
 import { SelectedElectionDetailsCard } from "~/resources/interfaces/elections/selected.interface";
 
 const props = defineProps<SelectedElectionDetailsCard>();
+
+// const card =
 </script>
 
 <template>

@@ -11,7 +11,7 @@ class Show
 
     public function asController(int $id)
     {
-        return hybridly('elections.selected', $this->handle($id));
+        return hybridly('elections.show', $this->handle($id));
     }
 
     public function handle(int $electionId)

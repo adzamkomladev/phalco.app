@@ -20,6 +20,7 @@ class SwitchElection
         }
 
         return hybridly()->external(url()->previous());
+        
     }
 
     public function handle(int $userId, int $electionId)

@@ -1,14 +1,22 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+import {
+CreatedBy
+} from "~/resources/interfaces/elections/selected.interface";
+
+const props = defineProps<{by:CreatedBy}>();
+
+</script>
 
 <template>
     <SharedCommonCard class="divide-y dark:divide-gray-500 gap-2 flex flex-col">
         <div class="flex items-center gap-2">
-            <span
-                class="rounded-full bg-primary-500 dark:bg-primary-600 w-fit aspect-square p-2 flex items-center justify-center"
-            >
-                <SharedCommonIcon name="logo" class="text-white" />
-            </span>
-            <span class="font-bold text-2xl">Phalco</span>
+            <img
+            :src="by.current_organization.logo"
+                class="size-10 aspect-square rounded-full border"
+            />
+           
+            <span class="font-bold text-2xl">{{by.current_organization.name}}</span>
         </div>
         <div
             class="grid text-sm grid-cols-4 xl:grid-cols-5 _xs:divide-y dark:divide-gray-500 _xs:grid-cols-2 gap-6 py-2"
@@ -61,13 +69,13 @@
                             <div class="flex items-center gap-x-3">
                                 <img
                                     class="inline-block size-[25px] rounded-full"
-                                    src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
+                                    :src="by.avatar"
                                     alt="Avatar"
                                 />
                                 <div class="grow">
                                     <span
                                         class="block text-xs font-medium text-gray-500 dark:text-neutral-200"
-                                        >Dr Samuel</span
+                                        >{{by.first_name}} {{by.last_name}}</span
                                     >
                                 </div>
                             </div>

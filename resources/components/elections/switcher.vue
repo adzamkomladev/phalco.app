@@ -8,18 +8,19 @@ const elections =
     data.value?.all?.map((e: App.Data.Elections.ElectionData) => ({
         value: e.id,
         label: e.name,
+        logo:e.logo,
     })) || [];
-const selectedElection = ref<number | null>(data.value?.selected?.id || null);
+const selectedElectionId = ref<number | null>(data.value?.selected?.id || null);
 const loading = ref(false);
 
 watch(
-    selectedElection,
-    async (newElection: number | null, _: number | null) => {
-        if (newElection) {
+    selectedElectionId,
+    async (newElectionId: number | null, _: number | null) => {
+        if (newElectionId) {
             loading.value = true;
             try {
                 const res = await router.patch(route("elections.switch"), {
-                    data: { election_id: +newElection },
+                    data: { election_id:newElectionId },
                 });
             } catch (error) {
             } finally {
@@ -28,6 +29,7 @@ watch(
         }
     },
 );
+
 </script>
 
 <template>
@@ -41,13 +43,13 @@ watch(
             class="rounded-md border border-gray-200 dark:border-gray-600 p-2 gap-4 _sm:gap-2 flex justify-between w-fit items-center _sm:w-fit"
         >
             <div class="flex gap-2">
-                <p
+                <img
+                :src=" data.selected?.logo"
                     class="size-5 bg-primary-400 dark:bg-primary-600 rounded-md"
                 />
-                <p class="max-w-40 truncate">
+                <p class="max-w-40 w-40 truncate text-left">
                     {{
-                        elections.find((e) => e.value === selectedElection)
-                            ?.label || "Select Election for us please "
+                        data.selected?.name || "Select Election for us please "
                     }}
                 </p>
             </div>
@@ -67,7 +69,7 @@ watch(
             <button
                 v-for="(election, index) in elections"
                 :key="index"
-                @click="selectedElection = election.value"
+                @click="selectedElectionId = election.value"
                 id="hs-dropdown-election"
                 type="button"
                 aria-haspopup="menu"
@@ -75,19 +77,28 @@ watch(
                 aria-label="Dropdown"
             >
                 <div
-                    class="rounded-md hover:bg-gray-100 dark:hover:bg-slate-700 my-1 p-2 gap-4 _sm:gap-2 flex items-center"
-                >
-                    <span
-                        :class="[
-                            'size-5  rounded-md ',
-                            selectedElection === election.value
-                                ? 'bg-primary-400'
-                                : 'bg-gray-100',
+
+   :class="[
+                 
+                            selectedElectionId === election.value
+                                ? 'bg-gray-2'
+                                : 'hover:bg-gray-1 dark:hover:bg-slate-700',
                         ]"
+                    class="rounded-md   my-1 p-2 gap-4 _sm:gap-2 flex items-center justify-between"
+                >
+                <div class="flex gap-2">
+                    <img
+                    :src=" election.logo"
+                    class="size-5  rounded-md "
                     />
                     <span>{{ election.label }}</span>
                 </div>
+                    
+                    <span v-if="selectedElectionId ===election.value" class="self-end">
+                        <SharedCommonIcon name="check" class="size-3 self-end text-forest-300"/>
+                    </span>
+                </div>
             </button>
-        </div>
+        </div>     
     </div>
 </template>

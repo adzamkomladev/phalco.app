@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ElectionStageProps } from "~/resources/interfaces/elections/create.interface";
+import { Stage } from "~/resources/interfaces/elections/selected.interface";
 
-const props = defineProps<{ stage: ElectionStageProps; index: number }>();
+const props = defineProps<{ stage: Stage; index: number }>();
 
 const formatDate = (dateString: Date | null) => {
     if (!dateString) return "";
@@ -16,18 +16,21 @@ const formatDate = (dateString: Date | null) => {
 };
 
 const isPast = new Date() > props?.stage?.end;
+
 const isOngoing =
-    props?.stage?.start < new Date() && new Date() < props.stage.end;
-</script>
+(props?.stage?.start && props?.stage?.end) 
+  ? new Date(props.stage.start) <= new Date() && new Date() <= new Date(props.stage.end) 
+  : false;
+  
+  </script>
 
 <template>
     <div
         v-motion-fade-visible
         :delay="50 * index"
-        class="grid grid-cols-7 gap-x-5 ms-1"
+        class="grid grid-cols-7 gap-x-5 ms-1 grow "
     >
-        <div class="text-xs col-span-2">{{ formatDate(stage.start) }}</div>
-
+        <div class="text-xs col-span-2">{{ formatDate(stage.start) }} - {{ formatDate(stage.end) }}</div>
         <div
             :class="[
                 isPast
@@ -63,7 +66,7 @@ const isOngoing =
                 :duration="200"
                 :delay="100 * index"
             >
-                <p>{{ stage.title }}</p>
+                <p>{{ stage.stage }}</p>
                 <p class="text-xs text-gray-500">Get info about election</p>
             </div>
         </div>
