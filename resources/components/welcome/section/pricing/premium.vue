@@ -26,7 +26,7 @@ const props = defineProps<PricingCardProps>();
         </p>
         <ul
             role="list"
-            class="mb-8 grid grid-rows-4 grid-flow-col gap-4 text-left  grid-cols-3"
+            class="mb-8 grid grid-rows-4 grid-flow-col gap-4 text-left max grid-cols-3"
         >
             <WelcomeSectionPricingOffer
                 v-for="(offer, index) in data.offers"
