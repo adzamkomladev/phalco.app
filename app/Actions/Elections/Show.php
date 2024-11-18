@@ -24,7 +24,7 @@ class Show
             ->find($electionId);
 
         $stage = $election->stages->first(
-            fn(ElectionStage $value, int $key) => $value->start < now() && $value->end >= now(),
+            fn (ElectionStage $value, int $key) => $value->start < now() && $value->end >= now(),
         );
 
         $stageStats = null;
@@ -37,14 +37,14 @@ class Show
                 'totalSpent' => 2000,
                 'pending' => 0,
             ];
-        } else if ($stage?->stage === 'voting') {
+        } elseif ($stage?->stage === 'voting') {
             $stageStats = [
                 'voters' => 0,
                 'pollingStations' => 0,
                 'ballots' => 0,
-                'candidates' => 0
+                'candidates' => 0,
             ];
-        } else if ($stage?->stage === 'campaigns') {
+        } elseif ($stage?->stage === 'campaigns') {
             $stageStats = [
                 'campaigns' => 0,
                 'audiences' => 0,
@@ -55,9 +55,9 @@ class Show
                     'sentBy' => [
                         'id' => auth()->id(),
                         'name' => 'Kofi Gyan',
-                        'avatar' => 'https:://via.placeholder.com/150'
-                    ]
-                ]
+                        'avatar' => 'https:://via.placeholder.com/150',
+                    ],
+                ],
             ];
         } else {
             $stageStats = [
@@ -76,11 +76,10 @@ class Show
                     'sep' => 0,
                     'oct' => 0,
                     'nov' => 0,
-                    'dec' => 0
-                ]
+                    'dec' => 0,
+                ],
             ];
         }
-
 
         return [
             'election' => $election,
@@ -103,7 +102,7 @@ class Show
                 ],
             ],
             'stage' => $stage,
-            'stageStats' => $stageStats
+            'stageStats' => $stageStats,
         ];
     }
 }
