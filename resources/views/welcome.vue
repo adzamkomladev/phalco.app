@@ -104,6 +104,7 @@ import ArrowImage from "~/resources/svg/welcome/made_easy_arrow.svg?url";
                 </div>
             </section>
             <WelcomeSectionService />
+            <WelcomeSectionPricing />
 
             <LandingRecommendation />
 

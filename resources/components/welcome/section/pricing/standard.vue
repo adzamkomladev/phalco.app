@@ -9,15 +9,9 @@ const props = defineProps<PricingCardProps>();
         v-motion-pop-visible-once
         :duration="360"
         :delay="60 * position"
-        class="flex pb-16 relative flex-col _sm:max-w-80 _md:max-w-96 p-6 mx-auto text-left text-gray-900 border border-inherit rounded-xl shadow-gray-500 dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
+        class="flex pb-16 relative sm:col-span-2 flex-col _sm:max-w-80 _md:max-w-96 p-6 mx-auto text-left text-gray-900 border border-inherit rounded-xl shadow-gray-500 dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
     >
-        <h3 class="mb-4 text-2xl font-bold capitalize text-left">
-            {{ data.type }}
-        </h3>
-        <p class="font-light text-inherit text-base dark:text-gray-400">
-            {{ data.description }}
-        </p>
-        <div class="flex items-baseline my-4 border-b-2 pb-4 border-inherit">
+        <div class="flex items-baseline my-4">
             <span class="mr-2 text-4xl font-extrabold"
                 >${{ data.amount.value }}</span
             >
@@ -26,9 +20,13 @@ const props = defineProps<PricingCardProps>();
                 >{{ data.amount.rate }}</span
             >
         </div>
-
+        <p
+            class="font-light pb-8 text-inherit text-gray-400 text-base dark:text-gray-400"
+        >
+            {{ data.description }}
+        </p>
         <ul role="list" class="mb-8 space-y-4 text-left">
-            <LandingPricingListItem
+            <WelcomeSectionPricingOffer
                 v-for="(offer, index) in data.offers"
                 :key="index"
                 :offer="offer"
@@ -42,12 +40,5 @@ const props = defineProps<PricingCardProps>();
         >
             Purchase</a
         >
-
-        <div v-if="props.data.type === 'professional'">
-            <LandingPricingListRatingProfessional />
-        </div>
-        <div v-if="props.data.type === 'premium'">
-            <LandingPricingListRatingPremium />
-        </div>
     </div>
 </template>

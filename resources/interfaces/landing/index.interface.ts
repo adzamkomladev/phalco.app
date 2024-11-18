@@ -12,5 +12,4 @@ export interface PricingCardProps {
         offers: string[];
     };
     buttonClass?: string;
-    position: number;
 }

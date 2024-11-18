@@ -3,6 +3,8 @@ import FastDecisionImage from "~/resources/svg/welcome/fast_declision.webp?url";
 import CampaigningImage from "~/resources/svg/welcome/campaigning.webp?url";
 import VotingImage from "~/resources/svg/welcome/voting.webp?url";
 import ManagementImage from "~/resources/svg/welcome/management.webp?url";
+import StepsImage from "~/resources/svg/welcome/voting_steps.svg?url";
+import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
 </script>
 
 <template>
@@ -10,7 +12,11 @@ import ManagementImage from "~/resources/svg/welcome/management.webp?url";
         id="service"
         class="bg-white py-8 flex flex-col gap-8 place-content-center scroll-mt-20"
     >
-        <div class="flex px-[8%] flex-col text-center gap-2 py-4">
+        <div class="flex px-[8%] relative flex-col text-center gap-2 py-4">
+            <img
+                class="_sm:hidden absolute right-[10%] bottom-1/2"
+                :src="ObjectsImage"
+            />
             <p
                 v-motion-fade-visible
                 :duration="300"
@@ -30,10 +36,15 @@ import ManagementImage from "~/resources/svg/welcome/management.webp?url";
             </span>
         </div>
 
-        <div class="grid">
-            <div class="grid items-center sm:grid-cols-2">
-                <div class="px-[20%]">
-                    <img :src="FastDecisionImage" class="" />
+        <div class="grid gap-10">
+            <div
+                class="flex items-center sm:grid-cols-2 px-[10%] even:flex-row-reverse _sm:flex-col"
+            >
+                <div class="basis-1/2 shrink-0 _sm:px-[10%]">
+                    <img
+                        :src="FastDecisionImage"
+                        class="sm:w-[30vw] sm:max-w-72"
+                    />
                 </div>
                 <div>
                     <p
@@ -48,7 +59,7 @@ import ManagementImage from "~/resources/svg/welcome/management.webp?url";
                         v-motion-fade-visible
                         :duration="360"
                         :delay="90"
-                        class="text-gray-700 block self-center sm:pr-[20%] text-justify"
+                        class="text-gray-700 block self-center text-justify"
                     >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -68,9 +79,14 @@ import ManagementImage from "~/resources/svg/welcome/management.webp?url";
                     </routerlink>
                 </div>
             </div>
-            <div class="grid items-center sm:grid-cols-2">
-                <div class="px-[20%]">
-                    <img :src="FastDecisionImage" class="" />
+            <div
+                class="flex items-center sm:grid-cols-2 px-[10%] sm:even:flex-row-reverse _sm:flex-col"
+            >
+                <div class="basis-1/2 shrink-0 flex justify-end _sm:px-[10%]">
+                    <img
+                        :src="CampaigningImage"
+                        class="sm:w-[30vw] sm:max-w-72"
+                    />
                 </div>
                 <div>
                     <p
@@ -79,13 +95,13 @@ import ManagementImage from "~/resources/svg/welcome/management.webp?url";
                         :delay="90"
                         class="font-black font-sans text-3xl md:text-4xl pb-4"
                     >
-                        Fast Decisions
+                        Campaigning
                     </p>
                     <p
                         v-motion-fade-visible
                         :duration="360"
                         :delay="90"
-                        class="text-gray-700 block self-center sm:pr-[20%] text-justify"
+                        class="text-gray-700 block self-center text-justify"
                     >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -105,9 +121,15 @@ import ManagementImage from "~/resources/svg/welcome/management.webp?url";
                     </routerlink>
                 </div>
             </div>
-            <div class="grid items-center sm:grid-cols-2">
-                <div class="px-[20%]">
-                    <img :src="FastDecisionImage" class="" />
+            <div
+                class="flex items-center relative sm:grid-cols-2 px-[10%] sm:even:flex-row-reverse _sm:flex-col"
+            >
+                <img
+                    :src="StepsImage"
+                    class="absolute _sm:hidden left-0 w-[10vw] bottom-0"
+                />
+                <div class="basis-1/2 shrink-0 _sm:px-[10%]">
+                    <img :src="VotingImage" class="sm:w-[30vw] sm:max-w-72" />
                 </div>
                 <div>
                     <p
@@ -116,13 +138,13 @@ import ManagementImage from "~/resources/svg/welcome/management.webp?url";
                         :delay="90"
                         class="font-black font-sans text-3xl md:text-4xl pb-4"
                     >
-                        Fast Decisions
+                        Voting
                     </p>
                     <p
                         v-motion-fade-visible
                         :duration="360"
                         :delay="90"
-                        class="text-gray-700 block self-center sm:pr-[20%] text-justify"
+                        class="text-gray-700 block self-center text-justify"
                     >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -142,9 +164,14 @@ import ManagementImage from "~/resources/svg/welcome/management.webp?url";
                     </routerlink>
                 </div>
             </div>
-            <div class="grid items-center sm:grid-cols-2">
-                <div class="px-[20%]">
-                    <img :src="FastDecisionImage" class="" />
+            <div
+                class="flex items-center sm:grid-cols-2 px-[10%] sm:even:flex-row-reverse _sm:flex-col"
+            >
+                <div class="basis-1/2 shrink-0 flex justify-end _sm:px-[10%]">
+                    <img
+                        :src="ManagementImage"
+                        class="sm:w-[30vw] sm:max-w-72"
+                    />
                 </div>
                 <div>
                     <p
@@ -153,13 +180,13 @@ import ManagementImage from "~/resources/svg/welcome/management.webp?url";
                         :delay="90"
                         class="font-black font-sans text-3xl md:text-4xl pb-4"
                     >
-                        Fast Decisions
+                        Management
                     </p>
                     <p
                         v-motion-fade-visible
                         :duration="360"
                         :delay="90"
-                        class="text-gray-700 block self-center sm:pr-[20%] text-justify"
+                        class="text-gray-700 block self-center text-justify"
                     >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -183,9 +210,4 @@ import ManagementImage from "~/resources/svg/welcome/management.webp?url";
     </section>
 </template>
 
-<style scoped>
-.grid-container {
-    display: grid;
-    grid-auto-flow: column; /* Lay items in columns */
-}
-</style>
+<style scoped></style>
