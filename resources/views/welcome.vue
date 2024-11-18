@@ -5,14 +5,11 @@ import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
 
 <template>
     <body class="bg-gray-100 md:text-lg flex flex-col">
-         <WelcomeHeader />
+        <WelcomeHeader />
         <main
             id="home"
             class="bg-[#F6F6F6] scroll-mt-24 md:bg-white max-w-[1600px] self-center"
         >
-           
-            
-
             <section
                 id="home"
                 class="md:pl-[8%] pl-0 scroll-mt-48 md:mt-12 grid grid-cols-12 _md:flex flex-col-reverse overflow-hidden"
