@@ -126,7 +126,10 @@ import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
                             ."
             >
                 <LandingAboutRequirement class="md:pl-[8%] _md:pl-0" />
+           
             </LandingSection>
+                        <LandingRecommendation/>
+
             <div class="md:border-t">
                 <LandingFooterShow />
             </div>
