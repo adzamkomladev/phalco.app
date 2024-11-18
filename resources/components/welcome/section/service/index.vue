@@ -30,7 +30,7 @@ import ManagementImage from "~/resources/svg/welcome/management.webp?url";
             </span>
         </div>
 
-        <div class="grid">
+        <div class="grid odd:flex-col-reverse">
             <div class="flex items-center">
                 <div class="px-[10%] basis-1/2 shrink-0">
                     <img :src="FastDecisionImage" class="" />
