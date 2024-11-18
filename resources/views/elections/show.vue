@@ -14,7 +14,6 @@ const props = defineProps<{
 }>();
 
 // const { user } = useSecurity();
-
 </script>
 
 <template layout="main">
@@ -44,49 +43,46 @@ const props = defineProps<{
         <div
             class="grid md:grid-cols-2 _md:flex flex-col items-center px-auto xl:grid-cols-4 gap-4 sm:gap-6"
         >
-           
             <ElectionsShowCardsDetail
-            
                 title="Campaigns"
                 icon="campaign_main"
                 :leftValue="stats.campaigns.active"
                 leftLable="Active"
-                :rightValue="stats.campaigns.total-stats.campaigns.active"
+                :rightValue="stats.campaigns.total - stats.campaigns.active"
                 rightLable="Inactive"
                 class="grow w-full"
             />
             <ElectionsShowCardsDetail
-            
                 title="Voters"
                 icon="thumb_up"
                 :leftValue="stats.voters.voted"
                 leftLable="Accepted"
-                :rightValue="stats.voters.total-stats.voters.voted"
+                :rightValue="stats.voters.total - stats.voters.voted"
                 rightLable="Declined"
                 class="grow w-full"
             />
             <ElectionsShowCardsDetail
-            
                 title="Nominations"
                 icon="users"
                 :leftValue="stats.nominations.approved"
                 leftLable="Active"
-                :rightValue="stats.nominations.submitted-stats.nominations.approved"
+                :rightValue="
+                    stats.nominations.submitted - stats.nominations.approved
+                "
                 rightLable="Inactive"
                 class="grow w-full"
             />
             <ElectionsShowCardsDetail
-            
                 title="Polling Stations"
                 icon="polling_station"
                 :leftValue="stats.pollingStations.active"
                 leftLable="Active"
-                :rightValue="stats.pollingStations.total-stats.pollingStations.active"
+                :rightValue="
+                    stats.pollingStations.total - stats.pollingStations.active
+                "
                 rightLable="Inactive"
                 class="grow w-full"
             />
-            
-
         </div>
 
         <div class="grid grid-cols-7 _md:flex flex-col gap-4 sm:gap-6">

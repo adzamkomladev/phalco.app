@@ -22,8 +22,8 @@ const { key, value, extra } = props.row;
                 </label>
             </div>
         </td>
-        <td class="size-px w  w-full max-w-40 bg-red">
-            <div class="py-3 ps-6 lg:ps-3  pe-6">
+        <td class="size-px w w-full max-w-40 bg-red">
+            <div class="py-3 ps-6 lg:ps-3 pe-6">
                 <div class="flex items-center gap-x-3">
                     <img
                         class="inline-block size-[38px] rounded-full"
@@ -43,7 +43,7 @@ const { key, value, extra } = props.row;
                 </div>
             </div>
         </td>
-        <td class="h-px whitespace-nowrap ">
+        <td class="h-px whitespace-nowrap">
             <div class="px-6 py-3 text-sm">
                 <SharedTableStatus :status="value(findColumn('status'))" />
             </div>

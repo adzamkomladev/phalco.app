@@ -12,7 +12,7 @@ const props = defineProps<{ column: any; index: number }>();
         class=""
     >
         <div
-            class="flex items-center gap-x-2 "
+            class="flex items-center gap-x-2"
             @click="
                 () => {
                     if (column.isSortable) {
@@ -20,10 +20,13 @@ const props = defineProps<{ column: any; index: number }>();
                     }
                 }
             "
-            :class="[column.isSortable && 'cursor-pointer'  , index!=0 ? 'place-content-center':'' ]"
+            :class="[
+                column.isSortable && 'cursor-pointer',
+                index != 0 ? 'place-content-center' : '',
+            ]"
         >
             <span
-                class="text-xs font-semibold gap-2 items-center  flex tracking-wide text-gray-800 uppercase dark:text-gray-200 sm:text-nowrap"
+                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200 sm:text-nowrap"
             >
                 {{ column.label }}
                 <span
@@ -32,7 +35,8 @@ const props = defineProps<{ column: any; index: number }>();
                 >
                     <SharedCommonIcon
                         v-if="
-                        column.isSorting('asc') | column.isSorting('desc') "
+                            column.isSorting('asc') | column.isSorting('desc')
+                        "
                         name="arrow_up"
                         stroke-width="1"
                         class="h-4 text-gray-500"

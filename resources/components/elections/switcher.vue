@@ -8,7 +8,7 @@ const elections =
     data.value?.all?.map((e: App.Data.Elections.ElectionData) => ({
         value: e.id,
         label: e.name,
-        logo:e.logo,
+        logo: e.logo,
     })) || [];
 const selectedElectionId = ref<number | null>(data.value?.selected?.id || null);
 const loading = ref(false);
@@ -20,7 +20,7 @@ watch(
             loading.value = true;
             try {
                 const res = await router.patch(route("elections.switch"), {
-                    data: { election_id:newElectionId },
+                    data: { election_id: newElectionId },
                 });
             } catch (error) {
             } finally {
@@ -29,7 +29,6 @@ watch(
         }
     },
 );
-
 </script>
 
 <template>
@@ -44,7 +43,7 @@ watch(
         >
             <div class="flex gap-2">
                 <img
-                :src=" data.selected?.logo"
+                    :src="data.selected?.logo"
                     class="size-5 bg-primary-400 dark:bg-primary-600 rounded-md"
                 />
                 <p class="max-w-40 w-40 truncate text-left">
@@ -77,28 +76,29 @@ watch(
                 aria-label="Dropdown"
             >
                 <div
-
-   :class="[
-                 
-                            selectedElectionId === election.value
-                                ? 'bg-gray-2'
-                                : 'hover:bg-gray-1 dark:hover:bg-slate-700',
-                        ]"
-                    class="rounded-md   my-1 p-2 gap-4 _sm:gap-2 flex items-center justify-between"
+                    :class="[
+                        selectedElectionId === election.value
+                            ? 'bg-gray-2'
+                            : 'hover:bg-gray-1 dark:hover:bg-slate-700',
+                    ]"
+                    class="rounded-md my-1 p-2 gap-4 _sm:gap-2 flex items-center justify-between"
                 >
-                <div class="flex gap-2">
-                    <img
-                    :src=" election.logo"
-                    class="size-5  rounded-md "
-                    />
-                    <span>{{ election.label }}</span>
-                </div>
-                    
-                    <span v-if="selectedElectionId ===election.value" class="self-end">
-                        <SharedCommonIcon name="check" class="size-3 self-end text-forest-300"/>
+                    <div class="flex gap-2">
+                        <img :src="election.logo" class="size-5 rounded-md" />
+                        <span>{{ election.label }}</span>
+                    </div>
+
+                    <span
+                        v-if="selectedElectionId === election.value"
+                        class="self-end"
+                    >
+                        <SharedCommonIcon
+                            name="check"
+                            class="size-3 self-end text-forest-300"
+                        />
                     </span>
                 </div>
             </button>
-        </div>     
+        </div>
     </div>
 </template>

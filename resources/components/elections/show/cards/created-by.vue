@@ -1,22 +1,20 @@
 <script setup lang="ts">
+import { CreatedBy } from "~/resources/interfaces/elections/selected.interface";
 
-import {
-CreatedBy
-} from "~/resources/interfaces/elections/selected.interface";
-
-const props = defineProps<{by:CreatedBy}>();
-
+const props = defineProps<{ by: CreatedBy }>();
 </script>
 
 <template>
     <SharedCommonCard class="divide-y dark:divide-gray-500 gap-2 flex flex-col">
         <div class="flex items-center gap-2">
             <img
-            :src="by.current_organization.logo"
+                :src="by.current_organization.logo"
                 class="size-10 aspect-square rounded-full border"
             />
-           
-            <span class="font-bold text-2xl">{{by.current_organization.name}}</span>
+
+            <span class="font-bold text-2xl">{{
+                by.current_organization.name
+            }}</span>
         </div>
         <div
             class="grid text-sm grid-cols-4 xl:grid-cols-5 _xs:divide-y dark:divide-gray-500 _xs:grid-cols-2 gap-6 py-2"
@@ -75,7 +73,8 @@ const props = defineProps<{by:CreatedBy}>();
                                 <div class="grow">
                                     <span
                                         class="block text-xs font-medium text-gray-500 dark:text-neutral-200"
-                                        >{{by.first_name}} {{by.last_name}}</span
+                                        >{{ by.first_name }}
+                                        {{ by.last_name }}</span
                                     >
                                 </div>
                             </div>

@@ -18,19 +18,21 @@ const formatDate = (dateString: Date | null) => {
 const isPast = new Date() > props?.stage?.end;
 
 const isOngoing =
-(props?.stage?.start && props?.stage?.end) 
-  ? new Date(props.stage.start) <= new Date() && new Date() <= new Date(props.stage.end) 
-  : false;
-  
-  </script>
+    props?.stage?.start && props?.stage?.end
+        ? new Date(props.stage.start) <= new Date() &&
+          new Date() <= new Date(props.stage.end)
+        : false;
+</script>
 
 <template>
     <div
         v-motion-fade-visible
         :delay="50 * index"
-        class="grid grid-cols-7 gap-x-5 ms-1 grow "
+        class="grid grid-cols-7 gap-x-5 ms-1 grow"
     >
-        <div class="text-xs col-span-2">{{ formatDate(stage.start) }} - {{ formatDate(stage.end) }}</div>
+        <div class="text-xs col-span-2">
+            {{ formatDate(stage.start) }} - {{ formatDate(stage.end) }}
+        </div>
         <div
             :class="[
                 isPast
