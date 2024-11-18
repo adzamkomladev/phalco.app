@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import {
     Election,
+    Stage,
+    StageStats,
     Stats,
 } from "~/resources/interfaces/elections/selected.interface";
 
@@ -8,9 +10,11 @@ useHead({
     title: "Election Details",
 });
 
-const props = defineProps<{
+defineProps<{
     election: Election;
     stats: Stats;
+    stage: Stage;
+    stageStats: StageStats;
 }>();
 
 // const { user } = useSecurity();
@@ -20,25 +24,7 @@ const props = defineProps<{
     <div
         class="max-w-[100rem] px-4 flex flex-col gap-8 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
     >
-        <div class="">
-            <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
-                Hey Komla
-            </h2>
-            <p class="text-sm text-gray-600 dark:text-gray-400">
-                Lorem ipsum dolor sit, amet consectetur
-            </p>
-        </div>
-
         <ElectionsShowCardsCreatedBy :by="election.created_by" />
-
-        <div class="">
-            <h2 class="text-xl font-medium text-gray-800 dark:text-gray-200">
-                Election Details
-            </h2>
-            <p class="text-sm text-gray-600 dark:text-gray-400">
-                Lorem ipsum dolor sit, amet consectetur
-            </p>
-        </div>
 
         <div
             class="grid md:grid-cols-2 _md:flex flex-col items-center px-auto xl:grid-cols-4 gap-4 sm:gap-6"
@@ -64,12 +50,12 @@ const props = defineProps<{
             <ElectionsShowCardsDetail
                 title="Nominations"
                 icon="users"
-                :leftValue="stats.nominations.approved"
-                leftLable="Active"
-                :rightValue="
+                :left-value="stats.nominations.approved"
+                left-lable="Active"
+                :right-value="
                     stats.nominations.submitted - stats.nominations.approved
                 "
-                rightLable="Inactive"
+                right-lable="Inactive"
                 class="grow w-full"
             />
             <ElectionsShowCardsDetail
