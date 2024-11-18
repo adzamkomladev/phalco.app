@@ -1,30 +1,31 @@
 <script setup lang="ts">
-import ImageWelcomeSm from "~/resources/images/welcome/landing_sm.webp?url";
-import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
+import MadeEasyImage1 from "~/resources/svg/welcome/made_easy_1.webp?url";
+import MadeEasyImage2 from "~/resources/svg/welcome/made_easy_2.webp?url";
+import MadeEasyImage3 from "~/resources/svg/welcome/made-easy_3.svg?url";
+import ArrowImage from "~/resources/svg/welcome/made_easy_arrow.svg?url";
 </script>
 
 <template>
     <body class="bg-gray-100 md:text-lg flex flex-col">
         <WelcomeHeader />
+
         <main
             id="home"
-            class="bg-[#F6F6F6] scroll-mt-24 md:bg-white max-w-[1600px] self-center"
+            class="scroll-mt-[9rem] bg-white max-w-[1600px] self-center"
         >
-            <section
-                id="home"
-                class="md:pl-[8%] pl-0 scroll-mt-48 md:mt-12 grid grid-cols-12 _md:flex flex-col-reverse overflow-hidden"
-            >
+            <section id="home" class="flex _sm:flex-col relative">
                 <div
-                    class="col-span-6 z-10 _md:p-[8%] md:bg-transparent bg-white _md:rounded-t-[3rem] pt-14 gap-2 flex flex-col"
+                    class="sm:basis-1/2 pl-[5%] _sm:px-[8%] pt-10 relative h-fit shrink-0 _sm:text-center"
                 >
                     <p
-                        class="font-black text-3xl md:text-[3.5rem] inline md:leading-[5rem] md:w-[110%]"
+                        class="font-black text-2xl _sm:w-[70%] place-self-center pb-2 sm:text-3xl text-black md:text-4xl lg:text-5xl md:leading-[3rem]"
                     >
                         <SharedAnimationBlurReview :delay="0" :duration="0.67">
                             <p
                                 v-motion-fade-visible
                                 :delay="100"
                                 :duration="360"
+                                class="text-wrap"
                             >
                                 Election Management made easy
                             </p>
@@ -34,10 +35,10 @@ import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
                         v-motion-fade-visible
                         :delay="100"
                         :duration="360"
-                        class="md:w-[82%] lg:w-full"
+                        class=" "
                     >
                         <span
-                            class="text-gray-700 inline bg-[#ffffffaa]"
+                            class=""
                             v-motion-fade-visible-once
                             :duration="300"
                             :delay="500"
@@ -60,72 +61,50 @@ import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
                                 Get Started
                             </button>
                         </router-link>
-                        <p
-                            class="my-4 text-sm md:text-base sm:text-base text-gray-600 font-bold dark:text-gray-400 md:hidden"
-                        >
-                            Already have an account ?
-                            <router-link
-                                class="text-primary-twi decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
-                                :href="route('login')"
-                            >
-                                Login
-                            </router-link>
-                        </p>
+                    </div>
+                    <div class="absolute left-0 top-[110%] _sm:hidden">
+                        <img
+                            v-motion-slide-visible
+                            :duration="360"
+                            :delay="90"
+                            :src="ArrowImage"
+                            class="h-[15vw]"
+                        />
                     </div>
                 </div>
                 <div
-                    class="py-8 items-end col-span-6 md:w-[110%] sticky md:right-0"
+                    class="py-8 items-end sm:pr-[5%] _sm:px-[8%] col-span-6 md:w-[110%] sticky md:right-0"
                 >
-                    <img
-                        v-motion-pop-visible-once
-                        :delay="1000"
-                        :duration="900"
-                        :src="ImageWelcomeLg"
-                        class="_md:hidden md:block float-right"
-                    />
+                    <div class="grid grid-cols-2 place-items-center">
+                        <img
+                            v-motion-pop-visible-once
+                            :delay="1000"
+                            :duration="900"
+                            :src="MadeEasyImage3"
+                            class="self-right"
+                        />
+                        <img
+                            v-motion-pop-visible-once
+                            :delay="1000"
+                            :duration="900"
+                            :src="MadeEasyImage1"
+                            class=""
+                        />
+                    </div>
 
-                    <img
-                        v-motion-fade-visible
-                        :duration="360"
-                        :delay="90"
-                        :src="ImageWelcomeSm"
-                        class="md:hidden _md:block w-full p-10"
-                    />
+                    <div class="lg:-mt-10 lg:-ml-20">
+                        <img
+                            v-motion-fade-visible
+                            :duration="360"
+                            :delay="90"
+                            :src="MadeEasyImage2"
+                            class=""
+                        />
+                    </div>
                 </div>
             </section>
+            <WelcomeSectionService />
 
-            <LandingSection
-                class=""
-                id="service"
-                title="Our Service"
-                description="Lorem ipsum dolor sit amet consectetur adipisicing
-                        >Lorem ipsum dolor sit amet consectetur adipisicing
-                        elitLorem ipsum dolor sit amet consectetur adipisicing
-                        elit"
-            >
-                <LandingServiceShow class="px-[8%]" />
-            </LandingSection>
-            <LandingSection
-                id="pricing"
-                title="Pricing"
-                description="Lorem ipsum dolor sit amet consectetur adipisicing
-                        Lorem ipsum dolor sit amet consectetur adipisicing
-                        elitLorem ipsum dolor sit amet consectetur adipisicing
-                        elit"
-            >
-                <LandingPricingShow class="px-8 md:px-[8%]" />
-            </LandingSection>
-            <LandingSection
-                id="about Us"
-                class="md:pr-0"
-                title="About Us"
-                description="Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Cumque itaque exercitationem corporis aliquin
-                            elit. Cumque itaque exercitationem corporis aliquid
-                            ."
-            >
-                <LandingAboutRequirement class="md:pl-[8%] _md:pl-0" />
-            </LandingSection>
             <LandingRecommendation />
 
             <div class="md:border-t">
