@@ -14,6 +14,8 @@ final class PaymentsTable extends Table
 {
     protected string $model = Payment::class;
 
+    public function __construct(public readonly int $organizationId) {}
+
     protected function defineColumns(): array
     {
         return [
@@ -22,23 +24,18 @@ final class PaymentsTable extends Table
                 ->label('Amount')
                 ->transformValueUsing(fn (Payment $payment) => $payment->amount / 100)
                 ->extra((fn (Payment $payment) => ['id' => $payment->id])),
-            Columns\TextColumn::make('reference')->label('Reference')
-                ->transformValueUsing(fn (Payment $payment) => $payment->reference),
-            Columns\TextColumn::make('gateway_reference')->label('Gateway Reference')
-                ->transformValueUsing(fn (Payment $payment) => $payment->gateway_reference),
-            Columns\TextColumn::make('gateway')->label('Gateway')
-                ->transformValueUsing(fn (Payment $payment) => $payment->gateway),
-            Columns\TextColumn::make('status')->label('Status')
-                ->transformValueUsing(fn (Payment $payment) => $payment->status),
-            Columns\TextColumn::make('created')->label('Created')
-                ->transformValueUsing(fn (Payment $payment) => $payment->created_at),
+            Columns\TextColumn::make('reference')->label('Reference'),
+            Columns\TextColumn::make('gateway_reference')->label('Gateway Reference'),
+            Columns\TextColumn::make('gateway')->label('Gateway'),
+            Columns\TextColumn::make('status')->label('Status'),
+            Columns\TextColumn::make('created')->label('Created'),
         ];
     }
 
     protected function defineRefiners(): array
     {
         return [
-            Sorts\Sort::make('id'),
+            Sorts\Sort::make('created'),
             CallbackFilter::make(
                 name: 'search',
                 callback: function (InternalBuilder $builder, mixed $value, string $property) {
@@ -60,10 +57,8 @@ final class PaymentsTable extends Table
 
     protected function defineQuery(): Builder
     {
-        $selectedOrganizationId = auth()->user()->selected_organization_id;
-
         return $this->getModel()
             ->query()
-            ->where('organization_id', $selectedOrganizationId);
+            ->where('organization_id', $this->organizationId);
     }
 }
