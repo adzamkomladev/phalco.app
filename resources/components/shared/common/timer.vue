@@ -1,14 +1,10 @@
 <script lang="ts" setup>
-import { ref, computed, onMounted } from "vue";
-
-// Props
 interface CountdownProps {
-    duration: number; // Time in seconds
+    duration: number;
 }
 
 const props = defineProps<CountdownProps>();
 
-// Countdown State
 const timeLeft = ref(props.duration);
 
 const formattedTime = computed(() => {
@@ -22,7 +18,6 @@ const formattedTime = computed(() => {
     return `${hours}:${minutes}:${seconds}`;
 });
 
-// Countdown Function
 const startCountdown = () => {
     const interval = setInterval(() => {
         if (timeLeft.value > 0) {
@@ -33,7 +28,6 @@ const startCountdown = () => {
     }, 1000);
 };
 
-// Start Countdown on Mount
 onMounted(() => {
     startCountdown();
 });
