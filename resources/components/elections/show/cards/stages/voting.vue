@@ -1,22 +1,28 @@
 <script lang="ts" setup>
+import {
+    Stage,
+    StageStatsCampaigns,
+    StageStatsVoting,
+} from "~/resources/interfaces/elections/selected.interface";
+import { formatDate, secondsUntil } from "~/resources/utils/shared/date";
 
-import { Stage, StageStatsCampaigns, StageStatsVoting } from "~/resources/interfaces/elections/selected.interface";
-import { formatDate,secondsUntil } from "~/resources/utils/shared/date";
+const props = defineProps<{ stageStat: StageStatsVoting; stage: Stage }>();
 
-const props =defineProps<{stageStat:StageStatsVoting,stage:Stage}>();
-
-const timeLeftToEndDate=Math.floor(secondsUntil(props.stage.end));
-
+const timeLeftToEndDate = Math.floor(secondsUntil(props.stage.end));
 </script>
 
 <template>
     <SharedCommonCard
         class="gap-2 shrink-0 dark:text-gray-400 flex flex-col col-span-4"
     >
-    <div class="flex-col flex gap-2">
-        <div class="font-semibold text-lg text-center">
-            <span>{{formatDate(new Date(stage.start),'dd - MMM')}}</span>  to <span>{{formatDate(new Date(stage.end),'dd - MMM , yyyy')}}</span>
-        </div>
+        <div class="flex-col flex gap-2">
+            <div class="font-semibold text-lg text-center">
+                <span>{{ formatDate(new Date(stage.start), "dd - MMM") }}</span>
+                to
+                <span>{{
+                    formatDate(new Date(stage.end), "dd - MMM , yyyy")
+                }}</span>
+            </div>
             <div class="text-center">
                 <h2
                     class="text-lg font-semibold text-gray-800 dark:text-gray-200"
@@ -40,17 +46,24 @@ const timeLeftToEndDate=Math.floor(secondsUntil(props.stage.end));
                     <div class="grid gap-4 grid-cols-2 xs:hidden">
                         <div>
                             <p class="text-gray-500">Total ballots</p>
-                            <p class="font-bold text-sm">{{stageStat.ballots}}</p>
+                            <p class="font-bold text-sm">
+                                {{ stageStat.ballots }}
+                            </p>
                         </div>
                         <div>
                             <p class="text-gray-500">Total voters</p>
-                            <p class="font-bold text-sm">{{stageStat.voters}}</p>
+                            <p class="font-bold text-sm">
+                                {{ stageStat.voters }}
+                            </p>
                         </div>
                     </div>
                     <div>
                         <p class="text-gray-500">Time Remaining</p>
 
-                        <SharedCommonTimer class="text-2xl md:text-3xl md:_xl:text-2xl font-bold" :duration="timeLeftToEndDate"/>
+                        <SharedCommonTimer
+                            class="text-2xl md:text-3xl md:_xl:text-2xl font-bold"
+                            :duration="timeLeftToEndDate"
+                        />
                     </div>
                 </div>
             </div>
@@ -71,7 +84,9 @@ const timeLeftToEndDate=Math.floor(secondsUntil(props.stage.end));
                         </span>
                         <div>
                             <p class="font-bold text-lg">Total Candidates</p>
-                            <p class="font-semibold text-sm">{{stageStat.candidates}}8</p>
+                            <p class="font-semibold text-sm">
+                                {{ stageStat.candidates }}8
+                            </p>
                         </div>
                     </div>
                     <div class="group">
@@ -97,7 +112,9 @@ const timeLeftToEndDate=Math.floor(secondsUntil(props.stage.end));
                             <p class="font-bold text-lg">
                                 Total Polling Station
                             </p>
-                            <p class="font-semibold text-sm">{{stageStat.pollingStations}}</p>
+                            <p class="font-semibold text-sm">
+                                {{ stageStat.pollingStations }}
+                            </p>
                         </div>
                     </div>
                     <div class="group">
@@ -110,8 +127,9 @@ const timeLeftToEndDate=Math.floor(secondsUntil(props.stage.end));
                 </div>
             </SharedCommonCard>
             <router-link
-            :href="route('voting.ballots.index')"
-            class="text-center text-secondary-300">
+                :href="route('voting.ballots.index')"
+                class="text-center text-secondary-300"
+            >
                 Move to dashboard page
             </router-link>
         </div>

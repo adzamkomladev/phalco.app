@@ -3,7 +3,7 @@ import { ref, computed, onMounted } from "vue";
 
 // Props
 interface CountdownProps {
-  duration: number; // Time in seconds
+    duration: number; // Time in seconds
 }
 
 const props = defineProps<CountdownProps>();
@@ -12,26 +12,30 @@ const props = defineProps<CountdownProps>();
 const timeLeft = ref(props.duration);
 
 const formattedTime = computed(() => {
-  const hours = Math.floor(timeLeft.value / 3600).toString().padStart(2, "0");
-  const minutes = Math.floor((timeLeft.value % 3600) / 60).toString().padStart(2, "0");
-  const seconds = (timeLeft.value % 60).toString().padStart(2, "0");
-  return `${hours}:${minutes}:${seconds}`;
+    const hours = Math.floor(timeLeft.value / 3600)
+        .toString()
+        .padStart(2, "0");
+    const minutes = Math.floor((timeLeft.value % 3600) / 60)
+        .toString()
+        .padStart(2, "0");
+    const seconds = (timeLeft.value % 60).toString().padStart(2, "0");
+    return `${hours}:${minutes}:${seconds}`;
 });
 
 // Countdown Function
 const startCountdown = () => {
-  const interval = setInterval(() => {
-    if (timeLeft.value > 0) {
-      timeLeft.value--;
-    } else {
-      clearInterval(interval);
-    }
-  }, 1000);
+    const interval = setInterval(() => {
+        if (timeLeft.value > 0) {
+            timeLeft.value--;
+        } else {
+            clearInterval(interval);
+        }
+    }, 1000);
 };
 
 // Start Countdown on Mount
 onMounted(() => {
-  startCountdown();
+    startCountdown();
 });
 </script>
 

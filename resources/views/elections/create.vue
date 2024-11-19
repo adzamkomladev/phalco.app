@@ -90,7 +90,10 @@ const removeStage = (index: number) => {
                         the email we sent to:
                     </p>
                 </div>
-                <img :src="StartElectionImage" class="w-40 p-5 pl-0 _sm:hidden" />
+                <img
+                    :src="StartElectionImage"
+                    class="w-40 p-5 pl-0 _sm:hidden"
+                />
             </div>
 
             <form
@@ -211,7 +214,10 @@ const removeStage = (index: number) => {
                 </div>
 
                 <div class="pt-2 peer-focus-within:-z-10">
-                    <SharedFormSubmitButton text="create"   :loading="form.processing" />
+                    <SharedFormSubmitButton
+                        text="create"
+                        :loading="form.processing"
+                    />
                 </div>
             </form>
         </div>

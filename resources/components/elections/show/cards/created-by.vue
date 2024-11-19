@@ -14,7 +14,6 @@ const formatDate = (dateString: Date | null) => {
         year: "2-digit",
     });
 };
-
 </script>
 
 <template>
@@ -25,9 +24,7 @@ const formatDate = (dateString: Date | null) => {
                 class="size-10 aspect-square rounded-full border"
             />
 
-            <span class="font-bold text-2xl">{{
-                election.name
-            }}</span>
+            <span class="font-bold text-2xl">{{ election.name }}</span>
         </div>
         <div
             class="grid text-sm grid-cols-4 xl:grid-cols-5 _xs:divide-y dark:divide-gray-500 _xs:grid-cols-2 gap-6 py-2"
@@ -64,7 +61,9 @@ const formatDate = (dateString: Date | null) => {
                         <span class="text-gray-500"> Due date </span>
                     </div>
                     <div class="">
-                        <span class="text-gray-500">{{formatDate(election.end)}} </span>
+                        <span class="text-gray-500"
+                            >{{ formatDate(election.end) }}
+                        </span>
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-4 col-span-2">
@@ -87,7 +86,9 @@ const formatDate = (dateString: Date | null) => {
                                     <span
                                         class="block text-xs font-medium text-gray-500 dark:text-neutral-200"
                                         >{{ election.created_by.first_name }}
-                                        {{ election.created_by.last_name }}</span
+                                        {{
+                                            election.created_by.last_name
+                                        }}</span
                                     >
                                 </div>
                             </div>

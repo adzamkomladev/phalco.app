@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { Stage } from "~/resources/interfaces/elections/selected.interface";
 
-const props = defineProps<{ stages: Stage[] ,electionEndDate:Date}>();
+const props = defineProps<{ stages: Stage[]; electionEndDate: Date }>();
 import { formatDate } from "~/resources/utils/shared/date";
-
 </script>
 
 <template>
@@ -11,7 +10,7 @@ import { formatDate } from "~/resources/utils/shared/date";
         class="gap-2 col-span-3 col-start-5 shrink-0 flex flex-col"
     >
         <div class="text-center">
-            <h2 class="text-xl font-semibold">Election Timeline </h2>
+            <h2 class="text-xl font-semibold">Election Timeline</h2>
             <p class="text-sm text-gray-600 dark:text-gray-400">
                 Lorem ipsum dolor sit, amet consectetur
             </p>

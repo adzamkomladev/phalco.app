@@ -66,7 +66,7 @@ const maxFrequency = computed(() => {
                 <span
                     class="transition-all text-nowrap -translate-y-full absolute text-xs -top-6 opacity-0 group-hover:opacity-100"
                 >
-                    {{unit}} {{ item }}
+                    {{ unit }} {{ item }}
                 </span>
                 <div
                     :style="{ backgroundColor: colors[index] || defaultColor }"
@@ -80,7 +80,5 @@ const maxFrequency = computed(() => {
         </div>
     </div>
 </template>
-
-
 
 <style scoped></style>

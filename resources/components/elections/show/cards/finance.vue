@@ -1,52 +1,48 @@
 <script setup lang="ts">
-import {
+import { StageStatsDefault } from "~/resources/interfaces/elections/selected.interface";
 
-    StageStatsDefault,
-} from "~/resources/interfaces/elections/selected.interface";
+const props = defineProps<{
+    stageStat: StageStatsDefault;
+    electionLogo: string;
+}>();
 
-const props= defineProps<{stageStat:StageStatsDefault,electionLogo:string}>();
+const amountsSpent = Object.values(props.stageStat.spent);
+const totalAmountSpent = computed(() => {
+    return amountsSpent.reduce((sum, amount) => amount + sum, 0);
+});
 
-
-const amountsSpent =Object.values(props.stageStat.spent);
-const totalAmountSpent =computed(()=>{
-
- return amountsSpent.reduce((sum,amount)=>amount+sum,0)
-})
-
-const unit ='₵'
-
+const unit = "₵";
 </script>
 
 <template>
-    <SharedCommonCard
-        class="col-span-4 gap-2 flex flex-col relative  "
-    >
+    <SharedCommonCard class="col-span-4 gap-2 flex flex-col relative">
         <div class="grid grid-cols-5 gap-2 _xs:flex flex-col">
             <div class="flex gap-2 col-span-2 _xs:flex-col">
                 <img
-                :src="electionLogo"
+                    :src="electionLogo"
                     class="rounded-full border size-14 aspect-square"
                 />
-            
+
                 <div class="font-bold">
                     <p></p>
                     <p class="font-normal">Nominations</p>
-                    <p class="text-xl"> {{stageStat.totalNominations}}</p>
+                    <p class="text-xl">{{ stageStat.totalNominations }}</p>
                 </div>
             </div>
             <div class="flex flex-col justify-end col-span-3">
                 <p class="">
                     Total Donations :<span class="font-bold text-semibase ml-2"
-                        >{{ unit }} {{ stageStat.totalDonations }} </span>
+                        >{{ unit }} {{ stageStat.totalDonations }}
+                    </span>
                 </p>
                 <p>
                     Total Spent :<span class="font-bold text-semibase ml-2"
-                        >{{ unit }} {{totalAmountSpent}}</span
+                        >{{ unit }} {{ totalAmountSpent }}</span
                     >
                 </p>
                 <p>
                     Total Balance :<span class="font-bold text-semibase ml-2"
-                        >{{ unit }} {{stageStat.totalBalance}}</span
+                        >{{ unit }} {{ stageStat.totalBalance }}</span
                     >
                 </p>
             </div>

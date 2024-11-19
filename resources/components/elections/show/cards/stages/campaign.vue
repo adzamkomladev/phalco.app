@@ -2,14 +2,13 @@
 import CampaignImage from "~/resources/images/election/campaign.webp?src";
 
 import {
-
     Stage,
-    StageStatsCampaigns
+    StageStatsCampaigns,
 } from "~/resources/interfaces/elections/selected.interface";
 
 import { formatDate } from "~/resources/utils/shared/date";
 
-const props =defineProps<{stageStat:StageStatsCampaigns,stage:Stage}>();
+const props = defineProps<{ stageStat: StageStatsCampaigns; stage: Stage }>();
 </script>
 
 <template>
@@ -17,7 +16,8 @@ const props =defineProps<{stageStat:StageStatsCampaigns,stage:Stage}>();
         class="gap-2 shrink-0 dark:text-gray-400 flex flex-col col-span-4"
     >
         <div class="font-semibold text-lg text-center">
-            <span>{{formatDate(new Date(stage.start),'dd-MMM')}}</span>  to <span>{{formatDate(new Date(stage.end),'dd-MMM-yyyy')}}</span>
+            <span>{{ formatDate(new Date(stage.start), "dd-MMM") }}</span> to
+            <span>{{ formatDate(new Date(stage.end), "dd-MMM-yyyy") }}</span>
         </div>
         <div class="text-center">
             <h2 class="text-lg font-medium text-gray-800 dark:text-gray-200">
@@ -30,7 +30,7 @@ const props =defineProps<{stageStat:StageStatsCampaigns,stage:Stage}>();
 
         <div class="flex flex-col gap-5 h-full">
             <div
-                class="flex  text-white dark:text-gray-200 justify-between bg-secondary-300 dark:bg-primary-800 rounded-xl pr-2 p-5 dark:bg-gradient-to-r from-secondary-950 to-secondary-800"
+                class="flex text-white dark:text-gray-200 justify-between bg-secondary-300 dark:bg-primary-800 rounded-xl pr-2 p-5 dark:bg-gradient-to-r from-secondary-950 to-secondary-800"
             >
                 <div class="flex flex-col justify-between">
                     <div class="flex items-center gap-2">
@@ -38,25 +38,25 @@ const props =defineProps<{stageStat:StageStatsCampaigns,stage:Stage}>();
                             class="inline-block size-16 rounded-full aspect-square"
                             :src="stageStat?.message?.sentBy?.avatar"
                         />
-                        <span class="text-base">{{stageStat?.message?.sentBy?.name}}</span>
+                        <span class="text-base">{{
+                            stageStat?.message?.sentBy?.name
+                        }}</span>
                     </div>
                     <div class="flex flex-col gap-2">
                         <h1 class="text-lg font-medium">Campaign Message</h1>
                         <p
-                            class=" text-xs font-light sm:_md:w-[120%] text-balan line-clamp-2 inli3 bg-inherit z-10"
+                            class="text-xs font-light sm:_md:w-[120%] text-balan line-clamp-2 inli3 bg-inherit z-10"
                         >
-                        {{stageStat?.message?.text}}
-
+                            {{ stageStat?.message?.text }}
                         </p>
-
                     </div>
                     <button
-                            class="border hover:bg-[#00000010] text-sm w-fit rounded-md p-2 border-secondary-200 dark:border-secondary-500 dark:text-primary-400"
-                        >
-                            View Message
-                        </button>
+                        class="border hover:bg-[#00000010] text-sm w-fit rounded-md p-2 border-secondary-200 dark:border-secondary-500 dark:text-primary-400"
+                    >
+                        View Message
+                    </button>
                 </div>
-                <div class="basis-3/7 shrink-0 _xs:hidden ">
+                <div class="basis-3/7 shrink-0 _xs:hidden">
                     <img
                         class="inline-block rounded-full"
                         :src="CampaignImage"
@@ -81,7 +81,9 @@ const props =defineProps<{stageStat:StageStatsCampaigns,stage:Stage}>();
                         </span>
                         <div>
                             <p class="font-bold text-lg">Total Audiences</p>
-                            <p class="font-semibold text-sm">{{stageStat?.audiences}}</p>
+                            <p class="font-semibold text-sm">
+                                {{ stageStat?.audiences }}
+                            </p>
                         </div>
                     </div>
                     <div class="group">
@@ -105,7 +107,9 @@ const props =defineProps<{stageStat:StageStatsCampaigns,stage:Stage}>();
                         </span>
                         <div>
                             <p class="font-bold text-lg">Total Campaigns</p>
-                            <p class="font-semibold text-sm">{{stageStat?.campaigns}}</p>
+                            <p class="font-semibold text-sm">
+                                {{ stageStat?.campaigns }}
+                            </p>
                         </div>
                     </div>
                     <div class="group">

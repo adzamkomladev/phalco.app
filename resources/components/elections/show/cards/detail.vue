@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { SelectedElectionDetailsCard } from "~/resources/interfaces/elections/selected.interface";
 
-const props = defineProps<SelectedElectionDetailsCard & {to?:string}>();
+const props = defineProps<SelectedElectionDetailsCard & { to?: string }>();
 
 // const card =
 </script>
@@ -22,8 +22,8 @@ const props = defineProps<SelectedElectionDetailsCard & {to?:string}>();
                 <span class="font-semibold text-base">{{ title }}</span>
             </div>
             <router-link
-            v-if="to"
-            :href="route(to)"
+                v-if="to"
+                :href="route(to)"
                 class="p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 group"
             >
                 <SharedCommonIcon
@@ -37,7 +37,6 @@ const props = defineProps<SelectedElectionDetailsCard & {to?:string}>();
             <div class="">
                 <p class="text-base font-bold relative w-fit">
                     {{ leftValue }}
-
                 </p>
                 <p class="text-gray-500">{{ leftLabel }}</p>
             </div>
