@@ -1,5 +1,8 @@
+
+
+export interface  Data{ value: number; label: string }[]; 
 export interface BarChatProps {
-    data?: { value: number; label: string }[]; // Make data optional
+    data?:Data[];
     values: number[];
     labels: string[];
     colors?: string[];
@@ -7,7 +10,6 @@ export interface BarChatProps {
     unit:string;
 }
 
-export interface PieChartData {
-    value: number;
-    label: string;
+export interface PieChartData extends Data {
+    color?:string;
 }

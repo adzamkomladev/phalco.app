@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { StatusType } from "~/resources/interfaces/table/index.interface";
+
 const props = defineProps<{
-    status: "active" | "inactive";
+    status: StatusType;
 }>();
 </script>
 

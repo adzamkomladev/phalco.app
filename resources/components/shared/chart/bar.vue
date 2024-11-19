@@ -1,15 +1,22 @@
 <script setup lang="ts">
-import { BarChatProps } from "~/resources/interfaces/chats/index.interface";
+import {
+    BarChatProps,
+    Data,
+} from "~/resources/interfaces/chats/index.interface";
 
 const props = withDefaults(defineProps<BarChatProps>(), {
     defaultColor: "#07689F",
 });
 
 const values = computed(() =>
-    props.data ? props.data.map((item) => item.value) : props.values || [],
+    props.data
+        ? props.data.map((item: Data) => item.value)
+        : props.values || [],
 );
 const labels = computed(() =>
-    props.data ? props.data.map((item) => item.label) : props.labels || [],
+    props.data
+        ? props.data.map((item: Data) => item.label)
+        : props.labels || [],
 );
 
 const colors = computed(() => {
@@ -20,9 +27,8 @@ const colors = computed(() => {
     }
 });
 
-// Calculate the maximum value from the data to scale bars as percentages
 const maxFrequency = computed(() => {
-    return Math.max(...props.values) || 100; // Use the spread operator for computing max from an array
+    return Math.max(...props.values) || 100;
 });
 </script>
 

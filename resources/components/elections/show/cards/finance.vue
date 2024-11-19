@@ -6,7 +6,7 @@ const props = defineProps<{
     electionLogo: string;
 }>();
 
-const amountsSpent = Object.values(props.stageStat.spent);
+const amountsSpent = Object.values(props.stageStat.spent) as number[];
 const totalAmountSpent = computed(() => {
     return amountsSpent.reduce((sum, amount) => amount + sum, 0);
 });

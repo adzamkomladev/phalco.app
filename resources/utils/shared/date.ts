@@ -1,7 +1,46 @@
-export const formatDate =(
+export const MonthsShort = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+];
+export const MonthsFull = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+];
+
+export const DaysFull = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+];
+
+export const formatDate = (
     dateInput: Date | string,
     format: string = "dd/mm/yyyy",
-): string=> {
+): string => {
     const date = dateInput instanceof Date ? dateInput : new Date(dateInput);
 
     // Check if `date` is valid
@@ -14,36 +53,8 @@ export const formatDate =(
     const year = String(date.getFullYear());
     const yearShort = year.slice(-2); // Last two digits of the year
 
-    const monthsShort = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-    ];
-    const monthsFull = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-    ];
-    const monthShort = monthsShort[date.getMonth()];
-    const monthFull = monthsFull[date.getMonth()];
+    const monthShort = MonthsShort[date.getMonth()];
+    const monthFull = MonthsFull[date.getMonth()];
 
     const formatMap: { [key: string]: string } = {
         dd: day,
@@ -58,11 +69,9 @@ export const formatDate =(
         /dd|mm|MMM|MMMM|yy|yyyy/g,
         (token) => formatMap[token],
     );
-}
+};
 
-
-
-export const secondsUntil=(futureDate: Date | string): number=> {
+export const secondsUntil = (futureDate: Date | string): number => {
     const now = new Date();
     const targetDate =
         futureDate instanceof Date ? futureDate : new Date(futureDate);
@@ -77,7 +86,9 @@ export const secondsUntil=(futureDate: Date | string): number=> {
     const differenceInMilliseconds = targetDate.getTime() - now.getTime();
     const seconds = Math.floor(differenceInMilliseconds / 1000);
 
-    if (seconds <=0){ return 0;}
-    else {return seconds; }
-}
-
+    if (seconds <= 0) {
+        return 0;
+    } else {
+        return seconds;
+    }
+};

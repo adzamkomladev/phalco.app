@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { BaseDateInputProps } from "~/resources/interfaces/shared/form.interface";
+import {
+    monthsFull as months,
+    DaysFull as days,
+} from "~/resources/utils/shared/date";
 
 const props = withDefaults(defineProps<BaseDateInputProps>(), {
     id: `input-${Math.random() * 1000}`,
@@ -12,35 +16,12 @@ const props = withDefaults(defineProps<BaseDateInputProps>(), {
 });
 
 const model = defineModel({ required: true });
+
 const emit = defineEmits([
     "update:startDate",
     "update:endDate",
     "validationError",
 ]);
-
-const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-];
-const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-];
 
 const currentYear = new Date().getFullYear();
 const currentMonth = new Date().getMonth();
