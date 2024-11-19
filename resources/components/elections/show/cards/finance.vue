@@ -1,31 +1,52 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {
+
+    StageStatsDefault,
+} from "~/resources/interfaces/elections/selected.interface";
+
+const props= defineProps<{stageStat:StageStatsDefault,electionLogo:string}>();
+
+
+const amountsSpent =Object.values(props.stageStat.spent);
+const totalAmountSpent =computed(()=>{
+
+ return amountsSpent.reduce((sum,amount)=>amount+sum,0)
+})
+
+const unit ='₵'
+
+</script>
 
 <template>
     <SharedCommonCard
-        class="col-span-4 gap-2 flex flex-col relative p-[8%] py-10"
+        class="col-span-4 gap-2 flex flex-col relative  "
     >
         <div class="grid grid-cols-5 gap-2 _xs:flex flex-col">
             <div class="flex gap-2 col-span-2 _xs:flex-col">
-                <p
-                    class="rounded-full bg-primary-500 size-fit aspect-square p-2 flex items-center justify-center"
-                >
-                    <SharedCommonIcon name="logo" class="text-white h-5" />
-                </p>
+                <img
+                :src="electionLogo"
+                    class="rounded-full border size-14 aspect-square"
+                />
+            
                 <div class="font-bold">
-                    <p>Phalco</p>
-                    <p class="font-normal">Total Balance</p>
-                    <p class="text-xl">88,000 USD</p>
+                    <p></p>
+                    <p class="font-normal">Nominations</p>
+                    <p class="text-xl"> {{stageStat.totalNominations}}</p>
                 </div>
             </div>
             <div class="flex flex-col justify-end col-span-3">
                 <p class="">
                     Total Donations :<span class="font-bold text-semibase ml-2"
-                        >5,653 <span class="text-sm">GHC</span></span
-                    >
+                        >{{ unit }} {{ stageStat.totalDonations }} </span>
                 </p>
                 <p>
                     Total Spent :<span class="font-bold text-semibase ml-2"
-                        >5,653 GHC</span
+                        >{{ unit }} {{totalAmountSpent}}</span
+                    >
+                </p>
+                <p>
+                    Total Balance :<span class="font-bold text-semibase ml-2"
+                        >{{ unit }} {{stageStat.totalBalance}}</span
                     >
                 </p>
             </div>
@@ -41,21 +62,9 @@
         <div class="h-full mt-20 mb-10">
             <SharedChartBar
                 class="min-h-full"
-                :values="[50, 75, 100, 150, 125, 34, 45, 243, 57, 23, 45, 231]"
-                :labels="[
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Aug',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec',
-                ]"
+                :values="Object.values(stageStat.spent)"
+                :labels="Object.keys(stageStat.spent)"
+                :unit="unit"
             />
         </div>
     </SharedCommonCard>

@@ -1,13 +1,23 @@
 <script setup lang="ts">
 import CampaignImage from "~/resources/images/election/campaign.png?src";
+import { formatDate } from "~/resources/utils/shared/date";
+
+import {
+    Stage,
+    StageStatsNominations
+} from "~/resources/interfaces/elections/selected.interface";
+
+const props =defineProps<{stageStat:StageStatsNominations,stage:Stage}>();
+
 </script>
 
 <template>
     <SharedCommonCard
-        class="gap-5 shrink-0 col-span-4 px-[10%] flex flex-col py-10"
+        class="gap-5 shrink-0 col-span-4  flex flex-col"
     >
         <div class="font-semibold text-lg text-center">
-            13 Sep- 25 Sep, 2024
+                        <span>{{formatDate(new Date(stage.start),'dd-MMM')}}</span>  to <span>{{formatDate(new Date(stage.end),'dd-MMM-yyyy')}}</span>
+
         </div>
         <div class="text-center">
             <h2 class="text-lg font-medium text-gray-800 dark:text-gray-200">
@@ -20,8 +30,8 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
         <div class="flex flex-col gap-5">
             <SharedCommonProgressBar
                 title="Nomination Progress"
-                :progress="47"
-                :total="200"
+                :progress="stageStat.successful"
+                :total="stageStat.total"
                 width="75%"
                 height="16px"
             />
@@ -30,7 +40,7 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
                     class="size-3 bg-secondary-300 dark:bg-secondary-700 block"
                 /><span
                     >Successfull Nominations :<span class="text-gray-700"
-                        >120</span
+                        > {{stageStat.total}}</span
                     ></span
                 >
             </div>
@@ -41,12 +51,12 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
                 <span
                     class="rounded-md aspect-square bg-slate-100 size-10 dark:bg-gray-700 p-2"
                 >
-                    <sharedCommonIcon name="users" class="h-6" />
+                    <sharedCommonIcon name="users" stroke-width="2" class="h-6" />
                 </span>
                 <div>
                     <p class="font-semibold text-lg">Total nominees</p>
                     <p class="font-medium dark:font-normal text-base">
-                        145,078
+                        {{stageStat.total}}
                     </p>
                 </div>
             </div>
@@ -54,12 +64,12 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
                 <span
                     class="rounded-md aspect-square bg-slate-100 size-10 dark:bg-gray-700 p-2"
                 >
-                    <sharedCommonIcon name="users" class="h-6" />
+                    <sharedCommonIcon name="thumb_up" class="h-6" />
                 </span>
                 <div>
-                    <p class="font-semibold text-lg">Total nominees</p>
+                    <p class="font-semibold text-lg">Total Approved nominees</p>
                     <p class="font-medium dark:font-normal text-base">
-                        145,078
+                        {{ stageStat.approved }}
                     </p>
                 </div>
             </div>
@@ -67,12 +77,12 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
                 <span
                     class="rounded-md aspect-square bg-slate-100 size-10 dark:bg-gray-700 p-2"
                 >
-                    <sharedCommonIcon name="users" class="h-6" />
+                    <sharedCommonIcon name="thumb_up" class="h-6 rotate-180" />
                 </span>
                 <div>
-                    <p class="font-semibold text-lg">Total nominees</p>
+                    <p class="font-semibold text-lg">Total Sucessfull</p>
                     <p class="font-medium dark:font-normal text-base">
-                        145,078
+                        {{stageStat.successful}}
                     </p>
                 </div>
             </div>
@@ -80,12 +90,12 @@ import CampaignImage from "~/resources/images/election/campaign.png?src";
                 <span
                     class="rounded-md aspect-square bg-slate-100 size-10 dark:bg-gray-700 p-2"
                 >
-                    <sharedCommonIcon name="users" class="h-6" />
+                    <sharedCommonIcon name="pending" class="h-6" />
                 </span>
                 <div>
-                    <p class="font-semibold text-lg">Total nominees</p>
+                    <p class="font-semibold text-lg">Total Pending</p>
                     <p class="font-medium dark:font-normal text-base">
-                        145,078
+                       {{stageStat.pending}}
                     </p>
                 </div>
             </div>

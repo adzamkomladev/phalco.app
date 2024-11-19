@@ -3,9 +3,9 @@ export interface SelectedElectionDetailsCard {
     to?: string;
     icon: string;
     leftValue: number;
-    leftLable: string;
+    leftLabel: string;
     rightValue: number;
-    rightLable: string;
+    rightLabel: string;
 }
 
 export interface Election {
@@ -15,7 +15,7 @@ export interface Election {
     name: string;
     description: string;
     logo: string;
-    status: string;
+    status: 'active'|'inactive';
     stage: string;
     start: Date;
     end: Date;
@@ -75,7 +75,6 @@ export interface Voters {
     total: number;
     voted: number;
 }
-
 
 export interface StageStatsDefault {
     totalBalance: number;

@@ -4,4 +4,5 @@ export interface barChatProps {
     labels: string[];
     colors?: string[];
     defaultColor?: string;
+    unit:string;
 }

@@ -1,19 +1,32 @@
 <script setup lang="ts">
-import { CreatedBy } from "~/resources/interfaces/elections/selected.interface";
+import { Election } from "~/resources/interfaces/elections/selected.interface";
 
-const props = defineProps<{ by: CreatedBy }>();
+const props = defineProps<{ election: Election }>();
+
+const formatDate = (dateString: Date | null) => {
+    if (!dateString) return "";
+
+    const date = new Date(dateString);
+
+    return date.toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
+    });
+};
+
 </script>
 
 <template>
     <SharedCommonCard class="divide-y dark:divide-gray-500 gap-2 flex flex-col">
         <div class="flex items-center gap-2">
             <img
-                :src="by.current_organization.logo"
+                :src="election.logo"
                 class="size-10 aspect-square rounded-full border"
             />
 
             <span class="font-bold text-2xl">{{
-                by.current_organization.name
+                election.name
             }}</span>
         </div>
         <div
@@ -39,7 +52,7 @@ const props = defineProps<{ by: CreatedBy }>();
                     </div>
                     <div class="">
                         <span class="text-gray-500">
-                            <SharedTableStatus status="active" />
+                            <SharedTableStatus :status="election.status" />
                         </span>
                     </div>
                 </div>
@@ -51,14 +64,14 @@ const props = defineProps<{ by: CreatedBy }>();
                         <span class="text-gray-500"> Due date </span>
                     </div>
                     <div class="">
-                        <span class="text-gray-500"> dd/mm/yy </span>
+                        <span class="text-gray-500">{{formatDate(election.end)}} </span>
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-4 col-span-2">
                     <div class="flex gap-4">
                         <SharedCommonIcon
                             name="greet"
-                            class="transform size-6"
+                            class="transform size-6 shrink-0"
                         />
                         <span class="text-gray-500"> Assignee </span>
                     </div>
@@ -67,14 +80,14 @@ const props = defineProps<{ by: CreatedBy }>();
                             <div class="flex items-center gap-x-3">
                                 <img
                                     class="inline-block size-[25px] rounded-full"
-                                    :src="by.avatar"
+                                    :src="election.created_by.avatar"
                                     alt="Avatar"
                                 />
                                 <div class="grow">
                                     <span
                                         class="block text-xs font-medium text-gray-500 dark:text-neutral-200"
-                                        >{{ by.first_name }}
-                                        {{ by.last_name }}</span
+                                        >{{ election.created_by.first_name }}
+                                        {{ election.created_by.last_name }}</span
                                     >
                                 </div>
                             </div>

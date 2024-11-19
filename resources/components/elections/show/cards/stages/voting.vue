@@ -1,23 +1,22 @@
-<script setup lang="ts">
-import { defaultElectionStages } from "~/resources/data/elections/create";
-const chartData = [
-    { label: "Result", value: 10 },
-    { label: "Vetting", value: 15 },
-    { label: "Nominations", value: 55 },
-    { label: "Campaigning", value: 5 },
-    { label: "Voting", value: 8 },
-    { label: "Collation", value: 17 },
-];
+<script lang="ts" setup>
+
+import { Stage, StageStatsCampaigns, StageStatsVoting } from "~/resources/interfaces/elections/selected.interface";
+import { formatDate,secondsUntil } from "~/resources/utils/shared/date";
+
+const props =defineProps<{stageStat:StageStatsVoting,stage:Stage}>();
+
+const timeLeftToEndDate=Math.floor(secondsUntil(props.stage.end));
+
 </script>
 
 <template>
     <SharedCommonCard
-        class="p-[5%] py-10 shrink-0 col-span-4 flex flex-col gap-5"
+        class="gap-2 shrink-0 dark:text-gray-400 flex flex-col col-span-4"
     >
-        <div class="gap-2 flex flex-col">
-            <div class="font-bold text-xl text-center">
-                13 Sep- 25 Sep, 2024
-            </div>
+    <div class="flex-col flex gap-2">
+        <div class="font-semibold text-lg text-center">
+            <span>{{formatDate(new Date(stage.start),'dd - MMM')}}</span>  to <span>{{formatDate(new Date(stage.end),'dd - MMM , yyyy')}}</span>
+        </div>
             <div class="text-center">
                 <h2
                     class="text-lg font-semibold text-gray-800 dark:text-gray-200"
@@ -33,7 +32,7 @@ const chartData = [
         <div class="flex flex-col gap-5 h-full">
             <div class="grid grid-cols-7 gap-[5%] _xs:gap-0">
                 <div class="col-span-3 _xs:col-span-7 _xs:px-10">
-                    <SharedChartPie :data="chartData" />
+                    <SharedChartPie :data="[{}]" />
                 </div>
                 <div
                     class="col-span-4 _xs:text-center _xs:col-span-7 flex flex-col text-xs sm:whitespace-nowrap p-2 pr-0 gap-4 justify-center"
@@ -41,16 +40,17 @@ const chartData = [
                     <div class="grid gap-4 grid-cols-2 xs:hidden">
                         <div>
                             <p class="text-gray-500">Total ballots</p>
-                            <p class="font-bold text-sm">4,327</p>
+                            <p class="font-bold text-sm">{{stageStat.ballots}}</p>
                         </div>
                         <div>
                             <p class="text-gray-500">Total voters</p>
-                            <p class="font-bold text-sm">4,327</p>
+                            <p class="font-bold text-sm">{{stageStat.voters}}</p>
                         </div>
                     </div>
                     <div>
                         <p class="text-gray-500">Time Remaining</p>
-                        <p class="font-bold text-3xl">56:90:56</p>
+
+                        <SharedCommonTimer class="text-2xl md:text-3xl md:_xl:text-2xl font-bold" :duration="timeLeftToEndDate"/>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ const chartData = [
                         </span>
                         <div>
                             <p class="font-bold text-lg">Total Candidates</p>
-                            <p class="font-semibold text-sm">145,078</p>
+                            <p class="font-semibold text-sm">{{stageStat.candidates}}8</p>
                         </div>
                     </div>
                     <div class="group">
@@ -95,9 +95,9 @@ const chartData = [
                         </span>
                         <div>
                             <p class="font-bold text-lg">
-                                Total Polling Staton
+                                Total Polling Station
                             </p>
-                            <p class="font-semibold text-sm">15,576</p>
+                            <p class="font-semibold text-sm">{{stageStat.pollingStations}}</p>
                         </div>
                     </div>
                     <div class="group">
@@ -109,7 +109,9 @@ const chartData = [
                     </div>
                 </div>
             </SharedCommonCard>
-            <router-link class="text-center text-secondary-300">
+            <router-link
+            :href="route('voting.ballots.index')"
+            class="text-center text-secondary-300">
                 Move to dashboard page
             </router-link>
         </div>
