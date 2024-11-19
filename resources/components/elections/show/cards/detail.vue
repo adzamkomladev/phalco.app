@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { SelectedElectionDetailsCard } from "~/resources/interfaces/elections/selected.interface";
 
-const props = defineProps<SelectedElectionDetailsCard & { to?: string }>();
-
-// const card =
+defineProps<SelectedElectionDetailsCard & { to?: string }>();
 </script>
 
 <template>

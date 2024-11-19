@@ -2,7 +2,6 @@
 import { Stage } from "~/resources/interfaces/elections/selected.interface";
 
 const props = defineProps<{ stages: Stage[]; electionEndDate: Date }>();
-import { formatDate } from "~/resources/utils/shared/date";
 </script>
 
 <template>

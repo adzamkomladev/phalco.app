@@ -1,8 +1,5 @@
 <script setup lang="ts">
-interface PieChartData {
-    value: number;
-    label: string;
-}
+import { PieChartData } from "~/resources/interfaces/chats/index.interface";
 
 const props = defineProps<{ data: PieChartData[] }>();
 

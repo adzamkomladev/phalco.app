@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { barChatProps } from "~/resources/interfaces/chats/index.interface";
+import { BarChatProps } from "~/resources/interfaces/chats/index.interface";
 
-const props = withDefaults(defineProps<barChatProps>(), {
+const props = withDefaults(defineProps<BarChatProps>(), {
     defaultColor: "#07689F",
 });
 

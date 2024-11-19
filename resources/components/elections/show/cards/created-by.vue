@@ -1,19 +1,8 @@
 <script setup lang="ts">
 import { Election } from "~/resources/interfaces/elections/selected.interface";
+import { formatDate } from "~/resources/utils/shared/date";
 
 const props = defineProps<{ election: Election }>();
-
-const formatDate = (dateString: Date | null) => {
-    if (!dateString) return "";
-
-    const date = new Date(dateString);
-
-    return date.toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "2-digit",
-    });
-};
 </script>
 
 <template>
@@ -62,7 +51,7 @@ const formatDate = (dateString: Date | null) => {
                     </div>
                     <div class="">
                         <span class="text-gray-500"
-                            >{{ formatDate(election.end) }}
+                            >{{ formatDate(election.end, "dd/mm/yy") }}
                         </span>
                     </div>
                 </div>

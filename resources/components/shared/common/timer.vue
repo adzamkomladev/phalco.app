@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-interface CountdownProps {
-    duration: number;
-}
-
-const props = defineProps<CountdownProps>();
+const props = defineProps<{ duration: number }>();
 
 const timeLeft = ref(props.duration);
 
