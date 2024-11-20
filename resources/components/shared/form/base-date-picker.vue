@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { BaseDateInputProps } from "~/resources/interfaces/shared/form.interface";
 import {
-    monthsFull as months,
+    MonthsFull as months,
     DaysFull as days,
 } from "~/resources/utils/shared/date";
 
