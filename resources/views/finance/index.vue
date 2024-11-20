@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { ref } from "vue";
+const table = ref("payments");
 
-const table = ref("payments"); // This will toggle between 'payments' and 'transactions'
-
-// Sample tables data
 const props = defineProps({
     transactions: Array,
     payments: Array,
@@ -11,12 +8,9 @@ const props = defineProps({
     wallets: Array,
 });
 
-// Function to toggle between tables
 function toggleTable(newTable: string) {
     table.value = newTable;
 }
-
-// const table = useTable(props, "elections");
 </script>
 
 <template layout="main">
@@ -31,24 +25,34 @@ function toggleTable(newTable: string) {
             optio.
         </p>
 
-        <div class="w-60">
-            <sharedFormBaseAdvanceSelect
-                hideOnSelect
-                :options="['456785421234', '12356789111111', '134567893456111']"
-                optionClass="py-1 text-sm w-60"
-                position="bottom-center"
-                selectClass="min-w-40 w-60 max-w-60"
-                optionsClass="min-w-40"
-                placeholder="select wallet"
-            />
+        <div class="flex py-5 justify-between">
+            <div class="w-60">
+                <sharedFormBaseAdvanceSelect
+                    hideOnSelect
+                    :options="[
+                        '456785421234',
+                        '12356789111111',
+                        '134567893456111',
+                    ]"
+                    optionClass="py-1 text-sm w-60"
+                    position="bottom-center"
+                    selectClass="min-w-40 w-60 max-w-60"
+                    optionsClass="min-w-40"
+                    placeholder="select wallet"
+                />
+            </div>
+
+            <router-link
+                :href="route('finance.payments.methods.index')"
+                class="px-4 h-fit py-2 text-sm flex items-center text-nowrap rounded-lg bg-secondary-300 text-white"
+                >Withdrawal Accounts</router-link
+            >
         </div>
 
         <div class="flex _md:flex-col py-5 gap-4 sm:gap-6 self-center">
             <FinanceIndexWalletCard :wallet_id="3" />
 
-            <div
-                class="grid gap-4 sm:gap-6 grid-cols-2 _xs:grid-cols-1 grow max-w-xl"
-            >
+            <div class="grid gap-4 sm:gap-6 grid-cols-2 _xs:grid-cols-1 grow">
                 <FinanceIndexWalletDetailsCard />
                 <FinanceIndexWalletDetailsCard />
                 <FinanceIndexWalletDetailsCard />

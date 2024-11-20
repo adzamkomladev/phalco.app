@@ -40,6 +40,7 @@ const describeBy = computed(() => `${props.id}-error`);
         <div class="relative lg:text-base">
             <input
                 ref="input"
+                :disabled="props.disabled"
                 :type="props.type"
                 :id="props.id"
                 :name="props.name"

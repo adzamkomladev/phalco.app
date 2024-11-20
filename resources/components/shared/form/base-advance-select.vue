@@ -9,12 +9,6 @@ const selectOption = (option: string | number) => {
     selected.value = option;
 };
 
-const selectedLabel = computed(
-    () =>
-        selected.value ??
-        (props.placeholder ? props.placeholder : "select option"),
-);
-
 const defaulSelectClass =
     "py-2 px-3 justify-between gap-2 capitalize text-gray-500 min-w-fit flex items-center cursor-pointer bg-white  border rounded-lg text-start text-sm dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400";
 
@@ -34,7 +28,9 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
     >
         <template v-slot:toggle>
             <button class="w-full" :class="[defaulSelectClass, selectClass]">
-                <span class="text-base truncate">{{ selectedLabel }}</span>
+                <span class="text-base truncate"
+                    >{{ selected || placeholder }}
+                </span>
                 <div :class="[' flex items-center flex-col ']">
                     <SharedCommonIcon
                         name="chevron_double"
@@ -48,6 +44,9 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
             :class="[defaultOptionsClass, optionsClass]"
             v-if="options.length > 0"
         >
+            <button disabled :class="[defaultOptionClass, 'opacity-50']">
+                {{ placeholder }}
+            </button>
             <button
                 v-for="(option, index) in options"
                 :key="index"
@@ -63,7 +62,11 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
                     optionClass,
                 ]"
             >
-                {{ option.label || option }}
+                <SharedCommonIcon
+                    v-if="hasIcon"
+                    class="h-5"
+                    :name="option.value || option"
+                /><span>{{ option.label || option }}</span>
             </button>
         </div>
     </SharedCommonDropdown>

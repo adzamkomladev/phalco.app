@@ -84,7 +84,7 @@ const positionStyle = computed(() => {
 
         <dialog
             ref="dialogRef"
-            class="border-none border-transparent"
+            class="border-none border-transparent w-full"
             :class="[positionStyle, dialogClass]"
         >
             <transition name="fade" mode="out-in">
