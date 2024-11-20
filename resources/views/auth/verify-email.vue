@@ -44,21 +44,23 @@ const startCountdown = () => {
         :pageImage="verificationImage"
     >
         <template v-slot:description>
-            To start using Phalco, confirm your email address with the email we
-            sent to:
+            <div class="mt-4">
+                To start using Phalco, confirm your email address with the email
+                we sent to:
 
-            <strong class="font-bold text-primary-500 truncate"
-                ><a
-                    :href="
-                        'https://mail.google.com/mail/u/0/#inbox?compose=new&to=' +
-                        user?.email
-                    "
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    {{ user?.email }}
-                </a>
-            </strong>
+                <strong class="font-bold text-primary-500 truncate"
+                    ><a
+                        :href="
+                            'https://mail.google.com/mail/u/0/#inbox?compose=new&to=' +
+                            user?.email
+                        "
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {{ user?.email }}
+                    </a>
+                </strong>
+            </div>
         </template>
 
         <div class="relative h-16">
@@ -112,7 +114,7 @@ const startCountdown = () => {
         </div>
         <div class="">
             <p
-                class="text-sm sm:landscape:text-left text-gray-600 xl:text-base dark:text-neutral-400"
+                class="text-sm mt-2 sm:landscape:text-left text-black xl:text-base dark:text-gray-400"
             >
                 Need help ?
                 <router-link

@@ -9,13 +9,13 @@ const props = defineProps<{
         title="Roles"
         size="xl"
         useSheet
-        description="Invite and manage members"
-        subtitle="Role management"
+        description="Manage all team roles"
+        subtitle=""
         type="sidedrawer"
         class=""
     >
-        <div class="">
-            <SettingsTeamRoleTable :data="props.roles" />
+        <div>
+            <SettingsTeamRoleTable :data="roles" />
         </div>
     </SharedCommonOverlay>
 </template>

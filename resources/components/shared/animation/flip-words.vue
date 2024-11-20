@@ -1,46 +1,3 @@
-<template>
-    <span class="relative inline-block px-2">
-        <Transition
-            @after-enter="$emit('animationComplete')"
-            @after-leave="$emit('animationComplete')"
-        >
-            <span
-                v-show="isVisible"
-                :class="[
-                    'relative break-normal inline-block text-left text-neutral-900 dark:text-neutral-100 z-10',
-                    props.class,
-                ]"
-            >
-                <template
-                    v-for="(wordObj, wordIndex) in splitWords"
-                    :key="wordObj.word + wordIndex"
-                >
-                    <span
-                        class="inline-block whitespace-nowrap opacity-0"
-                        :style="{
-                            animation: `fadeInWord 0.3s ease forwards`,
-                            animationDelay: `${wordIndex * 0.3}s`,
-                        }"
-                    >
-                        <span
-                            v-for="(letter, letterIndex) in wordObj.letters"
-                            :key="wordObj.word + letterIndex"
-                            class="inline-block opacity-0"
-                            :style="{
-                                animation: `fadeInLetter 0.2s ease forwards`,
-                                animationDelay: `${wordIndex * 0.3 + letterIndex * 0.05}s`,
-                            }"
-                            v-html="letter"
-                        />
-
-                        <span class="inline-block">&nbsp;</span>
-                    </span>
-                </template>
-            </span>
-        </Transition>
-    </span>
-</template>
-
 <script setup lang="ts">
 import { FlipWordsProps } from "~/resources/interfaces/animation/index.interface";
 
@@ -93,6 +50,49 @@ watch(isVisible, (newValue) => {
     }
 });
 </script>
+
+<template>
+    <span class="relative inline-block px-2">
+        <Transition
+            @after-enter="$emit('animationComplete')"
+            @after-leave="$emit('animationComplete')"
+        >
+            <span
+                v-show="isVisible"
+                :class="[
+                    'relative break-normal inline-block text-left text-neutral-900 dark:text-neutral-100 z-10',
+                    props.class,
+                ]"
+            >
+                <template
+                    v-for="(wordObj, wordIndex) in splitWords"
+                    :key="wordObj.word + wordIndex"
+                >
+                    <span
+                        class="inline-block whitespace-nowrap opacity-0"
+                        :style="{
+                            animation: `fadeInWord 0.3s ease forwards`,
+                            animationDelay: `${wordIndex * 0.3}s`,
+                        }"
+                    >
+                        <span
+                            v-for="(letter, letterIndex) in wordObj.letters"
+                            :key="wordObj.word + letterIndex"
+                            class="inline-block opacity-0"
+                            :style="{
+                                animation: `fadeInLetter 0.2s ease forwards`,
+                                animationDelay: `${wordIndex * 0.3 + letterIndex * 0.05}s`,
+                            }"
+                            v-html="letter"
+                        />
+
+                        <span class="inline-block">&nbsp;</span>
+                    </span>
+                </template>
+            </span>
+        </Transition>
+    </span>
+</template>
 
 <style>
 @keyframes fadeInWord {

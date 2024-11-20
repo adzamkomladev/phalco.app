@@ -1,44 +1,9 @@
 <script setup lang="ts">
-import InvitaionImage from "~/resources/svg/settings/no_invite.svg?src";
+import InvitationImage from "~/resources/svg/settings/no_invite.svg?src";
 
 const props = defineProps<{
     invites: App.Data.Settings.Team.InvitationData[];
 }>();
-
-const invites = [
-    {
-        id: 1,
-        email: "jane.doe@example.com",
-        role: { name: "Admin" },
-        picture: "https://randomuser.me/api/portraits/women/1.jpg",
-        expires_at: new Date("2024-1-15T10:30"),
-        declined: false,
-    },
-    {
-        id: 2,
-        email: "john.smith@example.com",
-        role: { name: "Agent" },
-        picture: "https://randomuser.me/api/portraits/men/2.jpg",
-        expires_at: new Date("2023-11-01T14:00"), // Example datetime
-        declined: false,
-    },
-    {
-        id: 3,
-        email: "alice.jones@example.com",
-        role: { name: "Agent" },
-        picture: "https://randomuser.me/api/portraits/women/3.jpg",
-        expires_at: new Date("2025-12-20T08:45"),
-        declined: false,
-    },
-    {
-        id: 3,
-        email: "guybi@somewhere.com",
-        role: { name: "Agent" },
-        picture: "",
-        expires_at: new Date("2025-12-20T08:45"),
-        declined: true,
-    },
-];
 
 const flash = useProperty("flash");
 </script>
@@ -48,7 +13,7 @@ const flash = useProperty("flash");
             <div
                 v-if="flash?.info"
                 id="dismiss-alert"
-                class="mb-3 hs-removing:translate-x-5 hs-removing:opacity-0 transition duration-300 bg-teal-50 border border-teal-200 text-sm text-teal-800 rounded-lg p-4 dark:bg-teal-800/10 dark:border-teal-900 dark:text-teal-500"
+                class="mb-3 hs-removing:translate-x-5 hs-removing:opacity-0 transition duration-300 bg-forest-50 border border-forest-200 text-sm text-forest-800 rounded-lg p-4 dark:bg-forest-800/10 dark:border-forest-900 dark:text-forest-500"
                 role="alert"
                 tabindex="-1"
                 aria-labelledby="hs-dismiss-button-label"
@@ -85,7 +50,7 @@ const flash = useProperty("flash");
                         <div class="-mx-1.5 -my-1.5">
                             <button
                                 type="button"
-                                class="inline-flex bg-teal-50 rounded-lg p-1.5 text-teal-500 hover:bg-teal-100 focus:outline-none focus:bg-teal-100 dark:bg-transparent dark:text-teal-600 dark:hover:bg-teal-800/50 dark:focus:bg-teal-800/50"
+                                class="inline-flex bg-forest-50 rounded-lg p-1.5 text-forest-500 hover:bg-forest-100 focus:outline-none focus:bg-forest-100 dark:bg-transparent dark:text-forest-600 dark:hover:bg-forest-800/50 dark:focus:bg-forest-800/50"
                                 data-hs-remove-element="#dismiss-alert"
                             >
                                 <span class="sr-only">Dismiss</span>
@@ -115,15 +80,15 @@ const flash = useProperty("flash");
                 <div class="w-full inline-block align-middle">
                     <table class="w-full" v-if="invites.length > 0">
                         <tbody>
-                            <SettingsTeamInvitationDataInvitee
-                                v-for="invitee in invites"
-                                :key="invitee.id"
-                                :invitee="invitee"
+                            <SettingsTeamInvitationInvite
+                                v-for="invite in invites"
+                                :key="invite.id"
+                                :invite="invite"
                             />
                         </tbody>
                     </table>
                     <div class="text-primary-500 select-none" v-else>
-                        <img :src="InvitaionImage" class="w-52" />
+                        <img :src="InvitationImage" class="w-52" />
 
                         <p class="py-4 text-xs">
                             Pending and expired invites will appear here

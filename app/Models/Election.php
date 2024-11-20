@@ -30,6 +30,20 @@ class Election extends Model
         'status',
     ];
 
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'start' => 'datetime',
+            'end' => 'datetime',
+            'created_at' => 'datetime',
+        ];
+    }
+
     public function organization(): BelongsTo
     {
         return $this->belongsTo(Organization::class);

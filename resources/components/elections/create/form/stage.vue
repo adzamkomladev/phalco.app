@@ -1,43 +1,69 @@
 <script setup lang="ts">
-import ElectionStageProps from "~/resources/interface/elction/create.interface";
+import { ElectionStageProps } from "~/resources/interfaces/elections/create.interface";
 
-const props = defineProps<{ stage: ElectionStageProps }>();
-// const model = defineModel({ required: true });
+const props = defineProps<{
+    stage: ElectionStageProps;
+    index: number;
+}>();
+
+const emit = defineEmits<{
+    removeStage: [index: number];
+}>();
 </script>
 
 <template>
-    <div class="flex flex-col _sm:gap-5">
+    <div class="flex flex-col relative">
         <div class="flex justify-between">
-            <input
-                placeholder="Add Stage title"
-                class="border-transparent p-0 outline-transparent focus:outline-transparent focus:bg-gray-50"
-                v-model="stage.title"
-            />
+            <div class="text-medium" v-if="stage.title">
+                {{ stage.title }}
+            </div>
+            <div class="relative" v-else>
+                <input
+                    placeholder="Add Stage title"
+                    class="border-transparent peer p-0 border-none focus:ring-transparent"
+                />
+                <SharedCommonIcon
+                    name="edit"
+                    class="hidden h-3 absolute peer-hover:block hover:block pointer-events-none top-2 right-10 peer-focus:hidden"
+                />
+                <div
+                    class="absolute w-0 overflow-hidden peer-focus:left-0 peer-focus:w-full duration-300 transition-all"
+                >
+                    <div class="border-b grow bottom-0 h-1" />
+                </div>
+            </div>
             <div>
+                <button
+                    @click.prevent="emit('removeStage', index)"
+                    class="text-red-500 text-3xl rounded-full p-2 leading-[0px] aspect-square hover:bg-gray-100 dark:hover:bg-gray-700 absolute right-0 top-0"
+                >
+                    -
+                </button>
                 <slot name="action" />
             </div>
         </div>
-        <div class="flex gap-2">
-            <div>
-                <SharedFormBaseInput
-                    v-model="stage.date.start"
-                    :error="stage.date.start"
+        <div class="flex gap-5 _sm:flex-col">
+            <div class="basis-1/2">
+                <SharedFormBaseDatePicker
+                    v-model="stage.start"
                     id="start"
-                    name="start"
-                    type="date"
-                    placeholder="hhh"
-                    label="start date"
+                    scope="start"
+                    type="datetime"
+                    placeholder="mm/dd/yyyy"
+                    label="Start Date"
+                    :endDate="stage.end"
                 />
             </div>
-            <div>
-                <SharedFormBaseInput
-                    v-model="stage.date.end"
-                    :error="stage.date.end"
+
+            <div class="basis-1/2">
+                <SharedFormBaseDatePicker
+                    v-model="stage.end"
                     id="end"
-                    name="end"
-                    type="date"
-                    placeholder="some"
-                    label="End date"
+                    scope="end"
+                    type="datetime"
+                    placeholder="mm/dd/yyyy"
+                    label="End Date"
+                    :startDate="stage.start"
                 />
             </div>
         </div>

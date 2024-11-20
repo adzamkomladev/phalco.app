@@ -15,6 +15,10 @@ Route::get('/phone-verif', function () {
     return hybridly('auth.phone-verification');
 })->name('phone-verif');
 
+Route::get('/election-selected', function () {
+    return hybridly('elections.selected');
+})->name('election-selected');
+
 Route::get('/elections', function () {
     return hybridly('elections.index');
 })->middleware('auth')->name('elections');

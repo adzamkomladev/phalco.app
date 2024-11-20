@@ -33,14 +33,14 @@ const pinInputOptions = JSON.stringify({
     <div
         :id="id"
         ref="input"
-        class="flex gap-x-3 justify-center sm:landscape:justify-start"
+        class="flex gap-x-8 justify-center sm:landscape:justify-start"
         :data-hs-pin-input="pinInputOptions"
     >
         <input
             v-for="index in length"
             :key="index"
             type="text"
-            class="shadow-xs _md:w-full _xl:landscape:w-full sm:w-20 h-24 items-center justify-center rounded-lg border border-gray-200 border-stroke bg-gray-100 p-2 text-center text-2xl sm:text-3xl font-medium text-gray-500 outline-none sm:text-4xl dark:border-gray-600 dark:bg-gray-700"
+            class="shadow-xs _md:w-full _xl:landscape:w-full sm:w-24 aspect-[4/5] items-center justify-center rounded-lg border border-gray-200 border-stroke bg-gray-100 p-2 text-center text-2xl sm:text-3xl font-medium text-gray-500 outline-none sm:text-4xl dark:border-gray-600 dark:bg-gray-700"
             data-hs-pin-input-item=""
             autofocus
         />

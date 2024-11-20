@@ -1,7 +1,12 @@
+import { positionType } from "../common/index.interface";
+type BaseDateInputPropsType = "datetime" | "date";
+type BaseDateInputPropsScope = "start" | "end" | "general";
+type SubmitButtonPropsType = "submit" | "simple" | string;
+
 export interface FormProp {
     id?: string;
     label?: string;
-    name: string;
+    name?: string;
     placeholder?: string;
 }
 
@@ -12,6 +17,19 @@ export interface BaseInputProps extends FormProp {
     autocomplete?: string;
     error?: string;
 }
+
+
+export interface BaseDateInputProps extends BaseInputProps {
+    startDate?: Date | null;
+    endDate?: Date | null;
+    disablePast?: boolean;
+    latestDate?: Date;
+    farthestDate?: Date;
+    scope: BaseDateInputPropsScope;
+    type: BaseDateInputPropsType;
+}
+
+
 
 export interface ButtonProps {
     type?: string;
@@ -38,8 +56,9 @@ export interface SearchInputProps extends FormProp {
 export interface SubmitButtonProps {
     loading?: boolean;
     text?: string;
-    type?: "submit" | "simple" | string;
+    type?:SubmitButtonPropsType;
 }
+
 export interface BaseTextareaProps extends FormProp {
     error?: string;
     placeholder?: string;
@@ -53,3 +72,15 @@ export interface BaseOtpProps extends FormProp {
     error?: string;
     length?: number;
 }
+
+export interface BaseAdvanceSelectProps extends FormProp{
+    modelValue: string | number;
+    options: Array<string | number | {label:string,value:string}>;
+    position?:positionType
+    selectedClass?: string;
+    selectClass?: string;
+    optionClass?: string;
+    optionsClass?: string;
+    hideOnSelect?: boolean;
+}
+

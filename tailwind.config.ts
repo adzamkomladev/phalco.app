@@ -7,12 +7,19 @@ export default {
     ],
     theme: {
         extend: {
+            backgroundImage: {
+                "gradient-to-45":
+                    "linear-gradient(45deg, var(--tw-gradient-stops))",
+            },
+            boxShadow: {
+                card: "0 1px 6.3px -1px #6b728070",
+            },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
             },
             backgroundImage: {
                 logo: "url('../svg/icon/logo.svg')",
-                "auth-p": "url('../svg/auth/layout.svg')",
+                "auth-p": "url('../images/layout/auth.webp')",
                 "about-sm": "url('../svg/welcome/about_bg_sm.svg')",
                 "about-lg": "url('../svg/welcome/about_bg_lg.svg')",
                 "menu-br": "url('../svg/welcome/menu/background.svg')",
@@ -27,6 +34,9 @@ export default {
                 },
                 "2xtall": {
                     raw: `only screen and (min-height: 1024px)`,
+                },
+                _xs: {
+                    raw: `only screen and (max-width: 500px)`,
                 },
                 _sm: {
                     raw: `only screen and (max-width: 639px)`,
@@ -124,7 +134,7 @@ export default {
                     800: "#004407", // Very dark green
                     900: "#003505", // Almost black green
                 },
-                
+
                 gray: {
                     DEFAULT: "cacaca",
                     1: "#fcfcfc",
