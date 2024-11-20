@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import { SelectedElectionDetailsCard } from "~/resources/interfaces/elections/selected.interface";
 
-const props = defineProps<SelectedElectionDetailsCard>();
-
-// const card =
+defineProps<SelectedElectionDetailsCard & { to?: string }>();
 </script>
 
 <template>
     <SharedCommonCard
-        class="divide-y dark:divide-gray-500 text-sm gap-2 shrink-0 max-w-[25rem] flex flex-col min-w-56"
+        class="divide-y dark:divide-gray-500 text-sm gap-2 shrink-0 _sm:max-w-[25rem] flex flex-col min-w-56"
     >
         <div class="flex justify-between items-center">
             <div class="flex gap-2 items-center">
@@ -22,6 +20,8 @@ const props = defineProps<SelectedElectionDetailsCard>();
                 <span class="font-semibold text-base">{{ title }}</span>
             </div>
             <router-link
+                v-if="to"
+                :href="route(to)"
                 class="p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 group"
             >
                 <SharedCommonIcon
@@ -35,19 +35,14 @@ const props = defineProps<SelectedElectionDetailsCard>();
             <div class="">
                 <p class="text-base font-bold relative w-fit">
                     {{ leftValue }}
-                    <sup
-                        class="text-forest-300 left-full text-[0.6rem] absolute flex items-center"
-                        ><SharedCommonIcon name="tri" class="h-2" />
-                        <p>+5</p>
-                    </sup>
                 </p>
-                <p class="text-gray-500">{{ leftLable }}</p>
+                <p class="text-gray-500">{{ leftLabel }}</p>
             </div>
             <div>
                 <p class="font-semibold relative w-fit">
                     {{ rightValue }}
                 </p>
-                <p class="text-gray-500">{{ rightLable }}</p>
+                <p class="text-gray-500">{{ rightLabel }}</p>
             </div>
         </div>
     </SharedCommonCard>

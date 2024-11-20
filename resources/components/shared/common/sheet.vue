@@ -1,9 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{
-    title?: string;
-    description?: string;
-    pageImage?: string;
-}>();
+import { Sheet } from "~/resources/interfaces/common/index.interface";
+
+const props = defineProps<Sheet>();
 </script>
 
 <template>

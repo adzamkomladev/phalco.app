@@ -3,8 +3,7 @@ const props = defineProps<{
     stats: App.Data.Elections.Index.OngoingStatsData | null;
 }>();
 
-const completed = ref(props.stats?.completionPercentage || 10);
-// const conicStyle = null;
+const completed = ref(props.stats?.completionPercentage || 0);
 </script>
 
 <template>

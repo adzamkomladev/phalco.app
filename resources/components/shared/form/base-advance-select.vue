@@ -3,13 +3,10 @@ import { BaseAdvanceSelectProps } from "~/resources/interfaces/shared/form.inter
 
 const props = defineProps<BaseAdvanceSelectProps>();
 
-const emits = defineEmits(["update:modelValue"]);
-
-const selected = ref(props.modelValue);
+const selected = defineModel();
 
 const selectOption = (option: string | number) => {
     selected.value = option;
-    emits("update:modelValue", option);
 };
 
 const selectedLabel = computed(

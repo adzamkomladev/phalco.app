@@ -1,8 +1,5 @@
 <script setup lang="ts">
-interface PieChartData {
-    value: number;
-    label: string;
-}
+import { PieChartData } from "~/resources/interfaces/chats/index.interface";
 
 const props = defineProps<{ data: PieChartData[] }>();
 
@@ -28,7 +25,7 @@ const conicStyle = computed(() => {
     const segments = props.data.map((item: PieChartData, index: number) => {
         const percentage = (item.value / total.value) * 100;
         const degree = (percentage / 100) * 360;
-        const color = blueShades[index % blueShades.length];
+        const color = item.color || blueShades[index % blueShades.length];
         const segmentStyle = `${color} ${degreeStart}deg ${degreeStart + degree}deg`;
         degreeStart += degree;
         return segmentStyle;
@@ -54,27 +51,8 @@ const conicStyle = computed(() => {
             class="aspect-square shadow-card rounded-full w-full flex justify-center items-center mb-6"
         >
             <div
-                class="aspect-square bg-white dark:bg-gray-800 rounded-full w-1/2"
+                class="aspect-square text-primary-300 bg-white dark:bg-gray-800 rounded-full w-1/4"
             ></div>
         </div>
-
-        <!-- Legend below pie chart -->
-        <!-- <div class="w-full grid grid-cols-2  gap-2">
-      <div
-        v-for="(item, index) in props.data"
-        :key="index"
-        class="flex items-center gap-2 text-xs"
-      >
-        <span
-          class="w-4 h-4 rounded"
-          :style="{ backgroundColor: blueShades[index % blueShades.length] }"
-        ></span>
-        <div>
-              <span class="font-semibold">{{ item.label }}:</span>
-        <span>{{ item.value }} ({{ ((item.value / total) * 100).toFixed(2) }}%)</span>
-
-        </div>
-     </div>
-    </div> -->
     </div>
 </template>

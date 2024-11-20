@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import { ElectionsStatsCardSmallProps } from "~/resources/interfaces/elections/index.interface";
 
-const props = withDefaults(defineProps<ElectionsStatsCardSmallProps>(), {
-    icon: "campaign_menu",
-    value: "120",
-    description: "",
-});
+const props = defineProps<ElectionsStatsCardSmallProps>();
 </script>
 
 <template>
