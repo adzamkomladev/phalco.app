@@ -52,32 +52,33 @@ const table = useTable(props, "agents");
                 </router-link>
             </div>
         </div>
-    </div>
-    <div class="grid grid-cols-7 _md:flex flex-col gap-4 sm:gap-6">
-        <div class="col-span-4 _md">
-            <VotingAgentsTable :table="table" />
-        </div>
-        <div class="col-span-3 grid gap-5">
-            <div class="col-span-full grid grid-cols-2 gap-4">
-                <VotingAgentsStatsCard
-                    :value="134"
-                    :description="'Total Agents'"
-                />
-                <VotingAgentsStatsCard
-                    :value="134"
-                    :description="'Total Agents'"
-                />
-                <VotingAgentsStatsCard
-                    :value="134"
-                    :description="'Total Agents'"
-                />
-                <VotingAgentsStatsCard
-                    :value="134"
-                    :description="'Total Agents'"
-                />
+
+        <div class="grid grid-cols-7 _md:flex flex-col gap-4 sm:gap-6">
+            <div class="col-span-4 _md">
+                <VotingAgentsTable :table="table" />
             </div>
-            <div class="col-span-full">
-                <VotingAgentsDetailCard />
+            <div class="col-span-3 grid gap-5">
+                <div class="col-span-full grid grid-cols-2 gap-4">
+                    <VotingAgentsStatsCard
+                        :value="134"
+                        :description="'Total Agents'"
+                    />
+                    <VotingAgentsStatsCard
+                        :value="134"
+                        :description="'Total Agents'"
+                    />
+                    <VotingAgentsStatsCard
+                        :value="134"
+                        :description="'Total Agents'"
+                    />
+                    <VotingAgentsStatsCard
+                        :value="134"
+                        :description="'Total Agents'"
+                    />
+                </div>
+                <div class="col-span-full">
+                    <VotingAgentsDetailCard />
+                </div>
             </div>
         </div>
     </div>
