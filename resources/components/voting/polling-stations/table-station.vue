@@ -21,7 +21,16 @@ const props = withDefaults(defineProps<StatsCardProps>(), {
             <p class="text-sm text-gray-600 dark:text-gray-400">consectetur</p>
         </div>
         <div>
-            
+            <div>
+                <h2
+                    class="text-base font-semibold text-gray-800 dark:text-gray-200"
+                >
+                    Tesano Gutters
+                </h2>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    consectetur
+                </p>
+            </div>
         </div>
     </SharedCommonCard>
 </template>
