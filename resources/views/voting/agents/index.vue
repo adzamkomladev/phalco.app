@@ -10,6 +10,8 @@ const props = defineProps<{
 }>();
 
 const table = useTable(props, "agents");
+
+const TotalAgents: number = table.records.length;
 </script>
 
 <template layout="main">
@@ -28,7 +30,7 @@ const table = useTable(props, "agents");
                 </p>
             </div>
 
-            <div class="gap-x-2 ml-auto place-self-end w-fit">
+            <div class="gap-x-2 ml-auto place-self-end w-fit pb-4">
                 <router-link
                     :href="route('voting.agents.create')"
                     class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-primary-400 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:bg-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"

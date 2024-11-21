@@ -42,18 +42,9 @@ watch(search, debounceFn);
                         <h2
                             class="text-xl font-semibold text-gray-800 dark:text-gray-200"
                         >
-                            Agents
+                            Agents List
                         </h2>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">
-                            Manage all Agents of an election
-                        </p>
                     </div>
-                </div>
-
-                <div
-                    class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
-                >
-                    <!-- Input -->
                     <SharedFormSearchInput
                         class="sm:col-span-1"
                         v-model="search"
@@ -83,24 +74,12 @@ watch(search, debounceFn);
                             </label>
                         </th>
 
-                        <th
+                        <SharedTableTh
                             v-for="(col, index) in table.columns"
+                            :column="col"
                             :key="index"
-                            scope="col"
-                            :class="{
-                                'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start':
-                                    index === 0,
-                                'px-6 py-3 text-start': index !== 0,
-                            }"
-                        >
-                            <div class="flex items-center gap-x-2">
-                                <span
-                                    class="text-xs font-semibold tracking-wide text-gray-800 uppercase dark:text-gray-200"
-                                >
-                                    {{ col.label }}
-                                </span>
-                            </div>
-                        </th>
+                            :index="index"
+                        />
                         <th scope="col" class="px-6 py-3 text-end"></th>
                     </tr>
                 </thead>
