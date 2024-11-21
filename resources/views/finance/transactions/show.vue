@@ -48,16 +48,17 @@ console.log(props.wallet_name);
                     <div class="flex gap-4 items-center">
                         <span class="rounded-full size-10">
                             <img :src="TransactionDetalsImage" />
-                    
-                        </span><div class="">
+                        </span>
+                        <div class="">
                             <p class="font-semibold">Phalco</p>
                             <p class="text-gray-700 text-thin text-xs">
                                 transaction process
                             </p>
                         </div>
-                    </div><div class="_xs:ml-14">
+                    </div>
+                    <div class="_xs:ml-14">
                         <p class="text-gray-500 text-thin text-xs">
-                            Amount  Deducted
+                            Amount Deducted
                         </p>
                         <p class="font-semibold text-lg">-0.00</p>
                     </div>
