@@ -101,8 +101,8 @@ watch(search, debounceFn);
             <!-- End Header -->
 
             <!-- Table -->
-            <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
-                <thead class="bg-gray-50 dark:bg-slate-800">
+            <div class="w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <!-- <thead class="bg-gray-50 dark:bg-slate-800">
                     <tr>
                         <th scope="col" class="py-3 ps-6 text-start">
                             <label
@@ -138,9 +138,9 @@ watch(search, debounceFn);
                         </th>
                         <th scope="col" class="px-6 py-3 text-end"></th>
                     </tr>
-                </thead>
+                </thead> -->
 
-                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                <div class="divide-y divide-gray-200 dark:divide-gray-700">
                     <tr
                         v-for="{ key, value, extra } in table.records"
                         :key="key"
@@ -259,8 +259,10 @@ watch(search, debounceFn);
                             </div>
                         </td>
                     </tr>
-                </tbody>
-            </table>
+
+                    <VotingPollingStationsTableStation />
+                </div>
+            </div>
             <!-- End Table -->
 
             <!-- Footer -->
