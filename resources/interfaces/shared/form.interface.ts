@@ -1,4 +1,4 @@
-import { positionType } from "../common/index.interface";
+import { positionType } from "./common.interface";
 type BaseDateInputPropsType = "datetime" | "date";
 type BaseDateInputPropsScope = "start" | "end" | "general";
 type SubmitButtonPropsType = "submit" | "simple" | string;
@@ -16,7 +16,7 @@ export interface BaseInputProps extends FormProp {
     required?: boolean;
     autocomplete?: string;
     error?: string;
-    disabled:boolean;
+    disabled?:boolean;
 }
 
 

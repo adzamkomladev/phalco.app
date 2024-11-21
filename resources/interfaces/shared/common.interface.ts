@@ -21,4 +21,10 @@ export interface DropDown {
     dialogClass?: string;
 }
 
+export interface StatsCardProps {
+    description: string;
+    value: string |number;
+    icon: string;
+}
+
 export type positionType= "top-right" | "top-left" | "top-center"| "bottom-right"| "bottom-left"| "bottom-center";

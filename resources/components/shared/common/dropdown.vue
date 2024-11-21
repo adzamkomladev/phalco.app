@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DropDown } from "~/resources/interfaces/common/index.interface";
+import { DropDown } from "~/resources/interfaces/shared/common.interface";
 
 const props = defineProps<DropDown>();
 
