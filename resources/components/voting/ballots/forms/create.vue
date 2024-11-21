@@ -32,8 +32,7 @@ const toggleUploadForm = () => {
 </script>
 
 <template>
-    <form @submit.prevent="form.submit">
-        <h4 class="h4 mb-5 font-bold">New Ballot</h4>
+    <form @submit.prevent="form.submit" class="pb-12">
         <div class="grid gap-5">
             <!-- End Col -->
 
@@ -86,6 +85,10 @@ const toggleUploadForm = () => {
                     select-class="w-full py-3"
                 />
             </div>
+        </div>
+
+        <div v-if="isUpload" class="pt-5">
+            <SharedFormBaseFileUpload v-model="form.fields.upload_file" />
         </div>
 
         <div class="mt-10 flex justify-end gap-x-2">

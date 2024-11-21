@@ -140,7 +140,7 @@ const fileUploadOptions = JSON.stringify({
                             data-hs-file-upload-progress-bar=""
                         >
                             <div
-                                class="flex flex-col justify-center rounded-full overflow-hidden bg-blue-600 text-xs text-white text-center whitespace-nowrap transition-all duration-500 hs-file-upload-complete:bg-green-500"
+                                class="flex flex-col justify-center rounded-full overflow-hidden bg-primary-600 text-xs text-white text-center whitespace-nowrap transition-all duration-500 hs-file-upload-complete:bg-green-500"
                                 style="width: 0"
                                 data-hs-file-upload-progress-bar-pane=""
                             ></div>
@@ -174,7 +174,7 @@ const fileUploadOptions = JSON.stringify({
                             Browse through your files and Drop your file here
                         </span>
                         <span
-                            class="bg-white font-semibold text-blue-600 hover:text-blue-700 rounded-lg decoration-2 hover:underline focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 dark:bg-gray-800 dark:text-blue-500 dark:hover:text-blue-600"
+                            class="bg-white font-semibold text-primary-500 hover:text-primary-600 rounded-lg decoration-2 hover:underline focus-within:outline-none focus-within:ring-2 focus-within:ring-primary-600 focus-within:ring-offset-2 dark:bg-gray-800 dark:text-primary-500 dark:hover:text-primary-500"
                             >browse</span
                         >
                     </div>
