@@ -13,6 +13,7 @@ const props = defineProps<{
 }>();
 
 const status = "complete";
+const status = "complete";
 console.log(props.wallet_name);
 </script>
 
@@ -64,6 +65,13 @@ console.log(props.wallet_name);
                     </div>
                 </div>
 
+                <div class="flex gap-2 items-center sm:px-16">
+                    <FinanceSucess :is-success="true" />
+                    <hr class="bg-teal-700 grow" />
+                    <FinanceSucess :is-success="true" />
+                    <hr class="bg-teal-700 grow" />
+                    <FinanceSucess :is-success="false" />
+                </div>
                 <div class="flex gap-2 items-center sm:px-16">
                     <FinanceSucess :is-success="true" />
                     <hr class="bg-teal-700 grow" />
