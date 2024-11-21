@@ -11,7 +11,7 @@ const props = defineProps<{
         :class="
             status.toLowerCase() === 'active'
                 ? 'bg-forest-535 text-forest-700'
-                : 'bg-crimson-535 text-crimson-700'
+                : 'bg-crimson-535 text-crimson-200'
         "
         class="px-2 py-1 self-center dark:text-forest-100 inline-flex items-center gap-x-1 text-xs font-medium rounded-full"
     >

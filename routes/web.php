@@ -16,7 +16,7 @@ Route::get('/phone-verif', function () {
 })->name('phone-verif');
 
 Route::get('/top-up', function () {
-    return hybridly('finance.withdraw');
+    return hybridly('finance.transactions.show');
 })->name('election-selected');
 
 Route::get('/elections', function () {

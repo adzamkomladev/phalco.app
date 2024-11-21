@@ -1,60 +1,10 @@
-<script setup lang="ts">
-import WithdrawalImage from "~/resources/images/finance/withdrawal.webp?src";
+<script lang="ts" setup>
 
-useHead({
-    title: "Withdraw Wallet",
-});
-
-const props = defineProps<{
-    wallet_id: number;
-    wallet_name: string;
-}>();
-
-console.log(props.wallet_name);
-
-const form = useForm({
-    method: "POST",
-    url: route("finance.payments.initiate"),
-    fields: {
-        amount: 0,
-        wallet_id: props.wallet_id,
-    },
-    hooks: {
-        success: () => form.reset(),
-    },
-});
-
-const submited = ref(false);
 </script>
 
 <template>
-    <SharedCommonOverlay
-        :title="'Withdraw from ' + wallet_name + ' Wallet'"
-        class="max-w-xl w-xl _sm:max-w-full"
-    >
-        <div
-            class="flex flex-row-reverse rounded-3xl bg-secondary-300 dark:bg-gradient-to-r from-secondary-950 to-secondary-800"
-        >
-            <div class="font-medium pt-10 px-10 basis-1/2 shrink-0 grow">
-                <p class="text-gray-50 text-lg dark:text-gray-100">
-                    Withdrawal from Account
-                </p>
-                <p class="font-normal text-xs dark:text-gray-300 text-gray-100">
-                    Select or create a new account for withdwaral purposes
-                </p>
-            </div>
-            <div class="">
-                <img
-                    :src="WithdrawalImage"
-                    class="w-full _sm:hidden h-52 w-auto"
-                />
-            </div>
-        </div>
 
-        <transition>
-
-       
-        <div class="my-10" v-if="!submited">
+     <div class="my-10">
             <form @submit.prevent="form.submit">
                 <div class="">
                     <div class="s">
@@ -114,9 +64,4 @@ const submited = ref(false);
                 </div>
             </form>
         </div>
-        
-        <!-- <FinanceWithdrawConfirm v-else /> -->
- </transition>
-
- </SharedCommonOverlay>
 </template>
