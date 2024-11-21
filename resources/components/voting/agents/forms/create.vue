@@ -26,8 +26,7 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
 
 <template>
     <form @submit.prevent="form.submit">
-        <div class=" grid gap-5">
-            
+        <div class="grid gap-5">
             <div class="sm:col-span-9">
                 <SharedFormBaseInput
                     v-model="form.fields.first_name"
@@ -37,7 +36,6 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                     placeholder="Agent First Name"
                 />
             </div>
-           
 
             <div class="sm:col-span-9">
                 <SharedFormBaseInput
@@ -48,7 +46,7 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                     placeholder="Agent Last Name"
                 />
             </div>
-           
+
             <!-- End Col -->
 
             <div class="sm:col-span-9">
@@ -61,17 +59,10 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                     placeholder="Agent Email Address"
                 />
             </div>
-
-    
         </div>
 
-         <div class="mt-10 flex justify-end gap-x-2">
-                        <SharedFormSubmitButton
-                            text="Create"
-                            :loading="form.processing"
-                        />
-                    </div>
+        <div class="mt-10 flex justify-end gap-x-2">
+            <SharedFormSubmitButton text="Create" :loading="form.processing" />
+        </div>
     </form>
-
-
 </template>

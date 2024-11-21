@@ -26,8 +26,6 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
         <h4 class="h4 mb-5 font-bold">Upload Polling Stations</h4>
 
         <div class="grid gap-5">
-          
-
             <div class="">
                 <SharedFormBaseSelect
                     v-model="form.fields.election_id"
@@ -39,16 +37,11 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                 />
             </div>
 
-        <SharedFormBaseFileUpload v-model="form.fields.upload_file" />
-
-
+            <SharedFormBaseFileUpload v-model="form.fields.upload_file" />
         </div>
 
-          <div class="mt-10 flex justify-end gap-x-2">
-                        <SharedFormSubmitButton
-                            text="Create"
-                            :loading="form.processing"
-                        />
-                    </div>
+        <div class="mt-10 flex justify-end gap-x-2">
+            <SharedFormSubmitButton text="Create" :loading="form.processing" />
+        </div>
     </form>
 </template>

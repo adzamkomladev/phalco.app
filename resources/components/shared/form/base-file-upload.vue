@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BrowseImage from '~/resources/svg/share/browse.svg?src'
+import BrowseImage from "~/resources/svg/share/browse.svg?src";
 
 import HSFileUpload from "@preline/file-upload";
 
@@ -161,10 +161,8 @@ const fileUploadOptions = JSON.stringify({
                 data-hs-file-upload-trigger=""
             >
                 <div class="text-center">
-                    <span
-                        class="inline-flex justify-center items-center size-  "
-                    >
-                      <img  :src="BrowseImage" />
+                    <span class="inline-flex justify-center items-center size-">
+                        <img :src="BrowseImage" />
                     </span>
 
                     <div
@@ -173,7 +171,7 @@ const fileUploadOptions = JSON.stringify({
                         <span
                             class="pe-1 font-medium text-gray-800 dark:text-gray-200"
                         >
-                            Browse through your files and Drop your file here 
+                            Browse through your files and Drop your file here
                         </span>
                         <span
                             class="bg-white font-semibold text-blue-600 hover:text-blue-700 rounded-lg decoration-2 hover:underline focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 dark:bg-gray-800 dark:text-blue-500 dark:hover:text-blue-600"
@@ -182,7 +180,7 @@ const fileUploadOptions = JSON.stringify({
                     </div>
 
                     <p class="mt-1 text-xs text-gray-400 dark:text-gray-400">
-                       Maximum file size is 2 MB
+                        Maximum file size is 2 MB
                     </p>
                 </div>
             </div>

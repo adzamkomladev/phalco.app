@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import AgentImage from "~/resources/images/voting/new_agent.webp?src";
 
-
-
 useHead({
     title: "Voting: New Agent",
 });
@@ -19,9 +17,8 @@ const toggleUploadForm = () => (isUpload.value = !isUpload.value);
        
     </SharedCommonOverlay> -->
 
-
     <SharedCommonOverlay
-        :title="isUpload ? 'Upload Agent(s)' : 'New agent' "
+        :title="isUpload ? 'Upload Agent(s)' : 'New agent'"
         class="max-w-xl w-xl _sm:max-w-full"
     >
         <div
@@ -36,38 +33,35 @@ const toggleUploadForm = () => (isUpload.value = !isUpload.value);
                 </p>
             </div>
             <div class="">
-                <img
-                    :src="AgentImage"
-                    class="w-full _sm:hidden h-52 w-auto"
-                />
+                <img :src="AgentImage" class="w-full _sm:hidden h-52 w-auto" />
             </div>
         </div>
-         <div class="mt-5">
+        <div class="mt-5">
             <transition mode="out-in">
-
-          
-            <VotingAgentsFormsCreate :elections="elections" v-if="!isUpload" />
-            <VotingAgentsFormsUpload :elections="elections" v-else />
-           </transition>  
+                <VotingAgentsFormsCreate
+                    :elections="elections"
+                    v-if="!isUpload"
+                />
+                <VotingAgentsFormsUpload :elections="elections" v-else />
+            </transition>
             <div class="mt-5">
                 <a
-                    class="cursor-pointer text-primary-500  decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-primary-500"
+                    class="cursor-pointer text-primary-500 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-primary-500"
                     @click.prevent="toggleUploadForm"
                 >
                     {{ isUpload ? "Single?" : "Upload?" }}
                 </a>
             </div>
         </div>
-
     </SharedCommonOverlay>
 </template>
 <style scoped>
 .v-leave-active {
-  transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
 }
 
 .v-enter-from,
 .v-leave-to {
-  opacity: 0;
+    opacity: 0;
 }
 </style>

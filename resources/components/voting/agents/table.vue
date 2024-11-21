@@ -36,7 +36,7 @@ watch(search, debounceFn);
             <!-- Header -->
             <div>
                 <div
-                    class="grid gap-3  px-6 py-4 border-b border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
+                    class="grid gap-3 px-6 py-4 border-b border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
                 >
                     <div>
                         <h2
@@ -48,8 +48,6 @@ watch(search, debounceFn);
                             Manage all Agents of an election
                         </p>
                     </div>
-
-                    
                 </div>
 
                 <div
