@@ -6,6 +6,8 @@ export interface ProgressBarProps {
     loadedClass?: string;
     unloadedClass?: string;
     title?:string;
+    color?:string;
+    index?:number;
 }
 
 export interface Sheet{
