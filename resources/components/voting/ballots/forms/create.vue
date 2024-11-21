@@ -91,13 +91,13 @@ const toggleUploadForm = () => {
         <div class="mt-10 flex justify-end gap-x-2">
             <SharedFormSubmitButton text="Create" :loading="form.processing" />
         </div>
-         <div class="mt-5">
-                <a
-                    class="cursor-pointer text-primary-500 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-primary-500"
-                    @click="toggleUploadForm()"
-                >
-                    {{ isUpload ? "Single?" : "Upload?" }}
-                </a>
-            </div>
+        <div class="mt-5">
+            <a
+                class="cursor-pointer text-primary-500 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-primary-500"
+                @click="toggleUploadForm()"
+            >
+                {{ isUpload ? "Single?" : "Upload?" }}
+            </a>
+        </div>
     </form>
 </template>
