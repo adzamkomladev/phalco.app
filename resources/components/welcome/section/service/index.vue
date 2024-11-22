@@ -68,7 +68,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                         excepturi, labore nemo commodi officia magni possimus
                         eligendi.
                     </p>
-                    <routerlink
+                    <router-link
                         class="text-secondary-500 group flex items-center gap-2 my-4"
                     >
                         <span class="text-base font-semibold">Learn More</span>
@@ -76,7 +76,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                             name="arrow_farward"
                             class="transition-all group:hover:transition-y-5 h-4"
                         />
-                    </routerlink>
+                    </router-link>
                 </div>
             </div>
             <div
@@ -110,7 +110,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                         excepturi, labore nemo commodi officia magni possimus
                         eligendi.
                     </p>
-                    <routerlink
+                    <router-link
                         class="text-secondary-500 group flex items-center gap-2 my-4"
                     >
                         <span class="text-base font-semibold">Learn More</span>
@@ -118,7 +118,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                             name="arrow_farward"
                             class="transition-all group:hover:transition-y-5 h-4"
                         />
-                    </routerlink>
+                    </router-link>
                 </div>
             </div>
             <div
@@ -153,7 +153,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                         excepturi, labore nemo commodi officia magni possimus
                         eligendi.
                     </p>
-                    <routerlink
+                    <router-link
                         class="text-secondary-500 group flex items-center gap-2 my-4"
                     >
                         <span class="text-base font-semibold">Learn More</span>
@@ -161,7 +161,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                             name="arrow_farward"
                             class="transition-all group:hover:transition-y-5 h-4"
                         />
-                    </routerlink>
+                    </router-link>
                 </div>
             </div>
             <div
@@ -195,7 +195,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                         excepturi, labore nemo commodi officia magni possimus
                         eligendi.
                     </p>
-                    <routerlink
+                    <router-link
                         class="text-secondary-500 group flex items-center gap-2 my-4"
                     >
                         <span class="text-base font-semibold">Learn More</span>
@@ -203,7 +203,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                             name="arrow_farward"
                             class="transition-all group:hover:transition-y-5 h-4"
                         />
-                    </routerlink>
+                    </router-link>
                 </div>
             </div>
         </div>

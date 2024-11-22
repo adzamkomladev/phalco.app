@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-
 const scrollContainerRef = ref<HTMLDivElement | null>(null);
 const scrollPosition = ref(0);
 
@@ -10,7 +9,7 @@ const handleMouseMove = (event: MouseEvent) => {
 
     const container = scrollContainerRef.value;
     const { left, width } = container.getBoundingClientRect();
-    const mouseX = event.clientX - left; 
+    const mouseX = event.clientX - left;
     const maxScroll = container.scrollWidth - width;
 
     scrollPosition.value = Math.min(
@@ -25,18 +24,17 @@ const handleMouseMove = (event: MouseEvent) => {
 };
 </script>
 <template>
-    <div class="relative w-screen  max-w-full  scroll-smooth overflow-y-visible">
+    <div class="relative w-screen max-w-full scroll-smooth overflow-y-visible">
         <div
             ref="scrollContainerRef"
-            class=" overflow-x-scroll gap-10   py-6 overflow-y-visible px-20 scrollbar-hidden transition-all  flex items-center"
+            class="overflow-x-scroll gap-10 py-6 overflow-y-visible px-20 scrollbar-hidden transition-all flex items-center"
             style="scroll-behavior: smooth"
             @mousemove="handleMouseMove"
         >
-            <slot/>
+            <slot />
         </div>
     </div>
 </template>
-
 
 <style scoped>
 .scrollbar-hidden::-webkit-scrollbar {

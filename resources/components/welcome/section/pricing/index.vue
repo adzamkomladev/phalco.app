@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
 import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
 
@@ -37,11 +36,10 @@ const premium = {
 </script>
 
 <template>
-    <section
-        id="pricing"
-        class="bg-white py-8  scroll-mt-20"
-    >
-        <div class="flex overflow-hidden px-[8%] relative flex-col text-center gap-2 py-4">
+    <section id="pricing" class="bg-white py-8 scroll-mt-20">
+        <div
+            class="flex overflow-hidden px-[8%] relative flex-col text-center gap-2 py-4"
+        >
             <img
                 class="_sm:hidden absolute left-[10%] bottom-1/2"
                 :src="ObjectsImage"
@@ -69,18 +67,16 @@ const premium = {
             </span>
         </div>
         <div class="flex justify-around">
-            <div class="flex gap-2 _md:flex-col  _md:w-full  _md:px-[10%] md:px-5">
+            <div
+                class="flex gap-2 _md:flex-col _md:w-full _md:px-[10%] md:px-5"
+            >
+                <WelcomeSectionPricingStandard :data="standard" />
 
-                 <WelcomeSectionPricingStandard
-                :data="standard"
-           />
-
-            <WelcomeSectionPricingPremium
-                :data="premium"
-                class="bg-primary-500 text-white"
-            />
+                <WelcomeSectionPricingPremium
+                    :data="premium"
+                    class="bg-primary-500 text-white"
+                />
             </div>
-           
         </div>
     </section>
 </template>

@@ -1,16 +1,11 @@
 <script setup lang="ts">
-
 import ArrowImage from "~/resources/svg/welcome/trusted_1.svg?url";
 import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
-
 </script>
 
 <template>
-    <section
-        id="contacts"
-        class="bg-white py-8  scroll-mt-20 "
-    >
-        <div class="flex  px-[8%] relative flex-col text-center gap-2 py-8">
+    <section id="contacts" class="bg-white py-8 scroll-mt-20">
+        <div class="flex px-[8%] relative flex-col text-center gap-2 py-8">
             <img
                 class="_sm:hidden absolute right-[10%] bottom-5"
                 :src="ObjectsImage"
@@ -38,9 +33,8 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
             </span>
         </div>
         <SharedCommonSlideOnMouseEnter>
-            <WelcomeSectionTrustsCard class="group" v-for="l in 3" :key="l"/>
+            <WelcomeSectionTrustsCard class="group" v-for="l in 3" :key="l" />
         </SharedCommonSlideOnMouseEnter>
-       
     </section>
 </template>
 

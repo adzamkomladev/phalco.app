@@ -64,9 +64,7 @@ import ArrowImage from "~/resources/svg/welcome/made_easy_arrow.svg?url";
                     </div>
                     <div class="absolute left-0 top-[110%] _sm:hidden">
                         <img
-                            v-motion-slide-visible
-                            :duration="360"
-                            :delay="90"
+                          
                             :src="ArrowImage"
                             class="h-[15vw]"
                         />
@@ -75,13 +73,13 @@ import ArrowImage from "~/resources/svg/welcome/made_easy_arrow.svg?url";
                 <div
                     class="py-8 items-end sm:pr-[5%] _sm:px-[8%] col-span-6 md:w-[110%] sticky md:right-0"
                 >
-                    <div class="grid grid-cols-2 place-items-center">
+                    <div class="grid grid-cols-2 place-items-center ">
                         <img
                             v-motion-pop-visible-once
-                            :delay="1000"
+                            :delay="1200"
                             :duration="900"
                             :src="MadeEasyImage3"
-                            class="self-right"
+                            class="self-right "
                         />
                         <img
                             v-motion-pop-visible-once
