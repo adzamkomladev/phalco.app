@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import FastDecisionImage from "~/resources/svg/welcome/fast_declision.webp?url";
-import CampaigningImage from "~/resources/svg/welcome/campaigning.webp?url";
-import VotingImage from "~/resources/svg/welcome/voting.webp?url";
-import ManagementImage from "~/resources/svg/welcome/management.webp?url";
-import StepsImage from "~/resources/svg/welcome/voting_steps.svg?url";
+
+import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
 import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
 
 const standard = {
@@ -16,7 +13,6 @@ const standard = {
     offers: [
         "Lorem ipsum dolor sit amet",
         "Lorem adipisicing atque",
-        "Lorem mollitia omnis dolorem",
         "Lorem iusto vel",
     ],
 };
@@ -43,12 +39,16 @@ const premium = {
 <template>
     <section
         id="pricing"
-        class="bg-white py-8 flex flex-col gap-8 place-content-center scroll-mt-20"
+        class="bg-white py-8  scroll-mt-20"
     >
-        <div class="flex px-[8%] relative flex-col text-center gap-2 py-4">
+        <div class="flex overflow-hidden px-[8%] relative flex-col text-center gap-2 py-4">
+            <img
+                class="_sm:hidden absolute left-[10%] bottom-1/2"
+                :src="ObjectsImage"
+            />
             <img
                 class="_sm:hidden absolute right-[10%] bottom-1/2"
-                :src="ObjectsImage"
+                :src="StarImage"
             />
             <p
                 v-motion-fade-visible
@@ -68,18 +68,19 @@ const premium = {
                 eiusmod tempor incididunt ut labore et dolore
             </span>
         </div>
-        <div class="grid grid-cols-6">
-            <WelcomeSectionPricingStandard
+        <div class="flex justify-around">
+            <div class="flex gap-2 _md:flex-col  _md:w-full  _md:px-[10%] md:px-5">
+
+                 <WelcomeSectionPricingStandard
                 :data="standard"
-                class="border-gray-700 bg-white"
-                buttonClass="text-white bg-black"
-            />
+           />
 
             <WelcomeSectionPricingPremium
                 :data="premium"
-                class="border-gray-700 bg-white"
-                buttonClass="text-white bg-black"
+                class="bg-primary-500 text-white"
             />
+            </div>
+           
         </div>
     </section>
 </template>

@@ -11,7 +11,7 @@ import ArrowImage from "~/resources/svg/welcome/made_easy_arrow.svg?url";
 
         <main
             id="home"
-            class="scroll-mt-[9rem] bg-white max-w-[1600px] self-center"
+            class="scroll-mt-[9rem] bg-white max-w-[1600px] self-center oveflow-x-hidden"
         >
             <section id="home" class="flex _sm:flex-col relative">
                 <div
@@ -105,11 +105,11 @@ import ArrowImage from "~/resources/svg/welcome/made_easy_arrow.svg?url";
             </section>
             <WelcomeSectionService />
             <WelcomeSectionPricing />
-
-            <LandingRecommendation />
+            <WelcomeSectionTrusts />
+            <WelcomeSectionFaqs />
 
             <div class="md:border-t">
-                <LandingFooterShow />
+                <WelcomeFooter />
             </div>
         </main>
     </body>
