@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{ column: any; index: number }>();
+import { TableHeadProps } from "~/resources/interfaces/table/index.interface";
+
+const props = defineProps<TableHeadProps>();
 </script>
 
 <template>

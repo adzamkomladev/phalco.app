@@ -1,21 +1,10 @@
 <script setup lang="ts">
 import { Stage } from "~/resources/interfaces/elections/selected.interface";
 
-const props = defineProps<{ stage: Stage; index: number }>();
+const props = defineProps<{ stage: Stage; index: number; length: number }>();
+import { formatDate } from "~/resources/utils/shared/date";
 
-const formatDate = (dateString: Date | null) => {
-    if (!dateString) return "";
-
-    const date = new Date(dateString);
-
-    return date.toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "2-digit",
-    });
-};
-
-const isPast = new Date() > props?.stage?.end;
+const isPast = new Date() > new Date(props?.stage?.end);
 
 const isOngoing =
     props?.stage?.start && props?.stage?.end
@@ -28,10 +17,22 @@ const isOngoing =
     <div
         v-motion-fade-visible
         :delay="50 * index"
-        class="grid grid-cols-7 gap-x-5 ms-1 grow"
+        class="grid grid-cols-7 gap-x-5 ms-1"
+        :class="length == index + 1 && 'grow'"
     >
-        <div class="text-xs col-span-2">
-            {{ formatDate(stage.start) }} - {{ formatDate(stage.end) }}
+        <div
+            class="text-xs pt-2 col-span-3"
+            :class="isPast ? 'text-forest dark:text-gray-100 font-medium' : ''"
+        >
+            <span
+                :class="
+                    new Date(stage.start) <= new Date() && !isPast
+                        ? 'text-primary dark:text-gray-100 font-medium'
+                        : ''
+                "
+                >{{ formatDate(stage.start, "dd/mm/yy") }}</span
+            >
+            <span> - {{ formatDate(new Date(stage.end), "dd/mm/yy") }}</span>
         </div>
         <div
             :class="[
@@ -41,11 +42,13 @@ const isOngoing =
             ]"
             class="relative last:after:hidden col-span-1 after:absolute after:top-8 after:bottom-0 flex justify-center after:w-px after:-translate-x-[0.5px]"
         >
-            <div class="relative z-10 size-8 flex justify-center items-center">
+            <div
+                class="relative z-10 size-8 aspect-square flex justify-center items-center"
+            >
                 <span
                     :class="[
                         isPast
-                            ? 'bg-forest-300 dark:bg-forest-600'
+                            ? 'bg-forest-300 dark:bg-forest-600 '
                             : !isOngoing && 'bg-gray-300 dark:bg-gray-500',
                         isOngoing
                             ? 'animate-ping size-4 bg-primary-300 dark:bg-primary'
@@ -61,7 +64,7 @@ const isOngoing =
         </div>
         <!-- :delay="60 * index * index" -->
 
-        <div class="grow pt-0.5 col-span-4 pb-8 sm:pb-12 overflow-hidden">
+        <div class="pt-1 col-span-3 pb-8 sm:pb-12 overflow-hidden">
             <div
                 class=""
                 v-motion-pop-visible-once
@@ -69,7 +72,7 @@ const isOngoing =
                 :delay="100 * index"
             >
                 <p>{{ stage.stage }}</p>
-                <p class="text-xs text-gray-500">Get info about election</p>
+                <p class="opacity-0">g</p>
             </div>
         </div>
         <!-- :delay="50 * index * index" -->

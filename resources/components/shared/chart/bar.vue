@@ -1,3 +1,37 @@
+<script setup lang="ts">
+import {
+    BarChatProps,
+    Data,
+} from "~/resources/interfaces/chats/index.interface";
+
+const props = withDefaults(defineProps<BarChatProps>(), {
+    defaultColor: "#07689F",
+});
+
+const values = computed(() =>
+    props.data
+        ? props.data.map((item: Data) => item.value)
+        : props.values || [],
+);
+const labels = computed(() =>
+    props.data
+        ? props.data.map((item: Data) => item.label)
+        : props.labels || [],
+);
+
+const colors = computed(() => {
+    if (props.colors && props.colors.length > 0) {
+        return props.colors;
+    } else {
+        return new Array(props.values.length).fill(props.defaultColor);
+    }
+});
+
+const maxFrequency = computed(() => {
+    return Math.max(...props.values) || 100;
+});
+</script>
+
 <template>
     <div
         class="chart-wrapper flex items-end justify-between w-full h-60 max-w-lg mx-auto relative"
@@ -36,49 +70,21 @@
                 class="bar-container h-full w-full flex flex-col items-center group relative"
             >
                 <span
-                    class="transition-all -translate-y-full absolute text-xs -top-6 opacity-0 group-hover:opacity-100"
+                    class="transition-all text-nowrap -translate-y-full absolute text-xs -top-6 opacity-0 group-hover:opacity-100"
                 >
-                    ${{ item }}
+                    {{ unit }} {{ item }}
                 </span>
                 <div
                     :style="{ backgroundColor: colors[index] || defaultColor }"
                     class="bar w-[50%] grow rounded-t transition-all duration-300 ease-in-out"
                 ></div>
                 <span
-                    class="text-xs _xs:rotate-90 font-medium mt-4 md:text-[0.6rem] xl:text-xs absolute top-full text-gray-500"
+                    class="text-xs capitalize _xs:rotate-90 font-medium mt-4 md:text-[0.6rem] xl:text-xs absolute top-full text-gray-500"
                     >{{ labels[index] }}</span
                 >
             </div>
         </div>
     </div>
 </template>
-
-<script setup lang="ts">
-import { barChatProps } from "~/resources/interfaces/chats/index.interface";
-
-const props = withDefaults(defineProps<barChatProps>(), {
-    defaultColor: "#07689F",
-});
-
-const values = computed(() =>
-    props.data ? props.data.map((item) => item.value) : props.values || [],
-);
-const labels = computed(() =>
-    props.data ? props.data.map((item) => item.label) : props.labels || [],
-);
-
-const colors = computed(() => {
-    if (props.colors && props.colors.length > 0) {
-        return props.colors;
-    } else {
-        return new Array(props.values.length).fill(props.defaultColor);
-    }
-});
-
-// Calculate the maximum value from the data to scale bars as percentages
-const maxFrequency = computed(() => {
-    return Math.max(...props.values) || 100; // Use the spread operator for computing max from an array
-});
-</script>
 
 <style scoped></style>

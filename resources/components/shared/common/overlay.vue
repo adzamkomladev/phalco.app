@@ -3,11 +3,6 @@ import { HSOverlay } from "preline/preline";
 import { OverlayProps } from "~/resources/interfaces/shared/overrlay.interface";
 
 const props = defineProps<OverlayProps>();
-
-const sizeClass = computed(
-    () => `max-w-${props.size} w-${props.maxSize || "full"}`,
-);
-
 const { show, close, unmount } = useDialog();
 
 const overlay = ref<HTMLElement | null>(null);

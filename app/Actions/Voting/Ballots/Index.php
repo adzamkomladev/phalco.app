@@ -13,13 +13,15 @@ class Index
 
     public function asController()
     {
-        return view('voting.ballots.index', [
-            'ballots' => BallotsTable::make(),
-        ]);
+        return view('voting.ballots.index', $this->handle(auth()->id()));
     }
 
-    public function handle()
+    public function handle(int $userId)
     {
-        // ...
+        $election = cache()->get("elections.selected.{$userId}");
+
+        return [
+            'ballots' => BallotsTable::make(['electionId' => $election['id'] ?? null]),
+        ];
     }
 }

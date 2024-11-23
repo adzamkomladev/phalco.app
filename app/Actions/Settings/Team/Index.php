@@ -19,11 +19,7 @@ class Index
 
     public function asController()
     {
-
-        return view('settings.team.index', [
-            'members' => MembersTable::make(),
-            'stats' => $this->handle(request()->user()->currentOrganization->id),
-        ]);
+        return view('settings.team.index', $this->handle(request()->user()->selected_organization_id));
     }
 
     public function handle(int $organizationId)
@@ -35,8 +31,7 @@ class Index
             $changeInvites,
             $totalRejections,
             $changeRejections
-        ] = Octane::concurrently([
-            fn () => $this->totalMembers($organizationId),
+        ] = Octane::concurrently([fn () => $this->totalMembers($organizationId),
             fn () => $this->membershipChange($organizationId),
             fn () => $this->totalInvites($organizationId),
             fn () => $this->invitesChange($organizationId),
@@ -44,14 +39,17 @@ class Index
             fn () => $this->rejectionsChange($organizationId),
         ]);
 
-        return InvitationStatsData::from([
-            'totalMembers' => $totalMembers,
-            'changeMembers' => InvitationStatsChangeData::from($changeMembers),
-            'totalInvites' => $totalInvites,
-            'changeInvites' => InvitationStatsChangeData::from($changeInvites),
-            'totalRejections' => $totalRejections,
-            'changeRejections' => InvitationStatsChangeData::from($changeRejections),
-        ]);
+        return [
+            'stats' => InvitationStatsData::from([
+                'totalMembers' => $totalMembers,
+                'changeMembers' => InvitationStatsChangeData::from($changeMembers),
+                'totalInvites' => $totalInvites,
+                'changeInvites' => InvitationStatsChangeData::from($changeInvites),
+                'totalRejections' => $totalRejections,
+                'changeRejections' => InvitationStatsChangeData::from($changeRejections),
+            ]),
+            'members' => MembersTable::make(['organizationId' => $organizationId]),
+        ];
     }
 
     protected function totalMembers(int $organizationId)

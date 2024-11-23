@@ -71,7 +71,7 @@ class AppServiceProvider extends ServiceProvider
 
         // region Pulse
         Gate::define('viewPulse', function (User $user) {
-            return $user->canViewTelescope();
+            return true;
         });
         //endregion
     }

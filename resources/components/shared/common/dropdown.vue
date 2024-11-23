@@ -1,16 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{
-    position?:
-        | "top-right"
-        | "top-left"
-        | "top-center"
-        | "bottom-right"
-        | "bottom-left"
-        | "bottom-center";
-    hideContentOnSelect?: boolean;
-    buttonClass?: string;
-    dialogClass?: string;
-}>();
+import { DropDown } from "~/resources/interfaces/common/index.interface";
+
+const props = defineProps<DropDown>();
 
 const emits = defineEmits(["toggle"]);
 

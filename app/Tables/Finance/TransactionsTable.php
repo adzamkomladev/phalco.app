@@ -14,6 +14,8 @@ final class TransactionsTable extends Table
 {
     protected string $model = Transaction::class;
 
+    public function __construct(public readonly int $organizationId) {}
+
     protected function defineColumns(): array
     {
         return [
@@ -35,7 +37,7 @@ final class TransactionsTable extends Table
     protected function defineRefiners(): array
     {
         return [
-            Sorts\Sort::make('id'),
+            Sorts\Sort::make('created'),
             CallbackFilter::make(
                 name: 'search',
                 callback: function (InternalBuilder $builder, mixed $value, string $property) {
@@ -54,11 +56,9 @@ final class TransactionsTable extends Table
 
     protected function defineQuery(): Builder
     {
-        $selectedOrganizationId = auth()->user()->selected_organization_id;
-
         return $this->getModel()
             ->query()
-            ->whereRelation('wallet', 'holder_id', $selectedOrganizationId)
+            ->whereRelation('wallet', 'holder_id', $this->organizationId)
             ->with(['wallet']);
     }
 }

@@ -45,7 +45,7 @@
     "dependencies": {
         "@preline/file-upload": "^2.4.1",
         "@preline/pin-input": "^2.5.0",
-        "@radix-ui/react-slot": "^1.1.0",
+        "@tailwindcss/line-clamp": "^0.4.4",
         "@vue/eslint-config-typescript": "^14.0.1",
         "@vueuse/motion": "^2.2.6",
         "canvas-confetti": "^1.9.3",

@@ -36,14 +36,7 @@ const table = useTable(props, "elections");
         class="max-w-[85rem] px-4 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
     >
         <!-- Grid -->
-        <div class="pb-5">
-            <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
-                Elections
-            </h2>
-            <p class="text-sm text-gray-600 dark:text-gray-400">
-                Overview of all elections and their details
-            </p>
-        </div>
+
         <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 self-center _sm:px-[5%]">
             <!-- Card -->
 

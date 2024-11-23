@@ -1,4 +1,6 @@
 import Sheet from "~/resources/components/shared/common/sheet.vue";
+type OverlayPropsType ="modal-center" | "modal-top" | "sidedrawer" | "sidedrawer-center";
+
 
 export interface SheetProps {
     title?: string;
@@ -10,8 +12,7 @@ export interface OverlayProps extends SheetProps {
     useSheet?: boolean;
     size?: string;
     maxSize?: string;
-    type?: "modal-center" | "modal-top" | "sidedrawer" | "sidedrawer-center";
-    center?: "all" | "h" | "v" | "none";
+    type?: OverlayPropsType;
     OverlayClass?: string;
     outerClass?: string;
     hideTitle?: string;
