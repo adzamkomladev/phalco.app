@@ -22,13 +22,17 @@ class Store
 
     public function asController(ActionRequest $request)
     {
-        $audience = $this->handle(
-            auth()->id(),
-            $request->user()->selected_organization_id,
-            $request->validated()
-        );
+        try {
+            $audience = $this->handle(
+                auth()->id(),
+                $request->user()->selected_organization_id,
+                $request->validated()
+            );
 
-        return redirect()->route('audiences.show', ['id' => $audience->id]);
+            return redirect()->route('audiences.show', ['id' => $audience->id]);
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
     }
 
     /**
