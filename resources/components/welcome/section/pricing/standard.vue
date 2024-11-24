@@ -8,7 +8,7 @@ const props = defineProps<PricingCardProps>();
     <div
         v-motion-pop-visible-once
         :duration="360"
-        class="flex pb-16 relative h-fit _sm:w-full sm:col-span-2 flex-col p-6 mx-auto text-left text-gray-900 border border-inherit rounded-xl shadow-gray-500 dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
+        class="flex relative bg-white shadow-card h-fit w-full my-auto max-w-80 sm:col-span-2 flex-col p-10 text-left text-gray-900 border border-inherit rounded-xl dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
     >
         <div class="flex items-baseline my-4">
             <span class="mr-2 text-4xl font-extrabold"

@@ -10,10 +10,10 @@ const FaqIsOpened = ref(false);
     <SharedAnimationCollapsible class="sm:max-w-[80%]">
         <template v-slot:summary>
             <button
-                class="flex justify-between font-bold py-3 pb-5 text-sm"
+                class="flex w-full justify-between font-bold py-3 pb-5 text-sm"
                 @click="FaqIsOpened = !FaqIsOpened"
             >
-                <div>{{ faq.question }}</div>
+                <div class="text-left">{{ faq.question }}</div>
                 <div class="text-wrap">
                     <span v-if="FaqIsOpened" v-text="'-'" />
                     <span v-else v-text="'+'" />

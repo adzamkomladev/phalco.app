@@ -4,14 +4,24 @@ import CampaigningImage from "~/resources/svg/welcome/campaigning.webp?url";
 import VotingImage from "~/resources/svg/welcome/voting.webp?url";
 import ManagementImage from "~/resources/svg/welcome/management.webp?url";
 import StepsImage from "~/resources/svg/welcome/voting_steps.svg?url";
-import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
+import ObjectsImage from "~/resources/svg/welcome/2_objects.svg?url";
+import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
 </script>
 
 <template>
     <section
         id="service"
-        class="bg-white py-8 flex flex-col gap-8 place-content-center scroll-mt-20"
+        class="bg-white py-8 relative flex flex-col gap-8 place-content-center scroll-mt-20"
     >
+        <img
+            class="_sm:hidden absolute left-[10%] bottom-0"
+            :src="ObjectsImage"
+        />
+        <img
+            class="_sm:hidden absolute right-[10%] bottom-0"
+            :src="StarImage"
+        />
+
         <div class="flex px-[8%] relative flex-col text-center gap-2 py-4">
             <img
                 class="_sm:hidden absolute right-[10%] bottom-1/2"
@@ -36,9 +46,9 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
             </span>
         </div>
 
-        <div class="grid gap-10">
+        <div class="grid gap-20">
             <div
-                class="flex items-center sm:grid-cols-2 px-[10%] even:flex-row-reverse _sm:flex-col"
+                class="flex items-center sm:grid-cols-2 px-[10%] md:px-[15%] even:flex-row-reverse _sm:flex-col"
             >
                 <div class="basis-1/2 shrink-0 _sm:px-[10%]">
                     <img
@@ -59,7 +69,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                         v-motion-fade-visible
                         :duration="360"
                         :delay="90"
-                        class="text-gray-700 block self-center text-justify"
+                        class="text-gray-700 block text-sm _sm:pr-[10%] sm:text-leftself-center _sm:text-pretty sm:text-justify"
                     >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -80,12 +90,19 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                 </div>
             </div>
             <div
-                class="flex items-center sm:grid-cols-2 px-[10%] sm:even:flex-row-reverse _sm:flex-col"
+                class="flex items-center sm:grid-cols-2 px-[10%] md:px-[15%] sm:even:flex-row-reverse _sm:flex-col"
             >
-                <div class="basis-1/2 shrink-0 flex justify-end _sm:px-[10%]">
+                <div
+                    class="basis-1/2 relative shrink-0 flex justify-end _sm:px-[10%]"
+                >
                     <img
                         :src="CampaigningImage"
                         class="sm:w-[30vw] sm:max-w-72"
+                    />
+
+                    <img
+                        :src="StepsImage"
+                        class="absolute sm:hidden rotate-[270deg] right-0 w-[10%] md:w-[15%] bottom-0"
                     />
                 </div>
                 <div>
@@ -101,7 +118,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                         v-motion-fade-visible
                         :duration="360"
                         :delay="90"
-                        class="text-gray-700 block self-center text-justify"
+                        class="text-gray-700 block _sm:pr-[10%] sm:text-leftself-center _sm:text-pretty sm:text-justify"
                     >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -122,11 +139,11 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                 </div>
             </div>
             <div
-                class="flex items-center relative sm:grid-cols-2 px-[10%] sm:even:flex-row-reverse _sm:flex-col"
+                class="flex items-center relative sm:grid-cols-2 px-[10%] md:px-[15%] sm:even:flex-row-reverse _sm:flex-col"
             >
                 <img
                     :src="StepsImage"
-                    class="absolute _sm:hidden left-0 w-[10vw] bottom-0"
+                    class="absolute _sm:hidden left-0 w-[10%] md:w-[15%] bottom-0"
                 />
                 <div class="basis-1/2 shrink-0 _sm:px-[10%]">
                     <img :src="VotingImage" class="sm:w-[30vw] sm:max-w-72" />
@@ -144,7 +161,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                         v-motion-fade-visible
                         :duration="360"
                         :delay="90"
-                        class="text-gray-700 block self-center text-justify"
+                        class="text-gray-700 block _sm:pr-[10%] sm:text-leftself-center _sm:text-pretty sm:text-justify"
                     >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -165,7 +182,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                 </div>
             </div>
             <div
-                class="flex items-center sm:grid-cols-2 px-[10%] sm:even:flex-row-reverse _sm:flex-col"
+                class="flex items-center sm:grid-cols-2 px-[10%] md:px-[15%] sm:even:flex-row-reverse _sm:flex-col"
             >
                 <div class="basis-1/2 shrink-0 flex justify-end _sm:px-[10%]">
                     <img
@@ -186,7 +203,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                         v-motion-fade-visible
                         :duration="360"
                         :delay="90"
-                        class="text-gray-700 block self-center text-justify"
+                        class="text-gray-700 block _sm:pr-[10%] sm:text-leftself-center _sm:text-pretty sm:text-justify"
                     >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -207,7 +224,15 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                 </div>
             </div>
         </div>
+
+        <span
+            v-motion-fade-visible
+            :duration="360"
+            :delay="90"
+            class="text-gray-700 block _sm:pt-10 text-base self-center text-center sm:w-[50%] text-balance"
+        >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore
+        </span>
     </section>
 </template>
-
-<style scoped></style>

@@ -11,7 +11,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                 :src="ObjectsImage"
             />
             <img
-                class="absolute left-0 bottom-1/2 w-[20vw] _sm:hidden"
+                class="absolute w-[20%] left-0 bottom-1/2 _sm:hidden"
                 :src="ArrowImage"
             />
             <p
@@ -20,7 +20,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                 :delay="90"
                 class="font-black font-sans text-3xl md:text-4xl"
             >
-                Pricing
+                Trusted By Many
             </p>
             <span
                 v-motion-fade-visible
@@ -32,8 +32,19 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
                 eiusmod tempor incididunt ut labore et dolore
             </span>
         </div>
-        <SharedCommonSlideOnMouseEnter>
-            <WelcomeSectionTrustsCard class="group" v-for="l in 3" :key="l" />
+        <SharedCommonSlideOnMouseEnter class=" ">
+            <div class="flex group my-10">
+                <WelcomeSectionTrustsCard
+                    class="ml8"
+                    :class="[
+                        l === 2
+                            ? 'sm:scale-[1.2] group-hover:ml-   sm:group-hover:scale-95 sm:hover:group-hover:scale-[1.2] group  z-[1]'
+                            : ' mx-5 sm:hover:group-hover:scale-[1.2]',
+                    ]"
+                    v-for="l in 3"
+                    :key="l"
+                />
+            </div>
         </SharedCommonSlideOnMouseEnter>
     </section>
 </template>

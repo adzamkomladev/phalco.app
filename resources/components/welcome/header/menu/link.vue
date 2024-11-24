@@ -38,7 +38,7 @@ const isActive = computed(() => currentSection.value === props.to);
     >
         {{ to }}
         <p
-            class="absolute h-[2px] _md:hidden bg-primary-400 transition-all"
+            class="absolute h-[2px] bg-primary-400 transition-all"
             :class="{
                 'w-full duration-700': isActive,
                 'w-0 duration-400': !isActive,

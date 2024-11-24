@@ -3,7 +3,7 @@ const menus = ref([
     { to: "home" },
     { to: "service" },
     { to: "pricing" },
-    { to: "about Us" },
+    { to: "contact" },
 ]);
 
 const isScrollingUp = ref(true);
@@ -32,7 +32,7 @@ onMounted(() => {
 
     const observer = new IntersectionObserver(handleIntersection, {
         root: null,
-        rootMargin: "0px",
+        rootMargin: "30px",
         threshold: 0.6,
     });
 
@@ -56,7 +56,7 @@ function debounce(func: Function, wait: number) {
 
 <template>
     <div class="flex items-center justify-center">
-        <div class="flex gap-[10%]">
+        <div class="flex gap-[20%]">
             <WelcomeHeaderMenuLink
                 v-for="(menu, index) in menus"
                 :to="menu.to"

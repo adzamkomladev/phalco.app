@@ -66,7 +66,7 @@ onUnmounted(() => {
             :class="{
                 'translate-y-0 opacity-100 h-[2.8rem]':
                     isScrollingUp || isMouseNearHeader,
-                '-translate-y-full opacity-0 h-0 delay-100':
+                '-translate-y-full opacity-0 h-0':
                     !isScrollingUp && !isMouseNearHeader,
             }"
         >

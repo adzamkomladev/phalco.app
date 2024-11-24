@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import FooterIllustration from "~/resources/svg/welcome/footer_1.webp?url";
+import FooterIllustration1 from "~/resources/svg/welcome/footer_1.webp?url";
+import FooterIllustration2 from "~/resources/svg/welcome/footer_2.svg?url";
 
 const products = [
     "Nomination Platform",
@@ -71,7 +72,7 @@ const social = [
                     </div>
                 </div>
 
-                <div class="col-span-2">
+                <div class="col-span-2 z-10">
                     <div
                         class="bg-white/10 rounded-xl p-6 text-center sm:text-left"
                     >
@@ -106,11 +107,19 @@ const social = [
         </div>
 
         <!-- Illustration -->
+
         <img
-            :src="FooterIllustration"
+            :src="FooterIllustration1"
             alt="Footer illustration"
-            class="absolute bottom-0 right-0 h-32 md:h-40 lg:h-48 w-auto object-contain"
+            class="absolute bottom-0 right-0  _sm:-right-10 h-72 _sm:h-[40vw]  md:h-40 lg:h-48 w-auto object-contain"
             aria-hidden="true"
         />
+        <img
+            :src="FooterIllustration2"
+            alt="Footer illustration"
+            class="absolute -top-10   md:hidden right-0 h-32   -rotate-90 md:h-40 lg:h-48 w-auto object-contain"
+            aria-hidden="true"
+        />
+
     </footer>
 </template>

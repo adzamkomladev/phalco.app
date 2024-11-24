@@ -3,6 +3,7 @@ import MadeEasyImage1 from "~/resources/svg/welcome/made_easy_1.webp?url";
 import MadeEasyImage2 from "~/resources/svg/welcome/made_easy_2.webp?url";
 import MadeEasyImage3 from "~/resources/svg/welcome/made-easy_3.svg?url";
 import ArrowImage from "~/resources/svg/welcome/made_easy_arrow.svg?url";
+import DropletImage from "~/resources/svg/welcome/drop.svg?url";
 </script>
 
 <template>
@@ -51,7 +52,7 @@ import ArrowImage from "~/resources/svg/welcome/made_easy_arrow.svg?url";
                         >
                     </p>
 
-                    <div class="py-2">
+                    <div class="py-2 pt-10">
                         <router-link :href="route('register')">
                             <button
                                 v-motion-pop-visible-once
@@ -62,18 +63,12 @@ import ArrowImage from "~/resources/svg/welcome/made_easy_arrow.svg?url";
                             </button>
                         </router-link>
                     </div>
-                    <div class="absolute left-0 top-[110%] _sm:hidden">
-                        <img
-                          
-                            :src="ArrowImage"
-                            class="h-[15vw]"
-                        />
-                    </div>
+                    
                 </div>
                 <div
                     class="py-8 items-end sm:pr-[5%] _sm:px-[8%] col-span-6 md:w-[110%] sticky md:right-0"
                 >
-                    <div class="grid grid-cols-2 place-items-center ">
+                    <div class="grid grid-cols-2  place-items-center ">
                         <img
                             v-motion-pop-visible-once
                             :delay="1200"
@@ -90,16 +85,37 @@ import ArrowImage from "~/resources/svg/welcome/made_easy_arrow.svg?url";
                         />
                     </div>
 
-                    <div class="lg:-mt-10 lg:-ml-20">
-                        <img
+                    <div class="lg:-mt-10 lg:-ml-20 flex relative">
+                       
+                       <div>
+                         <img
                             v-motion-fade-visible
                             :duration="360"
                             :delay="90"
                             :src="MadeEasyImage2"
+                            class="w-[90%]"
+                        />
+                       </div>
+                       
+                        <div class=" pt-[30%]">
+                            <img
+                            v-motion-fade-visible
+                            :duration="360"
+                            :delay="90"
+                            :src="DropletImage"
                             class=""
                         />
+                        </div>
+
                     </div>
                 </div>
+                <div class="absolute w-full left-0 bottom-0 _lg:hidden">
+                        <img
+
+                            :src="ArrowImage"
+                            class="w-[15%] h-fit "
+                        />
+                    </div>
             </section>
             <WelcomeSectionService />
             <WelcomeSectionPricing />

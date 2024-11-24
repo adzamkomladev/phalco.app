@@ -10,7 +10,7 @@ const props = defineProps<PricingCardProps>();
         v-motion-pop-visible-once
         :duration="360"
         :delay="200"
-        class="flex pb-16 relative sm:col-span-4 flex-col p-6 text-left border border-inherit rounded-xl shadow-gray-500"
+        class="flex pb-16 relative sm:col-span-4 flex-col p-10 text-left border border-inherit rounded-xl shadow-gray-500"
     >
         <div class="flex items-baseline my-4">
             <span class="mr-2 text-4xl font-extrabold"
@@ -51,8 +51,8 @@ const props = defineProps<PricingCardProps>();
         >
             Purchase</a
         >
-        <div class="absolute h-full right-0 _sm:top-20">
-            <img :src="PremiumImage" class="h-full _sm:h-2/3 _xs:max-h-72" />
+        <div class="absolute h-full right-0 _sm:top-1/2">
+            <img :src="PremiumImage" class="h-full _sm:max-h-40" />
         </div>
     </div>
 </template>

@@ -37,7 +37,7 @@ import FaqsImage from "~/resources/svg/welcome/faqs.webp?url";
 </script>
 
 <template>
-    <section id="recomendations" class="bg-white py-8 _sm:px-[8%] scroll-mt-20">
+    <section id="contact" class="bg-white py-8 _sm:px-[8%] scroll-mt-20">
         <div
             class="flex px-[8%] relative flex-col text-center gap-2 py-8 overflow-hidden"
         >
@@ -69,14 +69,18 @@ import FaqsImage from "~/resources/svg/welcome/faqs.webp?url";
             </span>
         </div>
         <div class="grid sm:grid-cols-9 gap-5 relative">
-            <div class="sm:col-span-4">
-                <img :src="FaqsImage" />
+            <div
+                class="sm:col-span-4 max-h-96 flex justify-center items-center"
+            >
+                <img :src="FaqsImage" class="h-full w-auto" />
             </div>
             <div class="sm:col-span-5">
-                <p class="font-black font-sans text-2xl md:text-3xl">
+                <p class="font-black font-sans pb-5 text-2xl md:text-3xl">
                     Frequently Asked Questions
                 </p>
                 <div class="grid gap-2 text-sm">
+                    <hr class="bg-slate-300 h-[2px] sm:w-[80%]" />
+
                     <div v-for="(faq, index) in FAQs" :key="index">
                         <WelcomeSectionFaqsFaq :faq="faq" />
                         <hr class="bg-slate-300 h-[2px] sm:w-[80%]" />

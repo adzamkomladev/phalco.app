@@ -36,18 +36,10 @@ const premium = {
 </script>
 
 <template>
-    <section id="pricing" class="bg-white py-8 scroll-mt-20">
+    <section id="pricing" class="bg-white py-20 scroll-mt-20 relative">
         <div
             class="flex overflow-hidden px-[8%] relative flex-col text-center gap-2 py-4"
         >
-            <img
-                class="_sm:hidden absolute left-[10%] bottom-1/2"
-                :src="ObjectsImage"
-            />
-            <img
-                class="_sm:hidden absolute right-[10%] bottom-1/2"
-                :src="StarImage"
-            />
             <p
                 v-motion-fade-visible
                 :duration="300"
@@ -68,14 +60,21 @@ const premium = {
         </div>
         <div class="flex justify-around">
             <div
-                class="flex gap-2 _md:flex-col _md:w-full _md:px-[10%] md:px-5"
+                class="flex gap-5 peer _lg:flex-col _md:w-full _md:px-[10%] md:px-5 items-center"
             >
-                <WelcomeSectionPricingStandard :data="standard" />
-
-                <WelcomeSectionPricingPremium
-                    :data="premium"
-                    class="bg-primary-500 text-white"
-                />
+                <div
+                    class="hover:scale-105 duration-300 z-10 transition-all peer place-items-center"
+                >
+                    <WelcomeSectionPricingStandard :data="standard" class="" />
+                </div>
+                <div
+                    class="peer-hover:scale-95 shrink-0 transition-all duration-300"
+                >
+                    <WelcomeSectionPricingPremium
+                        :data="premium"
+                        class="bg-primary-500 scale-0 text-white peer-hover:scale-90"
+                    />
+                </div>
             </div>
         </div>
     </section>

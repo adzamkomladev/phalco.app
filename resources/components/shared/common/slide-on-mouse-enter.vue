@@ -27,7 +27,7 @@ const handleMouseMove = (event: MouseEvent) => {
     <div class="relative w-screen max-w-full scroll-smooth overflow-y-visible">
         <div
             ref="scrollContainerRef"
-            class="overflow-x-scroll gap-10 py-6 overflow-y-visible px-20 scrollbar-hidden transition-all flex items-center"
+            class="overflow-x-scroll gap-5 py-6 overflow-y-visible px-20 scrollbar-hidden transition-all flex items-center"
             style="scroll-behavior: smooth"
             @mousemove="handleMouseMove"
         >
