@@ -49,6 +49,10 @@ class Upload
 
     private function getFilePath(string $url): string
     {
+        if (app()->environment('production')) {
+            return $url;
+        }
+
         $path = $this->removeDomain($url);
 
         return str_replace('/storage/', '', $path);
