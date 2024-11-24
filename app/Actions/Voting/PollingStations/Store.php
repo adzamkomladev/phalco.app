@@ -23,7 +23,7 @@ class Store
                 'max:50',
                 Rule::unique('polling_stations', 'code')
                     ->where(
-                        fn (Builder $query) => $query
+                    fn(Builder $query) => $query
                             ->where('election_id', request()->input('election_id'))
                             ->where('organization_id', request()->user()->selected_organization_id)
                     ),

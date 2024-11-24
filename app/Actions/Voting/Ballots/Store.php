@@ -40,8 +40,6 @@ class Store
 
             return redirect()->route('voting.ballots.show', ['id' => $ballot->id]);
         } catch (\Exception $e) {
-            dd($e);
-
             return back()->with('error', $e->getMessage());
         }
     }
@@ -81,7 +79,7 @@ class Store
         if (app()->environment('production')) {
             return $url;
         }
-        
+
         $path = $this->removeDomain($url);
 
         return str_replace('/storage/', '', $path);

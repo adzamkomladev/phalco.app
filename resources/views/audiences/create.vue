@@ -9,7 +9,7 @@ const form = useForm({
     fields: {
         name: "",
         description: "",
-        upload_contacts: null,
+        uploaded_contacts: null,
     },
     hooks: {
         success: () => form.reset(),

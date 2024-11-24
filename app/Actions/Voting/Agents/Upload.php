@@ -32,7 +32,7 @@ class Upload
     public function handle(int $organizationId, array $data): void
     {
         (new AgentsImport($data['election_id'], $organizationId))
-            ->queue($this->getFilePath($data['upload_file']))
+            ->queue($data['upload_file'], 'contabo')
             ->allOnQueue('imports');
     }
 

@@ -7,6 +7,7 @@ use App\Models\Election;
 use App\Models\ElectionActivity;
 use App\Models\ElectionStage;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -41,7 +42,8 @@ class Store
     {
         $stages = collect($data['stages'])->sortBy('start');
         $stage = $stages->first();
-
+        $data['logo'] = app()->isProduction() ? Storage::url($data['logo']) : asset("storage/{$data['logo']}");
+        
         $election = Election::create([
             'name' => $data['name'],
             'logo' => $data['logo'],

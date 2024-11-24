@@ -51,7 +51,7 @@ class Store
 
         if (isset($data['uploaded_contacts'])) {
             (new ContactsImport($userId, $audience->id))
-                ->queue($this->getFilePath($data['uploaded_contacts']))
+                ->queue($data['uploaded_contacts'], 'contabo')
                 ->allOnQueue('imports');
         }
 
@@ -75,7 +75,7 @@ class Store
             $contents = file_get_contents($url);
             return $contents;
         }
-        
+
         $path = $this->removeDomain($url);
 
         return str_replace('/storage/', '', $path);

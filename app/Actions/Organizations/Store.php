@@ -5,6 +5,7 @@ namespace App\Actions\Organizations;
 use App\Models\OrganizationMembership;
 use App\Models\OrganizationRole;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -37,34 +38,34 @@ class Store
     {
         $userId = $user->id;
 
+        $data['logo'] = app()->isProduction() ? Storage::url($data['logo']) : asset("storage/{$data['logo']}");
         $organization = $user->organizationsOwned()->create($data);
 
         $organizationId = $organization->id;
         [
             $ownerRole
-        ] = Octane::concurrently([
-            fn () => OrganizationRole::create([
+        ] = Octane::concurrently([fn() => OrganizationRole::create([
                 'organization_id' => $organizationId,
                 'name' => 'owner',
                 'status' => 'active',
                 'user_id' => $userId,
                 'permissions' => config('roles.owner'),
             ]),
-            fn () => OrganizationRole::create([
+            fn() => OrganizationRole::create([
                 'organization_id' => $organizationId,
                 'name' => 'admin',
                 'status' => 'active',
                 'user_id' => $userId,
                 'permissions' => config('roles.admin'),
             ]),
-            fn () => OrganizationRole::create([
+            fn() => OrganizationRole::create([
                 'organization_id' => $organizationId,
                 'name' => 'member',
                 'status' => 'active',
                 'user_id' => $userId,
                 'permissions' => config('roles.member'),
             ]),
-            fn () => OrganizationRole::create([
+            fn() => OrganizationRole::create([
                 'organization_id' => $organizationId,
                 'name' => 'agent',
                 'status' => 'active',
@@ -74,9 +75,8 @@ class Store
         ]);
 
         $roleId = $ownerRole->id;
-        Octane::concurrently([
-            fn () => User::where('id', $userId)->update(['selected_organization_id' => $organizationId]),
-            fn () => OrganizationMembership::create([
+        Octane::concurrently([fn() => User::where('id', $userId)->update(['selected_organization_id' => $organizationId]),
+            fn() => OrganizationMembership::create([
                 'user_id' => $userId,
                 'organization_id' => $organizationId,
                 'organization_role_id' => $roleId,
