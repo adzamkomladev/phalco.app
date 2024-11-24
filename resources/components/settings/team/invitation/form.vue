@@ -14,7 +14,7 @@ const form = useForm({
     },
 });
 
-const roles = props.roles.map((role: App.Data.Settings.Team.RoleData) => ({
+const rolesOptions = props.roles.map((role: App.Data.Settings.Team.RoleData) => ({
     value: role.id,
     label: role.name,
 }));
@@ -43,7 +43,7 @@ const roles = props.roles.map((role: App.Data.Settings.Team.RoleData) => ({
                     v-model="form.fields.role_id"
                     id="role_id"
                     name="role_id"
-                    :options="roles"
+                    :options="rolesOptions"
                     label="Role"
                     position="top-center"
                 />
