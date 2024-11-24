@@ -19,7 +19,7 @@ class Store
         return [
             'name' => ['required', 'max:100'],
             'description' => ['nullable', 'string', 'max:255'],
-            'logo' => ['required', 'string', 'url'],
+            'logo' => ['required', 'string'],
         ];
     }
 

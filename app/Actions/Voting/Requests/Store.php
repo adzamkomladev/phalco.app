@@ -6,6 +6,7 @@ use App\Models\VoteEntry;
 use App\Models\VoteEntryFile;
 use App\Models\VoteEntryRequest;
 use App\Models\VoteEntryRequestHistory;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -21,7 +22,7 @@ class Store
             'election_id' => ['required', 'int', 'exists:elections,id'],
             'polling_station_id' => ['required', 'int', 'exists:polling_stations,id'],
             'comment' => ['nullable', 'string'],
-            'upload_file' => ['required', 'string', 'url'],
+            'upload_file' => ['required', 'string'],
             'options' => ['required', 'array'],
             'options.*.id' => ['required', 'int', 'exists:ballot_options,id'],
             'options.*.votes' => ['required', 'int', 'min:0'],
@@ -52,6 +53,7 @@ class Store
             'election_id' => $electionId,
             'comment' => $comment
         ] = $data;
+        $uploadFile = app()->isProduction() ? Storage::url($uploadFile) : asset("storage/{$uploadFile}");
 
         $entryRequest = VoteEntryRequest::create([
             'user_id' => $userId,
@@ -62,7 +64,7 @@ class Store
         ]);
 
         $entryRequestId = $entryRequest->id;
-        $entriesData = collect($options)->map(fn (array $option) => [
+        $entriesData = collect($options)->map(fn(array $option) => [
             'vote_entry_request_id' => $entryRequestId,
             'ballot_option_id' => $option['id'],
             'votes' => $option['votes'],
@@ -70,13 +72,13 @@ class Store
             'updated_at' => now(),
         ])->toArray();
 
-        defer(fn () => Octane::concurrently([
-            fn () => VoteEntry::insert($entriesData),
-            fn () => VoteEntryFile::create([
+        defer(fn() => Octane::concurrently([
+            fn() => VoteEntry::insert($entriesData),
+            fn() => VoteEntryFile::create([
                 'vote_entry_request_id' => $entryRequestId,
                 'url' => $uploadFile,
             ]),
-            fn () => VoteEntryRequestHistory::create([
+            fn() => VoteEntryRequestHistory::create([
                 'vote_entry_request_id' => $entryRequestId,
                 'user_id' => $userId,
                 'status' => 'pending',

@@ -20,7 +20,7 @@ class Store
     {
         return [
             'name' => ['required', 'max:100'],
-            'logo' => ['required', 'url'],
+            'logo' => ['required', 'string'],
             'description' => ['nullable', 'string'],
             'start' => ['required', 'date'],
             'end' => ['required', 'date'],

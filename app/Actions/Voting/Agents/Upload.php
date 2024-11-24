@@ -14,7 +14,7 @@ class Upload
     {
         return [
             'election_id' => ['required', 'int', 'exists:elections,id'],
-            'upload_file' => ['required', 'string', 'url'],
+            'upload_file' => ['required', 'string'],
         ];
     }
 

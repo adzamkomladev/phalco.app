@@ -16,7 +16,7 @@ class Store
         return [
             'name' => ['required', 'max:100'],
             'description' => ['nullable', 'string'],
-            'uploaded_contacts' => ['nullable', 'url'],
+            'uploaded_contacts' => ['nullable', 'string'],
         ];
     }
 
