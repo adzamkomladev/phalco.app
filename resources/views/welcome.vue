@@ -63,18 +63,17 @@ import DropletImage from "~/resources/svg/welcome/drop.svg?url";
                             </button>
                         </router-link>
                     </div>
-                    
                 </div>
                 <div
                     class="py-8 items-end sm:pr-[5%] _sm:px-[8%] col-span-6 md:w-[110%] sticky md:right-0"
                 >
-                    <div class="grid grid-cols-2  place-items-center ">
+                    <div class="grid grid-cols-2 place-items-center">
                         <img
                             v-motion-pop-visible-once
                             :delay="1200"
                             :duration="900"
                             :src="MadeEasyImage3"
-                            class="self-right "
+                            class="self-right"
                         />
                         <img
                             v-motion-pop-visible-once
@@ -86,36 +85,30 @@ import DropletImage from "~/resources/svg/welcome/drop.svg?url";
                     </div>
 
                     <div class="lg:-mt-10 lg:-ml-20 flex relative">
-                       
-                       <div>
-                         <img
-                            v-motion-fade-visible
-                            :duration="360"
-                            :delay="90"
-                            :src="MadeEasyImage2"
-                            class="w-[90%]"
-                        />
-                       </div>
-                       
-                        <div class=" pt-[30%]">
+                        <div>
                             <img
-                            v-motion-fade-visible
-                            :duration="360"
-                            :delay="90"
-                            :src="DropletImage"
-                            class=""
-                        />
+                                v-motion-fade-visible
+                                :duration="360"
+                                :delay="90"
+                                :src="MadeEasyImage2"
+                                class="w-[90%]"
+                            />
                         </div>
 
+                        <div class="pt-[30%]">
+                            <img
+                                v-motion-fade-visible
+                                :duration="360"
+                                :delay="90"
+                                :src="DropletImage"
+                                class=""
+                            />
+                        </div>
                     </div>
                 </div>
                 <div class="absolute w-full left-0 bottom-0 _lg:hidden">
-                        <img
-
-                            :src="ArrowImage"
-                            class="w-[15%] h-fit "
-                        />
-                    </div>
+                    <img :src="ArrowImage" class="w-[15%] h-fit" />
+                </div>
             </section>
             <WelcomeSectionService />
             <WelcomeSectionPricing />

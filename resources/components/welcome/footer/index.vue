@@ -111,15 +111,14 @@ const social = [
         <img
             :src="FooterIllustration1"
             alt="Footer illustration"
-            class="absolute bottom-0 right-0  _sm:-right-10 h-72 _sm:h-[40vw]  md:h-40 lg:h-48 w-auto object-contain"
+            class="absolute bottom-0 right-0 _sm:-right-10 h-72 _sm:h-[40vw] md:h-40 lg:h-48 w-auto object-contain"
             aria-hidden="true"
         />
         <img
             :src="FooterIllustration2"
             alt="Footer illustration"
-            class="absolute -top-10   md:hidden right-0 h-32   -rotate-90 md:h-40 lg:h-48 w-auto object-contain"
+            class="absolute -top-10 md:hidden right-0 h-32 -rotate-90 md:h-40 lg:h-48 w-auto object-contain"
             aria-hidden="true"
         />
-
     </footer>
 </template>
