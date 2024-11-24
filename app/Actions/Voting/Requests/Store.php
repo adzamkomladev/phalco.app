@@ -64,7 +64,7 @@ class Store
         ]);
 
         $entryRequestId = $entryRequest->id;
-        $entriesData = collect($options)->map(fn(array $option) => [
+        $entriesData = collect($options)->map(fn (array $option) => [
             'vote_entry_request_id' => $entryRequestId,
             'ballot_option_id' => $option['id'],
             'votes' => $option['votes'],
@@ -72,13 +72,13 @@ class Store
             'updated_at' => now(),
         ])->toArray();
 
-        defer(fn() => Octane::concurrently([
-            fn() => VoteEntry::insert($entriesData),
-            fn() => VoteEntryFile::create([
+        defer(fn () => Octane::concurrently([
+            fn () => VoteEntry::insert($entriesData),
+            fn () => VoteEntryFile::create([
                 'vote_entry_request_id' => $entryRequestId,
                 'url' => $uploadFile,
             ]),
-            fn() => VoteEntryRequestHistory::create([
+            fn () => VoteEntryRequestHistory::create([
                 'vote_entry_request_id' => $entryRequestId,
                 'user_id' => $userId,
                 'status' => 'pending',
