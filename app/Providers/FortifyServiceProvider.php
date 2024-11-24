@@ -28,7 +28,7 @@ class FortifyServiceProvider extends ServiceProvider
             {
                 $role = $request->user()?->selectedOrganizationMembership?->role;
 
-                if ($role?->name === 'owner') {
+                if ($role?->name === 'agent') {
                     return redirect()->intended(route('home.agents'));
                 }
 
