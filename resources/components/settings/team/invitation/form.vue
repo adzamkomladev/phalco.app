@@ -14,10 +14,12 @@ const form = useForm({
     },
 });
 
-const rolesOptions = props.roles.map((role: App.Data.Settings.Team.RoleData) => ({
-    value: role.id,
-    label: role.name,
-}));
+const rolesOptions = props.roles.map(
+    (role: App.Data.Settings.Team.RoleData) => ({
+        value: role.id,
+        label: role.name,
+    }),
+);
 </script>
 <template>
     <form @submit.prevent="form.submit">
