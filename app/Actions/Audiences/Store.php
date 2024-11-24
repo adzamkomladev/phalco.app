@@ -72,7 +72,8 @@ class Store
     private function getFilePath(string $url): string
     {
         if (app()->environment('production')) {
-            return $url;
+            $contents = file_get_contents($url);
+            return $contents;
         }
         
         $path = $this->removeDomain($url);
