@@ -26,6 +26,12 @@ class FortifyServiceProvider extends ServiceProvider
         {
             public function toResponse($request)
             {
+                $role = $request->user()?->selectedOrganizationMembership?->role;
+
+                if ($role?->name === 'owner') {
+                    return redirect()->intended(route('home.agents'));
+                }
+
                 return redirect()->intended(route('home'));
             }
         });
@@ -50,7 +56,7 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         RateLimiter::for('login', function (Request $request) {
-            $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
+            $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())) . '|' . $request->ip());
 
             return Limit::perMinute(5)->by($throttleKey);
         });
@@ -59,10 +65,10 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
 
-        Fortify::loginView(fn () => hybridly('auth.login'));
-        Fortify::registerView(fn () => hybridly('auth.register'));
-        Fortify::verifyEmailView(fn () => hybridly('auth.verify-email'));
-        Fortify::requestPasswordResetLinkView(fn () => hybridly('auth.forgot-password'));
-        Fortify::resetPasswordView(fn (Request $request) => hybridly('auth.reset-password', ['request' => $request]));
+        Fortify::loginView(fn() => hybridly('auth.login'));
+        Fortify::registerView(fn() => hybridly('auth.register'));
+        Fortify::verifyEmailView(fn() => hybridly('auth.verify-email'));
+        Fortify::requestPasswordResetLinkView(fn() => hybridly('auth.forgot-password'));
+        Fortify::resetPasswordView(fn(Request $request) => hybridly('auth.reset-password', ['request' => $request]));
     }
 }
