@@ -73,6 +73,7 @@ class Store
     {
         if (app()->environment('production')) {
             $contents = file_get_contents($url);
+
             return $contents;
         }
 

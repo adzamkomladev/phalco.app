@@ -43,7 +43,7 @@ class Store
         $stages = collect($data['stages'])->sortBy('start');
         $stage = $stages->first();
         $data['logo'] = app()->isProduction() ? Storage::url($data['logo']) : asset("storage/{$data['logo']}");
-        
+
         $election = Election::create([
             'name' => $data['name'],
             'logo' => $data['logo'],

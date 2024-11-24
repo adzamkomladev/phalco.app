@@ -48,7 +48,7 @@ class Upload
     }
 
     private function getFilePath(string $url): string
-    {   
+    {
         if (app()->environment('production')) {
             return $url;
         }
