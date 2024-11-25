@@ -21,10 +21,10 @@ class Agents
         [
             'submitted' => $submitted,
             'pending' => $pending,
-        ] =  Index::run(56, 5, 2);
+        ] = Index::run(56, 5, 2);
 
         $submitted = collect($submitted)
-            ->map(fn(VoteEntryRequest $request) => [
+            ->map(fn (VoteEntryRequest $request) => [
                 'id' => $request->id,
                 'position' => $request->ballot->position,
                 'description' => $request->ballot->description,
@@ -33,15 +33,16 @@ class Agents
             ]);
 
         $pending = collect($pending)
-            ->map(fn(Ballot $ballot) => [
+            ->map(fn (Ballot $ballot) => [
                 'id' => $ballot->id,
                 'position' => $ballot->position,
                 'description' => $ballot->description,
                 'status' => 'not_started',
-                'created_at' => null
+                'created_at' => null,
             ]);
 
         $requests = $submitted->merge($pending);
+
         return [
             'requests' => $requests,
             'agents' => [],

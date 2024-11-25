@@ -38,6 +38,9 @@ export default {
                 _xs: {
                     raw: `only screen and (max-width: 500px)`,
                 },
+                mobile: {
+                    raw: `only screen and (max-width: 380px)`,
+                },
                 _sm: {
                     raw: `only screen and (max-width: 639px)`,
                 },
