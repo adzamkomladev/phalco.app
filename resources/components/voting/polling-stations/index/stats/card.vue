@@ -5,7 +5,7 @@ const props = withDefaults(defineProps<StatsCardProps>(), {
     icon: "campaign_menu",
     value: "120",
     description: "",
-    class: ""
+    class: "",
 });
 </script>
 

@@ -21,19 +21,19 @@ final class PollingStationsTable extends Table
         return [
             Columns\TextColumn::make('id')->label('#')->visible(false),
             Columns\TextColumn::make('name')->label('Name')
-                ->extra((fn(PollingStation $pollingStation) => ['id' => $pollingStation->id])),
+                ->extra((fn (PollingStation $pollingStation) => ['id' => $pollingStation->id])),
             Columns\TextColumn::make('code')->label('Code'),
             Columns\TextColumn::make('status')->label('Status')
-                ->transformValueUsing(fn(PollingStation $pollingStation) => 'active'),
+                ->transformValueUsing(fn (PollingStation $pollingStation) => 'active'),
             Columns\TextColumn::make('agent')->label('Agent')
-                ->transformValueUsing(fn(PollingStation $pollingStation) => $pollingStation->agent?->name)
-                ->extra((fn(PollingStation $pollingStation) => [
+                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->agent?->name)
+                ->extra((fn (PollingStation $pollingStation) => [
                     'id' => $pollingStation->agent?->id,
                     'email' => $pollingStation->agent?->email,
                     'avatar' => $pollingStation->agent?->avatar,
                 ])),
             Columns\TextColumn::make('votes')->label('Votes')
-                ->transformValueUsing(fn(PollingStation $pollingStation) => 0),
+                ->transformValueUsing(fn (PollingStation $pollingStation) => 0),
         ];
     }
 

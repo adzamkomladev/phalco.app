@@ -32,20 +32,20 @@ class Index
             $voteRequests,
             $popularPollingStations
         ] = Octane::concurrently([
-            fn() => PollingStation::where('election_id', $electionId)->count(),
-            fn() => Voter::where('election_id', $electionId)->count(),
-            fn() => PollingStation::where('election_id', $electionId)->whereNotNull('user_id')->count(),
-            fn() => VoteEntryRequest::where('election_id', $electionId)->count(),
-            fn() => PollingStation::withCount('votes')
+            fn () => PollingStation::where('election_id', $electionId)->count(),
+            fn () => Voter::where('election_id', $electionId)->count(),
+            fn () => PollingStation::where('election_id', $electionId)->whereNotNull('user_id')->count(),
+            fn () => VoteEntryRequest::where('election_id', $electionId)->count(),
+            fn () => PollingStation::withCount('votes')
                 ->where('election_id', $electionId)
                 ->orderBy('votes_count', 'desc')
                 ->limit(4)
                 ->get()
-                ->map(fn(PollingStation $pollingStation) => [
+                ->map(fn (PollingStation $pollingStation) => [
                     'id' => $pollingStation->id,
                     'name' => $pollingStation->name,
-                    'votes' => $pollingStation->votes_count
-                ])
+                    'votes' => $pollingStation->votes_count,
+                ]),
         ]);
 
         return [
@@ -67,8 +67,8 @@ class Index
                 [
                     'description' => 'Vote Requests',
                     'value' => $voteRequests,
-                ]
-            ]
+                ],
+            ],
         ];
     }
 }
