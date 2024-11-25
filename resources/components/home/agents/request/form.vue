@@ -15,7 +15,7 @@ const toggleUploadForm = () => {
             <!-- End Col -->
 
             <div class="sm:col-span-9 shadow-card">
-                
+                <div></div>
                 <SharedFormBaseInput
                     id="position"
                     name="position"
