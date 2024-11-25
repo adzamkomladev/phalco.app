@@ -2,6 +2,7 @@
 
 namespace App\Actions\Organizations;
 
+use App\Models\OrganizationRole;
 use App\Models\User;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -11,13 +12,19 @@ class Select
 
     public function asController()
     {
-        $this->handle(request()->user(), request()->input('organization_id'));
+        $role = $this->handle(request()->user(), request()->input('organization_id'));
+
+        if ($role?->name === 'agent') {
+            return redirect()->intended(route('home.agents'));
+        }
 
         return redirect()->route('home');
     }
 
-    public function handle(User $user, int $organizationId): void
+    public function handle(User $user, int $organizationId): ?OrganizationRole
     {
         $user->selectOrganization($organizationId);
+
+        return $user?->selectedOrganizationMembership?->role;
     }
 }

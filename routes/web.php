@@ -60,6 +60,9 @@ Route::prefix('password')
 
 //region Home Routes
 
+Route::get('home/agents', \App\Actions\Home\Agents::class)->name('home.agents')
+    ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
+
 Route::get('home', \App\Actions\Home\Index::class)->name('home')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
 

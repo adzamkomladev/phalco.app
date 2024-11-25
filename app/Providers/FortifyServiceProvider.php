@@ -26,6 +26,12 @@ class FortifyServiceProvider extends ServiceProvider
         {
             public function toResponse($request)
             {
+                $role = $request->user()?->selectedOrganizationMembership?->role;
+
+                if ($role?->name === 'agent') {
+                    return redirect()->intended(route('home.agents'));
+                }
+
                 return redirect()->intended(route('home'));
             }
         });

@@ -57,7 +57,7 @@ export interface SearchInputProps extends FormProp {
 export interface SubmitButtonProps {
     loading?: boolean;
     text?: string;
-    type?:SubmitButtonPropsType;
+    type?: SubmitButtonPropsType;
 }
 
 export interface BaseTextareaProps extends FormProp {
@@ -74,10 +74,10 @@ export interface BaseOtpProps extends FormProp {
     length?: number;
 }
 
-export interface BaseAdvanceSelectProps extends FormProp{
-    modelValue?: string | number;
-    options: Array<string | number | {label:string,value:string}>;
-    position?:positionType
+export interface BaseAdvanceSelectProps extends FormProp {
+    modelValue: string | number;
+    options: Array<string | number | { label: string, value: string | number }>;
+    position?: positionType
     selectedClass?: string;
     selectClass?: string;
     optionClass?: string;

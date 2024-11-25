@@ -9,7 +9,13 @@ const selectOption = (option: string | number) => {
     selected.value = option;
 };
 
-const defaulSelectClass =
+const selectedLabel = computed(
+    () =>
+        selected.value ??
+        (props.placeholder ? props.placeholder : "select option"),
+);
+
+const defaultSelectClass =
     "py-2 px-3 justify-between gap-2 capitalize text-gray-500 min-w-fit flex items-center cursor-pointer bg-white  border rounded-lg text-start text-sm dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400";
 
 const defaultOptionClass =
@@ -27,10 +33,8 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
         :hideContentOnSelect="hideOnSelect"
     >
         <template v-slot:toggle>
-            <button class="w-full" :class="[defaulSelectClass, selectClass]">
-                <span class="text-base truncate"
-                    >{{ selected || placeholder }}
-                </span>
+            <button class="w-full" :class="[defaultSelectClass, selectClass]">
+                <span class="text-base">{{ selectedLabel }}</span>
                 <div :class="[' flex items-center flex-col ']">
                     <SharedCommonIcon
                         name="chevron_double"
@@ -50,12 +54,12 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
             <button
                 v-for="(option, index) in options"
                 :key="index"
-                @click="selectOption(option.label || option)"
+                @click="selectOption(option.value || option)"
                 type="button"
                 :aria-label="`Option ${option}`"
                 :class="[
                     selected ===
-                    (typeof option === 'object' ? option.label : option)
+                    (typeof option === 'object' ? option.value : option)
                         ? defaultSelectedClass + selectedClass
                         : 'hover:bg-gray-50 dark:hover:bg-gray-800',
                     defaultOptionClass,
@@ -65,7 +69,7 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
                 <SharedCommonIcon
                     v-if="hasIcon"
                     class="h-5"
-                    :name="option.value || option"
+                    :name="option.label || option"
                 /><span>{{ option.label || option }}</span>
             </button>
         </div>

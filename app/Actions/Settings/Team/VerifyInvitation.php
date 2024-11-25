@@ -22,12 +22,16 @@ class VerifyInvitation
             ]);
         }
 
-        return hybridly('settings.team.verify-invitation', ['success' => 'Invitation accepted']);
+        return hybridly('settings.team.verify-invitation', [
+            'success' => 'Invitation accepted',
+            'role' => $res->role?->name,
+        ]);
     }
 
     public function handle(int $userId, string $email, string $token): ?OrganizationInvitation
     {
         $invitation = OrganizationInvitation::pending()
+            ->with('role')
             ->where('token', $token)
             ->where('email', $email)
             ->first();
@@ -41,8 +45,7 @@ class VerifyInvitation
         $invitationRoleId = $invitation->organization_role_id;
         $invitationRoleName = $invitation->role?->name;
 
-        [$invitation] = Octane::concurrently([
-            fn () => OrganizationInvitation::find($invitationId)->accept(),
+        [$invitation] = Octane::concurrently([fn () => OrganizationInvitation::find($invitationId)->accept(),
             fn () => OrganizationMembership::create([
                 'user_id' => $userId,
                 'organization_id' => $organizationId,
