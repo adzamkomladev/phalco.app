@@ -23,13 +23,21 @@ const switchComponent = (component: string) => {
         <main class="flex flex-col">
             <div>
                 <!-- Top Navigation Buttons -->
-                <div class="sticky pb-4 pt-4 top-0 bg-white z-10 w-full place-content-center">
-                    <div class="flex gap-10  w-fit text-lg relative place-self-center">
+                <div
+                    class="sticky pb-4 pt-4 top-0 bg-white z-10 w-full place-content-center"
+                >
+                    <div
+                        class="flex gap-10 w-fit text-lg relative place-self-center"
+                    >
                         <!-- Dashboard Button -->
                         <button
                             @click="switchComponent('dashboard')"
                             class="py-2 rounded focus:outline-none"
-                            :class="activeComponent === 'dashboard' ? 'font-bold text-primary-600' : ''"
+                            :class="
+                                activeComponent === 'dashboard'
+                                    ? 'font-bold text-primary-600'
+                                    : ''
+                            "
                         >
                             Dashboard
                         </button>
@@ -38,7 +46,11 @@ const switchComponent = (component: string) => {
                         <button
                             @click="switchComponent('messages')"
                             class="py-2 rounded focus:outline-none"
-                            :class="activeComponent === 'messages' ? 'font-semibold text-primary-500' : ''"
+                            :class="
+                                activeComponent === 'messages'
+                                    ? 'font-semibold text-primary-500'
+                                    : ''
+                            "
                         >
                             Messages
                         </button>
@@ -46,17 +58,23 @@ const switchComponent = (component: string) => {
                         <!-- Transition Bar -->
                         <div
                             class="bg-primary-500 h-[3px] transition-all duration-500 absolute w-[calc(45%)] bottom-0 rounded-full"
-                            :style="{ right: activeComponent === 'dashboard' ? '55%' : '0' }"
+                            :style="{
+                                right:
+                                    activeComponent === 'dashboard'
+                                        ? '55%'
+                                        : '0',
+                            }"
                         />
                     </div>
                 </div>
 
                 <!-- Dynamically Render the Active Component -->
                 <transition name="fade" mode="out-in">
-                   <HomeAgents v-if="activeComponent==='dashboard'" />
-                   <HomeAgentsMessage v-else-if="activeComponent==='messages'" />
+                    <HomeAgents v-if="activeComponent === 'dashboard'" />
+                    <HomeAgentsMessage
+                        v-else-if="activeComponent === 'messages'"
+                    />
                 </transition>
-              
             </div>
         </main>
     </body>
