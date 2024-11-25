@@ -15,6 +15,16 @@ Route::get('/phone-verif', function () {
     return hybridly('auth.phone-verification');
 })->name('phone-verif');
 
+Route::get('/agent/dashboard', function () {
+
+    return hybridly('agent.message');
+})->name('/agent/message');
+
+Route::get('/agent/message', function () {
+
+    return hybridly('agent.index');
+})->name('/agent/dashboard');
+
 Route::get('/top-up', function () {
     return hybridly('finance.transactions.show');
 })->name('election-selected');

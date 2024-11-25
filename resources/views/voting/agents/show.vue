@@ -22,8 +22,10 @@ const props = defineProps<{
         </div>
 
         <div class="grid grid-cols-7 _md:flex flex-col gap-4 sm:gap-6">
-            <div class="col-pan-4"></div>
-            <div class="col-span-3"></div>
+            <div class="col-span-4"></div>
+            <div class="col-span-3">
+                <VotingAgentsAssignCard :assigned-agent="agent" />
+            </div>
         </div>
 
         <div class="col-span-full _md">
