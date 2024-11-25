@@ -8,7 +8,7 @@ export interface ElectionsStatsCardProps {
 
 export interface ElectionsStatsCardSmallProps {
     description: string;
-    value: string;
+    value: string |number;
     icon: string;
 }
 export interface ElectionsStatsCardCompleteProps {

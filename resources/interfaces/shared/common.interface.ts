@@ -5,11 +5,13 @@ export interface ProgressBarProps {
     height?: string;
     loadedClass?: string;
     unloadedClass?: string;
-    title?:string;
+    title?: string;
+    color?: string;
+    index?: number;
 }
 
-export interface Sheet{
-        title?: string;
+export interface Sheet {
+    title?: string;
     description?: string;
     pageImage?: string;
 }
@@ -21,4 +23,11 @@ export interface DropDown {
     dialogClass?: string;
 }
 
-export type positionType= "top-right" | "top-left" | "top-center"| "bottom-right"| "bottom-left"| "bottom-center";
+export interface StatsCardProps {
+    description?: string;
+    value?: string | number;
+    icon?: string;
+    class?: string;
+}
+
+export type positionType = "top-right" | "top-left" | "top-center" | "bottom-right" | "bottom-left" | "bottom-center";

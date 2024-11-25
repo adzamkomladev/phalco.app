@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ProgressBarProps } from "~/resources/interfaces/common/index.interface";
+import { ProgressBarProps } from "~/resources/interfaces/shared/common.interface";
 
 const props = withDefaults(defineProps<ProgressBarProps>(), {
     width: "100%",

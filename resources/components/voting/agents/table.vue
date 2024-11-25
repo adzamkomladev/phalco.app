@@ -42,51 +42,9 @@ watch(search, debounceFn);
                         <h2
                             class="text-xl font-semibold text-gray-800 dark:text-gray-200"
                         >
-                            Agents
+                            Agents List
                         </h2>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">
-                            Manage all Agents of an election
-                        </p>
                     </div>
-
-                    <div>
-                        <div class="inline-flex gap-x-2">
-                            <router-link
-                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                :href="route('voting.agents.create')"
-                            >
-                                Import
-                            </router-link>
-
-                            <router-link
-                                :href="route('voting.agents.create')"
-                                class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                            >
-                                <svg
-                                    class="flex-shrink-0 size-3"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                    fill="none"
-                                >
-                                    <path
-                                        d="M2.63452 7.50001L13.6345 7.5M8.13452 13V2"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                    />
-                                </svg>
-                                Add New
-                            </router-link>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
-                >
-                    <!-- Input -->
                     <SharedFormSearchInput
                         class="sm:col-span-1"
                         v-model="search"
@@ -116,24 +74,12 @@ watch(search, debounceFn);
                             </label>
                         </th>
 
-                        <th
+                        <SharedTableTh
                             v-for="(col, index) in table.columns"
+                            :column="col"
                             :key="index"
-                            scope="col"
-                            :class="{
-                                'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start':
-                                    index === 0,
-                                'px-6 py-3 text-start': index !== 0,
-                            }"
-                        >
-                            <div class="flex items-center gap-x-2">
-                                <span
-                                    class="text-xs font-semibold tracking-wide text-gray-800 uppercase dark:text-gray-200"
-                                >
-                                    {{ col.label }}
-                                </span>
-                            </div>
-                        </th>
+                            :index="index"
+                        />
                         <th scope="col" class="px-6 py-3 text-end"></th>
                     </tr>
                 </thead>

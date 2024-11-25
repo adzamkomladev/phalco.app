@@ -37,8 +37,8 @@ const rolesOptions = props.roles.map(
                 />
 
                 <SharedFormBaseAdvanceSelect
-                    selectClass="w-full py-4"
-                    optionsClass="w-60 "
+                    selectClass="w-full py-3"
+                    optionsClass=" "
                     optionClass="py-1 text-sm capitalize"
                     placeholder="select role"
                     :hideOnSelect="true"
