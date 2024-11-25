@@ -2,11 +2,11 @@
 import { BaseAdvanceSelectProps } from "~/resources/interfaces/shared/form.interface";
 
 function isSubset<T>(arr1: T[], arr2: T[]): boolean {
-  return arr1.every(value => arr2.includes(value));
+    return arr1.every((value) => arr2.includes(value));
 }
 
-const props = withDefaults(defineProps<BaseAdvanceSelectProps>(),{
-    hideOnSelect:true,
+const props = withDefaults(defineProps<BaseAdvanceSelectProps>(), {
+    hideOnSelect: true,
 });
 
 const selectedValue = defineModel();
@@ -15,7 +15,6 @@ const selectedOption = ref(selectedValue);
 const selectOption = (option: any) => {
     selectedValue.value = option?.value || option;
     selectedOption.value = option;
-
 };
 
 const defaulSelectClass =
@@ -38,7 +37,9 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
         <template v-slot:toggle>
             <button class="w-full" :class="[defaulSelectClass, selectClass]">
                 <span class="text-base truncate"
-                    >{{ selectedOption?.label ||selectedOption || placeholder }}
+                    >{{
+                        selectedOption?.label || selectedOption || placeholder
+                    }}
                 </span>
                 <div :class="[' flex items-center flex-col ']">
                     <SharedCommonIcon
@@ -63,11 +64,13 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
                 type="button"
                 :aria-label="`Option ${option}`"
                 :class="[
-          (typeof option === 'object'
-            ? selectedValue === option.value
-            : selectedValue === option)
-            ? defaultSelectedClass + ' ' + selectedClass
-            : 'hover:bg-gray-50 dark:hover:bg-gray-800',
+                    (
+                        typeof option === 'object'
+                            ? selectedValue === option.value
+                            : selectedValue === option
+                    )
+                        ? defaultSelectedClass + ' ' + selectedClass
+                        : 'hover:bg-gray-50 dark:hover:bg-gray-800',
                     defaultOptionClass,
                     optionClass,
                 ]"

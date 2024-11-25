@@ -26,12 +26,10 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
         <h4 class="h4 mb-5 font-bold">Upload Polling Stations</h4>
 
         <div class="grid gap-5">
-            <div class="">
-           
-            </div>
-                 <SharedFormBaseAdvanceSelect
+            <div class=""></div>
+            <SharedFormBaseAdvanceSelect
                 v-model="form.fields.election_id"
-                    :error="form.errors.election_id"
+                :error="form.errors.election_id"
                 id="election_id"
                 name="election_id"
                 :options="electionOptions"

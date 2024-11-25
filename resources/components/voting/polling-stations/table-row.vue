@@ -18,7 +18,7 @@ const { key, value, extra } = props.row;
             <h2
                 class="text-base font-semibold text-gray-800 dark:text-gray-200"
             >
-                 {{ value(findColumn("name")) }}
+                {{ value(findColumn("name")) }}
             </h2>
             <span
                 class="bg-secondary-500 block size-6 rounded-full place-self-end"
