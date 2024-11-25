@@ -15,6 +15,7 @@ Route::get('/phone-verif', function () {
     return hybridly('auth.phone-verification');
 })->name('phone-verif');
 
+
 Route::get('/top-up', function () {
     return hybridly('finance.transactions.show');
 })->name('election-selected');
