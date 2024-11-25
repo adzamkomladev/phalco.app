@@ -14,7 +14,8 @@ const toggleUploadForm = () => {
         <div class="grid gap-5">
             <!-- End Col -->
 
-            <div class="sm:col-span-9 ">
+            <div class="sm:col-span-9 shadow-card">
+                
                 <SharedFormBaseInput
                     id="position"
                     name="position"
