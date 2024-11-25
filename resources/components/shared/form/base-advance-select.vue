@@ -1,12 +1,21 @@
 <script setup lang="ts">
 import { BaseAdvanceSelectProps } from "~/resources/interfaces/shared/form.interface";
 
-const props = defineProps<BaseAdvanceSelectProps>();
+function isSubset<T>(arr1: T[], arr2: T[]): boolean {
+  return arr1.every(value => arr2.includes(value));
+}
 
-const selected = defineModel();
+const props = withDefaults(defineProps<BaseAdvanceSelectProps>(),{
+    hideOnSelect:true,
+});
 
-const selectOption = (option: string | number) => {
-    selected.value = option;
+const selectedValue = defineModel();
+const selectedOption = ref(selectedValue);
+
+const selectOption = (option: any) => {
+    selectedValue.value = option?.value || option;
+    selectedOption.value = option;
+
 };
 
 const defaulSelectClass =
@@ -29,7 +38,7 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
         <template v-slot:toggle>
             <button class="w-full" :class="[defaulSelectClass, selectClass]">
                 <span class="text-base truncate"
-                    >{{ selected || placeholder }}
+                    >{{ selectedOption?.label ||selectedOption || placeholder }}
                 </span>
                 <div :class="[' flex items-center flex-col ']">
                     <SharedCommonIcon
@@ -50,14 +59,15 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
             <button
                 v-for="(option, index) in options"
                 :key="index"
-                @click="selectOption(option.label || option)"
+                @click="selectOption(option)"
                 type="button"
                 :aria-label="`Option ${option}`"
                 :class="[
-                    selected ===
-                    (typeof option === 'object' ? option.label : option)
-                        ? defaultSelectedClass + selectedClass
-                        : 'hover:bg-gray-50 dark:hover:bg-gray-800',
+          (typeof option === 'object'
+            ? selectedValue === option.value
+            : selectedValue === option)
+            ? defaultSelectedClass + ' ' + selectedClass
+            : 'hover:bg-gray-50 dark:hover:bg-gray-800',
                     defaultOptionClass,
                     optionClass,
                 ]"

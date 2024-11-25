@@ -31,6 +31,7 @@ const debounceFn = useDebounceFn(
 watch(search, debounceFn);
 </script>
 <template>
+    {{}}
     <div>
         <div
             class="overflow-hidden bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700"
@@ -51,18 +52,26 @@ watch(search, debounceFn);
                         </p>
                     </div>
 
+                    
+                </div>
+
+                <div
+                    class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
+                >
+                    <!-- Input -->
+                    <SharedFormSearchInput
+                        class="sm:col-span-1"
+                        v-model="search"
+                        placeholder="Search polling stations"
+                        name="search"
+                    />
+
                     <div>
                         <div class="inline-flex gap-x-2">
-                            <router-link
-                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                :href="route('voting.polling-stations.create')"
-                            >
-                                Import
-                            </router-link>
-
+                           
                             <router-link
                                 :href="route('voting.polling-stations.create')"
-                                class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-primary-400 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             >
                                 <svg
                                     class="flex-shrink-0 size-3"
@@ -84,18 +93,6 @@ watch(search, debounceFn);
                         </div>
                     </div>
                 </div>
-
-                <div
-                    class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
-                >
-                    <!-- Input -->
-                    <SharedFormSearchInput
-                        class="sm:col-span-1"
-                        v-model="search"
-                        placeholder="Search polling stations"
-                        name="search"
-                    />
-                </div>
             </div>
 
             <!-- End Header -->
@@ -111,7 +108,7 @@ watch(search, debounceFn);
                             >
                                 <input
                                     type="checkbox"
-                                    class="text-blue-600 border-gray-300 rounded shrink-0 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                    class="text-primary-600 border-gray-300 rounded shrink-0 focus:ring-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-primary-500 dark:checked:border-primary-500 dark:focus:ring-offset-gray-800"
                                     id="hs-at-with-checkboxes-main"
                                 />
                                 <span class="sr-only">Checkbox</span>
@@ -153,7 +150,7 @@ watch(search, debounceFn);
                                 >
                                     <input
                                         type="checkbox"
-                                        class="text-blue-600 border-gray-300 rounded shrink-0 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                        class="text-primary-600 border-gray-300 rounded shrink-0 focus:ring-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-primary-500 dark:checked:border-primary-500 dark:focus:ring-offset-gray-800"
                                         id="hs-at-with-checkboxes-1"
                                     />
                                     <span class="sr-only">Checkbox</span>
@@ -240,7 +237,7 @@ watch(search, debounceFn);
                             <div class="px-6 py-1.5">
                                 <!-- <a
                                     data-hs-overlay="#hs-overlay-create-user"
-                                    class="inline-flex items-center text-sm font-medium text-blue-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                    class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                                 >
                                     Edit
                                 </a> -->
@@ -253,14 +250,20 @@ watch(search, debounceFn);
                                             ),
                                         })
                                     "
-                                    class="inline-flex items-center text-sm font-medium text-blue-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                    class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                                     >Details</router-link
                                 >
                             </div>
                         </td>
                     </tr>
 
-                    <VotingPollingStationsTableStation />
+                    <VotingPollingStationsTableRow
+                     v-for="row in table.records"
+                                    :key="row.key"
+                                    :row="row"
+                                    :columns="table.columns"
+                                    :findColumn="findColumn"
+                                />
                 </div>
             </div>
             <!-- End Table -->

@@ -27,15 +27,20 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
 
         <div class="grid gap-5">
             <div class="">
-                <SharedFormBaseSelect
-                    v-model="form.fields.election_id"
-                    :error="form.errors.election_id"
-                    id="election_id"
-                    name="election_id"
-                    :options="electionOptions"
-                    placeholder="Select Election..."
-                />
+           
             </div>
+                 <SharedFormBaseAdvanceSelect
+                v-model="form.fields.election_id"
+                    :error="form.errors.election_id"
+                id="election_id"
+                name="election_id"
+                :options="electionOptions"
+                placeholder="Select Election..."
+                position="bottom-center"
+                options-class=""
+                option-class="py-1"
+                select-class="w-full py-3"
+            />
 
             <SharedFormBaseFileUpload v-model="form.fields.upload_file" />
         </div>

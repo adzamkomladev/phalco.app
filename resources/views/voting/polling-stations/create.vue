@@ -28,7 +28,7 @@ const toggleUploadForm = () => (isUpload.value = !isUpload.value);
                     Select or create a new account for withdwaral purposes
                 </p>
             </div>
-            <div class="h-60 p-5 shrink-0">
+            <div class="h-52 p-5 shrink-0">
                 <img
                     :src="PolloingStationImage"
                     class="_sm:hidden h-full w-auto"

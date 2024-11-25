@@ -52,7 +52,7 @@ const goToPage = (routeName: string) => {
                     >
                         Messages
                     </button>
-                    <router-link :href="route('agent/message')">
+                    <router-link :href="route('agent.message')">
                         ssssss
                     </router-link>
                     <!-- Active Tab Indicator -->

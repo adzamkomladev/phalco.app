@@ -8,7 +8,7 @@ const form = useForm({
     url: route("voting.polling-stations.store"),
     fields: {
         name: "",
-        code: "",
+        code: null,
         election_id: null,
     },
     hooks: {

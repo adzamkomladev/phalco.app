@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { StatsCardProps } from "~/resources/interfaces/shared/common.interface";
 
-const props = withDefaults(defineProps<StatsCardProps>(), {
-    icon: "campaign_menu",
-    value: "120",
-    description: "",
-});
+const props = defineProps<{
+    row: { key: any; value: any; extra: any };
+    columns: any[];
+    findColumn: (name: string) => any;
+}>();
+
+const { key, value, extra } = props.row;
 </script>
 
 <template>
@@ -16,7 +18,7 @@ const props = withDefaults(defineProps<StatsCardProps>(), {
             <h2
                 class="text-base font-semibold text-gray-800 dark:text-gray-200"
             >
-                Tesano Gutters
+                 {{ value(findColumn("name")) }}
             </h2>
             <span
                 class="bg-secondary-500 block size-6 rounded-full place-self-end"
@@ -37,7 +39,7 @@ const props = withDefaults(defineProps<StatsCardProps>(), {
                     <p class="text-sm text-gray-400 dark:text-gray-400">Code</p>
 
                     <h2
-                        class="text-4xl font-semibold text-gray-800 dark:text-gray-200"
+                        class="text-2xl font-black text-gray-800 dark:text-gray-200"
                     >
                         567678
                     </h2>
