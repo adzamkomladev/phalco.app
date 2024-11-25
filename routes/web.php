@@ -20,7 +20,7 @@ Route::get('/agent/dashboard', function () {
     return hybridly('agent.message');
 })->name('/agent/message');
 
-Route::get('/agent/message', function () {
+Route::get('/agent/dashboard', function () {
 
     return hybridly('agent.index');
 })->name('/agent/dashboard');
