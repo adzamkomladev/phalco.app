@@ -5,7 +5,9 @@ const { user } = useSecurity();
 </script>
 
 <template>
-    <div class="hs-dropdown [--placement:bottom-right] relative inline-flex z-50">
+    <div
+        class="hs-dropdown [--placement:bottom-right] relative inline-flex z-50"
+    >
         <button
             id="hs-dropdown-account"
             type="button"

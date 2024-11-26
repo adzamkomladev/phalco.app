@@ -1,7 +1,6 @@
 <script setup lang="ts">
-
 function goBack() {
-  window.history.back();
+    window.history.back();
 }
 const chatData = [
     { id: 1, user: "me", message: "Hey! How are you?", timestamp: "10:15 AM" },
@@ -15,13 +14,12 @@ const chatData = [
 </script>
 
 <template layout="agents">
-
     <div class="relative">
         <!-- Header -->
         <div class="flex z-[2] bg-white items-center px-5 gap-2 border-b">
             <button
-            class="hover:bg-black/10  p-2 aspect-square rounded-full transition-all"
-            @click="goBack"
+                class="hover:bg-black/10 p-2 aspect-square rounded-full transition-all"
+                @click="goBack"
             >
                 <SharedCommonIcon name="arrow_up" class="rotate-90" />
             </button>
