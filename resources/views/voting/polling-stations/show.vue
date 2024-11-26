@@ -5,6 +5,12 @@ useHead({
 
 const props = defineProps<{
     pollingStation: any;
+    voters: Table<{
+        id: number;
+    }>;
+    requests: Table<{
+        id: number;
+    }>;
 }>();
 
 const [voteEntryRequest] = props.pollingStation.vote_entry_requests;
