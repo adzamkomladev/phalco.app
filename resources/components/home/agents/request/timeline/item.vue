@@ -35,7 +35,7 @@ import { formatDate } from "~/resources/utils/shared/date";
                 :duration="200"
                 :delay="100 * index"
             >
-                <p class="text-sm font-semibold">{{ "Komla" }}</p>
+                <p class="text-sm font-semibold">{{ "Accepted" }}</p>
                 <span
                     :class="'text-black/50 text-xs dark:text-gray-100 font-medium'"
                     >{{ formatDate(new Date(), "dd/mm/yy") }}</span

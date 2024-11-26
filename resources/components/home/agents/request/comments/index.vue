@@ -1,10 +1,13 @@
 <script lang="js" setup></script>
 
-<template>
-    <div>
-        <HomeAgentsRequestCommentsSpeachBuble />
-        fff
+const comments = 
 
-        <SharedCommonIcon name="chevron" />
+
+<template>
+    <div class="grid gap-2 py-5">
+        <HomeAgentsRequestCommentsSpeachBuble />
+        <HomeAgentsRequestCommentsSpeachBuble />
+        <HomeAgentsRequestCommentsSpeachBuble />
+     
     </div>
 </template>

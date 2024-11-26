@@ -1,4 +1,8 @@
 <script setup lang="ts">
+
+function goBack() {
+  window.history.back();
+}
 const chatData = [
     { id: 1, user: "me", message: "Hey! How are you?", timestamp: "10:15 AM" },
     {
@@ -11,12 +15,16 @@ const chatData = [
 </script>
 
 <template layout="agents">
+
     <div class="relative">
         <!-- Header -->
         <div class="flex z-[2] bg-white items-center px-5 gap-2 border-b">
-            <div>
+            <button
+            class="hover:bg-black/10  p-2 aspect-square rounded-full transition-all"
+            @click="goBack"
+            >
                 <SharedCommonIcon name="arrow_up" class="rotate-90" />
-            </div>
+            </button>
             <div class="py-3">
                 <div class="flex items-center gap-x-3">
                     <img
@@ -59,7 +67,7 @@ const chatData = [
                     />
                     <div
                         :class="[
-                            'relative flex text-sm max-w-[75%] px-4 py-2 rounded-3xl shadow-sm flex-col',
+                            'relative flex text-sm max-w-[75%] px-4 pt-2 rounded-3xl shadow-sm flex-col',
                             chat.user === 'me'
                                 ? 'bg-[#07689F] text-white ml-auto rounded-br-none'
                                 : 'bg-[#38373710] rounded-bl-none border border-gray-200 rounded-2xl dark:bg-neutral-900 dark:border-neutral-70 text-sm text-gray-800 dark:text-white',
@@ -68,7 +76,7 @@ const chatData = [
                         <p class="text-sm">{{ chat.message }}</p>
                         <span
                             :class="[
-                                'text-[10px]',
+                                'text-[10px] ',
                                 chat.user === 'me'
                                     ? 'text-gray-300 text-right'
                                     : 'text-gray-500',

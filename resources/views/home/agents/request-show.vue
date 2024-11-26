@@ -3,10 +3,7 @@ useHead({
     title: "Agents",
 });
 
-import {
-    TabPageProps,
-    TabProps,
-} from "~/resources/interfaces/common/index.interface";
+
 import { formatDate, secondsUntil } from "~/resources/utils/shared/date";
 
 const currentPage = ref(
@@ -22,8 +19,8 @@ const timeLeftToEndDate = Math.floor(secondsUntil(new Date()));
 </script>
 
 <template layout="agents">
-    <div class="px-5 grid gap-4">
-        <sharedCommonCard class="flex justify-between items-center">
+    <div class="px-5 grid gap-4 py-5">
+        <sharedCommonCard class="flex justify-between items-center sm:max-w-[80%] sm:place-self-center">
             <div class="">
                 <p class="text-lg mobile:text-sm font-semibold">Presidential</p>
                 <p class="text-black/50 text-xs">Lorem ipsum dolor sit amet</p>
@@ -38,12 +35,13 @@ const timeLeftToEndDate = Math.floor(secondsUntil(new Date()));
 
         <HomeAgentsRequestTimeline />
 
-        <div class="">
-            <p class="text-base mobile:text-sm font-semibold">Feed back</p>
+       
+        <div class="sm:w-[80%] sm:place-self-center ">
+             <div class="">
+            <p class="text-base text-black mobile:text-sm font-semibold">Feedback</p>
             <p class="text-black/50 text-xs">Lorem ipsum dolor sit amet</p>
         </div>
-        <div>
-            <div class="mt-4 flex gap-5">
+            <div class="flex gap-5">
                 <button
                     v-for="(page, index) in feddbacksPages"
                     :key="index"
@@ -64,9 +62,15 @@ const timeLeftToEndDate = Math.floor(secondsUntil(new Date()));
                     </div>
                 </button>
             </div>
+            <transition name="fade" mode="out-in">
+                    <HomeAgentsRequestComments v-if="currentPage ==='comments'"/>
+                    <HomeAgentsRequestImages v-else />
+            </transition>
         </div>
     </div>
 </template>
+
+
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
