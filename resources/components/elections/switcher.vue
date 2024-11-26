@@ -6,14 +6,16 @@ onMounted(() => {
 const allElections = useProperty("elections.all");
 const selectedElection = useProperty("elections.selected");
 
-console.log(selectedElection.value)
+console.log(selectedElection.value);
 const elections =
     allElections?.value?.map((e: App.Data.Elections.ElectionData) => ({
         value: e.id,
         label: e.name,
         logo: e.logo,
     })) || [];
-const selectedElectionId = ref<number | null>(selectedElection?.value?.id || null);
+const selectedElectionId = ref<number | null>(
+    selectedElection?.value?.id || null,
+);
 const loading = ref(false);
 
 watch(
@@ -51,7 +53,8 @@ watch(
                 />
                 <p class="max-w-40 w-40 truncate text-left">
                     {{
-                        selectedElection?.name || "Select Election for us please "
+                        selectedElection?.name ||
+                        "Select Election for us please "
                     }}
                 </p>
             </div>
