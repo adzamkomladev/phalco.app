@@ -19,18 +19,18 @@ final class RequestsTable extends Table
         return [
             Columns\TextColumn::make('id')->label('#')->visible(false),
             Columns\TextColumn::make('position')->label('Position')
-                ->transformValueUsing(fn(VoteEntryRequest $voteEntryRequest) => $voteEntryRequest->ballot?->position)
-                ->extra((fn(VoteEntryRequest $voteEntryRequest) => ['id' => $voteEntryRequest->id])),
+                ->transformValueUsing(fn (VoteEntryRequest $voteEntryRequest) => $voteEntryRequest->ballot?->position)
+                ->extra((fn (VoteEntryRequest $voteEntryRequest) => ['id' => $voteEntryRequest->id])),
             Columns\TextColumn::make('status')->label('Status'),
             Columns\TextColumn::make('updated_at')->label('Recent Changes')
-                ->transformValueUsing(fn(VoteEntryRequest $voteEntryRequest) => $voteEntryRequest->updated_at->diffForHumans())
+                ->transformValueUsing(fn (VoteEntryRequest $voteEntryRequest) => $voteEntryRequest->updated_at->diffForHumans()),
         ];
     }
 
     protected function defineRefiners(): array
     {
         return [
-            Sorts\Sort::make('updated_at')
+            Sorts\Sort::make('updated_at'),
         ];
     }
 

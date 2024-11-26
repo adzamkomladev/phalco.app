@@ -21,13 +21,13 @@ final class VotersTable extends Table
         return [
             Columns\TextColumn::make('id')->label('#')->visible(false),
             Columns\TextColumn::make('name')->label('Name')
-                ->extra((fn(Voter $voter) => ['id' => $voter->id])),
+                ->extra((fn (Voter $voter) => ['id' => $voter->id])),
             Columns\TextColumn::make('username')->label('Username'),
             Columns\TextColumn::make('email')->label('Contact')
-                ->extra((fn(Voter $voter) => ['phone' => $voter->phone])),
+                ->extra((fn (Voter $voter) => ['phone' => $voter->phone])),
             Columns\TextColumn::make('status')->label('Status'),
             Columns\TextColumn::make('voted_at')->label('Date Voted')
-                ->transformValueUsing(fn(Voter $voter) => $voter->created_at->diffForHumans())
+                ->transformValueUsing(fn (Voter $voter) => $voter->created_at->diffForHumans()),
         ];
     }
 
@@ -42,7 +42,7 @@ final class VotersTable extends Table
                         'name',
                         'username',
                         'email',
-                        'phone'
+                        'phone',
                     ], 'ilike', "%{$value}%");
                 }
             ),
