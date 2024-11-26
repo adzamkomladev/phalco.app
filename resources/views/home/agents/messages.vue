@@ -86,10 +86,10 @@ const message = ref("");
 </script>
 
 <template layout="agents">
-    <div class="relative  landscape:flex  landscape:border-t">
+    <div class="relative landscape:flex landscape:border-t">
         <!-- Header -->
         <div
-            class="flex z-[2] items-center px-5 gap-2 border-b  landscape:border  landscape:w-72 lg:w-[40%]"
+            class="flex z-[2] items-center px-5 gap-2 border-b landscape:border landscape:w-72 lg:w-[40%]"
         >
             <button
                 class="hover:bg-black/10 p-2 aspect-square rounded-full transition-all"
@@ -97,15 +97,15 @@ const message = ref("");
             >
                 <SharedCommonIcon
                     name="arrow_up"
-                    class="rotate-90  landscape:hidden"
+                    class="rotate-90 landscape:hidden"
                 />
             </button>
             <div class="py-3">
                 <div
-                    class="flex items-center gap-x-3  landscape:flex-col  landscape:text-center"
+                    class="flex items-center gap-x-3 landscape:flex-col landscape:text-center"
                 >
                     <img
-                        class="inline-block size-9 rounded-full  landscape:size-[70%]"
+                        class="inline-block size-9 rounded-full landscape:size-[70%]"
                         src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80"
                         alt="Avatar"
                     />
@@ -116,7 +116,7 @@ const message = ref("");
                             Komla Adzam
                         </span>
                         <p
-                            class="text-sm text-gray-500 flex items-center  landscape:justify-center gap-2"
+                            class="text-sm text-gray-500 flex items-center landscape:justify-center gap-2"
                         >
                             Active-now
                             <span
@@ -132,7 +132,7 @@ const message = ref("");
         <div class="flex flex-col w-full h-full px-5 bg-chat">
             <div
                 ref="chatContainer"
-                class="flex flex-col gap-4 p overflow-y-auto flex-grow h-[calc(100vh_-235px)]  landscape:h-[calc(100vh_-200px)] no-scrollbar py-5"
+                class="flex flex-col gap-4 p overflow-y-auto flex-grow h-[calc(100vh_-235px)] landscape:h-[calc(100vh_-200px)] no-scrollbar py-5"
             >
                 <!-- Chat Messages -->
                 <div v-for="chat in chatData" :key="chat.id" class="flex gap-2">
@@ -166,7 +166,7 @@ const message = ref("");
             </div>
             {{ message }}
             <div
-                class="w-[90%]  landscape:w-[80%] place-self-center sticky bottom-0 py-3"
+                class="w-[90%] landscape:w-[80%] place-self-center sticky bottom-0 py-3"
             >
                 <SharedCommonChatInput v-model="message" />
             </div>
