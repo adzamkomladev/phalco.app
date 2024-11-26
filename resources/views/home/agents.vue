@@ -24,10 +24,10 @@ const switchComponent = (component: string) => {
             <div>
                 <!-- Top Navigation Buttons -->
                 <div
-                    class="sticky pb-4 pt-4 top-0 bg-white z-10 w-full place-content-center"
+                    class="sticky pb-4 pt-4 top-0 bg-green-600 z-10 w-full place-content-center"
                 >
                     <div
-                        class="flex gap-10 w-fit text-lg mobile:text-sm relative place-self-center"
+                        class="flex gap-10 bg-red-500 w-fit text-lg mobile:text-sm relative place-self-center"
                     >
                         <!-- Dashboard Button -->
                         <button
@@ -70,10 +70,7 @@ const switchComponent = (component: string) => {
 
                 <!-- Dynamically Render the Active Component -->
                 <transition name="fade" mode="out-in">
-                    <HomeAgents v-if="activeComponent === 'dashboard'" />
-                    <HomeAgentsMessage
-                        v-else-if="activeComponent === 'messages'"
-                    />
+                    <HomeAgentsMessage />
                 </transition>
             </div>
         </main>

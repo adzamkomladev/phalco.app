@@ -21,4 +21,16 @@ export interface DropDown {
     dialogClass?: string;
 }
 
+
+export interface TabPageProps {
+    name: string; 
+    component: Component; 
+}
+
+export interface TabProps {
+    pages: TabPageProps[]; 
+    initialPage?: string; 
+    propsForComponent?: Record<string, any>; 
+}
+
 export type positionType= "top-right" | "top-left" | "top-center"| "bottom-right"| "bottom-left"| "bottom-center";

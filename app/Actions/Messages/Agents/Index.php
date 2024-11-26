@@ -8,6 +8,11 @@ class Index
 {
     use AsAction;
 
+    public function asController()
+    {
+        return hybridly('home.agents.messages');
+    }
+
     public function handle()
     {
         // ...

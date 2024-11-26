@@ -61,11 +61,11 @@ const ElectionRequests = [
 ];
 </script>
 <template>
-    <div class="max-w-[60rem] sm:px-[8%] px-4 pb-10 lg:px-8 mx-auto">
+    <div class="px-8 overflow-x-hidden pb-10 mx-auto">
         <div class="flex flex-col">
-            <div class="-m-1.5">
-                <div class="p-1.5 min-w-full inline-block align-middle">
-                    <div class="ps-4">
+            <div class="">
+                <div class="  ">
+                    <div class="">
                         <h2
                             class="text-xl font-semibold text-gray-800 dark:text-gray-200"
                         >
@@ -77,7 +77,7 @@ const ElectionRequests = [
                     </div>
 
                     <div
-                        class="ps-4 mobile:px-2 py-4 flex gap-3 md:flex justify-between items-center"
+                        class="py-4 flex gap-3 md:flex justify-between items-center"
                     >
                         <!-- Input -->
                         <SharedFormSearchInput

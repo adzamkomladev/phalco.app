@@ -13,7 +13,7 @@ class Agents
 
     public function asController()
     {
-        return hybridly('home.agents');
+        return hybridly('home.agents.index');
     }
 
     public function handle()

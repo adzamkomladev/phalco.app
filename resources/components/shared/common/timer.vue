@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const props = defineProps<{ duration: number }>();
 
-const timeLeft = ref(props.duration);
+const timeLeft = ref(props.duration >= 0 ? props.duration : 0);
 
 const formattedTime = computed(() => {
     const hours = Math.floor(timeLeft.value / 3600)
