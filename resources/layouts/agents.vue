@@ -25,12 +25,11 @@ const loginIn = computed(() => current?.value?.split(".").includes("index"));
                 >
                     <nav
                         v-if="!loginIn"
-                        class="px-4 sm:px-6 flex items-center w-full mx-auto py-2 border-b h-16"
+                        class="px-4 sm:px-6 flex items-center w-full  mx-auto py-2 border-b h-16"
                     >
-                        <div class="me-5 lg:me-0 lg:hidden">
+                        <div class="me-5 lg:me-0">
                             <!-- Logo -->
                             <router-link
-                            
                                 class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
                                 :href="route('home')"
                                 aria-label="Phalco"
@@ -44,7 +43,7 @@ const loginIn = computed(() => current?.value?.split(".").includes("index"));
                         </div>
 
                         <div
-                            class="w-full flex items-center justify-end ms-auto md:justify-between gap-x-1 md:gap-x-3"
+                            class=" flex items-center justify-end ms-auto md:justify-between gap-x-1 md:gap-x-3"
                         >
                             <div
                                 class="flex flex-row items-center justify-end gap-1"
@@ -64,31 +63,31 @@ const loginIn = computed(() => current?.value?.split(".").includes("index"));
                     <div
                         class="flex gap-10 w-fit text-lg relative place-self-center"
                     >
-                            <router-link
-                                :href="route('home.agents.dashboard.index')"
-                                class="py-2 relative rounded focus:outline-none"
-                                :class="
-                                    !isMessages
-                                        ? 'font-bold pointer-events-none text-primary-600'
-                                        : ''
-                                "
-                            >
-                                Dashboard
-                                <div
-                                    class="bg-primary-500 h-[3px] right-0 transition-all duration-500 absolute bottom-0"
-                                    :class="[
-                                        !isMessages
-                                            ? 'w-full'
-                                            : 'w-0 delay-200 ',
-                                    ]"
-                                />
-                            </router-link>
+                        <router-link
+                            :href="route('home.agents.dashboard.index')"
+                            class="py-2 relative rounded focus:outline-none"
+                            :class="
+                                !isMessages
+                                    ? 'font-bold pointer-events-none text-primary-600'
+                                    : ''
+                            "
+                        >
+                            Dashboard
+                            <div
+                                class="bg-primary-500 h-[3px] right-0 transition-all duration-500 absolute bottom-0"
+                                :class="[
+                                    !isMessages ? 'w-full' : 'w-0 delay-200 ',
+                                ]"
+                            />
+                        </router-link>
 
                         <router-link
                             :href="route('home.agents.messages')"
                             class="py-2 rounded focus:outline-none relative"
                             :class="
-                                isMessages ? 'font-bold  pointer-events-none  text-primary-600' : ''
+                                isMessages
+                                    ? 'font-bold  pointer-events-none  text-primary-600'
+                                    : ''
                             "
                         >
                             Messages
