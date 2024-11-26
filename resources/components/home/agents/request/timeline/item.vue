@@ -24,6 +24,7 @@ import { formatDate } from "~/resources/utils/shared/date";
                 >
                     <SharedCommonIcon name="check" class="text-white size-3" />
                 </span>
+                 
             </div>
         </div>
         <!-- :delay="60 * index * index" -->

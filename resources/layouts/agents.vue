@@ -30,6 +30,7 @@ const loginIn = computed(() => current?.value?.split(".").includes("index"));
                         <div class="me-5 lg:me-0 lg:hidden">
                             <!-- Logo -->
                             <router-link
+                            
                                 class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
                                 :href="route('home')"
                                 aria-label="Phalco"
@@ -63,13 +64,12 @@ const loginIn = computed(() => current?.value?.split(".").includes("index"));
                     <div
                         class="flex gap-10 w-fit text-lg relative place-self-center"
                     >
-                        <button :disabled="!isMessages">
                             <router-link
                                 :href="route('home.agents.dashboard.index')"
                                 class="py-2 relative rounded focus:outline-none"
                                 :class="
                                     !isMessages
-                                        ? 'font-bold  text-primary-600'
+                                        ? 'font-bold pointer-events-none text-primary-600'
                                         : ''
                                 "
                             >
@@ -83,13 +83,12 @@ const loginIn = computed(() => current?.value?.split(".").includes("index"));
                                     ]"
                                 />
                             </router-link>
-                        </button>
 
                         <router-link
                             :href="route('home.agents.messages')"
                             class="py-2 rounded focus:outline-none relative"
                             :class="
-                                isMessages ? 'font-bold  text-primary-600' : ''
+                                isMessages ? 'font-bold  pointer-events-none  text-primary-600' : ''
                             "
                         >
                             Messages
