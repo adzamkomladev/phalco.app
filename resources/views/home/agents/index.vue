@@ -21,6 +21,5 @@ const timeLeftToEndDate = Math.floor(secondsUntil(new Date()));
         </div>
 
         <HomeAgentsTable />
-        <!-- <HomeAgentsRequestShow /> -->
     </div>
 </template>

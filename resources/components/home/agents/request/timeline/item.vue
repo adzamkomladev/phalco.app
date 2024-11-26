@@ -9,32 +9,36 @@ import { formatDate } from "~/resources/utils/shared/date";
     <div
         v-motion-fade-visible
         :delay="50 * index"
-        class="grid grid-cols-7 sm:flex flex-col  gap-x-5 _sm:ms-1 grow"
+        class="grid grid-cols-7 sm:flex flex-col gap-x-5 _sm:ms-1 grow"
         :class="length == index + 1 && 'grow'"
     >
         <div
             :class="index === length - 1 ? 'after:hidden' : ''"
-            class="after:bg-forest-300 w-full   dark:after:bg-forest-600 relative last:after:hidden col-span-1 after:absolute after:top-8 after:bottom-0 flex justify-center after:w-px after:-translate-x-[0.5px]"
+            class="after:bg-forest-300 w-full dark:after:bg-forest-600 relative last:after:hidden col-span-1 after:absolute after:top-8 after:bottom-0 flex justify-center after:w-px after:-translate-x-[0.5px]"
         >
-           <span
-           :class="0 == index  && 'opacity-0'"
-           class="h-[2px]  _sm:hidden w-full block bg-forest-300 place-self-center"/> <div
+            <span
+                :class="0 == index && 'opacity-0'"
+                class="h-[2px] _sm:hidden w-full block bg-forest-300 place-self-center"
+            />
+            <div
                 class="relative z-10 size-8 aspect-square flex justify-center items-center"
             >
-            
                 <span
-                    class="size-5 absolute flex justify-center  items-center bg-forest-500 dark:bg-forest rounded-full"
+                    class="size-5 absolute flex justify-center items-center bg-forest-500 dark:bg-forest rounded-full"
                 >
                     <SharedCommonIcon name="check" class="text-white size-3" />
                 </span>
             </div>
-              <span
-        :class="length == index + 1 && 'opacity-0'"
-           class="h-[2px]  w-full block bg-forest-300 place-self-center _sm:hidden"/>
+            <span
+                :class="length == index + 1 && 'opacity-0'"
+                class="h-[2px] w-full block bg-forest-300 place-self-center _sm:hidden"
+            />
         </div>
         <!-- :delay="60 * index * index" -->
 
-        <div class="pt-1 col-span-6 pb-8 sm:pb-12 overflow-hidden sm:place-self-center sm:text-center">
+        <div
+            class="pt-1 col-span-6 pb-8 sm:pb-12 overflow-hidden sm:place-self-center sm:text-center"
+        >
             <div
                 class=""
                 v-motion-pop-visible-once

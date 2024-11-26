@@ -16,7 +16,7 @@ Route::get('/phone-verif', function () {
 })->name('phone-verif');
 
 Route::get('/send-request', function () {
-    return hybridly('home.agent-request-form');
+    return hybridly('home.agents.request-form');
 })->name('send-request');
 
 Route::get('/elections', function () {
