@@ -82,21 +82,28 @@ const chatData = [
     },
 ];
 
-const message =ref('')
+const message = ref("");
 </script>
 
 <template layout="agents">
-    <div class="relative portrait:flex portrait:border-t ">
+    <div class="relative portrait:flex portrait:border-t">
         <!-- Header -->
-        <div class="flex z-[2]   items-center px-5 gap-2 border-b portrait:border portrait:w-72 lg:w-[40%]">
+        <div
+            class="flex z-[2] items-center px-5 gap-2 border-b portrait:border portrait:w-72 lg:w-[40%]"
+        >
             <button
                 class="hover:bg-black/10 p-2 aspect-square rounded-full transition-all"
                 @click="goBack"
             >
-                <SharedCommonIcon name="arrow_up" class="rotate-90 portrait:hidden" />
+                <SharedCommonIcon
+                    name="arrow_up"
+                    class="rotate-90 portrait:hidden"
+                />
             </button>
             <div class="py-3">
-                <div class="flex items-center gap-x-3 portrait:flex-col portrait:text-center">
+                <div
+                    class="flex items-center gap-x-3 portrait:flex-col portrait:text-center"
+                >
                     <img
                         class="inline-block size-9 rounded-full portrait:size-[70%]"
                         src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80"
@@ -131,7 +138,7 @@ const message =ref('')
                 <div v-for="chat in chatData" :key="chat.id" class="flex gap-2">
                     <img
                         v-if="chat.user !== 'me'"
-                        class="inline-block size-9 rounded-full "
+                        class="inline-block size-9 rounded-full"
                         src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80"
                         alt="Avatar"
                     />
@@ -157,14 +164,15 @@ const message =ref('')
                     </div>
                 </div>
             </div>
-            {{message}}
-             <div class=" w-[90%] portrait:w-[80%]  place-self-center sticky bottom-0 py-3">
-            <SharedCommonChatInput v-model="message"  />
-        </div>
+            {{ message }}
+            <div
+                class="w-[90%] portrait:w-[80%] place-self-center sticky bottom-0 py-3"
+            >
+                <SharedCommonChatInput v-model="message" />
+            </div>
         </div>
 
         <!-- Input Field -->
-       
     </div>
 </template>
 
