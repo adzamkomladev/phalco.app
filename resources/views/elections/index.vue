@@ -5,7 +5,7 @@ useHead({
 
 const props = defineProps<{
     stats: App.Data.Elections.Index.StatsData;
-    elections: Table<{
+    electionsTable: Table<{
         id: number;
         name: string;
         status: string;
@@ -14,19 +14,7 @@ const props = defineProps<{
     }>;
 }>();
 
-const totalUsers = ref(0);
-// onMounted(() => {
-//     window.EchoHub.channel("hello-world").listen(
-//         "Users.HelloWorld",
-//         (e: { newUsers: number }) => {
-//             console.log(e);
-//             totalUsers.value += e.newUsers;
-//         },
-//     );
-// });
-
-const countdownProgress = 78.55;
-const table = useTable(props, "elections");
+const table = useTable(props, "electionsTable");
 </script>
 
 <template layout="main">

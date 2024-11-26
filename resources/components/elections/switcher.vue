@@ -3,14 +3,17 @@ onMounted(() => {
     window.HSStaticMethods.autoInit();
 });
 
-const data = useProperty("elections");
+const allElections = useProperty("elections.all");
+const selectedElection = useProperty("elections.selected");
+
+console.log(selectedElection.value)
 const elections =
-    data.value?.all?.map((e: App.Data.Elections.ElectionData) => ({
+    allElections?.value?.map((e: App.Data.Elections.ElectionData) => ({
         value: e.id,
         label: e.name,
         logo: e.logo,
     })) || [];
-const selectedElectionId = ref<number | null>(data.value?.selected?.id || null);
+const selectedElectionId = ref<number | null>(selectedElection?.value?.id || null);
 const loading = ref(false);
 
 watch(
@@ -19,7 +22,7 @@ watch(
         if (newElectionId) {
             loading.value = true;
             try {
-                const res = await router.patch(route("elections.switch"), {
+                await router.patch(route("elections.switch"), {
                     data: { election_id: newElectionId },
                 });
             } catch (error) {
@@ -43,12 +46,12 @@ watch(
         >
             <div class="flex gap-2">
                 <img
-                    :src="data.selected?.logo"
+                    :src="selectedElection?.logo"
                     class="size-5 bg-primary-400 dark:bg-primary-600 rounded-md"
                 />
                 <p class="max-w-40 w-40 truncate text-left">
                     {{
-                        data.selected?.name || "Select Election for us please "
+                        selectedElection?.name || "Select Election for us please "
                     }}
                 </p>
             </div>

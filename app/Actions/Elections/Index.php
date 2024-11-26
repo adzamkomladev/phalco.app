@@ -71,7 +71,7 @@ class Index
                 'totalSpent' => 0,
                 'totalCampaigns' => 0,
             ]),
-            'elections' => ElectionsTable::make(),
+            'electionsTable' => ElectionsTable::make(),
         ];
     }
 }
