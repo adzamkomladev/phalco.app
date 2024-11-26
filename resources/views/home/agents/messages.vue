@@ -164,7 +164,6 @@ const message = ref("");
                     </div>
                 </div>
             </div>
-            {{ message }}
             <div
                 class="w-[90%] landscape:w-[80%] place-self-center sticky bottom-0 py-3"
             >
