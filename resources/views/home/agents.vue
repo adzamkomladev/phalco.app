@@ -27,7 +27,7 @@ const switchComponent = (component: string) => {
                     class="sticky pb-4 pt-4 top-0 bg-white z-10 w-full place-content-center"
                 >
                     <div
-                        class="flex gap-10 w-fit text-lg relative place-self-center"
+                        class="flex gap-10 w-fit text-lg mobile:text-sm relative place-self-center "
                     >
                         <!-- Dashboard Button -->
                         <button

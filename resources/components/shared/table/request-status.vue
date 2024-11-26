@@ -17,7 +17,7 @@ const getStatusClasses = (status: string) => {
 
 <template>
     <div
-        class="inline-flex items-center gap-1.5 mobile:gap-0.5 mobile:py-1 py-1.5 place-content-center px-2 mobile:text-[10px] mobile:w-[80px] w-24 rounded-full text-xs font-semibold"
+        class="inline-flex items-center gap-1.5 mobile:gap-0.5 h-fit mobile:py-1 py-1.5 place-content-center px-2 mobile:text-[10px] mobile:w-[80px] w-24 rounded-full text-xs font-semibold"
         :class="getStatusClasses(status)"
     >
         <SharedCommonIcon

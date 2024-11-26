@@ -8,7 +8,7 @@ const timeLeftToEndDate = Math.floor(secondsUntil(new Date()));
 
 <template>
     <div>
-        <div class="place-self-center text-center py-10">
+        <!-- <div class="place-self-center text-center py-10">
             <SharedCommonTimer
                 class="text-4xl md:text-5xl md:_xl:text-5xl font-black"
                 :duration="timeLeftToEndDate"
@@ -19,6 +19,7 @@ const timeLeftToEndDate = Math.floor(secondsUntil(new Date()));
             </p>
         </div>
 
-        <HomeAgentsTable />
+        <HomeAgentsTable /> -->
+        <HomeAgentsRequestShow />
     </div>
 </template>
