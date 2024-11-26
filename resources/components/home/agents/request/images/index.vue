@@ -3,7 +3,7 @@
 <template>
     <div>
         <div>images</div>
-      
-        <HomeAgentsRequestImagesGallary/>
+
+        <HomeAgentsRequestImagesGallary />
     </div>
 </template>

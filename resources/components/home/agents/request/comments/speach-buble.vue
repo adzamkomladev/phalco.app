@@ -6,7 +6,7 @@
     >
         <div class="h-full flexitems-center justify-center">
             <img
-            src="https://picsum.photos/id/1035/300/200"
+                src="https://picsum.photos/id/1035/300/200"
                 class="shadow-card size-20 rounded-full h-fit aspect-square shrink-0"
             />
         </div>

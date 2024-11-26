@@ -20,7 +20,7 @@ const timeLeftToEndDate = Math.floor(secondsUntil(new Date()));
 <template layout="agents">
     <div class="px-5 grid gap-4 py-5">
         <sharedCommonCard
-            class="flex justify-between items-center sm:max-w-[80%]  w-full sm:place-self-center"
+            class="flex justify-between items-center sm:max-w-[80%] w-full sm:place-self-center"
         >
             <div class="">
                 <p class="text-lg mobile:text-sm font-semibold">Presidential</p>

@@ -23,6 +23,7 @@ export default {
                 "about-sm": "url('../svg/welcome/about_bg_sm.svg')",
                 "about-lg": "url('../svg/welcome/about_bg_lg.svg')",
                 "menu-br": "url('../svg/welcome/menu/background.svg')",
+                "chat": "url('https://www.transparenttextures.com/patterns/asfalt-dark.png')",
                 organization: "url('../svg/organization/layout.svg')",
             },
             screens: {

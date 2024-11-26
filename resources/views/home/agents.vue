@@ -28,7 +28,7 @@ const switchComponent = (component: string) => {
                 >
                     <div
                         class="flex gap-10 bg-red-500 w-fit text-lg mobile:text-sm relative place-self-center"
-   >
+                    >
                         <!-- Dashboard Button -->
                         <button
                             @click="switchComponent('dashboard')"

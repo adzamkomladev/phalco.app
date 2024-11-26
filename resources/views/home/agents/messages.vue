@@ -10,23 +10,95 @@ const chatData = [
         message: "Hi! I'm good, thanks. What about you?",
         timestamp: "10:16 AM",
     },
+    { id: 1, user: "me", message: "Hey! How are you?", timestamp: "10:15 AM" },
+    {
+        id: 2,
+        user: "other",
+        message: "Hi! I'm good, thanks. What about you?",
+        timestamp: "10:16 AM",
+    },
+    { id: 1, user: "me", message: "Hey! How are you?", timestamp: "10:15 AM" },
+    {
+        id: 2,
+        user: "other",
+        message: "Hi! I'm good, thanks. What about you?",
+        timestamp: "10:16 AM",
+    },
+    { id: 1, user: "me", message: "Hey! How are you?", timestamp: "10:15 AM" },
+    {
+        id: 2,
+        user: "other",
+        message: "Hi! I'm good, thanks. What about you?",
+        timestamp: "10:16 AM",
+    },
+    { id: 1, user: "me", message: "Hey! How are you?", timestamp: "10:15 AM" },
+    {
+        id: 2,
+        user: "other",
+        message: "Hi! I'm good, thanks. What about you?",
+        timestamp: "10:16 AM",
+    },
+    { id: 1, user: "me", message: "Hey! How are you?", timestamp: "10:15 AM" },
+    {
+        id: 2,
+        user: "other",
+        message: "Hi! I'm good, thanks. What about you?",
+        timestamp: "10:16 AM",
+    },
+    { id: 1, user: "me", message: "Hey! How are you?", timestamp: "10:15 AM" },
+    {
+        id: 2,
+        user: "other",
+        message: "Hi! I'm good, thanks. What about you?",
+        timestamp: "10:16 AM",
+    },
+    { id: 1, user: "me", message: "Hey! How are you?", timestamp: "10:15 AM" },
+    {
+        id: 2,
+        user: "other",
+        message: "Hi! I'm good, thanks. What about you?",
+        timestamp: "10:16 AM",
+    },
+    { id: 1, user: "me", message: "Hey! How are you?", timestamp: "10:15 AM" },
+    {
+        id: 2,
+        user: "other",
+        message: "Hi! I'm good, thanks. What about you?",
+        timestamp: "10:16 AM",
+    },
+    { id: 1, user: "me", message: "Hey! How are you?", timestamp: "10:15 AM" },
+    {
+        id: 2,
+        user: "other",
+        message: "Hi! I'm good, thanks. What about you?",
+        timestamp: "10:16 AM",
+    },
+    { id: 1, user: "me", message: "Hey! How are you?", timestamp: "10:15 AM" },
+    {
+        id: 2,
+        user: "me",
+        message: "Hi! I'm good, thanks. What about you?",
+        timestamp: "10:16 AM",
+    },
 ];
+
+const message =ref('')
 </script>
 
 <template layout="agents">
-    <div class="relative">
+    <div class="relative portrait:flex portrait:border-t ">
         <!-- Header -->
-        <div class="flex z-[2] bg-white items-center px-5 gap-2 border-b">
+        <div class="flex z-[2]   items-center px-5 gap-2 border-b portrait:border portrait:w-72 lg:w-[40%]">
             <button
                 class="hover:bg-black/10 p-2 aspect-square rounded-full transition-all"
                 @click="goBack"
             >
-                <SharedCommonIcon name="arrow_up" class="rotate-90" />
+                <SharedCommonIcon name="arrow_up" class="rotate-90 portrait:hidden" />
             </button>
             <div class="py-3">
-                <div class="flex items-center gap-x-3">
+                <div class="flex items-center gap-x-3 portrait:flex-col portrait:text-center">
                     <img
-                        class="inline-block size-9 rounded-full"
+                        class="inline-block size-9 rounded-full portrait:size-[70%]"
                         src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80"
                         alt="Avatar"
                     />
@@ -37,7 +109,7 @@ const chatData = [
                             Komla Adzam
                         </span>
                         <p
-                            class="text-sm text-gray-500 flex items-center gap-2"
+                            class="text-sm text-gray-500 flex items-center portrait:justify-center gap-2"
                         >
                             Active-now
                             <span
@@ -50,16 +122,16 @@ const chatData = [
         </div>
 
         <!-- Chat Container -->
-        <div class="flex flex-col h-full px-5 py-5">
+        <div class="flex flex-col w-full h-full px-5 bg-chat">
             <div
                 ref="chatContainer"
-                class="flex flex-col gap-4 place-self-cente overflow-y-auto flex-grow no-scrollbar"
+                class="flex flex-col gap-4 p overflow-y-auto flex-grow h-[calc(100vh_-235px)] portrait:h-[calc(100vh_-200px)] no-scrollbar py-5"
             >
                 <!-- Chat Messages -->
                 <div v-for="chat in chatData" :key="chat.id" class="flex gap-2">
                     <img
                         v-if="chat.user !== 'me'"
-                        class="inline-block size-9 rounded-full"
+                        class="inline-block size-9 rounded-full "
                         src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80"
                         alt="Avatar"
                     />
@@ -85,12 +157,14 @@ const chatData = [
                     </div>
                 </div>
             </div>
+            {{message}}
+             <div class=" w-[90%] portrait:w-[80%]  place-self-center sticky bottom-0 py-3">
+            <SharedCommonChatInput v-model="message"  />
+        </div>
         </div>
 
         <!-- Input Field -->
-        <div class="sticky bottom-0 bg-white dark:bg-gray-800 px-5 py-3">
-            <SharedCommonChatInput />
-        </div>
+       
     </div>
 </template>
 
@@ -105,7 +179,6 @@ const chatData = [
 }
 
 .flex-grow {
-    height: calc(100vh - 185px); /* Adjust as needed */
     scroll-behavior: smooth;
 }
 </style>
