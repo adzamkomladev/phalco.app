@@ -29,13 +29,12 @@ const dateSent = useDateFormat(props.requestedAt, "YYYY MMM DD HH:mm:ss");
                 >
                     Accept
                 </router-link>
-                 <router-link
-                class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-500 hover:text-crimson-500 hover:border-crimson-600 border rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1"
-            >
-                Decline
-            </router-link>
+                <router-link
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-500 hover:text-crimson-500 hover:border-crimson-600 border rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1"
+                >
+                    Decline
+                </router-link>
             </div>
-           
         </div>
     </sharedCommonCard>
 </template>
