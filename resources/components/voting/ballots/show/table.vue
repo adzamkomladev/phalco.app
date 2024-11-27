@@ -1,34 +1,34 @@
 <script setup lang="ts">
-const props = defineProps<{
-    table: any;
-}>();
+// const props = defineProps<{
+//     table: any;
+// }>();
 
-const table = props.table;
+// const table = props.table;
 
-const paginator: any = table.paginator;
-const prev = computed(() => paginator?.links?.[0]);
-const current = computed(() => paginator?.links?.[1]);
-const next = computed(() => paginator?.links?.[2]);
-const total = ref(paginator?.meta?.total);
+// const paginator: any = table.paginator;
+// const prev = computed(() => paginator?.links?.[0]);
+// const current = computed(() => paginator?.links?.[1]);
+// const next = computed(() => paginator?.links?.[2]);
+// const total = ref(paginator?.meta?.total);
 
-const findColumn = (name: string) =>
-    table.columns.find((column: any) => column?.name === name)!;
-const findFilter = (name: string) =>
-    table.filters.find((filter: any) => filter.name === name)!;
+// const findColumn = (name: string) =>
+//     table.columns.find((column: any) => column?.name === name)!;
+// const findFilter = (name: string) =>
+//     table.filters.find((filter: any) => filter.name === name)!;
 
-const searchFilter = findFilter("search");
+// const searchFilter = findFilter("search");
 
-const search = ref("");
+// const search = ref("");
 
-const debounceFn = useDebounceFn(
-    () =>
-        search.value !== ""
-            ? searchFilter.apply(search.value)
-            : searchFilter.clear(),
-    800,
-);
+// const debounceFn = useDebounceFn(
+//     () =>
+//         search.value !== ""
+//             ? searchFilter.apply(search.value)
+//             : searchFilter.clear(),
+//     800,
+// );
 
-watch(search, debounceFn);
+// watch(search, debounceFn);
 </script>
 <template>
         <div
@@ -85,7 +85,6 @@ watch(search, debounceFn);
                     <!-- Input -->
                     <SharedFormSearchInput
                         class="sm:col-span-1"
-                        v-model="search"
                         placeholder="Search ballots"
                         name="search"
                     />
@@ -99,7 +98,7 @@ watch(search, debounceFn);
             <div class="w-full overflow-x-scroll">
 
            
-            <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <!-- <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead class="bg-gray-50 dark:bg-slate-800">
                     <tr>
                         <th scope="col" class="py-3 ps-6 text-start">
@@ -135,12 +134,12 @@ watch(search, debounceFn);
                                     :findColumn="findColumn"
                        />
                 </tbody>
-            </table>
+            </table> -->
              </div>
             <!-- End Table -->
 
             <!-- Footer -->
-            <div
+            <!-- <div
                 class="flex items-center justify-between gap-3 px-6 py-4 border-t border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
             >
                 <div>
@@ -202,7 +201,7 @@ watch(search, debounceFn);
                         </router-link>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- End Footer -->
         </div>
 </template>

@@ -20,7 +20,15 @@ const { key, value, extra } = props.row;
             >
                 {{ value(findColumn("name")) }}
             </h2>
-            <span
+            <router-link
+             :href="
+                                        route('voting.polling-stations.show', {
+                                            id: +extra(
+                                                findColumn('name'),
+                                                'id',
+                                            ),
+                                        })
+                                    "
                 class="bg-secondary-500 block size-6 rounded-full place-self-end"
             />
         </div>
@@ -41,7 +49,7 @@ const { key, value, extra } = props.row;
                     <h2
                         class="text-2xl font-black text-gray-800 dark:text-gray-200"
                     >
-                        567678
+                         {{ value(findColumn("code")) }}
                     </h2>
                 </div>
                 <div class="flex items-end">

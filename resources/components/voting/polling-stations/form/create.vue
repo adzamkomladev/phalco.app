@@ -52,7 +52,7 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                 options-class=""
                 option-class="py-1"
                 select-class="w-full py-3"
-            />
+            />{{ form.fields.election_id }}
         </div>
 
         <div class="mt-10 flex justify-end gap-x-2">

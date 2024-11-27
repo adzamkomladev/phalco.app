@@ -37,7 +37,7 @@ const toggleUploadForm = () => (isUpload.value = !isUpload.value);
         </div>
         <div class="mt-5">
             <transition mode="out-in">
-                <VotingPollingStationsCreateForm
+                <VotingPollingStationsFormCreate
                     :elections="elections"
                     v-if="!isUpload"
                 />

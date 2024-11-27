@@ -10,9 +10,9 @@ const props = withDefaults(defineProps<BaseAdvanceSelectProps>(), {
 });
 
 const selectedValue = defineModel();
-const selectedOption = ref(selectedValue);
+const selectedOption = ref(selectedValue.value);
 
-const selectOption = (option: any) => {
+const selectOption = (option: { value: any; label: string }) => {
     selectedValue.value = option?.value || option;
     selectedOption.value = option;
 };

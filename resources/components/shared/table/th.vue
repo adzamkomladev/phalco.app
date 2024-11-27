@@ -24,7 +24,7 @@ const props = defineProps<TableHeadProps>();
             "
             :class="[
                 column.isSortable && 'cursor-pointer',
-                index != 0 ? 'place-content-center' : '',
+                index != 0 ? '' : '',
             ]"
         >
             <span
