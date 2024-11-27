@@ -8,7 +8,7 @@ const props = withDefaults(defineProps<{ message: string }>(), {
 
 <template>
     <SharedCommonCard
-        class="font-medium h-full g shadow-card _sm:shadow _sm:p-5 rounded-2xl"
+        class="font-medium h-full grid gap4 shadow-card _sm:shadow _sm:p-5 rounded-2xl"
     >
         <p class="text-gray-800 font-semibold text-md text-center">
             Leading Candidate
