@@ -12,7 +12,7 @@ const [voteEntryRequest] = props.pollingStation.vote_entry_requests;
 
 <template layout="main">
     <div
-        class="max-w-[85rem] px-4 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
+        class="max-w-[85rem] px-4 grid gap-4 sm:gap-6 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
     >
         <div>
             <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
@@ -23,12 +23,16 @@ const [voteEntryRequest] = props.pollingStation.vote_entry_requests;
             </p>
         </div>
 
-        <div class="grid grid-cols-7 _md:flex flex-col gap-4 sm:gap-6">
-            <div class="col-span-4">
+        <div
+            class="grid grid-cols-7 _md:grid _md:grid-cols-1 flex-wrap gap-4 sm:gap-6"
+        >
+            <div class="col-span-4 grow">
                 <VotingPollingStationsShowOptionTable />
             </div>
             <div class="col-span-3">
-                <VotingAgentsAssignCard :assigned-agent="agent" />
+                <VotingPollingStationsShowOptionAssignAgent
+                    :assigned-agent="agent"
+                />
             </div>
         </div>
 

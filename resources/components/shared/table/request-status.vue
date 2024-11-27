@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{ status: "Accepted" | "Rejected" | "Pending" }>();
+import { RequestStatusType } from "~/resources/interfaces/shared/common.interface";
+
+const props = defineProps<{ status: RequestStatusType }>();
 
 const getStatusClasses = (status: string) => {
     switch (status) {

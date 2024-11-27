@@ -30,3 +30,4 @@ export interface StatsCardProps {
 }
 
 export type positionType= "top-right" | "top-left" | "top-center"| "bottom-right"| "bottom-left"| "bottom-center";
+export type RequestStatusType = "Accepted" | "Rejected" | "Pending";

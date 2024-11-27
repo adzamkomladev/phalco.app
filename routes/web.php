@@ -25,8 +25,8 @@ Route::get('/agent/dashboard', function () {
     return hybridly('agent.index');
 })->name('/agent/dashboard');
 
-Route::get('/top-up', function () {
-    return hybridly('finance.transactions.show');
+Route::get('/add-voter', function () {
+    return hybridly('voting.polling-station.voter.form');
 })->name('election-selected');
 
 Route::get('/elections', function () {
@@ -107,7 +107,6 @@ Route::prefix('voting')
         Route::prefix('ballots')
             ->name('ballots.')
             ->group(function () {
-
                 Route::get('create', \App\Actions\Voting\Ballots\Create::class)->name('create');
                 Route::get('{id}/show', \App\Actions\Voting\Ballots\Show::class)->name('show');
                 Route::get('', \App\Actions\Voting\Ballots\Index::class)->name('index');
@@ -120,7 +119,7 @@ Route::prefix('voting')
             ->name('requests.')
             ->group(function () {
                 Route::get('create', \App\Actions\Voting\Requests\Create::class)->name('create');
-                Route::get('{id}/show', \App\Actions\Voting\Requests\Show::class)->name('show');
+                Route::get('show', \App\Actions\Voting\Requests\Show::class)->name('show');
                 Route::get('', \App\Actions\Voting\Requests\Index::class)->name('index');
                 Route::post('', \App\Actions\Voting\Requests\Store::class)->name('store');
                 Route::post('status/update', \App\Actions\Voting\Requests\UpdateStatus::class)->name('status.update');

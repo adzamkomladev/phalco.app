@@ -42,34 +42,8 @@
                     <h2
                         class="text-xl font-semibold text-gray-800 dark:text-gray-200"
                     >
-                        Voting Requests
+                        Voters
                     </h2>
-                </div>
-
-                <div>
-                    <div class="inline-flex gap-x-2">
-                        <router-link
-                            :href="route('voting.ballots.create')"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-primary-400 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                        >
-                            <svg
-                                class="flex-shrink-0 size-3"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                            >
-                                <path
-                                    d="M2.63452 7.50001L13.6345 7.5M8.13452 13V2"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                />
-                            </svg>
-                            Create ballot
-                        </router-link>
-                    </div>
                 </div>
             </div>
 

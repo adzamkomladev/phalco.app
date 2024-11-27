@@ -7,7 +7,7 @@ const props = defineProps<{ assignedAgent?: any }>();
 
 <template>
     <SharedCommonCard
-        class="font-medium p-[8%] grid flex-col max-w-72 gap-4 place-items-center shadow-card _sm:shadow _sm:p-5 rounded-2xl relative"
+        class="font-medium p-[8%] place-self-center flex flex-col min-w-fit max-w-80 gap-4 justify-evenly items-center h-full place-items-center shadow-card _sm:shadow _sm:p-5 rounded-2xl relative"
     >
         <div v-if="assignedAgent" class="rounded-full size-40 overflow-hidden">
             <img

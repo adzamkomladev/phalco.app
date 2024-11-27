@@ -10,29 +10,38 @@ const { key, value, extra } = props.row;
 
 <template>
     <tr class="text-sm">
-        <td class="size-px whitespace-nowrap">
-            <div class="ps-6 py-3">
-                <label for="hs-at-with-checkboxes-1" class="flex">
-                    <input
-                        type="checkbox"
-                        class="shrink-0 border-gray-300 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                        id="hs-at-with-checkboxes-1"
+        <td class="size-px whitespace-nowrap"></td>
+        <td class="size-px w w-full max-w-40 bg-red">
+            <div class="py-3 ps-6 lg:ps-3 pe-6">
+                <div class="flex items-center gap-x-3">
+                    <img
+                        class="inline-block size-[38px] rounded-full"
+                        :src="extra(findColumn('name'), 'logo')"
+                        alt="Logo"
                     />
-                    <span class="sr-only">Checkbox</span>
-                </label>
+                    <div class="grow">
+                        <span
+                            class="block lg:whitespace-nowrap font-semibold text-gray-800 dark:text-gray-200"
+                        >
+                            {{ value(findColumn("name")) }}
+                        </span>
+                        <span class="block text-sm text-gray-500">
+                            {{ extra(findColumn("name"), "option") }}
+                        </span>
+                    </div>
+                </div>
             </div>
         </td>
-
         <td
             class="py-3 ps-6 lg:ps-3 pe-6 text-start whitespace-nowrap text-gray-500"
         >
             <div class="font-semibold">
-                {{ value(findColumn("position")) }}
+                {{ value(findColumn("voter_id")) }}
             </div>
         </td>
         <td class="whitespace-nowrap text-gray-500">
             <div class="px-6 py-3">
-                {{ value(findColumn("assigned_at")) }}
+                {{ value(findColumn("contact")) }}
             </div>
         </td>
         <td class="whitespace-nowrap text-gray-500"></td>
@@ -40,17 +49,8 @@ const { key, value, extra } = props.row;
         <td class="h-px whitespace-nowrap">
             <div class="px-6 py-3 text-sm w-fit">
                 <SharedTableRequestStatus
-                    :status="value(findColumn('status'))"
+                    :status="value(findColumn('voted_at'))"
                 />
-            </div>
-        </td>
-        <td class="size-px whitespace-nowrap">
-            <div class="px-6 py-1.5 xl:pr-20">
-                <router-link
-                    class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                >
-                    Details
-                </router-link>
             </div>
         </td>
     </tr>
