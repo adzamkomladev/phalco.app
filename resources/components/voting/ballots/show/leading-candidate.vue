@@ -8,12 +8,12 @@ const props = withDefaults(defineProps<{ message: string }>(), {
 
 <template>
     <SharedCommonCard
-        class="font-medium h-full grid gap4 shadow-card _sm:shadow _sm:p-5 rounded-2xl"
+        class="font-medium h-full grid mobile_:_sm:py-10 text-center    gap-4 shadow-card _sm:shadow _sm:p-5 rounded-2xl"
     >
-        <p class="text-gray-800 font-semibold text-md text-center">
+        <p class="text-gray-800 font-semibold text-md ">
             Leading Candidate
         </p>
-        <div class="grid _sm:geid-cols-2">
+        <div class="grid mobile_:_sm:grid-cols-2  gap-4">
             <div class="grid place-items-center">
                 <img
                     src=""
@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<{ message: string }>(), {
                 <p class="text-base font-medium">Marvin Osei</p>
                 <p class="text-xs text-gray-800/50">Presidential Candidate</p>
             </div>
-            <div class="text-center">
+            <div class="">
                 <p class="font-black text-3xl">46289</p>
                 <span class="text-sm font-normal">votes</span>
                 <img :src="BallotImage" class="place-self-center" />

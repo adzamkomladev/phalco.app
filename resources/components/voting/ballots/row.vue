@@ -62,11 +62,3 @@ const { key, value, extra } = props.row;
         </td>
     </tr>
 </template>
-<!-- 
- route('voting.polling-stations.show', {
-                                            id: +extra(
-                                                findColumn('name'),
-                                                'id',
-                                            ),
-                                        })
--->

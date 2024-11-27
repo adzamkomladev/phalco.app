@@ -94,43 +94,22 @@
         <!-- Table -->
 
         <div class="w-full overflow-x-scroll">
-            <!-- <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
-                <thead class="bg-gray-50 dark:bg-slate-800">
-                    <tr>
-                        <th scope="col" class="py-3 ps-6 text-start">
-                            <label
-                                for="hs-at-with-checkboxes-main"
-                                class="flex"
-                            >
-                                <input
-                                    type="checkbox"
-                                    class="text-primary-600 border-gray-300 rounded shrink-0 focus:ring-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-primary-500 dark:checked:border-primary-500 dark:focus:ring-offset-gray-800"
-                                    id="hs-at-with-checkboxes-main"
-                                />
-                                <span class="sr-only">Checkbox</span>
-                            </label>
-                        </th>
-                         <SharedTableTh
-                                        v-for="(col, index) in table.columns"
-                                        :column="col"
-                                        :key="index"
-                                        :index="index"
-                                    />
-                        <th scope="col" class="px-6 py-3 text-end"></th>
-                    </tr>
-                </thead>
+            <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
+               
 
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                   
-                     <VotingBallotsRow
+                     <!-- <VotingBallotsRow
                                     v-for="row in table.records"
                                     :key="row.key"
                                     :row="row"
                                     :columns="table.columns"
                                     :findColumn="findColumn"
-                       />
+                       /> -->
+
+                       <VotingBallotsShowCandidateRow />
                 </tbody>
-            </table> -->
+            </table> 
         </div>
         <!-- End Table -->
 
