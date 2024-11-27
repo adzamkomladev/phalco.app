@@ -5,11 +5,14 @@ import HSFileUpload from "@preline/file-upload";
 
 const fileUpload = ref<HTMLInputElement | null>(null);
 const model = defineModel({ required: true });
-const props = defineProps<{
+const props = withDefaults(defineProps<{
     error?: string | null;
     fileTypes?: string | null;
     path?: string | null;
-}>();
+    placeholder?:string;
+}>(),{
+placeholder:' Browse through your files and Drop your file here'
+});
 onMounted(() => {
     // Initialize File Upload
     HSFileUpload.autoInit();
@@ -157,7 +160,7 @@ const fileUploadOptions = JSON.stringify({
             </template>
 
             <div
-                class="cursor-pointer p-12 flex justify-center bg-white border border-dashed border-gray-300 rounded-xl dark:bg-gray-800 dark:border-gray-600"
+                class="cursor-pointer p-8 flex justify-center bg-white border border-dashed border-gray-300 rounded-xl dark:bg-gray-800 dark:border-gray-600"
                 data-hs-file-upload-trigger=""
             >
                 <div class="text-center">
@@ -166,12 +169,12 @@ const fileUploadOptions = JSON.stringify({
                     </span>
 
                     <div
-                        class="mt-4 flex flex-wrap justify-center text-sm leading-6 text-gray-600"
+                        class="mt-1 flex flex-wrap justify-center text-sm leading-6 text-gray-600"
                     >
                         <span
-                            class="pe-1 font-medium text-gray-800 dark:text-gray-200"
+                            class="pe-1 text-xs text-gray-800 dark:text-gray-200"
                         >
-                            Browse through your files and Drop your file here
+                            {{ placeholder }}
                         </span>
                         <span
                             class="bg-white font-semibold text-primary-500 hover:text-primary-600 rounded-lg decoration-2 hover:underline focus-within:outline-none focus-within:ring-2 focus-within:ring-primary-600 focus-within:ring-offset-2 dark:bg-gray-800 dark:text-primary-500 dark:hover:text-primary-500"

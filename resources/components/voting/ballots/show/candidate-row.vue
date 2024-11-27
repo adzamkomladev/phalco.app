@@ -9,9 +9,10 @@
 </script>
 
 <template>
-    <div class="flex bg-red-200">
-        <div class="font-bold text-2xl">#1</div>
+    <div class="flex borde p-2 shadow justify-between m-2 rounded-md ">
         <div class="flex items-center gap-x-3">
+                    <div class="font-bold text-2xl">#1</div>
+
             <img
                 class="inline-block bg-gray-800/5 size-[38px] rounded-full"
                 src=""
@@ -26,10 +27,9 @@
                 <span class="block text-sm text-gray-500"> NPP </span>
             </div>
         </div>
-        <div class="self-end">
+        <div class=" flex items-center  max-w-[10%]">
             <svg
-                width="69"
-                height="46"
+              class="h-10"
                 viewBox="0 0 69 46"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

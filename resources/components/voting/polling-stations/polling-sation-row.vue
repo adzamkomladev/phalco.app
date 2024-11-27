@@ -12,7 +12,7 @@ const { key, value, extra } = props.row;
 
 <template>
     <SharedCommonCard
-        class="font-medium p-auto max-w-72 gap-2 flex flex-col justify-center shadow-card _sm:shadow _sm:p-5 rounded-2xl relative"
+        class="font-medium p-auto grow max-w-72 shrink gap-2 flex flex-col justify-center shadow-card _sm:shadow _sm:p-5 rounded-2xl relative"
     >
         <div class="flex justify-between">
             <h2

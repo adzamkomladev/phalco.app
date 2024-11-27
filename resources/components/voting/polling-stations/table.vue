@@ -68,7 +68,7 @@ watch(search, debounceFn);
                         <div class="inline-flex gap-x-2">
                             <router-link
                                 :href="route('voting.polling-stations.create')"
-                                class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-primary-400 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-primary-500 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             >
                                 <svg
                                     class="flex-shrink-0 size-3"
@@ -95,173 +95,18 @@ watch(search, debounceFn);
             <!-- End Header -->
 
             <!-- Table -->
-            <div class="w-full divide-y divide-gray-200 dark:divide-gray-700">
-                <!-- <thead class="bg-gray-50 dark:bg-slate-800">
-                    <tr>
-                        <th scope="col" class="py-3 ps-6 text-start">
-                            <label
-                                for="hs-at-with-checkboxes-main"
-                                class="flex"
-                            >
-                                <input
-                                    type="checkbox"
-                                    class="text-primary-600 border-gray-300 rounded shrink-0 focus:ring-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-primary-500 dark:checked:border-primary-500 dark:focus:ring-offset-gray-800"
-                                    id="hs-at-with-checkboxes-main"
-                                />
-                                <span class="sr-only">Checkbox</span>
-                            </label>
-                        </th>
+            <div class="w-full divide-y divide-gray-200 dark:divide-gray-700 p-4 flex gap-4 flex-wrap">
+           
 
-                        <th
-                            v-for="(col, index) in table.columns"
-                            :key="index"
-                            scope="col"
-                            :class="{
-                                'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start':
-                                    index === 0,
-                                'px-6 py-3 text-start': index !== 0,
-                            }"
-                        >
-                            <div class="flex items-center gap-x-2">
-                                <span
-                                    class="text-xs font-semibold tracking-wide text-gray-800 uppercase dark:text-gray-200"
-                                >
-                                    {{ col.label }}
-                                </span>
-                            </div>
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-end"></th>
-                    </tr>
-                </thead> -->
+                    
 
-                <div class="divide-y divide-gray-200 dark:divide-gray-700">
-                    <tr
-                        v-for="{ key, value, extra } in table.records"
-                        :key="key"
-                    >
-                        <td class="size-px whitespace-nowrap">
-                            <div class="py-3 ps-6">
-                                <label
-                                    for="hs-at-with-checkboxes-1"
-                                    class="flex"
-                                >
-                                    <input
-                                        type="checkbox"
-                                        class="text-primary-600 border-gray-300 rounded shrink-0 focus:ring-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-primary-500 dark:checked:border-primary-500 dark:focus:ring-offset-gray-800"
-                                        id="hs-at-with-checkboxes-1"
-                                    />
-                                    <span class="sr-only">Checkbox</span>
-                                </label>
-                            </div>
-                        </td>
-                        <td class="size-px whitespace-nowrap">
-                            <div class="py-3 ps-6 lg:ps-3 xl:ps-0 pe-6">
-                                <span
-                                    class="text-sm font-bold text-gray-800 dark:text-gray-200"
-                                    >{{ value(findColumn("name")) }}
-                                </span>
-                            </div>
-                        </td>
-                        <td class="size-px whitespace-nowrap">
-                            <div class="px-6 py-3">
-                                <span
-                                    class="text-sm font-bold text-gray-800 dark:text-gray-200"
-                                >
-                                    {{ value(findColumn("code")) }}
-                                </span>
-                            </div>
-                        </td>
-                        <td class="size-px whitespace-nowrap">
-                            <div class="px-6 py-3">
-                                <div
-                                    v-if="value(findColumn('agent'))"
-                                    class="flex items-center gap-x-3"
-                                >
-                                    <img
-                                        class="inline-block size-[38px] rounded-full"
-                                        :src="
-                                            extra(findColumn('agent'), 'avatar')
-                                        "
-                                        alt="Avatar"
-                                    />
-                                    <div class="grow">
-                                        <span
-                                            class="block text-sm font-semibold text-gray-800 dark:text-gray-200"
-                                            >{{
-                                                value(findColumn("agent"))
-                                            }}</span
-                                        >
-                                        <span
-                                            class="block text-sm text-gray-500"
-                                        >
-                                            {{
-                                                extra(
-                                                    findColumn("agent"),
-                                                    "email",
-                                                )
-                                            }}
-                                        </span>
-                                    </div>
-                                </div>
-                                <span
-                                    v-else
-                                    class="text-sm font-bold text-gray-800 dark:text-gray-200"
-                                >
-                                    Assign an agent
-                                </span>
-                            </div>
-                        </td>
-                        <td class="size-px whitespace-nowrap">
-                            <div class="px-6 py-3">
-                                <div class="flex items-center gap-x-3">
-                                    <span
-                                        class="text-sm text-gray-800 dark:text-gray-200"
-                                    >
-                                        {{ value(findColumn("election")) }}
-                                    </span>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="size-px whitespace-nowrap">
-                            <div class="px-6 py-3">
-                                <span
-                                    class="text-sm font-bold text-gray-800 dark:text-gray-200"
-                                    >{{ value(findColumn("created_at")) }}
-                                </span>
-                            </div>
-                        </td>
-                        <td class="size-px whitespace-nowrap">
-                            <div class="px-6 py-1.5">
-                                <!-- <a
-                                    data-hs-overlay="#hs-overlay-create-user"
-                                    class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                >
-                                    Edit
-                                </a> -->
-                                <router-link
-                                    :href="
-                                        route('voting.polling-stations.show', {
-                                            id: +extra(
-                                                findColumn('name'),
-                                                'id',
-                                            ),
-                                        })
-                                    "
-                                    class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                    >Details</router-link
-                                >
-                            </div>
-                        </td>
-                    </tr>
-
-                    <VotingPollingStationsTableRow
+                    <VotingPollingStationsPollingSationRow
                         v-for="row in table.records"
                         :key="row.key"
                         :row="row"
                         :columns="table.columns"
                         :findColumn="findColumn"
                     />
-                </div>
             </div>
             <!-- End Table -->
 

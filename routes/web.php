@@ -112,6 +112,8 @@ Route::prefix('voting')
                 Route::get('{id}/show', \App\Actions\Voting\Ballots\Show::class)->name('show');
                 Route::get('', \App\Actions\Voting\Ballots\Index::class)->name('index');
                 Route::post('', \App\Actions\Voting\Ballots\Store::class)->name('store');
+                Route::get('option/create', \App\Actions\Voting\Ballots\CreateOption::class)->name('option.create');
+
             });
 
         Route::prefix('requests')

@@ -7,6 +7,8 @@ useHead({
 
 const elections: any = useProperty("elections.all");
 
+const isUpload = ref(false);
+
 
 </script>
 
@@ -33,7 +35,7 @@ const elections: any = useProperty("elections.all");
             </div>
         </div>
         <div class="mt-5">
-            <VotingBallotsFormsCreate  :elections="elections" />
+            <VotingBallotsOptionForm  :elections="elections" />
         </div>
     </SharedCommonOverlay>
 </template>
