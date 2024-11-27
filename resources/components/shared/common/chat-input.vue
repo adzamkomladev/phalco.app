@@ -23,4 +23,3 @@ const model = defineModel();
         </button>
     </div>
 </template>
-
