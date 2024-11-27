@@ -6,8 +6,6 @@ useHead({
 });
 
 const elections: any = useProperty("elections.all");
-
-
 </script>
 
 <template>
@@ -33,7 +31,7 @@ const elections: any = useProperty("elections.all");
             </div>
         </div>
         <div class="mt-5">
-            <VotingBallotsFormsCreate  :elections="elections" />
+            <VotingBallotsFormsCreate :elections="elections" />
         </div>
     </SharedCommonOverlay>
 </template>

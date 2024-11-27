@@ -8,8 +8,6 @@ useHead({
 const elections: any = useProperty("elections.all");
 
 const isUpload = ref(false);
-
-
 </script>
 
 <template>
@@ -35,7 +33,7 @@ const isUpload = ref(false);
             </div>
         </div>
         <div class="mt-5">
-            <VotingBallotsOptionForm  :elections="elections" />
+            <VotingBallotsOptionForm :elections="elections" />
         </div>
     </SharedCommonOverlay>
 </template>

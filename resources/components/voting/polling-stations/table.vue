@@ -95,18 +95,16 @@ watch(search, debounceFn);
             <!-- End Header -->
 
             <!-- Table -->
-            <div class="w-full divide-y divide-gray-200 dark:divide-gray-700 p-4 flex gap-4 flex-wrap">
-           
-
-                    
-
-                    <VotingPollingStationsPollingSationRow
-                        v-for="row in table.records"
-                        :key="row.key"
-                        :row="row"
-                        :columns="table.columns"
-                        :findColumn="findColumn"
-                    />
+            <div
+                class="w-full divide-y divide-gray-200 dark:divide-gray-700 p-4 flex gap-4 flex-wrap"
+            >
+                <VotingPollingStationsPollingSationRow
+                    v-for="row in table.records"
+                    :key="row.key"
+                    :row="row"
+                    :columns="table.columns"
+                    :findColumn="findColumn"
+                />
             </div>
             <!-- End Table -->
 

@@ -44,7 +44,6 @@
                     >
                         Voting Requests
                     </h2>
-                  
                 </div>
 
                 <div>
@@ -125,7 +124,6 @@
                         :columns="table.columns"
                         :findColumn="findColumn"
                     /> -->
-                
                 </tbody>
             </table>
         </div>

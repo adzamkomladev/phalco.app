@@ -5,14 +5,17 @@ import HSFileUpload from "@preline/file-upload";
 
 const fileUpload = ref<HTMLInputElement | null>(null);
 const model = defineModel({ required: true });
-const props = withDefaults(defineProps<{
-    error?: string | null;
-    fileTypes?: string | null;
-    path?: string | null;
-    placeholder?:string;
-}>(),{
-placeholder:' Browse through your files and Drop your file here'
-});
+const props = withDefaults(
+    defineProps<{
+        error?: string | null;
+        fileTypes?: string | null;
+        path?: string | null;
+        placeholder?: string;
+    }>(),
+    {
+        placeholder: " Browse through your files and Drop your file here",
+    },
+);
 onMounted(() => {
     // Initialize File Upload
     HSFileUpload.autoInit();

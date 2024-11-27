@@ -35,18 +35,18 @@ const { key, value, extra } = props.row;
                 {{ value(findColumn("assigned_at")) }}
             </div>
         </td>
-        <td class="whitespace-nowrap text-gray-500">
-        </td>
-      
+        <td class="whitespace-nowrap text-gray-500"></td>
+
         <td class="h-px whitespace-nowrap">
             <div class="px-6 py-3 text-sm w-fit">
-                <SharedTableRequestStatus :status="value(findColumn('status'))" />
+                <SharedTableRequestStatus
+                    :status="value(findColumn('status'))"
+                />
             </div>
         </td>
         <td class="size-px whitespace-nowrap">
             <div class="px-6 py-1.5 xl:pr-20">
                 <router-link
-                 
                     class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
                     Details

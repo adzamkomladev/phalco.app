@@ -5,7 +5,7 @@ const props = defineProps<{
 
 const form = useForm({
     method: "POST",
-    fields: {        
+    fields: {
         candidate_logo: null,
         candidate_name: "",
         party: "",
@@ -21,17 +21,14 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
     value: e.id,
     label: e.name,
 }));
-
 </script>
 
 <template>
     <form @submit.prevent="form.submit" class="pb-12">
         <div class="grid gap-5 pb-5">
-
             <div class="sm:col-span-9">
                 <SharedFormBaseImageUpload
-
-                     v-model="form.fields.candidate_logo"
+                    v-model="form.fields.candidate_logo"
                     :error="form.errors.candidate_logo"
                     id="candidate_name"
                     name="candidate_name"
@@ -40,7 +37,7 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
             </div>
             <div class="sm:col-span-9">
                 <SharedFormBaseInput
-                 v-model="form.fields.candidate_name"
+                    v-model="form.fields.candidate_name"
                     :error="form.errors.candidate_name"
                     id="candidate_name"
                     name="candidate_name"
@@ -66,16 +63,16 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                     placeholder="candidate Position"
                 />
             </div>
-           
         </div>
- <div class="">
-          <SharedFormBaseFileUpload v-model="form.fields.party_logo" placeholder="browse through your file or drop to upload organisation/party party logo" />
-     </div>
-
+        <div class="">
+            <SharedFormBaseFileUpload
+                v-model="form.fields.party_logo"
+                placeholder="browse through your file or drop to upload organisation/party party logo"
+            />
+        </div>
 
         <div class="mt-10 flex justify-end gap-x-2">
-            <SharedFormSubmitButton  text="Create" :loading="form.processing" />
+            <SharedFormSubmitButton text="Create" :loading="form.processing" />
         </div>
-
     </form>
 </template>
