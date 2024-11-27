@@ -23,7 +23,9 @@ const props = defineProps<{
         <div
             class="flex rounded-3xl bg-secondary-300 dark:bg-gradient-to-r from-secondary-950 to-secondary-800"
         >
-            <div class="font-medium pt-10 px-10 basis-1/2 shrink-0 grow">
+            <div
+                class="font-medium mobile:py-5 mobile_:py-5 place-content-center px-10 basis-1/2 shrink-0 grow"
+            >
                 <p class="text-gray-50 text-lg dark:text-gray-100">
                     Add new Agent
                 </p>
@@ -34,12 +36,13 @@ const props = defineProps<{
             <div class="">
                 <img
                     :src="VottingRequestImage"
-                    class="w-full _sm:hidden h-52 w-auto"
+                    class="mobile:hidden h-52 w-auto"
                 />
             </div>
         </div>
-        <div class="mt-5">
+        <div class="mt-5 grid gap-4">
             <VotingRequestsShowResponse />
+            <VotingRequestsShowResultList />
         </div>
     </SharedCommonOverlay>
 </template>

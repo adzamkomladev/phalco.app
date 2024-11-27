@@ -11,11 +11,13 @@ const dateSent = useDateFormat(props.requestedAt, "YYYY MMM DD HH:mm:ss");
 
 <template>
     <sharedCommonCard
-        class="flex justify-between items-center ] w-full sm:place-self-center"
+        class="flex justify-between items-center w-full sm:place-self-center rounded-lg"
     >
         <div class="">
             <p class="text-lg mobile:text-sm font-semibold">{{ optionName }}</p>
-            <p class="text-black/50 text-xs">Date requested: {{ dateSent }}</p>
+            <p class="text-black/50 text-xs flex flex-wrap">
+                <span>Date requested:</span> <span>{{ dateSent }}</span>
+            </p>
         </div>
         <div class="">
             <SharedTableRequestStatus

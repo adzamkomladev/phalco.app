@@ -8,10 +8,6 @@ export default {
 
     theme: {
         extend: {
-            backgroundImage: {
-                "gradient-to-45":
-                    "linear-gradient(45deg, var(--tw-gradient-stops))",
-            },
             aspectRation: {
                 card: "3.374/2.125",
             },
@@ -169,10 +165,15 @@ export default {
                     "0%": { maxHeight: "1000px", opacity: "1" },
                     "100%": { maxHeight: "0px", opacity: "0" },
                 },
+                rotate: {
+                    "0%": { transform: "rotate(0deg) scale(10)" },
+                    "100%": { transform: "rotate(-360deg) scale(10)" },
+                },
             },
             animation: {
                 expand: "expand 0.3s ease-out forwards",
                 collapse: "collapse 0.3s ease-out forwards",
+                rotate: "rotate 10s linear infinite",
             },
         },
     },
