@@ -12,8 +12,7 @@ const model = defineModel();
         />
         <button
             class="absolute right-0 top-0 w-20 flex items-center justify-center rounded-r-full h-full"
-        >
-            <SharedCommonIcon
+        ><SharedCommonIcon
                 name="kite"
                 class=""
                 :class="[
