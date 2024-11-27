@@ -9,7 +9,7 @@ const { key, value, extra } = props.row;
 </script>
 
 <template>
-    <tr  class="text-sm ">
+    <tr class="text-sm">
         <td class="size-px whitespace-nowrap">
             <div class="ps-6 py-3">
                 <label for="hs-at-with-checkboxes-1" class="flex">
@@ -23,24 +23,25 @@ const { key, value, extra } = props.row;
             </div>
         </td>
 
-       
-        <td class="py-3 ps-6  lg:ps-3  pe-6 text-start whitespace-nowrap text-gray-500">
+        <td
+            class="py-3 ps-6 lg:ps-3 pe-6 text-start whitespace-nowrap text-gray-500"
+        >
             <div class="font-semibold">
                 {{ value(findColumn("position")) }}
             </div>
         </td>
-        <td class=" whitespace-nowrap text-gray-500">
+        <td class="whitespace-nowrap text-gray-500">
             <div class="px-6 py-3">
                 {{ value(findColumn("code")) }}
             </div>
         </td>
-        <td class=" whitespace-nowrap text-gray-500">
+        <td class="whitespace-nowrap text-gray-500">
             <!-- <div class="px-6 py-3">{{ value(findColumn("ballot options")) }}</div> -->
-        </td> 
-        <td class=" whitespace-nowrap text-gray-500">
+        </td>
+        <td class="whitespace-nowrap text-gray-500">
             <div class="px-6 py-3">{{ value(findColumn("election")) }}</div>
-        </td> 
-        <td class="h-px whitespace-nowrap ">
+        </td>
+        <td class="h-px whitespace-nowrap">
             <div class="px-6 py-3 text-sm w-fit">
                 <SharedTableStatus :status="value(findColumn('status'))" />
             </div>
@@ -50,7 +51,7 @@ const { key, value, extra } = props.row;
                 <router-link
                     :href="
                         route('voting.ballots.show', {
-                            id:3,
+                            id: 3,
                         })
                     "
                     class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"

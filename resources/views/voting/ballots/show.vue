@@ -8,16 +8,13 @@ const props = defineProps<{
 </script>
 
 <template layout="main">
-
     <div class="grid lg:grid-cols-7 gap-4">
         <div class="lg:col-span-4">
-                    <VotingBallotsShowTable/>
-
+            <VotingBallotsShowTable />
         </div>
-        <div class="lg:col-span-3 grid sm:_lg:grid-cols-2 gap-4 lg " >
-<VotingBallotsShowLeadingCandidate/>
-<VotingBallotsShowMessage/>
-
+        <div class="lg:col-span-3 grid sm:_lg:grid-cols-2 gap-4 lg">
+            <VotingBallotsShowLeadingCandidate />
+            <VotingBallotsShowMessage />
         </div>
     </div>
 </template>
