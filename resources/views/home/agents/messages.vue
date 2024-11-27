@@ -83,6 +83,7 @@ const chatData = [
 ];
 
 const message = ref("");
+const message = ref("");
 </script>
 
 <template layout="agents">
@@ -138,6 +139,7 @@ const message = ref("");
                 <div v-for="chat in chatData" :key="chat.id" class="flex gap-2">
                     <img
                         v-if="chat.user !== 'me'"
+                        class="inline-block size-9 rounded-full"
                         class="inline-block size-9 rounded-full"
                         src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80"
                         alt="Avatar"
