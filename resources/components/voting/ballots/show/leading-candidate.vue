@@ -8,12 +8,10 @@ const props = withDefaults(defineProps<{ message: string }>(), {
 
 <template>
     <SharedCommonCard
-        class="font-medium h-full grid mobile_:_sm:py-10 text-center    gap-4 shadow-card _sm:shadow _sm:p-5 rounded-2xl"
+        class="font-medium h-full grid mobile_:_sm:py-10 text-center gap-4 shadow-card _sm:shadow _sm:p-5 rounded-2xl"
     >
-        <p class="text-gray-800 font-semibold text-md ">
-            Leading Candidate
-        </p>
-        <div class="grid mobile_:_sm:grid-cols-2  gap-4">
+        <p class="text-gray-800 font-semibold text-md">Leading Candidate</p>
+        <div class="grid mobile_:_sm:grid-cols-2 gap-4">
             <div class="grid place-items-center">
                 <img
                     src=""

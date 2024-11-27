@@ -95,11 +95,8 @@
 
         <div class="w-full overflow-x-scroll">
             <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
-               
-
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                  
-                     <!-- <VotingBallotsRow
+                    <!-- <VotingBallotsRow
                                     v-for="row in table.records"
                                     :key="row.key"
                                     :row="row"
@@ -107,9 +104,9 @@
                                     :findColumn="findColumn"
                        /> -->
 
-                       <VotingBallotsShowCandidateRow />
+                    <VotingBallotsShowCandidateRow />
                 </tbody>
-            </table> 
+            </table>
         </div>
         <!-- End Table -->
 
