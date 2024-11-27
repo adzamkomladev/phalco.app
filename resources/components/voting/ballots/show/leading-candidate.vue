@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<{ message: string }>(), {
         <p class="text-gray-800 font-semibold text-md text-center">
             Leading Candidate
         </p>
-        <div class="">
+        <div class="grid">
             <div class="grid place-items-center">
                 <img
                     src=""
