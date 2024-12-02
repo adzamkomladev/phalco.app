@@ -12,10 +12,10 @@ const props = defineProps<{
         @click="$emit('select', organization.id)"
         :disabled="loading"
         type="submit"
-        class="w-full justify-between font-black text-gray-600 shadow-card focus:text-white gap-20 border-[#E3E4E6] hover:border-gray-400 h-20 _md:h-16 py-2 px-4 flex items-center gap-x-2 text-base xl:text-lg rounded-lg border-2 border-transparent active:opacity-90 hover:bg-gray-50 hover:opacity-90 focus:outline-none focus:bg-primary-400 disabled:opacity-50 disabled:pointer-events-none"
+        class="w-full justify-between font-black text-gray-600 shadow-card focus:text-white gap-20 border-[#E3E4E6] hover:border-gray-400 h-16 _md:h-16 py-2 px-4 flex items-center gap-x-2 text-base xl:text-lg rounded-lg border-2 border-transparent active:opacity-90 hover:bg-gray-50 hover:opacity-90 focus:outline-none focus:bg-primary-400 disabled:opacity-50 disabled:pointer-events-none"
     >
         <div class="flex gap-4 items-center">
-            <img class="size-12" :src="organization.logo" />
+            <img class="size-10" :src="organization.logo" />
             <span>{{ organization.name }} </span>
         </div>
 

@@ -19,16 +19,16 @@ const defaultSelectClass =
     "py-2 px-3 justify-between gap-2 capitalize text-gray-500 min-w-fit flex items-center cursor-pointer bg-white  border rounded-lg text-start text-sm dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400";
 
 const defaultOptionClass =
-    "  text-left rounded-md font-thin px-4 text-gray-500 dark:text-gray-300 ";
+    "  text-left rounded-md font-thin px-4 text-gray-500 dark:text-gray-400 ";
 const defaultOptionsClass =
-    " max-h-44 rounded-md  border dark:border-none  overflow-y-scroll gap-1 p-2 px-1 flex flex-col bg-white dark:bg-gray-800 min-w-fit ";
-const defaultSelectedClass = " bg-gray-100 dark:bg-gray-700 ";
+    " max-h-44 rounded-md  border  overflow-y-auto gap-1 p-2 px-1 flex flex-col bg-white dark:bg-gray-900 dark:border dark:border-gray-700 min-w-fit ";
+const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
 </script>
 
 <template>
     <SharedCommonDropdown
         buttonClass="w-full"
-        dialogClass=" "
+        dialogClass="z-50 "
         :position="position"
         :hideContentOnSelect="hideOnSelect"
     >
@@ -38,13 +38,19 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-700 ";
                 <div :class="[' flex items-center flex-col ']">
                     <SharedCommonIcon
                         name="chevron_double"
-                        class="text-gray-700 h-4"
+                        class="text-gray-700 h-4 dark:text-gray-400"
                     />
                 </div>
             </button>
         </template>
 
-        <div :class="[defaultOptionsClass, optionsClass]">
+        <div
+            :class="[defaultOptionsClass, optionsClass]"
+            v-if="options.length > 0"
+        >
+            <button disabled :class="[defaultOptionClass, 'opacity-50']">
+                {{ placeholder }}
+            </button>
             <button
                 v-for="(option, index) in options"
                 :key="index"
@@ -55,12 +61,16 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-700 ";
                     selected ===
                     (typeof option === 'object' ? option.value : option)
                         ? defaultSelectedClass + selectedClass
-                        : 'hover:bg-gray-50 dark:hover:bg-gray-700',
+                        : 'hover:bg-gray-50 dark:hover:bg-gray-800',
                     defaultOptionClass,
                     optionClass,
                 ]"
             >
-                {{ option.label || option }}
+                <SharedCommonIcon
+                    v-if="hasIcon"
+                    class="h-5"
+                    :name="option.label || option"
+                /><span>{{ option.label || option }}</span>
             </button>
         </div>
     </SharedCommonDropdown>

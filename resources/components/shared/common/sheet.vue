@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Sheet } from "~/resources/interfaces/common/index.interface";
+import { Sheet } from "~/resources/interfaces/shared/common.interface";
 
 const props = defineProps<Sheet>();
 </script>

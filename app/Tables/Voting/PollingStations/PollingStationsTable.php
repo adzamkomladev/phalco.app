@@ -23,6 +23,8 @@ final class PollingStationsTable extends Table
             Columns\TextColumn::make('name')->label('Name')
                 ->extra((fn (PollingStation $pollingStation) => ['id' => $pollingStation->id])),
             Columns\TextColumn::make('code')->label('Code'),
+            Columns\TextColumn::make('status')->label('Status')
+                ->transformValueUsing(fn (PollingStation $pollingStation) => 'active'),
             Columns\TextColumn::make('agent')->label('Agent')
                 ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->agent?->name)
                 ->extra((fn (PollingStation $pollingStation) => [
@@ -30,10 +32,8 @@ final class PollingStationsTable extends Table
                     'email' => $pollingStation->agent?->email,
                     'avatar' => $pollingStation->agent?->avatar,
                 ])),
-            Columns\TextColumn::make('election')->label('Election')
-                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->election?->name),
-            Columns\TextColumn::make('created_at')->label('Created')
-                ->transformValueUsing(fn (PollingStation $pollingStation) => $pollingStation->created_at->diffForHumans()),
+            Columns\TextColumn::make('votes')->label('Votes')
+                ->transformValueUsing(fn (PollingStation $pollingStation) => 0),
         ];
     }
 

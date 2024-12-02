@@ -33,7 +33,7 @@ watch(search, debounceFn);
             <div class="-m-1.5 overflow-x-auto">
                 <div class="p-1.5 min-w-full inline-block align-middle">
                     <div
-                        class="bg-white border shadow-card border-gray-200 rounded-2xl overflow-hidden dark:bg-gray-800 dark:border-gray-700"
+                        class="bg-white border shadow-md border-gray-200 rounded-2xl overflow-hidden dark:bg-gray-800 dark:border-gray-700"
                     >
                         <div>
                             <div

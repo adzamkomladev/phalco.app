@@ -92,10 +92,7 @@ const positionClass = ref(getType());
                 >
                     <div class="pb-6 portrait:flex flex-col">
                         <div class="flex flex-col gap-4">
-                            <p
-                                v-if="subtitle"
-                                class="text-lg font-bold lg:text-xl"
-                            >
+                            <p v-if="subtitle" class="text-lg font-bold">
                                 {{ subtitle }}
                             </p>
                             <p
