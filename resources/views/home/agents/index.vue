@@ -1,25 +1,32 @@
 <script setup lang="ts">
+import { secondsUntil } from "~/resources/utils/shared/date";
+
 useHead({
-    title: "Agents",
+    title: "Home: Agents",
 });
 
-import { formatDate, secondsUntil } from "~/resources/utils/shared/date";
+defineProps<{
+    requests: App.Data.Agents.RequestData[];
+}>();
 
-const timeLeftToEndDate = Math.floor(secondsUntil(new Date()));
+const election = useProperty("elections.selected");
+console.log(new Date(election.value?.end!))
+const timeLeftToEndDate = Math.floor(
+    secondsUntil(new Date(election.value?.end!)),
+);
 </script>
 <template layout="agents">
     <div>
         <div class="place-self-center text-center py-10">
             <SharedCommonTimer
                 class="text-4xl md:text-5xl md:_xl:text-5xl font-black"
-                :duration="7898"
+                :duration="timeLeftToEndDate"
             />
-
             <p class="font-normal text-sm dark:text-gray-300 text-gray-500">
-                General Election time left,
+                {{ election?.name }} time left,
             </p>
         </div>
 
-        <HomeAgentsTable />
+        <HomeAgentsRequestIndexTable :requests="requests" />
     </div>
 </template>

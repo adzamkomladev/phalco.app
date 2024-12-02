@@ -64,7 +64,7 @@ const loginIn = computed(() => current?.value?.split(".").includes("index"));
                         class="flex gap-10 w-fit text-lg relative place-self-center"
                     >
                         <router-link
-                            :href="route('home.agents.dashboard.index')"
+                            :href="route('home.agents')"
                             class="py-2 relative rounded focus:outline-none"
                             :class="
                                 !isMessages
@@ -82,7 +82,7 @@ const loginIn = computed(() => current?.value?.split(".").includes("index"));
                         </router-link>
 
                         <router-link
-                            :href="route('home.agents.messages')"
+                            :href="route('agents.messages.index')"
                             class="py-2 rounded focus:outline-none relative"
                             :class="
                                 isMessages

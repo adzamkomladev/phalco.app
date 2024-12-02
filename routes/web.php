@@ -42,7 +42,7 @@ Route::prefix('email')
             ->middleware(['signed'])
             ->name('verification.verify');
 
-        Route::get('verified', fn () => hybridly('auth.email-verified'))
+    Route::get('verified', fn() => hybridly('auth.email-verified'))
             ->middleware(['auth'])
             ->name('email.verified');
     });
@@ -52,7 +52,7 @@ Route::prefix('password')
     ->middleware(['guest'])
     ->group(function () {
         Route::post('send/reset-link', \App\Actions\Auth\Password\SendResetLink::class)->name('send.reset-link');
-        Route::get('reset/{token}', fn (string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
+    Route::get('reset/{token}', fn(string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
         Route::post('reset', \App\Actions\Auth\Password\Reset::class)->name('reset');
     });
 
@@ -60,7 +60,7 @@ Route::prefix('password')
 
 //region Home Routes
 
-Route::get('home/agents', \App\Actions\Home\Agents::class)->name('home.agents.dashboard.index')
+Route::get('home/agents', \App\Actions\Home\Agents::class)->name('home.agents')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
 Route::get('home/agents/messages', \App\Actions\Messages\Agents\Index::class)->name('home.agents.messages')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
@@ -222,6 +222,22 @@ Route::prefix('settings')
 
         Route::get('billing', \App\Actions\Settings\Billing\Index::class)->name('billing');
         Route::get('organization', \App\Actions\Settings\Organization\Index::class)->name('organization');
+    });
+
+//endregion
+
+//region Agents Routes
+
+Route::prefix('agents')
+    ->name('agents.')
+    ->middleware(['verified', EnsureUserHasSelectedOrganization::class])
+    ->group(function () {
+        Route::get('requests/{id}/show', \App\Actions\Agents\Requests\Show::class)->name('requests.show');
+        Route::post('requests', \App\Actions\Agents\Requests\Store::class)->name('requests.store');
+        Route::get('requests/{id}/create', \App\Actions\Agents\Requests\Create::class)->name('requests.create');
+
+        Route::get('messages', \App\Actions\Agents\Messages\Index::class)->name('messages.index');
+        Route::post('messages', \App\Actions\Agents\Messages\Store::class)->name('messages.store');
     });
 
 //endregion

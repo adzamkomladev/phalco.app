@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { ElectionRequestRequestStatusProps } from "~/resources/interfaces/home/agent.interface";
-
-defineProps<{ request: ElectionRequestRequestStatusProps }>();
+defineProps<{ request: App.Data.Agents.RequestData }>();
 </script>
 
 <template>
@@ -14,12 +12,12 @@ defineProps<{ request: ElectionRequestRequestStatusProps }>();
                         <span
                             class="block _sm:max-w-[12rem] mobile:w-[10rem] whitespace-nowrap overflow-hidden text-ellipsis mobile:text-xs font-semibold text-gray-800 dark:text-gray-200"
                         >
-                            {{ request.election_name }}d
+                            {{ request.position }}
                         </span>
                         <span
                             class="block text-xs mobile:text-[10px] text-gray-500"
                         >
-                            {{ request.date_sent }}
+                            {{ request.createdAt }}
                         </span>
                     </div>
                 </div>
@@ -39,11 +37,18 @@ defineProps<{ request: ElectionRequestRequestStatusProps }>();
         <td
             class="ps-6 py-4 mobile:ps-4 pe-4 mobile:text-[10px] whitespace-nowrap text-right text-sm font-medium"
         >
-            <a
+            <router-link
+                v-if="request.status !== 'not_started'"
                 class="text-secondary-300 hover:opacity-90"
                 :href="route('agents.request')"
-                >View Details</a
-            >
+                >View Details
+            </router-link>
+            <router-link
+                v-else
+                class="text-secondary-300 hover:opacity-90"
+                :href="route('agents.requests.create', { id: +request.id })"
+                >Submit Votes
+            </router-link>
         </td>
     </tr>
 </template>
