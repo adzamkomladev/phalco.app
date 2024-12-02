@@ -169,7 +169,7 @@ const fileUploadOptions = JSON.stringify({
                         class="mt-4 flex flex-wrap justify-center text-sm leading-6 text-gray-600"
                     >
                         <span
-                            class="pe-1 font-medium text-gray-800 dark:text-gray-200"
+                            class="pe-1 font-medium mobile:text-xs text-gray-800 dark:text-gray-200"
                         >
                             Browse through your files and Drop your file here
                         </span>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions\Messages\Agents;
+namespace App\Actions\Agents\Messages;
 
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -10,7 +10,7 @@ class Index
 
     public function asController()
     {
-        return hybridly('home.agents.messages');
+        return hybridly('agents.messages.index');
     }
 
     public function handle()

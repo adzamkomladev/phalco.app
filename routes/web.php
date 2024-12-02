@@ -15,6 +15,9 @@ Route::get('/phone-verif', function () {
     return hybridly('auth.phone-verification');
 })->name('phone-verif');
 
+Route::get('/send-request', function () {
+    return hybridly('home.agents.request-form');
+})->name('send-request');
 Route::get('/top-up', function () {
     return hybridly('finance.transactions.show');
 })->name('election-selected');
@@ -62,6 +65,11 @@ Route::prefix('password')
 
 Route::get('home/agents', \App\Actions\Home\Agents::class)->name('home.agents')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
+Route::get('home/agents/messages', \App\Actions\Messages\Agents\Index::class)->name('home.agents.messages')
+    ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
+Route::get('/agent/request', function () {
+    return hybridly('home.agents.request-show');
+})->name('agents.request');
 
 Route::get('home', \App\Actions\Home\Index::class)->name('home')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
@@ -217,6 +225,22 @@ Route::prefix('settings')
 
         Route::get('billing', \App\Actions\Settings\Billing\Index::class)->name('billing');
         Route::get('organization', \App\Actions\Settings\Organization\Index::class)->name('organization');
+    });
+
+//endregion
+
+//region Agents Routes
+
+Route::prefix('agents')
+    ->name('agents.')
+    ->middleware(['verified', EnsureUserHasSelectedOrganization::class])
+    ->group(function () {
+        Route::get('requests/{id}/show', \App\Actions\Agents\Requests\Show::class)->name('requests.show');
+        Route::post('requests', \App\Actions\Agents\Requests\Store::class)->name('requests.store');
+        Route::get('requests/{id}/create', \App\Actions\Agents\Requests\Create::class)->name('requests.create');
+
+        Route::get('messages', \App\Actions\Agents\Messages\Index::class)->name('messages.index');
+        Route::post('messages', \App\Actions\Agents\Messages\Store::class)->name('messages.store');
     });
 
 //endregion

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Actions\Agents\LoginSetup;
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
@@ -26,9 +27,12 @@ class FortifyServiceProvider extends ServiceProvider
         {
             public function toResponse($request)
             {
-                $role = $request->user()?->selectedOrganizationMembership?->role;
+                $user = $request->user();
+                $role = $user?->selectedOrganizationMembership?->role;
 
                 if ($role?->name === 'agent') {
+                    LoginSetup::run($user->id, $user->selected_organization_id);
+
                     return redirect()->intended(route('home.agents'));
                 }
 

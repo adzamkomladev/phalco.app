@@ -27,6 +27,7 @@ export default {
                 "about-sm": "url('../svg/welcome/about_bg_sm.svg')",
                 "about-lg": "url('../svg/welcome/about_bg_lg.svg')",
                 "menu-br": "url('../svg/welcome/menu/background.svg')",
+                "chat": "url('https://www.transparenttextures.com/patterns/asfalt-dark.png')",
                 organization: "url('../svg/organization/layout.svg')",
             },
             screens: {
@@ -41,6 +42,9 @@ export default {
                 },
                 _xs: {
                     raw: `only screen and (max-width: 500px)`,
+                },
+                mobile: {
+                    raw: `only screen and (max-width: 380px)`,
                 },
                 _sm: {
                     raw: `only screen and (max-width: 639px)`,
