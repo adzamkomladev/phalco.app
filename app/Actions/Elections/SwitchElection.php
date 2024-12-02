@@ -35,7 +35,7 @@ class SwitchElection
                 'id' => $election->id,
                 'name' => $election->name,
                 'logo' => $election->logo,
-            'end' => $election->end,
+                'end' => $election->end,
             ]);
 
         return $election;

@@ -24,8 +24,8 @@ class Agents
             $election,
             $pollingStation
         ] = Octane::concurrently([
-            fn() => cache()->get("elections.selected.{$userId}"),
-            fn() => cache()->get("agentPollingStation.selected.{$userId}"),
+            fn () => cache()->get("elections.selected.{$userId}"),
+            fn () => cache()->get("agentPollingStation.selected.{$userId}"),
         ]);
 
         [
@@ -34,7 +34,7 @@ class Agents
         ] = Index::run($userId, $election['id'], $pollingStation['id']);
 
         $submitted = collect($submitted)
-            ->map(fn(VoteEntryRequest $request) => RequestData::from([
+            ->map(fn (VoteEntryRequest $request) => RequestData::from([
                 'id' => $request->id,
                 'position' => $request->ballot->position,
                 'description' => $request->ballot->description,
@@ -43,7 +43,7 @@ class Agents
             ]));
 
         $pending = collect($pending)
-            ->map(fn(Ballot $ballot) => RequestData::from([
+            ->map(fn (Ballot $ballot) => RequestData::from([
                 'id' => $ballot->id,
                 'position' => $ballot->position,
                 'description' => $ballot->description,

@@ -15,7 +15,8 @@ defineProps<{
                             All Vote Requests
                         </h2>
                         <p class="text-sm text-gray-600 dark:text-gray-400">
-                            Statuses of all the vote requests for this polling station
+                            Statuses of all the vote requests for this polling
+                            station
                         </p>
                     </div>
                 </div>

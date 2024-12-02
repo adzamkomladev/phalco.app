@@ -14,7 +14,7 @@ class LoginSetup
     {
         $election = cache()->get("elections.selected.{$userId}");
 
-        if (!$election) {
+        if (! $election) {
             $retrievedElection = Election::select(['id', 'name', 'logo', 'end'])
                 ->whereRelation('organization.organizationMemberships', 'user_id', $userId)
                 ->where('organization_id', $organizationId)

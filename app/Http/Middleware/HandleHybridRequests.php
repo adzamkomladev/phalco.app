@@ -26,11 +26,11 @@ class HandleHybridRequests extends Middleware
         $userId = $user?->id;
 
         [$elections, $election] = Octane::concurrently([
-            fn() => Election::select(['id', 'name', 'logo', 'end'])
+            fn () => Election::select(['id', 'name', 'logo', 'end'])
                 ->where('organization_id', $selectedOrganizationId)
                 ->where('status', 'active')
                 ->get(),
-            fn() => cache()->get("elections.selected.{$userId}"),
+            fn () => cache()->get("elections.selected.{$userId}"),
         ]);
         $pollingStation = null;
         if ($election) {

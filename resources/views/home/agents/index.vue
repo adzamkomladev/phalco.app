@@ -10,7 +10,7 @@ defineProps<{
 }>();
 
 const election = useProperty("elections.selected");
-console.log(new Date(election.value?.end!))
+console.log(new Date(election.value?.end!));
 const timeLeftToEndDate = Math.floor(
     secondsUntil(new Date(election.value?.end!)),
 );
