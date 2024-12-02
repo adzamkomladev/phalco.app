@@ -30,7 +30,7 @@ const debounceFn = useDebounceFn(
 
 watch(search, debounceFn);
 
-const emit = defineEmits(['selectAgent', 'onclick'])
+const emit = defineEmits(["selectAgent", "onclick"]);
 </script>
 <template>
     <div
@@ -125,8 +125,8 @@ const emit = defineEmits(['selectAgent', 'onclick'])
 
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                     <VotingAgentsRow
-                     @click="$emit('selectAgent', row)"
-                      v-for="row in table.records"
+                        @click="$emit('selectAgent', row)"
+                        v-for="row in table.records"
                         :key="row.key"
                         :row="row"
                         :columns="table.columns"

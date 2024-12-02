@@ -13,13 +13,11 @@ const table = useTable(props, "agents");
 
 const TotalAgents: number = table.records.length;
 
-
-const selectedAgent= ref(0);
-const selectAgent=(id:number)=>{
-console.log(id);
-    selectedAgent.value=id
-}
-
+const selectedAgent = ref(0);
+const selectAgent = (id: number) => {
+    console.log(id);
+    selectedAgent.value = id;
+};
 </script>
 
 <template layout="main">
@@ -34,11 +32,9 @@ console.log(id);
                     Agents
                 </h2>
                 <p class="text-sm text-gray-600 dark:text-gray-400 pb-5">
-                    Manage all Agents of an electionm {{selectedAgent}} 
+                    Manage all Agents of an electionm {{ selectedAgent }}
                 </p>
             </div>
-
-            
         </div>
 
         <div class="grid grid-cols-7 _md:flex flex-col gap-4 sm:gap-6">

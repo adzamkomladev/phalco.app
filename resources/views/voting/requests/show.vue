@@ -29,9 +29,6 @@ const testData: VoteRequestresult = {
     ],
 };
 
-
-
-
 useHead({
     title: "Voting: Vote Entry Request Details",
 });
@@ -39,8 +36,6 @@ useHead({
 const props = defineProps<{
     voteEntryRequest: any;
 }>();
-
-
 </script>
 
 <template>
@@ -75,8 +70,11 @@ const props = defineProps<{
         </div>
         <div class="mt-5 grid gap-4">
             <VotingRequestsShowResponse />
-            <VotingRequestsShowResultList  :ballot-name="testData.ballotName" :options-result="testData.optionsResult" />
+            <VotingRequestsShowResultList
+                :ballot-name="testData.ballotName"
+                :options-result="testData.optionsResult"
+            />
         </div>
-        <VotingRequestsShowFeedback/>
+        <VotingRequestsShowFeedback />
     </SharedCommonOverlay>
 </template>

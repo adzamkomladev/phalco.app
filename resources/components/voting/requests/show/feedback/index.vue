@@ -15,18 +15,15 @@ const switchFeedbackPage = (name: string) => {
     currentPage.value = name;
 };
 
-const imageList = [
-];
-
+const imageList = [];
 </script>
 
-<template >
-    <div class="grid gap-4 py-5  ">
-
+<template>
+    <div class="grid gap-4 py-5">
         <div class="">
             <div class="">
                 <p class="text-base text-black mobile:text-sm font-semibold">
-                  Election Feedback
+                    Election Feedback
                 </p>
                 <p class="text-black/50 text-xs">Lorem ipsum dolor sit amet</p>
             </div>
@@ -52,7 +49,9 @@ const imageList = [
                 </button>
             </div>
             <transition name="fade" mode="out-in">
-                <VotingRequestsShowFeedbackComment v-if="currentPage === 'comments'" />
+                <VotingRequestsShowFeedbackComment
+                    v-if="currentPage === 'comments'"
+                />
                 <VotingRequestsShowFeedbackGallary v-else :images="imageList" />
             </transition>
         </div>

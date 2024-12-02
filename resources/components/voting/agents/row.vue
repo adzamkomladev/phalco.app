@@ -6,8 +6,6 @@ const props = defineProps<{
 }>();
 
 const { key, value, extra } = props.row;
-
-
 </script>
 
 <template>
@@ -25,11 +23,8 @@ const { key, value, extra } = props.row;
             </div> -->
         </td>
 
-        <td
-            class=" text-start whitespace-nowrap text-gray-500"
-        >
-            
-             <div class="py-3 ps-6 lg:ps-3 pe-6">
+        <td class="text-start whitespace-nowrap text-gray-500">
+            <div class="py-3 ps-6 lg:ps-3 pe-6">
                 <div class="flex items-center gap-x-3">
                     <!-- <img
                         class="inline-block size-[38px] rounded-full"
@@ -50,17 +45,15 @@ const { key, value, extra } = props.row;
             </div>
         </td>
         <td class="whitespace-nowrap text-gray-500">
-            <div class="px-6 py-3 text-center ">
+            <div class="px-6 py-3 text-center">
                 {{ value(findColumn("polling_stations")) }}
-          </div>
+            </div>
         </td>
-       
+
         <td class="whitespace-nowrap text-gray-500">
             <div class="px-6 py-3">
                 {{ value(findColumn("added_on")) }}
             </div>
         </td>
-
-
     </tr>
 </template>
