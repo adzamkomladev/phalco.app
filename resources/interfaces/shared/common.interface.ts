@@ -26,7 +26,18 @@ export interface DropDown {
 export interface StatsCardProps {
     description: string;
     value: string |number;
-    icon: string;
+    icon?: string;
+}
+
+export interface SpeechBubbleProps {
+    sender?: {
+        name: string;
+        logo: string;
+    };
+    message?: {
+        text: string;
+        time: string;
+    };
 }
 
 export type positionType= "top-right" | "top-left" | "top-center"| "bottom-right"| "bottom-left"| "bottom-center";

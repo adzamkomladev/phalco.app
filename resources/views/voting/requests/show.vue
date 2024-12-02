@@ -1,5 +1,36 @@
 <script setup lang="ts">
 import VottingRequestImage from "~/resources/images/voting/request_details.png?src";
+import { VoteRequestresult } from "~/resources/interfaces/voting/requests/show.interface";
+
+const testData: VoteRequestresult = {
+    ballotName: "Presidential Election 2024",
+    optionsResult: [
+        {
+            optionfirstName: "John",
+            optionLastName: "Doe",
+            optionParty: "Unity Party",
+            optionVoteCount: 15000,
+            optionPosition: 1,
+        },
+        {
+            optionfirstName: "Jane",
+            optionLastName: "Smith",
+            optionParty: "Progressive Alliance",
+            optionVoteCount: 12000,
+            optionPosition: 2,
+        },
+        {
+            optionfirstName: "Emily",
+            optionLastName: "Johnson",
+            optionParty: "Green Future",
+            optionVoteCount: 10000,
+            optionPosition: 3,
+        },
+    ],
+};
+
+
+
 
 useHead({
     title: "Voting: Vote Entry Request Details",
@@ -8,12 +39,14 @@ useHead({
 const props = defineProps<{
     voteEntryRequest: any;
 }>();
+
+
 </script>
 
 <template>
     <SharedCommonOverlay
         title="Vote Entry Request Details"
-        class="max-w-xl w-xl _sm:max-w-full"
+        class="max-w-xl w-xl _sm:max-w-full pb-10"
     >
         <!-- <VotingRequestsFormsUpdateStatus
             v-if="voteEntryRequest.status === 'pending'"
@@ -42,7 +75,8 @@ const props = defineProps<{
         </div>
         <div class="mt-5 grid gap-4">
             <VotingRequestsShowResponse />
-            <VotingRequestsShowResultList />
+            <VotingRequestsShowResultList  :ballot-name="testData.ballotName" :options-result="testData.optionsResult" />
         </div>
+        <VotingRequestsShowFeedback/>
     </SharedCommonOverlay>
 </template>

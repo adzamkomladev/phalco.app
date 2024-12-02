@@ -23,8 +23,22 @@ const table = useTable(props, "pollingStations");
                 <VotingPollingStationsStatsCard
                     class="Total"
                     description="polling station"
-                    v-for="l in 4"
-                    :key="l"
+                    value="120"
+                />
+                <VotingPollingStationsStatsCard
+                    class="Total"
+                    description="polling station"
+                    value="120"
+                />
+                <VotingPollingStationsStatsCard
+                    class="Total"
+                    description="polling station"
+                    value="120"
+                />
+                <VotingPollingStationsStatsCard
+                    class="Total"
+                    description="polling station"
+                    value="120"
                 />
             </div>
 

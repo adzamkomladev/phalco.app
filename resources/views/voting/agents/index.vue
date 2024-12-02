@@ -12,6 +12,14 @@ const props = defineProps<{
 const table = useTable(props, "agents");
 
 const TotalAgents: number = table.records.length;
+
+
+const selectedAgent= ref(0);
+const selectAgent=(id:number)=>{
+console.log(id);
+    selectedAgent.value=id
+}
+
 </script>
 
 <template layout="main">
@@ -25,39 +33,17 @@ const TotalAgents: number = table.records.length;
                 >
                     Agents
                 </h2>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Manage all Agents of an election
+                <p class="text-sm text-gray-600 dark:text-gray-400 pb-5">
+                    Manage all Agents of an electionm {{selectedAgent}} 
                 </p>
             </div>
 
-            <div class="gap-x-2 ml-auto place-self-end w-fit pb-4">
-                <router-link
-                    :href="route('voting.agents.create')"
-                    class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-primary-400 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:bg-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                >
-                    <svg
-                        class="flex-shrink-0 size-3"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                    >
-                        <path
-                            d="M2.63452 7.50001L13.6345 7.5M8.13452 13V2"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                        />
-                    </svg>
-                    Add New
-                </router-link>
-            </div>
+            
         </div>
 
         <div class="grid grid-cols-7 _md:flex flex-col gap-4 sm:gap-6">
             <div class="col-span-4 _md">
-                <VotingAgentsTable :table="table" />
+                <VotingAgentsTable :table="table" @select-agent="selectAgent" />
             </div>
             <div class="col-span-3 grid gap-5">
                 <div class="col-span-full grid grid-cols-2 gap-4">
@@ -71,7 +57,7 @@ const TotalAgents: number = table.records.length;
                     />
                     <VotingAgentsStatsCard
                         :value="134"
-                        :description="'Total Agents'"
+                        :description="'Total active Agents'"
                     />
                     <VotingAgentsStatsCard
                         :value="134"

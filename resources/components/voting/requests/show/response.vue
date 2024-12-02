@@ -27,12 +27,12 @@ const dateSent = useDateFormat(props.requestedAt, "YYYY MMM DD HH:mm:ss");
             />
             <div class="flex gap-2" v-else>
                 <router-link
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-primary-500 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                    class="inline-flex items-center px-2 py-1 text-xs font-medium text-white bg-primary-500 border border-transparent rounded-md cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
                     Accept
                 </router-link>
                 <router-link
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-500 hover:text-crimson-500 hover:border-crimson-600 border rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1"
+                    class="inline-flex items-center px-2 py-1 text-xs font-medium text-gray-500 hover:text-crimson-500 hover:border-crimson-500 border rounded-md cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1"
                 >
                     Decline
                 </router-link>
