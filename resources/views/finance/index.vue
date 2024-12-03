@@ -96,10 +96,22 @@ function toggleTable(newTable: string) {
             />
 
             <div class="grid gap-4 sm:gap-6 grid-cols-2 _xs:grid-cols-1 grow">
-                <FinanceIndexWalletDetailsCard name="Total Balance" :value="'GHS ' + stats.balance" />
-                <FinanceIndexWalletDetailsCard name="Total Transactions" :value="stats.transactions" />
-                <FinanceIndexWalletDetailsCard name="Total Deposits" :value="'GHS ' + stats.deposits" />
-                <FinanceIndexWalletDetailsCard name="Total Withdrawals" :value="'GHS ' + stats.withdrawals" />
+                <FinanceIndexWalletDetailsCard
+                    name="Total Balance"
+                    :value="'GHS ' + stats.balance"
+                />
+                <FinanceIndexWalletDetailsCard
+                    name="Total Transactions"
+                    :value="stats.transactions"
+                />
+                <FinanceIndexWalletDetailsCard
+                    name="Total Deposits"
+                    :value="'GHS ' + stats.deposits"
+                />
+                <FinanceIndexWalletDetailsCard
+                    name="Total Withdrawals"
+                    :value="'GHS ' + stats.withdrawals"
+                />
             </div>
         </div>
 

@@ -5,11 +5,8 @@ namespace App\Actions\Finance;
 use App\Models\Organization;
 use App\Tables\Finance\PaymentsTable;
 use App\Tables\Finance\TransactionsTable;
-use Bavix\Wallet\Models\Transaction;
-use Bavix\Wallet\Models\Wallet;
 use Illuminate\Support\Facades\Concurrency;
 use Illuminate\Support\Facades\DB;
-use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 use function Hybridly\view;
@@ -38,20 +35,20 @@ class Index
             $totalTransactions,
             $transactionTypes
         ] = Concurrency::run([
-                fn() => [
+            fn () => [
                 'id' => $organization->wallet->id,
                 'balance' => ($organization->balanceInt ?? 0) / 100,
             ],
-            fn() => [
+            fn () => [
                 'id' => $organization->getWallet('nominations')?->id,
                 'balance' => ($organization->getWallet('nominations')?->balanceInt ?? 0) / 100,
             ],
-            fn() => [
+            fn () => [
                 'id' => $organization->getWallet('donations')?->id,
                 'balance' => ($organization->getWallet('donations')?->balanceInt ?? 0) / 100,
             ],
-            fn() => $organization->transactions()->count(),
-            fn() => $organization->transactions()
+            fn () => $organization->transactions()->count(),
+            fn () => $organization->transactions()
                 ->select('type', DB::raw('SUM(amount::integer) as total_sales'))
                 ->where('confirmed', true)
                 ->whereIn('type', ['deposit', 'withdraw'])

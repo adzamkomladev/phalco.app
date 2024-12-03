@@ -26,19 +26,19 @@ class SetupOrganizationWallets
         $organization = Organization::find($organizationId);
 
         Concurrency::run([
-            fn() => $organization->hasWallet('default')
+            fn () => $organization->hasWallet('default')
                 ? $organization->wallet
                 : $organization->createWallet([
                     'name' => 'Default',
-                    'slug' => 'default'
+                    'slug' => 'default',
                 ]),
-            fn() => $organization->createWallet([
+            fn () => $organization->createWallet([
                 'name' => 'Nominations',
-                'slug' => 'nominations'
+                'slug' => 'nominations',
             ]),
-            fn() => $organization->createWallet([
+            fn () => $organization->createWallet([
                 'name' => 'Donations',
-                'slug' => 'donations'
+                'slug' => 'donations',
             ]),
         ]);
     }

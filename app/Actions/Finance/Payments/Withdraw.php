@@ -26,11 +26,11 @@ class Withdraw
             $paymentMethods,
             $wallet
         ] = Octane::concurrently([
-            fn() => PaymentMethod::where('organization_id', $organizationId)->get(),
-            fn() => Wallet::find($walletId),
+            fn () => PaymentMethod::where('organization_id', $organizationId)->get(),
+            fn () => Wallet::find($walletId),
         ]);
 
-        return  [
+        return [
             'walletId' => $walletId,
             'walletName' => $wallet?->name,
             'methods' => PaymentMethodData::collect($paymentMethods),

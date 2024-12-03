@@ -28,7 +28,7 @@ final class TransactionsTable extends Table
                 ->transformValueUsing(fn (Transaction $transaction) => $transaction->wallet->name)
                 ->extra((fn (Transaction $transaction) => ['wallet_id' => $transaction->wallet_id])),
             Columns\TextColumn::make('type')->label('Type'),
-            Columns\TextColumn::make('created_at')->label('Created')
+            Columns\TextColumn::make('created_at')->label('Created'),
         ];
     }
 

@@ -9,7 +9,6 @@ const props = defineProps<{
     methods: App.Data.Finance.PaymentMethodData[];
     networks: App.Data.Finance.NetworkData[];
 }>();
-
 </script>
 
 <template>
