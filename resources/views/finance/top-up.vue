@@ -6,28 +6,26 @@ useHead({
 });
 
 const props = defineProps<{
-    wallet_id: number;
-    wallet_name: string;
+    walletId: number;
+    walletName: string;
 }>();
-
-console.log(props.wallet_name);
 
 const form = useForm({
     method: "POST",
     url: route("finance.payments.initiate"),
     fields: {
         amount: 0,
-        wallet_id: props.wallet_id,
+        wallet_id: props.walletId,
     },
     hooks: {
-        success: () => console.log("34jdfkdjfkdjkfjdkfjdjfkjk"),
+        success: () => form.reset(),
     },
 });
 </script>
 
 <template>
     <SharedCommonOverlay
-        :title="'Top Up ' + wallet_name + ' Wallet'"
+        :title="'Top Up ' + walletName + ' Wallet'"
         class="max-w-xl w-xl _sm:max-w-full"
     >
         <div
@@ -38,7 +36,8 @@ const form = useForm({
                     Top Up Your Account
                 </p>
                 <p class="font-normal text-xs dark:text-gray-300 text-gray-100">
-                    Select or create a new account for withdwaral purposes
+                    Enter your top up amount and click to pay using mobile
+                    money, card, or your bank.
                 </p>
             </div>
             <div class="">
@@ -62,7 +61,10 @@ const form = useForm({
                 </div>
 
                 <div class="mt-10 flex justify-end gap-x-2">
-                    <SharedFormSubmitButton text="Top Up" />
+                    <SharedFormSubmitButton
+                        :loading="form.processing"
+                        text="Top Up"
+                    />
                 </div>
             </form>
         </div>

@@ -27,17 +27,15 @@ final class TransactionsTable extends Table
             Columns\TextColumn::make('wallet')->label('Wallet')
                 ->transformValueUsing(fn (Transaction $transaction) => $transaction->wallet->name)
                 ->extra((fn (Transaction $transaction) => ['wallet_id' => $transaction->wallet_id])),
-            Columns\TextColumn::make('type')->label('Type')
-                ->transformValueUsing(fn (Transaction $transaction) => $transaction->type),
-            Columns\TextColumn::make('created')->label('Created')
-                ->transformValueUsing(fn (Transaction $transaction) => $transaction->created_at),
+            Columns\TextColumn::make('type')->label('Type'),
+            Columns\TextColumn::make('created_at')->label('Created')
         ];
     }
 
     protected function defineRefiners(): array
     {
         return [
-            Sorts\Sort::make('created'),
+            Sorts\Sort::make('created_at')->default('desc'),
             CallbackFilter::make(
                 name: 'search',
                 callback: function (InternalBuilder $builder, mixed $value, string $property) {

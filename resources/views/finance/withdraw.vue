@@ -2,34 +2,33 @@
 import WithdrawalImage from "~/resources/images/finance/withdrawal.webp?src";
 
 useHead({
-    title: "Withdraw Wallet",
+    title: "Withdraw From Wallet",
 });
 
 const props = defineProps<{
-    wallet_id: number;
-    wallet_name: string;
+    walletId: number;
+    walletName: string;
+    methods: App.Data.Finance.PaymentMethodData[];
 }>();
-
-console.log(props.wallet_name);
 
 const form = useForm({
     method: "POST",
     url: route("finance.payments.initiate"),
     fields: {
         amount: 0,
-        wallet_id: props.wallet_id,
+        wallet_id: props.walletId,
     },
     hooks: {
         success: () => form.reset(),
     },
 });
 
-const submited = ref(false);
+const submitted = ref(false);
 </script>
 
 <template>
     <SharedCommonOverlay
-        :title="'Withdraw from ' + wallet_name + ' Wallet'"
+        :title="'Withdraw from ' + walletName + ' Wallet'"
         class="max-w-xl w-xl _sm:max-w-full"
     >
         <div
@@ -37,10 +36,11 @@ const submited = ref(false);
         >
             <div class="font-medium pt-10 px-10 basis-1/2 shrink-0 grow">
                 <p class="text-gray-50 text-lg dark:text-gray-100">
-                    Withdrawal from Account
+                    Withdrawal from Wallet
                 </p>
                 <p class="font-normal text-xs dark:text-gray-300 text-gray-100">
-                    Select or create a new account for withdwaral purposes
+                    Select or create a new payment method for the withdrawal
+                    process
                 </p>
             </div>
             <div class="">
@@ -52,7 +52,7 @@ const submited = ref(false);
         </div>
 
         <transition>
-            <div class="my-10" v-if="!submited">
+            <div class="my-10" v-if="!submitted">
                 <form @submit.prevent="form.submit">
                     <div class="">
                         <div class="s">
@@ -72,20 +72,20 @@ const submited = ref(false);
                         </div>
 
                         <button
-                            v-for="l in 3"
-                            :key="l"
-                            @click.prevent="$emit('select', payment_method)"
+                            v-for="(method, index) in methods"
+                            :key="index"
+                            @click.prevent="$emit('select', method.id)"
                             type="submit"
                             class="w-full justify-between font-black text-gray-600 shadow-card focus:text-white gap-20 border-[#E3E4E6] hover:border-gray-400 h-16 _md:h-16 py-2 px-4 flex items-center gap-x-2 text-base xl:text-lg rounded-lg border-2 border-transparent active:opacity-90 hover:bg-gray-50 hover:opacity-90 focus:outline-none focus:bg-primary-400 disabled:opacity-50 disabled:pointer-events-none"
                         >
                             <div class="flex gap-4 items-center">
                                 <img class="size-10" :src="WithdrawalImage" />
                                 <div class="flex flex-col">
-                                    <span class="font-semi-bold text-sm"
-                                        >Komla Azam
+                                    <span class="font-semi-bold text-sm">
+                                        {{ method.account_name }}
                                     </span>
-                                    <span class="font-thin text-xs ml-3"
-                                        >011222333344444
+                                    <span class="font-thin text-xs ml-3">
+                                        {{ method.account_number }}
                                     </span>
                                 </div>
                             </div>

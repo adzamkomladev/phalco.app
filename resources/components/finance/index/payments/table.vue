@@ -3,77 +3,29 @@ const props = defineProps<{
     table: any;
 }>();
 
-// const table = props.table;
-// const paginator: any = table.paginator;
-// const prev = computed(() => paginator?.links?.[0]);
-// const current = computed(() => paginator?.links?.[1]);
-// const next = computed(() => paginator?.links?.[2]);
+const table = props.table;
+const paginator: any = table.paginator;
+const prev = computed(() => paginator?.links?.[0]);
+const current = computed(() => paginator?.links?.[1]);
+const next = computed(() => paginator?.links?.[2]);
 
-// const findColumn = (name: string) =>
-//     table.columns.find((column: any) => column?.name === name)!;
-// const findFilter = (name: string) =>
-//     table.filters.find((filter: any) => filter.name === name)!;
+const findColumn = (name: string) =>
+    table.columns.find((column: any) => column?.name === name)!;
+const findFilter = (name: string) =>
+    table.filters.find((filter: any) => filter.name === name)!;
 
-// const searchFilter = findFilter("search");
-// const search = useQueryParameter("filters[search]");
+const searchFilter = findFilter("search");
+const search = useQueryParameter("filters[search]");
 
-// const debounceFn = useDebounceFn(
-//     () =>
-//         search.value !== ""
-//             ? searchFilter.apply(search.value)
-//             : searchFilter.clear(),
-//     800,
-// );
+const debounceFn = useDebounceFn(
+    () =>
+        search.value !== ""
+            ? searchFilter.apply(search.value)
+            : searchFilter.clear(),
+    800,
+);
 
-const damy_table = [
-    {
-        image: "https://example.com/image1.jpg",
-        name: "John Doe",
-        description: "Purchase of office supplies",
-        status: "completed",
-        amount: 120.5,
-        reference: "TRX1234567890",
-        completed_on: "2024-11-15T14:30:00",
-    },
-    {
-        image: "https://example.com/image2.jpg",
-        name: "Jane Smith",
-        description: "Monthly subscription fee",
-        status: "completed",
-        amount: 49.99,
-        reference: "TRX0987654321",
-        completed_on: "2024-11-10T10:15:00",
-    },
-    {
-        image: "https://example.com/image3.jpg",
-        name: "Michael Brown",
-        description: "Refund for returned product",
-        status: "incomplete",
-        amount: -75.0,
-        reference: "TRX1122334455",
-        completed_on: "2024-11-08T08:45:00",
-    },
-    {
-        image: "https://example.com/image4.jpg",
-        name: "Emily Jones",
-        description: "Online course payment",
-        status: "completed",
-        amount: 200.0,
-        reference: "TRX6677889900",
-        completed_on: "2024-11-14T16:20:00",
-    },
-    {
-        image: "https://example.com/image5.jpg",
-        name: "Chris Wilson",
-        description: "Donation to charity",
-        status: "incomplete",
-        amount: -150.0,
-        reference: "TRX5544332211",
-        completed_on: "2024-11-12T12:00:00",
-    },
-];
-
-// watch(search, debounceFn);
+watch(search, debounceFn);
 </script>
 <template>
     <div class="max-w-[85rem] pb-10 mx-auto">
@@ -91,12 +43,12 @@ const damy_table = [
                                     <h2
                                         class="text-xl font-semibold text-gray-800 dark:text-gray-200"
                                     >
-                                        Recent Transactions
+                                        All Payments
                                     </h2>
                                     <p
                                         class="text-sm text-gray-600 dark:text-gray-400"
                                     >
-                                        View All elections
+                                        Most recent payments
                                     </p>
                                 </div>
                             </div>
@@ -104,17 +56,11 @@ const damy_table = [
                             <div
                                 class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700"
                             >
-                                <!-- Input -->
-                                <!-- <SharedFormSearchInput
-                                    class="sm:col-span-1"
-                                    placeholder="Search for elections"
-                                    name="search"
-                                    v-model="search"
-                                /> -->
                                 <SharedFormSearchInput
                                     class="sm:col-span-1"
-                                    placeholder="Search for elections"
+                                    placeholder="Search for payment"
                                     name="search"
+                                    v-model="search"
                                 />
                             </div>
                         </div>
@@ -142,73 +88,12 @@ const damy_table = [
                                             >
                                         </label>
                                     </th>
-                                    <!-- <SharedTableTh
+                                    <SharedTableTh
                                         v-for="(col, index) in table.columns"
                                         :column="col"
                                         :key="index"
                                         :index="index"
-                                    /> -->
-                                    <th></th>
-                                    <th
-                                        scope="column"
-                                        :class="{
-                                            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start': false,
-                                            'px-6 py-3 text-start': true,
-                                        }"
-                                    >
-                                        <div class="flex items-center gap-x-2">
-                                            <span
-                                                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200"
-                                            >
-                                                Amount
-                                            </span>
-                                        </div>
-                                    </th>
-                                    <th
-                                        scope="column"
-                                        :class="{
-                                            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start': false,
-                                            'px-6 py-3 text-start': true,
-                                        }"
-                                    >
-                                        <div class="flex items-center gap-x-2">
-                                            <span
-                                                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200"
-                                            >
-                                                Reference
-                                            </span>
-                                        </div>
-                                    </th>
-                                    <th
-                                        scope="column"
-                                        :class="{
-                                            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start': false,
-                                            'px-6 py-3 text-start': true,
-                                        }"
-                                    >
-                                        <div class="flex items-center gap-x-2">
-                                            <span
-                                                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200"
-                                            >
-                                                Status
-                                            </span>
-                                        </div>
-                                    </th>
-                                    <th
-                                        scope="column"
-                                        :class="{
-                                            'py-3 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start': false,
-                                            'px-6 py-3 text-start': true,
-                                        }"
-                                    >
-                                        <div class="flex items-center gap-x-2">
-                                            <span
-                                                class="text-xs font-semibold gap-2 items-center flex tracking-wide text-gray-800 uppercase dark:text-gray-200"
-                                            >
-                                                Compeed On
-                                            </span>
-                                        </div>
-                                    </th>
+                                    />
                                     <th
                                         scope="col"
                                         class="px-6 py-3 text-end"
@@ -219,22 +104,17 @@ const damy_table = [
                             <tbody
                                 class="divide-y divide-gray-200 dark:divide-gray-700"
                             >
-                                <!-- <ElectionsIndexRow
+                                <FinanceIndexPaymentsRow
                                     v-for="row in table.records"
                                     :key="row.key"
                                     :row="row"
                                     :columns="table.columns"
                                     :findColumn="findColumn"
-                                /> -->
-                                <FinanceIndexTableRow
-                                    v-for="row in damy_table"
-                                    :key="key"
-                                    :row="row"
                                 />
                             </tbody>
                         </table>
                         <!-- Footer -->
-                        <!-- <div
+                        <div
                             class="grid gap-3 px-6 py-4 border-t border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
                         >
                             <div>
@@ -247,10 +127,10 @@ const damy_table = [
                                     >
                                         {{ table.paginator?.meta?.total }}
                                         <span class="font-normal"
-                                            >elections</span
+                                            >payments</span
                                         ></span
                                     >
-                                    <span v-else> No election yet </span>
+                                    <span v-else> No payments yet </span>
                                 </p>
                             </div>
 
@@ -283,7 +163,7 @@ const damy_table = [
                                     </router-link>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                         <!-- End Footer -->
                     </div>
                 </div>

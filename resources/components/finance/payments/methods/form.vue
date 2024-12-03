@@ -98,7 +98,10 @@ const mobileMoneyNetworks = props.networks?.map(
         </div>
 
         <div class="mt-8 flex justify-end gap-x-2">
-            <SharedFormSubmitButton text="Create Account" />
+            <SharedFormSubmitButton
+                :loading="form.processing"
+                text="Create Account"
+            />
         </div>
     </form>
 </template>

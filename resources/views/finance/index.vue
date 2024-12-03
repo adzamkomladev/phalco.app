@@ -1,12 +1,53 @@
 <script setup lang="ts">
 const table = ref("payments");
 
-const props = defineProps({
-    transactions: Array,
-    payments: Array,
-    stats: Object,
-    wallets: Array,
+const props = defineProps<{
+    transactions: Table<{
+        id: number;
+    }>;
+    payments: Table<{
+        id: number;
+    }>;
+    stats: any;
+    wallets: any;
+}>();
+
+const paymentsTable = useTable(props, "payments");
+const transactionsTable = useTable(props, "transactions");
+
+const options = Object.entries(props.wallets).map(([key, value]: any[]) => {
+    return { label: key, value: value.id };
 });
+const selectedWalletId = ref(props.wallets.main?.id);
+const selectedWallet = ref({
+    name: "main",
+    id: props.wallets.main?.id,
+    balance: props.wallets.main?.balance,
+});
+
+const updateSelectedWallet = (id: number) => {
+    selectedWalletId.value = id;
+
+    const foundWallet = Object.entries(props.wallets).find(
+        ([_, value]: any[]) => value.id === id,
+    );
+
+    if (foundWallet) {
+        const [key, value]: any[] = foundWallet;
+
+        selectedWallet.value = {
+            name: key,
+            id: value.id,
+            balance: +value.balance,
+        };
+    } else {
+        selectedWallet.value = {
+            name: "main",
+            id: props.wallets.main?.id,
+            balance: +props.wallets.main?.balance,
+        };
+    }
+};
 
 function toggleTable(newTable: string) {
     table.value = newTable;
@@ -27,13 +68,11 @@ function toggleTable(newTable: string) {
 
         <div class="flex py-5 justify-between">
             <div class="w-60">
-                <sharedFormBaseAdvanceSelect
+                <SharedFormBaseAdvanceSelect
+                    :modelValue="selectedWalletId"
+                    @update:modelValue="updateSelectedWallet"
                     hideOnSelect
-                    :options="[
-                        '456785421234',
-                        '12356789111111',
-                        '134567893456111',
-                    ]"
+                    :options="options"
                     optionClass="py-1 text-sm w-60"
                     position="bottom-center"
                     selectClass="min-w-40 w-60 max-w-60"
@@ -50,13 +89,17 @@ function toggleTable(newTable: string) {
         </div>
 
         <div class="flex _md:flex-col py-5 gap-4 sm:gap-6 self-center">
-            <FinanceIndexWalletCard :wallet_id="3" />
+            <FinanceIndexWalletCard
+                :name="selectedWallet.name"
+                :balance="selectedWallet.balance"
+                :id="selectedWalletId"
+            />
 
             <div class="grid gap-4 sm:gap-6 grid-cols-2 _xs:grid-cols-1 grow">
-                <FinanceIndexWalletDetailsCard />
-                <FinanceIndexWalletDetailsCard />
-                <FinanceIndexWalletDetailsCard />
-                <FinanceIndexWalletDetailsCard />
+                <FinanceIndexWalletDetailsCard name="Total Balance" :value="'GHS ' + stats.balance" />
+                <FinanceIndexWalletDetailsCard name="Total Transactions" :value="stats.transactions" />
+                <FinanceIndexWalletDetailsCard name="Total Deposits" :value="'GHS ' + stats.deposits" />
+                <FinanceIndexWalletDetailsCard name="Total Withdrawals" :value="'GHS ' + stats.withdrawals" />
             </div>
         </div>
 
@@ -81,7 +124,7 @@ function toggleTable(newTable: string) {
                     class="transition-all duration-500 overflow-hidden"
                 >
                     <div v-if="table === 'payments'">
-                        <FinanceIndexPaymentsTable />
+                        <FinanceIndexPaymentsTable :table="paymentsTable" />
                     </div>
                 </div>
             </transition>
@@ -95,6 +138,7 @@ function toggleTable(newTable: string) {
                     <div>
                         <FinanceIndexTransactionsTable
                             v-if="table === 'transactions'"
+                            :table="transactionsTable"
                         />
                     </div>
                 </div>

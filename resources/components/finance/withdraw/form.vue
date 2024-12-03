@@ -59,7 +59,7 @@
             <div class="mt-10 flex justify-end gap-x-2">
                 <SharedFormSubmitButton
                     text="Make Payment"
-                    :loading="processing"
+                    :loading="form.processing"
                 />
             </div>
         </form>

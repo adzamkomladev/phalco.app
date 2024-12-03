@@ -9,11 +9,17 @@ const selectOption = (option: string | number) => {
     selected.value = option;
 };
 
-const selectedLabel = computed(
-    () =>
-        selected.value ??
-        (props.placeholder ? props.placeholder : "select option"),
-);
+const selectedLabel = computed(() => {
+    if (selected.value) {
+        const option = props.options.find(
+            (option: any) => option.value === selected.value,
+        );
+
+        return option?.label ?? option;
+    }
+
+    return props.placeholder ? props.placeholder : "select option";
+});
 
 const defaultSelectClass =
     "py-2 px-3 justify-between gap-2 capitalize text-gray-500 min-w-fit flex items-center cursor-pointer bg-white  border rounded-lg text-start text-sm dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400";
@@ -69,8 +75,9 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
                 <SharedCommonIcon
                     v-if="hasIcon"
                     class="h-5"
-                    :name="option.label || option"
-                /><span>{{ option.label || option }}</span>
+                    :name="option.value || option"
+                />
+                <span>{{ option?.label || option }}</span>
             </button>
         </div>
     </SharedCommonDropdown>

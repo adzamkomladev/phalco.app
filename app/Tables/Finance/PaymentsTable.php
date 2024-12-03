@@ -28,14 +28,14 @@ final class PaymentsTable extends Table
             Columns\TextColumn::make('gateway_reference')->label('Gateway Reference'),
             Columns\TextColumn::make('gateway')->label('Gateway'),
             Columns\TextColumn::make('status')->label('Status'),
-            Columns\TextColumn::make('created')->label('Created'),
+            Columns\TextColumn::make('created_at')->label('Created'),
         ];
     }
 
     protected function defineRefiners(): array
     {
         return [
-            Sorts\Sort::make('created'),
+            Sorts\Sort::make('created_at')->default('desc'),
             CallbackFilter::make(
                 name: 'search',
                 callback: function (InternalBuilder $builder, mixed $value, string $property) {

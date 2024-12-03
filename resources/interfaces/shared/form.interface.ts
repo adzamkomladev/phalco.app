@@ -16,7 +16,7 @@ export interface BaseInputProps extends FormProp {
     required?: boolean;
     autocomplete?: string;
     error?: string;
-    disabled?:boolean;
+    disabled?: boolean;
 }
 
 
@@ -76,13 +76,13 @@ export interface BaseOtpProps extends FormProp {
 
 export interface BaseAdvanceSelectProps extends FormProp {
     modelValue: string | number;
-    options: Array<string | number | { label: string, value: string | number }>;
+    options: Array<string | number | { label: string, value: string | number | any }>;
     position?: positionType
     selectedClass?: string;
     selectClass?: string;
     optionClass?: string;
     optionsClass?: string;
     hideOnSelect?: boolean;
-    hasIcon?:boolean;
+    hasIcon?: boolean;
 }
 

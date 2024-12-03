@@ -10,7 +10,6 @@ const props = defineProps<{
     networks: App.Data.Finance.NetworkData[];
 }>();
 
-// console.log(props.networks);
 </script>
 
 <template>
@@ -26,7 +25,7 @@ const props = defineProps<{
                     Withdrawal Account
                 </p>
                 <p class="font-normal text-xs dark:text-gray-300 text-gray-100">
-                    Select or create a new account for withdwaral purposes
+                    Select or create a new account for withdrawal purposes
                 </p>
             </div>
             <div class="">

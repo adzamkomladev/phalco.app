@@ -1,15 +1,8 @@
 <script setup lang="ts">
-import { ElectionsStatsCardSmallProps } from "~/resources/interfaces/elections/index.interface";
-
-const props = withDefaults(
-    defineProps<{ accountNumber: number; wallet_id?: number }>(),
-    {
-        wallet_id: 2,
-    },
-);
+const props = defineProps<{ name: string; balance: number; id: number }>();
 
 // Calculate gradient class based on account number
-const gradientClass = ref(`gradient-${props.wallet_id % 4}`);
+const gradientClass = computed(() => `gradient-${props.id % 4}`);
 </script>
 
 <template>
@@ -32,15 +25,15 @@ const gradientClass = ref(`gradient-${props.wallet_id % 4}`);
                 <p
                     class="font-bold text-[5vw] 2xl:text-4xl md:text-[2.5vw] leading-none pt-[5%]"
                 >
-                    $5,750,30.00
+                    GHS {{ balance }}
                 </p>
             </div>
         </div>
         <div class="z-10">
             <p
-                class="text-right pb-[2%] font-medium text-[3vw] md:text-[1.5vw] 2xl:text-lg"
+                class="text-right pb-[2%] font-medium text-[3vw] md:text-[1.5vw] 2xl:text-lg capitalize"
             >
-                Komla Adzam
+                {{ name }}
             </p>
             <div class="flex justify-between">
                 <p
@@ -49,18 +42,25 @@ const gradientClass = ref(`gradient-${props.wallet_id % 4}`);
                     xxx-xxxx-xxx
                 </p>
                 <div class="text-xs flex gap-2 text-white">
-                    <RouterLink
-                        v-if="props.wallet_id"
-                        :href="`payments/${props.wallet_id}/withdraw`"
+                    <router-link
+                        v-if="id"
+                        :href="
+                            route('finance.payments.withdraw', {
+                                walletId: +id,
+                            })
+                        "
                         class="py-2 px-3 font-semibold text-sm bg-[#00000050] text-nowrap rounded-md leading-none h-fit"
-                        >Withdraw</RouterLink
-                    >
-                    <RouterLink
-                        v-if="props.wallet_id"
-                        :href="`payments/${props.wallet_id}/top-up`"
+                        >Withdraw
+                    </router-link>
+                    <router-link
+                        v-if="id"
+                        :href="
+                            route('finance.payments.top-up', { walletId: +id })
+                        "
                         class="py-2 px-3 font-semibold text-sm bg-[#00000050] text-nowrap rounded-md leading-none h-fit"
-                        >Top Up</RouterLink
                     >
+                        Top Up
+                    </router-link>
                 </div>
             </div>
         </div>
