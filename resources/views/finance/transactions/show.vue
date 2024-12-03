@@ -13,7 +13,6 @@ const props = defineProps<{
 }>();
 
 const status = "complete";
-
 </script>
 
 <template>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const props = defineProps<{ methods: App.Data.Finance.PaymentMethodData[] }>();
-
 </script>
 <template>
     <ul>
