@@ -46,15 +46,15 @@ class VerifyInvitation
         $invitationRoleName = $invitation->role?->name;
 
         [$invitation] = Octane::concurrently([
-            fn() => OrganizationInvitation::find($invitationId)->accept(),
-            fn() => OrganizationMembership::create([
+            fn () => OrganizationInvitation::find($invitationId)->accept(),
+            fn () => OrganizationMembership::create([
                 'user_id' => $userId,
                 'organization_id' => $organizationId,
                 'organization_role_id' => $invitationRoleId,
                 'roleTitle' => $invitationRoleName,
                 'status' => 'active',
             ]),
-            fn() => User::where('id', $userId)->update(['selected_organization_id' => $organizationId]),
+            fn () => User::where('id', $userId)->update(['selected_organization_id' => $organizationId]),
         ]);
 
         return $invitation;

@@ -59,7 +59,7 @@ class Store
         $electionId = $election->id;
 
         $stagesToBeCreated = $stages
-            ->map(fn($stage) => [
+            ->map(fn ($stage) => [
                 'election_id' => $electionId,
                 'stage' => $stage['name'],
                 'start' => Carbon::parse($stage['start']),
@@ -71,13 +71,13 @@ class Store
             ->toArray();
 
         Octane::concurrently([
-            fn() => ElectionActivity::create([
+            fn () => ElectionActivity::create([
                 'election_id' => $electionId,
                 'status' => 'active',
                 'user_id' => $userId,
                 'reason' => 'Create new election',
             ]),
-            fn() => ElectionStage::insert($stagesToBeCreated),
+            fn () => ElectionStage::insert($stagesToBeCreated),
         ]);
 
         ElectionCreated::dispatch($election->id);
