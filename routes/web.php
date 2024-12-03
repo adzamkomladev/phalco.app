@@ -1,6 +1,5 @@
 <?php
 
-use App\Events\Users\HelloWorld;
 use App\Http\Middleware\EnsureUserHasSelectedOrganization;
 use Illuminate\Support\Facades\Route;
 
