@@ -36,7 +36,10 @@ watch(
 </script>
 
 <template>
-    <div v-if="elections.length > 0" class="hs-dropdown [--placement:bottom-left] relative inline-flex">
+    <div
+        v-if="elections.length > 0"
+        class="hs-dropdown [--placement:bottom-left] relative inline-flex"
+    >
         <button
             id="hs-dropdown-election"
             type="button"
