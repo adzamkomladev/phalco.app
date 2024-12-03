@@ -13,7 +13,7 @@ const props = defineProps<{
 }>();
 
 const status = "complete";
-console.log(props.wallet_name);
+
 </script>
 
 <template>

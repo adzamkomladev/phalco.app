@@ -3,19 +3,16 @@ useHead({
     title: "Login",
 });
 
-const login = useForm({
+const form = useForm({
     method: "POST",
-    url: route("login"),
+    url: route("form"),
     fields: {
         email: "",
         password: "",
         remember: false,
     },
     hooks: {
-        start: () => console.log("The request has started."),
-        fail: () => console.log("The request has failed."),
-        after: () => console.log("The request has finished."),
-        success: () => console.log("The request has succeeded."),
+        success: () => form.reset(),
     },
 });
 </script>
@@ -32,11 +29,11 @@ const login = useForm({
 
         <SharedCommonOr />
 
-        <form @submit.prevent="login.submit">
+        <form @submit.prevent="form.submit">
             <div class="grid gap-y-4 sm:gap-y-6 pt-2">
                 <SharedFormBaseInput
-                    v-model="login.fields.email"
-                    :error="login.errors.email"
+                    v-model="form.fields.email"
+                    :error="form.errors.email"
                     id="email"
                     name="email"
                     type="email"
@@ -44,8 +41,8 @@ const login = useForm({
                 />
                 <div>
                     <SharedFormBaseInput
-                        v-model="login.fields.password"
-                        :error="login.errors.password"
+                        v-model="form.fields.password"
+                        :error="form.errors.password"
                         id="password"
                         name="password"
                         type="password"
@@ -62,7 +59,7 @@ const login = useForm({
                 </div>
 
                 <SharedFormSubmitButton
-                    :loading="login.processing"
+                    :loading="form.processing"
                     text="Login"
                 />
             </div>

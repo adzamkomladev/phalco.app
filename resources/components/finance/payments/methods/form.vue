@@ -3,8 +3,6 @@ const props = defineProps<{
     networks: App.Data.Finance.NetworkData[];
 }>();
 
-console.log(props.networks);
-
 const form = useForm({
     method: "POST",
     url: route("finance.payments.methods.store"),

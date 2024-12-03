@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{ methods: App.Data.Finance.PaymentMethodData[] }>();
 
-console.log(props.methods);
 </script>
 <template>
     <ul>
