@@ -31,7 +31,10 @@ class FortifyServiceProvider extends ServiceProvider
                 $role = $user?->selectedOrganizationMembership?->role;
 
                 if ($role?->name === 'agent') {
-                    LoginSetup::run($user->id, $user->selected_organization_id);
+
+                    if ($user->selected_organization_id) {
+                        LoginSetup::run($user->id, $user->selected_organization_id);
+                    }
 
                     return redirect()->intended(route('home.agents'));
                 }
@@ -60,7 +63,7 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         RateLimiter::for('login', function (Request $request) {
-            $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
+            $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())) . '|' . $request->ip());
 
             return Limit::perMinute(5)->by($throttleKey);
         });
@@ -69,10 +72,10 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
 
-        Fortify::loginView(fn () => hybridly('auth.login'));
-        Fortify::registerView(fn () => hybridly('auth.register'));
-        Fortify::verifyEmailView(fn () => hybridly('auth.verify-email'));
-        Fortify::requestPasswordResetLinkView(fn () => hybridly('auth.forgot-password'));
-        Fortify::resetPasswordView(fn (Request $request) => hybridly('auth.reset-password', ['request' => $request]));
+        Fortify::loginView(fn() => hybridly('auth.login'));
+        Fortify::registerView(fn() => hybridly('auth.register'));
+        Fortify::verifyEmailView(fn() => hybridly('auth.verify-email'));
+        Fortify::requestPasswordResetLinkView(fn() => hybridly('auth.forgot-password'));
+        Fortify::resetPasswordView(fn(Request $request) => hybridly('auth.reset-password', ['request' => $request]));
     }
 }

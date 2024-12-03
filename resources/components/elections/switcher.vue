@@ -6,7 +6,6 @@ onMounted(() => {
 const allElections = useProperty("elections.all");
 const selectedElection = useProperty("elections.selected");
 
-console.log(selectedElection.value);
 const elections =
     allElections?.value?.map((e: App.Data.Elections.ElectionData) => ({
         value: e.id,
@@ -37,7 +36,7 @@ watch(
 </script>
 
 <template>
-    <div class="hs-dropdown [--placement:bottom-left] relative inline-flex">
+    <div v-if="elections.length > 0" class="hs-dropdown [--placement:bottom-left] relative inline-flex">
         <button
             id="hs-dropdown-election"
             type="button"
