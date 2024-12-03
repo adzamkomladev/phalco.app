@@ -5,7 +5,7 @@ useHead({
 
 const form = useForm({
     method: "POST",
-    url: route("form"),
+    url: route("login"),
     fields: {
         email: "",
         password: "",
