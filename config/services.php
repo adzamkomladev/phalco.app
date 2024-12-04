@@ -46,7 +46,7 @@ return [
         'key' => env('ARKESEL_KEY'),
         'otp' => [
             'sender' => env('ARKESEL_OTP_SENDER', env('APP_NAME')),
-            'message' => env('ARKESEL_OTP_MESSAGE', 'Your '.env('APP_NAME').' verification code: %otp_code%. Do not share this code with anyone.'),
+            'message' => env('ARKESEL_OTP_MESSAGE', 'Your ' . env('APP_NAME') . ' verification code: %otp_code%. Do not share this code with anyone.'),
             'medium' => env('ARKESEL_OTP_MEDIUM', 'sms'),
             'type' => env('ARKESEL_OTP_TYPE', 'numeric'),
             'expiry' => (int) env(
@@ -57,6 +57,12 @@ return [
             'urls' => [
                 'send' => env('ARKESEL_OTP_URLS_SEND'),
                 'verify' => env('ARKESEL_OTP_URLS_VERIFY'),
+            ],
+        ],
+        'sms' => [
+            'sender' => env('ARKESEL_OTP_SENDER', env('APP_NAME')),
+            'urls' => [
+                'send' => '/v2/sms/send',
             ],
         ],
     ],
