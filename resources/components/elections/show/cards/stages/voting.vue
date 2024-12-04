@@ -4,9 +4,10 @@ import {
     StageStatsCampaigns,
     StageStatsVoting,
 } from "~/resources/interfaces/elections/selected.interface";
+import { ElectionCandidateProps,ElectionBallotProps } from "~/resources/interfaces/voting/polling-stations/index.interface";
 import { formatDate, secondsUntil } from "~/resources/utils/shared/date";
 
-const props = defineProps<{ stageStat: StageStatsVoting; stage: Stage }>();
+const props = defineProps<{ stageStat: StageStatsVoting; stage: Stage ,ballots:ElectionBallotProps[]}>();
 
 const timeLeftToEndDate = Math.floor(secondsUntil(props.stage.end));
 </script>
@@ -35,60 +36,21 @@ const timeLeftToEndDate = Math.floor(secondsUntil(props.stage.end));
             </div>
         </div>
 
-        <div class="flex flex-col gap-5 h-full">
-            <div class="grid grid-cols-7 gap-[5%] _xs:gap-0">
-                <div class="col-span-3 _xs:col-span-7 _xs:px-10">
-                    <SharedChartPie
-                        :data="[
-                            {
-                                label: '',
-                                value: stageStat.voters,
-                                color: '#b3daf0',
-                            },
-                            {
-                                label: '',
-                                value: stageStat?.ballots,
-                                color: '#07689F',
-                            },
-                        ]"
-                    />
-                </div>
-                <div
-                    class="col-span-4 _xs:text-center _xs:col-span-7 flex flex-col text-xs sm:whitespace-nowrap p-2 pr-0 gap-4 justify-center"
-                >
-                    <div class="grid gap-4 grid-cols-2 xs:hidden">
-                        <div>
-                            <p class="text-gray-500">Total ballots</p>
-                            <p class="font-bold text-sm flex gap-1">
-                                <span
-                                    class="size-3 bg-secondary-500 self-center"
-                                />
-                                {{ stageStat.ballots }}
-                            </p>
-                        </div>
-                        <div>
-                            <p class="text-gray-500">Total voters</p>
-                            <p
-                                class="font-bold text-sm w-20 text-wrap flex gap-1"
-                            >
-                                <span
-                                    class="size-3 bg-secondary-200 self-center"
-                                />
-                                {{ stageStat.voters }}
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-gray-500">Time Remaining</p>
-
-                        <SharedCommonTimer
-                            class="text-2xl md:text-3xl md:_xl:text-2xl font-bold"
-                            :duration="timeLeftToEndDate"
-                        />
-                    </div>
-                </div>
-            </div>
-
+        <div class="flex flex-col gap-5 h-full" >
+            <p class="font-semibold text-lg ml-2">Leading Candidates</p>
+           <div v-for="(ballot,bi) in ballots" >
+         
+            <p class="ml-2">{{ ballot.ballotName }}</p>
+               <div class="" v-for="(candidate,ci) in ballot.candidates">
+                <ElectionsShowCardsStagesVotingCandidate
+                :candidate-name="candidate.candidateName"
+                :candidate-picture="candidate.candidatePicture"
+                :party-logo="candidate.partyLogo"
+                :party-name-abrev="candidate.partyNameAbrev"
+                :votes="candidate.votes"
+                />
+            </div>  
+        </div>
             <SharedCommonCard
                 class="divide-y h-60 divide-gray-300 dark:divide-gray-600 text-sm gap-2 flex flex-col"
             >
