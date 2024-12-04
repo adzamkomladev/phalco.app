@@ -16,7 +16,7 @@ const electionId = useProperty("elections.selected.id");
     <p>Requests</p>
     <div>
         <h3 class="h3">Submitted</h3>
-        <template v-if="props.submitted.length > 0">
+        <template v-if="props?.submitted?.length > 0">
             <ul
                 class="max-w-xs flex flex-col divide-y divide-gray-200 dark:divide-neutral-700"
             >
@@ -44,7 +44,7 @@ const electionId = useProperty("elections.selected.id");
     </div>
     <div>
         <h3 class="h3">Pending</h3>
-        <template v-if="props.pending.length > 0">
+        <template v-if="props?.pending?.length > 0">
             <ul
                 class="max-w-xs flex flex-col divide-y divide-gray-200 dark:divide-neutral-700"
             >

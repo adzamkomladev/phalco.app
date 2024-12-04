@@ -21,7 +21,7 @@ class Show
         return [
             'voters' => VotersTable::make(['pollingStationId' => $pollingStationId]),
             'requests' => RequestsTable::make(['pollingStationId' => $pollingStationId]),
-            'pollingStation' => PollingStation::select(['id', 'name', 'code', 'agent_id'])
+            'pollingStation' => PollingStation::select(['id', 'name', 'code', 'user_id'])
                 ->with(['agent:id,first_name,last_name,email,avatar'])
                 ->find($pollingStationId),
         ];

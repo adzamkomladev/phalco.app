@@ -27,6 +27,27 @@ const createdAt = new Date(value(props.findColumn("created_at"))).toUTCString();
                 </label>
             </div>
         </td>
+         <td class="size-px w w-full max-w-40 bg-red">
+            <div class="py-3 ps-6 lg:ps-3 pe-6">
+                <div class="flex items-center gap-x-3">
+                    <img
+                        class="inline-block size-[38px] border rounded-full"
+                        src="extra(findColumn('name'), 'logo')"
+                        alt=""
+                    />
+                    <div class="grow">
+                        <span
+                            class="block lg:whitespace-nowrap font-semibold text-gray-800 dark:text-gray-200"
+                        >
+                            Komla Adzam
+                        </span>
+                        <span class="block text-xs text-gray-500">
+                            Nominaton fee
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </td>
         <td class="h-px w-36 whitespace-nowrap">
             <div
                 class="px-6 py-3"
