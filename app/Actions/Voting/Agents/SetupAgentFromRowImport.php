@@ -7,13 +7,13 @@ use App\Models\OrganizationMembership;
 use App\Models\OrganizationRole;
 use App\Models\PollingStation;
 use App\Models\User;
+use App\Notifications\Voting;
 use Illuminate\Support\Facades\Concurrency;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Lorisleiva\Actions\Concerns\AsAction;
 use Illuminate\Support\Str;
+use Lorisleiva\Actions\Concerns\AsAction;
 use Propaganistas\LaravelPhone\PhoneNumber;
-use App\Notifications\Voting;
 
 class SetupAgentFromRowImport
 {
@@ -50,11 +50,11 @@ class SetupAgentFromRowImport
 
         [$organizationRole, $user] = Concurrency::run(
             [
-                fn() => OrganizationRole::with('organization')
+                fn () => OrganizationRole::with('organization')
                     ->where('organization_id', $organizationId)
                     ->where('name', 'agent')
                     ->first(),
-                fn() => User::where('email', $email)->first() ?? User::create([
+                fn () => User::where('email', $email)->first() ?? User::create([
                     'first_name' => $firstName,
                     'last_name' => $lastName,
                     'email' => $email,
@@ -62,7 +62,7 @@ class SetupAgentFromRowImport
                     'password' => Hash::make($password),
                     'role' => $role,
                     'avatar' => $avatar,
-                    'phone' => $phone
+                    'phone' => $phone,
                 ]),
             ]
         );
@@ -70,7 +70,7 @@ class SetupAgentFromRowImport
         $canCreatePollingStation = $code && $name;
 
         [$organizationMembership, $pollingStation] = Concurrency::run([
-            fn() => OrganizationMembership::where('user_id', $user->id)
+            fn () => OrganizationMembership::where('user_id', $user->id)
                 ->where('organization_id', $organizationId)
                 ->first() ??
                 OrganizationMembership::create([
@@ -80,7 +80,7 @@ class SetupAgentFromRowImport
                     'roleTitle' => $organizationRole->name,
                     'status' => 'active',
                 ]),
-            fn() => PollingStation::where('code', $code)
+            fn () => PollingStation::where('code', $code)
                 ->where('election_id', $electionId)
                 ->where('organization_id', $organizationId)
                 ->first()
@@ -116,6 +116,7 @@ class SetupAgentFromRowImport
     {
         $number = rand(2, 50);
         $firstName = Str::lower($firstName);
+
         return "{$firstName}{$number}@{$domain}.com";
     }
 }

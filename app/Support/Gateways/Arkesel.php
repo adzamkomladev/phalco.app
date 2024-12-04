@@ -10,17 +10,17 @@ class Arkesel
     public function sendSms(
         array $recipients,
         string $message,
-        string $sender = null
+        ?string $sender = null
     ) {
         $response = Http::withHeaders([
             'api-key' => config('services.arkesel.key'),
-        ])->post(config('services.arkesel.url') . config('services.arkesel.sms.urls.send'), [
+        ])->post(config('services.arkesel.url').config('services.arkesel.sms.urls.send'), [
             'recipients' => $recipients,
             'message' => $message,
             'sender' => $sender ?? config('services.arkesel.otp.sender'),
         ]);
 
-        if (!$response->successful()) {
+        if (! $response->successful()) {
             $data = $response->json();
 
             throw new Exception($data['message']);
@@ -31,16 +31,16 @@ class Arkesel
 
     public function sendOtp(
         string $phone,
-        string $message = null,
-        string $sender = null,
-        string $type = null,
-        string $medium = null,
-        string $expiry = null,
-        string $length = null
+        ?string $message = null,
+        ?string $sender = null,
+        ?string $type = null,
+        ?string $medium = null,
+        ?string $expiry = null,
+        ?string $length = null
     ) {
         $response = Http::withHeaders([
             'api-key' => config('services.arkesel.key'),
-        ])->post(config('services.arkesel.url') . config('services.arkesel.otp.urls.send'), [
+        ])->post(config('services.arkesel.url').config('services.arkesel.otp.urls.send'), [
             'number' => $phone,
             'message' => $message ?? config('services.arkesel.otp.message'),
             'sender_id' => $sender ?? config('services.arkesel.otp.sender'),
@@ -50,7 +50,7 @@ class Arkesel
             'length' => $length ?? config('services.arkesel.otp.length'),
         ]);
 
-        if (!$response->successful()) {
+        if (! $response->successful()) {
             $data = $response->json();
             if (is_array($data) && in_array('code', $data)) {
                 throw new Exception($data['message']);
@@ -68,12 +68,12 @@ class Arkesel
     ): array {
         $response = Http::withHeaders([
             'api-key' => config('services.arkesel.key'),
-        ])->post(config('services.arkesel.url') . config('services.arkesel.otp.urls.verify'), [
+        ])->post(config('services.arkesel.url').config('services.arkesel.otp.urls.verify'), [
             'number' => $phone,
-            'code' => $code
+            'code' => $code,
         ]);
 
-        if (!$response->successful()) {
+        if (! $response->successful()) {
             $data = $response->json();
             if (is_array($data) && in_array('code', $data)) {
                 throw new Exception($data['message']);

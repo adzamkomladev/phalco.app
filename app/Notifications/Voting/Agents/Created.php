@@ -6,7 +6,6 @@ use App\Broadcasting\Arkesel\SmsChannel;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
 class Created extends Notification implements ShouldQueue
@@ -36,13 +35,11 @@ class Created extends Notification implements ShouldQueue
 
     /**
      * Get the SMS representation of the notification.
-     *
-     * @param  \App\Models\User  $notifiable
-     * @return string
      */
     public function toSms(User $notifiable): string
     {
         $loginUrl = route('login');
+
         return "Hello {$notifiable->name}\n Welcome to {$this->organizationName}! You've been assigned as an agent for {$this->pollingStationName} polling station.\nYour login details are\nemail: {$notifiable->email}\npassword: {$this->password}\n\nVisit {$loginUrl} to login.";
     }
 }

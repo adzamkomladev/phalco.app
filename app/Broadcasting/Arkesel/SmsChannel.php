@@ -2,9 +2,8 @@
 
 namespace App\Broadcasting\Arkesel;
 
-use Illuminate\Notifications\Notification;
-
 use App\Support\Gateways\Arkesel;
+use Illuminate\Notifications\Notification;
 
 class SmsChannel
 {
