@@ -9,6 +9,8 @@ const props = defineProps<{
     methods: App.Data.Finance.PaymentMethodData[];
     networks: App.Data.Finance.NetworkData[];
 }>();
+
+const showAddAccount=ref(false);
 </script>
 
 <template>
@@ -36,9 +38,51 @@ const props = defineProps<{
         </div>
 
         <div class="mt-5 pb-20">
+
             <FinancePaymentsMethodsList :methods="methods" />
-            <p class="text-secondary-300 text-sm pb-5">Add Account</p>
-            <FinancePaymentsMethodsForm :networks="networks" />
+            
+            <div class="py-5">
+             <button @click="showAddAccount=!showAddAccount" class="text-secondary-300 text-sm pb-5"> {{showAddAccount ? 'Close account Form -':' Account Add'}}</button>
+             <transition >
+              <FinancePaymentsMethodsForm v-if=(showAddAccount) :networks="networks" />
+             </transition>
+            </div>
         </div>
     </SharedCommonOverlay>
 </template>
+<!-- 
+ <div class="mt-5">
+            <transition mode="out-in">
+                <VotingPollingStationsFormCreate
+                    :elections="elections"
+                    v-if="!isUpload"
+                />
+                <VotingPollingStationsFormUpload
+                    :elections="elections"
+                    v-else
+                />
+            </transition>
+            <div class="mt-5">
+                <a
+                    class="cursor-pointer text-primary-500 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-primary-500"
+                    @click.prevent="toggleUploadForm"
+                >
+                    {{ isUpload ? "Single?" : "Upload?" }}
+                </a>
+            </div>
+        </div>
+    </SharedCommonOverlay>
+</template>
+
+ -->
+
+ <style scoped>
+.v-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+</style>

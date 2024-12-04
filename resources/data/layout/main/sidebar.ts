@@ -1,6 +1,4 @@
 import { SideBarMenuProps } from "~/resources/interfaces/layout/main-sidebar.interface";
-const pollingStationId = useProperty("elections.agentPollingStation.id");
-const electionId = useProperty("elections.selected.id");
 
 export const menus: SideBarMenuProps[] = [
     {
@@ -25,14 +23,6 @@ export const menus: SideBarMenuProps[] = [
     {
         label: "Nominations",
         icon: "users",
-        sublink: [
-            {
-                label: "dashboard",
-            },
-            {
-                label: "new nomination",
-            },
-        ],
     },
     {
         label: "Campaigns",
@@ -109,16 +99,7 @@ export const menus: SideBarMenuProps[] = [
             {
                 label: "Request",
                 icon: "request",
-                to: "voting.ballots.create",
-                sublink: [
-                    {
-                        label: "Dashboard",
-                        // to: {
-                        //     name: "voting.requests.index",
-                        //     params: { electionId, pollingStationId },
-                        // },
-                    },
-                ],
+                to: "voting.requests.index",
             },
         ],
     },

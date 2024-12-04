@@ -1,27 +1,23 @@
 <script setup lang="ts">
 import { BaseAdvanceSelectProps } from "~/resources/interfaces/shared/form.interface";
 
-const props = defineProps<BaseAdvanceSelectProps>();
+function isSubset<T>(arr1: T[], arr2: T[]): boolean {
+    return arr1.every((value) => arr2.includes(value));
+}
 
-const selected = defineModel();
-
-const selectOption = (option: string | number) => {
-    selected.value = option;
-};
-
-const selectedLabel = computed(() => {
-    if (selected.value) {
-        const option = props.options.find(
-            (option: any) => option.value === selected.value,
-        );
-
-        return option?.label ?? option;
-    }
-
-    return props.placeholder ? props.placeholder : "select option";
+const props = withDefaults(defineProps<BaseAdvanceSelectProps>(), {
+    hideOnSelect: true,
 });
 
-const defaultSelectClass =
+const selectedValue = defineModel();
+const selectedOption = ref(props.options.find(n=>n.value===selectedValue.value || selectedValue||null ));
+
+const selectOption = (option: { value: any; label: string }) => {
+    selectedValue.value = option?.value || option;
+    selectedOption.value = option;
+};
+
+const defaulSelectClass =
     "py-2 px-3 justify-between gap-2 capitalize text-gray-500 min-w-fit flex items-center cursor-pointer bg-white  border rounded-lg text-start text-sm dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400";
 
 const defaultOptionClass =
@@ -33,14 +29,18 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
 
 <template>
     <SharedCommonDropdown
-        buttonClass="w-full"
+        buttonClass="w-full "
         dialogClass="z-50 "
         :position="position"
         :hideContentOnSelect="hideOnSelect"
     >
         <template v-slot:toggle>
-            <button class="w-full" :class="[defaultSelectClass, selectClass]">
-                <span class="text-base">{{ selectedLabel }}</span>
+            <button class="w-full" :class="[defaulSelectClass, selectClass]">
+                <span class="text-base truncate"
+                    >{{
+                        selectedOption?.label || selectedOption || placeholder
+                    }}
+                </span>
                 <div :class="[' flex items-center flex-col ']">
                     <SharedCommonIcon
                         name="chevron_double"
@@ -60,13 +60,16 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
             <button
                 v-for="(option, index) in options"
                 :key="index"
-                @click="selectOption(option.value || option)"
+                @click="selectOption(option)"
                 type="button"
                 :aria-label="`Option ${option}`"
                 :class="[
-                    selected ===
-                    (typeof option === 'object' ? option.value : option)
-                        ? defaultSelectedClass + selectedClass
+                    (
+                        typeof option === 'object'
+                            ? selectedValue === option.value
+                            : selectedValue === option
+                    )
+                        ? defaultSelectedClass + ' ' + selectedClass
                         : 'hover:bg-gray-50 dark:hover:bg-gray-800',
                     defaultOptionClass,
                     optionClass,
@@ -76,8 +79,7 @@ const defaultSelectedClass = " bg-gray-100 dark:bg-gray-800 ";
                     v-if="hasIcon"
                     class="h-5"
                     :name="option.value || option"
-                />
-                <span>{{ option?.label || option }}</span>
+                /><span class="capitalize">{{ option.label || option }}</span>
             </button>
         </div>
     </SharedCommonDropdown>

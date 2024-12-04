@@ -28,13 +28,9 @@ const debounceFn = useDebounceFn(
 watch(search, debounceFn);
 </script>
 <template>
-    <div class="max-w-[85rem] pb-10 mx-auto">
-        <div class="flex flex-col">
-            <div class="-m-1.5 overflow-x-auto">
-                <div class="p-1.5 min-w-full inline-block align-middle">
-                    <div
-                        class="bg-white border shadow-md border-gray-200 rounded-2xl overflow-hidden dark:bg-gray-800 dark:border-gray-700"
-                    >
+   <div
+        class="overflow-hidden bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700"
+    >
                         <div>
                             <div
                                 class="grid gap-3 px-6 py-4 border-b border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
@@ -64,6 +60,7 @@ watch(search, debounceFn);
                                 />
                             </div>
                         </div>
+        <div class="w-full overflow-x-scroll">
 
                         <table
                             class="min-w-full divide-y divide-gray-200 dark:divide-gray-700"
@@ -88,6 +85,7 @@ watch(search, debounceFn);
                                             >
                                         </label>
                                     </th>
+                                    <th/>
                                     <SharedTableTh
                                         v-for="(col, index) in table.columns"
                                         :column="col"
@@ -104,6 +102,7 @@ watch(search, debounceFn);
                             <tbody
                                 class="divide-y divide-gray-200 dark:divide-gray-700"
                             >
+                    
                                 <FinanceIndexPaymentsRow
                                     v-for="row in table.records"
                                     :key="row.key"
@@ -111,6 +110,8 @@ watch(search, debounceFn);
                                     :columns="table.columns"
                                     :findColumn="findColumn"
                                 />
+
+                                
                             </tbody>
                         </table>
                         <!-- Footer -->
@@ -166,8 +167,5 @@ watch(search, debounceFn);
                         </div>
                         <!-- End Footer -->
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   </div>
 </template>

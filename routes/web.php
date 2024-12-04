@@ -15,9 +15,10 @@ Route::get('/phone-verif', function () {
 Route::get('/send-request', function () {
     return hybridly('home.agents.request-form');
 })->name('send-request');
-Route::get('/top-up', function () {
-    return hybridly('finance.transactions.show');
-})->name('election-selected');
+
+Route::get('/voting/request', function () {
+    return hybridly('voting.requests.show');
+})->name('voting.request.show');
 
 Route::get('/elections', function () {
     return hybridly('elections.index');

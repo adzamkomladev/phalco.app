@@ -8,7 +8,7 @@ const form = useForm({
     url: route("voting.polling-stations.store"),
     fields: {
         name: "",
-        code: "",
+        code: null,
         election_id: null,
     },
     hooks: {
@@ -53,6 +53,7 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                 option-class="py-1"
                 select-class="w-full py-3"
             />
+            
         </div>
 
         <div class="mt-10 flex justify-end gap-x-2">

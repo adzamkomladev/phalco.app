@@ -6,12 +6,6 @@ useHead({
 });
 
 const elections: any = useProperty("elections.all");
-
-const isUpload = ref(false);
-
-const toggleUploadForm = () => {
-    isUpload.value = !isUpload.value;
-};
 </script>
 
 <template>
@@ -37,17 +31,7 @@ const toggleUploadForm = () => {
             </div>
         </div>
         <div class="mt-5">
-            <VotingBallotsFormsCreate v-if="!isUpload" :elections="elections" />
+            <VotingBallotsFormsCreate :elections="elections" />
         </div>
     </SharedCommonOverlay>
 </template>
-<style scoped>
-.v-leave-active {
-    transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-    opacity: 0;
-}
-</style>
