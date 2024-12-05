@@ -1,6 +1,6 @@
-export type StatusType = "active" | "inactive";
-
-export  type RequestStatus = 'Accepted' | 'Rejected' | 'Pending';
+export type StatusMode = "active" | "inactive";
+export type AvailabilityMode = "enabled" | "disabled";
+export type StatusType = StatusMode | AvailabilityMode;
 
 export interface TableHeadProps {
     column: any;

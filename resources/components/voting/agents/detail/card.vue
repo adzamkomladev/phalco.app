@@ -1,86 +1,85 @@
 <script setup lang="ts">
-import { StatsCardProps } from "~/resources/interfaces/shared/common.interface";
+// import {
 
-const props = withDefaults(defineProps<StatsCardProps>(), {
-    icon: "campaign_menu",
-    value: "120",
-    description: "",
-});
+// } from "~/resources/interfaces/voting/requests/agent/index.interface.ts";
 
-const AgentData = [
-    {
-        label: "Agent A",
-        value: 25,
-        color: "#00B4D8",
-    },
-    {
-        label: "Agent B",
-        value: 35,
-        color: "#0077B6",
-    },
-    {
-        label: "Agent C",
-        value: 40,
-        color: "#03045E",
-    },
-];
+// const props = defineProps<{ }>();
 </script>
 
 <template>
     <SharedCommonCard
-        class="font-medium p-[8%] flex flex-col justify-center shadow-card _sm:shadow _sm:p-5 rounded-2xl relative"
+        class="gap-5 shrink-0 dark:text-gray-400 flex flex-col col-span-4"
     >
-        <div class="">
-            <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                Agent Statistics
+        <div class="text-center grid gap-5">
+            <h2 class="text-lg text-gray-800 font-bold dark:text-gray-200">
+                Agents Stats
             </h2>
-            <p class="text-sm text-gray-600 dark:text-gray-400">
-                Browser market shares at a specific website, 2014
-            </p>
-        </div>
-        <div class="grid">
             <div
-                class="flex justify-between _xs:flex-col py-10 md:px-0 sm:px-20 _sm:px-5"
+                class="w-[70%] h-auto aspect-square rounded-full overflow-hidden place-self-center"
             >
-                <div
-                    class="flex gap-2 items-center text-xs _lg:md:flex-col"
-                    v-for="(agent, index) in AgentData"
-                    :key="index"
-                >
-                    <span
-                        class="w-6 rounded-full h-3 block"
-                        :style="{ background: agent.color }"
-                    />
-                    <p>Ongoing</p>
-                </div>
-            </div>
-
-            <div class="w-full max-w-72 place-self-center md:my-10">
-                <SharedChartPie :data="AgentData" />
-            </div>
-        </div>
-        <div class="flex justify-between">
-            <div class="py-3 ps-6 lg:ps-3 pe-6 flex items-center gap-x-3">
                 <img
-                    class="inline-block size-[38px] rounded-full"
-                    :src="'https://picsum.photos/300'"
-                    alt="Logo"
+                    :src="'https://www.bing.com/th?id=OIP.5-mDBIk0BFx0D3b7_4ZgtAHaJF&w=120&h=150&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2'"
+                    class="w-full"
                 />
-                <div class="grow">
-                    <span
-                        class="block lg:whitespace-nowrap font-semibold text-gray-800 dark:text-gray-200"
-                    >
-                        Komla Adzam
+            </div>
+            <div>
+                <p class="font-semibold">Komla Adzam</p>
+                <p class="text-gray-800/50">Current Agent</p>
+            </div>
+        </div>
+
+        <SharedCommonCard
+            class="divide-y divide-gray-300 dark:divide-gray-600 grow text-sm gap-2 flex flex-col"
+        >
+            <div class="flex justify-between items-center grow">
+                <div class="flex gap-4 items-center">
+                    <span class="bg-slate-100 dark:bg-gray-700 p-2 rounded-lg">
+                        <SharedCommonIcon
+                            name="users"
+                            stroke-width="2"
+                            class="h-6"
+                        />
                     </span>
-                    <span class="block text-sm text-gray-500"> Agent </span>
+                    <div>
+                        <p class="font-bold text-lg">Total Candidates</p>
+                        <p class="font-semibold text-sm">
+                            <!-- {{ stageStat?.audiences }} -->
+                        </p>
+                    </div>
+                </div>
+                <div class="group">
+                    <SharedCommonIcon
+                        name="poles"
+                        class="size-6"
+                        stroke-width="1"
+                    />
                 </div>
             </div>
-
-            <router-link
-                class="text-xs text-nowrap px-4 py-1 text-gray-400 border border-gray-300 h-full rounded-md"
-            >
-                View Profile
-            </router-link>
-        </div>
+            <div class="flex justify-between items-center grow pt-4">
+                <div class="flex gap-4 items-center">
+                    <span class="bg-slate-100 dark:bg-gray-700 p-2 rounded-lg">
+                        <SharedCommonIcon
+                            name="polling_station"
+                            stroke-width="2"
+                            class="h-6"
+                        />
+                    </span>
+                    <div>
+                        <p class="font-bold text-lg">Total Campaigns</p>
+                        <p class="font-semibold text-sm">
+                            <!-- {{ stageStat?.campaigns }} -->
+                            34
+                        </p>
+                    </div>
+                </div>
+                <div class="group">
+                    <SharedCommonIcon
+                        name="poles"
+                        class="size-6"
+                        stroke-width="1"
+                    />
+                </div>
+            </div>
+        </SharedCommonCard>
     </SharedCommonCard>
 </template>

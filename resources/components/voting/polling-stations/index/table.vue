@@ -31,6 +31,7 @@ const debounceFn = useDebounceFn(
 watch(search, debounceFn);
 </script>
 <template>
+    {{}}
     <div>
         <div
             class="overflow-hidden bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700"
@@ -47,22 +48,27 @@ watch(search, debounceFn);
                             Polling Stations
                         </h2>
                         <p class="text-sm text-gray-600 dark:text-gray-400">
-                            Manage all Polling Stations of your election
+                            Manage all Polling Stations of an election
                         </p>
                     </div>
+                </div>
+
+                <div
+                    class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
+                >
+                    <!-- Input -->
+                    <SharedFormSearchInput
+                        class="sm:col-span-1"
+                        v-model="search"
+                        placeholder="Search polling stations"
+                        name="search"
+                    />
 
                     <div>
                         <div class="inline-flex gap-x-2">
                             <router-link
-                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                                 :href="route('voting.polling-stations.create')"
-                            >
-                                Import
-                            </router-link>
-
-                            <router-link
-                                :href="route('voting.polling-stations.create')"
-                                class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-primary-500 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             >
                                 <svg
                                     class="flex-shrink-0 size-3"
@@ -84,36 +90,25 @@ watch(search, debounceFn);
                         </div>
                     </div>
                 </div>
-
-                <div
-                    class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
-                >
-                    <!-- Input -->
-                    <SharedFormSearchInput
-                        class="sm:col-span-1"
-                        v-model="search"
-                        placeholder="Search polling stations"
-                        name="search"
-                    />
-                </div>
             </div>
 
             <!-- End Header -->
 
             <!-- Table -->
-            <div class="w-full divide-y divide-gray-200 dark:divide-gray-700">
-                <div class="mx-6 my-6 grid grid-cols-3 gap-3">
-                    <VotingPollingStationsIndexTableCard
-                        v-for="{ key, value, extra } in table.records"
-                        :key="key"
-                        :id="extra(findColumn('name'), 'id')"
-                        :name="value(findColumn('name'))"
-                        :code="value(findColumn('code'))"
-                        :votes="value(findColumn('votes'))"
-                        :status="value(findColumn('status'))"
-                    />
-                </div>
+            <div
+                class="w-full divide-y divide-gray-200 dark:divide-gray-700 p-4 grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
+            >
+                <VotingPollingStationsIndexRow
+                    v-for="{ key, value, extra } in table.records"
+                    :key="key"
+                    :id="extra(findColumn('name'), 'id')"
+                    :name="value(findColumn('name'))"
+                    :code="value(findColumn('code'))"
+                    :votes="value(findColumn('votes'))"
+                    :status="value(findColumn('status'))"
+                />
             </div>
+
             <!-- End Table -->
 
             <!-- Footer -->

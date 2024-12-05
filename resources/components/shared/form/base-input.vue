@@ -13,6 +13,7 @@ const model = defineModel({ required: true });
 const input = ref<HTMLInputElement | null>(null);
 const focus = () => input.value?.focus();
 const select = () => input.value?.select();
+
 defineExpose({ focus, select });
 
 const classes = {
@@ -50,6 +51,8 @@ const describeBy = computed(() => `${props.id}-error`);
                 :autocomplete="props.autocomplete"
                 :aria-describedby="describeBy"
                 v-model="model"
+                :min="props.min"
+                :max="props.max"
             />
             <!-- <div>{{type.toString()}}</div> -->
             <div

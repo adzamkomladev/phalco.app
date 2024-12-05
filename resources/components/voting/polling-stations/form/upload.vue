@@ -5,10 +5,9 @@ const props = defineProps<{
 
 const form = useForm({
     method: "POST",
-    url: route("voting.polling-stations.store"),
+    url: route("voting.polling-stations.upload"),
     fields: {
-        name: "",
-        code: "",
+        upload_file: "",
         election_id: null,
     },
     hooks: {
@@ -24,23 +23,10 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
 
 <template>
     <form @submit.prevent="form.submit">
+        <h4 class="h4 mb-5 font-bold">Upload Polling Stations</h4>
+
         <div class="grid gap-5">
-            <SharedFormBaseInput
-                v-model="form.fields.name"
-                :error="form.errors.name"
-                id="name"
-                name="name"
-                placeholder="Polling Station Name"
-            />
-
-            <SharedFormBaseInput
-                v-model="form.fields.code"
-                :error="form.errors.code"
-                id="code"
-                name="code"
-                placeholder="Polling Station Code"
-            />
-
+            <div class=""></div>
             <SharedFormBaseAdvanceSelect
                 v-model="form.fields.election_id"
                 :error="form.errors.election_id"
@@ -53,6 +39,8 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                 option-class="py-1"
                 select-class="w-full py-3"
             />
+
+            <SharedFormBaseFileUpload v-model="form.fields.upload_file" />
         </div>
 
         <div class="mt-10 flex justify-end gap-x-2">

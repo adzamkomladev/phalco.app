@@ -53,17 +53,16 @@ function toggleTable(newTable: string) {
     table.value = newTable;
 }
 </script>
-
 <template layout="main">
     <div
         class="max-w-[85rem] px-4 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
     >
         <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
-            Finance
+            Finances
         </h2>
         <p class="text-sm text-gray-600 dark:text-gray-400">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
-            optio.
+            opti
         </p>
 
         <div class="flex py-5 justify-between">
@@ -72,12 +71,12 @@ function toggleTable(newTable: string) {
                     :modelValue="selectedWalletId"
                     @update:modelValue="updateSelectedWallet"
                     hideOnSelect
+                    :placeholder="'select wallet ...'"
                     :options="options"
                     optionClass="py-1 text-sm w-60"
                     position="bottom-center"
                     selectClass="min-w-40 w-60 max-w-60"
                     optionsClass="min-w-40"
-                    placeholder="select wallet"
                 />
             </div>
 
@@ -114,71 +113,67 @@ function toggleTable(newTable: string) {
                 />
             </div>
         </div>
-
-        <div class="flex gap-10 w-fit text-lg relative mb-10">
-            <button @click="toggleTable('payments')" class="py-2 rounded">
-                Payment
-            </button>
-            <button @click="toggleTable('transactions')" class="py-2 e rounded">
-                Transaction
-            </button>
-            <div
-                class="bg-primary-500 h-[3px] transition-all duration-500 absolute w-[calc(50%)] bottom-0"
-                :class="[table === 'transactions' ? 'right-0' : 'right-1/2']"
-            />
-        </div>
-
-        <div class="transition-container">
-            <!-- Payment Table Transition -->
-            <transition name="payment" mode="out-in">
-                <div
-                    :key="table"
-                    class="transition-all duration-500 overflow-hidden"
+        <div class="w-full overflow-hidden">
+            <div class="mx-10 py-4">
+                <nav
+                    class="flex gap-x-4"
+                    aria-label="Tabs"
+                    role="tablist"
+                    aria-orientation="horizontal"
                 >
-                    <div v-if="table === 'payments'">
-                        <FinanceIndexPaymentsTable :table="paymentsTable" />
-                    </div>
-                </div>
-            </transition>
+                    <button
+                        type="button"
+                        class="hs-tab-active:font-semibold hs-tab-active:pointer-events-none flex flex-col hs-tab-active:text-primary-500 gap-2 px-1 inline-flex items- gap-x-2 whitespace-nowrap text-gray-500 hover:text-primary-600 focus:outline-none focus:text-primary-600 transitionss-all disabled:opacity-50 disabled:pointer-events-none active"
+                        id="basic-tabs-payments"
+                        aria-selected="true"
+                        data-hs-tab="#tabs-payments"
+                        aria-controls="tabs-payments"
+                        role="tab"
+                    >
+                        Payments
+                        <p
+                            class="w-0 hs-tab-active:w-full trasition-all duration-500 border-b-[3px] -mb-[1px] hs-tab-active:border-primary-400 block"
+                        ></p>
+                    </button>
+                    <button
+                        type="button"
+                        class="hs-tab-active:font-semibold hs-tab-active:pointer-events-none flex flex-col hs-tab-active:text-primary-500 gap-2 px-1 inline-flex items-end gap-x-2 whitespace-nowrap text-gray-500 hover:text-primary-600 focus:outline-none focus:text-primary-600 transitionss-all disabled:opacity-50 disabled:pointer-events-none"
+                        id="basic-tabs-item-2"
+                        aria-selected="false"
+                        data-hs-tab="#tabs-transactions"
+                        aria-controls="tabs-transactions"
+                        role="tab"
+                    >
+                        Transactions
+                        <p
+                            class="w-0 hs-tab-active:w-full place-self-right trasition-all duration-500 border-b-[3px] -mb-[1px] hs-tab-active:border-primary-400 block"
+                        ></p>
+                    </button>
+                </nav>
+            </div>
 
-            <!-- Transaction Table Transition -->
-            <transition name="transaction" mode="out-in">
+            <div class="mt-3">
                 <div
-                    :key="table"
-                    class="transition-all duration-500 overflow-hidden"
+                    :duration="300"
+                    v-motion-slide-visible-left
+                    id="tabs-payments"
+                    role="tabpanel"
+                    aria-labelledby="payments"
                 >
-                    <div>
-                        <FinanceIndexTransactionsTable
-                            v-if="table === 'transactions'"
-                            :table="transactionsTable"
-                        />
-                    </div>
+                    <FinanceIndexPaymentsTable :table="paymentsTable" />
                 </div>
-            </transition>
+
+                <div
+                    :duration="300"
+                    v-motion-slide-visible-right
+                    id="tabs-transactions"
+                    class="hidden"
+                    role="tabpanel"
+                    aria-labelledby="transactions"
+                >
+                    <FinanceIndexTransactionsTable :table="transactionsTable" />
+                </div>
+            </div>
         </div>
     </div>
 </template>
-
-<style scoped>
-.payment-enter-active,
-.payment-leave-active,
-.transaction-enter-active,
-.transaction-leave-active {
-    transition: all 0.3s ease;
-}
-.payment-enter,
-.payment-leave-to {
-    transform: translateX(10rem), scale(0.8);
-    opacity: 0;
-}
-
-.transaction-enter,
-.transaction-leave-to {
-    transform: translateX(-10rem), scale(0.8);
-    opacity: 0;
-}
-
-.transition-container {
-    position: relative;
-}
-</style>

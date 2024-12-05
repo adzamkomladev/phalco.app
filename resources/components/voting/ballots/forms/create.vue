@@ -42,7 +42,7 @@ const toggleUploadForm = () => {
                     :error="form.errors.position"
                     id="position"
                     name="position"
-                    placeholder="Ballot Position"
+                    placeholder="Position"
                 />
             </div>
 
@@ -54,7 +54,7 @@ const toggleUploadForm = () => {
                     :error="form.errors.code"
                     id="code"
                     name="code"
-                    placeholder="Ballot Code"
+                    placeholder="Code"
                 />
             </div>
 
