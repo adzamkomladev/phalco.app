@@ -14,7 +14,7 @@ const input = ref<HTMLInputElement | null>(null);
 const focus = () => input.value?.focus();
 const select = () => input.value?.select();
 
-defineExpose({ focus, select});
+defineExpose({ focus, select });
 
 const classes = {
     input: "py-3 font-light placeholder:capitalize px-4 text-base  block text-gray-700 w-full border-gray-200 rounded-md  focus:border-primary-500 focus:ring-primary-500 disabled:opacity-50 placeholder:text-gray-500 placeholder:text-[1rem]  disabled:pointer-events-none dark:bg-transparent dark:border-gray-600 dark:text-gray-400 dark:placeholder-gray-500 dark:focus:ring-gray-600",
@@ -51,8 +51,8 @@ const describeBy = computed(() => `${props.id}-error`);
                 :autocomplete="props.autocomplete"
                 :aria-describedby="describeBy"
                 v-model="model"
-               :min="props.min"
-               :max="props.max"
+                :min="props.min"
+                :max="props.max"
             />
             <!-- <div>{{type.toString()}}</div> -->
             <div

@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 <script setup lang="ts">
 const props = defineProps<{
     elections: { id: number; name: string }[];

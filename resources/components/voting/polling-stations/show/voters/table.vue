@@ -46,12 +46,12 @@ watch(search, debounceFn);
                     </h2>
                 </div>
                 <div class="inline-flex gap-x-2">
-                        <router-link
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-primary-400 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                        >
-                            Add Voters
-                        </router-link>
-                    </div>
+                    <router-link
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-primary-400 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                    >
+                        Add Voters
+                    </router-link>
+                </div>
             </div>
 
             <div
@@ -59,7 +59,7 @@ watch(search, debounceFn);
             >
                 <!-- Input -->
                 <SharedFormSearchInput
-                v-model="search"
+                    v-model="search"
                     class="sm:col-span-1"
                     placeholder="Search ballots"
                     name="search"
@@ -124,7 +124,7 @@ watch(search, debounceFn);
                     voters
                 </p>
             </div>
-             <div>
+            <div>
                 <div class="inline-flex gap-x-2">
                     <router-link
                         v-if="prev.url"

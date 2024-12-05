@@ -10,7 +10,11 @@ const props = withDefaults(defineProps<BaseAdvanceSelectProps>(), {
 });
 
 const selectedValue = defineModel();
-const selectedOption = ref(props.options.find(n=>n.value===selectedValue.value || selectedValue||null ));
+const selectedOption = ref(
+    props.options.find(
+        (n) => n.value === selectedValue.value || selectedValue || null,
+    ),
+);
 
 const selectOption = (option: { value: any; label: string }) => {
     selectedValue.value = option?.value || option;

@@ -15,7 +15,7 @@ const props = defineProps<{
 const votersTable = useTable(props, "voters");
 const requestsTable = useTable(props, "requests");
 
-const [voteEntryRequest] = props.pollingStation?.vote_entry_requests ||[];
+const [voteEntryRequest] = props.pollingStation?.vote_entry_requests || [];
 </script>
 
 <template layout="main">

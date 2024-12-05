@@ -27,7 +27,7 @@ const createdAt = new Date(value(props.findColumn("created_at"))).toUTCString();
                 </label>
             </div>
         </td>
-         <td class="size-px w w-full max-w-40 bg-red">
+        <td class="size-px w w-full max-w-40 bg-red">
             <div class="py-3 ps-6 lg:ps-3 pe-6">
                 <div class="flex items-center gap-x-3">
                     <img

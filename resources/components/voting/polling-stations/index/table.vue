@@ -95,19 +95,19 @@ watch(search, debounceFn);
             <!-- End Header -->
 
             <!-- Table -->
-           <div
-    class="w-full divide-y divide-gray-200 dark:divide-gray-700 p-4 grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3  2xl:grid-cols-4"
->
-    <VotingPollingStationsIndexRow
-        v-for="{ key, value, extra } in table.records"
-        :key="key"
-        :id="extra(findColumn('name'), 'id')"
-        :name="value(findColumn('name'))"
-        :code="value(findColumn('code'))"
-        :votes="value(findColumn('votes'))"
-        :status="value(findColumn('status'))"
-    />
-</div>
+            <div
+                class="w-full divide-y divide-gray-200 dark:divide-gray-700 p-4 grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
+            >
+                <VotingPollingStationsIndexRow
+                    v-for="{ key, value, extra } in table.records"
+                    :key="key"
+                    :id="extra(findColumn('name'), 'id')"
+                    :name="value(findColumn('name'))"
+                    :code="value(findColumn('code'))"
+                    :votes="value(findColumn('votes'))"
+                    :status="value(findColumn('status'))"
+                />
+            </div>
 
             <!-- End Table -->
 

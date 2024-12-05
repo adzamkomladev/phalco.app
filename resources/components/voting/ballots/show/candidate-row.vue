@@ -28,7 +28,9 @@
             </div>
         </div>
         <div class="flex items-center max-w-[10%]">
-          <img src="https://th.bing.com/th/id/R.5dc0aa315b1d9c62e1fb4052caa50bbf?rik=2SjuMfAwfJTGlQ&pid=ImgRaw&r=0"/>
+            <img
+                src="https://th.bing.com/th/id/R.5dc0aa315b1d9c62e1fb4052caa50bbf?rik=2SjuMfAwfJTGlQ&pid=ImgRaw&r=0"
+            />
         </div>
     </div>
 </template>

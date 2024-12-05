@@ -70,7 +70,6 @@ const status = "complete";
                     <hr class="bg-teal-700 grow" />
                     <FinanceSucess :is-success="false" />
                 </div>
-               
 
                 <div class="flex justify-between">
                     <div class="w-32 text-center">
@@ -102,8 +101,7 @@ const status = "complete";
             </div>
             <div class="flex justify-between">
                 <p>Status</p>
-                           <SharedTableRequestStatus status="completed"/>
-
+                <SharedTableRequestStatus status="completed" />
             </div>
             <div class="flex justify-between">
                 <p>Transaction Date</p>

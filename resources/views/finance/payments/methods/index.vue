@@ -10,7 +10,7 @@ const props = defineProps<{
     networks: App.Data.Finance.NetworkData[];
 }>();
 
-const showAddAccount=ref(false);
+const showAddAccount = ref(false);
 </script>
 
 <template>
@@ -38,14 +38,23 @@ const showAddAccount=ref(false);
         </div>
 
         <div class="mt-5 pb-20">
-
             <FinancePaymentsMethodsList :methods="methods" />
-            
+
             <div class="py-5">
-             <button @click="showAddAccount=!showAddAccount" class="text-secondary-300 text-sm pb-5"> {{showAddAccount ? 'Close account Form -':' Account Add'}}</button>
-             <transition >
-              <FinancePaymentsMethodsForm v-if=(showAddAccount) :networks="networks" />
-             </transition>
+                <button
+                    @click="showAddAccount = !showAddAccount"
+                    class="text-secondary-300 text-sm pb-5"
+                >
+                    {{
+                        showAddAccount ? "Close account Form -" : " Account Add"
+                    }}
+                </button>
+                <transition>
+                    <FinancePaymentsMethodsForm
+                        v-if="showAddAccount"
+                        :networks="networks"
+                    />
+                </transition>
             </div>
         </div>
     </SharedCommonOverlay>
@@ -76,7 +85,7 @@ const showAddAccount=ref(false);
 
  -->
 
- <style scoped>
+<style scoped>
 .v-leave-active {
     transition: opacity 0.5s ease;
 }

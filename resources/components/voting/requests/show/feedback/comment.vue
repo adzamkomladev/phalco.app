@@ -3,7 +3,7 @@
 const comments =
 
 <template>
-    <div class="grid gap-2 ">
+    <div class="grid gap-2">
         <SharedCommonSpeechBuble />
         <SharedCommonSpeechBuble />
         <SharedCommonSpeechBuble />

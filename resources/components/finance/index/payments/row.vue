@@ -29,7 +29,7 @@ const gatewayReference = value(props.findColumn("gateway_reference"));
                 </label>
             </div>
         </td>
-         <td class="size-px w w-full max-w-40 bg-red">
+        <td class="size-px w w-full max-w-40 bg-red">
             <div class="py-3 ps-6 lg:ps-3 pe-6">
                 <div class="flex items-center gap-x-3">
                     <img
@@ -69,12 +69,13 @@ const gatewayReference = value(props.findColumn("gateway_reference"));
                 {{ gatewayReference }}
             </div>
         </td>
-        <td class="size-px whitespace-nowrap text-gray-600 ">
-
+        <td class="size-px whitespace-nowrap text-gray-600">
             <div class="px-6 py-3">
-               <SharedCommonIcon name="paystack" class="place-self-center size-6" />
-<span class="text-xs capitalize">{{ gateway }}</span>
-                
+                <SharedCommonIcon
+                    name="paystack"
+                    class="place-self-center size-6"
+                />
+                <span class="text-xs capitalize">{{ gateway }}</span>
             </div>
         </td>
         <td class="size-px whitespace-nowrap text-gray-600">

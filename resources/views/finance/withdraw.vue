@@ -24,7 +24,6 @@ const form = useForm({
 });
 
 const submitted = ref(false);
-
 </script>
 
 <template>
@@ -35,7 +34,7 @@ const submitted = ref(false);
         <div
             class="flex flex-row-reverse rounded-3xl bg-secondary-300 dark:bg-gradient-to-r from-secondary-950 to-secondary-800"
         >
-            <div class="font-medium pt-10 px-10 basis-1/2 shrink-0 ">
+            <div class="font-medium pt-10 px-10 basis-1/2 shrink-0">
                 <p class="text-gray-50 text-lg dark:text-gray-100">
                     Withdrawal from Wallet
                 </p>
@@ -76,20 +75,35 @@ const submitted = ref(false);
                         <div
                             v-for="(method, index) in methods"
                             :key="index"
-                            @click.prevent="form.fields.wallet_id= method.id"
+                            @click.prevent="form.fields.wallet_id = method.id"
                             type="submit"
-                          :class="[ form?.fields?.wallet_id===method?.id ?'bg-secondary-400 shaddow text-white':'hover:bg-slate-50 text-gray-700 focus:text-gray-700 bg-white cursor-pointer']"
-                            class="w-full  justify-between font-black text-gray-600  transition-all  shadow-card focus:text-white    h-16 _md:h-16 py-2 px-4 flex items-center gap-x-2 text-base xl:text-lg rounded-lg border-2 border-transparent   hover:opacity-90 focus:outline-none  disabled:opacity-50 disabled:pointer-events-none"
+                            :class="[
+                                form?.fields?.wallet_id === method?.id
+                                    ? 'bg-secondary-400 shaddow text-white'
+                                    : 'hover:bg-slate-50 text-gray-700 focus:text-gray-700 bg-white cursor-pointer',
+                            ]"
+                            class="w-full justify-between font-black text-gray-600 transition-all shadow-card focus:text-white h-16 _md:h-16 py-2 px-4 flex items-center gap-x-2 text-base xl:text-lg rounded-lg border-2 border-transparent hover:opacity-90 focus:outline-none disabled:opacity-50 disabled:pointer-events-none"
                         >
-                            <div class="flex gap-4  ">
-                               <div class="size-10 rounded-md bg-[#F5F5F5fe] p-[5px]">                        <SharedCommonIcon class="size-full" :name="method.network_code || method.bank_code" />
-
-                               </div>
-                                <div class="flex flex-col  text-left">
-                                    <span class="font-semi-bold text-sm" :style="''">
+                            <div class="flex gap-4">
+                                <div
+                                    class="size-10 rounded-md bg-[#F5F5F5fe] p-[5px]"
+                                >
+                                    <SharedCommonIcon
+                                        class="size-full"
+                                        :name="
+                                            method.network_code ||
+                                            method.bank_code
+                                        "
+                                    />
+                                </div>
+                                <div class="flex flex-col text-left">
+                                    <span
+                                        class="font-semi-bold text-sm"
+                                        :style="''"
+                                    >
                                         {{ method.account_name }}
                                     </span>
-                                    <span class="font-thin text-xs  ">
+                                    <span class="font-thin text-xs">
                                         {{ method.account_number }}
                                     </span>
                                 </div>
@@ -100,7 +114,9 @@ const submitted = ref(false);
                     <SharedCommonCard class="grid gap-4 mt-10">
                         <p class="flex justify-between">
                             <span>Amount</span>
-                            <span class="font-thin text-xs">${{form.fields.amount}}</span>
+                            <span class="font-thin text-xs"
+                                >${{ form.fields.amount }}</span
+                            >
                         </p>
                         <p class="flex justify-between">
                             <span>Withdrawal fee</span>
@@ -108,7 +124,9 @@ const submitted = ref(false);
                         </p>
                         <p class="flex justify-between">
                             <span>Total</span>
-                            <span class="font-thin text-xs">${{form.fields.amount}}</span>
+                            <span class="font-thin text-xs"
+                                >${{ form.fields.amount }}</span
+                            >
                         </p>
                     </SharedCommonCard>
 

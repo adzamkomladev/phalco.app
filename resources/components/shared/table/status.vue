@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { StatusType } from "~/resources/interfaces/table/index.interface";
 
-const props = withDefaults(defineProps<{
-    status: StatusType;
-    mode?: "status" | "availability";
-}>(),{
-    status:'active'
-});
+const props = withDefaults(
+    defineProps<{
+        status: StatusType;
+        mode?: "status" | "availability";
+    }>(),
+    {
+        status: "active",
+    },
+);
 
 const computedClass = (state: string) => {
     switch (state.toLowerCase()) {

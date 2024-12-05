@@ -4,23 +4,25 @@ import { formatDate, secondsUntil } from "~/resources/utils/shared/date";
 
 const props = defineProps<{ election: Election }>();
 const secondsLeftToVote = Math.floor(secondsUntil(props.election.end));
-
 </script>
 
 <template>
     <SharedCommonCard class="divide-y dark:divide-gray-500 gap-2 flex flex-col">
-        <div class="flex items-center justify-between  gap-2">
-            <div class="flex items-center gap-2" >
-                
-           
-            <img
-                :src="election.logo"
-                class="size-10 aspect-square rounded-full border"
-            />
+        <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <img
+                    :src="election.logo"
+                    class="size-10 aspect-square rounded-full border"
+                />
 
-            <span class="font-bold text-2xl">{{ election.name }}</span> </div>
-<div><SharedCommonTimer :duration="secondsLeftToVote" class="font-black text-2xl"/>
-</div>
+                <span class="font-bold text-2xl">{{ election.name }}</span>
+            </div>
+            <div>
+                <SharedCommonTimer
+                    :duration="secondsLeftToVote"
+                    class="font-black text-2xl"
+                />
+            </div>
         </div>
 
         <div

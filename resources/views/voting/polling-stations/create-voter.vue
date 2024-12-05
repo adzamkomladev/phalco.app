@@ -44,14 +44,14 @@ const toggleUploadForm = () => (isUpload.value = !isUpload.value);
                 />
             </transition>
         </div>
-         <div class="mt-5">
-                <a
-                    class="cursor-pointer text-primary-500 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-primary-500"
-                    @click.prevent="toggleUploadForm"
-                >
-                    {{ isUpload ? "Single?" : "Upload?" }}
-                </a>
-            </div>
+        <div class="mt-5">
+            <a
+                class="cursor-pointer text-primary-500 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-primary-500"
+                @click.prevent="toggleUploadForm"
+            >
+                {{ isUpload ? "Single?" : "Upload?" }}
+            </a>
+        </div>
     </SharedCommonOverlay>
 </template>
 

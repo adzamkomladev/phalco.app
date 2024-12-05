@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import { ImageItemProp } from '~/resources/interfaces/voting/requests/show.interface';
-
-
+import { ImageItemProp } from "~/resources/interfaces/voting/requests/show.interface";
 
 const props = defineProps<{
     images: ImageItemProp[];
 }>();
-
-
 </script>
 
 <template>

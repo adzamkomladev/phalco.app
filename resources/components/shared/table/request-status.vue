@@ -26,7 +26,7 @@ const getStatusClasses = (status: string) => {
         :class="getStatusClasses(status)"
     >
         <SharedCommonIcon
-            v-if="status === 'accepted'||'completed'"
+            v-if="status === 'accepted' || 'completed'"
             name="check"
             class="size-4 mobile:size-3 shrink-0 rounded-full text-white p-[2px] bg-forest"
         />

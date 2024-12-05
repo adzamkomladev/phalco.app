@@ -68,7 +68,6 @@ function toggleTable(newTable: string) {
         <div class="flex py-5 justify-between">
             <div class="w-60">
                 <SharedFormBaseAdvanceSelect
-                
                     :modelValue="selectedWalletId"
                     @update:modelValue="updateSelectedWallet"
                     hideOnSelect
@@ -114,39 +113,67 @@ function toggleTable(newTable: string) {
                 />
             </div>
         </div>
-<div class="w-full overflow-hidden">
-  <div class=" mx-10 py-4">
-    <nav class="flex gap-x-4 " aria-label="Tabs" role="tablist" aria-orientation="horizontal">
-      <button type="button" class="hs-tab-active:font-semibold hs-tab-active:pointer-events-none  flex flex-col  hs-tab-active:text-primary-500 gap-2  px-1 inline-flex items- gap-x-2   whitespace-nowrap text-gray-500 hover:text-primary-600 focus:outline-none focus:text-primary-600 transitionss-all disabled:opacity-50 disabled:pointer-events-none active" id="basic-tabs-payments" aria-selected="true" data-hs-tab="#tabs-payments" aria-controls="tabs-payments" role="tab">
-        Payments
-        <p class=" w-0 hs-tab-active:w-full trasition-all duration-500 border-b-[3px] -mb-[1px]  hs-tab-active:border-primary-400  block"></p>
-      </button>
-      <button type="button" class="hs-tab-active:font-semibold hs-tab-active:pointer-events-none  flex flex-col  hs-tab-active:text-primary-500 gap-2  px-1 inline-flex items-end gap-x-2  whitespace-nowrap text-gray-500 hover:text-primary-600 focus:outline-none focus:text-primary-600 transitionss-all disabled:opacity-50 disabled:pointer-events-none " id="basic-tabs-item-2" aria-selected="false" data-hs-tab="#tabs-transactions" aria-controls="tabs-transactions" role="tab">
-        Transactions
-        <p class=" w-0 hs-tab-active:w-full place-self-right trasition-all duration-500 border-b-[3px] -mb-[1px]  hs-tab-active:border-primary-400  block"></p>
-      </button>
+        <div class="w-full overflow-hidden">
+            <div class="mx-10 py-4">
+                <nav
+                    class="flex gap-x-4"
+                    aria-label="Tabs"
+                    role="tablist"
+                    aria-orientation="horizontal"
+                >
+                    <button
+                        type="button"
+                        class="hs-tab-active:font-semibold hs-tab-active:pointer-events-none flex flex-col hs-tab-active:text-primary-500 gap-2 px-1 inline-flex items- gap-x-2 whitespace-nowrap text-gray-500 hover:text-primary-600 focus:outline-none focus:text-primary-600 transitionss-all disabled:opacity-50 disabled:pointer-events-none active"
+                        id="basic-tabs-payments"
+                        aria-selected="true"
+                        data-hs-tab="#tabs-payments"
+                        aria-controls="tabs-payments"
+                        role="tab"
+                    >
+                        Payments
+                        <p
+                            class="w-0 hs-tab-active:w-full trasition-all duration-500 border-b-[3px] -mb-[1px] hs-tab-active:border-primary-400 block"
+                        ></p>
+                    </button>
+                    <button
+                        type="button"
+                        class="hs-tab-active:font-semibold hs-tab-active:pointer-events-none flex flex-col hs-tab-active:text-primary-500 gap-2 px-1 inline-flex items-end gap-x-2 whitespace-nowrap text-gray-500 hover:text-primary-600 focus:outline-none focus:text-primary-600 transitionss-all disabled:opacity-50 disabled:pointer-events-none"
+                        id="basic-tabs-item-2"
+                        aria-selected="false"
+                        data-hs-tab="#tabs-transactions"
+                        aria-controls="tabs-transactions"
+                        role="tab"
+                    >
+                        Transactions
+                        <p
+                            class="w-0 hs-tab-active:w-full place-self-right trasition-all duration-500 border-b-[3px] -mb-[1px] hs-tab-active:border-primary-400 block"
+                        ></p>
+                    </button>
+                </nav>
+            </div>
 
-    
-    </nav>
-  </div>
+            <div class="mt-3">
+                <div
+                    :duration="300"
+                    v-motion-slide-visible-left
+                    id="tabs-payments"
+                    role="tabpanel"
+                    aria-labelledby="payments"
+                >
+                    <FinanceIndexPaymentsTable :table="paymentsTable" />
+                </div>
 
-  <div class="mt-3 ">
- 
-                    <div  :duration="300" v-motion-slide-visible-left id="tabs-payments"  role="tabpanel" aria-labelledby="payments">
-                        <FinanceIndexPaymentsTable :table="paymentsTable" />
-                    </div>
-                    
-                    <div  :duration="300" v-motion-slide-visible-right id="tabs-transactions" class="hidden " role="tabpanel" aria-labelledby="transactions">
-                        <FinanceIndexTransactionsTable
-                            :table="transactionsTable"
-                        />
-                    </div>
-
-    
-  </div>
-</div>
-       
-
-     
+                <div
+                    :duration="300"
+                    v-motion-slide-visible-right
+                    id="tabs-transactions"
+                    class="hidden"
+                    role="tabpanel"
+                    aria-labelledby="transactions"
+                >
+                    <FinanceIndexTransactionsTable :table="transactionsTable" />
+                </div>
+            </div>
+        </div>
     </div>
 </template>
