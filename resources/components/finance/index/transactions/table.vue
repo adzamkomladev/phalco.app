@@ -52,7 +52,7 @@ watch(search, debounceFn);
             >
                 <SharedFormSearchInput
                     class="sm:col-span-1"
-                    placeholder="Search for payment"
+                    placeholder="Search for transaction"
                     name="search"
                     v-model="search"
                 />
@@ -77,7 +77,6 @@ watch(search, debounceFn);
                                 <span class="sr-only">Checkbox</span>
                             </label>
                         </th>
-                        <th />
                         <SharedTableTh
                             v-for="(col, index) in table.columns"
                             :column="col"

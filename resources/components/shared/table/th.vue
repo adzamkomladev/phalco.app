@@ -8,7 +8,7 @@ const props = defineProps<TableHeadProps>();
     <th
         scope="column"
         :class="{
-            'py-3 ps-6  lg:ps-3  pe-6 text-start': index === 0,
+            'py-3 ps-2  lg:ps-3  pe-6 text-start': index === 0,
             'px-6 py-3 text-start': index !== 0,
         }"
         class=""

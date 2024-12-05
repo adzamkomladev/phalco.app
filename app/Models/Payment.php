@@ -29,6 +29,7 @@ class Payment extends Model
         'reference',
         'gateway_reference',
         'metadata',
+        'description'
     ];
 
     /**
