@@ -32,7 +32,7 @@ const selectAgent = (id: number) => {
                     Agents
                 </h2>
                 <p class="text-sm text-gray-600 dark:text-gray-400 pb-5">
-                    Manage all Agents of an electionm {{ selectedAgent }}
+                    Manage all Agents of an electionm
                 </p>
             </div>
         </div>

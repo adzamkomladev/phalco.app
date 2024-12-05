@@ -1,4 +1,10 @@
 <script setup lang="ts">
+
+onMounted(() => {
+    window.HSStaticMethods.autoInit();
+});
+
+
 const table = ref("payments");
 
 const props = defineProps<{
