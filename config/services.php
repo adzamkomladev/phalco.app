@@ -59,6 +59,12 @@ return [
                 'verify' => env('ARKESEL_OTP_URLS_VERIFY'),
             ],
         ],
+        'sms' => [
+            'sender' => env('ARKESEL_OTP_SENDER', env('APP_NAME')),
+            'urls' => [
+                'send' => '/v2/sms/send',
+            ],
+        ],
     ],
 
 ];

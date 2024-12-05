@@ -7,10 +7,13 @@ use App\Models\OrganizationMembership;
 use App\Models\OrganizationRole;
 use App\Models\PollingStation;
 use App\Models\User;
+use App\Notifications\Voting;
 use Illuminate\Support\Facades\Concurrency;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Lorisleiva\Actions\Concerns\AsAction;
+use Propaganistas\LaravelPhone\PhoneNumber;
 
 class SetupAgentFromRowImport
 {
@@ -30,12 +33,20 @@ class SetupAgentFromRowImport
             'last_name' => $lastName,
             'email' => $email,
             'code' => $code,
-            'name' => $name
+            'name' => $name,
+            'phone' => $phone,
         ] = $row;
 
         $password = config('settings.agent.password');
         $role = 'customer';
         $avatar = "https://ui-avatars.com/api/?name={$firstName}+{$lastName}&background=random";
+
+        $email = $email || $this->generateFakeEmail($firstName);
+
+        if ($phone) {
+            $phone = new PhoneNumber($phone, 'GH');
+            $phone = $phone->formatE164();
+        }
 
         [$organizationRole, $user] = Concurrency::run(
             [
@@ -51,15 +62,17 @@ class SetupAgentFromRowImport
                     'password' => Hash::make($password),
                     'role' => $role,
                     'avatar' => $avatar,
+                    'phone' => $phone,
                 ]),
             ]
         );
 
         $canCreatePollingStation = $code && $name;
 
-        [$organizationMembership, $pollingStation] = Concurrency::run([fn () => OrganizationMembership::where('user_id', $user->id)
-            ->where('organization_id', $organizationId)
-            ->first() ??
+        [$organizationMembership, $pollingStation] = Concurrency::run([
+            fn () => OrganizationMembership::where('user_id', $user->id)
+                ->where('organization_id', $organizationId)
+                ->first() ??
                 OrganizationMembership::create([
                     'user_id' => $user->id,
                     'organization_id' => $organizationId,
@@ -87,5 +100,23 @@ class SetupAgentFromRowImport
             email: $email,
             password: $password
         ));
+
+        if ($phone) {
+            $user->notify(
+                new Voting\Agents\Created(
+                    organizationName: $organizationRole->organization->name,
+                    password: $password,
+                    pollingStationName: $pollingStation?->name,
+                )
+            );
+        }
+    }
+
+    private function generateFakeEmail(string $firstName, string $domain = 'yopmail'): string
+    {
+        $number = rand(2, 50);
+        $firstName = Str::lower($firstName);
+
+        return "{$firstName}{$number}@{$domain}.com";
     }
 }
