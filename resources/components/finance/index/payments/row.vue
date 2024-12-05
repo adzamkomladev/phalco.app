@@ -7,12 +7,15 @@ const props = defineProps<{
 
 const { extra, value } = props.row;
 
+const id = +extra(props.findColumn("amount"), "id");
 const amount = +value(props.findColumn("amount"));
-const reference = value(props.findColumn("reference"));
+const reference = value(props.findColumn("gateway_reference"));
 const gateway = value(props.findColumn("gateway"));
 const status = value(props.findColumn("status"));
 const createdAt = new Date(value(props.findColumn("created_at"))).toUTCString();
-const gatewayReference = value(props.findColumn("gateway_reference"));
+const avatar = extra(props.findColumn("account"), "avatar");
+const name = value(props.findColumn("account"));
+const description = extra(props.findColumn("account"), "description");
 </script>
 
 <template>
@@ -34,17 +37,17 @@ const gatewayReference = value(props.findColumn("gateway_reference"));
                 <div class="flex items-center gap-x-3">
                     <img
                         class="inline-block size-[38px] border rounded-full"
-                        src="extra(findColumn('name'), 'logo')"
-                        alt=""
+                        :src="avatar"
+                        alt="Avatar"
                     />
                     <div class="grow">
                         <span
                             class="block lg:whitespace-nowrap font-semibold text-gray-800 dark:text-gray-200"
                         >
-                            Komla Adzam
+                            {{ name }}
                         </span>
                         <span class="block text-xs text-gray-500">
-                            Nominaton fee
+                            {{ description }}
                         </span>
                     </div>
                 </div>
@@ -62,11 +65,6 @@ const gatewayReference = value(props.findColumn("gateway_reference"));
         <td class="size-px whitespace-nowrap text-gray-600">
             <div class="px-6 py-3">
                 {{ reference }}
-            </div>
-        </td>
-        <td class="size-px whitespace-nowrap text-gray-600">
-            <div class="px-6 py-3">
-                {{ gatewayReference }}
             </div>
         </td>
         <td class="size-px whitespace-nowrap text-gray-600">
@@ -98,11 +96,7 @@ const gatewayReference = value(props.findColumn("gateway_reference"));
         <td class="size-px whitespace-nowrap">
             <div class="px-6 py-1.5">
                 <router-link
-                    :href="
-                        route('finance.payments.show', {
-                            id: +extra(findColumn('amount'), 'id'),
-                        })
-                    "
+                    :href="route('finance.payments.show', { id })"
                     class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
                     Details

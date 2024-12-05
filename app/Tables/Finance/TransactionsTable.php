@@ -20,6 +20,13 @@ final class TransactionsTable extends Table
     {
         return [
             Columns\TextColumn::make('id')->label('#')->visible(false),
+            Columns\TextColumn::make('account')
+                ->label('Account')
+                ->transformValueUsing(fn (Transaction $transaction) => isset($transaction->meta['name']) ? $transaction->meta['name'] : null)
+                ->extra((fn (Transaction $transaction) => [
+                    'avatar' => isset($transaction->meta['avatar']) ? $transaction->meta['avatar'] : null,
+                    'description' => isset($transaction->meta['description']) ? $transaction->meta['description'] : null,
+                ])),
             Columns\TextColumn::make('amount')
                 ->label('Amount')
                 ->transformValueUsing(fn (Transaction $transaction) => $transaction->amountInt / 100)
@@ -27,7 +34,8 @@ final class TransactionsTable extends Table
             Columns\TextColumn::make('wallet')->label('Wallet')
                 ->transformValueUsing(fn (Transaction $transaction) => $transaction->wallet->name)
                 ->extra((fn (Transaction $transaction) => ['wallet_id' => $transaction->wallet_id])),
-            Columns\TextColumn::make('type')->label('Type'),
+            Columns\TextColumn::make('status')->label('Status')
+                ->transformValueUsing(fn (Transaction $transaction) => $transaction->confirmed ? 'confirmed' : 'pending'),
             Columns\TextColumn::make('created_at')->label('Created'),
         ];
     }

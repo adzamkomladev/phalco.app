@@ -132,7 +132,7 @@ function toggleTable(newTable: string) {
                     >
                         Payments
                         <p
-                            class="w-0 hs-tab-active:w-full trasition-all duration-500 border-b-[3px] -mb-[1px] hs-tab-active:border-primary-400 block"
+                            class="w-0 hs-tab-active:w-full transition-all duration-500 border-b-[3px] -mb-[1px] hs-tab-active:border-primary-400 block"
                         ></p>
                     </button>
                     <button
@@ -146,7 +146,7 @@ function toggleTable(newTable: string) {
                     >
                         Transactions
                         <p
-                            class="w-0 hs-tab-active:w-full place-self-right trasition-all duration-500 border-b-[3px] -mb-[1px] hs-tab-active:border-primary-400 block"
+                            class="w-0 hs-tab-active:w-full place-self-right transition-all duration-500 border-b-[3px] -mb-[1px] hs-tab-active:border-primary-400 block"
                         ></p>
                     </button>
                 </nav>
