@@ -45,7 +45,7 @@ class HandleSuccessfulPayment
                 'payment_id' => $payment->id,
                 'description' => $payment->description,
                 'name' => $payment->madeBy->name,
-                'avatar' => $payment->madeBy->avatar
+                'avatar' => $payment->madeBy->avatar,
             ]);
 
             $payment->update([
