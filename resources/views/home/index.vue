@@ -5,49 +5,16 @@ import {
     StageStats,
     Stats,
 } from "~/resources/interfaces/elections/selected.interface";
-import { ElectionCandidateProps } from "~/resources/interfaces/voting/polling-stations/index.interface";
+import { ElectionBallotProps, ElectionCandidateProps } from "~/resources/interfaces/voting/polling-stations/index.interface";
 
 useHead({
     title: "Home",
 });
 
 const props = defineProps<{
-    election: Election;
-    stats: Stats;
-    stage: Stage;
-    stageStats: StageStats;
+    elections: Election;
+  
 }>();
-const topCandidates: ElectionCandidateProps[] = [
-  {
-    candidateFirstName: "John",
-    candidateSecondName: "Doe",
-    candidateName: "John Doe",
-    candidatePicture: "https://example.com/john_doe.jpg",
-    partyNameFull: "Party A",
-    partyNameAbrev: "PA",
-    partyLogo: "https://example.com/party_a_logo.png",
-    votes: 1000,
-  },
-  {
-    candidateName: "Jane Smith",
-    candidatePicture: "https://example.com/jane_smith.jpg",
-    partyNameFull: "Party B",
-    partyNameAbrev: "PB",
-    partyLogo: "https://example.com/party_b_logo.png",
-    votes: 800,
-  },
-  {
-    candidateFirstName: "Michael",
-    candidateSecondName: "Johnson",
-    candidateName: "Michael Johnson",
-    candidatePicture: "https://example.com/michael_johnson.jpg",
-    partyNameFull: "Party C",
-    partyNameAbrev: "PC",
-    partyLogo: "https://example.com/party_c_logo.png",
-    votes: 600,
-  },
-];
-// const { user } = useSecurity();
 
 const dummyBallots: ElectionBallotProps[] = [
     {
@@ -89,6 +56,9 @@ const dummyBallots: ElectionBallotProps[] = [
         ]
     }
 ];
+
+
+const electionStats = { "totalBalance": 4000, "totalDonations": 2300, "totalNominations": 20, "spent": { "jan": 0, "feb": 110, "mar": 0, "apr": 230, "may": 70, "jun": 0, "jul": 90, "aug": 0, "sep": 560, "oct": 0, "nov": 450, "dec": 0 } }
 </script>
 
 <template layout="main">
@@ -140,16 +110,17 @@ const dummyBallots: ElectionBallotProps[] = [
           <HomeStatsTimeleft/>
           <HomeStatsPopularPollingStation/>
         
-
         </div>
+        <HomeStatsCandidates :ballots="dummyBallots"/>
+
                 <div class="grid grid-cols-2 _md:flex flex-col gap-4 sm:gap-6">
                   <HomeStatsAgentReport />
-          <!-- <HomeStatsFinance  /> -->
+          <HomeStatsFinance 
+          :election-logo="elections.all[0].logo"
+          :stage-stat="electionStats"  />
 
                 </div>
-<HomeStatsCandidates :ballots="dummyBallots"/>
-        <div>
-            
-        </div>
+        <pre>
+        </pre>
     </div>
 </template>

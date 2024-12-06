@@ -53,7 +53,7 @@ watch(
                     :src="selectedElection?.logo"
                     class="size-5 bg-primary-400 dark:bg-primary-600 rounded-md"
                 />
-                <p class="max-w-40 w-40 truncate text-left">
+                <p class="max-w-40 w-40 truncate text-left _sm:hidden">
                     {{
                         selectedElection?.name ||
                         "Select Election for us please "
