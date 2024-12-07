@@ -6,7 +6,7 @@ defineProps<PopularPollingStationsCardProps>();
 
 <template>
     <SharedCommonCard
-        class="font-medium gap-4 flex flex-col  shadow-card _sm:sadow _sm:p-5 rounded-2xl relative"
+        class="font-medium gap-4 flex flex-col shadow-card _sm:sadow _sm:p-5 rounded-2xl relative"
     >
         <div>
             <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">

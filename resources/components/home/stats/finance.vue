@@ -15,7 +15,7 @@ const unit = "₵";
 </script>
 
 <template>
-    <SharedCommonCard class=" gap-2 flex flex-col relative">
+    <SharedCommonCard class="gap-2 flex flex-col relative">
         <div class="grid grid-cols-5 gap-2 _xs:flex flex-col">
             <div class="flex gap-2 col-span-2 _xs:flex-col">
                 <img

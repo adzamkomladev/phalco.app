@@ -10,7 +10,7 @@ const crumbs = computed(() =>
     <div
         class="sticky py-2 top-0 flex justify-between inset-x-0 z-20 bg-white border-y px-4 sm:px-6 lg:px-8 lg:hidden dark:bg-gray-800 dark:border-gray-700"
     >
-        <div class="flex items-center ">
+        <div class="flex items-center">
             <!-- Navigation Toggle -->
             <button
                 type="button"
@@ -40,7 +40,6 @@ const crumbs = computed(() =>
             </ol>
             <!-- End Breadcrumb -->
         </div>
-           <ElectionsSwitcher class="sm:hidden" />
-
+        <ElectionsSwitcher class="sm:hidden" />
     </div>
 </template>

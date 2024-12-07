@@ -5,7 +5,10 @@ import {
     StageStats,
     Stats,
 } from "~/resources/interfaces/elections/selected.interface";
-import { ElectionBallotProps, ElectionCandidateProps } from "~/resources/interfaces/voting/polling-stations/index.interface";
+import {
+    ElectionBallotProps,
+    ElectionCandidateProps,
+} from "~/resources/interfaces/voting/polling-stations/index.interface";
 
 useHead({
     title: "Home",
@@ -13,7 +16,6 @@ useHead({
 
 const props = defineProps<{
     elections: Election;
-  
 }>();
 
 const dummyBallots: ElectionBallotProps[] = [
@@ -27,7 +29,8 @@ const dummyBallots: ElectionBallotProps[] = [
                 candidatePicture: "https://example.com/john_doe.jpg",
                 partyNameFull: "Party A",
                 partyNameAbrev: "PA",
-                partyLogo: "https://th.bing.com/th/id/R.5dc0aa315b1d9c62e1fb4052caa50bbf?rik=2SjuMfAwfJTGlQ&pid=ImgRaw&r=0",
+                partyLogo:
+                    "https://th.bing.com/th/id/R.5dc0aa315b1d9c62e1fb4052caa50bbf?rik=2SjuMfAwfJTGlQ&pid=ImgRaw&r=0",
                 votes: 1000,
             },
             {
@@ -35,10 +38,11 @@ const dummyBallots: ElectionBallotProps[] = [
                 candidatePicture: "https://example.com/jane_smith.jpg",
                 partyNameFull: "Party B",
                 partyNameAbrev: "PB",
-                partyLogo: "https://th.bing.com/th/id/OIP.1UtTiSv25u7P4FO6hsFs5wHaEi?rs=1&pid=ImgDetMain",
+                partyLogo:
+                    "https://th.bing.com/th/id/OIP.1UtTiSv25u7P4FO6hsFs5wHaEi?rs=1&pid=ImgDetMain",
                 votes: 800,
             },
-        ]
+        ],
     },
     {
         ballotName: "Parliamentary Ballot",
@@ -50,15 +54,33 @@ const dummyBallots: ElectionBallotProps[] = [
                 candidatePicture: "https://example.com/michael_johnson.jpg",
                 partyNameFull: "Party C",
                 partyNameAbrev: "PC",
-                partyLogo: "https://th.bing.com/th/id/OIP.1UtTiSv25u7P4FO6hsFs5wHaEi?rs=1&pid=ImgDetMain",
+                partyLogo:
+                    "https://th.bing.com/th/id/OIP.1UtTiSv25u7P4FO6hsFs5wHaEi?rs=1&pid=ImgDetMain",
                 votes: 600,
             },
-        ]
-    }
+        ],
+    },
 ];
 
-
-const electionStats = { "totalBalance": 4000, "totalDonations": 2300, "totalNominations": 20, "spent": { "jan": 0, "feb": 110, "mar": 0, "apr": 230, "may": 70, "jun": 0, "jul": 90, "aug": 0, "sep": 560, "oct": 0, "nov": 450, "dec": 0 } }
+const electionStats = {
+    totalBalance: 4000,
+    totalDonations: 2300,
+    totalNominations: 20,
+    spent: {
+        jan: 0,
+        feb: 110,
+        mar: 0,
+        apr: 230,
+        may: 70,
+        jun: 0,
+        jul: 90,
+        aug: 0,
+        sep: 560,
+        oct: 0,
+        nov: 450,
+        dec: 0,
+    },
+};
 </script>
 
 <template layout="main">
@@ -71,16 +93,16 @@ const electionStats = { "totalBalance": 4000, "totalDonations": 2300, "totalNomi
             <ElectionsShowCardsDetail
                 title="Campaigns"
                 icon="campaign_main"
-                :left-value="stats?.campaigns?.total ||0 "
+                :left-value="stats?.campaigns?.total || 0"
                 left-label="Total"
-                :right-value="stats?.campaigns?.active ||0"
+                :right-value="stats?.campaigns?.active || 0"
                 right-label="Active"
                 class="grow w-full"
             />
             <ElectionsShowCardsDetail
                 title="Voters"
                 icon="thumb_up"
-                :left-value="stats?.voters?.total ||0"
+                :left-value="stats?.voters?.total || 0"
                 left-label="Total"
                 :right-value="stats?.voters?.voted || 0"
                 right-label="Voted"
@@ -91,36 +113,34 @@ const electionStats = { "totalBalance": 4000, "totalDonations": 2300, "totalNomi
                 icon="users"
                 :left-value="stats?.nominations?.submitted || 0"
                 left-label="Submitted"
-                :right-value="stats?.nominations?.approved ||0"
+                :right-value="stats?.nominations?.approved || 0"
                 right-label="Approved"
                 class="grow w-full"
             />
             <ElectionsShowCardsDetail
                 title="Polling Stations"
                 icon="polling_station"
-                :left-value="stats?.pollingStations?.total ||0"
+                :left-value="stats?.pollingStations?.total || 0"
                 left-label="Total"
-                :right-value="stats?.pollingStations?.active ||0"
+                :right-value="stats?.pollingStations?.active || 0"
                 right-label="Active"
                 class="grow w-full"
             />
         </div>
 
         <div class="grid grid-cols-2 _md:flex flex-col gap-4 sm:gap-6">
-          <HomeStatsTimeleft/>
-          <HomeStatsPopularPollingStation/>
-        
+            <HomeStatsTimeleft />
+            <HomeStatsPopularPollingStation />
         </div>
-        <HomeStatsCandidates :ballots="dummyBallots"/>
+        <HomeStatsCandidates :ballots="dummyBallots" />
 
-                <div class="grid grid-cols-2 _md:flex flex-col gap-4 sm:gap-6">
-                  <HomeStatsAgentReport />
-          <HomeStatsFinance 
-          :election-logo="elections.all[0].logo"
-          :stage-stat="electionStats"  />
-
-                </div>
-        <pre>
-        </pre>
+        <div class="grid grid-cols-2 _md:flex flex-col gap-4 sm:gap-6">
+            <HomeStatsAgentReport />
+            <HomeStatsFinance
+                :election-logo="elections.all[0].logo"
+                :stage-stat="electionStats"
+            />
+        </div>
+        <pre></pre>
     </div>
 </template>

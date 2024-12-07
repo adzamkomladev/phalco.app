@@ -7,9 +7,7 @@
 </script>
 
 <template>
-    <SharedCommonCard
-        class="gap-5 s dark:text-gray-400 flex flex-col "
-    >
+    <SharedCommonCard class="gap-5 s dark:text-gray-400 flex flex-col">
         <div class="text-center grid gap-5">
             <h2 class="text-lg text-gray-800 font-bold dark:text-gray-200">
                 Agents Stats

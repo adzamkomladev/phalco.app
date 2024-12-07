@@ -1,9 +1,7 @@
 <script setup lang="ts">
-
 onMounted(() => {
     window.HSStaticMethods.autoInit();
 });
-
 
 const table = ref("payments");
 
@@ -61,7 +59,7 @@ function toggleTable(newTable: string) {
 </script>
 <template layout="main">
     <div
-        class="max-w-[85rem] mobile:px-4   text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
+        class="max-w-[85rem] mobile:px-4 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
     >
         <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
             Finances
@@ -71,7 +69,7 @@ function toggleTable(newTable: string) {
             opti
         </p>
 
-        <div class="flex py-5 justify-between _xs:flex-col gap-4 _xs:w-60 " >
+        <div class="flex py-5 justify-between _xs:flex-col gap-4 _xs:w-60">
             <div class="w-60">
                 <SharedFormBaseAdvanceSelect
                     :modelValue="selectedWalletId"
