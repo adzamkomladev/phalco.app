@@ -22,7 +22,7 @@ class Show
             'voters' => VotersTable::make(['pollingStationId' => $pollingStationId]),
             'requests' => RequestsTable::make(['pollingStationId' => $pollingStationId]),
             'pollingStation' => PollingStation::select(['id', 'name', 'code', 'user_id'])
-                ->with(['agent:id,first_name,last_name,email,avatar'])
+                ->with(['agent:id,first_name,last_name,email,avatar,selected_organization_id'])
                 ->find($pollingStationId),
         ];
     }
