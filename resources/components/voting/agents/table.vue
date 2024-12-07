@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Agent } from '~/resources/interfaces/voting/agents/index.interface';
+import { Agent } from "~/resources/interfaces/voting/agents/index.interface";
 
 const props = defineProps<{
     table: any;

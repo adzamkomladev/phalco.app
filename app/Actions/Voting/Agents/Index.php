@@ -23,10 +23,10 @@ class Index
     public function handle(int $userId, int $organizationId)
     {
         [$role, $election] = Octane::concurrently([
-            fn() => OrganizationRole::where('organization_id', $organizationId)
+            fn () => OrganizationRole::where('organization_id', $organizationId)
                 ->where('name', 'agent')
                 ->first(),
-            fn() => cache()->get("elections.selected.{$userId}")
+            fn () => cache()->get("elections.selected.{$userId}"),
         ]);
 
         $electionId = $election['id'] ?? null;
@@ -37,14 +37,14 @@ class Index
             $totalAssignedPollingStations,
             $totalPollingStations
         ] = Octane::concurrently([
-            fn() => OrganizationMembership::where('organization_id', $organizationId)
+            fn () => OrganizationMembership::where('organization_id', $organizationId)
                 ->where('organization_role_id', $roleId)
                 ->count(),
-            fn() => PollingStation::where('organization_id', $organizationId)
+            fn () => PollingStation::where('organization_id', $organizationId)
                 ->where('election_id', $electionId)
                 ->whereNotNull('user_id')
                 ->count(),
-            fn() => PollingStation::where('organization_id', $organizationId)
+            fn () => PollingStation::where('organization_id', $organizationId)
                 ->where('election_id', $electionId)
                 ->count(),
         ]);
@@ -53,7 +53,7 @@ class Index
             'agents' => AgentsTable::make([
                 'organizationId' => $organizationId,
                 'electionId' => $electionId,
-                'roleId' => $role?->id
+                'roleId' => $role?->id,
             ]),
             'stats' => [
                 [
