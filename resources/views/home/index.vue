@@ -16,7 +16,7 @@ useHead({
 
 const elections = useProperty("elections");
 const props = defineProps<{
-    stats: any
+    stats: any;
 }>();
 
 const dummyBallots: ElectionBallotProps[] = [
