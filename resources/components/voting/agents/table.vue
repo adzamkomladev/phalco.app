@@ -1,6 +1,11 @@
 <script setup lang="ts">
+import { Agent } from "~/resources/interfaces/voting/agents/index.interface";
+
 const props = defineProps<{
     table: any;
+}>();
+const emits = defineEmits<{
+    (e: "selectAgent", value: Agent): void;
 }>();
 
 const table = props.table;
@@ -29,8 +34,6 @@ const debounceFn = useDebounceFn(
 );
 
 watch(search, debounceFn);
-
-const emit = defineEmits(["selectAgent", "onclick"]);
 </script>
 <template>
     <div
@@ -86,7 +89,7 @@ const emit = defineEmits(["selectAgent", "onclick"]);
                 <SharedFormSearchInput
                     class="sm:col-span-1"
                     v-model="search"
-                    placeholder="Search ballots"
+                    placeholder="Search for agents"
                     name="search"
                 />
             </div>
@@ -125,7 +128,7 @@ const emit = defineEmits(["selectAgent", "onclick"]);
 
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                     <VotingAgentsRow
-                        @click="$emit('selectAgent', row)"
+                        @select-agent="emits('selectAgent', $event)"
                         v-for="row in table.records"
                         :key="row.key"
                         :row="row"
