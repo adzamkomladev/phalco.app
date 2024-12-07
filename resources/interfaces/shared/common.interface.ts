@@ -40,5 +40,19 @@ export interface SpeechBubbleProps {
     };
 }
 
+
+export interface UserProp {
+candidateFirstName?:string;
+candidateSecondName?:string;
+candidateName?:string;
+candidatePicture:string;
+}
+
+export interface PartyProp{
+partyNameFull?:string;
+partyNameAbrev?:string;
+partyLogo:string;
+}
+
 export type positionType= "top-right" | "top-left" | "top-center"| "bottom-right"| "bottom-left"| "bottom-center";
 export type RequestStatusType = "Accepted" | "Rejected" | "Pending";

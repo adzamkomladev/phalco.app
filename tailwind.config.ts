@@ -8,10 +8,7 @@ export default {
 
     theme: {
         extend: {
-            backgroundImage: {
-                "gradient-to-45":
-                    "linear-gradient(45deg, var(--tw-gradient-stops))",
-            },
+          
             aspectRation: {
                 card: "3.374/2.125",
             },
@@ -39,13 +36,16 @@ export default {
                 },
                 "2xtall": {
                     raw: `only screen and (min-height: 1024px)`,
+                }, mobile: {
+                    raw: `only screen and (min-width: 380px)`,
+                },
+              _mobile: {
+                    raw: `only screen and (max-width: 380px)`,
                 },
                 _xs: {
                     raw: `only screen and (max-width: 500px)`,
                 },
-                mobile: {
-                    raw: `only screen and (max-width: 380px)`,
-                },
+               
                 _sm: {
                     raw: `only screen and (max-width: 639px)`,
                 },
