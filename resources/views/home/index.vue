@@ -14,8 +14,9 @@ useHead({
     title: "Home",
 });
 
+const elections = useProperty("elections");
 const props = defineProps<{
-    elections: Election;
+    stats: any
 }>();
 
 const dummyBallots: ElectionBallotProps[] = [
@@ -137,7 +138,7 @@ const electionStats = {
         <div class="grid grid-cols-2 _md:flex flex-col gap-4 sm:gap-6">
             <HomeStatsAgentReport />
             <HomeStatsFinance
-                :election-logo="elections.all[0].logo"
+                :election-logo="elections.all?.[0]?.logo"
                 :stage-stat="electionStats"
             />
         </div>
