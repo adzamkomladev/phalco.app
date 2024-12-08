@@ -259,7 +259,7 @@ return [
 
             'horizon-supervisor-2' => [
                 'minProcesses' => 2,
-                'maxProcesses' => 40,
+                'maxProcesses' => 44,
                 'balanceMaxShift' => 1,
                 'balanceCooldown' => 3,
                 'queue' => ['sms', 'emails', 'voice', 'campaigns'],
@@ -283,7 +283,7 @@ return [
 
             'horizon-supervisor-5' => [
                 'minProcesses' => 1,
-                'maxProcesses' => 28,
+                'maxProcesses' => 24,
                 'balanceMaxShift' => 1,
                 'balanceCooldown' => 3,
                 'queue' => ['imports', 'exports'],
