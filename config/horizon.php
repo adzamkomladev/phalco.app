@@ -56,7 +56,7 @@ return [
 
     'prefix' => env(
         'HORIZON_PREFIX',
-        Str::slug(env('APP_NAME', 'laravel'), '_').'_horizon:'
+        Str::slug(env('APP_NAME', 'laravel'), '_') . '_horizon:'
     ),
 
     /*
@@ -193,15 +193,100 @@ return [
             'timeout' => 60,
             'nice' => 0,
         ],
+        'horizon-supervisor-2' => [
+            'connection' => 'redis',
+            'queue' => ['default'],
+            'balance' => 'auto',
+            'autoScalingStrategy' => 'time',
+            'maxProcesses' => 1,
+            'maxTime' => 0,
+            'maxJobs' => 0,
+            'memory' => 128,
+            'tries' => 1,
+            'timeout' => 60,
+            'nice' => 0,
+        ],
+        'horizon-supervisor-3' => [
+            'connection' => 'redis',
+            'queue' => ['default'],
+            'balance' => 'auto',
+            'autoScalingStrategy' => 'time',
+            'maxProcesses' => 1,
+            'maxTime' => 0,
+            'maxJobs' => 0,
+            'memory' => 128,
+            'tries' => 1,
+            'timeout' => 60,
+            'nice' => 0,
+        ],
+        'horizon-supervisor-4' => [
+            'connection' => 'redis',
+            'queue' => ['default'],
+            'balance' => 'auto',
+            'autoScalingStrategy' => 'time',
+            'maxProcesses' => 1,
+            'maxTime' => 0,
+            'maxJobs' => 0,
+            'memory' => 128,
+            'tries' => 1,
+            'timeout' => 60,
+            'nice' => 0,
+        ],
+        'horizon-supervisor-5' => [
+            'connection' => 'redis',
+            'queue' => ['default'],
+            'balance' => 'auto',
+            'autoScalingStrategy' => 'time',
+            'maxProcesses' => 1,
+            'maxTime' => 0,
+            'maxJobs' => 0,
+            'memory' => 128,
+            'tries' => 1,
+            'timeout' => 60,
+            'nice' => 0,
+        ],
     ],
 
     'environments' => [
         'production' => [
             'horizon-supervisor-1' => [
-                'maxProcesses' => 12,
+                'minProcesses' => 2,
+                'maxProcesses' => 10,
                 'balanceMaxShift' => 1,
                 'balanceCooldown' => 3,
-                'queue' => ['sms', 'emails', 'voice', 'campaigns', 'payments', 'imports', 'exports', 'scout', 'telescope', 'default'],
+                'queue' => ['default'],
+            ],
+
+            'horizon-supervisor-2' => [
+                'minProcesses' => 2,
+                'maxProcesses' => 40,
+                'balanceMaxShift' => 1,
+                'balanceCooldown' => 3,
+                'queue' => ['sms', 'emails', 'voice', 'campaigns'],
+            ],
+
+            'horizon-supervisor-3' => [
+                'minProcesses' => 1,
+                'maxProcesses' => 6,
+                'balanceMaxShift' => 1,
+                'balanceCooldown' => 3,
+                'queue' => ['scout', 'telescope'],
+            ],
+
+            'horizon-supervisor-4' => [
+                'minProcesses' => 1,
+                'maxProcesses' => 6,
+                'balanceMaxShift' => 1,
+                'balanceCooldown' => 3,
+                'queue' => ['payments'],
+            ],
+
+            'horizon-supervisor-5' => [
+                'minProcesses' => 1,
+                'maxProcesses' => 28,
+                'balanceMaxShift' => 1,
+                'balanceCooldown' => 3,
+                'queue' => ['imports', 'exports'],
             ],
         ],
 
