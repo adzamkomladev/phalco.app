@@ -32,10 +32,10 @@ class Index
             $enabledBallots,
             $totalPollingStations
         ] = Octane::concurrently([
-            fn() => BallotOption::whereRelation('ballot', 'election_id', $electionId)->count(),
-            fn() => Vote::whereRelation('ballot', 'election_id', $electionId)->count(),
-            fn() => Ballot::where('election_id', $electionId)->where('status', 'enabled')->count(),
-            fn() => PollingStation::where('election_id', $electionId)->count()
+            fn () => BallotOption::whereRelation('ballot', 'election_id', $electionId)->count(),
+            fn () => Vote::whereRelation('ballot', 'election_id', $electionId)->count(),
+            fn () => Ballot::where('election_id', $electionId)->where('status', 'enabled')->count(),
+            fn () => PollingStation::where('election_id', $electionId)->count(),
         ]);
 
         return [
