@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { BallotHeader, Option } from "~/resources/interfaces/voting/ballots/show.interface";
+import {
+    BallotHeader,
+    Option,
+} from "~/resources/interfaces/voting/ballots/show.interface";
 
 defineProps<{
     ballotHeader: BallotHeader;

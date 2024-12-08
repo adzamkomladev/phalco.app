@@ -6,7 +6,6 @@ use App\Models\Ballot;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-
 class Show
 {
     use AsAction;
@@ -21,11 +20,11 @@ class Show
     public function handle(int $ballotId): Ballot
     {
         return Ballot::select(['id', 'election_id', 'position', 'description', 'code', 'status'])
-        ->with([
-            'options' => fn(Builder $query) => $query
-                ->select(['id', 'ballot_id', 'order', 'name', 'avatar', 'party', 'party_image'])
-                ->withCount('votes as votes')
-                ->orderBy('order', 'asc'),
-        ])->find($ballotId);
+            ->with([
+                'options' => fn (Builder $query) => $query
+                    ->select(['id', 'ballot_id', 'order', 'name', 'avatar', 'party', 'party_image'])
+                    ->withCount('votes as votes')
+                    ->orderBy('order', 'asc'),
+            ])->find($ballotId);
     }
 }
