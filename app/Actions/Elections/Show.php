@@ -5,9 +5,9 @@ namespace App\Actions\Elections;
 use App\Models\BallotOption;
 use App\Models\Election;
 use App\Models\ElectionStage;
-use Lorisleiva\Actions\Concerns\AsAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Concurrency;
+use Lorisleiva\Actions\Concerns\AsAction;
 
 class Show
 {
@@ -23,18 +23,18 @@ class Show
         $election = Election::with([
             'stages:id,election_id,stage,start,end',
             'createdBy:id,selected_organization_id,first_name,last_name,email,avatar',
-            'organization'
+            'organization',
         ])
             ->withCount([
                 'voters as voters',
-                'voters as voters_voted' => fn(Builder $query) => $query->whereRelation('votes.ballot', 'election_id', $electionId),
+                'voters as voters_voted' => fn (Builder $query) => $query->whereRelation('votes.ballot', 'election_id', $electionId),
                 'pollingStations as polling_stations',
-                'pollingStations as active_polling_stations' => fn(Builder $query) => $query->where('status', 'active'),
+                'pollingStations as active_polling_stations' => fn (Builder $query) => $query->where('status', 'active'),
             ])
             ->find($electionId);
 
         $stage = $election->stages->first(
-            fn(ElectionStage $value) => $value->start < now() && $value->end >= now(),
+            fn (ElectionStage $value) => $value->start < now() && $value->end >= now(),
         );
 
         $stageStats = null;
@@ -78,10 +78,10 @@ class Show
                 $nominations,
                 $donations
             ] = Concurrency::run([
-                fn() => ($organization->balanceInt ?? 0) / 100,
+                fn () => ($organization->balanceInt ?? 0) / 100,
 
-                fn() => ($organization->getWallet('nominations')?->balanceInt ?? 0) / 100,
-                fn() => ($organization->getWallet('donations')?->balanceInt ?? 0) / 100,
+                fn () => ($organization->getWallet('nominations')?->balanceInt ?? 0) / 100,
+                fn () => ($organization->getWallet('donations')?->balanceInt ?? 0) / 100,
             ]);
 
             $stageStats = [

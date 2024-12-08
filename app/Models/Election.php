@@ -78,5 +78,4 @@ class Election extends Model
     {
         return $this->hasMany(Ballot::class);
     }
-
 }

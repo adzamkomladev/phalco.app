@@ -47,9 +47,9 @@ class Index
             $totalVotersCurrently,
             $totalVotersOneDayAgo
         ] = Octane::concurrently([
-                fn() => Voter::where('election_id', $electionId)
-                    ->count(),
-            fn() => Voter::where('election_id', $electionId)
+            fn () => Voter::where('election_id', $electionId)
+                ->count(),
+            fn () => Voter::where('election_id', $electionId)
                 ->whereDate('created_at', '<', $dayAgo)
                 ->count(),
         ]);
