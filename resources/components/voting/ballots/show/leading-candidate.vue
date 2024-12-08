@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BallotImage from "~/resources/svg/voting/ballot_stat.svg?src";
 
-const props = withDefaults(defineProps<{ message: string }>(), {
+withDefaults(defineProps<{ message?: string }>(), {
     message: "election declaration will be blablabla blabababnananan ",
 });
 </script>

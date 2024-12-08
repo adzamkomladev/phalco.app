@@ -18,6 +18,6 @@ class Show
 
     public function handle(int $ballotId)
     {
-        return Ballot::with(['election', 'options'])->find($ballotId);
+        return Ballot::with(['options:id,ballot_id,order,name,avatar,party,party_image'])->find($ballotId);
     }
 }

@@ -46,7 +46,7 @@ watch(search, debounceFn);
                         Ballots
                     </h2>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Manage all Ballots of an election
+                        View all Ballots
                     </p>
                 </div>
 

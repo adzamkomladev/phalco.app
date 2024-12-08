@@ -6,6 +6,7 @@ const props = defineProps<{
 }>();
 
 const { key, value, extra } = props.row;
+const id = +extra(props.findColumn("position"), "id");
 </script>
 
 <template>
@@ -36,7 +37,7 @@ const { key, value, extra } = props.row;
             </div>
         </td>
         <td class="whitespace-nowrap text-gray-500">
-            <!-- <div class="px-6 py-3">{{ value(findColumn("ballot options")) }}</div> -->
+            <div class="px-6 py-3">{{ value(findColumn("options")) }}</div>
         </td>
         <td class="whitespace-nowrap text-gray-500">
             <div class="px-6 py-3">{{ value(findColumn("election")) }}</div>
@@ -46,14 +47,13 @@ const { key, value, extra } = props.row;
                 <SharedTableStatus :status="value(findColumn('status'))" />
             </div>
         </td>
+        <td class="whitespace-nowrap text-gray-500">
+            <div class="px-6 py-3">{{ value(findColumn("created_at")) }}</div>
+        </td>
         <td class="size-px whitespace-nowrap">
             <div class="px-6 py-1.5 xl:pr-20">
                 <router-link
-                    :href="
-                        route('voting.ballots.show', {
-                            id: 3,
-                        })
-                    "
+                    :href="route('voting.ballots.show', { id })"
                     class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
                     Details
