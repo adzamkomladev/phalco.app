@@ -7,7 +7,7 @@ export const menus: SideBarMenuProps[] = [
         to: "home",
     },
     {
-        label: "Election",
+        label: "Elections",
         icon: "election",
         sublink: [
             {
@@ -20,10 +20,10 @@ export const menus: SideBarMenuProps[] = [
             },
         ],
     },
-    {
-        label: "Nominations",
-        icon: "users",
-    },
+    // {
+    //     label: "Nominations",
+    //     icon: "users",
+    // },
     {
         label: "Campaigns",
         icon: "campaign_main",
@@ -42,20 +42,20 @@ export const menus: SideBarMenuProps[] = [
             },
         ],
     },
-    {
-        label: "Strategies",
-        icon: "strategy",
-    },
-    {
-        label: "Donations",
-        icon: "donation",
-    },
+    // {
+    //     label: "Strategies",
+    //     icon: "strategy",
+    // },
+    // {
+    //     label: "Donations",
+    //     icon: "donation",
+    // },
     {
         label: "Voting",
         icon: "vote",
         sublink: [
             {
-                label: "Polling station",
+                label: "Polling Stations",
                 icon: "polling_station",
                 sublink: [
                     {
@@ -69,7 +69,7 @@ export const menus: SideBarMenuProps[] = [
                 ],
             },
             {
-                label: "Agent",
+                label: "Agents",
                 icon: "agent",
                 sublink: [
                     {
@@ -83,7 +83,7 @@ export const menus: SideBarMenuProps[] = [
                 ],
             },
             {
-                label: "Ballot",
+                label: "Ballots",
                 icon: "ballot",
                 sublink: [
                     {
@@ -96,18 +96,18 @@ export const menus: SideBarMenuProps[] = [
                     },
                 ],
             },
-            {
-                label: "Request",
-                icon: "request",
-                to: "voting.requests.index",
-            },
+            // {
+            //     label: "Requests",
+            //     icon: "request",
+            //     to: "voting.requests.index",
+            // },
         ],
     },
-    {
-        label: "Coalation",
-        icon: "coalation",
-        to: "password.reset",
-    },
+    // {
+    //     label: "Coalation",
+    //     icon: "coalation",
+    //     to: "password.reset",
+    // },
     {
         label: "Finance",
         icon: "cedi",

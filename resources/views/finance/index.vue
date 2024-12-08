@@ -52,10 +52,6 @@ const updateSelectedWallet = (id: number) => {
         };
     }
 };
-
-function toggleTable(newTable: string) {
-    table.value = newTable;
-}
 </script>
 <template layout="main">
     <div
@@ -65,8 +61,7 @@ function toggleTable(newTable: string) {
             Finances
         </h2>
         <p class="text-sm text-gray-600 dark:text-gray-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
-            opti
+            Manage all wallets and payments
         </p>
 
         <div class="flex py-5 justify-between _xs:flex-col gap-4 _xs:w-60">
@@ -87,8 +82,9 @@ function toggleTable(newTable: string) {
             <router-link
                 :href="route('finance.payments.methods.index')"
                 class="px-4 h-fit py-2 text-sm flex items-center max-w-full _mobile:w-text-xs text-nowrap rounded-lg bg-secondary-300 text-white"
-                >Withdrawal Accounts</router-link
             >
+                Withdrawal Accounts
+            </router-link>
         </div>
 
         <div class="flex _md:flex-col py-5 gap-4 sm:gap-6 self-center">

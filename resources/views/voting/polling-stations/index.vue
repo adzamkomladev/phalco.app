@@ -27,6 +27,15 @@ const table = useTable(props, "pollingStations");
     <div
         class="max-w-[85rem] gap-5 flex flex-col px-4 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
     >
+        <div>
+            <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
+                Polling Stations
+            </h2>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+                Manage all election polling stations
+            </p>
+        </div>
+
         <div class="md:grid grid-cols-2 flex flex-col gap-5">
             <div class="grid grid-cols-2 gap-4">
                 <VotingPollingStationsIndexStatsCard
