@@ -2,9 +2,12 @@
 
 namespace App\Actions\Elections;
 
+use App\Models\BallotOption;
 use App\Models\Election;
 use App\Models\ElectionStage;
 use Lorisleiva\Actions\Concerns\AsAction;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Concurrency;
 
 class Show
 {
@@ -12,19 +15,26 @@ class Show
 
     public function asController(int $id)
     {
-        return hybridly('elections.show', $this->handle($id));
+        return hybridly('elections.show', $this->handle(auth()->id(), $id));
     }
 
-    public function handle(int $electionId)
+    public function handle(int $userId, int $electionId)
     {
         $election = Election::with([
             'stages:id,election_id,stage,start,end',
             'createdBy:id,selected_organization_id,first_name,last_name,email,avatar',
-        ])->withCount('voters')
+            'organization'
+        ])
+            ->withCount([
+                'voters as voters',
+                'voters as voters_voted' => fn(Builder $query) => $query->whereRelation('votes.ballot', 'election_id', $electionId),
+                'pollingStations as polling_stations',
+                'pollingStations as active_polling_stations' => fn(Builder $query) => $query->where('status', 'active'),
+            ])
             ->find($electionId);
 
         $stage = $election->stages->first(
-            fn (ElectionStage $value, int $key) => $value->start < now() && $value->end >= now(),
+            fn(ElectionStage $value) => $value->start < now() && $value->end >= now(),
         );
 
         $stageStats = null;
@@ -38,11 +48,12 @@ class Show
                 'pending' => 0,
             ];
         } elseif ($stage?->stage === 'voting') {
+            $election->loadCount(['ballots as ballots']);
             $stageStats = [
-                'voters' => 3000,
-                'pollingStations' => 230,
-                'ballots' => 200,
-                'candidates' => 10,
+                'voters' => $election->voters,
+                'pollingStations' => $election->polling_stations,
+                'ballots' => $election->ballots,
+                'candidates' => BallotOption::whereRelation('ballot', 'election_id', $electionId)->count(),
             ];
         } elseif ($stage?->stage === 'campaigns') {
             $stageStats = [
@@ -53,17 +64,30 @@ class Show
                     'text' => 'Hello world',
                     'sender' => 'Phalco',
                     'sentBy' => [
-                        'id' => auth()->id(),
+                        'id' => $userId,
                         'name' => 'Kofi Gyan',
                         'avatar' => 'https:://via.placeholder.com/150',
                     ],
                 ],
             ];
         } else {
+            $organization = $election->organization;
+
+            [
+                $main,
+                $nominations,
+                $donations
+            ] = Concurrency::run([
+                fn() => ($organization->balanceInt ?? 0) / 100,
+
+                fn() => ($organization->getWallet('nominations')?->balanceInt ?? 0) / 100,
+                fn() => ($organization->getWallet('donations')?->balanceInt ?? 0) / 100,
+            ]);
+
             $stageStats = [
-                'totalBalance' => 4000,
-                'totalDonations' => 2300,
-                'totalNominations' => 20,
+                'totalBalance' => $main + $nominations + $donations,
+                'totalDonations' => $donations,
+                'totalNominations' => 0,
                 'spent' => [
                     'jan' => 0,
                     'feb' => 110,
@@ -85,16 +109,16 @@ class Show
             'election' => $election,
             'stats' => [
                 'voters' => [
-                    'total' => 20,
-                    'voted' => 10,
+                    'total' => $election->voters,
+                    'voted' => $election->voters_voted,
                 ],
                 'nominations' => [
                     'submitted' => 230,
                     'approved' => 10,
                 ],
                 'pollingStations' => [
-                    'total' => 230,
-                    'active' => 220,
+                    'total' => $election->polling_stations,
+                    'active' => $election->active_polling_stations,
                 ],
                 'campaigns' => [
                     'total' => 20,
