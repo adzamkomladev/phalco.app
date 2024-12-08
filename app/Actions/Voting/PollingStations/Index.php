@@ -23,8 +23,8 @@ class Index
     public function handle(int $userId)
     {
         $election = cache()->get("elections.selected.{$userId}");
-
         $electionId = $election['id'] ?? null;
+
         [
             $totalPollingStations,
             $totalVoters,

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { Option } from "~/resources/interfaces/voting/ballots/show.interface";
+import { BallotHeader, Option } from "~/resources/interfaces/voting/ballots/show.interface";
 
 defineProps<{
+    ballotHeader: BallotHeader;
     data: Option[];
 }>();
 </script>
@@ -18,10 +19,10 @@ defineProps<{
                     <h2
                         class="text-xl font-semibold text-gray-800 dark:text-gray-200"
                     >
-                        Candidates
+                        {{ ballotHeader.title }}
                     </h2>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Manage all Ballot Candidates
+                        {{ ballotHeader.description }}
                     </p>
                 </div>
 
@@ -45,7 +46,7 @@ defineProps<{
                                     stroke-linecap="round"
                                 />
                             </svg>
-                            Create ballot
+                            Add new candidate
                         </router-link>
                     </div>
                 </div>

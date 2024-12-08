@@ -5,8 +5,6 @@ export interface Ballot {
     description: string;
     code: string;
     status: string;
-    created_at: Date;
-    updated_at: Date;
     options: Option[];
 }
 
@@ -15,7 +13,15 @@ export interface Option {
     ballot_id: number;
     order: number;
     name: string;
-    avatar: null;
-    party: null;
-    party_image: null;
+    avatar?: string;
+    party?: string;
+    party_image?: string;
+    votes: number;
+}
+
+
+export interface BallotHeader {
+    title: string;
+    description: string;
+    status: string;
 }
