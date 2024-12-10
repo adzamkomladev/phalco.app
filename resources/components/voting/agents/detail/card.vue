@@ -1,9 +1,7 @@
 <script setup lang="ts">
-// import {
+import { Agent } from "~/resources/interfaces/voting/agents/index.interface";
 
-// } from "~/resources/interfaces/voting/requests/agent/index.interface.ts";
-
-// const props = defineProps<{ }>();
+const props = defineProps<{ agent: Agent }>();
 </script>
 
 <template>
@@ -17,13 +15,10 @@
             <div
                 class="w-[70%] max-w-60  h-auto aspect-square rounded-full overflow-hidden place-self-center"
             >
-                <img
-                    :src="'https://www.bing.com/th?id=OIP.5-mDBIk0BFx0D3b7_4ZgtAHaJF&w=120&h=150&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2'"
-                    class="w-full"
-                />
+                <img :src="agent.avatar" class="w-full" />
             </div>
             <div>
-                <p class="font-semibold">Komla Adzam</p>
+                <p class="font-semibold">{{ agent.name }}</p>
                 <p class="text-gray-800/50">Current Agent</p>
             </div>
         </div>
@@ -41,9 +36,9 @@
                         />
                     </span>
                     <div>
-                        <p class="font-bold text-lg">Total Candidates</p>
+                        <p class="font-bold text-lg">Total Polling Stations</p>
                         <p class="font-semibold text-sm">
-                            <!-- {{ stageStat?.audiences }} -->
+                            {{ agent.pollingStations }}
                         </p>
                     </div>
                 </div>
@@ -65,10 +60,9 @@
                         />
                     </span>
                     <div>
-                        <p class="font-bold text-lg">Total Campaigns</p>
+                        <p class="font-bold text-lg">Pending Vote Requests</p>
                         <p class="font-semibold text-sm">
-                            <!-- {{ stageStat?.campaigns }} -->
-                            34
+                            {{ agent.voteRequests }}
                         </p>
                     </div>
                 </div>

@@ -1,34 +1,13 @@
 <script setup lang="ts">
-// const props = defineProps<{
-//     table: any;
-// }>();
+import {
+    BallotHeader,
+    Option,
+} from "~/resources/interfaces/voting/ballots/show.interface";
 
-// const table = props.table;
-
-// const paginator: any = table.paginator;
-// const prev = computed(() => paginator?.links?.[0]);
-// const current = computed(() => paginator?.links?.[1]);
-// const next = computed(() => paginator?.links?.[2]);
-// const total = ref(paginator?.meta?.total);
-
-// const findColumn = (name: string) =>
-//     table.columns.find((column: any) => column?.name === name)!;
-// const findFilter = (name: string) =>
-//     table.filters.find((filter: any) => filter.name === name)!;
-
-// const searchFilter = findFilter("search");
-
-// const search = ref("");
-
-// const debounceFn = useDebounceFn(
-//     () =>
-//         search.value !== ""
-//             ? searchFilter.apply(search.value)
-//             : searchFilter.clear(),
-//     800,
-// );
-
-// watch(search, debounceFn);
+defineProps<{
+    ballotHeader: BallotHeader;
+    data: Option[];
+}>();
 </script>
 <template>
     <div
@@ -43,10 +22,10 @@
                     <h2
                         class="text-xl font-semibold text-gray-800 dark:text-gray-200"
                     >
-                        Ballots
+                        {{ ballotHeader.title }}
                     </h2>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Manage all Ballots of an election
+                        {{ ballotHeader.description }}
                     </p>
                 </div>
 
@@ -70,7 +49,7 @@
                                     stroke-linecap="round"
                                 />
                             </svg>
-                            Create ballot
+                            Add new candidate
                         </router-link>
                     </div>
                 </div>
@@ -78,14 +57,7 @@
 
             <div
                 class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
-            >
-                <!-- Input -->
-                <SharedFormSearchInput
-                    class="sm:col-span-1"
-                    placeholder="Search ballots"
-                    name="search"
-                />
-            </div>
+            ></div>
         </div>
 
         <!-- End Header -->
@@ -95,84 +67,13 @@
         <div class="w-full overflow-x-scroll">
             <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                    <!-- <VotingBallotsRow
-                                    v-for="row in table.records"
-                                    :key="row.key"
-                                    :row="row"
-                                    :columns="table.columns"
-                                    :findColumn="findColumn"
-                       /> -->
-
-                    <VotingBallotsShowCandidateRow />
+                    <VotingBallotsShowCandidateRow
+                        v-for="(option, index) in data"
+                        :key="index"
+                        :data="option"
+                    />
                 </tbody>
             </table>
         </div>
-        <!-- End Table -->
-
-        <!-- Footer -->
-        <!-- <div
-                class="flex items-center justify-between gap-3 px-6 py-4 border-t border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
-            >
-                <div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                        <span
-                            class="font-semibold text-gray-800 dark:text-gray-200"
-                            >{{ table.records.length }}</span
-                        >
-                        Ballots
-                    </p>
-                </div>
-
-                <div>
-                    <div class="inline-flex gap-x-2">
-                        <router-link
-                            v-if="prev.url"
-                            type="button"
-                            :href="prev.url"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                        >
-                            <svg
-                                class="flex-shrink-0 size-4"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <path d="m15 18-6-6 6-6" />
-                            </svg>
-                            Prev
-                        </router-link>
-
-                        <router-link
-                            v-if="next.url"
-                            type="button"
-                            :href="next.url"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                        >
-                            Next
-                            <svg
-                                class="flex-shrink-0 size-4"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <path d="m9 18 6-6-6-6" />
-                            </svg>
-                        </router-link>
-                    </div>
-                </div>
-            </div> -->
-        <!-- End Footer -->
     </div>
 </template>

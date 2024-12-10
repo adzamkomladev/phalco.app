@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BallotShowMessageImage from "~/resources/images/voting/ballot_show_message.png?src";
 
-const props = withDefaults(defineProps<{ message: string }>(), {
+const props = withDefaults(defineProps<{ message?: string }>(), {
     message:
         "All voters and electoral personnel should always keep peace voters and electoral personnel should always keep peace voters and electoral personnel should always keep peace voters and electoral personnel should always keep peace ",
 });

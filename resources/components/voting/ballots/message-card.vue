@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import BallotImage from "~/resources/images/voting/ballot_index.png?src";
 
-const props = withDefaults(defineProps<{ message: string }>(), {
-    message: "election declaration will be blablabla blabababnananan ",
+const props = withDefaults(defineProps<{ message?: string }>(), {
+    message: "It's not the voting that's democracy; it's the counting.",
 });
 </script>
 

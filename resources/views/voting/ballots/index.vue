@@ -4,6 +4,7 @@ useHead({
 });
 
 const props = defineProps<{
+    stats: { value: number; description: string }[];
     ballots: Table<{
         id: number;
     }>;
@@ -17,11 +18,10 @@ const table = useTable(props, "ballots");
         class="max-w-[85rem] px-4 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
     >
         <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
-            Ballots for
+            Election Ballots
         </h2>
         <p class="text-sm text-gray-600 dark:text-gray-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
-            optio.
+            Manage all ballots and candidates
         </p>
 
         <div
@@ -29,7 +29,12 @@ const table = useTable(props, "ballots");
         >
             <VotingBallotsMessageCard />
             <div class="grid gap-4 sm:gap-6 grid-cols-2 _xs:grid-cols-1 grow">
-                <VotingBallotsStatsCard v-for="(l, index) in 4" :key="index" />
+                <VotingBallotsStatsCard
+                    v-for="(stat, index) in stats"
+                    :key="index"
+                    :value="stat.value"
+                    :description="stat.description"
+                />
             </div>
         </div>
 

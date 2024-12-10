@@ -3,10 +3,14 @@ import {
     Stage,
     StageStatsVoting,
 } from "~/resources/interfaces/elections/selected.interface";
-import {ElectionBallotProps } from "~/resources/interfaces/voting/polling-stations/index.interface";
+import { ElectionBallotProps } from "~/resources/interfaces/voting/polling-stations/index.interface";
 import { formatDate, secondsUntil } from "~/resources/utils/shared/date";
 
-const props = defineProps<{ stageStat: StageStatsVoting; stage: Stage ,ballots:ElectionBallotProps[]}>();
+const props = defineProps<{
+    stageStat: StageStatsVoting;
+    stage: Stage;
+    ballots: ElectionBallotProps[];
+}>();
 
 const timeLeftToEndDate = Math.floor(secondsUntil(props.stage.end));
 </script>
@@ -35,21 +39,20 @@ const timeLeftToEndDate = Math.floor(secondsUntil(props.stage.end));
             </div>
         </div>
 
-        <div class="flex flex-col gap-5 h-full" >
+        <div class="flex flex-col gap-5 h-full">
             <p class="font-semibold text-lg ml-2">Leading Candidates</p>
-           <div v-for="(ballot,bi) in ballots" >
-         
-            <p class="ml-2">{{ ballot.ballotName }}</p>
-               <div class="" v-for="(candidate,ci) in ballot.candidates">
-                <ElectionsShowCardsStagesVotingCandidate
-                :candidate-name="candidate.candidateName"
-                :candidate-picture="candidate.candidatePicture"
-                :party-logo="candidate.partyLogo"
-                :party-name-abrev="candidate.partyNameAbrev"
-                :votes="candidate.votes"
-                />
-            </div>  
-        </div>
+            <div v-for="(ballot, bi) in ballots">
+                <p class="ml-2">{{ ballot.ballotName }}</p>
+                <div class="" v-for="(candidate, ci) in ballot.candidates">
+                    <ElectionsShowCardsStagesVotingCandidate
+                        :candidate-name="candidate.candidateName"
+                        :candidate-picture="candidate.candidatePicture"
+                        :party-logo="candidate.partyLogo"
+                        :party-name-abrev="candidate.partyNameAbrev"
+                        :votes="candidate.votes"
+                    />
+                </div>
+            </div>
             <SharedCommonCard
                 class="divide-y h-60 divide-gray-300 dark:divide-gray-600 text-sm gap-2 flex flex-col"
             >

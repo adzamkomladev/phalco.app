@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Agent } from "~/resources/interfaces/voting/agents/index.interface";
+
 const props = defineProps<{
     row: { key: any; value: any; extra: any };
     columns: any[];
@@ -7,16 +9,40 @@ const props = defineProps<{
 }
 >();
 
-const { key, value, extra } = props.row;
+const emits = defineEmits<{
+    (e: "selectAgent", value: Agent): void;
+}>();
 
+const { value, extra } = props.row;
+
+const id = +extra(props.findColumn("name"), "id");
+const name = value(props.findColumn("name"));
+const pollingStations = value(props.findColumn("polling_stations"));
+const addedOn = value(props.findColumn("added_on"));
+const email = extra(props.findColumn("name"), "email");
+const phone = extra(props.findColumn("name"), "phone");
+const avatar = extra(props.findColumn("name"), "avatar");
+const voteRequests = extra(
+    props.findColumn("polling_stations"),
+    "vote_requests",
+);
+
+const selectAgent = () =>
+    emits("selectAgent", {
+        id,
+        name,
+        email,
+        phone,
+        pollingStations,
+        addedOn,
+        voteRequests,
+        avatar,
+    });
 </script>
 
 <template>
-    <tr 
-    class="text-sm"
-    :class="[selected?'bg-primary-400':'hover:bg-gray-50  cursor-pointer']"
-    >
-        <td class="size-px whitespace-nowrap">
+    <tr class="cursor-pointer text-sm" @click="selectAgent">
+     <td class="size-px whitespace-nowrap">
             <!-- <div class="ps-6 py-3">
                 <label for="hs-at-with-checkboxes-1" class="flex">
                     <input
