@@ -7,6 +7,13 @@ const props = defineProps<{
 const emits = defineEmits<{
     (e: "selectAgent", value: Agent): void;
 }>();
+const selectedAgentId = ref<nmber | null>(null);
+
+const emitSelectAgent = (agent: Agent) => {
+  emits("selectAgent", agent);
+  selectedAgentId.value=agent.id;
+};
+
 
 const table = props.table;
 
@@ -37,6 +44,7 @@ watch(search, debounceFn);
 </script>
 <template>
     <div
+
         class="overflow-hidden bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700"
     >
         <!-- Header -->
@@ -128,13 +136,15 @@ watch(search, debounceFn);
 
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                     <VotingAgentsRow
-                        @select-agent="emits('selectAgent', $event)"
+                        @select-agent="emitSelectAgent($event)"
                         v-for="row in table.records"
                         :key="row.key"
                         :row="row"
                         :columns="table.columns"
                         :findColumn="findColumn"
-                    />
+                        :selectedId="selectedAgentId"
+                        
+                        />
                 </tbody>
             </table>
         </div>
@@ -151,6 +161,7 @@ watch(search, debounceFn);
                         >{{ table.records.length }}</span
                     >
                     Agent(s)
+                   
                 </p>
             </div>
 
