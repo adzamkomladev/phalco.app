@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
     table: any;
-}>();
+}>()
 
 const table = props.table;
 
@@ -30,7 +30,10 @@ const debounceFn = useDebounceFn(
 
 watch(search, debounceFn);
 
-const emit = defineEmits(["selectAgent", "onclick"]);
+const emit = defineEmits<{
+  (e: 'onSelect', id: number): void
+}>()
+
 </script>
 <template>
     <div
@@ -100,7 +103,7 @@ const emit = defineEmits(["selectAgent", "onclick"]);
             <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead class="bg-gray-50 dark:bg-slate-800">
                     <tr>
-                        <th scope="col" class="py-3 ps-6 text-start">
+                        <th scope="col" class="py-3 ps-6 text-start ">
                             <label
                                 for="hs-at-with-checkboxes-main"
                                 class="flex"
@@ -118,15 +121,15 @@ const emit = defineEmits(["selectAgent", "onclick"]);
                             :column="col"
                             :key="index"
                             :index="index"
+                            class=""
                         />
-                        <th scope="col" class="px-6 py-3 text-end"></th>
                     </tr>
                 </thead>
 
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                     <VotingAgentsRow
-                        @click="$emit('selectAgent', row)"
-                        v-for="row in table.records"
+                        @click="$emit('onSelect', row.extra(findColumn('name'),'id'))"
+                        v-for="(row,index) in table.records"
                         :key="row.key"
                         :row="row"
                         :columns="table.columns"

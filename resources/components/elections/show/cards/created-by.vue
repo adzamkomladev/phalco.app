@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import { Election } from "~/resources/interfaces/elections/selected.interface";
 import { formatDate, secondsUntil } from "~/resources/utils/shared/date";
+import {
+    Stage,
+  
+} from "~/resources/interfaces/elections/selected.interface";
 
-const props = defineProps<{ election: Election }>();
-const secondsLeftToVote = Math.floor(secondsUntil(props.election.end));
+const props = defineProps<{ election: Election , stage:Stage }>();
+const secondsLeftToVote = Math.floor(secondsUntil(props.stage.end));
 </script>
 
 <template>
@@ -17,12 +21,19 @@ const secondsLeftToVote = Math.floor(secondsUntil(props.election.end));
 
                 <span class="font-bold text-2xl">{{ election.name }}</span>
             </div>
-            <div>
+            <div class='min-w-28'>
                 <SharedCommonTimer
+                v-if="stage.stage==='voting'"
                     :duration="secondsLeftToVote"
                     class="font-black text-2xl"
                 />
-            </div>
+                <div class="flex items-center ">
+                   <SharedCommonIcon name='vote' class="" />
+                   <p class="text-gray-500 text-center">to voting </p>
+
+                </div>
+ 
+</div>
         </div>
 
         <div

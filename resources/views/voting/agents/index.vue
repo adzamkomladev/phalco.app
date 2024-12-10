@@ -16,7 +16,7 @@ const TotalAgents: number = table.records.length;
 const selectedAgent = ref(0);
 const selectAgent = (id: number) => {
     console.log(id);
-    selectedAgent.value = id;
+    selectedAgent.value = id
 };
 </script>
 
@@ -29,7 +29,7 @@ const selectAgent = (id: number) => {
                 <h2
                     class="text-xl font-semibold text-gray-800 dark:text-gray-200"
                 >
-                    Agents
+                    Agents {{selectedAgent}}
                 </h2>
                 <p class="text-sm text-gray-600 dark:text-gray-400 pb-5">
                     Manage all Agents of an electionm
@@ -39,7 +39,9 @@ const selectAgent = (id: number) => {
 
         <div class="grid grid-cols-7 _md:flex flex-col gap-4 sm:gap-6">
             <div class="col-span-4 _md">
-                <VotingAgentsTable :table="table" @select-agent="selectAgent" />
+                <VotingAgentsTable
+                @on-select="selectAgent"
+                :table="table" @select-agent="selectAgent" />
             </div>
             <div class="col-span-3 grid gap-5">
                 <div class="col-span-full grid grid-cols-2 gap-4">

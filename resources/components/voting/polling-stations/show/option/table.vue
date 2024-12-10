@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import NoMemmbersFound from "~/resources/svg/main/paper_in_box.svg?src";
+
+
 const props = defineProps<{
     table: any;
 }>();
@@ -58,6 +61,8 @@ watch(search, debounceFn);
             </div>
 
             <div
+                    v-if="total >0"
+
                 class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
             >
                 <!-- Input -->
@@ -75,7 +80,7 @@ watch(search, debounceFn);
         <!-- Table -->
 
         <div class="w-full overflow-x-scroll">
-            <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <table v-if="total >0" class="w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead class="bg-gray-50 dark:bg-slate-800">
                     <tr>
                         <th scope="col" class="py-3 ps-6 text-start">
@@ -111,11 +116,16 @@ watch(search, debounceFn);
                     />
                 </tbody>
             </table>
+             <div class="p-5 " v-else>
+                <img :src="NoMemmbersFound" class="h-60  max-h-96 place-self-center " />
+                <p class="text-black/50 text-center pt-4">No voting request </p>
+        </div>
         </div>
         <!-- End Table -->
 
         <!-- Footer -->
         <div
+        v-if="total >0"
             class="flex items-center justify-between gap-3 px-6 py-4 border-t border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
         >
             <div>

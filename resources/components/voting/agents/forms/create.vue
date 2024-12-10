@@ -27,6 +27,7 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
 <template>
     <form @submit.prevent="form.submit">
         <div class="grid gap-5">
+           
             <div class="sm:col-span-9">
                 <SharedFormBaseInput
                     v-model="form.fields.first_name"

@@ -3,13 +3,19 @@ const props = defineProps<{
     row: { key: any; value: any; extra: any };
     columns: any[];
     findColumn: (label: string) => any;
-}>();
+    selected:boolean;
+}
+>();
 
 const { key, value, extra } = props.row;
+
 </script>
 
 <template>
-    <tr class="text-sm">
+    <tr 
+    class="text-sm"
+    :class="[selected?'bg-primary-400':'hover:bg-gray-50  cursor-pointer']"
+    >
         <td class="size-px whitespace-nowrap">
             <!-- <div class="ps-6 py-3">
                 <label for="hs-at-with-checkboxes-1" class="flex">
@@ -24,22 +30,21 @@ const { key, value, extra } = props.row;
         </td>
 
         <td class="text-start whitespace-nowrap text-gray-500">
-            <div class="py-3 ps-6 lg:ps-3 pe-6">
+            <div class="py-3  pe-6">
                 <div class="flex items-center gap-x-3">
-                    <!-- <img
-                        class="inline-block size-[38px] rounded-full"
-                        :src="{{ value(findColumn("picture")) }}"
-                        alt="picture"
-                    /> -->
+                    <img
+                        class="inline-block size-[38px] bg-black/5 rounded-full"
+                        :src="extra(findColumn('name'),'avatar')"
+                    />
                     <div class="grow">
                         <span
                             class="block lg:whitespace-nowrap font-semibold text-gray-800 dark:text-gray-200"
                         >
                             {{ value(findColumn("name")) }}
                         </span>
-                        <!-- <span class="block text-sm text-gray-500">
-                            {{ value(findColumn("email")) }}
-                        </span> -->
+                        <span class="block text-sm text-gray-500">
+                            <!-- {{ value(findColumn("email")) }} -->
+                {{extra(findColumn('name'),'email')}}                        </span>
                     </div>
                 </div>
             </div>

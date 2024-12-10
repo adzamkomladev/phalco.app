@@ -67,7 +67,7 @@ const dummyBallots: ElectionBallotProps[] = [
     <div
         class="max-w-[100rem] px-4 flex flex-col gap-8 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
     >
-        <ElectionsShowCardsCreatedBy :election="election" />
+        <ElectionsShowCardsCreatedBy :stage="stage" :election="election" />
         <div
             class="grid md:grid-cols-2 _md:flex flex-col items-center px-auto xl:grid-cols-4 gap-4 sm:gap-6"
         >

@@ -22,7 +22,6 @@ class Store
     {
         try {
             $this->handle($request->user()->selected_organization_id, $request->validated());
-
             return redirect()->route('voting.agents.index');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());

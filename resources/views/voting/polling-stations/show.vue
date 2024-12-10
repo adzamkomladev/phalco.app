@@ -5,6 +5,7 @@ useHead({
 
 const props = defineProps<{
     pollingStation: any;
+    elctions:any;
     voters: Table<{
         id: number;
     }>;
@@ -23,8 +24,9 @@ const [voteEntryRequest] = props.pollingStation?.vote_entry_requests || [];
         class="max-w-[85rem] px-4 grid gap-4 sm:gap-6 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
     >
         <div>
-            <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                <!-- {{ pollingStation.name }} -->
+            <h2 v-if="elctions?.agentPollingStation" class="text-xl font-semibold text-gray-800 dark:text-gray-200">
+                {{ elctions?.agentPollingStation?.name}}  [ {{elctions?.agentPollingStation?.code}} ]
+                
             </h2>
             <p class="text-sm text-gray-600 dark:text-gray-400">
                 Manage all Agents of an election
