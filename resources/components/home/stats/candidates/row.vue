@@ -8,7 +8,11 @@ const formatedindex = props.index + 1;
 
 <template>
     <div
-        :class="[formatedindex == 1 ? 'bg-secondary-400  text-white ' : '']"
+        :class="[
+            formatedindex == 1
+                ? 'bg-secondary-400 dark:bg-secondary-800  text-white '
+                : '',
+        ]"
         class="flex borde p-2 shadow justify-between m-2 rounded-md"
     >
         <div class="flex items-center gap-x-3">

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" stroke-width="1"  viewBox="0 0 28 24" class=" transition-all" fill="currentColor">
+    <circle cx="3" cy="12" r="2"></circle>
+    <circle cx="10" cy="12" r="2"></circle>
+    <circle cx="17" cy="12" r="2"></circle>
+    <circle cx="24" cy="12" r="2" fill="#05496f" class="group-hover:ml-5"></circle>
+</svg>

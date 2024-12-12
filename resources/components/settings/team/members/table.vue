@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import NoMemmbersFound from "~/resources/svg/main/no_data.svg?src";
+
 const props = defineProps<{
     table: any;
 }>();
@@ -54,7 +56,7 @@ watch(search, debounceFn);
                     <div>
                         <div class="inline-flex gap-x-2 text-center">
                             <router-link
-                                class="w-24 shrink text-center items-center py-2 text-base font-medium text-gray-400 bg-white border border-gray-200 rounded-md shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                class="w-24 shrink text-center items-center py-2 text-base text-gray-400 bg-white border border-gray-200 rounded-md shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                                 :href="route('settings.team.roles')"
                             >
                                 Roles
@@ -62,10 +64,10 @@ watch(search, debounceFn);
 
                             <router-link
                                 :href="route('settings.team.invitations')"
-                                class="inline-flex items-center w-24 px-3 py-2 text-sm font-semibold text-white bg-primary-500 border border-transparent rounded-md cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                class="inline-flex items-center w-24 px-3 py-2 text-sm text-white bg-primary-500 border border-transparent rounded-md cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             >
                                 <SharedCommonIcon name="plus" />
-                                Invites
+                                Invite
                             </router-link>
                         </div>
                     </div>
@@ -87,7 +89,10 @@ watch(search, debounceFn);
             <!-- End Header -->
 
             <!-- Table -->
-            <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <table
+                v-if="total > 0"
+                class="w-full divide-y divide-gray-200 dark:divide-gray-700"
+            >
                 <thead class="bg-gray-50 dark:bg-slate-800">
                     <tr>
                         <th scope="col" class="py-3 ps-6 text-start">
@@ -136,10 +141,19 @@ watch(search, debounceFn);
                     />
                 </tbody>
             </table>
+            <div class="p-5" v-else>
+                <img
+                    :src="NoMemmbersFound"
+                    class="h-[50vh] max-h-96 place-self-center"
+                />
+                <p class="text-black/50 text-center pt-4">no members yet!</p>
+            </div>
+
             <!-- End Table -->
 
             <!-- Footer -->
             <div
+                v-if="total > 0"
                 class="grid gap-3 px-6 py-4 border-t border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
             >
                 <div>

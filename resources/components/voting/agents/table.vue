@@ -7,6 +7,12 @@ const props = defineProps<{
 const emits = defineEmits<{
     (e: "selectAgent", value: Agent): void;
 }>();
+const selectedAgentId = ref<nmber | null>(null);
+
+const emitSelectAgent = (agent: Agent) => {
+    emits("selectAgent", agent);
+    selectedAgentId.value = agent.id;
+};
 
 const table = props.table;
 
@@ -121,19 +127,20 @@ watch(search, debounceFn);
                             :column="col"
                             :key="index"
                             :index="index"
+                            class=""
                         />
-                        <th scope="col" class="px-6 py-3 text-end"></th>
                     </tr>
                 </thead>
 
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                     <VotingAgentsRow
-                        @select-agent="emits('selectAgent', $event)"
+                        @select-agent="emitSelectAgent($event)"
                         v-for="row in table.records"
                         :key="row.key"
                         :row="row"
                         :columns="table.columns"
                         :findColumn="findColumn"
+                        :selectedId="selectedAgentId"
                     />
                 </tbody>
             </table>

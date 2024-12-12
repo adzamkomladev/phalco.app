@@ -17,7 +17,7 @@ useHead({
 const props = defineProps<{
     election: Election;
     stats: Stats;
-    stage: Stage;
+    stage?: Stage | null;
     stageStats: StageStats;
 }>();
 
@@ -72,7 +72,7 @@ const dummyBallots: ElectionBallotProps[] = [
     <div
         class="max-w-[100rem] px-4 flex flex-col gap-8 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
     >
-        <ElectionsShowCardsCreatedBy :election="election" />
+        <ElectionsShowCardsCreatedBy :stage="stage" :election="election" />
         <div
             class="grid md:grid-cols-2 _md:flex flex-col items-center px-auto xl:grid-cols-4 gap-4 sm:gap-6"
         >
@@ -121,7 +121,6 @@ const dummyBallots: ElectionBallotProps[] = [
                 :stage-stat="stageStats"
                 :stage="stage"
                 class=""
-                :can
             />
 
             <ElectionsShowCardsStagesNomination
@@ -147,7 +146,7 @@ const dummyBallots: ElectionBallotProps[] = [
             <ElectionsShowCardsTimeline
                 class=""
                 :stages="election.stages"
-                :election-end-date="election.end"
+                :election-end-date="new Date(election.end)"
             />
         </div>
     </div>
