@@ -11,7 +11,7 @@ const props = defineProps<{ stages: Stage[]; electionEndDate: Date }>();
         <div class="text-center">
             <h2 class="text-xl font-semibold">Election Timeline</h2>
             <p class="text-sm text-gray-600 dark:text-gray-400">
-                Lorem ipsum dolor sit, amet consectetur
+                
             </p>
         </div>
 
