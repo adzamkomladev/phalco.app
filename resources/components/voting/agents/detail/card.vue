@@ -13,7 +13,7 @@ const props = defineProps<{ agent: Agent }>();
                 Agents Stats
             </h2>
             <div
-                class="w-[70%] max-w-60  h-auto aspect-square rounded-full overflow-hidden place-self-center"
+                class="w-[70%] max-w-60 h-auto aspect-square rounded-full overflow-hidden place-self-center"
             >
                 <img :src="agent.avatar" class="w-full" />
             </div>

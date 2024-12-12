@@ -33,7 +33,7 @@ const toggleUploadForm = () => (isUpload.value = !isUpload.value);
                 </p>
             </div>
             <div class="">
-                <img :src="AgentImage" class=" _sm:hidden h-52 w-auto" />
+                <img :src="AgentImage" class="_sm:hidden h-52 w-auto" />
             </div>
         </div>
         <div class="mt-5">

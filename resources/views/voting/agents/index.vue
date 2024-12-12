@@ -29,7 +29,7 @@ const selectedAgent = ref<Agent | null>(null);
                 <h2
                     class="text-xl font-semibold text-gray-800 dark:text-gray-200"
                 >
-                    Agents 
+                    Agents
                 </h2>
                 <p class="text-sm text-gray-600 dark:text-gray-400 pb-5">
                     Manage all Agents of in the election

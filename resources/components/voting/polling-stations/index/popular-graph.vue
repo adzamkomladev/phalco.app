@@ -28,9 +28,14 @@ defineProps<PopularPollingStationsCardProps>();
             />
         </div>
 
-         <div class="p-5 " v-else>
-                <img :src="NoMemmbersFound" class="h-60  max-h-96 place-self-center " />
-                <p class="text-black/50 text-center pt-4">popular polling stations will appear here </p>
+        <div class="p-5" v-else>
+            <img
+                :src="NoMemmbersFound"
+                class="h-60 max-h-96 place-self-center"
+            />
+            <p class="text-black/50 text-center pt-4">
+                popular polling stations will appear here
+            </p>
         </div>
     </SharedCommonCard>
 </template>
