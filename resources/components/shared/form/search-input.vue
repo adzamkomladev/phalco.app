@@ -11,7 +11,6 @@ const input = ref<HTMLInputElement | null>(null);
 const focus = () => input.value?.focus();
 const select = () => input.value?.select();
 defineExpose({ focus, select });
-
 </script>
 
 <template>
@@ -33,7 +32,7 @@ defineExpose({ focus, select });
                 class="absolute peer-focus:text-primary-500 inset-y-0 start-0 flex items-center pointer-events-none ps-4"
             >
                 <svg
-                    class="shrink-0 size-4 "
+                    class="shrink-0 size-4"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"

@@ -7,12 +7,15 @@ const formatedindex = props.index + 1;
 </script>
 
 <template>
-    <div 
-                       :class="[formatedindex==1 ?'bg-secondary-400 dark:bg-secondary-800  text-white ':'']"
-
-    class="flex borde p-2 shadow justify-between m-2 rounded-md">
-        <div class="flex items-center gap-x-3 ">
-
+    <div
+        :class="[
+            formatedindex == 1
+                ? 'bg-secondary-400 dark:bg-secondary-800  text-white '
+                : '',
+        ]"
+        class="flex borde p-2 shadow justify-between m-2 rounded-md"
+    >
+        <div class="flex items-center gap-x-3">
             <img
                 class="inline-block bg-gray-800/5 size-[38px] rounded-full"
                 :src="candidatePicture"

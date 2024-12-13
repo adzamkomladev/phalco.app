@@ -10,8 +10,8 @@ const emits = defineEmits<{
 const selectedAgentId = ref<number | null>(null);
 
 const emitSelectAgent = (agent: Agent) => {
-  emits("selectAgent", agent);
-  selectedAgentId.value=agent.id;
+    emits("selectAgent", agent);
+    selectedAgentId.value = agent.id;
 };
 const table = props.table;
 
@@ -42,7 +42,6 @@ watch(search, debounceFn);
 </script>
 <template>
     <div
-
         class="overflow-hidden bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700"
     >
         <!-- Header -->
@@ -109,7 +108,7 @@ watch(search, debounceFn);
             <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead class="bg-gray-50 dark:bg-slate-800">
                     <tr>
-                        <th scope="col" class="py-3 ps-6 text-start ">
+                        <th scope="col" class="py-3 ps-6 text-start">
                             <label
                                 for="hs-at-with-checkboxes-main"
                                 class="flex"
@@ -142,8 +141,7 @@ watch(search, debounceFn);
                         :columns="table.columns"
                         :findColumn="findColumn"
                         :selectedId="selectedAgentId"
-                        
-                        />
+                    />
                 </tbody>
             </table>
         </div>
@@ -160,7 +158,6 @@ watch(search, debounceFn);
                         >{{ table.records.length }} <span class="font-normal" >out of</span> {{total}}</span
                     >
                     Agent(s)
-                   
                 </p>
             </div>
 

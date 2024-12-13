@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import NoMemmbersFound from "~/resources/svg/main/no_data.svg?src";
- 
+
 const props = defineProps<{
     table: any;
 }>();
@@ -98,7 +98,7 @@ watch(search, debounceFn);
 
             <!-- Table -->
             <div
-            v-if="total > 0"
+                v-if="total > 0"
                 class="w-full divide-y divide-gray-200 dark:divide-gray-700 p-4 grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
             >
                 <VotingPollingStationsIndexRow
@@ -111,16 +111,21 @@ watch(search, debounceFn);
                     :status="value(findColumn('status'))"
                 />
             </div>
-               <div class="p-5 " v-else>
-                <img :src="NoMemmbersFound" class="h-[50vh]  max-h-96 place-self-center " />
-                <p class="text-black/50 text-center pt-4">no polling station added! </p>
+            <div class="p-5" v-else>
+                <img
+                    :src="NoMemmbersFound"
+                    class="h-[50vh] max-h-96 place-self-center"
+                />
+                <p class="text-black/50 text-center pt-4">
+                    no polling station added!
+                </p>
             </div>
 
             <!-- End Table -->
 
             <!-- Footer -->
             <div
-             v-if="total > 0"
+                v-if="total > 0"
                 class="grid gap-3 px-6 py-4 border-t border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
             >
                 <div>
