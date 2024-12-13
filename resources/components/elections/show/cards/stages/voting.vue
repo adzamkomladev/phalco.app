@@ -2,7 +2,7 @@
 import {
     Stage,
     StageStatsVoting,
-} from "~/resources/interfaces/elections/selected.interface";
+} from "~/resources/interfaces/elections/show.interface";
 import { ElectionBallotProps } from "~/resources/interfaces/voting/polling-stations/index.interface";
 import { formatDate, secondsUntil } from "~/resources/utils/shared/date";
 

@@ -5,7 +5,7 @@ import { formatDate } from "~/resources/utils/shared/date";
 import {
     Stage,
     StageStatsNominations,
-} from "~/resources/interfaces/elections/selected.interface";
+} from "~/resources/interfaces/elections/show.interface";
 
 const props = defineProps<{ stageStat: StageStatsNominations; stage: Stage }>();
 </script>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SelectedElectionDetailsCard } from "~/resources/interfaces/elections/selected.interface";
+import { SelectedElectionDetailsCard } from "~/resources/interfaces/elections/show.interface";
 
 defineProps<SelectedElectionDetailsCard & { to?: string }>();
 </script>

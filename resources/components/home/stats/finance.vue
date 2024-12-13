@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { StageStatsDefault } from "~/resources/interfaces/elections/selected.interface";
+import { StageStatsDefault } from "~/resources/interfaces/elections/show.interface";
 
 const props = defineProps<{
     stageStat: StageStatsDefault;

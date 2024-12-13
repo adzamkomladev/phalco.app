@@ -110,7 +110,7 @@ watch(search, debounceFn);
                         <span class="font-normal">out of</span>
                         {{ total }}</span
                     >
-                    Ballots
+                    Transaction
                 </p>
             </div>
 

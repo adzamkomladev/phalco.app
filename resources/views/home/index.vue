@@ -4,7 +4,7 @@ import {
     Stage,
     StageStats,
     Stats,
-} from "~/resources/interfaces/elections/selected.interface";
+} from "~/resources/interfaces/elections/show.interface";
 import {
     ElectionBallotProps,
     ElectionCandidateProps,
