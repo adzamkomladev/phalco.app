@@ -16,7 +16,7 @@ const props = defineProps<{
 }>();
 
 const table = useTable(props, "agents");
-const totalRecords =table.records.length;
+const totalRecords = table.records.length;
 
 const selectedAgent = ref<Agent | null>(null);
 </script>
@@ -30,7 +30,7 @@ const selectedAgent = ref<Agent | null>(null);
                 <h2
                     class="text-xl font-semibold text-gray-800 dark:text-gray-200"
                 >
-                    Agents {{totalRecords}}
+                    Agents {{ totalRecords }}
                 </h2>
                 <p class="text-sm text-gray-600 dark:text-gray-400 pb-5">
                     Manage all Agents of in the election
@@ -45,14 +45,19 @@ const selectedAgent = ref<Agent | null>(null);
                     @select-agent="selectedAgent = $event"
                 />
             </div>
-            <div 
-           :class="[table.records.length < 7 ? 'contents':'md:']"
-            class="col-span-3 gap-4 grid">
-
-            
-                <div 
-                :class="[table.records.length < 7 ? 'md:row-start-1 md:grid-cols-4 ': 'md:row-start-1 md:col-start-5',table.records.length >=10 ?'md:grid-cols-1':'']"
-                class= "col-span-full h-fit grid grid-cols-2 gap-4 ">
+            <div
+                :class="[table.records.length < 7 ? 'contents' : 'md:']"
+                class="col-span-3 gap-4 grid"
+            >
+                <div
+                    :class="[
+                        table.records.length < 7
+                            ? 'md:row-start-1 md:grid-cols-4 '
+                            : 'md:row-start-1 md:col-start-5',
+                        table.records.length >= 10 ? 'md:grid-cols-1' : '',
+                    ]"
+                    class="col-span-full h-fit grid grid-cols-2 gap-4"
+                >
                     <VotingAgentsStatsCard
                         v-for="(stat, index) in stats"
                         :key="index"
@@ -61,15 +66,15 @@ const selectedAgent = ref<Agent | null>(null);
                     />
                 </div>
 
-                <div 
-                  :class="[table.records.length < 7 ? 'md:col-start-5':'md:']"
-
-                class="col-span-full max-h-fit md:col-start-5">
-                    <VotingAgentsDetailSelected
-                        :agent="selectedAgent"
-                    />
+                <div
+                    :class="[
+                        table.records.length < 7 ? 'md:col-start-5' : 'md:',
+                    ]"
+                    class="col-span-full max-h-fit md:col-start-5"
+                >
+                    <VotingAgentsDetailSelected :agent="selectedAgent" />
                 </div>
-                </div>
+            </div>
         </div>
     </div>
 </template>

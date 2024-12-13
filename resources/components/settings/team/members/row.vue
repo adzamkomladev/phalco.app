@@ -80,8 +80,7 @@ const { key, value, extra } = props.row;
             </div>
         </td>
         <td class="size-px whitespace-nowrap">
-            
-           <SharedTableShowDetail/>
+            <SharedTableShowDetail />
         </td>
     </tr>
 </template>

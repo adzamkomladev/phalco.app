@@ -31,7 +31,7 @@ const description = extra(props.findColumn("account"), "description");
                 </label>
             </div>
         </td>
-        <td class="size-px w w-fit max-w-full ">
+        <td class="size-px w w-fit max-w-full">
             <div class="py-3 ps-6 lg:ps-3 pe-6">
                 <div class="flex items-center gap-x-3">
                     <img
@@ -88,7 +88,7 @@ const description = extra(props.findColumn("account"), "description");
                     :href="route('finance.transactions.show', { id })"
                     class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
-           <SharedTableShowDetail/>
+                    <SharedTableShowDetail />
                 </router-link>
             </div>
         </td>

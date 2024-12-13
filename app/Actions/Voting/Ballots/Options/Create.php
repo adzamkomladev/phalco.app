@@ -11,7 +11,6 @@ class Create
 {
     use AsAction;
 
-
     public function asController(int $id)
     {
         return view('voting.ballots.options.create', $this->handle($id))
@@ -23,7 +22,7 @@ class Create
         return [
             'ballot' => Ballot::select(['id', 'position'])
                 ->with(['options:id,ballot_id,order'])
-                ->find($ballotId)
+                ->find($ballotId),
         ];
     }
 }

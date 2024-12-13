@@ -56,7 +56,7 @@ const id = +extra(props.findColumn("position"), "id");
                     :href="route('voting.ballots.show', { id })"
                     class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
-           <SharedTableShowDetail/>
+                    <SharedTableShowDetail />
                 </router-link>
             </div>
         </td>

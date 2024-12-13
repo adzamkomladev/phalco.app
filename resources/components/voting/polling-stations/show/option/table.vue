@@ -134,9 +134,10 @@ watch(search, debounceFn);
         >
             <div>
                 <p class="text-sm text-gray-600 dark:text-gray-400">
-                    <span
-                        class="font-semibold text-gray-800 dark:text-gray-200"
-                        >{{ table.records.length }} <span class="font-normal" >out of</span> {{total}}</span
+                    <span class="font-semibold text-gray-800 dark:text-gray-200"
+                        >{{ table.records.length }}
+                        <span class="font-normal">out of</span>
+                        {{ total }}</span
                     >
                     candidates
                 </p>

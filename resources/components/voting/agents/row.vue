@@ -5,9 +5,8 @@ const props = defineProps<{
     row: { key: any; value: any; extra: any };
     columns: any[];
     findColumn: (label: string) => any;
-    selectedId:number|null;
-}
->();
+    selectedId: number | null;
+}>();
 
 const emits = defineEmits<{
     (e: "selectAgent", value: Agent): void;
@@ -38,8 +37,6 @@ const selectAgent = () =>
         voteRequests,
         avatar,
     });
-
-
 </script>
 
 <template>
@@ -94,10 +91,11 @@ const selectAgent = () =>
                 </div>
             </div>
         </td>
-        <td class="whitespace-nowrap text-gray-500 ">
-            <div 
-          :class="[selectedId == id ?'text-white/90':'']"
-            class="px-6 py-3 text-center">
+        <td class="whitespace-nowrap text-gray-500">
+            <div
+                :class="[selectedId == id ? 'text-white/90' : '']"
+                class="px-6 py-3 text-center"
+            >
                 {{ value(findColumn("polling_stations")) }}
             </div>
         </td>

@@ -2,7 +2,7 @@
 import { Agent } from "~/resources/interfaces/voting/agents/index.interface";
 import NoAgentSelectedImage from "~/resources/svg/main/no_agent_selected.svg?url";
 
-const props = defineProps<{ agent: Agent |null }>();
+const props = defineProps<{ agent: Agent | null }>();
 </script>
 
 <template>
@@ -14,9 +14,12 @@ const props = defineProps<{ agent: Agent |null }>();
                 Agents Stats
             </h2>
             <div
-                class="w-[70%] max-w-52  h-auto aspect-square block  shrink- rounded-full overflow-hidden place-self-center"
+                class="w-[70%] max-w-52 h-auto aspect-square block shrink- rounded-full overflow-hidden place-self-center"
             >
-                <img :src="agent?.avatar || NoAgentSelectedImage" class="w-full" />
+                <img
+                    :src="agent?.avatar || NoAgentSelectedImage"
+                    class="w-full"
+                />
             </div>
             <div>
                 <p class="font-semibold">{{ agent?.name }}</p>

@@ -22,9 +22,9 @@ const { key, value, extra } = props.row;
                 </label>
             </div> -->
         </td>
-        <td class="size-px  w-fit  max-w-fit ">
-            <div class="py-3 ps-6 lg:ps-3 pe-6 ">
-                <div class="flex items-center gap-x-3 ">
+        <td class="size-px w-fit max-w-fit">
+            <div class="py-3 ps-6 lg:ps-3 pe-6">
+                <div class="flex items-center gap-x-3">
                     <img
                         class="inline-block size-[38px] rounded-full"
                         :src="extra(findColumn('name'), 'logo')"
@@ -43,8 +43,8 @@ const { key, value, extra } = props.row;
                 </div>
             </div>
         </td>
-        <td class="h-px whitespace-nowrap  w-fit">
-            <div class="px-6 py-3 text-sm ">
+        <td class="h-px whitespace-nowrap w-fit">
+            <div class="px-6 py-3 text-sm">
                 <SharedTableStatus :status="value(findColumn('status'))" />
             </div>
         </td>
@@ -53,7 +53,7 @@ const { key, value, extra } = props.row;
                 {{ value(findColumn("current_stage")) }}
             </div>
         </td>
-        <td class="size-px whitespace-nowrap text-gray-500   w-fit">
+        <td class="size-px whitespace-nowrap text-gray-500 w-fit">
             <div class="px-6 py-3">{{ value(findColumn("created_at")) }}</div>
         </td>
         <td class="size-px whitespace-nowrap w-fit">
@@ -66,8 +66,7 @@ const { key, value, extra } = props.row;
                     "
                     class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
-                               <SharedTableShowDetail/>
-
+                    <SharedTableShowDetail />
                 </router-link>
             </div>
         </td>

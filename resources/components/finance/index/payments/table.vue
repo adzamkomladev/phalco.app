@@ -10,7 +10,6 @@ const current = computed(() => paginator?.links?.[1]);
 const next = computed(() => paginator?.links?.[2]);
 const total = ref(paginator?.meta?.total);
 
-
 const findColumn = (name: string) =>
     table.columns.find((column: any) => column?.name === name)!;
 const findFilter = (name: string) =>
@@ -100,50 +99,51 @@ watch(search, debounceFn);
                 </tbody>
             </table>
         </div>
-            <!-- Footer -->
-            <div
-                class="grid gap-3 px-6 py-4 border-t border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
-            >
-                <div>
-                   <p class="text-sm text-gray-600 dark:text-gray-400">
-                    <span
-                        class="font-semibold text-gray-800 dark:text-gray-200"
-                        >{{ table.records.length }} <span class="font-normal" >out of</span> {{total}}</span
+        <!-- Footer -->
+        <div
+            class="grid gap-3 px-6 py-4 border-t border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
+        >
+            <div>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    <span class="font-semibold text-gray-800 dark:text-gray-200"
+                        >{{ table.records.length }}
+                        <span class="font-normal">out of</span>
+                        {{ total }}</span
                     >
                     Ballots
                 </p>
-                </div>
+            </div>
 
-                <div v-if="prev.url || next.url">
-                    <div class="inline-flex gap-x-2">
-                        <router-link
-                            v-if="prev.url"
-                            type="button"
-                            :href="prev.url"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                        >
-                            <SharedCommonIcon
-                                name="chevron"
-                                class="size-4 -rotate-90"
-                            />
-                            Prev
-                        </router-link>
+            <div v-if="prev.url || next.url">
+                <div class="inline-flex gap-x-2">
+                    <router-link
+                        v-if="prev.url"
+                        type="button"
+                        :href="prev.url"
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                    >
+                        <SharedCommonIcon
+                            name="chevron"
+                            class="size-4 -rotate-90"
+                        />
+                        Prev
+                    </router-link>
 
-                        <router-link
-                            v-if="next.url"
-                            type="button"
-                            :href="next.url"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                        >
-                            Next
-                            <SharedCommonIcon
-                                name="chevron"
-                                class="size-4 rotate-90"
-                            />
-                        </router-link>
-                    </div>
+                    <router-link
+                        v-if="next.url"
+                        type="button"
+                        :href="next.url"
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                    >
+                        Next
+                        <SharedCommonIcon
+                            name="chevron"
+                            class="size-4 rotate-90"
+                        />
+                    </router-link>
                 </div>
             </div>
-            <!-- End Footer -->
         </div>
+        <!-- End Footer -->
+    </div>
 </template>
