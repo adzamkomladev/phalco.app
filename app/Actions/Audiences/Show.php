@@ -27,9 +27,9 @@ class Show
             $totalCampaigns,
             $totalContacts
         ] = Octane::concurrently([
-            fn() => Audience::find($id),
-            fn() => 0,
-            fn() => Contact::where('audience_id', $id)->count(),
+            fn () => Audience::find($id),
+            fn () => 0,
+            fn () => Contact::where('audience_id', $id)->count(),
         ]);
 
         return [
@@ -65,7 +65,7 @@ class Show
                     'percentageCompleted' => 20,
                     'broadcastTopic' => 'audiences.1.campaigns.5.running',
                     'createdAt' => now()->subDays(1),
-                ]
+                ],
             ]),
             'audience' => $audience,
             'contacts' => ContactsTable::make(['audienceId' => $id]),

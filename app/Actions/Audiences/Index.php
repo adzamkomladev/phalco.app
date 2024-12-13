@@ -25,8 +25,8 @@ class Index
             $totalAudiences,
             $totalContacts
         ] = Octane::concurrently([
-            fn() => Audience::where('organization_id', $organizationId)->count(),
-            fn() => Contact::whereRelation('audience', 'organization_id', $organizationId)->count(),
+            fn () => Audience::where('organization_id', $organizationId)->count(),
+            fn () => Contact::whereRelation('audience', 'organization_id', $organizationId)->count(),
         ]);
 
         return [
@@ -46,7 +46,7 @@ class Index
                 [
                     'description' => 'Total contacts',
                     'value' => $totalContacts,
-                ]
+                ],
             ],
             'audiences' => AudiencesTable::make(['organizationId' => $organizationId]),
         ];
