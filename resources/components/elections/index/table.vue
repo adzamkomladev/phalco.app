@@ -8,6 +8,7 @@ const paginator: any = table.paginator;
 const prev = computed(() => paginator?.links?.[0]);
 const current = computed(() => paginator?.links?.[1]);
 const next = computed(() => paginator?.links?.[2]);
+const total = ref(paginator?.meta?.total);
 
 const findColumn = (name: string) =>
     table.columns.find((column: any) => column?.name === name)!;
@@ -28,13 +29,10 @@ const debounceFn = useDebounceFn(
 watch(search, debounceFn);
 </script>
 <template>
-    <div class="max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 mx-auto">
-        <div class="flex flex-col">
-            <div class="-m-1.5 overflow-x-auto">
-                <div class="p-1.5 min-w-full inline-block align-middle">
-                    <div
-                        class="bg-white border shadow-md border-gray-200 rounded-2xl overflow-hidden dark:bg-gray-800 dark:border-gray-700"
-                    >
+      <div
+        class="overflow-hidden bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700"
+    >
+        <!-- Header -->
                         <div>
                             <div
                                 class="grid gap-3 px-6 py-4 border-b border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
@@ -72,6 +70,7 @@ watch(search, debounceFn);
                             </router-link> -->
                             </div>
                         </div>
+        <div class="w-full overflow-x-scroll">
 
                         <table
                             class="min-w-full divide-y divide-gray-200 dark:divide-gray-700"
@@ -122,25 +121,19 @@ watch(search, debounceFn);
                                 />
                             </tbody>
                         </table>
+                    </div>
                         <!-- Footer -->
                         <div
                             class="grid gap-3 px-6 py-4 border-t border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
                         >
                             <div>
-                                <p
-                                    class="text-sm text-gray-600 dark:text-gray-400"
-                                >
-                                    <span
-                                        v-if="table.paginator?.meta?.total >= 0"
-                                        class="font-semibold text-gray-800 dark:text-gray-200"
-                                    >
-                                        {{ table.paginator?.meta?.total }}
-                                        <span class="font-normal"
-                                            >elections</span
-                                        ></span
-                                    >
-                                    <span v-else> No election yet </span>
-                                </p>
+                               <p class="text-sm text-gray-600 dark:text-gray-400">
+                    <span
+                        class="font-semibold text-gray-800 dark:text-gray-200"
+                        >{{ table.records.length }} <span class="font-normal" >out of</span> {{total}}</span
+                    >
+                    Elections
+                </p>
                             </div>
 
                             <div v-if="prev.url || next.url">
@@ -175,8 +168,6 @@ watch(search, debounceFn);
                         </div>
                         <!-- End Footer -->
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+              
+     
 </template>

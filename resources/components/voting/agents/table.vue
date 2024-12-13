@@ -7,14 +7,12 @@ const props = defineProps<{
 const emits = defineEmits<{
     (e: "selectAgent", value: Agent): void;
 }>();
-const selectedAgentId = ref<nmber | null>(null);
+const selectedAgentId = ref<number | null>(null);
 
 const emitSelectAgent = (agent: Agent) => {
   emits("selectAgent", agent);
   selectedAgentId.value=agent.id;
 };
-
-
 const table = props.table;
 
 const paginator: any = table.paginator;
@@ -30,7 +28,7 @@ const findFilter = (name: string) =>
 
 const searchFilter = findFilter("search");
 
-const search = ref("");
+const search = useQueryParameter("filters[search]");
 
 const debounceFn = useDebounceFn(
     () =>
@@ -117,6 +115,7 @@ watch(search, debounceFn);
                                 class="flex"
                             >
                                 <input
+                                disabled
                                     type="checkbox"
                                     class="text-primary-600 border-gray-300 rounded shrink-0 focus:ring-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-primary-500 dark:checked:border-primary-500 dark:focus:ring-offset-gray-800"
                                     id="hs-at-with-checkboxes-main"
@@ -158,7 +157,7 @@ watch(search, debounceFn);
                 <p class="text-sm text-gray-600 dark:text-gray-400">
                     <span
                         class="font-semibold text-gray-800 dark:text-gray-200"
-                        >{{ table.records.length }}</span
+                        >{{ table.records.length }} <span class="font-normal" >out of</span> {{total}}</span
                     >
                     Agent(s)
                    

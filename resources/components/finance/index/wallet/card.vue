@@ -74,13 +74,13 @@ const gradientClass = computed(() => `gradient-${props.id % 4}`);
 .gradient-1 {
     @apply bg-gradient-to-br from-purple-500 to-pink-500;
 }
-.gradient-2 {
+.gradient-4 {
     @apply bg-gradient-to-br from-primary-500 to-violet-500;
 }
 .gradient-3 {
     @apply bg-gradient-to-br from-teal-500 to-indigo-500;
 }
-.gradient-4 {
+.gradient-2 {
     @apply bg-gradient-to-br from-orange-500 to-yellow-500;
 }
 

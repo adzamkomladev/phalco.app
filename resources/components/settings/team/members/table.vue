@@ -90,7 +90,8 @@ watch(search, debounceFn);
             <!-- End Header -->
 
             <!-- Table -->
-            <table v-if="total > 0" class="w-full divide-y divide-gray-200 dark:divide-gray-700">
+                     <div v-if="total > 0" class="w-full overflow-x-scroll">
+            <table  class="w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead class="bg-gray-50 dark:bg-slate-800">
                     <tr>
                         <th scope="col" class="py-3 ps-6 text-start">
@@ -100,6 +101,7 @@ watch(search, debounceFn);
                             >
                                 <input
                                     type="checkbox"
+                                    disabled
                                     class="text-primary-600 border-gray-300 rounded shrink-0 focus:ring-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-primary-500 dark:checked:border-primary-500 dark:focus:ring-offset-gray-800"
                                     id="hs-at-with-checkboxes-main"
                                 />
@@ -139,6 +141,7 @@ watch(search, debounceFn);
                     />
                 </tbody>
             </table>
+        </div>
             <div class="p-5 " v-else>
                 <img :src="NoMemmbersFound" class="h-[50vh]  max-h-96 place-self-center " />
                 <p class="text-black/50 text-center pt-4">no members yet!</p>
@@ -155,9 +158,9 @@ watch(search, debounceFn);
                     <p class="text-sm text-gray-600 dark:text-gray-400">
                         <span
                             class="font-semibold text-gray-800 dark:text-gray-200"
-                            >{{ total }}</span
+                            >{{ table.records.length }} <span class="font-normal" >out of</span> {{total}}</span
                         >
-                        results
+                        Members
                     </p>
                 </div>
 

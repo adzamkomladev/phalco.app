@@ -32,7 +32,7 @@ const description = extra(props.findColumn("account"), "description");
                 </label>
             </div>
         </td>
-        <td class="size-px w w-full max-w-40 bg-red">
+        <td class="size-px w w-fit max-w-full ">
             <div class="py-3 ps-6 lg:ps-3 pe-6">
                 <div class="flex items-center gap-x-3">
                     <img
@@ -42,7 +42,7 @@ const description = extra(props.findColumn("account"), "description");
                     />
                     <div class="grow">
                         <span
-                            class="block lg:whitespace-nowrap font-semibold text-gray-800 dark:text-gray-200"
+                            class="block whitespace-nowrap font-semibold text-gray-800 dark:text-gray-200"
                         >
                             {{ name }}
                         </span>
@@ -53,7 +53,7 @@ const description = extra(props.findColumn("account"), "description");
                 </div>
             </div>
         </td>
-        <td class="h-px w-36 whitespace-nowrap">
+        <td class="h-px w-fit whitespace-nowrap">
             <div
                 class="px-6 py-3"
                 :class="[amount >= 0 ? 'text-forest-300' : 'text-crimson-500']"
@@ -62,21 +62,22 @@ const description = extra(props.findColumn("account"), "description");
             </div>
         </td>
 
-        <td class="size-px whitespace-nowrap text-gray-600">
+        <td class="size-px whitespace-nowrap w-fit text-gray-600">
             <div class="px-6 py-3">
                 {{ reference }}
             </div>
         </td>
-        <td class="size-px whitespace-nowrap text-gray-600">
-            <div class="px-6 py-3">
+        <td class="size-px whitespace-nowrap  w-fit text-gray-600">
+            <div class="px-6 py-3 w-full">
                 <SharedCommonIcon
                     name="paystack"
                     class="place-self-center size-6"
                 />
-                <span class="text-xs capitalize">{{ gateway }}</span>
+                <p class="text-xs capitalize  text-center
+                ">{{ gateway }}</p>
             </div>
         </td>
-        <td class="size-px whitespace-nowrap text-gray-600">
+        <td class="size-px whitespace-nowrap text-gray-600 w-fit">
             <div class="px-6 py-3">
                 <span
                     :class="[
@@ -90,16 +91,17 @@ const description = extra(props.findColumn("account"), "description");
                 </span>
             </div>
         </td>
-        <td class="size-px whitespace-nowrap text-gray-600">
+        <td class="size-px whitespace-nowrap text-gray-600 w-fit">
             {{ createdAt }}
         </td>
-        <td class="size-px whitespace-nowrap">
+        <td class="size-px whitespace-nowrap w-fit">
             <div class="px-6 py-1.5">
                 <router-link
                     :href="route('finance.payments.show', { id })"
                     class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
-                    Details
+                            <SharedTableShowDetail/>
+
                 </router-link>
             </div>
         </td>

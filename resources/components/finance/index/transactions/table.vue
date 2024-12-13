@@ -8,6 +8,8 @@ const paginator: any = table.paginator;
 const prev = computed(() => paginator?.links?.[0]);
 const current = computed(() => paginator?.links?.[1]);
 const next = computed(() => paginator?.links?.[2]);
+const total = ref(paginator?.meta?.total);
+
 
 const findColumn = (name: string) =>
     table.columns.find((column: any) => column?.name === name)!;
@@ -97,21 +99,20 @@ watch(search, debounceFn);
                     />
                 </tbody>
             </table>
+
+        </div>
             <!-- Footer -->
             <div
                 class="grid gap-3 px-6 py-4 border-t border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
             >
                 <div>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                        <span
-                            v-if="table.paginator?.meta?.total >= 0"
-                            class="font-semibold text-gray-800 dark:text-gray-200"
-                        >
-                            {{ table.paginator?.meta?.total }}
-                            <span class="font-normal">transactions</span></span
-                        >
-                        <span v-else> No transactions yet </span>
-                    </p>
+                    <span
+                        class="font-semibold text-gray-800 dark:text-gray-200"
+                        >{{ table.records.length }} <span class="font-normal" >out of</span> {{total}}</span
+                    >
+                    Ballots
+                </p>
                 </div>
 
                 <div v-if="prev.url || next.url">
@@ -146,5 +147,5 @@ watch(search, debounceFn);
             </div>
             <!-- End Footer -->
         </div>
-    </div>
+  
 </template>

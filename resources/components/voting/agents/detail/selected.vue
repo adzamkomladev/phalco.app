@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { Agent } from "~/resources/interfaces/voting/agents/index.interface";
+import NoAgentSelectedImage from "~/resources/svg/main/no_agent_selected.svg?url";
 
-const props = defineProps<{ agent: Agent }>();
+const props = defineProps<{ agent: Agent |null }>();
 </script>
 
 <template>
@@ -13,12 +14,12 @@ const props = defineProps<{ agent: Agent }>();
                 Agents Stats
             </h2>
             <div
-                class="w-[70%] max-w-60  h-auto aspect-square rounded-full overflow-hidden place-self-center"
+                class="w-[70%] max-w-52  h-auto aspect-square block  shrink- rounded-full overflow-hidden place-self-center"
             >
-                <img :src="agent.avatar" class="w-full" />
+                <img :src="agent?.avatar || NoAgentSelectedImage" class="w-full" />
             </div>
             <div>
-                <p class="font-semibold">{{ agent.name }}</p>
+                <p class="font-semibold">{{ agent?.name }}</p>
                 <p class="text-gray-800/50">Current Agent</p>
             </div>
         </div>
@@ -38,7 +39,7 @@ const props = defineProps<{ agent: Agent }>();
                     <div>
                         <p class="font-bold text-lg">Total Polling Stations</p>
                         <p class="font-semibold text-sm">
-                            {{ agent.pollingStations }}
+                            {{ agent?.pollingStations }}
                         </p>
                     </div>
                 </div>
@@ -62,7 +63,7 @@ const props = defineProps<{ agent: Agent }>();
                     <div>
                         <p class="font-bold text-lg">Pending Vote Requests</p>
                         <p class="font-semibold text-sm">
-                            {{ agent.voteRequests }}
+                            {{ agent?.voteRequests }}
                         </p>
                     </div>
                 </div>

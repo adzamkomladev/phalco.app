@@ -13,14 +13,14 @@ const id = +extra(props.findColumn("position"), "id");
     <tr class="text-sm">
         <td class="size-px whitespace-nowrap">
             <div class="ps-6 py-3">
-                <label for="hs-at-with-checkboxes-1" class="flex">
+                <!-- <label for="hs-at-with-checkboxes-1" class="flex">
                     <input
                         type="checkbox"
                         class="shrink-0 border-gray-300 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
                         id="hs-at-with-checkboxes-1"
                     />
                     <span class="sr-only">Checkbox</span>
-                </label>
+                </label> -->
             </div>
         </td>
 
@@ -56,7 +56,7 @@ const id = +extra(props.findColumn("position"), "id");
                     :href="route('voting.ballots.show', { id })"
                     class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
-                    Details
+           <SharedTableShowDetail/>
                 </router-link>
             </div>
         </td>
