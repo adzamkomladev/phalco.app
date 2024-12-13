@@ -5,6 +5,7 @@ import {
 } from "~/resources/interfaces/voting/ballots/show.interface";
 
 defineProps<{
+    ballotId: number;
     ballotHeader: BallotHeader;
     data: Option[];
 }>();
@@ -33,7 +34,8 @@ defineProps<{
                     <div class="inline-flex gap-x-2">
                         <router-link
                             class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-primary-400 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                        >
+                        :href="route('voting.ballots.options.create', { id: ballotId })"
+                            >
                             <svg
                                 class="flex-shrink-0 size-3"
                                 xmlns="http://www.w3.org/2000/svg"

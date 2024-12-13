@@ -43,7 +43,7 @@ Route::prefix('email')
             ->middleware(['signed'])
             ->name('verification.verify');
 
-        Route::get('verified', fn () => hybridly('auth.email-verified'))
+    Route::get('verified', fn() => hybridly('auth.email-verified'))
             ->middleware(['auth'])
             ->name('email.verified');
     });
@@ -53,7 +53,7 @@ Route::prefix('password')
     ->middleware(['guest'])
     ->group(function () {
         Route::post('send/reset-link', \App\Actions\Auth\Password\SendResetLink::class)->name('send.reset-link');
-        Route::get('reset/{token}', fn (string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
+    Route::get('reset/{token}', fn(string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
         Route::post('reset', \App\Actions\Auth\Password\Reset::class)->name('reset');
     });
 
@@ -106,6 +106,8 @@ Route::prefix('voting')
         Route::prefix('ballots')
             ->name('ballots.')
             ->group(function () {
+
+        Route::get('{id}/options/create', \App\Actions\Voting\Ballots\Options\Create::class)->name('options.create');
 
                 Route::get('create', \App\Actions\Voting\Ballots\Create::class)->name('create');
                 Route::get('{id}/show', \App\Actions\Voting\Ballots\Show::class)->name('show');
