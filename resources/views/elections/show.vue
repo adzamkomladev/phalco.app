@@ -124,23 +124,24 @@ const dummyBallots: ElectionBallotProps[] = [
             />
 
             <ElectionsShowCardsStagesNomination
-                v-if="stage?.stage == 'nominations'"
+                v-else-if="stage?.stage == 'nominations'"
                 :stage-stat="stageStats"
                 :stage="stage"
                 class=""
             />
 
-            <ElectionsShowCardsFinance
-                v-if="stage == null"
-                :stage-stat="stageStats"
-                :election-logo="election.logo"
-                class=""
-            />
+          
 
             <ElectionsShowCardsStagesCampaign
-                v-if="stage?.stage == 'campaigns'"
+                v-else-if="stage?.stage == 'campaigns'"
                 :stage-stat="stageStats"
                 :stage="stage"
+                class=""
+            />
+              <ElectionsShowCardsFinance
+                v-esle="stage == null"
+                :stage-stat="stageStats"
+                :election-logo="election.logo"
                 class=""
             />
             <ElectionsShowCardsTimeline
@@ -148,6 +149,7 @@ const dummyBallots: ElectionBallotProps[] = [
                 :stages="election.stages"
                 :election-end-date="new Date(election.end)"
             />
+            
         </div>
     </div>
 </template>

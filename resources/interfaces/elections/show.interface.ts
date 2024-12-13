@@ -77,16 +77,16 @@ export interface Voters {
 }
 
 export interface StageStatsDefault {
-    totalBalance: number;
-    totalDonations: number;
-    totalNominations: number;
-    spent: { [key: string]: number };
+    totalBalance?: number;
+    totalDonations?: number;
+    totalNominations?: number;
+    spent?: { [key: string]: number };
 }
 
 export interface StageStatsCampaigns {
-    campaigns: number;
-    audiences: number;
-    message: Message;
+    campaigns?: number;
+    audiences?: number;
+    message?: Message;
 }
 
 export interface Message {
@@ -103,18 +103,18 @@ export interface SentBy {
 }
 
 export interface StageStatsNominations {
-    total: number;
-    approved: number;
-    successful: number;
-    totalSpent: number;
-    pending: number;
+    total?: number;
+    approved?: number;
+    successful?: number;
+    totalSpent?: number;
+    pending?: number;
 }
 
 export interface StageStatsVoting {
-    voters: number;
-    pollingStations: number;
-    ballots: number;
-    candidates: number;
+    voters?: number;
+    pollingStations?: number;
+    ballots?: number;
+    candidates?: number;
 }
 
 

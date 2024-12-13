@@ -58,7 +58,6 @@ Route::prefix('password')
     });
 
 //endregion
-
 //region Home Routes
 
 Route::get('home/agents', \App\Actions\Home\Agents::class)->name('home.agents')
