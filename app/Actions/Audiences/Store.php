@@ -4,6 +4,7 @@ namespace App\Actions\Audiences;
 
 use App\Imports\Audiences\ContactsImport;
 use App\Models\Audience;
+use App\Models\User;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -24,13 +25,13 @@ class Store
     {
         try {
             $audience = $this->handle(
-                auth()->id(),
-                $request->user()->selected_organization_id,
+                $request->user(),
                 $request->validated()
             );
 
             return redirect()->route('audiences.show', ['id' => $audience->id]);
         } catch (\Exception $e) {
+            dd($e);
             return back()->with('error', $e->getMessage());
         }
     }
@@ -38,13 +39,14 @@ class Store
     /**
      * Handles the creation of a new Audience.
      *
-     * @param  int  $userId  The ID of the user creating the audience.
-     * @param  int  $organizationId  The ID of the organization to which the audience belongs.
      * @param  array  $data  The data for creating the audience, including 'name' and 'description'.
      * @return Audience The newly created Audience instance.
      */
-    public function handle(int $userId, int $organizationId, array $data): Audience
+    public function handle(User $user, array $data): Audience
     {
+        $userId = $user->id;
+        $organizationId = $user->selected_organization_id;
+
         $audience = Audience::create([
             'user_id' => $userId,
             'organization_id' => $organizationId,
@@ -54,9 +56,21 @@ class Store
         ]);
 
         if (isset($data['uploaded_contacts'])) {
+            cache("audiences.{$audience->id}.imports.notifications", [
+                'creator' => [
+                    'name' => $user->name,
+                    'avatar' => $user->avatar,
+                ],
+                'title' => 'Contact uploads',
+                'type' => 'contacts',
+                'percentageCompleted' => 0,
+                'broadcastTopic' => "audiences.{$audience->id}.contact.import",
+                'createdAt' => now(),
+            ]);
+
             (new ContactsImport($userId, $audience->id))
-                ->queue($data['uploaded_contacts'], 'contabo')
-                ->allOnQueue('imports');
+            ->queue($data['uploaded_contacts'])
+            ->allOnQueue('imports');
         }
 
         return $audience;

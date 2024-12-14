@@ -26,11 +26,19 @@ class Show
             $audience,
             $totalCampaigns,
             $totalContacts
-        ] = Octane::concurrently([
-            fn () => Audience::find($id),
-            fn () => 0,
-            fn () => Contact::where('audience_id', $id)->count(),
+        ] = Octane::concurrently([fn() => Audience::find($id),
+            fn() => 0,
+            fn() => Contact::where('audience_id', $id)->count(),
         ]);
+
+
+
+        $notifications = [];
+
+        $contactsNotification = cache("audiences.{$id}.imports.notifications");
+        if ($contactsNotification) {
+            $notifications[] = $contactsNotification;
+        }
 
         return [
             'stats' => MiniCardStatData::collect([
@@ -43,30 +51,7 @@ class Show
                     'value' => $totalContacts,
                 ],
             ]),
-            'notifications' => NotificationData::collect([
-                [
-                    'creator' => CreatorData::from([
-                        'name' => 'John Doe',
-                        'avatar' => 'https://i.pravatar.cc/300',
-                    ]),
-                    'title' => 'Contact uploads',
-                    'type' => 'contacts',
-                    'percentageCompleted' => 70,
-                    'broadcastTopic' => 'audiences.1.contacts.import',
-                    'createdAt' => now()->subDays(3),
-                ],
-                [
-                    'creator' => CreatorData::from([
-                        'name' => 'John Doe',
-                        'avatar' => 'https://i.pravatar.cc/300',
-                    ]),
-                    'title' => 'Running campaign',
-                    'type' => 'campaigns',
-                    'percentageCompleted' => 20,
-                    'broadcastTopic' => 'audiences.1.campaigns.5.running',
-                    'createdAt' => now()->subDays(1),
-                ],
-            ]),
+            'notifications' => NotificationData::collect($notifications),
             'audience' => $audience,
             'contacts' => ContactsTable::make(['audienceId' => $id]),
         ];

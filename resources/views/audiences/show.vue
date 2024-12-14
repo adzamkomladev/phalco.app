@@ -18,6 +18,18 @@ const props = defineProps<{
     notifications: App.Data.Audiences.Show.NotificationData[];
 }>();
 
+onMounted(() => {
+    for (const notification of props.notifications) {
+        console.log('notification', notification);
+        EchoHub.private(notification.broadcastTopic).listen(
+            "Audiences.ContactImported",
+            (e) => {
+                console.log(e, "djkfdjfkdkf");
+            },
+        );
+    }
+});
+
 const table = useTable(props, "contacts");
 </script>
 
