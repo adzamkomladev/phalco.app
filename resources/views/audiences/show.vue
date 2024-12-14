@@ -20,7 +20,7 @@ const props = defineProps<{
 
 onMounted(() => {
     for (const notification of props.notifications) {
-        console.log('notification', notification);
+        console.log("notification", notification);
         EchoHub.private(notification.broadcastTopic).listen(
             "Audiences.ContactImported",
             (e) => {

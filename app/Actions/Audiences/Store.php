@@ -32,6 +32,7 @@ class Store
             return redirect()->route('audiences.show', ['id' => $audience->id]);
         } catch (\Exception $e) {
             dd($e);
+
             return back()->with('error', $e->getMessage());
         }
     }
@@ -69,8 +70,8 @@ class Store
             ]);
 
             (new ContactsImport($userId, $audience->id))
-            ->queue($data['uploaded_contacts'])
-            ->allOnQueue('imports');
+                ->queue($data['uploaded_contacts'])
+                ->allOnQueue('imports');
         }
 
         return $audience;

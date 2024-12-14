@@ -2,7 +2,6 @@
 
 namespace App\Actions\Audiences;
 
-use App\Data\Audiences\Show\CreatorData;
 use App\Data\Audiences\Show\NotificationData;
 use App\Data\MiniCardStatData;
 use App\Models\Audience;
@@ -26,12 +25,10 @@ class Show
             $audience,
             $totalCampaigns,
             $totalContacts
-        ] = Octane::concurrently([fn() => Audience::find($id),
-            fn() => 0,
-            fn() => Contact::where('audience_id', $id)->count(),
+        ] = Octane::concurrently([fn () => Audience::find($id),
+            fn () => 0,
+            fn () => Contact::where('audience_id', $id)->count(),
         ]);
-
-
 
         $notifications = [];
 

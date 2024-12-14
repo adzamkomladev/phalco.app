@@ -19,6 +19,7 @@ class ContactsImport implements OnEachRow, ShouldQueue, WithChunkReading, WithHe
     use Importable;
 
     private int $totalRows = 1;
+
     private int $rowCount = 0;
 
     public function __construct(
@@ -33,7 +34,7 @@ class ContactsImport implements OnEachRow, ShouldQueue, WithChunkReading, WithHe
 
     public function onRow(Row $row)
     {
-        ++$this->rowCount;
+        $this->rowCount++;
         $rowIndex = $row->getIndex();
         $row = $row->toArray();
 
@@ -50,10 +51,10 @@ class ContactsImport implements OnEachRow, ShouldQueue, WithChunkReading, WithHe
             BeforeImport::class => function (BeforeImport $event) {
                 $totalRows = $event->getReader()->getTotalRows();
 
-                if (!empty($totalRows)) {
+                if (! empty($totalRows)) {
                     $this->totalRows = $totalRows['Worksheet'];
                 }
-            }
+            },
         ];
     }
 

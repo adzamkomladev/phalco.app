@@ -10,6 +10,6 @@ Broadcast::channel('audiences.create', function () {
     return true;
 });
 
-Broadcast::channel("audiences.{audienceId}.contact.imported", function (User $user, int $audienceId) {
+Broadcast::channel('audiences.{audienceId}.contact.imported', function (User $user, int $audienceId) {
     return true;
 });

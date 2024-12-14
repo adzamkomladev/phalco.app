@@ -3,9 +3,7 @@
 namespace App\Events\Audiences;
 
 use App\Data\Audiences\Show\NotificationData;
-use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -21,7 +19,6 @@ class ContactImported implements ShouldBroadcast
      * @var string
      */
     public $queue = 'broadcast';
-
 
     /**
      * Create a new event instance.
