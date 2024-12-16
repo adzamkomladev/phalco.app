@@ -68,7 +68,7 @@ class Store
                     'percentageCompleted' => 0,
                     'broadcastTopic' => "audiences.{$audience->id}.contact.imported",
                     'createdAt' => now(),
-                ]
+                ],
             ]);
 
             (new ContactsImport($userId, $audience->id))
