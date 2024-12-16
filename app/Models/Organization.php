@@ -61,6 +61,11 @@ class Organization extends Model implements Wallet
         );
     }
 
+    public function smsSenders(): HasMany
+    {
+        return $this->hasMany(SmsSender::class);
+    }
+
     public function getMorphClass()
     {
         return 'organization';

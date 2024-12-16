@@ -192,6 +192,25 @@ Route::prefix('audiences')
 
 //endregion
 
+//region Campaigns Routes
+
+Route::prefix('campaigns')
+    ->name('campaigns.')
+    ->middleware(['verified', EnsureUserHasSelectedOrganization::class])
+    ->group(function () {
+        Route::prefix('sms')
+            ->name('sms.')
+            ->group(function () {
+                Route::get('senders', \App\Actions\Campaigns\Sms\Sender\Index::class)->name('senders.index');
+                Route::post('senders', \App\Actions\Campaigns\Sms\Sender\Store::class)->name('senders.store');
+                Route::get('', \App\Actions\Campaigns\Sms\Index::class)->name('index');
+                Route::get('create', \App\Actions\Campaigns\Sms\Create::class)->name('create');
+                Route::get('{id}/show', \App\Actions\Campaigns\Sms\Show::class)->name('show');
+            });
+    });
+
+//endregion
+
 //region Uploads Routes
 
 Route::post('assets/upload', \App\Actions\Assets\Upload::class)->name('assets.upload')->middleware('auth');

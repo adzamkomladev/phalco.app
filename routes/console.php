@@ -17,7 +17,7 @@ Artisan::command('view-octane-tests', function () {
         fn () => Octane::table('users')->get('123'),
     ]);
 
-    logger('Data retrieved from octane cache and table: ', ['appName' => $appName, 'user' => $user]);
+    logger('Data retrieved from octane cache and table: appName: {appName}, user: {user} ', ['appName' => $appName, 'user' => $user]);
 
     logger('End view octane tests');
 })->purpose('View Octane Tests')->everyMinute();
