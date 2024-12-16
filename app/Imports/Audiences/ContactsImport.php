@@ -51,6 +51,7 @@ class ContactsImport implements OnEachRow, ShouldQueue, WithChunkReading, WithHe
             BeforeImport::class => function (BeforeImport $event) {
                 $totalRows = $event->getReader()->getTotalRows();
 
+                logger("Total rows data: {totalRows}", ['totalRows' => $totalRows]);
                 if (! empty($totalRows)) {
                     $this->totalRows = $totalRows['Worksheet'];
                 }
@@ -63,8 +64,10 @@ class ContactsImport implements OnEachRow, ShouldQueue, WithChunkReading, WithHe
         $notification = cache("audiences.{$this->audienceId}.imports.notifications");
 
         if ($notification) {
+            // logger("Row count and total rows: {rowCount}, {totalRows}", ['totalRows' => $this->totalRows, 'rowCount' => $this->rowCount]);
+
             $notification['percentageCompleted'] = round($this->rowCount / $this->totalRows * 100);
-            cache("audiences.{$this->audienceId}.imports.notifications", $notification);
+            cache(["audiences.{$this->audienceId}.imports.notifications" => $notification]);
             ContactImported::dispatch($this->audienceId, NotificationData::from($notification));
         }
     }

@@ -57,16 +57,18 @@ class Store
         ]);
 
         if (isset($data['uploaded_contacts'])) {
-            cache("audiences.{$audience->id}.imports.notifications", [
-                'creator' => [
-                    'name' => $user->name,
-                    'avatar' => $user->avatar,
-                ],
-                'title' => 'Contact uploads',
-                'type' => 'contacts',
-                'percentageCompleted' => 0,
-                'broadcastTopic' => "audiences.{$audience->id}.contact.import",
-                'createdAt' => now(),
+            cache([
+                "audiences.{$audience->id}.imports.notifications" => [
+                    'creator' => [
+                        'name' => $user->name,
+                        'avatar' => $user->avatar,
+                    ],
+                    'title' => 'Contact uploads',
+                    'type' => 'contacts',
+                    'percentageCompleted' => 0,
+                    'broadcastTopic' => "audiences.{$audience->id}.contact.imported",
+                    'createdAt' => now(),
+                ]
             ]);
 
             (new ContactsImport($userId, $audience->id))

@@ -14,18 +14,16 @@ class ContactImported implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * The name of the queue on which to place the broadcasting job.
-     *
-     * @var string
-     */
-    public $queue = 'broadcast';
-
-    /**
      * Create a new event instance.
      */
     public function __construct(public int $audienceId, public NotificationData $notification)
     {
         //
+    }
+
+    public function broadcastQueue(): string
+    {
+        return 'broadcast';
     }
 
     /**

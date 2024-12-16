@@ -20,10 +20,12 @@ const props = defineProps<{
 
 onMounted(() => {
     for (const notification of props.notifications) {
-        console.log("notification", notification);
-        EchoHub.private(notification.broadcastTopic).listen(
+        window.EchoHub.private(notification.broadcastTopic).listen(
             "Audiences.ContactImported",
-            (e) => {
+            (e: {
+                audienceId: number;
+                notification: App.Data.Audiences.Show.NotificationData;
+            }) => {
                 console.log(e, "djkfdjfkdkf");
             },
         );
