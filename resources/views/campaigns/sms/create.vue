@@ -6,7 +6,6 @@ useHead({
 const props = defineProps<{
     senders: App.Data.Campaigns.Sms.SenderData[];
 }>();
-
 </script>
 
 <template layout="main">

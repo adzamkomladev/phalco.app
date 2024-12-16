@@ -15,13 +15,12 @@ class Create
         return hybridly('campaigns.sms.create', $this->handle(request()->user()->selected_organization_id));
     }
 
-
     public function handle(int $organizationId)
     {
         $senders = SmsSender::where('organization_id', $organizationId)->get();
 
         return [
-            'senders' => SenderData::collect($senders)
+            'senders' => SenderData::collect($senders),
         ];
     }
 }

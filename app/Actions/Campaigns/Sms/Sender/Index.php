@@ -23,7 +23,7 @@ class Index
         $senders = SmsSender::where('organization_id', $organizationId)->get();
 
         return [
-            'senders' => SenderData::collect($senders)
+            'senders' => SenderData::collect($senders),
         ];
     }
 }

@@ -13,7 +13,6 @@ class Show
         return hybridly('campaigns.sms.show', $this->handle($id));
     }
 
-
     public function handle(int $campaignId)
     {
         return [];
