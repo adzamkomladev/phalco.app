@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->smallInteger('order')->nullable();
             $table->string('status');
+            $table->string('party');
+            $table->string('party_image');
             $table->timestamps();
         });
     }

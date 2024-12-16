@@ -29,13 +29,13 @@ defineProps<PopularPollingStationsCardProps>();
                 :progress="pollingStation.votes"
             />
         </div>
-         <div class="p-5" v-else>
+         <div class="p-5 flex _sm:flex-col _sm:gap-0 _xl:md:gap-0  _xl:md:flex-col" v-else>
                 <img
                     :src="NoPopularPollingStationImage"
-                    class="h-[50vh] max-h-96 place-self-center"
+                    class="w-[50%] _sm:w-[60%] _xl:md:w-[60%] max-h-96 place-self-center "
                 />
-                <p class="text-black/50 text-center pt-4">
-                    no polling station added!
+                <p class="text-black/70  pt-4 capitalize place-self-center">
+                    no polling station ddetails
                 </p>
             </div>
     </SharedCommonCard>

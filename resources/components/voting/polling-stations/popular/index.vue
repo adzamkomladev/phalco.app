@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PopularPollingStationsCardProps } from "~/resources/interfaces/voting/polling-stations/index.interface";
-import NoMemmbersFound from "~/resources/svg/main/paper_in_box.svg?src";
+import NoPopularStationsFound from "~/resources/svg/main/paper_in_box.svg?src";
 
 defineProps<PopularPollingStationsCardProps>();
 </script>
@@ -28,14 +28,16 @@ defineProps<PopularPollingStationsCardProps>();
             />
         </div>
 
-        <div class="p-5" v-else>
-            <img
-                :src="NoMemmbersFound"
-                class="h-60 max-h-96 place-self-center"
-            />
-            <p class="text-black/50 text-center pt-4">
-                popular polling stations will appear here
-            </p>
-        </div>
+         <div 
+         v-else
+         class="p-5 flex _sm:flex-col gap-5 _sm:gap-0 _xl:md:gap-0  _xl:md:flex-col" >
+                <img
+                    :src="NoPopularStationsFound"
+                    class="w-[50%] _sm:w-[60%] _xl:md:w-[60%] max-h-96 place-self-center "
+                />
+                <p class="text-black/70  pt-4 capitalize place-self-center">
+                    no candidate(s) available
+                </p>
+            </div>
     </SharedCommonCard>
 </template>

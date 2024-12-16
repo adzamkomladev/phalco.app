@@ -8,8 +8,7 @@ import NoLeadingCandidateImage from '~/resources/svg/main/no_data.svg?src'
 
 
 const props = defineProps<{
-    stageStat: StageStatsVoting;
-    stage: Stage;
+
     ballots: ElectionBallotProps[];
 }>();
 </script>

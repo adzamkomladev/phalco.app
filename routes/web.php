@@ -94,7 +94,6 @@ Route::prefix('voting')
         Route::prefix('agents')
             ->name('agents.')
             ->group(function () {
-
                 Route::get('{id}/show', \App\Actions\Voting\Agents\Show::class)->name('show');
                 Route::get('create', \App\Actions\Voting\Agents\Create::class)->name('create');
                 Route::post('upload', \App\Actions\Voting\Agents\Upload::class)->name('upload');

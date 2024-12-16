@@ -23,7 +23,7 @@ defineProps<{
                     <h2
                         class="text-xl font-semibold text-gray-800 dark:text-gray-200"
                     >
-                        {{ ballotHeader.title }}
+                        {{ ballotHeader.title }} {{data}}
                     </h2>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
                         {{ ballotHeader.description }}
@@ -73,7 +73,7 @@ defineProps<{
         <div class="w-full overflow-x-scroll">
             <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                    <VotingBallotsShowCandidateRow
+                    <VotingBallotsShowRow
                         v-for="(option, index) in data"
                         :key="index"
                         :data="option"

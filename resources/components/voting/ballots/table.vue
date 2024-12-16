@@ -1,4 +1,14 @@
+
+
+
+
+
+
+
 <script setup lang="ts">
+import NoBallotsImage from "~/resources/svg/main/no_data.svg?src";
+
+
 const props = defineProps<{
     table: any;
 }>();
@@ -76,7 +86,10 @@ watch(search, debounceFn);
                     </div>
                 </div>
             </div>
+          <div         v-if="total > 0"
+>
 
+        
             <div
                 class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
             >
@@ -88,13 +101,13 @@ watch(search, debounceFn);
                     name="search"
                 />
             </div>
-        </div>
 
         <!-- End Header -->
 
         <!-- Table -->
 
-        <div class="w-full overflow-x-scroll">
+        <div
+        class="w-full overflow-x-scroll">
             <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead class="bg-gray-50 dark:bg-slate-800">
                     <tr>
@@ -133,6 +146,8 @@ watch(search, debounceFn);
                 </tbody>
             </table>
         </div>
+        
+        
         <!-- End Table -->
 
         <!-- Footer -->
@@ -200,6 +215,20 @@ watch(search, debounceFn);
                 </div>
             </div>
         </div>
+        
         <!-- End Footer -->
-    </div>
+    </div>  
+     <div class="p-5" v-else>
+                <img
+                    :src="NoBallotsImage"
+                    class="h-[50vh] max-h-96 place-self-center"
+                />
+                
+                <p class="text-black/50 text-center pt-4">
+                    no polling station added!
+                </p>
+   </div>
+    </div>   
+</div>
+
 </template>

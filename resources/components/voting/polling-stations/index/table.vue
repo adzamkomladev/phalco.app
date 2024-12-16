@@ -33,7 +33,6 @@ const debounceFn = useDebounceFn(
 watch(search, debounceFn);
 </script>
 <template>
-    {{}}
     <div>
         <div
             class="overflow-hidden bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700"
@@ -47,27 +46,14 @@ watch(search, debounceFn);
                         <h2
                             class="text-xl font-semibold text-gray-800 dark:text-gray-200"
                         >
-                            Polling Stations
+                            Polling Stations     
+
                         </h2>
                         <p class="text-sm text-gray-600 dark:text-gray-400">
                             Manage all Polling Stations of an election
                         </p>
                     </div>
-                </div>
-
-                <div
-                    class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
-                >
-                    <!-- Input -->
-                    <SharedFormSearchInput
-                        class="sm:col-span-1"
-                        v-model="search"
-                        placeholder="Search polling stations"
-                        name="search"
-                    />
-
-                    <div>
-                        <div class="inline-flex gap-x-2">
+                     <div class="inline-flex gap-x-2">
                             <router-link
                                 :href="route('voting.polling-stations.create')"
                                 class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-primary-500 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
@@ -90,15 +76,29 @@ watch(search, debounceFn);
                                 Add New
                             </router-link>
                         </div>
-                    </div>
                 </div>
-            </div>
 
+                
+            </div>
+            <div   v-if="total > 1">
+<div
+                    class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
+                >
+                    <!-- Input -->
+                    <SharedFormSearchInput
+                        class="sm:col-span-1"
+                        v-model="search"
+                        placeholder="Search polling stations"
+                        name="search"
+                    />
+
+                       
+                </div>
             <!-- End Header -->
 
             <!-- Table -->
             <div
-                v-if="total > 0"
+             
                 class="w-full divide-y divide-gray-200 dark:divide-gray-700 p-4 grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
             >
                 <VotingPollingStationsIndexRow
@@ -111,15 +111,7 @@ watch(search, debounceFn);
                     :status="value(findColumn('status'))"
                 />
             </div>
-            <div class="p-5" v-else>
-                <img
-                    :src="NoMemmbersFound"
-                    class="h-[50vh] max-h-96 place-self-center"
-                />
-                <p class="text-black/50 text-center pt-4">
-                    no polling station added!
-                </p>
-            </div>
+           
 
             <!-- End Table -->
 
@@ -190,7 +182,16 @@ watch(search, debounceFn);
                     </div>
                 </div>
             </div>
-            <!-- End Footer -->
+        </div>
+            <!-- End Footer --> <div class="p-5" v-else>
+                <img
+                    :src="NoMemmbersFound"
+                    class="h-[50vh] max-h-96 place-self-center"
+                />
+                <p class="text-black/50 text-center pt-4">
+                    no polling station added!
+                </p>
+            </div>
         </div>
     </div>
 </template>
