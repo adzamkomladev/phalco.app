@@ -27,6 +27,26 @@ export const menus: SideBarMenuProps[] = [
     {
         label: "Campaigns",
         icon: "campaign_main",
+        sublink: [
+            {
+                label: "SMS",
+                icon: "polling_station",
+                sublink: [
+                    {
+                        label: "Dashboard",
+                        to: "campaigns.sms.index",
+                    },
+                    {
+                        label: "New campaign",
+                        to: "campaigns.sms.create",
+                    },
+                    {
+                        label: "Senders",
+                        to: "campaigns.sms.senders.index",
+                    },
+                ],
+            }
+        ],
     },
     {
         label: "Audiences",
