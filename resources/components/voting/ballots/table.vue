@@ -28,7 +28,7 @@ const findFilter = (name: string) =>
 
 const searchFilter = findFilter("search");
 
-const search = ref("");
+const search = useQueryParameter("filters[search]");
 
 const debounceFn = useDebounceFn(
     () =>
@@ -41,8 +41,8 @@ const debounceFn = useDebounceFn(
 watch(search, debounceFn);
 </script>
 <template>
-    <div
-        class="overflow-hidden bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700"
+ <div
+        class="overflow-hidden relative h-full flex flex-col bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700"
     >
         <!-- Header -->
         <div>
@@ -86,18 +86,18 @@ watch(search, debounceFn);
                     </div>
                 </div>
             </div>
-          <div         v-if="total > 0"
->
+               
 
         
-            <div
+            <div 
+            v-if="total > 0"
                 class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
             >
                 <!-- Input -->
                 <SharedFormSearchInput
                     class="sm:col-span-1"
                     v-model="search"
-                    placeholder="Search ballots"
+                    placeholder="Search ballots here"
                     name="search"
                 />
             </div>
@@ -105,7 +105,9 @@ watch(search, debounceFn);
         <!-- End Header -->
 
         <!-- Table -->
-
+  <!-- End Header -->
+        <div  v-if="table.records.length >0" class="  grow flex flex-col ">
+    
         <div
         class="w-full overflow-x-scroll">
             <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
@@ -159,7 +161,7 @@ watch(search, debounceFn);
                     <span class="font-semibold text-gray-800 dark:text-gray-200"
                         >{{ table.records.length }}
                         <span class="font-normal">out of</span>
-                        {{ total }}</span
+                        {{ total || 0}}</span
                     >
                     Ballots
                 </p>
@@ -218,16 +220,22 @@ watch(search, debounceFn);
         
         <!-- End Footer -->
     </div>  
-     <div class="p-5" v-else>
-                <img
-                    :src="NoBallotsImage"
-                    class="h-[50vh] max-h-96 place-self-center"
-                />
-                
-                <p class="text-black/50 text-center pt-4">
-                    no polling station added!
-                </p>
-   </div>
+    <div class="p-5" v-else>
+    <img
+        :src="NoBallotsImage"
+        class="h-[50vh] max-h-96 place-self-center"
+    />
+    
+    <p class="text-black/50 text-center pt-4">
+        <template v-if="search">
+            no Ballot with detail
+            <span class=" text-primary-500">{{ search }}</span>
+        </template>
+        <template v-else>
+            no Agents added!
+        </template>
+    </p>
+</div>
     </div>   
 </div>
 

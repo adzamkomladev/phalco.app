@@ -93,7 +93,7 @@ const positionStyle = computed(() => {
                     v-if="isVisible"
                     class="w-full"
                 >
-                    <slot>content</slot>
+                    <slot></slot>
                 </div>
             </transition>
         </dialog>

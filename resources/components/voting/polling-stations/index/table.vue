@@ -33,10 +33,9 @@ const debounceFn = useDebounceFn(
 watch(search, debounceFn);
 </script>
 <template>
-    <div>
-        <div
-            class="overflow-hidden bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700"
-        >
+       <div
+        class="overflow-hidden relative h-full flex flex-col bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700"
+    >
             <!-- Header -->
             <div>
                 <div
@@ -55,7 +54,7 @@ watch(search, debounceFn);
                     </div>
                      <div class="inline-flex gap-x-2">
                             <router-link
-                                :href="route('voting.polling-stations.create')"
+                                :href="route('elections.create')"
                                 class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-primary-500 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             >
                                 <svg
@@ -73,15 +72,15 @@ watch(search, debounceFn);
                                         stroke-linecap="round"
                                     />
                                 </svg>
-                                Add New
+                                Add Polling Station
                             </router-link>
                         </div>
                 </div>
 
                 
             </div>
-            <div   v-if="total > 1">
 <div
+v-if="total >0"
                     class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
                 >
                     <!-- Input -->
@@ -97,6 +96,7 @@ watch(search, debounceFn);
             <!-- End Header -->
 
             <!-- Table -->
+                     <div  v-if="table.records.length >0" class="  grow flex flex-col flex-1 ">
             <div
              
                 class="w-full divide-y divide-gray-200 dark:divide-gray-700 p-4 grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
@@ -126,7 +126,7 @@ watch(search, debounceFn);
                             class="font-semibold text-gray-800 dark:text-gray-200"
                             >{{ table.records.length }}
                             <span class="font-normal">out of</span>
-                            {{ total }}</span
+                            {{ total ||0}}</span
                         >
                         results
                     </p>
@@ -183,15 +183,23 @@ watch(search, debounceFn);
                 </div>
             </div>
         </div>
-            <!-- End Footer --> <div class="p-5" v-else>
+            <!-- End Footer --> 
+             <div class="p-5" v-else>
                 <img
+                v-motion-pop-visible
                     :src="NoMemmbersFound"
                     class="h-[50vh] max-h-96 place-self-center"
                 />
                 <p class="text-black/50 text-center pt-4">
-                    no polling station added!
+ <template v-if="search">
+            no Polling Station with detail
+            <span class=" text-primary-500">{{ search }}</span>
+        </template>
+        <template v-else>
+           no Polling Station added!
+        </template>        
                 </p>
             </div>
         </div>
-    </div>
+
 </template>

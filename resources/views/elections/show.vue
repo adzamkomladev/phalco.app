@@ -139,7 +139,7 @@ const dummyBallots: ElectionBallotProps[] = [
                 class=""
             />
               <ElectionsShowCardsFinance
-                v-esle="stage == null"
+                v-else-if="stage == null"
                 :stage-stat="stageStats"
                 :election-logo="election.logo"
                 class=""

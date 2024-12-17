@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Agent } from "~/resources/interfaces/voting/agents/index.interface";
+import NoAgentsFound from "~/resources/svg/main/no_data.svg?src";
 
 const props = defineProps<{
     table: any;
@@ -42,10 +43,9 @@ watch(search, debounceFn);
 </script>
 <template>
     <div
-        class="overflow-hidden bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700"
+        class="overflow-hidden relative h-full flex flex-col bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700"
     >
         <!-- Header -->
-        <div>
             <div
                 class="grid gap-3 px-6 py-4 border-b border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
             >
@@ -60,7 +60,7 @@ watch(search, debounceFn);
                     </p>
                 </div>
 
-                <div>
+             
                     <div class="inline-flex gap-x-2">
                         <router-link
                             :href="route('voting.agents.create')"
@@ -84,11 +84,15 @@ watch(search, debounceFn);
                             Create Agent
                         </router-link>
                     </div>
-                </div>
-            </div>
+              
 
-            <div
-                class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
+            
+        </div>
+
+       
+<div
+v-if="total >0"
+                class="px-6 py-4   grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700"
             >
                 <!-- Input -->
                 <SharedFormSearchInput
@@ -98,13 +102,11 @@ watch(search, debounceFn);
                     name="search"
                 />
             </div>
-        </div>
-
         <!-- End Header -->
+        <div  v-if="table.records.length >0" class="  grow flex flex-col flex-1 ">
 
         <!-- Table -->
-
-        <div class="w-full overflow-x-scroll overflow-y-hidden">
+        <div class="w-full flex-grow overflow-x-scroll overflow-y-hidden">
             <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead class="bg-gray-50 dark:bg-slate-800">
                     <tr>
@@ -149,20 +151,20 @@ watch(search, debounceFn);
 
         <!-- Footer -->
         <div
-            class="flex items-center justify-between gap-3 px-6 py-4 border-t border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
+            class=" items-center justify-between gap-3 px-6 py-4 border-t border-gray-200 md:flex md:justify-between md:items-center dark:border-gray-700"
         >
             <div>
                 <p class="text-sm text-gray-600 dark:text-gray-400">
                     <span class="font-semibold text-gray-800 dark:text-gray-200"
                         >{{ table.records.length }}
                         <span class="font-normal">out of</span>
-                        {{ total }}</span
+                        {{ total || 0}}</span
                     >
                     Agent(s)
                 </p>
             </div>
 
-            <div>
+          
                 <div class="inline-flex gap-x-2">
                     <router-link
                         v-if="prev.url"
@@ -210,8 +212,27 @@ watch(search, debounceFn);
                         </svg>
                     </router-link>
                 </div>
-            </div>
+            
         </div>
+             
+      </div> 
+      <div 
+      v-else
+      class="p-5" >
+                <img
+                    :src="NoAgentsFound"
+                    class="h-[50vh] max-h-96 place-self-center"
+                />
+                <p class="text-black/50 text-center pt-4">
+  <template v-if="search">
+            no agent with detail
+            <span class=" text-primary-500">{{ search }}</span>
+        </template>
+        <template v-else>
+           no Agent added!
+        </template>                    
+                </p>
+            </div>
         <!-- End Footer -->
     </div>
 </template>

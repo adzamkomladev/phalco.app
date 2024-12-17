@@ -7,7 +7,7 @@ const props = defineProps<{ agent: Agent | null }>();
 
 <template>
     <SharedCommonCard
-        class="gap-5 shrink-0 dark:text-gray-400 flex flex-col col-span-4"
+        class="gap-5 shrink-0 h-full dark:text-gray-400 flex flex-col col-span-4"
     >
         <div class="text-center grid gap-5">
             <h2 class="text-lg text-gray-800 font-bold dark:text-gray-200">
