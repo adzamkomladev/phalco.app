@@ -2,47 +2,47 @@
 const standard = {
     type: "standard",
     amount: {
-        value: 15,
+        value: 0,
         rate: "month",
     },
-    description: "mollitia omnis dolorem",
+    description: "Basic plan",
     offers: [
-        "Lorem ipsum dolor sit amet",
-        "Lorem adipisicing atque",
-        "Lorem mollitia omnis dolorem",
-        "Lorem iusto vel",
+        "Up to 5 team members",
+        "Up to 50 voters",
+        "1 month data retention",
+        "24/7 Customer support",
     ],
 };
 
 const professional = {
     type: "professional",
     amount: {
-        value: 25,
+        value: 10,
         rate: "month",
     },
-    description: "mollitia omnis dolorem",
+    description: "Extra features",
     offers: [
-        "Lorem ipsum dolor sit amet",
-        "Lorem adipisicing atque",
-        "Lorem mollitia omnis dolorem",
-        "Lorem iusto vel",
-        "Lorem iusto vel",
-        "Lorem iusto vel",
-        "Lorem iusto vel",
+        "Up to 20 team members",
+        "Up to 800 voters",
+        "6 months data retention",
+        "Access to donations platform",
+        "Access to nominations platform",
+        "24/7 Customer support",
     ],
 };
 
 const premium = {
     type: "premium",
     amount: {
-        value: 100,
-        rate: "year",
+        value: 80,
+        rate: "month",
     },
-    description: "mollitia omnis dolorem",
+    description: "Full access",
     offers: [
-        "All voting access",
-        "7 Day transaction clearing",
-        "L2 auto tracking",
+        "20+ team members",
+        "800+ voters",
+        "Access to all features",
+        "Up to 1 year data retention",
         "24/7 Customer support",
     ],
 };
