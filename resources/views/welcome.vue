@@ -27,7 +27,7 @@ import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
                                 :delay="100"
                                 :duration="360"
                             >
-                                Election Management made easy
+                                Voting made easy
                             </p>
                         </SharedAnimationBlurReview>
                     </p>
@@ -42,12 +42,7 @@ import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
                             v-motion-fade-visible-once
                             :duration="300"
                             :delay="500"
-                            >Lorem ipsum dolor sit amet , quae beatae ullam
-                            tempore ratione repellendus amet dolorem blanditiis,
-                            veritatis animi! Modi veritatis placeat cupiditate.
-                            ratione repellendus amet dolorem blanditiis,
-                            veritatis animi! Modi veritatis placeat cupiditate.
-                            .</span
+                            >We handle all voting related tasks for you. We are your helper from the planning to the end of the voting process</span
                         >
                     </p>
 
@@ -99,20 +94,14 @@ import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
                 class=""
                 id="service"
                 title="Our Service"
-                description="Lorem ipsum dolor sit amet consectetur adipisicing
-                        >Lorem ipsum dolor sit amet consectetur adipisicing
-                        elitLorem ipsum dolor sit amet consectetur adipisicing
-                        elit"
+                description="These services are what we offer to our clients. You don't have to be alone or burdened during your voting process."
             >
                 <LandingServiceShow class="px-[8%]" />
             </LandingSection>
             <LandingSection
                 id="pricing"
                 title="Pricing"
-                description="Lorem ipsum dolor sit amet consectetur adipisicing
-                        Lorem ipsum dolor sit amet consectetur adipisicing
-                        elitLorem ipsum dolor sit amet consectetur adipisicing
-                        elit"
+                description="Affordable pricing that meets your demands"
             >
                 <LandingPricingShow class="px-8 md:px-[8%]" />
             </LandingSection>
@@ -120,10 +109,7 @@ import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
                 id="About Us"
                 class="md:pr-0"
                 title="About Us"
-                description="Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Cumque itaque exercitationem corporis aliquin
-                            elit. Cumque itaque exercitationem corporis aliquid
-                            ."
+                description="We are here to help you with your voting needs"
             >
                 <LandingAboutRequirement class="md:pl-[8%] _md:pl-0" />
             </LandingSection>
