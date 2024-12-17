@@ -3,7 +3,6 @@
 namespace App\Actions\Audiences;
 
 use App\Models\Audience;
-use App\Models\Contact;
 use App\Tables\Audiences\AudiencesTable;
 use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -25,8 +24,8 @@ class Index
             $totalAudiences,
             $totalContacts
         ] = Octane::concurrently([
-            fn() => Audience::where('organization_id', $organizationId)->count(),
-            fn() => 0,
+            fn () => Audience::where('organization_id', $organizationId)->count(),
+            fn () => 0,
         ]);
 
         return [
