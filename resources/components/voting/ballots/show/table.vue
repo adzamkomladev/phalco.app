@@ -23,7 +23,7 @@ defineProps<{
                     <h2
                         class="text-xl font-semibold text-gray-800 dark:text-gray-200"
                     >
-                        {{ ballotHeader.title }} {{data}}
+                        {{ ballotHeader.title }} {{ data }}
                     </h2>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
                         {{ ballotHeader.description }}

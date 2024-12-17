@@ -7,16 +7,29 @@ import {
 const props = withDefaults(defineProps<BarChatProps>(), {
     defaultColor: "#07689F",
     unit: "$",
-    values:()=> [0,0,0,0,0,0,0,0,0,0,0,0],
-    labels:()=>['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    colors: ()=>[],
+    values: () => [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    labels: () => [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+    ],
+    colors: () => [],
 });
 
-const values = computed(() =>
-    props.data?.map((item: Data) => item.value) || props.values,
+const values = computed(
+    () => props.data?.map((item: Data) => item.value) || props.values,
 );
-const labels = computed(() =>
-    props.data?.map((item: Data) => item.label) || props.labels,
+const labels = computed(
+    () => props.data?.map((item: Data) => item.label) || props.labels,
 );
 
 const colors = computed(() =>
@@ -26,8 +39,8 @@ const colors = computed(() =>
 );
 
 const maxFrequency = computed(() => {
-    const maxValue = Math.max(...values.value, 500); 
-    return maxValue > 0 ? maxValue : 500; 
+    const maxValue = Math.max(...values.value, 500);
+    return maxValue > 0 ? maxValue : 500;
 });
 </script>
 
@@ -45,7 +58,9 @@ const maxFrequency = computed(() => {
                 class="text-xs flex items-center font-medium text-gray-500"
             >
                 <div>
-                    {{ (maxFrequency - ((y - 1) * maxFrequency) / 5).toFixed(2) }}
+                    {{
+                        (maxFrequency - ((y - 1) * maxFrequency) / 5).toFixed(2)
+                    }}
                 </div>
                 <div
                     class="w-full grow border-b-[1px] dark:border-gray-700 self-end"

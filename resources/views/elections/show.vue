@@ -130,15 +130,13 @@ const dummyBallots: ElectionBallotProps[] = [
                 class=""
             />
 
-          
-
             <ElectionsShowCardsStagesCampaign
                 v-else-if="stage?.stage == 'campaigns'"
                 :stage-stat="stageStats"
                 :stage="stage"
                 class=""
             />
-              <ElectionsShowCardsFinance
+            <ElectionsShowCardsFinance
                 v-else-if="stage == null"
                 :stage-stat="stageStats"
                 :election-logo="election.logo"
@@ -149,7 +147,6 @@ const dummyBallots: ElectionBallotProps[] = [
                 :stages="election.stages"
                 :election-end-date="new Date(election.end)"
             />
-            
         </div>
     </div>
 </template>

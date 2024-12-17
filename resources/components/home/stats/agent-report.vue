@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NoAgentImage from '~/resources/svg/main/no_agent_selected.svg?src'
+import NoAgentImage from "~/resources/svg/main/no_agent_selected.svg?src";
 // import {
 
 // } from "~/resources/interfaces/voting/requests/agent/index.interface.ts";
@@ -16,10 +16,7 @@ import NoAgentImage from '~/resources/svg/main/no_agent_selected.svg?src'
             <div
                 class="w-[70%] max-w-60 h-auto aspect-square rounded-full overflow-hidden place-self-center"
             >
-                <img
-                    :src="NoAgentImage"
-                    class="w-full"
-                />
+                <img :src="NoAgentImage" class="w-full" />
             </div>
             <div>
                 <p class="font-semibold">Komla Adzam</p>

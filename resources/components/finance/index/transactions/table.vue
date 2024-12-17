@@ -108,7 +108,7 @@ watch(search, debounceFn);
                     <span class="font-semibold text-gray-800 dark:text-gray-200"
                         >{{ table.records.length }}
                         <span class="font-normal">out of</span> {{ total }}
-            </span>
+                    </span>
                     Transaction
                 </p>
             </div>

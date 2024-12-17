@@ -28,16 +28,17 @@ defineProps<PopularPollingStationsCardProps>();
             />
         </div>
 
-         <div 
-         v-else
-         class="p-5 flex _sm:flex-col gap-5 _sm:gap-0 _xl:md:gap-0  _xl:md:flex-col" >
-                <img
-                    :src="NoPopularStationsFound"
-                    class="w-[50%] _sm:w-[60%] _xl:md:w-[60%] max-h-96 place-self-center "
-                />
-                <p class="text-black/70  pt-4 capitalize place-self-center">
-                    no candidate(s) available
-                </p>
-            </div>
+        <div
+            v-else
+            class="p-5 flex _sm:flex-col gap-5 _sm:gap-0 _xl:md:gap-0 _xl:md:flex-col"
+        >
+            <img
+                :src="NoPopularStationsFound"
+                class="w-[50%] _sm:w-[60%] _xl:md:w-[60%] max-h-96 place-self-center"
+            />
+            <p class="text-black/70 pt-4 capitalize place-self-center">
+                no candidate(s) available
+            </p>
+        </div>
     </SharedCommonCard>
 </template>

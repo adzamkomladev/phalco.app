@@ -27,14 +27,15 @@ const elections: any = useProperty("elections.all");
                 <p
                     class="font-normal text-xs pr-5 dark:text-gray-300 text-gray-100"
                 >
-                    Add an new candidate to the <strong>{{ ballot.position }}</strong>  ballot
+                    Add an new candidate to the
+                    <strong>{{ ballot.position }}</strong> ballot
                 </p>
             </div>
             <div class="h-52 p-5 shrink-0">
                 <img :src="BallotImage" class="_sm:hidden h-full w-auto" />
             </div>
         </div>
-           <div class="mt-5">
+        <div class="mt-5">
             <VotingBallotsOptionForm :elections="elections" />
         </div>
     </SharedCommonOverlay>

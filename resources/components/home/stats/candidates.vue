@@ -4,11 +4,9 @@ import {
     ElectionBallotProps,
 } from "~/resources/interfaces/voting/polling-stations/index.interface";
 import { formatDate, secondsUntil } from "~/resources/utils/shared/date";
-import NoLeadingCandidateImage from '~/resources/svg/main/no_data.svg?src'
-
+import NoLeadingCandidateImage from "~/resources/svg/main/no_data.svg?src";
 
 const props = defineProps<{
-
     ballots: ElectionBallotProps[];
 }>();
 </script>
@@ -45,17 +43,13 @@ const props = defineProps<{
                     />
                 </div>
             </div>
-            
-
         </div>
         <div class="p-5" v-else>
-                <img
-                    :src="NoLeadingCandidateImage"
-                    class="h-[50vh] max-h-96 place-self-center"
-                />
-                <p class="text-black/50 text-center pt-4">
-                    no Data
-                </p>
-            </div>
+            <img
+                :src="NoLeadingCandidateImage"
+                class="h-[50vh] max-h-96 place-self-center"
+            />
+            <p class="text-black/50 text-center pt-4">no Data</p>
+        </div>
     </SharedCommonCard>
 </template>
