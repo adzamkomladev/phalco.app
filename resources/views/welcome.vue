@@ -42,7 +42,9 @@ import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
                             v-motion-fade-visible-once
                             :duration="300"
                             :delay="500"
-                            >We handle all voting related tasks for you. We are your helper from the planning to the end of the voting process</span
+                            >We handle all voting related tasks for you. We are
+                            your helper from the planning to the end of the
+                            voting process</span
                         >
                     </p>
 

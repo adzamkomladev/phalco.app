@@ -8,7 +8,8 @@ const services = ref([
     },
     {
         title: "Vetting",
-        description: "We offer vetting tools to ensure accuracy when selecting candidates",
+        description:
+            "We offer vetting tools to ensure accuracy when selecting candidates",
         icon: { name: "ballot_box", color: "#595BD4" },
     },
     {
@@ -25,14 +26,12 @@ const services = ref([
     },
     {
         title: "Campaigns",
-        description:
-            "Campaigns are a great way to interact with your users",
+        description: "Campaigns are a great way to interact with your users",
         icon: { name: "campaign", color: "#D85B53" },
     },
     {
         title: "Collation",
-        description:
-            "View all your voting results in one place",
+        description: "View all your voting results in one place",
         icon: { name: "shield", color: "#638479" },
     },
 ]);
