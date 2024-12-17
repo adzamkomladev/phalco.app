@@ -35,16 +35,12 @@ const socials = ref([
             >
                 <div class="flex flex-col gap-2 text-sm">
                     <p class="font-bold md:text-black text-lg">About Us</p>
-
                 </div>
                 <div class="flex flex-col gap-2 text-sm">
                     <p class="font-bold md:text-black text-lg">Product</p>
-
-
                 </div>
                 <div class="flex flex-col gap-2 text-sm">
                     <p class="font-bold md:text-black text-lg">Campaign</p>
-
                 </div>
             </div>
             <div class="flex flex-col col-span-3">
