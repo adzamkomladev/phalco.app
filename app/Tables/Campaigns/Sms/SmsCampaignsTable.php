@@ -21,20 +21,20 @@ final class SmsCampaignsTable extends Table
         return [
             Columns\TextColumn::make('id')->label('#')->visible(false),
             Columns\TextColumn::make('code')->label('Code')
-                ->extra((fn(Campaign $campaign) => ['id' => $campaign->id])),
+                ->extra((fn (Campaign $campaign) => ['id' => $campaign->id])),
             Columns\TextColumn::make('created_by')
                 ->label('Created By')
-                ->transformValueUsing(fn(Campaign $campaign) => $campaign->createdBy->name)
-                ->extra((fn(Campaign $campaign) => [
+                ->transformValueUsing(fn (Campaign $campaign) => $campaign->createdBy->name)
+                ->extra((fn (Campaign $campaign) => [
                     'avatar' => $campaign->createdBy->avatar,
                 ])),
             Columns\TextColumn::make('status')->label('Status'),
             Columns\TextColumn::make('audience')->label('Audience')
-                ->transformValueUsing(fn(Campaign $campaign) => $campaign->audience->name),
+                ->transformValueUsing(fn (Campaign $campaign) => $campaign->audience->name),
             Columns\TextColumn::make('sender')->label('Sender')
-                ->transformValueUsing(fn(Campaign $campaign) => $campaign->data['sender']),
+                ->transformValueUsing(fn (Campaign $campaign) => $campaign->data['sender']),
             Columns\TextColumn::make('created_at')->label('Created')
-                ->transformValueUsing(fn(Campaign $campaign) => $campaign->created_at->diffForHumans()),
+                ->transformValueUsing(fn (Campaign $campaign) => $campaign->created_at->diffForHumans()),
         ];
     }
 
