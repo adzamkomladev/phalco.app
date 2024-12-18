@@ -12,7 +12,6 @@ class Campaign extends Model
     /** @use HasFactory<\Database\Factories\CampaignFactory> */
     use HasFactory;
 
-
     /**
      * The attributes that are mass assignable.
      *
