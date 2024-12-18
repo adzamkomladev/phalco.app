@@ -13,7 +13,21 @@ return new class extends Migration
     {
         Schema::create('campaigns', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('organization_id')->constrained();
+            $table->foreignId('election_id')->nullable()->constrained();
+            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('audience_id')->constrained();
+            $table->ulid('code')->unique();
+            $table->enum('type', ['sms', 'emails', 'voice']);
+            $table->string('payment_reference')->nullable();
+            $table->enum('status', ['pending', 'processing', 'failed', 'completed', 'cancelled', 'paused']);
+            $table->timestamp('scheduled_at')->nullable();
+            $table->json('data')->nullable();
+            $table->json('cost')->nullable();
+            $table->json('settings')->nullable();
             $table->timestamps();
+
+            $table->index('payment_reference');
         });
     }
 
