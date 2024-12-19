@@ -7,10 +7,6 @@ useHead({
 });
 
 const elections: any = useProperty("elections.all");
-const electionOptions = elections?.map((e: { id: any; name: any }) => ({
-    value: e.id,
-    label: e.name,
-}));
 
 
 const form = useForm({

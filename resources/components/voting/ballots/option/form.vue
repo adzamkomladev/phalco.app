@@ -26,7 +26,6 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
 
 <template>
     <form @submit.prevent="form.submit" class="pb-12">
-        {{ form }}
         <div class="grid gap-5 pb-5">
             <div class="sm:col-span-9">
                 <SharedFormBaseImageUpload

@@ -8,6 +8,7 @@ export interface ProgressBarProps {
     title?:string;
     color?:string;
     index?:number;
+    hideCountProgress?:boolean;
 }
 
 export interface Sheet{

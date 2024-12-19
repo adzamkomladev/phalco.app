@@ -4,9 +4,10 @@ import { ProgressBarProps } from "~/resources/interfaces/shared/common.interface
 const props = withDefaults(defineProps<ProgressBarProps>(), {
     width: "100%",
     height: "8px",
-    loadedClass: "bg-secondary-300 dark:bg-secondary-500 ",
+    loadedClass: " bg-secondary-300 dark:bg-secondary-500 ",
     unloadedClass: "bg-gray-200 dark:bg-gray-700 w-full h-3 ",
     total: 100,
+    progress:50,
 });
 
 const computedProgress = computed(() => {
@@ -15,10 +16,10 @@ const computedProgress = computed(() => {
 </script>
 
 <template>
-    <div>
+    <div class="grow  flex">
         <div class="flex text-sm justify-between py-1">
             <p class="font-semibold">{{ title }}</p>
-            <p class="">{{ computedProgress }}%</p>
+            <p class="" v-if="!hideCountProgress">{{ computedProgress }}%</p>
         </div>
         <div
             :class="['flex   rounded-full overflow-hidden  ', unloadedClass]"

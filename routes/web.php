@@ -16,6 +16,10 @@ Route::get('/send-request', function () {
     return hybridly('home.agents.request-form');
 })->name('send-request');
 
+Route::get('/voting/add-voter', function () {
+    return hybridly('voting.polling-stations.create-voter');
+})->name('voting.add-voter');
+
 Route::get('/voting/request', function () {
     return hybridly('voting.requests.show');
 })->name('voting.request.show');
