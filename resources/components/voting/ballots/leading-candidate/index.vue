@@ -34,7 +34,7 @@ const props = defineProps<{
             </div>
         </div>
         <div
-            v--else
+            v-else
             class="p-5 flex _sm:flex-col gap-5 _sm:gap-0 _xl:md:gap-0 _xl:md:flex-col"
         >
             <img

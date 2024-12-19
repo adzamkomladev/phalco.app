@@ -36,7 +36,7 @@ const form = useForm({
                         :error="form.errors.name"
                         id="name"
                         name="name"
-                        placeholder="Organisation Name"
+                        placeholder="Organization Name"
                     />
                     <SharedFormBaseInput
                         v-model="form.fields.address"

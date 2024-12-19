@@ -18,7 +18,14 @@ const table = useTable(props, "audiences");
 </script>
 
 <template layout="main">
-    <div>
+    <div class="grid gap-4">
+         <div class="grid gap-4 grid-cols-2 md:grid-cols-4 ">
+                <AudiencesIndexStatsCard
+                    v-for="(stat, index) in 4"
+                    :key="index"
+              
+                />
+            </div>
         <!-- <SettingsTeamStats :stats="stats" /> -->
         <AudiencesIndexTable :table="table" />
     </div>

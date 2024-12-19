@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { OrganizationProps } from "~/resources/interfaces/organisation/index.interface";
+import { OrganizationProps } from "~/resources/interfaces/organization/index.interface";
 
 const props = defineProps<{
     organization: OrganizationProps;

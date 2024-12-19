@@ -49,7 +49,7 @@ watch(search, debounceFn);
 
             <div class="inline-flex gap-x-2">
                 <router-link
-                    :href="route('voting.agents.create')"
+                    :href="route('elections.create')"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-primary-400 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
                     <svg
@@ -87,7 +87,7 @@ watch(search, debounceFn);
         <!-- End Header -->
         <div v-if="table.records.length > 0" class="grow flex flex-col flex-1">
             <!-- Table -->
-            <div class="w-full flex-grow overflow-x-scroll overflow-y-hidden">
+            <div class="w-full flex-grow overflow-x-auto  overflow-y-hidden">
                 <table
                     class="w-full divide-y divide-gray-200 dark:divide-gray-700"
                 >
@@ -197,7 +197,9 @@ watch(search, debounceFn);
                 </div>
             </div>
         </div>
-        <div v-else class="p-5">
+        <div 
+        v-else 
+        class="p-5">
             <img
                 :src="NoElectionFound"
                 class="h-[50vh] max-h-96 place-self-center"

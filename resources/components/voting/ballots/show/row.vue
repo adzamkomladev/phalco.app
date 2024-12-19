@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-    <div class="flex borde p-2 shadow justify-between m-2 rounded-md">
+    <div class="flex borde p-2 shadow-card shadow-black/10 justify-between m-2 rounded-md">
         <div class="flex items-center gap-x-3">
             <div class="font-bold text-2xl">#{{ data.order }}</div>
 
@@ -17,18 +17,24 @@ defineProps<{
                 alt="Logo"
             />
             <div class="grow">
+                
                 <span
                     class="block lg:whitespace-nowrap font-semibold text-gray-800 dark:text-gray-200"
                 >
                     {{ data.name }}
                 </span>
-                <span class="block text-sm text-gray-500">
+                <span class="block text-sm font-medium text-primary-500 uppercase">
                     {{ data.party }}
                 </span>
             </div>
         </div>
+        
         <div class="flex items-center max-w-[10%]">
             <img :src="data.party_image" />
+        </div>
+        <div class="  place-content-center ">
+          <p class="text-gray-500">Toal Votes</p>
+          <p class="font-black text-center text-xl">{{data.votes}}</p>
         </div>
     </div>
 </template>

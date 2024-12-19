@@ -97,7 +97,7 @@ watch(search, debounceFn);
             <!-- Table -->
             <!-- End Header -->
             <div v-if="table.records.length > 0" class="grow flex flex-col">
-                <div class="w-full overflow-x-scroll">
+                <div class="w-full overflow-x-auto">
                     <table
                         class="w-full divide-y divide-gray-200 dark:divide-gray-700"
                     >
@@ -214,6 +214,7 @@ watch(search, debounceFn);
             </div>
             <div class="p-5" v-else>
                 <img
+                v-motion-pop-visible-once
                     :src="NoBallotsImage"
                     class="h-[50vh] max-h-96 place-self-center"
                 />
