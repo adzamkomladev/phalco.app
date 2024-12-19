@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BallotStatImage from "~/resources/svg/voting/ballot_stat.svg?src";
+import NoBallotCandidateImage from "~/resources/svg/main/no_images.svg?src";
 
 
 import { Option } from "~/resources/interfaces/voting/ballots/show.interface";
@@ -16,7 +17,7 @@ defineProps<{ candidate: Option | null; position: string }>();
         class="grid mobile_:_sm:grid-cols-2 gap-4">
             <div class="grid place-items-center">
                 <img
-                    :src="candidate?.avatar || "
+                    :src="candidate?.avatar || NoBallotCandidateImage"
                     class="w-[35%] min-w-10 max-w-28 rounded-full border aspect-square"
                 />
                 <div class="flex items-center gap-2 bg-green-200">

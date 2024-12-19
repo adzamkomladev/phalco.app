@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NoAgentImage from "~/resources/svg/main/no_agent_selected.svg?src";
+import NoAgentImage from "~/resources/svg/main/no_user_profile.svg?src";
 // import {
 
 // } from "~/resources/interfaces/voting/requests/agent/index.interface.ts";
