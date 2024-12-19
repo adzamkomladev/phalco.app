@@ -19,6 +19,7 @@ defineProps<{ candidate: Option | null; position: string }>();
             <div class="grid place-items-center">
                 <img
                     :src="candidate?.avatar || NoBallotCandidateImage"
+                    :src="candidate?.avatar || NoBallotCandidateImage"
                     class="w-[35%] min-w-10 max-w-28 rounded-full border aspect-square"
                 />
                 <div class="flex items-center gap-2 bg-green-200">
