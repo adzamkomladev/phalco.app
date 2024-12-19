@@ -3,7 +3,7 @@ import {
     Election,
     Stage,
     StageStats,
-    Stats,
+    Stats
 } from "~/resources/interfaces/elections/show.interface";
 import {
     ElectionBallotProps,
@@ -19,6 +19,7 @@ const props = defineProps<{
     stats: Stats;
     stage?: Stage | null;
     stageStats: StageStats;
+    leadingCandidatesBallots?:ElectionBallotProps[] | null;
 }>();
 
 const dummyBallots: ElectionBallotProps[] = [
@@ -113,10 +114,9 @@ const dummyBallots: ElectionBallotProps[] = [
                 class="grow w-full"
             />
         </div>
-
         <div class="grid grid-cols-7 _md:flex flex-col gap-4 sm:gap-6">
             <ElectionsShowCardsStagesVoting
-                :ballots="dummyBallots"
+                :ballots="leadingCandidatesBallots"
                 v-if="stage?.stage == 'voting'"
                 :stage-stat="stageStats"
                 :stage="stage"

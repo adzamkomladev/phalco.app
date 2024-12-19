@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import NoLeadingCandidatesImage from "~/resources/svg/main/paper_in_box.svg?src";
+
 import {
     Stage,
     StageStatsVoting,
@@ -40,8 +42,14 @@ const timeLeftToEndDate = Math.floor(secondsUntil(props.stage.end));
         </div>
 
         <div class="flex flex-col gap-5 h-full">
-            <p class="font-semibold text-lg ml-2">Leading Candidates</p>
-            <div v-for="(ballot, bi) in ballots">
+            <p 
+          v-if="ballots && (ballots.length > 0)"
+            class="font-semibold text-lg ml-2"
+            
+            >Leading Candidatesddd</p>
+            <div 
+                v-if="ballots && (ballots.length > 0)"
+                v-for="(ballot, bi) in ballots">
                 <p class="ml-2">{{ ballot.ballotName }}</p>
                 <div class="" v-for="(candidate, ci) in ballot.candidates">
                     <ElectionsShowCardsStagesVotingCandidate
@@ -53,6 +61,18 @@ const timeLeftToEndDate = Math.floor(secondsUntil(props.stage.end));
                     />
                 </div>
             </div>
+          <div
+            v-else
+            class="p-5 flex _sm:flex-col gap-5 _sm:gap-0 _xl:md:gap-0 _xl:md:flex-col"
+        >
+            <img
+                :src="NoLeadingCandidatesImage"
+                class="w-[50%] _sm:w-[60%] _xl:md:w-[60%] max-h-96 place-self-center"
+            />
+            <p class="text-black/70 pt-4 capitalize place-self-center">
+                no leading candidate(s) available
+            </p>
+        </div>
             <SharedCommonCard
                 class="divide-y h-60 divide-gray-300 dark:divide-gray-600 text-sm gap-2 flex flex-col"
             >

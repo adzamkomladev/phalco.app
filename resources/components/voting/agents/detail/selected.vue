@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Agent } from "~/resources/interfaces/voting/agents/index.interface";
-import NoAgentSelectedImage from "~/resources/svg/main/no_agent_selected.svg?url";
+import NoAgentSelectedImage from "~/resources/svg/main/no_user_profile.svg?url";
 
 const props = defineProps<{ agent: Agent | null }>();
 </script>
