@@ -14,6 +14,6 @@ const props = defineProps<{
         title="Contact Details"
         size="xl"
     >
-        <pre>{{ contact }}</pre>
+        <pre>{{ contact }}ff</pre>
     </SharedCommonOverlay>
 </template>

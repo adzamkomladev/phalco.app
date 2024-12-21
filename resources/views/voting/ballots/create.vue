@@ -31,7 +31,7 @@ const elections: any = useProperty("elections.all");
             </div>
         </div>
         <div class="mt-5">
-            <VotingBallotsFormsCreate :elections="elections" />
+            <VotingBallotsCreateForm :elections="elections" />
         </div>
     </SharedCommonOverlay>
 </template>
