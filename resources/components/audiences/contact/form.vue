@@ -31,10 +31,10 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
 </script>
 
 <template>
+
     <form @submit.prevent="form.submit">
         <div class="grid gap-5">
            
-        
             <SharedFormBaseInput
                 v-model="form.fields.first_name"
                 :error="form.errors.first_name"
@@ -58,6 +58,14 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                 name="last_name"
                 placeholder="Last Name"
             />
+          
+          <SharedFormBaseRadioGroup 
+           v-model="form.fields.gender"
+          :options="['male','female']"
+          name="gender"
+          label="Gender"
+          />
+
             <SharedFormBaseInput
                 v-model="form.fields.phone"
                 :error="form.errors.phone"
@@ -80,32 +88,31 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                 id="phone"
                 name="phone"
                 placeholder="+233 9087 6422"
-                type='phone'
             />
     <SharedFormBaseCountrySelect
              v-model="form.fields.country"
-
             />
-          
+
                <SharedFormBaseInput
                 v-model="form.fields.state"
                 :error="form.errors.state"
                 id="state"
                 name="state"
-                placeholder="State"
+                placeholder="State /City"
                 type='text'
             />     
             <SharedFormBaseInput
                 v-model="form.fields.address"
                 :error="form.errors.address"
+                                placeholder="City  /State"
+
                 id="address"
-                name="address"
-                placeholder="address"
             />
         </div>
 
         <div class="mt-10 flex justify-end gap-x-2">
             <SharedFormSubmitButton text="Create" :loading="form.processing" />
+
         </div>
     </form>
 </template>

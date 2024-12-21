@@ -31,10 +31,10 @@ class="size-12 rounded-full bg-slate-50"/>
       </div>
    
                   <div class="text-xs text-gray-500 dark:text-neutral-500 flex justify-between w-full  ">
-                   <p class="flex gap-2"> <p class="text-primary-500">progress 50%</p> 
+                   <div class="flex gap-2"> <p class="text-primary-500">progress 50%</p> 
                     <p>7kb / 1Mb</p> 
                    
-                   </p>
+                   </div>
                     
                     <p>1 min ago</p>
                 </div>
