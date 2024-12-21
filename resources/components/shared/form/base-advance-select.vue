@@ -23,13 +23,13 @@ const selectedOptions = ref<any[]>(
 
 const selectedOption = ref(
     props.selectMultiple
-        ? props.options.filter((n) =>
+        ? props.options.filter((n:any) =>
               Array.isArray(selectedValue.value)
                   ? selectedValue.value.includes(n.value || n)
                   : false,
           )
         : props.options.find(
-              (n) =>
+              (n:any) =>
                   n.value === selectedValue.value || selectedValue || null,
           ),
 );
@@ -75,8 +75,8 @@ const defaultSelectedClass = "bg-gray-100 dark:bg-gray-800";
         :hideContentOnSelect="hideOnSelect"
     >
         <template v-slot:toggle>
-            <button class="w-full" :class="[defaulSelectClass, selectClass]">
-                <span class="text-base truncate">
+            <button class="w-full overflow-hidden" :class="[defaulSelectClass, selectClass]">
+                <span class="text-base truncate max-w-[calc(100vw_-10rem)]">
                     {{
                         props.selectMultiple
                             ? selectedOptions

@@ -81,14 +81,14 @@ const positionClass = ref(getType());
             <div class="flex flex-col overflow-hidden flex-grow">
                 <div
                     v-if="!useSheet"
-                    class="overflow-y-auto px-10 mobile:px-5 max-h-[calc(100vh-80px)] min-h-full"
+                    class="overflow-y-auto sm:px-10 _sm:px-4  max-h-[calc(100vh-80px)] min-h-full"
                 >
                     <slot />
                 </div>
 
                 <div
                     v-if="useSheet"
-                    class="sm:self-en px-10 z-50 pt-8 md:text-sm overflow-y-auto min-h-full max-h-[calc(100vh-80px)] pb-8"
+                    class="sm:self-en px-10 z-50  pt-8 md:text-sm overflow-y-auto min-h-full max-h-[calc(100vh-80px)] pb-8"
                 >
                     <div class="pb-6 portrait:flex flex-col">
                         <div class="flex flex-col gap-4">

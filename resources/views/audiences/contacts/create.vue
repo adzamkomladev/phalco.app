@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import PolloingStationImage from "~/resources/images/voting/new_audience.png?src";
+import ContactsFormImage from "~/resources/svg/main/contact_form.svg?src";
 
 
 useHead({
@@ -9,6 +9,9 @@ useHead({
 const elections: any = useProperty("elections.all");
 
 
+const isUpload = ref(false);
+
+const toggleUploadForm = () => (isUpload.value = !isUpload.value);
 </script>
 
 <template>
@@ -17,7 +20,7 @@ const elections: any = useProperty("elections.all");
         title="New Audience"
         size="xl"
     >
-  <div
+ <div
             class="flex flex-row-reverse rounded-3xl bg-secondary-300 dark:bg-gradient-to-r from-secondary-950 to-secondary-800"
         >
             <div class="font-medium sm:pt-10 py-2 place-self-center basis-1/2 shrink-0 grow">
@@ -36,6 +39,36 @@ const elections: any = useProperty("elections.all");
             </div>
         </div>
 
-       <AudiencesCreateForm :elections="elections" />
+       <div class="mt-5">
+            <transition mode="out-in">
+                <AudiencesContactForm
+                    :elections="elections"
+                    v-if="!isUpload"
+                />
+                <AudiencesContactUpload
+                    :elections="elections"
+                    v-else
+                />
+            </transition>
+        </div>
+        <div class="mt-5">
+            <a
+                class="cursor-pointer text-primary-500 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-primary-500"
+                @click.prevent="toggleUploadForm"
+            >
+                {{ isUpload ? "create single contact ?" : "Upload contacts ?" }}
+            </a>
+        </div>
+
     </SharedCommonOverlay>
 </template>
+<style scoped>
+.v-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+</style>
