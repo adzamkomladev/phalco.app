@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import PolloingStationImage from "~/resources/images/voting/new_audience.png?src";
+import AudiencesFormImage from "~/resources/images/voting/new_audience.png?src";
 
 
 useHead({
@@ -22,7 +22,7 @@ const elections: any = useProperty("elections.all");
         >
             <div class="font-medium sm:pt-10 py-2 place-self-center basis-1/2 shrink-0 grow">
                 <p class="text-gray-50 text-lg dark:text-gray-100">
-                    Create Contac
+                    Create Contact
                 </p>
                 <p class="font-normal text-xs dark:text-gray-300 text-gray-100">
                 create a new contact or upload a file of contacts 
@@ -30,7 +30,7 @@ const elections: any = useProperty("elections.all");
             </div>
             <div class="h-60 p-5 _xs:size-40 shrink-0">
                 <img
-                    :src="ContactsFormImage"
+                    :src="AudiencesFormImage"
                     class=" h-full w-auto"
                 />
             </div>

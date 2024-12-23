@@ -16,8 +16,8 @@ Route::get('/phone-verif', function () {
 //     return hybridly('home.agents.request-form');
 // })->name('send-request');
 
-Route::get('/audiences/add-contacts', function () {
-    return hybridly('audiences.contacts.create');
+Route::get('/audiences/contacts/show', function () {
+    return hybridly('audiences.contacts.show');
 })->name('audiences.add-contacts');
 
 // Route::get('/voting/request', function () {

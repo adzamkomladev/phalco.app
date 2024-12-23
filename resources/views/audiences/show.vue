@@ -10,7 +10,7 @@ const props = defineProps<{
         name: string;
         phone: string;
         email: string;
-            address: string;
+        address: string;
         city: string;
         created_at: string;
     }>;

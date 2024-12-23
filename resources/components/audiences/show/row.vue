@@ -78,7 +78,7 @@ const { key, value, extra } = props.row;
         <td class="size-px whitespace-nowrap w-fit">
             <div class="px-6 py-1.5 xl:pr-20">
                 <router-link
-                    
+                    href='/audiences/contacts/show'
                     class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
                     <SharedTableShowDetail />
