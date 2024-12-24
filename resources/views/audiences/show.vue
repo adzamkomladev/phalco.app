@@ -50,7 +50,9 @@ const table = useTable(props, "contacts");
 
         <div class="">
             <div>
-                <AudiencesShowTable :table="table" />
+                <AudiencesShowTable 
+                :audience="audience"
+                :table="table" />
             </div>
         </div>
     </div>

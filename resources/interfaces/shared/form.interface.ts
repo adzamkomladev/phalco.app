@@ -33,8 +33,8 @@ export interface BaseDateInputProps extends BaseInputProps {
     disablePast?: boolean;
     latestDate?: Date;
     farthestDate?: Date;
-    scope: BaseDateInputPropsScope;
-    type: BaseDateInputPropsType;
+    scope?: BaseDateInputPropsScope;
+    type?: BaseDateInputPropsType;
 }
 
 

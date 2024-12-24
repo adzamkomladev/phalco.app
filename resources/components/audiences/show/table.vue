@@ -3,6 +3,7 @@ import NoContactsFound from "~/resources/svg/main/no_data.svg?src";
 
 const props = defineProps<{
     table: any;
+    audience:any;
 }>();
 
 const table = props.table;
@@ -49,7 +50,7 @@ watch(search, debounceFn);
 
             <div class="inline-flex gap-x-2">
                 <router-link
-                :href="route('audiences.add-contacts')"
+                 :href="route('audiences.contacts.create', {id:audience.id})"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-primary-400 border border-transparent rounded-lg cursor-pointer gap-x-2 hover:opacity-90 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
                     <svg
@@ -67,7 +68,7 @@ watch(search, debounceFn);
                             stroke-linecap="round"
                         />
                     </svg>
-                    Add Contact(s) 
+                    Add dContact(s) 
                 </router-link>
             </div>
         </div>
@@ -127,6 +128,8 @@ watch(search, debounceFn);
                             :row="row"
                             :columns="table.columns"
                             :findColumn="findColumn"
+                             :audience-id="audience.id"
+
                         />
                     </tbody>
                 </table>

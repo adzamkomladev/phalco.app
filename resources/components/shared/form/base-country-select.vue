@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
+onMounted(() => {
+    window.HSStaticMethods.autoInit();
+});
 const countries = ref<{ code: string; name: string }[]>([]);
+
 
 // onMounted(async () => {
 //   try {
@@ -190,7 +194,7 @@ data-hs-select='{
     "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://flagcdn.com/w320/cv.png\" alt=\"Cape Verde\" />"}'>
     Cape Verde
   </option>
-<option selected value="Ghana" data-hs-select-option='{
+<option selected value="GH" data-hs-select-option='{
     "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://flagcdn.com/w320/gh.png\" alt=\"Ghana\" />"}'>
     Ghana
 </option>

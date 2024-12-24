@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import ContactShowImage from "~/resources/svg/main/contact_show.svg?svg";
 
-
 useHead({
     title: "Audience: Contact Details",
 });
@@ -35,7 +34,7 @@ const props = defineProps<{
             </div>
         </div>
 <div>
-    <AudiencesContactShow/>
+    <AudiencesContactShow :contact="contact"/>
 </div>        
     </SharedCommonOverlay>
 </template>

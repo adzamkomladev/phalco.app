@@ -1,22 +1,26 @@
 <script setup lang="ts">
+
 const props = defineProps<{
-    elections: { id: number; name: string }[];
+audienceId:string;
 }>();
 
 const form = useForm({
     method: "POST",
-    // url: route(""),
+    url: route("audiences.contacts.store", { id: props.audienceId}),
     fields: {
+        avatar:'',
         first_name:'',
-        other_names:null,
         last_name:'',
+        other_names:null,
         gender:null,
         phone:null,
         email:'',
-        birthday:null,
+        date_of_birth:null,
         country:null,
         state:null,
+        city:null,
         address:null,
+        title:null,
      
     },
     hooks: {
@@ -24,17 +28,15 @@ const form = useForm({
     },
 });
 
-const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
-    value: e.id,
-    label: e.name,
-}));
 </script>
 
 <template>
 
     <form @submit.prevent="form.submit">
         <div class="grid gap-5">
-           
+           <SharedFormBaseImageUpload
+           v-model="form.fields.avatar"
+           />
             <SharedFormBaseInput
                 v-model="form.fields.first_name"
                 :error="form.errors.first_name"
@@ -48,6 +50,7 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                 :error="form.errors.other_names"
                 id="other_names"
                 name="other_names"
+                :required=false
                 placeholder="Other Names"
             />
         
@@ -72,7 +75,7 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                 id="phone"
                 name="phone"
                 placeholder="+233 9087 6422"
-                type='number'
+                type='tel'
             />
             <SharedFormBaseInput
                 v-model="form.fields.email"
@@ -83,11 +86,11 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                 type='email'
             />
             <SharedFormBaseDatePicker
-                v-model="form.fields.phone"
-                :error="form.errors.phone"
+                v-model="form.fields.date_of_birth"
+                :error="form.errors.date_of_birth"
                 id="phone"
                 name="phone"
-                placeholder="+233 9087 6422"
+                placeholder="dd/mm/dd"
             />
     <SharedFormBaseCountrySelect
              v-model="form.fields.country"
@@ -98,16 +101,22 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                 :error="form.errors.state"
                 id="state"
                 name="state"
-                placeholder="State /City"
+                placeholder="State"
                 type='text'
+            /> 
+             <SharedFormBaseInput
+                v-model="form.fields.city"
+                :error="form.errors.city"
+                 placeholder="City"
+                id="city"
             />     
             <SharedFormBaseInput
                 v-model="form.fields.address"
                 :error="form.errors.address"
-                                placeholder="City  /State"
-
+                 placeholder="Address"
                 id="address"
             />
+          
         </div>
 
         <div class="mt-10 flex justify-end gap-x-2">

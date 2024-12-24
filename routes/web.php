@@ -90,6 +90,7 @@ Route::prefix('voting')
                 Route::get('{id}/show', \App\Actions\Voting\PollingStations\Show::class)->name('show');
                 Route::get('{id}/show/{voteEntryRequestId}/request', \App\Actions\Voting\PollingStations\ShowVoteEntryRequest::class)->name('show.request');
                 Route::get('create', \App\Actions\Voting\PollingStations\Create::class)->name('create');
+                // Route::get('voters/create', \App\Actions\Voting\PollingStations\Voters\Create::class)->name('voters.create');
                 Route::post('upload', \App\Actions\Voting\PollingStations\Upload::class)->name('upload');
                 Route::get('', \App\Actions\Voting\PollingStations\Index::class)->name('index');
                 Route::post('', \App\Actions\Voting\PollingStations\Store::class)->name('store');
@@ -103,7 +104,7 @@ Route::prefix('voting')
                 Route::post('upload', \App\Actions\Voting\Agents\Upload::class)->name('upload');
                 Route::get('', \App\Actions\Voting\Agents\Index::class)->name('index');
                 Route::post('', \App\Actions\Voting\Agents\Store::class)->name('store');
-            });
+        });
 
         Route::prefix('ballots')
             ->name('ballots.')
@@ -167,7 +168,6 @@ Route::prefix('finance')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class])
     ->group(function () {
         Route::get('transactions/{id}/show', \App\Actions\Finance\Transactions\Show::class)->name('transactions.show');
-
         Route::get('payments/{id}/show', \App\Actions\Finance\Payments\Show::class)->name('payments.show');
         Route::get('payments/{walletId}/top-up', \App\Actions\Finance\Payments\TopUp::class)->name('payments.top-up');
         Route::get('payments/{walletId}/withdraw', \App\Actions\Finance\Payments\Withdraw::class)->name('payments.withdraw');
@@ -191,6 +191,8 @@ Route::prefix('audiences')
         Route::post('', \App\Actions\Audiences\Store::class)->name('store');
         Route::get('create', \App\Actions\Audiences\Create::class)->name('create');
         Route::get('{id}/show', \App\Actions\Audiences\Show::class)->name('show');
+        Route::get('{id}/contacts/create', \App\Actions\Audiences\Contacts\Create::class)->name('contacts.create');
+        Route::post('/{id}/contacts', \App\Actions\Audiences\Contacts\Store::class)->name('contacts.store');
         Route::get('{id}/show/contacts/{contactId}/show', \App\Actions\Audiences\Contacts\Show::class)->name('contacts.show');
     });
 
