@@ -21,8 +21,8 @@ final class RequestsTable extends Table
         return [
             Columns\TextColumn::make('id')->label('#')->visible(false),
             Columns\TextColumn::make('contact')->label('Contact')
-                ->transformValueUsing(fn(CampaignRequest $request) => $request->contact?->name)
-                ->extra((fn(CampaignRequest $request) => [
+                ->transformValueUsing(fn (CampaignRequest $request) => $request->contact?->name)
+                ->extra((fn (CampaignRequest $request) => [
                     'id' => $request->id,
                     'avatar' => $request->contact?->avatar,
                     'contactId' => $request->contact?->id,
@@ -30,9 +30,9 @@ final class RequestsTable extends Table
             Columns\TextColumn::make('recipient')->label('Recipient'),
             Columns\TextColumn::make('status')->label('Status'),
             Columns\TextColumn::make('cost')->label('Cost')
-                ->transformValueUsing(fn(CampaignRequest $request) => 'GHS ' . ($request->cost / 100)),
+                ->transformValueUsing(fn (CampaignRequest $request) => 'GHS '.($request->cost / 100)),
             Columns\TextColumn::make('created_at')->label('Created')
-                ->transformValueUsing(fn(CampaignRequest $request) => $request->created_at->diffForHumans()),
+                ->transformValueUsing(fn (CampaignRequest $request) => $request->created_at->diffForHumans()),
         ];
     }
 

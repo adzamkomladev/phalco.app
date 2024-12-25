@@ -28,8 +28,9 @@ class ProcessCampaign
     {
         $campaign = Campaign::where('id', $campaignId)->where('status', 'pending')->first();
 
-        if (!$campaign) {
+        if (! $campaign) {
             logger()->error('Campaign: {campaignId} is not pending', ['campaignId' => $campaignId]);
+
             return;
         }
 
@@ -40,7 +41,7 @@ class ProcessCampaign
             ->where('status', 'pending')
             ->chunkById(100, function (Collection $requests) use ($campaign) {
                 $data = $requests
-                    ->map(fn(CampaignRequest $request) => [
+                    ->map(fn (CampaignRequest $request) => [
                         'id' => $request->id,
                         'recipient' => $request->phone,
                     ])
@@ -58,7 +59,7 @@ class ProcessCampaign
             $campaign = Campaign::find($campaignId);
 
             $campaign->update([
-                'status' => 'processing'
+                'status' => 'processing',
             ]);
 
             CampaignActivity::create([

@@ -18,8 +18,7 @@ class CheckForScheduledCampaigns
             ->where('type', 'sms')
             ->chunkById(
                 100,
-                fn(Collection $campaigns) =>
-                $campaigns->each(fn(Campaign $campaign) => ProcessCampaign::dispatch($campaign->id))
+                fn (Collection $campaigns) => $campaigns->each(fn (Campaign $campaign) => ProcessCampaign::dispatch($campaign->id))
             );
     }
 }

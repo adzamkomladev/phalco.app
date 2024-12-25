@@ -22,7 +22,6 @@ class MarkCampaignAsCompleted
         }
     }
 
-
     public function handle(int $campaignId)
     {
         $this->markCampaignAsCompleted($campaignId);
@@ -36,7 +35,7 @@ class MarkCampaignAsCompleted
             $campaign = Campaign::find($campaignId);
 
             $campaign->update([
-                'status' => 'completed'
+                'status' => 'completed',
             ]);
 
             CampaignActivity::create([

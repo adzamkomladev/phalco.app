@@ -18,6 +18,6 @@ return [
     'sms' => [
         'costPerMessage' => 3,
         'charactersPerMessage' => 160,
-    ]
+    ],
 
 ];

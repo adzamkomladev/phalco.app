@@ -13,9 +13,11 @@ class StopCampaign
     {
         try {
             $this->handle(auth()->id(), $id);
+
             return back()->with('success', 'Campaign stopped.');
         } catch (\Throwable $th) {
             logger()->error('Failed to stop campaign with error: {error}', ['error' => $th->getMessage()]);
+
             return back()->with('error', 'Failed to stop campaign.');
         }
     }

@@ -21,21 +21,21 @@ class GetCost
 
     public function asController(ActionRequest $request)
     {
-        return response()->json($this->handle($request->input("audience_id"), $request->input('message')));
+        return response()->json($this->handle($request->input('audience_id'), $request->input('message')));
     }
 
     public function handle(int $audienceId, string $message): CostData
     {
-        $smsCount = (int)GetSmsCount::run($message);
+        $smsCount = (int) GetSmsCount::run($message);
         $totalRecipients = Contact::where('audience_id', $audienceId)->count('id');
-        $messageCost = $smsCount * (int)config('settings.sms.costPerMessage');
+        $messageCost = $smsCount * (int) config('settings.sms.costPerMessage');
         $totalCost = $totalRecipients * $messageCost;
 
         return CostData::from([
             'smsCount' => $smsCount,
             'totalRecipients' => $totalRecipients,
             'messageCost' => $messageCost,
-            'totalCost' => $totalCost
+            'totalCost' => $totalCost,
         ]);
     }
 }

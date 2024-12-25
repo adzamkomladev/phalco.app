@@ -13,13 +13,14 @@ class PauseCampaign
     {
         try {
             $this->handle(auth()->id(), $id);
+
             return back()->with('success', 'Campaign paused.');
         } catch (\Throwable $th) {
             logger()->error('Failed to pause campaign with error: {error}', ['error' => $th->getMessage()]);
+
             return back()->with('error', 'Failed to pause campaign.');
         }
     }
-
 
     public function handle(int $userId, int $campaignId)
     {

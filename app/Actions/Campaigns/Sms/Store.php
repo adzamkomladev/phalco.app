@@ -9,11 +9,10 @@ use App\Models\SmsSender;
 use App\Models\User;
 use Bavix\Wallet\Models\Wallet;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
-use Illuminate\Support\Str;
-
 
 class Store
 {
@@ -26,7 +25,7 @@ class Store
             'audience_id' => ['required', 'integer', 'exists:audiences,id'],
             'wallet_id' => ['required', 'integer'],
             'message' => ['required', 'string'],
-            'scheduled_at' => ['nullable', 'datetime']
+            'scheduled_at' => ['nullable', 'datetime'],
         ];
     }
 
@@ -48,9 +47,9 @@ class Store
             $sender,
             $audience
         ] = Octane::concurrently([
-            fn() => Wallet::find($data['wallet_id']),
-            fn() => SmsSender::select(['id', 'sender'])->find($data['sender_id']),
-            fn() => Audience::select(['id', 'name'])->find($data['audience_id'])
+            fn () => Wallet::find($data['wallet_id']),
+            fn () => SmsSender::select(['id', 'sender'])->find($data['sender_id']),
+            fn () => Audience::select(['id', 'name'])->find($data['audience_id']),
         ]);
 
         $cost = GetCost::run($data['audience_id'], $data['message']);
@@ -88,8 +87,6 @@ class Store
         return $campaign;
     }
 
-
-
     private function setupCampaign(User $user, SmsSender $sender, Audience $audience, array $data): Campaign
     {
         try {
@@ -108,12 +105,12 @@ class Store
                     'message' => $data['message'],
                     'recipients' => $data['totalRecipients'],
                     'sender' => $sender->sender,
-                    'audience' => $audience->name
+                    'audience' => $audience->name,
                 ],
                 'cost' => [
                     'total' => $data['totalCost'],
                     'sms_count' => $data['smsCount'],
-                    'message_cost' => $data['messageCost']
+                    'message_cost' => $data['messageCost'],
                 ],
             ]);
 

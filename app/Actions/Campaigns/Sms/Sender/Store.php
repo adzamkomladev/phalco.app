@@ -16,13 +16,13 @@ class Store
         return [
             'sender' => ['required', 'string'],
             'reason' => ['required', 'string'],
-            'proof_docs_url' => ['required', 'string']
+            'proof_docs_url' => ['required', 'string'],
         ];
     }
 
     public function asController(ActionRequest $request)
     {
-        defer(fn() => $this->handle($request->user()->id, $request->user()->selected_organization_id, $request->validated()));
+        defer(fn () => $this->handle($request->user()->id, $request->user()->selected_organization_id, $request->validated()));
 
         return back()->with('success', 'Sender created successfully');
     }
@@ -38,7 +38,7 @@ class Store
             'user_id' => $userId,
             'sender' => $data['sender'],
             'reason' => $data['reason'],
-            'proof_docs_url' => $data['proof_docs_url']
+            'proof_docs_url' => $data['proof_docs_url'],
         ]);
     }
 }

@@ -22,7 +22,7 @@ class CampaignRequest extends Model
         'recipient',
         'cost',
         'status',
-        'external_reference'
+        'external_reference',
     ];
 
     public function campaign(): BelongsTo

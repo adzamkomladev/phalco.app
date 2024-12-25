@@ -27,8 +27,9 @@ class ProcessCampaignRequests
     {
         $campaign = Campaign::where('id', $campaignId)->where('status', 'processing')->first();
 
-        if (!$campaign) {
+        if (! $campaign) {
             logger()->error('Campaign: {campaignId} is not processing', ['campaignId' => $campaignId]);
+
             return;
         }
 

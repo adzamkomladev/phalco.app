@@ -3,7 +3,6 @@
 namespace App\Actions\Campaigns\Sms;
 
 use App\Data\MiniCardStatData;
-use App\Models\Campaign;
 use App\Tables\Campaigns\Sms\SmsCampaignsTable;
 use Lorisleiva\Actions\Concerns\AsAction;
 

@@ -25,7 +25,7 @@ class ProcessCampaignRequest
         CampaignRequest::where('id', $request['id'])
             ->update([
                 'status' => 'submitted',
-                'external_reference' => $response['id']
+                'external_reference' => $response['id'],
             ]);
     }
 }

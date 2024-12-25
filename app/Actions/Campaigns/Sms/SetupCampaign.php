@@ -5,9 +5,8 @@ namespace App\Actions\Campaigns\Sms;
 use App\Models\Campaign;
 use App\Models\CampaignRequest;
 use App\Models\Contact;
-use Lorisleiva\Actions\Concerns\AsAction;
 use Illuminate\Support\Collection;
-
+use Lorisleiva\Actions\Concerns\AsAction;
 
 class SetupCampaign
 {
@@ -50,10 +49,10 @@ class SetupCampaign
             }, column: 'id');
 
         $campaign->update([
-            'status' => 'pending'
+            'status' => 'pending',
         ]);
 
-        if (!$campaign->scheduled_at) {
+        if (! $campaign->scheduled_at) {
             ProcessCampaign::dispatch($campaignId);
         }
     }

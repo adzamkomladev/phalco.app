@@ -20,7 +20,7 @@ class Show
         return [
             'campaign' => Campaign::with([
                 'activities:id,campaign_id,status,created_at',
-                'activities.updatedBy:id,first_name,last_name,avatar'
+                'activities.updatedBy:id,first_name,last_name,avatar',
             ])->find($campaignId),
             'requests' => RequestsTable::make(['campaignId' => $campaignId]),
         ];

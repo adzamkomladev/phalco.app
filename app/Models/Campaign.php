@@ -78,17 +78,16 @@ class Campaign extends Model
         return $this->hasMany(CampaignRequest::class, 'campaign_id', 'id');
     }
 
-
     public function updateStatus(int $userId, string $status, string $reason): Campaign
     {
         $this->update([
-            'status' => $status
+            'status' => $status,
         ]);
 
         CampaignActivity::where('campaign_id', $this->id)
             ->whereNull('end')
             ->update([
-                'end' => now()
+                'end' => now(),
             ]);
 
         CampaignActivity::create([

@@ -16,11 +16,10 @@ class CheckIfCampaignCanBeCompleted
         Campaign::select(['id', 'status', 'type'])
             ->where('status', 'processing')
             ->where('type', 'sms')
-            ->whereDoesntHave('requests', fn(Builder $query) => $query->where('status', '<>', 'submitted'))
+            ->whereDoesntHave('requests', fn (Builder $query) => $query->where('status', '<>', 'submitted'))
             ->chunkById(
                 100,
-                fn(Collection $campaigns) =>
-                $campaigns->each(fn(Campaign $campaign) => MarkCampaignAsCompleted::dispatch($campaign->id))
+                fn (Collection $campaigns) => $campaigns->each(fn (Campaign $campaign) => MarkCampaignAsCompleted::dispatch($campaign->id))
             );
     }
 }
