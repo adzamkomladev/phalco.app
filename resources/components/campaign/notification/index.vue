@@ -18,7 +18,23 @@ const events = ref([
     total: 1024512,
     status: 'completed',
     url: '',
-  }
+  },
+  {
+    id: 3,
+    title: 'Event 3',
+    progress: 90243,
+    total: 1024512,
+    status: 'uploading',
+    url: '',
+  },
+  {
+    id: 3,
+    title: 'Event 3',
+    progress: 90243,
+    total: 1024512,
+    status: 'paused',
+    url: '',
+  },
 ]);
 
 const handleEventAction = (action: string, id: number) => {
@@ -37,7 +53,9 @@ const handleEventAction = (action: string, id: number) => {
 
     <!-- File Uploading Progress Form -->
 <SharedCommonCard class="h-full  !p-0">
-
+  <div>
+<img :src="NoNotificationImage"/>
+  </div>
 <div
 v-if="events.length >3"
 class="flex flex-col">
@@ -60,12 +78,6 @@ v-for="event in events"
     </div>
   </div>
   <!-- End Footer -->
-  </div>
-    <div v-else class="h-full flex items-center">
-<img :src="NoNotificationImage" class="h-52"/>
-<div class="text-center pb-5 px-10 text-gray-500">
-  <p>Notifications and upload histories will apear here <span class="text-secondary-300 ">!</span></p>
-</div>
   </div>
 </SharedCommonCard>
 <!-- End File Uploading Progress Form -->

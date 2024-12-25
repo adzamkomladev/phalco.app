@@ -60,9 +60,9 @@ const positionClass = ref(getType());
                         : 'mb-4'
                 "
                 v-if="!hideTitle"
-                class="flex justify-between z-10 items-center px-10 mobile:px-5"
+                class="flex justify-between z-10 items-center px-10"
             >
-                <p class="font-black mobile:text-lg text-2xl md:text-3xl">
+                <p class="font-black mobile:text-lg text-2xl md:text-3xl ">
                     {{ title }}
                 </p>
                 <button

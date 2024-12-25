@@ -15,12 +15,13 @@ const props = defineProps<{
         class="max-w-xl _sm:max-w-full"
         title="Contact Details"
     >
+    <div class="mb-10">
      <div
             class="flex p-4 _sm:p-2 flex-row-reverse rounded-3xl bg-secondary-300 dark:bg-gradient-to-r from-secondary-950 to-secondary-800"
         >
             <div class="font-medium  place-self-center basis-1/2 shrink-0 grow">
                 <p class="text-gray-50 text-lg dark:text-gray-100">
-                    Create Contacts
+                    CONTACT DETAILS
                 </p>
                 <p class="font-normal text-xs dark:text-gray-300 text-gray-100">
                 create a new contact or upload a file of contacts 
@@ -35,6 +36,9 @@ const props = defineProps<{
         </div>
 <div>
     <AudiencesContactShow :contact="contact"/>
-</div>        
+</div>    
+
+
+</div>    
     </SharedCommonOverlay>
 </template>

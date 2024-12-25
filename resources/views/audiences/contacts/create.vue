@@ -8,7 +8,7 @@ useHead({
 
 
 const props =defineProps<{
-    audience:string;
+    audience:any;
 }>();
 
 const elections: any = useProperty("elections.all");
@@ -21,22 +21,26 @@ const toggleUploadForm = () => (isUpload.value = !isUpload.value);
 
 <template>
     <SharedCommonOverlay
-        class="max-w-xl _sm:max-w-full"
-        title="New Audience"
+        class="max-w-xl _sm:max-w-full "
+        title="New Contact"
         size="xl"
+        headerClass=""
     >
+    <div class=" mb-10">
+
+   
  <div
-            class="flex flex-row-reverse rounded-3xl bg-secondary-300 dark:bg-gradient-to-r from-secondary-950 to-secondary-800"
+            class="flex  flex-row-reverse rounded-3xl bg-secondary-300 dark:bg-gradient-to-r from-secondary-950 to-secondary-800"
         >
             <div class="font-medium  pr-2 place-self-center basis-1/2 shrink-0 grow">
                 <p class="text-gray-50 text-lg dark:text-gray-100">
-                    Create new  Contacts to <span class="">{{ audience.name }}</span> 
+                    Add new  Contacts to <span class="">{{ audience.name }}</span> 
                 </p>
                 <p class="font-normal text-xs dark:text-gray-300 text-gray-100">
-                create a new contact or upload a file of contacts 
+               {{ audience.description }}
                 </p>
             </div>
-            <div class="h-60 p-5 _xs:size-40 shrink-0">
+            <div class="h-52 p-5 _xs:size-40 shrink-0">
                 <img
                     :src="ContactsFormImage"
                     class=" h-full w-auto"
@@ -65,7 +69,7 @@ const toggleUploadForm = () => (isUpload.value = !isUpload.value);
                 {{ isUpload ? "create single contact ?" : "Upload contacts ?" }}
             </a>
         </div>
-
+ </div>
     </SharedCommonOverlay>
 </template>
 <style scoped>

@@ -91,7 +91,8 @@ const form = useForm({
                 id="phone"
                 name="phone"
                 placeholder="dd/mm/dd"
-            />
+            />            
+
     <SharedFormBaseCountrySelect
              v-model="form.fields.country"
             />

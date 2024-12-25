@@ -31,7 +31,7 @@ const { key, value, extra } = props.row;
                                     </td>
 
                                     <td class=" whitespace-nowrap">
-                                        <div class="px-6 py-3">
+                                        <div class="pr-6 py-3">
                                             <span
                                                 class="text-sm font-semibold text-gray-800 dark:text-gray-200"
                                                 >

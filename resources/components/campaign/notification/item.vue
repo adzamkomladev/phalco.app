@@ -68,7 +68,7 @@ const handleAction = async (action: 'pause' | 'resume' | 'delete' | 'stop') => {
             v-if="isUploading"
             @click="handleAction('pause')"
             type="button"
-            class="relative text-gray-500 hover:scale-[1.3] transition-all hover:text-gray-800 focus:outline-none"
+            class="relative text-gray-500 hover:scale-[1.2] transition-all hover:text-gray-800 focus:outline-none"
           >
             <SharedCommonIcon name="pause" />
             <span class="sr-only">Pause</span>

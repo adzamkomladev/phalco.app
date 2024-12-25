@@ -24,7 +24,7 @@ const { key, value, extra } = props.row;
             </div> -->
         </td>
         <td class="size-px w-fit max-w-fit">
-            <div class="py-3 ps-6 lg:ps-3 pe-6">
+            <div class="py-3 ps-2  pe-6">
                 <div class="flex items-center gap-x-3">
                     <!-- <img
                         class="inline-block size-[38px] rounded-full"

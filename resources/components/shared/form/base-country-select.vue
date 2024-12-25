@@ -25,7 +25,7 @@ const countries = ref<{ code: string; name: string }[]>([]);
 //   }
 // });
 
-const model =defineModel('');
+const model =defineModel('GH');
 </script>
 
 <template>
@@ -194,7 +194,7 @@ data-hs-select='{
     "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://flagcdn.com/w320/cv.png\" alt=\"Cape Verde\" />"}'>
     Cape Verde
   </option>
-<option selected value="GH" data-hs-select-option='{
+<option  value="GH" data-hs-select-option='{
     "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://flagcdn.com/w320/gh.png\" alt=\"Ghana\" />"}'>
     Ghana
 </option>

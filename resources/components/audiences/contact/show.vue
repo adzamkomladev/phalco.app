@@ -112,7 +112,7 @@ onMounted(async () => {
                             </div>
                         </div>
                       <div>
-                            <p class="block lg:whitespace-nowrap  font-medium text-gray-500 dark:text-gray-100">State / City</p>
+                            <p class="block lg:whitespace-nowrap  font-medium text-gray-500 dark:text-gray-100">State</p>
                             <p class="block lg:whitespace-nowrap  font-semibold text-gray-800 dark:text-gray-200">{{contact.state || '--'}} </p>
                         </div>
                       

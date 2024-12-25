@@ -3,8 +3,8 @@ export interface ProgressBarProps {
     progress: number;
     width?: string;
     height?: string;
-    loadedClass?: string;
-    unloadedClass?: string;
+    loadedClass?: string | string[];
+    unloadedClass?: string | string[];
     title?:string;
     color?:string;
     index?:number;
@@ -57,3 +57,12 @@ partyLogo:string;
 
 export type positionType= "top-right" | "top-left" | "top-center"| "bottom-right"| "bottom-left"| "bottom-center";
 export type RequestStatusType = "Accepted" | "Rejected" | "Pending";
+
+export interface EventProps {
+    id: number;
+    title: string;
+    progress: number;
+    total: number;
+    status: 'paused' | 'uploading' | 'completed' | 'failed';
+    url: string;
+}
