@@ -1,38 +1,37 @@
 <script setup lang="ts">
 const services = ref([
     {
-        title: "Fast decision",
+        title: "Performance",
         description:
-            "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Con",
+            "Our platform offers speed of execution of all related tasks",
         icon: { name: "rocket", color: "#07689F" },
     },
     {
-        title: "vetting",
-        description: "    Lorem ipsum dolor sit amet consectetur adipisicing ",
+        title: "Vetting",
+        description:
+            "We offer vetting tools to ensure accuracy when selecting candidates",
         icon: { name: "ballot_box", color: "#595BD4" },
     },
     {
-        title: "Management",
+        title: "Team Management",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+            "Need more helping hands? Invite them to your organization",
         icon: { name: "file", color: "#C9994D" },
     },
     {
-        title: "Transaction",
+        title: "Transactions",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur cumq",
+            "Payment options are available to receive and send money in your account",
         icon: { name: "wallet", color: "#D19FB2" },
     },
     {
-        title: "Campaigning",
-        description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur cumque repellendu",
+        title: "Campaigns",
+        description: "Campaigns are a great way to interact with your users",
         icon: { name: "campaign", color: "#D85B53" },
     },
     {
-        title: "Client safety",
-        description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+        title: "Collation",
+        description: "View all your voting results in one place",
         icon: { name: "shield", color: "#638479" },
     },
 ]);

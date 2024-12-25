@@ -18,7 +18,6 @@ class Index
 
     public function asController()
     {
-
         return view('elections.index', $this->handle(request()->user()->selected_organization_id));
     }
 
