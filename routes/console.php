@@ -1,5 +1,7 @@
 <?php
 
+use App\Actions\Campaigns\Sms\CheckForScheduledCampaigns;
+use App\Actions\Campaigns\Sms\CheckIfCampaignCanBeCompleted;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
@@ -12,8 +14,7 @@ Artisan::command('inspire', function () {
 Artisan::command('view-octane-tests', function () {
     logger('Start view octane tests');
 
-    [$appName, $user] = Octane::concurrently([
-        fn () => Cache::store('octane')->get('application'),
+    [$appName, $user] = Octane::concurrently([fn () => Cache::store('octane')->get('application'),
         fn () => Octane::table('users')->get('123'),
     ]);
 
@@ -26,8 +27,11 @@ Artisan::command('telescope:prune --hours=720', fn () => $this->info('Telescope 
     ->daily();
 Artisan::command('horizon:snapshot', fn () => $this->info('Horizon snapshot'))->everyFiveMinutes();
 
-// Sort of quick fix for Pulse memory issues
-// TODO: Fix pulse:check memory issues properly
-Artisan::command('pulse:restart', fn () => $this->info('Pulse Restarted'))
-    ->purpose('Restart pulse to clear memory hogging situation')
-    ->hourly();
+// SMS Campaigns
+Artisan::command('sms-campaigns:scheduled', fn () => CheckForScheduledCampaigns::run())
+    ->purpose('Run checks on scheduled sms campaigns')
+    ->everyMinute();
+
+Artisan::command('sms-campaigns:complete', fn () => CheckIfCampaignCanBeCompleted::run())
+    ->purpose('Run checks to see if campaign can be completed')
+    ->everyMinute();

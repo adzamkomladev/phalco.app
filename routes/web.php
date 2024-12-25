@@ -206,8 +206,18 @@ Route::prefix('campaigns')
                 Route::get('', \App\Actions\Campaigns\Sms\Index::class)->name('index');
                 Route::get('create', \App\Actions\Campaigns\Sms\Create::class)->name('create');
                 Route::get('{id}/show', \App\Actions\Campaigns\Sms\Show::class)->name('show');
+                Route::patch('{id}/pause', \App\Actions\Campaigns\Sms\PauseCampaign::class)->name('pause');
+                Route::patch('{id}/resume', \App\Actions\Campaigns\Sms\ResumeCampaign::class)->name('resume');
+                Route::patch('{id}/stop', \App\Actions\Campaigns\Sms\StopCampaign::class)->name('stop');
             });
     });
+
+Route::post('campaigns/sms/count', \App\Actions\Campaigns\Sms\GetSmsCount::class)
+    ->name('campaigns.sms.count')
+    ->middleware('auth');
+Route::post('campaigns/sms/cost', \App\Actions\Campaigns\Sms\GetCost::class)
+    ->name('campaigns.sms.cost')
+    ->middleware('auth');
 
 //endregion
 
