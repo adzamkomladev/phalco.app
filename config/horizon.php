@@ -245,6 +245,20 @@ return [
             'timeout' => 60,
             'nice' => 0,
         ],
+
+        'horizon-supervisor-6' => [
+            'connection' => 'redis',
+            'queue' => ['default'],
+            'balance' => 'auto',
+            'autoScalingStrategy' => 'time',
+            'maxProcesses' => 1,
+            'maxTime' => 0,
+            'maxJobs' => 0,
+            'memory' => 128,
+            'tries' => 1,
+            'timeout' => 60,
+            'nice' => 0,
+        ],
     ],
 
     'environments' => [
@@ -288,12 +302,20 @@ return [
                 'balanceCooldown' => 3,
                 'queue' => ['imports', 'exports'],
             ],
+
+            'horizon-supervisor-6' => [
+                'minProcesses' => 1,
+                'maxProcesses' => 25,
+                'balanceMaxShift' => 1,
+                'balanceCooldown' => 3,
+                'queue' => ['broadcast'],
+            ],
         ],
 
         'local' => [
             'horizon-supervisor-1' => [
-                'maxProcesses' => 10,
-                'queue' => ['sms', 'emails', 'voice', 'campaigns', 'payments', 'imports', 'exports', 'scout', 'telescope', 'default'],
+                'maxProcesses' => 13,
+                'queue' => ['sms', 'broadcast', 'emails', 'voice', 'campaigns', 'payments', 'imports', 'exports', 'scout', 'telescope', 'default'],
             ],
         ],
     ],

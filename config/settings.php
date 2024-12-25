@@ -15,4 +15,9 @@ return [
         'password' => env('AGENT_PASSWORD', 'Pass2101#'),
     ],
 
+    'sms' => [
+        'costPerMessage' => 3,
+        'charactersPerMessage' => 160,
+    ],
+
 ];

@@ -14,7 +14,23 @@ const props = defineProps<{
         city: string;
         created_at: string;
     }>;
+    stats: App.Data.MiniCardStatData[];
+    notifications: App.Data.Audiences.Show.NotificationData[];
 }>();
+
+onMounted(() => {
+    for (const notification of props.notifications) {
+        window.EchoHub.private(notification.broadcastTopic).listen(
+            "Audiences.ContactImported",
+            (e: {
+                audienceId: number;
+                notification: App.Data.Audiences.Show.NotificationData;
+            }) => {
+                console.log(e, "djkfdjfkdkf");
+            },
+        );
+    }
+});
 
 const table = useTable(props, "contacts");
 </script>
@@ -74,7 +90,7 @@ const table = useTable(props, "contacts");
                 :href="
                     route('audiences.contacts.show', {
                         id: audience.id,
-                        contactId: +contact.name?.extra.id,
+                        contactId: +contact.name?.extra?.id,
                     })
                 "
                 class="inline-flex items-center text-sm font-medium text-blue-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
