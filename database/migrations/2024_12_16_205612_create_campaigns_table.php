@@ -20,7 +20,7 @@ return new class extends Migration
             $table->ulid('code')->unique();
             $table->enum('type', ['sms', 'emails', 'voice']);
             $table->string('payment_reference')->nullable();
-            $table->enum('status', ['pending', 'processing', 'failed', 'completed', 'cancelled', 'paused']);
+            $table->enum('status', ['initiated', 'pending', 'processing', 'failed', 'completed', 'cancelled', 'paused']);
             $table->timestamp('scheduled_at')->nullable();
             $table->json('data')->nullable();
             $table->json('cost')->nullable();

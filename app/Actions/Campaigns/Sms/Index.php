@@ -2,6 +2,9 @@
 
 namespace App\Actions\Campaigns\Sms;
 
+use App\Data\MiniCardStatData;
+use App\Models\Campaign;
+use App\Tables\Campaigns\Sms\SmsCampaignsTable;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class Index
@@ -15,6 +18,19 @@ class Index
 
     public function handle(int $organizationId)
     {
-        return [];
+        return [
+            'stats' => MiniCardStatData::collect([
+                [
+                    'title' => 'Total Active Campaigns',
+                    'value' => 0,
+                ],
+                [
+                    'title' => 'Total contacts',
+                    'value' => 0,
+                ],
+            ]),
+            'notifications' => [],
+            'campaigns' => SmsCampaignsTable::make(['organizationId' => $organizationId]),
+        ];
     }
 }

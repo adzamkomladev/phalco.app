@@ -77,4 +77,27 @@ class Campaign extends Model
     {
         return $this->hasMany(CampaignRequest::class, 'campaign_id', 'id');
     }
+
+
+    public function updateStatus(int $userId, string $status, string $reason): Campaign
+    {
+        $this->update([
+            'status' => $status
+        ]);
+
+        CampaignActivity::where('campaign_id', $this->id)
+            ->whereNull('end')
+            ->update([
+                'end' => now()
+            ]);
+
+        CampaignActivity::create([
+            'campaign_id' => $this->id,
+            'status' => $status,
+            'user_id' => $userId,
+            'reason' => $reason,
+        ]);
+
+        return $this;
+    }
 }

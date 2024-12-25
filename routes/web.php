@@ -43,7 +43,7 @@ Route::prefix('email')
             ->middleware(['signed'])
             ->name('verification.verify');
 
-        Route::get('verified', fn () => hybridly('auth.email-verified'))
+    Route::get('verified', fn() => hybridly('auth.email-verified'))
             ->middleware(['auth'])
             ->name('email.verified');
     });
@@ -53,7 +53,7 @@ Route::prefix('password')
     ->middleware(['guest'])
     ->group(function () {
         Route::post('send/reset-link', \App\Actions\Auth\Password\SendResetLink::class)->name('send.reset-link');
-        Route::get('reset/{token}', fn (string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
+    Route::get('reset/{token}', fn(string $token) => hybridly('auth.reset-password', ['token' => $token]))->name('reset-link');
         Route::post('reset', \App\Actions\Auth\Password\Reset::class)->name('reset');
     });
 
@@ -206,8 +206,18 @@ Route::prefix('campaigns')
                 Route::get('', \App\Actions\Campaigns\Sms\Index::class)->name('index');
                 Route::get('create', \App\Actions\Campaigns\Sms\Create::class)->name('create');
                 Route::get('{id}/show', \App\Actions\Campaigns\Sms\Show::class)->name('show');
+        Route::patch('{id}/pause', \App\Actions\Campaigns\Sms\PauseCampaign::class)->name('pause');
+        Route::patch('{id}/resume', \App\Actions\Campaigns\Sms\ResumeCampaign::class)->name('resume');
+        Route::patch('{id}/stop', \App\Actions\Campaigns\Sms\StopCampaign::class)->name('stop');
             });
     });
+
+Route::post('campaigns/sms/count', \App\Actions\Campaigns\Sms\GetSmsCount::class)
+    ->name('campaigns.sms.count')
+    ->middleware('auth');
+Route::post('campaigns/sms/cost', \App\Actions\Campaigns\Sms\GetCost::class)
+    ->name('campaigns.sms.cost')
+    ->middleware('auth');
 
 //endregion
 

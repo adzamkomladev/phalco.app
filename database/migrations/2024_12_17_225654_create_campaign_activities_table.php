@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('campaign_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->enum('status', ['pending', 'processing', 'failed', 'completed', 'cancelled', 'paused']);
+            $table->enum('status', ['initiated', 'pending', 'processing', 'failed', 'completed', 'cancelled', 'paused']);
             $table->string('reason')->nullable();
             $table->timestamp('end')->nullable();
             $table->timestamps();

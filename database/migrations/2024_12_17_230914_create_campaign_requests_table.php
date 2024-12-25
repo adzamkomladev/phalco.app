@@ -16,8 +16,9 @@ return new class extends Migration
             $table->foreignId('campaign_id')->constrained();
             $table->foreignId('contact_id')->nullable()->constrained();
             $table->string('recipient');
+            $table->string('external_reference')->nullable();
             $table->integer('cost')->default(0);
-            $table->enum('status', ['pending', 'processing', 'failed', 'completed', 'cancelled', 'paused']);
+            $table->enum('status', ['pending', 'processing', 'submitted', 'failed', 'completed', 'unknown']);
             $table->timestamps();
         });
     }
