@@ -33,7 +33,7 @@ final class AudiencesTable extends Table
             Columns\TextColumn::make('status')->label('Status'),
             Columns\TextColumn::make('total_contacts')->label('Total Contacts')
             // ->transformValueUsing(fn (Audience $audience) => $audience->contacts_count),
-            ->transformValueUsing(fn(Audience $audience) => 0),
+                ->transformValueUsing(fn (Audience $audience) => 0),
             Columns\TextColumn::make('description')->label('Description'),
             Columns\TextColumn::make('created_at')->label('Created')
                 ->transformValueUsing(fn (Audience $audience) => $audience->created_at->diffForHumans()),
