@@ -15,7 +15,7 @@ class GetCountries
         return response()->json($this->handle($request->query('filter')));
     }
 
-    public function handle(string $filter = null)
+    public function handle(?string $filter = null)
     {
         $countries = [];
 
@@ -27,7 +27,7 @@ class GetCountries
                     'code' => $country->getIsoAlpha2(),
                     'name' => $country->getName(),
                     'flag' => $country->getFlag(),
-                    'currency' => $country->getCurrency()['iso_4217_code']
+                    'currency' => $country->getCurrency()['iso_4217_code'],
                 ];
             }
         } else {
@@ -37,14 +37,14 @@ class GetCountries
                         'code' => $country['iso_3166_1_alpha2'],
                         'name' => $country['name'],
                         'flag' => country($country['iso_3166_1_alpha2'])->getFlag(),
-                        'currency' => $country['currency']
+                        'currency' => $country['currency'],
                     ];
                 })
                 ->values();
         }
 
         return [
-            'countries' => CountryData::collect($countries)
+            'countries' => CountryData::collect($countries),
         ];
     }
 }

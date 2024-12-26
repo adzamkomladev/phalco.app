@@ -27,7 +27,7 @@ class Show
 
         return [
             'contact' => ContactData::from($contact),
-            'country' => collect($data['countries'])->first()
+            'country' => collect($data['countries'])->first(),
         ];
     }
 }
