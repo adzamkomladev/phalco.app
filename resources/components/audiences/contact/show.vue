@@ -1,31 +1,18 @@
 <script setup lang="ts">
 import NoCandidateStatImage from "@/svg/main/no_user_profile.svg?src";
+import useCountries from "@/composables/countries";
 
 const props = defineProps<{
     contact: App.Data.Audiences.Contacts.ContactData;
 }>();
 
-const country = ref<{ code: string; name: string } | null>(null);
+const country = ref<App.Data.CountryData | null>(null);
 
-onMounted(async () => {
-    try {
-        const response = await fetch("https://flagcdn.com/en/codes.json");
-        const data = await response.json();
-
-        const matchingCountry = Object.entries(data).find(
-            ([code, name]) => code === props?.contact?.country,
-        );
-
-        if (matchingCountry) {
-            country.value = {
-                code: matchingCountry[0],
-                name: matchingCountry[1] as string,
-            };
-        }
-    } catch (error) {
-        console.error("Failed to fetch country data:", error);
-    }
-});
+const { getCountry } = useCountries();
+onMounted(
+    async () =>
+        (country.value = await getCountry(props.contact.country || "GH")),
+);
 </script>
 
 <template>
@@ -164,11 +151,11 @@ onMounted(async () => {
                             <div
                                 class="lg:whitespace-nowrap flex items-center gap-1 font-semibold text-gray-800 dark:text-gray-200"
                             >
-                                <img
-                                    v-if="contact.country"
-                                    :src="`https://flagcdn.com/w320/${contact.country.toLowerCase()}.png`"
+                                <div
+                                    v-if="country"
+                                    v-html="country.flag"
                                     class="h-4 max-w-6"
-                                />
+                                ></div>
                                 <span>{{ country?.name || "--" }}</span>
                             </div>
                         </div>

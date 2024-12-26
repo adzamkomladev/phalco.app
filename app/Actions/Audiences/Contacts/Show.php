@@ -2,6 +2,7 @@
 
 namespace App\Actions\Audiences\Contacts;
 
+use App\Actions\Common\GetCountries;
 use App\Data\Audiences\Contacts\ContactData;
 use App\Models\Contact;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -22,8 +23,11 @@ class Show
     {
         $contact = Contact::find($id);
 
+        $data = GetCountries::run($contact->country ?? 'GH');
+
         return [
             'contact' => ContactData::from($contact),
+            'country' => collect($data['countries'])->first()
         ];
     }
 }
