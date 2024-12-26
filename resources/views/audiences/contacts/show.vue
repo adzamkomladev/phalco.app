@@ -36,7 +36,7 @@ defineProps<{
                 </div>
             </div>
             <div>
-                <AudiencesContactShow :contact="contact" />
+                <AudiencesContactsShow :contact="contact" />
             </div>
         </div>
     </SharedCommonOverlay>

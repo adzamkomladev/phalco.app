@@ -47,12 +47,12 @@ const audienceId = computed(() => props.audience.id!);
 
             <div class="mt-5">
                 <transition mode="out-in">
-                    <AudiencesContactForm
+                    <AudiencesContactsForm
                         :audience-id="audienceId"
                         :elections="elections"
                         v-if="!isUpload"
                     />
-                    <AudiencesContactUpload :elections="elections" v-else />
+                    <AudiencesContactsUpload :elections="elections" v-else />
                 </transition>
             </div>
             <div class="mt-5">
