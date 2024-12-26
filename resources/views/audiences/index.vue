@@ -12,6 +12,7 @@ const props = defineProps<{
         total_contacts: number;
         created_at: string;
     }>;
+    stats: App.Data.MiniCardStatData[];
 }>();
 
 const table = useTable(props, "audiences");
@@ -19,16 +20,14 @@ const table = useTable(props, "audiences");
 
 <template layout="main">
     <div class="grid gap-4">
-         <div class="grid gap-4 grid-cols-2 md:grid-cols-4 ">
-                <AudiencesIndexStatsCard
-                description="total audiences"
-                value="120"
-                    v-for="(stat, index) in 4"
-                    :key="index"
-              
-                />
-            </div>
-        <!-- <SettingsTeamStats :stats="stats" /> -->
+        <div class="grid gap-4 grid-cols-2 md:grid-cols-4">
+            <AudiencesIndexStatsCard
+                :description="stat.title"
+                :value="stat.value"
+                v-for="(stat, index) in stats"
+                :key="index"
+            />
+        </div>
         <AudiencesIndexTable :table="table" />
     </div>
 </template>

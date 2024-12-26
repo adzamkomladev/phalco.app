@@ -47,7 +47,6 @@ watch(search, debounceFn);
                     >
                         Audiences
                     </h2>
-                  
                 </div>
 
                 <div>
@@ -71,7 +70,7 @@ watch(search, debounceFn);
                                     stroke-linecap="round"
                                 />
                             </svg>
-                            Add Audience(s) 
+                            Add Audience(s)
                         </router-link>
                     </div>
                 </div>
@@ -212,7 +211,7 @@ watch(search, debounceFn);
             </div>
             <div class="p-5" v-else>
                 <img
-                v-motion-pop-visible-once
+                    v-motion-pop-visible-once
                     :src="NoBallotsImage"
                     class="h-[50vh] max-h-96 place-self-center"
                 />

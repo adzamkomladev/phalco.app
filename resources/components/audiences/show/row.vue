@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-    audienceId:number;
+    audienceId: number;
     row: { key: any; value: any; extra: any };
     columns: any[];
     findColumn: (name: string) => any;
@@ -24,7 +24,7 @@ const { key, value, extra } = props.row;
             </div> -->
         </td>
         <td class="size-px w-fit max-w-fit">
-            <div class="py-3 ps-2  pe-6">
+            <div class="py-3 ps-2 pe-6">
                 <div class="flex items-center gap-x-3">
                     <!-- <img
                         class="inline-block size-[38px] rounded-full"
@@ -33,7 +33,7 @@ const { key, value, extra } = props.row;
                     /> -->
                     <div class="">
                         <p
-                            class="block line-clamp-2 whitespace-nowrap  truncate max-w-40 font-semibold text-gray-800 dark:text-gray-200"
+                            class="block line-clamp-2 whitespace-nowrap truncate max-w-40 font-semibold text-gray-800 dark:text-gray-200"
                         >
                             {{ value(findColumn("name")) }}
                         </p>
@@ -44,8 +44,7 @@ const { key, value, extra } = props.row;
                 </div>
             </div>
         </td>
-      
-      
+
         <td class="size-px whitespace-nowrap text-gray-500 w-fit">
             <div class="px-6 py-3">
                 {{ value(findColumn("phone")) }}
@@ -79,7 +78,12 @@ const { key, value, extra } = props.row;
         <td class="size-px whitespace-nowrap w-fit">
             <div class="px-6 py-1.5 xl:pr-20">
                 <router-link
-                    :href="route('audiences.contacts.show',{id:audienceId , contactId:+extra(findColumn('name'),'id') || 1})"
+                    :href="
+                        route('audiences.contacts.show', {
+                            id: audienceId,
+                            contactId: +extra(findColumn('name'), 'id') || 1,
+                        })
+                    "
                     class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
                     <SharedTableShowDetail />

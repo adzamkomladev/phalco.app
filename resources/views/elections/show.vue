@@ -3,7 +3,7 @@ import {
     Election,
     Stage,
     StageStats,
-    Stats
+    Stats,
 } from "~/resources/interfaces/elections/show.interface";
 import {
     ElectionBallotProps,
@@ -19,7 +19,7 @@ const props = defineProps<{
     stats: Stats;
     stage?: Stage | null;
     stageStats: StageStats;
-    leadingCandidatesBallots?:ElectionBallotProps[] | null;
+    leadingCandidatesBallots?: ElectionBallotProps[] | null;
 }>();
 
 const dummyBallots: ElectionBallotProps[] = [

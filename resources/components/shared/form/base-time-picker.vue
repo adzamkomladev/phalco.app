@@ -15,7 +15,7 @@ const minutes = Array.from({ length: 60 }, (_, i) =>
 );
 const ampmOptions = ["AM", "PM"];
 
-const selectedHour = ref(props.modelValue?.split(":")[0] || "12");
+const selectedHour = ref(props.modelValue?.split(":")[0] || "01");
 const selectedMinute = ref(props.modelValue?.split(":")[1] || "00");
 const selectedAmpm = ref(props.modelValue.includes("PM") ? "PM" : "AM");
 

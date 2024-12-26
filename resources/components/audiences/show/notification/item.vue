@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed } from "vue";
 
 interface EventProps {
   id: number;
@@ -11,7 +11,7 @@ interface EventProps {
 }
 
 const props = defineProps<{
-  event: EventProps;
+    event: EventProps;
 }>();
 
 const emit = defineEmits<{

@@ -58,9 +58,8 @@ const table = useTable(props, "electionsTable");
                 </ElectionsIndexStatsCardSmall>
             </div>
         </div>
-        <!-- End Grid -->   
-          <ElectionsIndexTable :table="table" />
-
+        <!-- End Grid -->
+        <ElectionsIndexTable :table="table" />
     </div>
     <!-- End Card Section -->
     <!-- Table Section -->

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <SharedCommonCard class="grid gap-2">
+    <div class="space-y-4 shadow bg-white p-[8%] rounded-lg h-full">
         <div>
          
         <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -14,23 +14,16 @@
         </h2>
       </div>
 
-        <div class="grid gap-2">
+        <div class="grid gap-4">
             <div class="flex justify-between">
                 <p class="text-sm text-gray-600 dark:text-gray-400">
-           Transaction 
+           TransactionId
         </p> 
         <p class="text-sm text-gray-600 font-semibold dark:text-gray-400">
            #67458478988
         </p> 
             </div>
-            <div class="flex justify-between">
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-           Reciepient 
-        </p> 
-        <p class="text-sm text-gray-600 font-semibold dark:text-gray-400">
-           <SharTableStatus  />
-        </p> 
-            </div>
+        
             <div class="flex justify-between">
                 <p class="text-sm text-gray-600 dark:text-gray-400">
            Acount Number 
@@ -41,12 +34,28 @@
             </div>
             <div class="flex justify-between">
                 <p class="text-sm text-gray-600 dark:text-gray-400">
-           Total Cost 
+           Total Contacts 
         </p> 
         <p class="text-sm text-gray-600 font-semibold dark:text-gray-400">
+           500
+        </p> 
+            </div>
+            <div class="flex justify-between">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+           Cost per sms 
+        </p> 
+        <p class="text-sm text-gray-600 font-semibold dark:text-gray-400">
+           $0.5
+        </p> 
+            </div>
+            <div class="flex justify-between">
+                <p class="text-base text-gray-600 dark:text-gray-400">
+           Total Cost 
+        </p> 
+        <p class="text-lg text-primary-500 font-semibold dark:text-gray-400">
            $40.43
         </p> 
             </div>
         </div>
-    </SharedCommonCard>
+    </div>
 </template>

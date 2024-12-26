@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const props = defineProps<{
-    elections: { id: number; name: string }[];
+defineProps<{
+    elections: App.Data.Elections.ElectionData[];
 }>();
 
 const form = useForm({
@@ -13,12 +13,10 @@ const form = useForm({
         success: () => form.reset(),
     },
 });
-
 </script>
 
 <template>
     <form @submit.prevent="form.submit">
-
         <div class="grid gap-5">
             <SharedFormBaseFileUpload v-model="form.fields.upload_file" />
         </div>
