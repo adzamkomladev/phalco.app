@@ -2,6 +2,7 @@
 
 namespace App\Actions\Audiences\Contacts;
 
+use App\Data\Audiences\AudienceData;
 use App\Models\Audience;
 use App\Models\Contact;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -14,19 +15,17 @@ class Create
 
     public function asController(int $id)
     {
-        $audience = Audience::findOrFail($id);
-
-        return view('audiences.contacts.create',['audience'=>$audience])
+        return view('audiences.contacts.create', $this->handle($id))
             ->base('audiences.show', ['id' => $id]);
     }
 
-    // public function handle(int $id)
-    // {
-    //     $audience = Audience::select(['id', 'name', 'description'])
-    //         ->findOrFail($id);
+    public function handle(int $audienceId)
+    {
+        $audience = Audience::select(['id', 'name', 'description', 'status'])
+        ->findOrFail($audienceId);
 
-    //     return [
-    //         'audience' => $audience,
-    //     ];
-    // }
+        return [
+            'audience' => AudienceData::optional($audience),
+        ];
+    }
 }

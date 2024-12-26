@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const props = defineProps<{
-    elections: { id: number; name: string }[];
+defineProps<{
+    elections: App.Data.Elections.ElectionData[];
 }>();
 
 const form = useForm({

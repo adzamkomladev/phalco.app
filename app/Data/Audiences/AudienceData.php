@@ -7,6 +7,7 @@ use Spatie\LaravelData\Data;
 class AudienceData extends Data
 {
     public function __construct(
+        public readonly ?int $id,
         public readonly ?int $userId,
         public readonly ?int $organizationId,
         public readonly string $name,
