@@ -2,9 +2,11 @@
 
 namespace App\Actions\Audiences;
 
+use App\Data\Audiences\AudienceData;
 use App\Data\Audiences\Show\NotificationData;
 use App\Data\MiniCardStatData;
 use App\Models\Audience;
+use App\Models\Campaign;
 use App\Models\Contact;
 use App\Tables\Audiences\ContactsTable;
 use Laravel\Octane\Facades\Octane;
@@ -25,9 +27,10 @@ class Show
             $audience,
             $totalCampaigns,
             $totalContacts
-        ] = Octane::concurrently([fn () => Audience::find($id),
-            fn () => 0,
-            fn () => Contact::where('audience_id', $id)->count(),
+        ] = Octane::concurrently([
+            fn() => Audience::find($id),
+            fn() => Campaign::where('audience_id', $id)->count('id'),
+            fn() => Contact::where('audience_id', $id)->count('id'),
         ]);
 
         $notifications = [];
@@ -49,7 +52,7 @@ class Show
                 ],
             ]),
             'notifications' => NotificationData::collect($notifications),
-            'audience' => $audience,
+            'audience' => AudienceData::from($audience),
             'contacts' => ContactsTable::make(['audienceId' => $id]),
         ];
     }

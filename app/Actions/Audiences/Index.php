@@ -2,6 +2,7 @@
 
 namespace App\Actions\Audiences;
 
+use App\Data\MiniCardStatData;
 use App\Models\Audience;
 use App\Models\Contact;
 use App\Tables\Audiences\AudiencesTable;
@@ -29,25 +30,26 @@ class Index
             fn () => Contact::whereRelation('audience', 'organization_id', $organizationId)->count(),
         ]);
 
+
         return [
-            'stats' => [
+            'stats' => MiniCardStatData::collect([
                 [
-                    'description' => 'Total Audiences for Election',
+                    'title' => 'Total Audiences for Election',
                     'value' => $totalAudiences,
                 ],
                 [
-                    'description' => 'Total contacts',
+                    'title' => 'Total contacts',
                     'value' => $totalContacts,
                 ],
                 [
-                    'description' => 'Total contacts',
+                    'title' => 'Total contacts',
                     'value' => $totalContacts,
                 ],
                 [
-                    'description' => 'Total contacts',
+                    'title' => 'Total contacts',
                     'value' => $totalContacts,
                 ],
-            ],
+            ]),
             'audiences' => AudiencesTable::make(['organizationId' => $organizationId]),
         ];
     }

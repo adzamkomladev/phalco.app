@@ -4,7 +4,7 @@ useHead({
 });
 
 const props = defineProps<{
-    audience: any;
+    audience: App.Data.Audiences.AudienceData;
     contacts: Table<{
         id: number;
         name: string;
