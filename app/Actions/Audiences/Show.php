@@ -28,9 +28,9 @@ class Show
             $totalCampaigns,
             $totalContacts
         ] = Octane::concurrently([
-            fn() => Audience::find($id),
-            fn() => Campaign::where('audience_id', $id)->count('id'),
-            fn() => Contact::where('audience_id', $id)->count('id'),
+            fn () => Audience::find($id),
+            fn () => Campaign::where('audience_id', $id)->count('id'),
+            fn () => Contact::where('audience_id', $id)->count('id'),
         ]);
 
         $notifications = [];

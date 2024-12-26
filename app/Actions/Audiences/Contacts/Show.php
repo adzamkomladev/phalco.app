@@ -23,7 +23,7 @@ class Show
         $contact = Contact::find($id);
 
         return [
-            'contact' => ContactData::from($contact)
+            'contact' => ContactData::from($contact),
         ];
     }
 }

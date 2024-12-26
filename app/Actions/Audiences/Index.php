@@ -30,7 +30,6 @@ class Index
             fn () => Contact::whereRelation('audience', 'organization_id', $organizationId)->count(),
         ]);
 
-
         return [
             'stats' => MiniCardStatData::collect([
                 [
