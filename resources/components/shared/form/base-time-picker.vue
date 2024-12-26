@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const props = defineProps<{
     modelValue: string;
+    label:string;
+    inputContainerClass?:string|string[];
 }>();
 
 const emit = defineEmits(["update:modelValue"]);
@@ -64,7 +66,18 @@ watch(selectedAmpm, (newAmpm: string) => {
 </script>
 
 <template>
-    <div class="flex gap-2 items-center">
+    <div class="grid">
+         <div class="flex justify-between items-center">
+            <label
+                v-if="props.label"
+                class="block text-gray-500 lg:text-base mb-2 dark:text-gray-300"
+            >
+                {{ props.label }}
+            </label>
+        </div>
+    <div 
+    :class="inputContainerClass"
+    class="flex gap-2 items-center">
         <SharedFormBaseAdvanceSelect
             optionClass="py-2"
             v-model="selectedHour"
@@ -84,4 +97,6 @@ watch(selectedAmpm, (newAmpm: string) => {
             position="bottom-center"
         />
     </div>
+    </div>
+   
 </template>

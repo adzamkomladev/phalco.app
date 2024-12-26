@@ -210,6 +210,7 @@ Route::prefix('campaigns')
                 Route::get('senders', \App\Actions\Campaigns\Sms\Sender\Index::class)->name('senders.index');
                 Route::post('senders', \App\Actions\Campaigns\Sms\Sender\Store::class)->name('senders.store');
                 Route::get('', \App\Actions\Campaigns\Sms\Index::class)->name('index');
+                Route::post('', \App\Actions\Campaigns\Sms\Store::class)->name('store');
                 Route::get('create', \App\Actions\Campaigns\Sms\Create::class)->name('create');
                 Route::get('{id}/show', \App\Actions\Campaigns\Sms\Show::class)->name('show');
                 Route::patch('{id}/pause', \App\Actions\Campaigns\Sms\PauseCampaign::class)->name('pause');
