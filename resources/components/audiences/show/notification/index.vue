@@ -8,7 +8,7 @@ const events = ref([
     title: 'Event 1',
     progress: 50,
     total: 1024 ,
-    status: 'failed', 
+    status: 'uploading', 
     url: '',
   },
   {
@@ -17,6 +17,14 @@ const events = ref([
     progress: 1024512,
     total: 1024512,
     status: 'completed',
+    url: '',
+  },
+  {
+    id: 2,
+    title: 'Event 2',
+    progress: 102453,
+    total: 1024512,
+    status: 'canceled',
     url: '',
   }
 ]);
@@ -39,7 +47,7 @@ const handleEventAction = (action: string, id: number) => {
 <SharedCommonCard class="h-full  !p-0">
 
 <div
-v-if="events.length >3"
+v-if="events.length >0"
 class="flex flex-col">
 
 <AudiencesShowNotificationItem  
