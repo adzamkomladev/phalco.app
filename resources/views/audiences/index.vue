@@ -12,6 +12,7 @@ const props = defineProps<{
         total_contacts: number;
         created_at: string;
     }>;
+    stats: App.Data.MiniCardStatData[];
 }>();
 
 const table = useTable(props, "audiences");

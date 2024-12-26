@@ -2,6 +2,7 @@
 
 namespace App\Actions\Audiences\Contacts;
 
+use App\Data\Audiences\Contacts\ContactData;
 use App\Models\Contact;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -17,12 +18,12 @@ class Show
             ->base('audiences.show', ['id' => $id]);
     }
 
-    public function handle(int $id)
+    public function handle(int $id): array
     {
         $contact = Contact::find($id);
 
         return [
-            'contact' => $contact,
+            'contact' => ContactData::from($contact),
         ];
     }
 }
