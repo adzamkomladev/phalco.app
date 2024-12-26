@@ -87,7 +87,7 @@ watch(search, debounceFn);
         <!-- End Header -->
         <div v-if="table.records.length > 0" class="grow flex flex-col flex-1">
             <!-- Table -->
-            <div class="w-full flex-grow overflow-x-auto  overflow-y-hidden">
+            <div class="w-full flex-grow overflow-x-auto overflow-y-hidden">
                 <table
                     class="w-full divide-y divide-gray-200 dark:divide-gray-700"
                 >
@@ -197,9 +197,7 @@ watch(search, debounceFn);
                 </div>
             </div>
         </div>
-        <div 
-        v-else 
-        class="p-5">
+        <div v-else class="p-5">
             <img
                 :src="NoElectionFound"
                 class="h-[50vh] max-h-96 place-self-center"

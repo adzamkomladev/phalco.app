@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NoCandidateStatImage from "~/resources/svg/main/no_user_profile.svg?src";
+import NoCandidateStatImage from "@/svg/main/no_user_profile.svg?src";
 
 const props = defineProps<{
     contact: App.Data.Audiences.Contacts.ContactData;
@@ -48,7 +48,7 @@ onMounted(async () => {
                 <span
                     class="block lg:whitespace-nowrap font-semibold text-gray-800 dark:text-gray-200"
                 >
-                    {{ contact.firstName }} {{ contact.otherNames}}
+                    {{ contact.firstName }} {{ contact.otherNames }}
                     {{ contact.lastName }}
                 </span>
                 <div class="flex gap-2 flex-row flex-wrap">
@@ -121,7 +121,7 @@ onMounted(async () => {
                             <p
                                 class="block lg:whitespace-nowrap font-semibold text-gray-800 dark:text-gray-200"
                             >
-                                {{  "--" }}
+                                {{ "--" }}
                             </p>
                         </div>
                         <div>

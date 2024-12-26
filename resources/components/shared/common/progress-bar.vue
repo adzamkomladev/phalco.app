@@ -12,13 +12,15 @@ const props = withDefaults(defineProps<ProgressBarProps>(), {
 });
 
 const computedProgress = computed(() => {
-    return props.total ? ((props.progress / props.total) * 100).toFixed(2) : "0";
+    return props.total
+        ? ((props.progress / props.total) * 100).toFixed(2)
+        : "0";
 });
 </script>
 
 <template>
     <div class="grow flex flex-col space-y-1">
-        <div class="flex text-sm justify-between py-1 " v-if="props.title">
+        <div class="flex text-sm justify-between py-1" v-if="props.title">
             <p class="font-semibold">{{ props.title }}</p>
             <p v-if="!props.hideCountProgress">{{ computedProgress }}%</p>
         </div>
@@ -32,7 +34,10 @@ const computedProgress = computed(() => {
             aria-valuemax="100"
         >
             <div
-                :class="['flex flex-col transition-all justify-center rounded-full duration-500', props.loadedClass]"
+                :class="[
+                    'flex flex-col transition-all justify-center rounded-full duration-500',
+                    props.loadedClass,
+                ]"
                 :style="{ width: `${computedProgress}%` }"
             ></div>
         </div>

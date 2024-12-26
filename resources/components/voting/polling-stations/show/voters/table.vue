@@ -89,7 +89,7 @@ watch(search, debounceFn);
         <!-- End Header -->
         <div v-if="table.records.length > 0" class="grow flex flex-col flex-1">
             <!-- Table -->
-            <div class="w-full flex-grow overflow-x-auto  overflow-y-hidden">
+            <div class="w-full flex-grow overflow-x-auto overflow-y-hidden">
                 <table
                     class="w-full divide-y divide-gray-200 dark:divide-gray-700"
                 >

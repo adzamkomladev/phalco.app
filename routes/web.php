@@ -104,7 +104,7 @@ Route::prefix('voting')
                 Route::post('upload', \App\Actions\Voting\Agents\Upload::class)->name('upload');
                 Route::get('', \App\Actions\Voting\Agents\Index::class)->name('index');
                 Route::post('', \App\Actions\Voting\Agents\Store::class)->name('store');
-        });
+            });
 
         Route::prefix('ballots')
             ->name('ballots.')

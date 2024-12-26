@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const props = defineProps<{
     modelValue: string;
-    label:string;
-    inputContainerClass?:string|string[];
+    label: string;
+    inputContainerClass?: string | string[];
 }>();
 
 const emit = defineEmits(["update:modelValue"]);
@@ -67,7 +67,7 @@ watch(selectedAmpm, (newAmpm: string) => {
 
 <template>
     <div class="grid">
-         <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center">
             <label
                 v-if="props.label"
                 class="block text-gray-500 lg:text-base mb-2 dark:text-gray-300"
@@ -75,28 +75,25 @@ watch(selectedAmpm, (newAmpm: string) => {
                 {{ props.label }}
             </label>
         </div>
-    <div 
-    :class="inputContainerClass"
-    class="flex gap-2 items-center">
-        <SharedFormBaseAdvanceSelect
-            optionClass="py-2"
-            v-model="selectedHour"
-            :options="hours"
-            position="top-center"
-        /><span class="text-lg text-gray-700">:</span>
-        <SharedFormBaseAdvanceSelect
-            optionClass="py-2"
-            v-model="selectedMinute"
-            :options="minutes"
-            position="top-center"
-        />
-        <SharedFormBaseAdvanceSelect
-            optionClass="py-2"
-            v-model="selectedAmpm"
-            :options="ampmOptions"
-            position="bottom-center"
-        />
+        <div :class="inputContainerClass" class="flex gap-2 items-center">
+            <SharedFormBaseAdvanceSelect
+                optionClass="py-2"
+                v-model="selectedHour"
+                :options="hours"
+                position="top-center"
+            /><span class="text-lg text-gray-700">:</span>
+            <SharedFormBaseAdvanceSelect
+                optionClass="py-2"
+                v-model="selectedMinute"
+                :options="minutes"
+                position="top-center"
+            />
+            <SharedFormBaseAdvanceSelect
+                optionClass="py-2"
+                v-model="selectedAmpm"
+                :options="ampmOptions"
+                position="bottom-center"
+            />
+        </div>
     </div>
-    </div>
-   
 </template>

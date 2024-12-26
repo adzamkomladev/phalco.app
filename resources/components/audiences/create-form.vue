@@ -17,10 +17,12 @@ const form = useForm({
     },
 });
 
-const electionOptions = props.elections?.map((e: App.Data.Elections.ElectionData) => ({
-    value: e.id,
-    label: e.name,
-}));
+const electionOptions = props.elections?.map(
+    (e: App.Data.Elections.ElectionData) => ({
+        value: e.id,
+        label: e.name,
+    }),
+);
 </script>
 
 <template>

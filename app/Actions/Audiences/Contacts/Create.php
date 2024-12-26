@@ -4,7 +4,6 @@ namespace App\Actions\Audiences\Contacts;
 
 use App\Data\Audiences\AudienceData;
 use App\Models\Audience;
-use App\Models\Contact;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 use function Hybridly\view;
@@ -22,7 +21,7 @@ class Create
     public function handle(int $audienceId)
     {
         $audience = Audience::select(['id', 'name', 'description', 'status'])
-        ->findOrFail($audienceId);
+            ->findOrFail($audienceId);
 
         return [
             'audience' => AudienceData::optional($audience),

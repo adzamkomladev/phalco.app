@@ -20,16 +20,15 @@ const selectedOptions = ref<any[]>(
         : [],
 );
 
-
 const selectedOption = ref(
     props.selectMultiple
-        ? props.options.filter((n:any) =>
+        ? props.options.filter((n: any) =>
               Array.isArray(selectedValue.value)
                   ? selectedValue.value.includes(n.value || n)
                   : false,
           )
         : props.options.find(
-              (n:any) =>
+              (n: any) =>
                   n.value === selectedValue.value || selectedValue || null,
           ),
 );
@@ -56,7 +55,6 @@ const selectOption = (option: { value: any; label: string }) => {
     }
 };
 
-
 const defaulSelectClass =
     "py-2 px-3 justify-between gap-2 capitalize text-gray-500 min-w-fit flex items-center cursor-pointer bg-white  border rounded-lg text-start text-sm dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400";
 
@@ -75,18 +73,21 @@ const defaultSelectedClass = "bg-gray-100 dark:bg-gray-800";
         :hideContentOnSelect="hideOnSelect"
     >
         <template v-slot:toggle>
-            <button class="w-full overflow-hidden" :class="[defaulSelectClass, selectClass]">
+            <button
+                class="w-full overflow-hidden"
+                :class="[defaulSelectClass, selectClass]"
+            >
                 <span class="text-base truncate max-w-[calc(100vw_-10rem)]">
                     {{
                         props.selectMultiple
                             ? selectedOptions
                                   .map((opt) =>
-                                      typeof opt === "object"
-                                          ? opt.label
-                                          : opt,
+                                      typeof opt === "object" ? opt.label : opt,
                                   )
                                   .join(", ") || placeholder
-                            : selectedOption?.label || selectedOption || placeholder
+                            : selectedOption?.label ||
+                              selectedOption ||
+                              placeholder
                     }}
                 </span>
                 <div :class="['flex items-center flex-col']">
@@ -112,35 +113,38 @@ const defaultSelectedClass = "bg-gray-100 dark:bg-gray-800";
                 type="button"
                 :aria-label="`Option ${option.label || option}`"
                 :class="[
-                     props.selectMultiple
-                            ?' flex items-center justify-between '  :  (
-                     
-                           
-                            (typeof option === 'object'
-                            ? selectedValue === option.value
-                            : selectedValue === option)
-                    )
-                        ? defaultSelectedClass + ' ' + selectedClass
-                        : 'hover:bg-gray-50 dark:hover:bg-gray-800',
+                    props.selectMultiple
+                        ? ' flex items-center justify-between '
+                        : (
+                                typeof option === 'object'
+                                    ? selectedValue === option.value
+                                    : selectedValue === option
+                            )
+                          ? defaultSelectedClass + ' ' + selectedClass
+                          : 'hover:bg-gray-50 dark:hover:bg-gray-800',
                     defaultOptionClass,
                     optionClass,
                 ]"
             >
-             <div>
-                <SharedCommonIcon
-                    v-if="hasIcon"
-                    class="h-5"
-                    :name="option.value || option"
-                />
-                <span class="capitalize">{{ option.label || option }}</span>
-             </div> 
-          <div class="text-forest-300">
-    {{ selectedOptions.find(selOpt =>
-        typeof option === 'object'
-            ? option.value === selOpt.value
-            : option === selOpt
-    ) ? '✔' : '' }}
-</div> 
+                <div>
+                    <SharedCommonIcon
+                        v-if="hasIcon"
+                        class="h-5"
+                        :name="option.value || option"
+                    />
+                    <span class="capitalize">{{ option.label || option }}</span>
+                </div>
+                <div class="text-forest-300">
+                    {{
+                        selectedOptions.find((selOpt) =>
+                            typeof option === "object"
+                                ? option.value === selOpt.value
+                                : option === selOpt,
+                        )
+                            ? "✔"
+                            : ""
+                    }}
+                </div>
             </button>
         </div>
     </SharedCommonDropdown>

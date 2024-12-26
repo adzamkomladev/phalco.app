@@ -26,48 +26,44 @@ const describeBy = computed(() => `${props.id}-error`);
 
 <template>
     <div class="space-y-2">
-        <p class="text-gray-500 font-medium  ">{{ label }}</p>
-          <ul class="flex flex-col sm:flex-row">
+        <p class="text-gray-500 font-medium">{{ label }}</p>
+        <ul class="flex flex-col sm:flex-row">
+            <li
+                v-for="(option, index) in options"
+                class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg dark:bg-neutral-800 dark:border-neutral-700 dark:text-white"
+            >
+                <div class="relative flex items-start w-full">
+                    <div class="flex items-center h-5">
+                        <input
+                            type="radio"
+                            :disabled="props.disabled"
+                            :id="option"
+                            :name="props.name"
+                            :class="[inputClass]"
+                            :placeholder="props.placeholder"
+                            :required="props.required"
+                            :aria-describedby="describeBy"
+                            v-model="model"
+                            :checked="index === 1"
+                            :value="option"
+                        />
+                    </div>
 
-  <li
-  v-for="(option, index) in options"
-  class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg dark:bg-neutral-800 dark:border-neutral-700 dark:text-white">
-    <div class="relative flex items-start w-full">
-      <div class="flex items-center h-5">
-        <input
-      
-         type="radio"
-                :disabled="props.disabled"
-                :id="option"
-                :name="props.name"
-                :class="[inputClass]"
-                :placeholder="props.placeholder"
-                :required="props.required"
-                :aria-describedby="describeBy"
-                v-model="model"
-                :checked="index===1"
-           :value="option"
-           >
-      </div>
-
-      <label 
-       :for="option"
-      class="ps-3 block w-full text-sm text-gray-600 dark:text-neutral-500">
-       {{option}}
-      </label>
-       <p
-            v-if="props.error"
-            class="text-xs text-red-600 mt-2"
-            :id="describeBy"
-        >
-            {{ props.error }}
-        </p>
+                    <label
+                        :for="option"
+                        class="ps-3 block w-full text-sm text-gray-600 dark:text-neutral-500"
+                    >
+                        {{ option }}
+                    </label>
+                    <p
+                        v-if="props.error"
+                        class="text-xs text-red-600 mt-2"
+                        :id="describeBy"
+                    >
+                        {{ props.error }}
+                    </p>
+                </div>
+            </li>
+        </ul>
     </div>
-  </li>
- 
-
- 
-</ul> 
-    </div>
- 
 </template>
