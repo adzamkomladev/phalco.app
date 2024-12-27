@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { StatsCardProps } from "~/resources/interfaces/shared/common.interface";
-import AssignAgentImage from "~/resources/images/voting/assign_agent.png?src";
+import AssignAgentImage from "~/resources/images/main/assign_agent.png?src";
 
 const props = defineProps<{ assignedAgent?: any }>();
 </script>

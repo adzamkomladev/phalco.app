@@ -23,38 +23,29 @@ import { formatDate } from "~/resources/utils/shared/date";
         class="grid grid-cols-7 gap-x-5 ms-1"
         :class="length == index + 1 && 'grow'"
     >
-      
         <div
-            :class="[
-                status === 'completed'
-                    ? 'after:bg-forest-300 dark:after:bg-forest-600'
-                    : status === 'processing'
-                      ? 'after:bg-primary-300 dark:after:bg-primary-600'
-                      : status === 'paused'
-                        ? 'after:bg-gray-300 dark:after:bg-gray-400'
-                        : 'after:bg-crimson-300 dark:after:bg-crimson-600',
-            ]"
-            class="relative last:after:hidden col-span-1 after:absolute after:top-8 after:bottom-0 flex justify-center after:w-px after:-translate-x-[0.5px]"
+         
+            class="relative after:bg-gray-300  dark:after:bg-gray-600 last:after:hidden col-start-2 col-span-1 after:absolute after:top-8 after:bottom-0 flex justify-center after:w-px after:-translate-x-[0.5px]"
         >
             <div
                 class="relative z-10 size-8 aspect-square flex justify-center items-center"
             >
                 <span
                     :class="[
-                        status === 'completed'
-                            ? 'bg-forest-300 dark:bg-forest-600 '
-                            : status !== 'processing' &&
-                              'bg-gray-300 dark:bg-gray-500',
-                        status === 'processing'
-                            ? 'animate-ping size-4 bg-primary-300 dark:bg-primary'
-                            : 'size-3 ',
+                      status === 'completed'
+                    ? 'bg-forest-400  dark:after:bg-forest-600'
+                    : status === 'sending'
+                      ? 'bg-primary-400 dark:after:bg-primary-600'
+                      : status === 'paused'
+                        ? 'bg-gray-400 dark:after:bg-gray-400'
+                        : 'bg-crimson-400 dark:after:bg-crimson-600',
                     ]"
-                    class="rounded-full"
+                    class="rounded-full size-4"
                 />
-                <span
+                <!-- <span
                     class="size-3 absolute bg-primary-500 dark:bg-primary rounded-full"
-                    v-if="status === 'processing'"
-                />
+                    v-if="status === 'sending'"
+                /> -->
             </div>
         </div>
         <!-- :delay="60 * index * index" -->
@@ -66,7 +57,19 @@ import { formatDate } from "~/resources/utils/shared/date";
                 :duration="200"
                 :delay="100 * index"
             >
-                <p>{{ sender }}</p>
+            <p
+             :class="[
+                      status === 'completed'
+                    ? 'text-forest-400  dark:after:text-forest-600'
+                    : status === 'sending'
+                      ? 'text-primary-400 dark:after:text-primary-600'
+                      : status === 'paused'
+                        ? 'text-gray-400 dark:after:text-gray-400'
+                        : 'text-crimson-400 dark:after:text-crimson-600',
+                    ]"
+            class="text-sm font-semibold">{{ status }}</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">{{ sender }}</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">{{ time }}</p>
                 <p class="opacity-0">g</p>
             </div>
         </div>

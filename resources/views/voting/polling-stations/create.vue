@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import PolloingStationImage from "~/resources/images/voting/new_polling_station.webp?src";
+import PolloingStationImage from "~/resources/images/main/new_polling_station.webp?src";
 
 useHead({
     title: "Voting: New Polling Station",

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BallotShowMessageImage from "~/resources/images/voting/ballot_show_message.png?src";
+import BallotShowMessageImage from "~/resources/images/main/ballot_show_message.png?src";
 import NoPopularStationsFound from "~/resources/svg/main/paper_in_box.svg?src";
 
 const props = withDefaults(defineProps<{ candidates: string }>(), {});

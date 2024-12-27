@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import VoterImage from "~/resources/images/voting/voter_create.webp?src";
+import VoterImage from "~/resources/images/main/voter_create.webp?src";
 
 useHead({
     title: "Voting: New Polling Station",

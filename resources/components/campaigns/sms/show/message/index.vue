@@ -17,7 +17,7 @@ defineProps<{ message: any }>();
                 Vote for Komla
             </h2>
             <div class="text-sm transition-all flex flex-col-reverse">
-                <details class="peer group">
+                <details class="peer group w-fit">
                     <summary class="peer flex cursor-pointer">
                         <p
                             class="text-primary-500 dark:text-primary-300 italic"
