@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import NoCampaignMessageImage from "~/resources/images/main/no_campaign_message.png?src";
+import NoCampaignDetalsImage from "~/resources/svg/main/paper_in_box.svg?src";
+
 defineProps<{ message: any }>();
 </script>
 
@@ -12,11 +15,15 @@ defineProps<{ message: any }>();
         </div>
         <div class="shadow rounded-lg p-4 space-y-2">
             <h2
+                v-if="message?.data"
                 class="text-base font-semibold text-gray-800 dark:text-gray-200"
             >
                 Vote for Komla
             </h2>
-            <div class="text-sm transition-all flex flex-col-reverse">
+            <div
+                v-if="message?.data"
+                class="text-sm transition-all flex flex-col-reverse"
+            >
                 <details class="peer group w-fit">
                     <summary class="peer flex cursor-pointer">
                         <p
@@ -36,12 +43,15 @@ defineProps<{ message: any }>();
                     Fuga reiciendis quam, deleniti voluptatum autem neque
                     assumenda tenetur esse expedita nesciunt laborum perferendis
                     doloremque voluptates molestiae alias ullam reprehenderit
-                    facilis obcaecati?
-                    Fuga reiciendis quam, deleniti voluptatum autem neque
-                    assumenda tenetur esse expedita nesciunt laborum perferendis
-                    doloremque voluptates molestiae alias ullam reprehenderit
-                    facilis obcaecati?
+                    facilis obcaecati? Fuga reiciendis quam, deleniti voluptatum
+                    autem neque assumenda tenetur esse expedita nesciunt laborum
+                    perferendis doloremque voluptates molestiae alias ullam
+                    reprehenderit facilis obcaecati?
                 </p>
+            </div>
+            <div v-else class="flex items-end justify-center">
+                <img class="h-24" :src="NoCampaignMessageImage" />
+                <p>No Campaign Message</p>
             </div>
         </div>
         <div class="grid gap-2">
@@ -54,7 +64,7 @@ defineProps<{ message: any }>();
                 Lorem ipsum dolor sit lorem5 amet.
             </p>
         </div>
-        <div class="flex flex-wrap">
+        <div class="flex flex-wrap" v-if="message?.details">
             <div class="space-y-2 grow">
                 <p class="text-sm text-gray-600 dark:text-gray-400">
                     Sender Name
@@ -69,6 +79,11 @@ defineProps<{ message: any }>();
                 <p class="text-sm text-gray-600 dark:text-gray-400">Status</p>
                 <SharedTableRequestStatus status="completed" />
             </div>
+        </div>
+        <div v-else class="flex items-center  justify-evenly">
+                        <p>No Info</p>
+
+            <img class="h-24" :src="NoCampaignDetalsImage" />
         </div>
     </SharedCommonCard>
 </template>
