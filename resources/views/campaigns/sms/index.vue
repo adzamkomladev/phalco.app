@@ -27,12 +27,12 @@ const table = useTable(props, "campaigns");
             class="flex md:grid md:grid-cols-5   _md:flex-col py-5 gap-4 sm:gap-6 self-center"
         >
         <div class="col-span-3">
-            <CampaignsNotification :notifications="notifications" class=""/>
+            <CampaignsSmsNotification :notifications="notifications" class=""/>
         </div>
                         
 
             <div class="grid gap-4 sm:gap-6 md:col-span-2 _md:grid-flow-col ">
-                <CampaignsStatsCard
+                <CampaignsSmsStatsCard
                     v-for="(stat,index) in stats"
                     :key="index"
                     :value="stat.value"
@@ -43,7 +43,7 @@ const table = useTable(props, "campaigns");
 
         <div class="">
             <div>
-                <CampaignsTable 
+                <CampaignsSmsTable
                 :table="table" />     
             </div>
         </div>

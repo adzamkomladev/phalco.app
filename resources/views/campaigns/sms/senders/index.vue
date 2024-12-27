@@ -44,10 +44,7 @@ const props = defineProps<{
     
 </div>
 <div>
-    <CampaignsSmsSenderForm
-    :sender-options="senderOptions"
-    
-    />
+    <CampaignsSmsSenderForm/>
 </div>
       </div>
       

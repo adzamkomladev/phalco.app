@@ -31,7 +31,11 @@ const audienceId = computed(() => props.audience.id!);
                     class="font-medium pr-2 place-self-center basis-1/2 shrink-0 grow"
                 >
                     <p class="text-gray-50 text-lg dark:text-gray-100">
-                        Add new Contacts to
+                        {{
+                        isUpload
+                            ? "Upload contacts to  "
+                            : "Add new Contacts to"
+                    }}
                         <span class="">{{ audience.name }}</span>
                     </p>
                     <p

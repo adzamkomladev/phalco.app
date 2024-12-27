@@ -43,8 +43,7 @@ const handleEventAction = (action: string, id: number) => {
 v-if="events.length >3"
 class="flex flex-col">
 
-<AudiencesShowNotificationItem  
-
+<CampaignsSmsNotificationItem  
 v-for="event in events"
       :key="event.id"
       :event="event"

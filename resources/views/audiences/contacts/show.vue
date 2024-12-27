@@ -23,7 +23,7 @@ defineProps<{
                     class="font-medium place-self-center basis-1/2 shrink-0 grow"
                 >
                     <p class="text-gray-50 text-lg dark:text-gray-100">
-                        CONTACT DETAILS
+                        Contact Details
                     </p>
                     <p
                         class="font-normal text-xs dark:text-gray-300 text-gray-100"
