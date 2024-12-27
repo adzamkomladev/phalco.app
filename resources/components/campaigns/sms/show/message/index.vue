@@ -1,25 +1,74 @@
 <script setup lang="ts">
-defineProps<{ message: any }>()
+defineProps<{ message: any }>();
 </script>
 
 <template>
-<SharedCommonCard>
-    <div>
-      <h2
-                    class="text-xl font-semibold text-gray-800 dark:text-gray-200"
-                >
+    <SharedCommonCard class="h-full transion-all space-y-4">
+        <div>
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
                 Vote for Komla
-                </h2>
-                <p class="text-sm text-gray-600 dark:text-gray-400"></p>   
-    </div>
-    <div class="shadow rounded-lg ">
- <h2
-                    class="text-base font-semibold text-gray-800 dark:text-gray-200"
-                >
+            </h2>
+            <p class="text-sm text-gray-600 dark:text-gray-400">#7678978209</p>
+        </div>
+        <div class="shadow rounded-lg p-4 space-y-2">
+            <h2
+                class="text-base font-semibold text-gray-800 dark:text-gray-200"
+            >
                 Vote for Komla
-                </h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga reiciendis quam, deleniti voluptatum autem neque assumenda tenetur esse expedita nesciunt laborum perferendis doloremque voluptates molestiae alias ullam reprehenderit facilis obcaecati?</p>
-    </div>
-    
-</SharedCommonCard>
+            </h2>
+            <div class="text-sm transition-all flex flex-col-reverse">
+                <details class="peer group">
+                    <summary class="peer flex cursor-pointer">
+                        <p
+                            class="text-primary-500 dark:text-primary-300 italic"
+                        >
+                            <span class="group-open:hidden">read more</span
+                            ><span class="group-open:block hidden"
+                                >read less</span
+                            >
+                        </p>
+                    </summary>
+                </details>
+                <p
+                    class="text-gray-600 peer-open:line-clamp-none line-clamp-4 dark:text-gray-400 transition-all overflow-hidden"
+                >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Fuga reiciendis quam, deleniti voluptatum autem neque
+                    assumenda tenetur esse expedita nesciunt laborum perferendis
+                    doloremque voluptates molestiae alias ullam reprehenderit
+                    facilis obcaecati?
+                    Fuga reiciendis quam, deleniti voluptatum autem neque
+                    assumenda tenetur esse expedita nesciunt laborum perferendis
+                    doloremque voluptates molestiae alias ullam reprehenderit
+                    facilis obcaecati?
+                </p>
+            </div>
+        </div>
+        <div class="grid gap-2">
+            <h2
+                class="text-base font-semibold text-gray-600 dark:text-gray-400"
+            >
+                Details
+            </h2>
+            <p class="text-xs text-gray-600 dark:text-gray-400">
+                Lorem ipsum dolor sit lorem5 amet.
+            </p>
+        </div>
+        <div class="flex flex-wrap">
+            <div class="space-y-2 grow">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Sender Name
+                </p>
+                <p
+                    class="text-xs font-semibold text-gray-600 dark:text-gray4200"
+                >
+                    Asante Gilbert
+                </p>
+            </div>
+            <div class="space-y-2 grow">
+                <p class="text-sm text-gray-600 dark:text-gray-400">Status</p>
+                <SharedTableRequestStatus status="completed" />
+            </div>
+        </div>
+    </SharedCommonCard>
 </template>
