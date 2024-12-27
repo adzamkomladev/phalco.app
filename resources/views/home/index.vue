@@ -91,7 +91,7 @@ const electionStats = {
         <div
             class="grid sm:grid-cols-2 _sm:flex flex-col items-center px-auto xl:grid-cols-4 gap-4 sm:gap-6"
         >
-            <ElectionsShowCardsDetail
+            <!-- <ElectionsShowCardsDetail
                 title="Campaigns"
                 icon="campaign_main"
                 :left-value="stats?.campaigns?.total || 0"
@@ -126,7 +126,7 @@ const electionStats = {
                 :right-value="stats?.pollingStations?.active || 0"
                 right-label="Active"
                 class="grow w-full"
-            />
+            /> -->
         </div>
 
         <div class="grid grid-cols-2 _md:flex flex-col gap-4 sm:gap-6">

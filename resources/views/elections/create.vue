@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import StartElectionImage from "~/resources/images/election/start.webp?src";
-import { ElectionStageProps } from "~/resources/interfaces/elections/create.interface";
-import { defaultElectionStages } from "~/resources/data/elections/create";
+import StartElectionImage from "@/images/election/start.webp?src";
+import { ElectionStageProps } from "@/interfaces/elections/create.interface";
+import useElections from "@/composables/elections";
 
 useHead({
     title: "New Election",
@@ -22,6 +22,9 @@ const form = useForm({
         success: () => form.reset(),
     },
 });
+
+const { getDefaultStages } = useElections();
+const defaultElectionStages = getDefaultStages();
 
 const addedStages = ref(defaultElectionStages.slice(0, 1));
 const removedDefaultStages = ref(defaultElectionStages.slice(1));

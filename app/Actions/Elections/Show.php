@@ -2,6 +2,7 @@
 
 namespace App\Actions\Elections;
 
+use App\Data\CardStatData;
 use App\Models\BallotOption;
 use App\Models\Election;
 use App\Models\ElectionStage;
@@ -77,9 +78,7 @@ class Show
                 $main,
                 $nominations,
                 $donations
-            ] = Concurrency::run([
-                fn () => ($organization->balanceInt ?? 0) / 100,
-
+            ] = Concurrency::run([fn () => ($organization->balanceInt ?? 0) / 100,
                 fn () => ($organization->getWallet('nominations')?->balanceInt ?? 0) / 100,
                 fn () => ($organization->getWallet('donations')?->balanceInt ?? 0) / 100,
             ]);
@@ -107,24 +106,64 @@ class Show
 
         return [
             'election' => $election,
-            'stats' => [
-                'voters' => [
-                    'total' => $election->voters,
-                    'voted' => $election->voters_voted,
+            'stats' => CardStatData::collect([
+                [
+                    'title' => 'Voters',
+                    'icon' => 'thumb_up',
+                    'stats' => [
+                        [
+                            'title' => 'Total',
+                            'value' => $election->voters,
+                        ],
+                        [
+                            'title' => 'Voted',
+                            'value' => $election->voters_voted,
+                        ],
+                    ],
                 ],
-                'nominations' => [
-                    'submitted' => 230,
-                    'approved' => 10,
+                [
+                    'title' => 'Nominations',
+                    'icon' => 'users',
+                    'stats' => [
+                        [
+                            'title' => 'Submitted',
+                            'value' => 230,
+                        ],
+                        [
+                            'title' => 'Approved',
+                            'value' => 10,
+                        ],
+                    ],
                 ],
-                'pollingStations' => [
-                    'total' => $election->polling_stations,
-                    'active' => $election->active_polling_stations,
+                [
+                    'title' => 'Polling Stations',
+                    'icon' => 'polling_station',
+                    'stats' => [
+                        [
+                            'title' => 'Total',
+                            'value' => $election->polling_stations,
+                        ],
+                        [
+                            'title' => 'Active',
+                            'value' => $election->active_polling_stations,
+                        ],
+                    ],
                 ],
-                'campaigns' => [
-                    'total' => 20,
-                    'active' => 3,
+                [
+                    'title' => 'Campaigns',
+                    'icon' => 'campaign_main',
+                    'stats' => [
+                        [
+                            'title' => 'Total',
+                            'value' => 20,
+                        ],
+                        [
+                            'title' => 'Active',
+                            'value' => 3,
+                        ],
+                    ],
                 ],
-            ],
+            ]),
             'stage' => $stage,
             'stageStats' => $stageStats,
         ];

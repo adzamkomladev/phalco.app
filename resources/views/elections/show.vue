@@ -3,12 +3,8 @@ import {
     Election,
     Stage,
     StageStats,
-    Stats,
 } from "~/resources/interfaces/elections/show.interface";
-import {
-    ElectionBallotProps,
-    ElectionCandidateProps,
-} from "~/resources/interfaces/voting/polling-stations/index.interface";
+import { ElectionBallotProps } from "~/resources/interfaces/voting/polling-stations/index.interface";
 
 useHead({
     title: "Election Details",
@@ -16,7 +12,7 @@ useHead({
 
 const props = defineProps<{
     election: Election;
-    stats: Stats;
+    stats: App.Data.CardStatData[];
     stage?: Stage | null;
     stageStats: StageStats;
     leadingCandidatesBallots?: ElectionBallotProps[] | null;
@@ -78,39 +74,9 @@ const dummyBallots: ElectionBallotProps[] = [
             class="grid md:grid-cols-2 _md:flex flex-col items-center px-auto xl:grid-cols-4 gap-4 sm:gap-6"
         >
             <ElectionsShowCardsDetail
-                title="Campaigns"
-                icon="campaign_main"
-                :left-value="stats.campaigns.total"
-                left-label="Total"
-                :right-value="stats.campaigns.active"
-                right-label="Active"
-                class="grow w-full"
-            />
-            <ElectionsShowCardsDetail
-                title="Voters"
-                icon="thumb_up"
-                :left-value="stats.voters.total"
-                left-label="Total"
-                :right-value="stats.voters.voted"
-                right-label="Voted"
-                class="grow w-full"
-            />
-            <ElectionsShowCardsDetail
-                title="Nominations"
-                icon="users"
-                :left-value="stats.nominations.submitted"
-                left-label="Submitted"
-                :right-value="stats.nominations.approved"
-                right-label="Approved"
-                class="grow w-full"
-            />
-            <ElectionsShowCardsDetail
-                title="Polling Stations"
-                icon="polling_station"
-                :left-value="stats.pollingStations.total"
-                left-label="Total"
-                :right-value="stats.pollingStations.active"
-                right-label="Active"
+                v-for="(stat, index) in stats"
+                :key="index"
+                :data="stat"
                 class="grow w-full"
             />
         </div>
