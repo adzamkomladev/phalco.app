@@ -4,9 +4,7 @@ import {
     Stage,
     StageStats,
 } from "~/resources/interfaces/elections/show.interface";
-import {
-    ElectionBallotProps,
-} from "~/resources/interfaces/voting/polling-stations/index.interface";
+import { ElectionBallotProps } from "~/resources/interfaces/voting/polling-stations/index.interface";
 
 useHead({
     title: "Election Details",

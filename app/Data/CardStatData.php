@@ -2,7 +2,6 @@
 
 namespace App\Data;
 
-use Illuminate\Support\Collection;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
@@ -17,7 +16,6 @@ class CardStatData extends Data
         public readonly DataCollection $stats
     ) {}
 }
-
 
 class StatData extends Data
 {
