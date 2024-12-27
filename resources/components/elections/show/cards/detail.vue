@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { SelectedElectionDetailsCard } from "~/resources/interfaces/elections/show.interface";
+const props = defineProps<{ data: App.Data.CardStatData }>();
 
-defineProps<SelectedElectionDetailsCard & { to?: string }>();
+const left = computed(() => props.data.stats[0]);
+const right = computed(() => props.data.stats[1]);
+const to = computed(() => props.data.to as any);
 </script>
 
 <template>
@@ -12,12 +14,12 @@ defineProps<SelectedElectionDetailsCard & { to?: string }>();
             <div class="flex gap-2 items-center">
                 <span class="bg-slate-100 dark:bg-slate-700 p-2 rounded-lg">
                     <SharedCommonIcon
-                        :name="icon"
+                        :name="data.icon"
                         stroke-width="1.5"
                         class="h-6 aspect-square"
                     />
                 </span>
-                <span class="font-semibold text-base">{{ title }}</span>
+                <span class="font-semibold text-base">{{ data.title }}</span>
             </div>
             <router-link
                 v-if="to"
@@ -34,15 +36,15 @@ defineProps<SelectedElectionDetailsCard & { to?: string }>();
         <div class="pt-5 _sm:pt-2 flex justify-between">
             <div class="">
                 <p class="text-base font-bold relative w-fit">
-                    {{ leftValue }}
+                    {{ left.value }}
                 </p>
-                <p class="text-gray-500">{{ leftLabel }}</p>
+                <p class="text-gray-500">{{ left.title }}</p>
             </div>
             <div>
                 <p class="font-semibold relative w-fit">
-                    {{ rightValue }}
+                    {{ right.value }}
                 </p>
-                <p class="text-gray-500">{{ rightLabel }}</p>
+                <p class="text-gray-500">{{ right.title }}</p>
             </div>
         </div>
     </SharedCommonCard>
