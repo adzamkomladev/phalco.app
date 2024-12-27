@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import NoNotificationImage from "~/resources/images/main/no_notification.png?svg";
+import NoNotificationImage from '~/resources/images/main/no_notification.png?svg'
+
+
+defineProps<{notifications:any}>();
 
 const events = ref([
   {
@@ -7,7 +10,7 @@ const events = ref([
     title: 'Event 1',
     progress: 50,
     total: 1024 ,
-    status: 'uploading', 
+    status: 'failed', 
     url: '',
   },
   {
@@ -17,40 +20,30 @@ const events = ref([
     total: 1024512,
     status: 'completed',
     url: '',
-  },
-  {
-    id: 2,
-    title: 'Event 2',
-    progress: 102453,
-    total: 1024512,
-    status: 'canceled',
-    url: '',
   }
 ]);
 
 const handleEventAction = (action: string, id: number) => {
-    console.log(`Action "${action}" performed for event ID: ${id}`);
-    // Example: Update event status in the parent
-    const event = events.value.find((e) => e.id === id);
-    if (event) {
-        if (action === "pause") event.status = "paused";
-        if (action === "resume") event.status = "uploading";
-        if (action === "delete")
-            events.value = events.value.filter((e) => e.id !== id);
-    }
+  console.log(`Action "${action}" performed for event ID: ${id}`);
+  // Example: Update event status in the parent
+  const event = events.value.find((e) => e.id === id);
+  if (event) {
+    if (action === 'pause') event.status = 'paused';
+    if (action === 'resume') event.status = 'uploading';
+    if (action === 'delete') events.value = events.value.filter((e) => e.id !== id);
+  }
 };
 </script>
 
 <template>
+
     <!-- File Uploading Progress Form -->
 <SharedCommonCard class="h-full  !p-0">
-
 <div
-v-if="events.length >0"
+v-if="events.length >3"
 class="flex flex-col">
 
-<AudiencesShowNotificationItem  
-
+<CampaignsSmsNotificationItem  
 v-for="event in events"
       :key="event.id"
       :event="event"

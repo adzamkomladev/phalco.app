@@ -9,7 +9,7 @@ const props = defineProps<{
     error?: string | null;
     fileTypes?: string | null;
     path?: string | null;
-    placeholder?: string;
+    placeholder?:string;
 }>();
 onMounted(() => {
     // Initialize File Upload
@@ -169,16 +169,16 @@ const fileUploadOptions = JSON.stringify({
                     <div
                         class="mt-4 flex flex-wrap justify-center items-center text-sm leading-6 text-gray-600"
                     >
+
                         <span
+
                             class="pe-1 font-medium mobile:text-xs text-gray-800 dark:text-gray-200"
                         >
-                            {{
-                                placeholder ||
-                                "Browse through your files and Drop your file here"
-                            }}
+                          {{ placeholder || 'Browse through your files and Drop your file here'}}
                         </span>
                         <span
-                            v-if="!placeholder"
+                           v-if="!placeholder"
+
                             class="bg-white font-semibold text-primary-500 hover:text-primary-600 rounded-lg decoration-2 hover:underline focus-within:outline-none focus-within:ring-2 focus-within:ring-primary-600 focus-within:ring-offset-2 dark:bg-gray-800 dark:text-primary-500 dark:hover:text-primary-500"
                             >browse</span
                         >

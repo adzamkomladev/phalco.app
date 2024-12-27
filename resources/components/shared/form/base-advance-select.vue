@@ -126,7 +126,7 @@ const defaultSelectedClass = "bg-gray-100 dark:bg-gray-800";
                     optionClass,
                 ]"
             >
-                <div>
+                <div class="flex gap-2 items-center">
                     <SharedCommonIcon
                         v-if="hasIcon"
                         class="h-5"

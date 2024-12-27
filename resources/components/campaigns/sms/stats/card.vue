@@ -10,9 +10,9 @@ const props = withDefaults(defineProps<StatsCardProps>(), {
 
 <template>
     <SharedCommonCard
-        class="font-medium flex flex-col justify-center shadow-card _sm:shadow _sm:p-5 rounded-2xl relative"
+        class="font-medium     flex flex-col justify-center shadow-card _sm:shadow _sm:p-5 rounded-2xl relative"
     >
-        <p class="text-gray-500 text-wrap">{{ description }}</p>
+        <p class="text-gray-500 text-wrap ">{{ description }}</p>
         <p class="font-black text-2xl _lg:text-xl text-gray-800">{{ value }}</p>
     </SharedCommonCard>
 </template>
