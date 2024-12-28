@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BallotImage from "~/resources/images/voting/ballot.webp?src";
+import BallotImage from "~/resources/images/main/ballot.webp?src";
 
 useHead({
     title: "Voting: New Ballot",

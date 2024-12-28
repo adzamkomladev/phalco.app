@@ -4,6 +4,16 @@ import Campaign from "~/resources/components/audiences/show/campaign.vue";
 useHead({
     title: "SMS Campaign Details",
 });
+
+
+const props = defineProps<{
+    requests:any;
+    message:any;
+    reports:any;
+    timeline:any;
+}>();
+
+const table = useTable(props, "requests");
 </script>
 
 <template layout="main">
@@ -21,11 +31,20 @@ useHead({
             <div class="md:col-span-4 grid gap-5">
                 <CampaignsSmsShowMessage />
 
-                <CampaignsSmsShowReport />
-            </div>
-            <div class="md:col-span-3">
-                <CampaignsSmsShowTimeline />
-            </div>
-        </div>
+        <div class="md:col-span-4 grid gap-5 ">
+<CampaignsSmsShowMessage :message="message"/>
+
+<CampaignsSmsShowReport :reports="reports"/>
+</div>
+<div class="md:col-span-3 ">
+    <CampaignsSmsShowTimeline :timeline="timeline" />
+</div>
+<div class="col-span-full md:col-span-7">
+    <CampaignsSmsTable :table="table" />
+
+</div>
+       </div>
+
+
     </div>
 </template>

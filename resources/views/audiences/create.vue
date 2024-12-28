@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AudiencesFormImage from "~/resources/images/voting/new_audience.png?src";
+import AudiencesFormImage from "~/resources/images/main/new_audience.png?src";
 
 useHead({
     title: "New Audience",
