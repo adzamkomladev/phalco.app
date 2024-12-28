@@ -17,11 +17,11 @@ defineProps<{ reports: any }>();
         <div
         v-if="reports"
         class="grid gap-4 ">
-<CampaignsSmsShowReportItem
-:value="'200'"
-:title="'Total Contacts'"
-:icon="'users'"
-/>
+    <CampaignsSmsShowReportItem
+    :value="'200'"
+    :title="'Total Contacts'"
+    :icon="'users'"
+    />
 <CampaignsSmsShowReportItem
 :value="'200'"
 :title="'Delivered'"

@@ -7,8 +7,8 @@ useHead({
 
 
 const props = defineProps<{
-    requests:any;
-    message:any;
+    requests:[];
+    message:[];
     reports:any;
     timeline:any;
 }>();
@@ -18,14 +18,17 @@ const table = useTable(props, "requests");
 
 <template layout="main">
   <div
-        class="max-w-[85rem] px-4 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
+        class="max-w-[100rem] px-4 space-y-4 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
     >
-        <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
+    <div>
+          <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
             SMS Campaign Details
         </h2>
         <p class="text-sm text-gray-600 dark:text-gray-400">
            Make and organise your campaign on one click
-        </p>
+        </p>   
+    </div>
+   
 
        <div class ="grid gap-5 md:grid-cols-7">
 
