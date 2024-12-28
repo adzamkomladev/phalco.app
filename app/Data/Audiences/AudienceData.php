@@ -14,6 +14,7 @@ class AudienceData extends Data
         public readonly ?string $description,
         public readonly string $status,
         public readonly ?string $createdAt,
-        public readonly ?string $updatedAt
+        public readonly ?string $updatedAt,
+        public readonly ?int $contacts
     ) {}
 }

@@ -2,8 +2,11 @@
 
 namespace App\Actions\Campaigns\Sms;
 
-use App\Data\Campaigns\Sms\SenderData;
+use App\Data\Finance\WalletData;
+use App\Models\Audience;
 use App\Models\SmsSender;
+use Bavix\Wallet\Models\Wallet;
+use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class Create
@@ -17,10 +20,36 @@ class Create
 
     public function handle(int $organizationId)
     {
-        $senders = SmsSender::where('organization_id', $organizationId)->get();
+        [
+            $senders,
+            $audiences,
+            $wallets
+        ] = Octane::concurrently([
+            fn() => SmsSender::select(['id', 'organization_id', 'sender', 'status'])
+            ->where('organization_id', $organizationId)
+                ->where('status', 'approved')
+                ->get(),
+            fn() => Audience::select(['id', 'organization_id', 'name', 'status'])
+            ->withCount('contacts as contacts')
+            ->where('organization_id', $organizationId)
+                ->where('status', 'active')
+                ->get(),
+            fn() =>  Wallet::select(['id', 'holder_type', 'holder_id', 'slug', 'name', 'balance', 'decimal_places'])
+            ->where('holder_type', 'organization')
+            ->where('holder_id', $organizationId)
+                ->get(),
+        ]);
 
         return [
-            'senders' => SenderData::collect($senders),
+            'senders' => $senders,
+            'audiences' => $audiences,
+            'wallets' => WalletData::collect(
+                $wallets->map(fn($wallet) => [
+                    'id' => $wallet->id,
+                    'name' => $wallet->name,
+                    'balance' => ($wallet?->balanceInt ?? 0) / 100
+                ])->toArray()
+            )
         ];
     }
 }

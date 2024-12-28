@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { Option } from '@/interfaces/shared/common.interface';
+
 const props = defineProps<{
-  senderOptions: { label: string; value?: number | null }[];
+    senderOptions: Option[];
+    audienceOptions: Option[];
+    walletOptions: Option[];
 }>();
 
 const form = useForm({
@@ -25,7 +29,7 @@ watchEffect(() => {
   if (time.value) {
     const [hours, minutes] = time.value.split(":").map(Number);
     if (!isNaN(hours) && !isNaN(minutes)) {
-      date.value.setHours(hours, minutes, 0, 0); 
+      date.value.setHours(hours, minutes, 0, 0);
       form.fields.scheduled_at = date.value.toISOString();
     } else {
       console.warn("Invalid time format:", time.value);
@@ -44,10 +48,10 @@ watchEffect(() => {
             Create Campaign
         </h2>
         <p class="text-sm text-gray-600 dark:text-gray-400">
-           Fill in the campaign details 
+           Fill in the campaign details
         </p>
       </div>
-      
+
       <SharedFormBaseAdvanceSelect
         placeholder="Sender"
         error="form.fields.sender_id"
@@ -58,7 +62,7 @@ watchEffect(() => {
       <SharedFormBaseAdvanceSelect
         placeholder="Audience"
         error="form.fields.audience_id"
-        :options="senderOptions"
+        :options="audienceOptions"
         v-model="form.fields.audience_id"
       />
 
@@ -83,7 +87,7 @@ watchEffect(() => {
           v-model="time"
         />
       </div>
-      
+
     </div>
 
      <div class=" w-full flex flex-col gap-5 md:row-span-2  md:col-span-2">
@@ -92,14 +96,14 @@ watchEffect(() => {
             Cost Of campaigning Message
         </h2>
         <p class="text-sm text-gray-600 dark:text-gray-400">
-           Manage the cost of 
+           Manage the cost of
         </p>
       </div>
-       
+
         <SharedFormBaseAdvanceSelect
           placeholder="Wallet"
           error="form.fields.wallet_id"
-          :options="senderOptions"
+          :options="walletOptions"
           v-model="form.fields.wallet_id"
         />
           <CampaignsSmsCreateTransactionDetails/>
