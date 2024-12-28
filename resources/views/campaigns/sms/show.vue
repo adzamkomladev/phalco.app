@@ -5,12 +5,11 @@ useHead({
     title: "SMS Campaign Details",
 });
 
-
 const props = defineProps<{
-    requests:any;
-    message:any;
-    reports:any;
-    timeline:any;
+    requests: any;
+    message: any;
+    reports: any;
+    timeline: any;
 }>();
 
 const table = useTable(props, "requests");
@@ -31,20 +30,18 @@ const table = useTable(props, "requests");
             <div class="md:col-span-4 grid gap-5">
                 <CampaignsSmsShowMessage />
 
-        <div class="md:col-span-4 grid gap-5 ">
-<CampaignsSmsShowMessage :message="message"/>
+                <div class="md:col-span-4 grid gap-5">
+                    <CampaignsSmsShowMessage :message="message" />
 
-<CampaignsSmsShowReport :reports="reports"/>
-</div>
-<div class="md:col-span-3 ">
-    <CampaignsSmsShowTimeline :timeline="timeline" />
-</div>
-<div class="col-span-full md:col-span-7">
-    <CampaignsSmsTable :table="table" />
-
-</div>
-       </div>
-
-
+                    <CampaignsSmsShowReport :reports="reports" />
+                </div>
+                <div class="md:col-span-3">
+                    <CampaignsSmsShowTimeline :timeline="timeline" />
+                </div>
+                <div class="col-span-full md:col-span-7">
+                    <CampaignsSmsTable :table="table" />
+                </div>
+            </div>
+        </div>
     </div>
 </template>
