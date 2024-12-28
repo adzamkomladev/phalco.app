@@ -1,18 +1,16 @@
 <script setup lang="ts">
 import NoCampaignReportsImage from "~/resources/svg/main/no_option.svg?src";
 
-
 defineProps<{ reports: any }>();
 </script>
 
 <template>
     <SharedCommonCard class="space-y-4">
-        
         <div>
             <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-               Campaign Report
+                Campaign Report
             </h2>
-            <p class="text-sm  text-gray-600 dark:text-gray-400"></p>
+            <p class="text-sm text-gray-600 dark:text-gray-400"></p>
         </div>
         <div
         v-if="reports"
@@ -38,8 +36,8 @@ defineProps<{ reports: any }>();
 :icon="'clock'"
 />
         </div>
-         <div v-else class="flex items-center  justify-evenly">
-                        <p>No Info</p>
+        <div v-else class="flex items-center justify-evenly">
+            <p>No Info</p>
 
             <img class="h-24" :src="NoCampaignReportsImage" />
         </div>

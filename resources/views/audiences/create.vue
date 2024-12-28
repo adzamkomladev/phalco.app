@@ -24,7 +24,8 @@ const elections = useProperty("elections.all");
                     Create Audience
                 </p>
                 <p class="font-normal text-xs dark:text-gray-300 text-gray-100">
-                    Create a new audience or create with a list of contacts as well
+                    Create a new audience or create with a list of contacts as
+                    well
                 </p>
             </div>
             <div class="h-60 p-5 _xs:size-40 shrink-0">

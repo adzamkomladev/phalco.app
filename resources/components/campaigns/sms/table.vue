@@ -47,7 +47,6 @@ watch(search, debounceFn);
                     >
                         Campaigns
                     </h2>
-                  
                 </div>
 
                 <div>
