@@ -39,7 +39,7 @@ class Store
             'sender' => $data['sender'],
             'reason' => $data['reason'],
             'proof_docs_url' => $data['proof_docs_url'],
-            'status' => 'approved'
+            'status' => 'approved',
         ]);
     }
 }
