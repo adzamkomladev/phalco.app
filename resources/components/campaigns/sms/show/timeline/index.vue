@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { Stage } from "~/resources/interfaces/elections/show.interface";
 
- const datas: Array<{
-        status: string;
-        sender: string;
-        time: string;
-    }> = [
-        { status: "completed", sender: "Danny", time: "10:00 AM" },
-        { status: "processing", sender: "Danny", time: "11:00 AM" },
-        { status: "canceled", sender: "Amos", time: "11:00 AM" },
-        { status: "paused", sender: "Danny", time: "11:30 AM" },
-    ];
+const datas: Array<{
+    status: string;
+    sender: string;
+    time: string;
+}> = [
+    { status: "completed", sender: "Danny", time: "10:00 AM" },
+    { status: "processing", sender: "Danny", time: "11:00 AM" },
+    { status: "canceled", sender: "Amos", time: "11:00 AM" },
+    { status: "paused", sender: "Danny", time: "11:30 AM" },
+];
 const props = defineProps<{ stages: Stage[]; electionEndDate: Date }>();
 </script>
 
@@ -25,17 +25,17 @@ const props = defineProps<{ stages: Stage[]; electionEndDate: Date }>();
 
         <div class="grow flex flex-col">
             <div class="font-medium pt-2">Date</div>
-            <div class="grow flex flex-col ">
+            <div class="grow flex flex-col">
                 <div class="grow flex flex-col">
                     <CampaignsSmsShowTimelineItem
-                    v-for="(data, index) in datas"
-                    :key="index"
-                    :length="datas.length"
-                    :data="data"
-                    :index="index"
-                />
+                        v-for="(data, index) in datas"
+                        :key="index"
+                        :length="datas.length"
+                        :data="data"
+                        :index="index"
+                    />
                 </div>
-                
+
                 <div class="grid grid-cols-7">
                     <div class="col-start-0 grid place-content-center">
                         <div

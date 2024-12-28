@@ -151,12 +151,12 @@ onMounted(
                             <div
                                 class="lg:whitespace-nowrap flex items-center gap-1 font-semibold text-gray-800 dark:text-gray-200"
                             >
-                            <div
-    v-if="country"
-    v-html="country.flag"
-    class="h-4 w-6 flex items-center justify-center"
-></div>  
-                               
+                                <div
+                                    v-if="country"
+                                    v-html="country.flag"
+                                    class="h-4 w-6 flex items-center justify-center"
+                                ></div>
+
                                 <span>{{ country?.name || "--" }}</span>
                             </div>
                         </div>

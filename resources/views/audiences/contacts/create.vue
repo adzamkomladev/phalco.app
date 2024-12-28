@@ -32,10 +32,10 @@ const audienceId = computed(() => props.audience.id!);
                 >
                     <p class="text-gray-50 text-lg dark:text-gray-100">
                         {{
-                        isUpload
-                            ? "Upload contacts to  "
-                            : "Add new Contacts to"
-                    }}
+                            isUpload
+                                ? "Upload contacts to  "
+                                : "Add new Contacts to"
+                        }}
                         <span class="">{{ audience.name }}</span>
                     </p>
                     <p

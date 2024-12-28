@@ -6,7 +6,7 @@ const props = defineProps<{
         status?: string;
         sender?: string;
         time?: string;
-    } ;
+    };
     index: number;
     length: number;
 }>();
@@ -23,7 +23,6 @@ import { formatDate } from "~/resources/utils/shared/date";
         class="grid grid-cols-7 gap-x-5 ms-1"
         :class="length == index + 1 && 'grow'"
     >
-      
         <div
             :class="[
                 status === 'completed'

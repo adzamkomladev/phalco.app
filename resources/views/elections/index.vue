@@ -14,8 +14,6 @@ const props = defineProps<{
     }>;
 }>();
 
-
-
 const table = useTable(props, "electionsTable");
 </script>
 

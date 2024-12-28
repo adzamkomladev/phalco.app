@@ -36,11 +36,10 @@ defineProps<{ message: any }>();
                     Fuga reiciendis quam, deleniti voluptatum autem neque
                     assumenda tenetur esse expedita nesciunt laborum perferendis
                     doloremque voluptates molestiae alias ullam reprehenderit
-                    facilis obcaecati?
-                    Fuga reiciendis quam, deleniti voluptatum autem neque
-                    assumenda tenetur esse expedita nesciunt laborum perferendis
-                    doloremque voluptates molestiae alias ullam reprehenderit
-                    facilis obcaecati?
+                    facilis obcaecati? Fuga reiciendis quam, deleniti voluptatum
+                    autem neque assumenda tenetur esse expedita nesciunt laborum
+                    perferendis doloremque voluptates molestiae alias ullam
+                    reprehenderit facilis obcaecati?
                 </p>
             </div>
         </div>

@@ -25,18 +25,18 @@ class Create
             $audiences,
             $wallets
         ] = Octane::concurrently([
-            fn() => SmsSender::select(['id', 'organization_id', 'sender', 'status'])
-            ->where('organization_id', $organizationId)
+            fn () => SmsSender::select(['id', 'organization_id', 'sender', 'status'])
+                ->where('organization_id', $organizationId)
                 ->where('status', 'approved')
                 ->get(),
-            fn() => Audience::select(['id', 'organization_id', 'name', 'status'])
-            ->withCount('contacts as contacts')
-            ->where('organization_id', $organizationId)
+            fn () => Audience::select(['id', 'organization_id', 'name', 'status'])
+                ->withCount('contacts as contacts')
+                ->where('organization_id', $organizationId)
                 ->where('status', 'active')
                 ->get(),
-            fn() =>  Wallet::select(['id', 'holder_type', 'holder_id', 'slug', 'name', 'balance', 'decimal_places'])
-            ->where('holder_type', 'organization')
-            ->where('holder_id', $organizationId)
+            fn () => Wallet::select(['id', 'holder_type', 'holder_id', 'slug', 'name', 'balance', 'decimal_places'])
+                ->where('holder_type', 'organization')
+                ->where('holder_id', $organizationId)
                 ->get(),
         ]);
 
@@ -44,12 +44,12 @@ class Create
             'senders' => $senders,
             'audiences' => $audiences,
             'wallets' => WalletData::collect(
-                $wallets->map(fn($wallet) => [
+                $wallets->map(fn ($wallet) => [
                     'id' => $wallet->id,
                     'name' => $wallet->name,
-                    'balance' => ($wallet?->balanceInt ?? 0) / 100
+                    'balance' => ($wallet?->balanceInt ?? 0) / 100,
                 ])->toArray()
-            )
+            ),
         ];
     }
 }
