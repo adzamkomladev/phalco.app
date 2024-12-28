@@ -2,9 +2,8 @@
 import NoTimelineImage from "~/resources/svg/main/no_ongoing.svg?src";
 
 const props = defineProps<{
-    timeline: any,
+    timeline: any;
 }>();
-
 </script>
 
 <template>
@@ -13,7 +12,9 @@ const props = defineProps<{
     >
         <div class="text-center">
             <h2 class="text-xl font-semibold">Campaign Timeline</h2>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet.</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+                Lorem ipsum dolor sit amet.
+            </p>
         </div>
 
         <div class="grow flex flex-col" v-if="timeline">
@@ -42,7 +43,7 @@ const props = defineProps<{
                 </div>
             </div>
         </div>
-        <div v-else class="grid place-items-center  h-full" >
+        <div v-else class="grid place-items-center h-full">
             <img :src="NoTimelineImage" />
             <p class="">No Data</p>
         </div>

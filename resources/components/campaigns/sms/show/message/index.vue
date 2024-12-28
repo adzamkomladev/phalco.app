@@ -80,8 +80,8 @@ defineProps<{ message: any }>();
                 <SharedTableRequestStatus status="completed" />
             </div>
         </div>
-        <div v-else class="flex items-center  justify-evenly">
-                        <p>No Info</p>
+        <div v-else class="flex items-center justify-evenly">
+            <p>No Info</p>
 
             <img class="h-24" :src="NoCampaignDetalsImage" />
         </div>
