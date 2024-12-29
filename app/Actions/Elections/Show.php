@@ -28,27 +28,26 @@ class Show
             $election,
             $audiences,
             $campaign
-        ] = Octane::concurrently([
-            fn () => Election::with([
+        ] = Octane::concurrently([fn() => Election::with([
                 'stages:id,election_id,stage,start,end',
                 'createdBy:id,selected_organization_id,first_name,last_name,email,avatar',
                 'organization',
             ])
                 ->withCount([
                     'campaigns as campaigns',
-                    'campaigns as active_campaigns' => fn (Builder $query) => $query->whereIn('status', ['pending', 'processing', 'paused']),
+                'campaigns as active_campaigns' => fn(Builder $query) => $query->whereIn('status', ['pending', 'processing', 'paused']),
                     'voters as voters',
-                    'voters as voters_voted' => fn (Builder $query) => $query->whereRelation('votes.ballot', 'election_id', $electionId),
+                'voters as voters_voted' => fn(Builder $query) => $query->whereRelation('votes.ballot', 'election_id', $electionId),
                     'pollingStations as polling_stations',
-                    'pollingStations as active_polling_stations' => fn (Builder $query) => $query->where('status', 'active'),
+                'pollingStations as active_polling_stations' => fn(Builder $query) => $query->where('status', 'active'),
                 ])
                 ->find($electionId),
-            fn () => Audience::whereRelation('campaign', 'election_id', $electionId)->count(),
-            fn () => Campaign::select(['id', 'user_id', 'election_id', 'data'])->with('createdBy:id,first_name,last_name,avatar')->where('election_id', $electionId)->latest()->first(),
+            fn() => Audience::whereRelation('campaigns', 'election_id', $electionId)->count(),
+            fn() => Campaign::select(['id', 'user_id', 'election_id', 'data'])->with('createdBy:id,first_name,last_name,avatar')->where('election_id', $electionId)->latest()->first(),
         ]);
 
         $stage = $election->stages->first(
-            fn (ElectionStage $value) => $value->start < now() && $value->end >= now(),
+            fn(ElectionStage $value) => $value->start < now() && $value->end >= now(),
         );
 
         $stageStats = null;
@@ -91,10 +90,9 @@ class Show
                 $main,
                 $nominations,
                 $donations
-            ] = Concurrency::run([
-                fn () => ($organization->balanceInt ?? 0) / 100,
-                fn () => ($organization->getWallet('nominations')?->balanceInt ?? 0) / 100,
-                fn () => ($organization->getWallet('donations')?->balanceInt ?? 0) / 100,
+            ] = Concurrency::run([fn() => ($organization->balanceInt ?? 0) / 100,
+                fn() => ($organization->getWallet('nominations')?->balanceInt ?? 0) / 100,
+                fn() => ($organization->getWallet('donations')?->balanceInt ?? 0) / 100,
             ]);
 
             $stageStats = [
