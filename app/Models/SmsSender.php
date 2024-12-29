@@ -21,6 +21,7 @@ class SmsSender extends Model
      */
     protected $fillable = [
         'organization_id',
+        'user_id',
         'sender',
         'reason',
         'proof_docs_url',

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SmsCampaingSenderImage from "~/resources/images/main/sms_campaign_senders.png?src";
+import SmsCampaignSenderImage from "@/images/main/sms_campaign_senders.png?src";
 
 useHead({
     title: "SMS Campaigns Senders",
@@ -33,7 +33,7 @@ const props = defineProps<{
                     </p>
                 </div>
                 <div class="h-52 p-5 _xs:size-40 shrink-0">
-                    <img :src="SmsCampaingSenderImage" class="h-full w-auto" />
+                    <img :src="SmsCampaignSenderImage" class="h-full w-auto" />
                 </div>
             </div>
 
