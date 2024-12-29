@@ -38,7 +38,9 @@ const props = defineProps<{
             </div>
 
             <div>
-                <div></div>
+                <div>
+                    {{senders}}
+                </div>
                 <div>
                     <CampaignsSmsSenderForm />
                 </div>

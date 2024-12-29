@@ -28,6 +28,7 @@ const form = useForm({
                 placeholder="Reason"
             />
             <SharedFormBaseFileUpload
+            type='png'
                 placeholder="sender upload proof document here"
                 v-model="form.fields.proof_docs_url"
             />

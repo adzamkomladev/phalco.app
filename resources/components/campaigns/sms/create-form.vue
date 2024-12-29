@@ -57,6 +57,7 @@ watchEffect(() => {
                 error="form.fields.sender_id"
                 :options="senderOptions"
                 v-model="form.fields.sender_id"
+                position="bottom-center"
             />
 
             <SharedFormBaseAdvanceSelect
@@ -64,6 +65,8 @@ watchEffect(() => {
                 error="form.fields.audience_id"
                 :options="audienceOptions"
                 v-model="form.fields.audience_id"
+                 position="bottom-center"
+
             />
 
             <SharedFormBaseTextarea

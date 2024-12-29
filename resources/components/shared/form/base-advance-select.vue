@@ -101,12 +101,12 @@ const defaultSelectedClass = "bg-gray-100 dark:bg-gray-800";
 
         <div
             :class="[defaultOptionsClass, optionsClass]"
-            v-if="options.length > 0"
         >
             <button disabled :class="[defaultOptionClass, 'opacity-50']">
-                {{ placeholder }}
+                {{ (options.length > 0 ? '':'No ') + placeholder  }}
             </button>
             <button
+            v-if="options.length > 0"
                 v-for="(option, index) in options"
                 :key="index"
                 @click="selectOption(option)"
