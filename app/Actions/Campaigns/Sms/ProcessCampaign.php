@@ -3,10 +3,8 @@
 namespace App\Actions\Campaigns\Sms;
 
 use App\Models\Campaign;
-use App\Models\CampaignActivity;
 use App\Models\CampaignRequest;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class ProcessCampaign
