@@ -65,8 +65,7 @@ watchEffect(() => {
                 error="form.fields.audience_id"
                 :options="audienceOptions"
                 v-model="form.fields.audience_id"
-                 position="bottom-center"
-
+                position="bottom-center"
             />
 
             <SharedFormBaseTextarea

@@ -26,10 +26,7 @@ const electionOptions = props.elections?.map(
 </script>
 
 <template>
-    <form
-        @submit.prevent="form.submit"
-        class="flex flex-col gap-5 mt-10"
-    >
+    <form @submit.prevent="form.submit" class="flex flex-col gap-5 mt-10">
         <div class="sm:col-span-9">
             <SharedFormBaseInput
                 v-model="form.fields.name"

@@ -99,14 +99,12 @@ const defaultSelectedClass = "bg-gray-100 dark:bg-gray-800";
             </button>
         </template>
 
-        <div
-            :class="[defaultOptionsClass, optionsClass]"
-        >
+        <div :class="[defaultOptionsClass, optionsClass]">
             <button disabled :class="[defaultOptionClass, 'opacity-50']">
-                {{ (options.length > 0 ? '':'No ') + placeholder  }}
+                {{ (options.length > 0 ? "" : "No ") + placeholder }}
             </button>
             <button
-            v-if="options.length > 0"
+                v-if="options.length > 0"
                 v-for="(option, index) in options"
                 :key="index"
                 @click="selectOption(option)"
