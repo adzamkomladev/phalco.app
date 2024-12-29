@@ -34,7 +34,7 @@ class ProcessCampaign
             return;
         }
 
-        $campaign = $this->markCampaignAsProcessing($campaign->id);
+        $campaign = $campaign->updateStatus($campaign->user_id, 'processing', 'Start processing campaign');
 
         CampaignRequest::select(['id', 'recipient', 'campaign_id'])
             ->where('campaign_id', $campaign->id)
@@ -49,32 +49,5 @@ class ProcessCampaign
 
                 ProcessCampaignRequests::dispatch($campaign->id, $data);
             }, column: 'id');
-    }
-
-    private function markCampaignAsProcessing(int $campaignId): Campaign
-    {
-        try {
-            DB::beginTransaction();
-
-            $campaign = Campaign::find($campaignId);
-
-            $campaign->update([
-                'status' => 'processing',
-            ]);
-
-            CampaignActivity::create([
-                'campaign_id' => $campaign->id,
-                'status' => 'processing',
-                'user_id' => $campaign->user_id,
-                'reason' => 'Start processing campaign',
-            ]);
-
-            DB::commit();
-
-            return $campaign;
-        } catch (\Exception $e) {
-            DB::rollBack();
-            throw $e;
-        }
     }
 }
