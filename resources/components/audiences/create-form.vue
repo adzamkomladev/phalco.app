@@ -28,7 +28,7 @@ const electionOptions = props.elections?.map(
 <template>
     <form
         @submit.prevent="form.submit"
-        class="flex flex-col gap-5 mt-10 px-4 sm:px-8"
+        class="flex flex-col gap-5 mt-10"
     >
         <div class="sm:col-span-9">
             <SharedFormBaseInput
