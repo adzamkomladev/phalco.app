@@ -27,7 +27,7 @@ const table = useTable(props, "ballots");
         <div
             class="grid md:grid-cols-2 _md:flex-col py-5 gap-4 sm:gap-6 self-center"
         >
-            <VotingBallotsMessageCard />
+            <VotingBallotsLeadingCandidate />
             <div class="grid gap-4 sm:gap-6 grid-cols-2 _xs:grid-cols-1 grow">
                 <VotingBallotsStatsCard
                     v-for="(stat, index) in stats"

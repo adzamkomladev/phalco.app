@@ -44,6 +44,11 @@ class Audience extends Model
         return $this->belongsTo(Organization::class);
     }
 
+    public function campaigns(): HasMany
+    {
+        return $this->hasMany(Campaign::class);
+    }
+
     /**
      * Get the user that created the Audience
      */

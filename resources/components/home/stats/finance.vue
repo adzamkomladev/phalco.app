@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { StageStatsDefault } from "~/resources/interfaces/elections/selected.interface";
+import { StageStatsDefault } from "~/resources/interfaces/elections/show.interface";
 
 const props = defineProps<{
     stageStat: StageStatsDefault;
@@ -15,8 +15,16 @@ const unit = "₵";
 </script>
 
 <template>
-    <SharedCommonCard class="gap-2 flex flex-col relative">
-        <div class="grid grid-cols-5 gap-2 _xs:flex flex-col">
+    <SharedCommonCard class="gap-8 flex flex-col relative">
+        <div class="text-center">
+            <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                Finance
+            </h2>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+                Lorem ipsum dolor sit, amet consectetur
+            </p>
+        </div>
+        <div class="flex justify-evenly gap-4 _xs:flex-col _xl:md:flex-col">
             <div class="flex gap-2 col-span-2 _xs:flex-col">
                 <img
                     :src="electionLogo"
@@ -24,25 +32,27 @@ const unit = "₵";
                 />
 
                 <div class="font-bold">
-                    <p></p>
                     <p class="font-normal">Nominations</p>
                     <p class="text-xl">{{ stageStat.totalNominations }}</p>
                 </div>
             </div>
-            <div class="flex flex-col justify-end col-span-3">
+            <div
+                :class="[true ? 'w-fit  ' : '']"
+                class="flex flex-col justify-e nd col-span-3"
+            >
                 <p class="">
                     Total Donations :<span class="font-bold text-semibase ml-2"
-                        >{{ unit }} {{ stageStat.totalDonations }}
+                        >{{ unit }} {{ stageStat.totalDonations || 0 }}
                     </span>
                 </p>
                 <p>
                     Total Spent :<span class="font-bold text-semibase ml-2"
-                        >{{ unit }} {{ totalAmountSpent }}</span
+                        >{{ unit }} {{ totalAmountSpent || 0 }}</span
                     >
                 </p>
                 <p>
                     Total Balance :<span class="font-bold text-semibase ml-2"
-                        >{{ unit }} {{ stageStat.totalBalance }}</span
+                        >{{ unit }} {{ stageStat.totalBalance || 0 }}</span
                     >
                 </p>
             </div>
@@ -58,10 +68,11 @@ const unit = "₵";
         <div class="h-full mt-20 mb-10">
             <SharedChartBar
                 class="min-h-full"
-                :values="Object.values(stageStat.spent)"
-                :labels="Object.keys(stageStat.spent)"
                 :unit="unit"
+                :values="Object.values(stageStat.spent || {})"
+                :labels="Object.keys(stageStat.spent || {})"
             />
+            <!--   -->
         </div>
     </SharedCommonCard>
 </template>

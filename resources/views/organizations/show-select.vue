@@ -45,7 +45,7 @@ watch(
     >
         <div class="mt-8">
             <div v-if="!isEmpty" class="flex flex-col gap-5">
-                <OrganisationSelectButton
+                <OrganizationSelectButton
                     @select="organization = $event"
                     :loading="loading"
                     v-model="organization"

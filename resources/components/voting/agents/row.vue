@@ -5,7 +5,7 @@ const props = defineProps<{
     row: { key: any; value: any; extra: any };
     columns: any[];
     findColumn: (label: string) => any;
-    selectedId: number;
+    selectedId: number | null;
 }>();
 
 const emits = defineEmits<{

@@ -48,7 +48,7 @@ const table = useTable(props, "pollingStations");
             </div>
 
             <div>
-                <VotingPollingStationsIndexPopularGraph
+                <VotingPollingStationsPopular
                     :polling-stations="popularPollingStations"
                 />
             </div>

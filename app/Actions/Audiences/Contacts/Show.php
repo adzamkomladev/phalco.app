@@ -2,6 +2,8 @@
 
 namespace App\Actions\Audiences\Contacts;
 
+use App\Actions\Common\GetCountries;
+use App\Data\Audiences\Contacts\ContactData;
 use App\Models\Contact;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -17,12 +19,15 @@ class Show
             ->base('audiences.show', ['id' => $id]);
     }
 
-    public function handle(int $id)
+    public function handle(int $id): array
     {
         $contact = Contact::find($id);
 
+        $data = GetCountries::run($contact->country ?? 'GH');
+
         return [
-            'contact' => $contact,
+            'contact' => ContactData::from($contact),
+            'country' => collect($data['countries'])->first(),
         ];
     }
 }

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { PopularPollingStationsCardProps } from "~/resources/interfaces/voting/polling-stations/index.interface";
+import NoPopularPollingStationImage from "~/resources/svg/main/paper_in_box.svg?src";
 
 defineProps<PopularPollingStationsCardProps>();
 </script>
@@ -16,7 +17,7 @@ defineProps<PopularPollingStationsCardProps>();
                 Polling Stations with most votes
             </p>
         </div>
-        <div>
+        <div v-if="pollingStations">
             <VotingPollingStationsIndexVoteProgress
                 v-for="(pollingStation, index) in pollingStations"
                 :key="index"
@@ -25,6 +26,18 @@ defineProps<PopularPollingStationsCardProps>();
                 :total="pollingStation.votes"
                 :progress="pollingStation.votes"
             />
+        </div>
+        <div
+            class="p-5 flex _sm:flex-col _sm:gap-0 _xl:md:gap-0 _xl:md:flex-col"
+            v-else
+        >
+            <img
+                :src="NoPopularPollingStationImage"
+                class="w-[50%] _sm:w-[60%] _xl:md:w-[60%] max-h-96 place-self-center"
+            />
+            <p class="text-black/70 pt-4 capitalize place-self-center">
+                no polling station ddetails
+            </p>
         </div>
     </SharedCommonCard>
 </template>

@@ -16,7 +16,7 @@ final class AgentsTable extends Table
 
     public function __construct(
         public readonly int $organizationId,
-        public readonly int $electionId,
+        public readonly ?int $electionId,
         public readonly int $roleId
     ) {}
 

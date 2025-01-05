@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import NoAgentImage from "~/resources/svg/main/no_user_profile.svg?src";
 // import {
 
 // } from "~/resources/interfaces/voting/requests/agent/index.interface.ts";
@@ -13,12 +14,9 @@
                 Agents Stats
             </h2>
             <div
-                class="w-[70%] h-auto aspect-square rounded-full overflow-hidden place-self-center"
+                class="w-[70%] max-w-60 h-auto aspect-square rounded-full overflow-hidden place-self-center"
             >
-                <img
-                    :src="'https://www.bing.com/th?id=OIP.5-mDBIk0BFx0D3b7_4ZgtAHaJF&w=120&h=150&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2'"
-                    class="w-full"
-                />
+                <img :src="NoAgentImage" class="w-full" />
             </div>
             <div>
                 <p class="font-semibold">Komla Adzam</p>

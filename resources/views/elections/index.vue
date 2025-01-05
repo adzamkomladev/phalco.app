@@ -21,7 +21,7 @@ const table = useTable(props, "electionsTable");
     <!-- Card Section -->
 
     <div
-        class="max-w-[85rem] px-4 text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
+        class="max-w-[90rem] gap-4 grid text-gray-800 dark:text-gray-300 sm:px-6 lg:px-8 mx-auto"
     >
         <!-- Grid -->
 
@@ -57,8 +57,8 @@ const table = useTable(props, "electionsTable");
             </div>
         </div>
         <!-- End Grid -->
+        <ElectionsIndexTable :table="table" />
     </div>
     <!-- End Card Section -->
     <!-- Table Section -->
-    <ElectionsIndexTable :table="table" />
 </template>

@@ -78,4 +78,9 @@ class Election extends Model
     {
         return $this->hasMany(Ballot::class);
     }
+
+    public function campaigns(): HasMany
+    {
+        return $this->hasMany(Campaign::class);
+    }
 }

@@ -12,17 +12,21 @@ Route::get('/phone-verif', function () {
     return hybridly('auth.phone-verification');
 })->name('phone-verif');
 
-Route::get('/send-request', function () {
-    return hybridly('home.agents.request-form');
-})->name('send-request');
+// Route::get('/send-request', function () {
+//     return hybridly('home.agents.request-form');
+// })->name('send-request');
 
-Route::get('/voting/request', function () {
-    return hybridly('voting.requests.show');
-})->name('voting.request.show');
+Route::get('/audiences/contacts/show', function () {
+    return hybridly('audiences.contacts.show');
+})->name('audiences.add-contacts');
 
-Route::get('/elections', function () {
-    return hybridly('elections.index');
-})->middleware('auth')->name('elections');
+// Route::get('/voting/request', function () {
+//     return hybridly('voting.requests.show');
+// })->name('voting.request.show');
+
+// Route::get('/elections', function () {
+//     return hybridly('elections.index');
+// })->middleware('auth')->name('elections');
 
 //region Auth Routes
 
@@ -58,7 +62,6 @@ Route::prefix('password')
     });
 
 //endregion
-
 //region Home Routes
 
 Route::get('home/agents', \App\Actions\Home\Agents::class)->name('home.agents')
@@ -87,6 +90,7 @@ Route::prefix('voting')
                 Route::get('{id}/show', \App\Actions\Voting\PollingStations\Show::class)->name('show');
                 Route::get('{id}/show/{voteEntryRequestId}/request', \App\Actions\Voting\PollingStations\ShowVoteEntryRequest::class)->name('show.request');
                 Route::get('create', \App\Actions\Voting\PollingStations\Create::class)->name('create');
+                // Route::get('voters/create', \App\Actions\Voting\PollingStations\Voters\Create::class)->name('voters.create');
                 Route::post('upload', \App\Actions\Voting\PollingStations\Upload::class)->name('upload');
                 Route::get('', \App\Actions\Voting\PollingStations\Index::class)->name('index');
                 Route::post('', \App\Actions\Voting\PollingStations\Store::class)->name('store');
@@ -95,7 +99,6 @@ Route::prefix('voting')
         Route::prefix('agents')
             ->name('agents.')
             ->group(function () {
-
                 Route::get('{id}/show', \App\Actions\Voting\Agents\Show::class)->name('show');
                 Route::get('create', \App\Actions\Voting\Agents\Create::class)->name('create');
                 Route::post('upload', \App\Actions\Voting\Agents\Upload::class)->name('upload');
@@ -106,6 +109,8 @@ Route::prefix('voting')
         Route::prefix('ballots')
             ->name('ballots.')
             ->group(function () {
+
+                Route::get('{id}/options/create', \App\Actions\Voting\Ballots\Options\Create::class)->name('options.create');
 
                 Route::get('create', \App\Actions\Voting\Ballots\Create::class)->name('create');
                 Route::get('{id}/show', \App\Actions\Voting\Ballots\Show::class)->name('show');
@@ -163,7 +168,6 @@ Route::prefix('finance')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class])
     ->group(function () {
         Route::get('transactions/{id}/show', \App\Actions\Finance\Transactions\Show::class)->name('transactions.show');
-
         Route::get('payments/{id}/show', \App\Actions\Finance\Payments\Show::class)->name('payments.show');
         Route::get('payments/{walletId}/top-up', \App\Actions\Finance\Payments\TopUp::class)->name('payments.top-up');
         Route::get('payments/{walletId}/withdraw', \App\Actions\Finance\Payments\Withdraw::class)->name('payments.withdraw');
@@ -187,6 +191,8 @@ Route::prefix('audiences')
         Route::post('', \App\Actions\Audiences\Store::class)->name('store');
         Route::get('create', \App\Actions\Audiences\Create::class)->name('create');
         Route::get('{id}/show', \App\Actions\Audiences\Show::class)->name('show');
+        Route::get('{id}/contacts/create', \App\Actions\Audiences\Contacts\Create::class)->name('contacts.create');
+        Route::post('/{id}/contacts', \App\Actions\Audiences\Contacts\Store::class)->name('contacts.store');
         Route::get('{id}/show/contacts/{contactId}/show', \App\Actions\Audiences\Contacts\Show::class)->name('contacts.show');
     });
 
@@ -204,6 +210,7 @@ Route::prefix('campaigns')
                 Route::get('senders', \App\Actions\Campaigns\Sms\Sender\Index::class)->name('senders.index');
                 Route::post('senders', \App\Actions\Campaigns\Sms\Sender\Store::class)->name('senders.store');
                 Route::get('', \App\Actions\Campaigns\Sms\Index::class)->name('index');
+                Route::post('', \App\Actions\Campaigns\Sms\Store::class)->name('store');
                 Route::get('create', \App\Actions\Campaigns\Sms\Create::class)->name('create');
                 Route::get('{id}/show', \App\Actions\Campaigns\Sms\Show::class)->name('show');
                 Route::patch('{id}/pause', \App\Actions\Campaigns\Sms\PauseCampaign::class)->name('pause');
@@ -271,3 +278,6 @@ Route::prefix('agents')
     });
 
 //endregion
+
+Route::get('common/countries', \App\Actions\Common\GetCountries::class)
+    ->name('common.countries');

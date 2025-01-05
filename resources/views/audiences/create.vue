@@ -1,20 +1,11 @@
 <script setup lang="ts">
+import AudiencesFormImage from "~/resources/images/main/new_audience.png?src";
+
 useHead({
     title: "New Audience",
 });
 
-const form = useForm({
-    method: "POST",
-    url: route("audiences.store"),
-    fields: {
-        name: "",
-        description: "",
-        uploaded_contacts: null,
-    },
-    hooks: {
-        success: () => form.reset(),
-    },
-});
+const elections = useProperty("elections.all");
 </script>
 
 <template>
@@ -23,38 +14,25 @@ const form = useForm({
         title="New Audience"
         size="xl"
     >
-        <form
-            @submit.prevent="form.submit"
-            class="flex flex-col gap-5 mt-10 px-4 sm:px-8"
+        <div
+            class="flex flex-row-reverse rounded-3xl bg-secondary-300 dark:bg-gradient-to-r from-secondary-950 to-secondary-800"
         >
-            <div class="sm:col-span-9">
-                <SharedFormBaseInput
-                    v-model="form.fields.name"
-                    :error="form.errors.name"
-                    id="name"
-                    name="name"
-                    placeholder="Audience Name"
-                />
+            <div
+                class="font-medium sm:pt-10 py-2 place-self-center basis-1/2 shrink-0 grow"
+            >
+                <p class="text-gray-50 text-lg dark:text-gray-100">
+                    Create Audience
+                </p>
+                <p class="font-normal text-xs dark:text-gray-300 text-gray-100">
+                    Create a new audience or create with a list of contacts as
+                    well
+                </p>
             </div>
+            <div class="h-60 p-5 _xs:size-40 shrink-0">
+                <img :src="AudiencesFormImage" class="h-full w-auto" />
+            </div>
+        </div>
 
-            <div>
-                <SharedFormBaseTextarea
-                    v-model="form.fields.description"
-                    :error="form.errors.description"
-                    id="description"
-                    name="description"
-                    placeholder="Enter audience description"
-                />
-            </div>
-            <div>
-                <SharedFormBaseFileUpload
-                    v-model="form.fields.uploaded_contacts"
-                />
-            </div>
-
-            <div class="py-10">
-                <SharedFormSubmitButton text="create" />
-            </div>
-        </form>
+        <AudiencesCreateForm :elections="elections" />
     </SharedCommonOverlay>
 </template>

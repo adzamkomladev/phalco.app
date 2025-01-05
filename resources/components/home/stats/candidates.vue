@@ -4,10 +4,9 @@ import {
     ElectionBallotProps,
 } from "~/resources/interfaces/voting/polling-stations/index.interface";
 import { formatDate, secondsUntil } from "~/resources/utils/shared/date";
+import NoLeadingCandidateImage from "~/resources/svg/main/no_data.svg?src";
 
 const props = defineProps<{
-    stageStat: StageStatsVoting;
-    stage: Stage;
     ballots: ElectionBallotProps[];
 }>();
 </script>
@@ -29,7 +28,7 @@ const props = defineProps<{
             </div>
         </div>
 
-        <div class="flex flex-col gap-5 h-full">
+        <div v-if="ballots" class="flex flex-col gap-5 h-full">
             <p class="font-semibold text-lg ml-2">Leading Candidates</p>
             <div v-for="(ballot, bi) in ballots">
                 <p class="ml-2">{{ ballot.ballotName }}</p>
@@ -44,6 +43,13 @@ const props = defineProps<{
                     />
                 </div>
             </div>
+        </div>
+        <div class="p-5" v-else>
+            <img
+                :src="NoLeadingCandidateImage"
+                class="h-[50vh] max-h-96 place-self-center"
+            />
+            <p class="text-black/50 text-center pt-4">no Data</p>
         </div>
     </SharedCommonCard>
 </template>

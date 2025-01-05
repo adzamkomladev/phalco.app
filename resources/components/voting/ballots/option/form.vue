@@ -4,6 +4,7 @@ const props = defineProps<{
 }>();
 
 const form = useForm({
+    // url:
     method: "POST",
     fields: {
         candidate_logo: null,
@@ -50,7 +51,7 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
                     :error="form.errors.party"
                     id="party"
                     name="party"
-                    placeholder="Party/Organisation"
+                    placeholder="Party/Organization"
                 />
             </div>
             <div class="sm:col-span-9">
@@ -66,8 +67,9 @@ const electionOptions = props.elections?.map((e: { id: any; name: any }) => ({
         </div>
         <div class="">
             <SharedFormBaseFileUpload
+                fileTypes=".png,.jpeg,.webp"
                 v-model="form.fields.party_logo"
-                placeholder="browse through your file or drop to upload organisation/party party logo"
+                placeholder="browse through your file or drop to upload organization/party party logo"
             />
         </div>
 

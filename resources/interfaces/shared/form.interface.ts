@@ -20,7 +20,12 @@ export interface BaseInputProps extends FormProp {
     min?:number;
     max?:number;
 }
-
+export interface BaseRadioGroupProps extends FormProp {
+    required?: boolean;
+    error?: string;
+    disabled?: boolean;
+    options?:string[]
+}
 
 export interface BaseDateInputProps extends BaseInputProps {
     startDate?: Date | null;
@@ -28,8 +33,8 @@ export interface BaseDateInputProps extends BaseInputProps {
     disablePast?: boolean;
     latestDate?: Date;
     farthestDate?: Date;
-    scope: BaseDateInputPropsScope;
-    type: BaseDateInputPropsType;
+    scope?: BaseDateInputPropsScope;
+    type?: BaseDateInputPropsType;
 }
 
 
@@ -77,6 +82,7 @@ export interface BaseOtpProps extends FormProp {
 }
 
 export interface BaseAdvanceSelectProps extends FormProp{
+    selectMultiple?:boolean;
     modelValue?: string | number;
     options: any;
     position?:positionType

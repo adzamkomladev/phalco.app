@@ -2,11 +2,15 @@
 
 namespace App\Actions\Elections;
 
+use App\Data\CardStatData;
+use App\Models\Audience;
 use App\Models\BallotOption;
+use App\Models\Campaign;
 use App\Models\Election;
 use App\Models\ElectionStage;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Concurrency;
+use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class Show
@@ -15,23 +19,33 @@ class Show
 
     public function asController(int $id)
     {
-        return hybridly('elections.show', $this->handle(auth()->id(), $id));
+        return hybridly('elections.show', $this->handle($id));
     }
 
-    public function handle(int $userId, int $electionId)
+    public function handle(int $electionId)
     {
-        $election = Election::with([
-            'stages:id,election_id,stage,start,end',
-            'createdBy:id,selected_organization_id,first_name,last_name,email,avatar',
-            'organization',
-        ])
-            ->withCount([
-                'voters as voters',
-                'voters as voters_voted' => fn (Builder $query) => $query->whereRelation('votes.ballot', 'election_id', $electionId),
-                'pollingStations as polling_stations',
-                'pollingStations as active_polling_stations' => fn (Builder $query) => $query->where('status', 'active'),
+        [
+            $election,
+            $audiences,
+            $campaign
+        ] = Octane::concurrently([
+            fn () => Election::with([
+                'stages:id,election_id,stage,start,end',
+                'createdBy:id,selected_organization_id,first_name,last_name,email,avatar',
+                'organization',
             ])
-            ->find($electionId);
+                ->withCount([
+                    'campaigns as campaigns',
+                    'campaigns as active_campaigns' => fn (Builder $query) => $query->whereIn('status', ['pending', 'processing', 'paused']),
+                    'voters as voters',
+                    'voters as voters_voted' => fn (Builder $query) => $query->whereRelation('votes.ballot', 'election_id', $electionId),
+                    'pollingStations as polling_stations',
+                    'pollingStations as active_polling_stations' => fn (Builder $query) => $query->where('status', 'active'),
+                ])
+                ->find($electionId),
+            fn () => Audience::whereRelation('campaigns', 'election_id', $electionId)->count(),
+            fn () => Campaign::select(['id', 'user_id', 'election_id', 'data'])->with('createdBy:id,first_name,last_name,avatar')->where('election_id', $electionId)->latest()->first(),
+        ]);
 
         $stage = $election->stages->first(
             fn (ElectionStage $value) => $value->start < now() && $value->end >= now(),
@@ -57,16 +71,16 @@ class Show
             ];
         } elseif ($stage?->stage === 'campaigns') {
             $stageStats = [
-                'campaigns' => 10,
-                'audiences' => 40,
+                'campaigns' => $election->campaigns,
+                'audiences' => $audiences,
                 'message' => [
-                    'id' => 1,
-                    'text' => 'Hello world',
-                    'sender' => 'Phalco',
+                    'id' => $campaign->id,
+                    'text' => $campaign->data['message'],
+                    'sender' => $campaign->data['sender'],
                     'sentBy' => [
-                        'id' => $userId,
-                        'name' => 'Kofi Gyan',
-                        'avatar' => 'https:://via.placeholder.com/150',
+                        'id' => $campaign->user_id,
+                        'name' => $campaign->createdBy->name,
+                        'avatar' => $campaign->createdBy->avatar,
                     ],
                 ],
             ];
@@ -77,9 +91,7 @@ class Show
                 $main,
                 $nominations,
                 $donations
-            ] = Concurrency::run([
-                fn () => ($organization->balanceInt ?? 0) / 100,
-
+            ] = Concurrency::run([fn () => ($organization->balanceInt ?? 0) / 100,
                 fn () => ($organization->getWallet('nominations')?->balanceInt ?? 0) / 100,
                 fn () => ($organization->getWallet('donations')?->balanceInt ?? 0) / 100,
             ]);
@@ -107,24 +119,64 @@ class Show
 
         return [
             'election' => $election,
-            'stats' => [
-                'voters' => [
-                    'total' => $election->voters,
-                    'voted' => $election->voters_voted,
+            'stats' => CardStatData::collect([
+                [
+                    'title' => 'Voters',
+                    'icon' => 'thumb_up',
+                    'stats' => [
+                        [
+                            'title' => 'Total',
+                            'value' => $election->voters,
+                        ],
+                        [
+                            'title' => 'Voted',
+                            'value' => $election->voters_voted,
+                        ],
+                    ],
                 ],
-                'nominations' => [
-                    'submitted' => 230,
-                    'approved' => 10,
+                [
+                    'title' => 'Nominations',
+                    'icon' => 'users',
+                    'stats' => [
+                        [
+                            'title' => 'Submitted',
+                            'value' => 230,
+                        ],
+                        [
+                            'title' => 'Approved',
+                            'value' => 10,
+                        ],
+                    ],
                 ],
-                'pollingStations' => [
-                    'total' => $election->polling_stations,
-                    'active' => $election->active_polling_stations,
+                [
+                    'title' => 'Polling Stations',
+                    'icon' => 'polling_station',
+                    'stats' => [
+                        [
+                            'title' => 'Total',
+                            'value' => $election->polling_stations,
+                        ],
+                        [
+                            'title' => 'Active',
+                            'value' => $election->active_polling_stations,
+                        ],
+                    ],
                 ],
-                'campaigns' => [
-                    'total' => 20,
-                    'active' => 3,
+                [
+                    'title' => 'Campaigns',
+                    'icon' => 'campaign_main',
+                    'stats' => [
+                        [
+                            'title' => 'Total',
+                            'value' => $election->campaigns,
+                        ],
+                        [
+                            'title' => 'Active',
+                            'value' => $election->active_campaigns,
+                        ],
+                    ],
                 ],
-            ],
+            ]),
             'stage' => $stage,
             'stageStats' => $stageStats,
         ];

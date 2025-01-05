@@ -1,3 +1,5 @@
+import { Options } from "pusher-js";
+
 export interface Ballot {
     id: number;
     election_id: number;
@@ -24,4 +26,11 @@ export interface BallotHeader {
     title: string;
     description: string;
     status: string;
+}
+
+
+
+export interface BallotOptionCamparison{
+   options:Options[],
+//    statistics:
 }

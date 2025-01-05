@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Election } from "~/resources/interfaces/elections/selected.interface";
+import { Election } from "~/resources/interfaces/elections/show.interface";
 import { formatDate, secondsUntil } from "~/resources/utils/shared/date";
-import { Stage } from "~/resources/interfaces/elections/selected.interface";
+import { Stage } from "~/resources/interfaces/elections/show.interface";
 
 const props = defineProps<{ election: Election; stage?: Stage | null }>();
 const secondsLeftToVote = Math.floor(

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AgentImage from "~/resources/images/voting/new_agent.webp?src";
+import AgentImage from "~/resources/images/main/new_agent.webp?src";
 
 useHead({
     title: "Voting: New Agent",

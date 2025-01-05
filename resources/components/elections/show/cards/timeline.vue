@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Stage } from "~/resources/interfaces/elections/selected.interface";
+import { Stage } from "~/resources/interfaces/elections/show.interface";
 
 const props = defineProps<{ stages: Stage[]; electionEndDate: Date }>();
 </script>

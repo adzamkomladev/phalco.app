@@ -11,7 +11,7 @@ const { key, value, extra } = props.row;
 <template>
     <tr :key="key" class="text-sm">
         <td class="size-px whitespace-nowrap">
-            <div class="ps-6 py-3">
+            <!-- <div class="ps-6 py-3">
                 <label for="hs-at-with-checkboxes-1" class="flex">
                     <input
                         type="checkbox"
@@ -20,9 +20,9 @@ const { key, value, extra } = props.row;
                     />
                     <span class="sr-only">Checkbox</span>
                 </label>
-            </div>
+            </div> -->
         </td>
-        <td class="size-px w w-full max-w-40 bg-red">
+        <td class="size-px w-fit max-w-fit">
             <div class="py-3 ps-6 lg:ps-3 pe-6">
                 <div class="flex items-center gap-x-3">
                     <img
@@ -30,7 +30,7 @@ const { key, value, extra } = props.row;
                         :src="extra(findColumn('name'), 'logo')"
                         alt="Logo"
                     />
-                    <div class="grow">
+                    <div class="">
                         <span
                             class="block lg:whitespace-nowrap font-semibold text-gray-800 dark:text-gray-200"
                         >
@@ -43,20 +43,20 @@ const { key, value, extra } = props.row;
                 </div>
             </div>
         </td>
-        <td class="h-px whitespace-nowrap">
+        <td class="h-px whitespace-nowrap w-fit">
             <div class="px-6 py-3 text-sm">
                 <SharedTableStatus :status="value(findColumn('status'))" />
             </div>
         </td>
-        <td class="size-px whitespace-nowrap text-gray-500">
+        <td class="size-px whitespace-nowrap text-gray-500 w-fit">
             <div class="px-6 py-3">
                 {{ value(findColumn("current_stage")) }}
             </div>
         </td>
-        <td class="size-px whitespace-nowrap text-gray-500">
+        <td class="size-px whitespace-nowrap text-gray-500 w-fit">
             <div class="px-6 py-3">{{ value(findColumn("created_at")) }}</div>
         </td>
-        <td class="size-px whitespace-nowrap">
+        <td class="size-px whitespace-nowrap w-fit">
             <div class="px-6 py-1.5 xl:pr-20">
                 <router-link
                     :href="
@@ -66,7 +66,7 @@ const { key, value, extra } = props.row;
                     "
                     class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 >
-                    Details
+                    <SharedTableShowDetail />
                 </router-link>
             </div>
         </td>

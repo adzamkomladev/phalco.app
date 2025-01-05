@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import BallotImage from "~/resources/svg/voting/ballot_stat.svg?src";
+import BallotStatImage from "~/resources/svg/voting/ballot_stat.svg?src";
+import NoBallotCandidateImage from "~/resources/svg/main/no_user_profile.svg?src";
+import NoBallotStatImage from "~/resources/svg/voting/ballot_stat.svg?src";
 
 import { Option } from "~/resources/interfaces/voting/ballots/show.interface";
 
@@ -14,17 +16,32 @@ defineProps<{ candidate: Option | null; position: string }>();
         <div class="grid mobile_:_sm:grid-cols-2 gap-4">
             <div class="grid place-items-center">
                 <img
-                    :src="candidate?.avatar"
+                    :src="candidate?.avatar || NoBallotCandidateImage"
                     class="w-[35%] min-w-10 max-w-28 rounded-full border aspect-square"
                 />
-
-                <p class="text-base font-medium">{{ candidate?.name }}</p>
+                <div class="flex items-center gap-2 bg-green-200">
+                    <img
+                        :src="candidate?.party_image"
+                        class="w-[35%] min-w-10 max-w-28 max-h-24"
+                    />
+                    <p>{{ candidate?.party }}</p>
+                </div>
+                <p class="text-base font-medium">
+                    {{ candidate?.name || "No candidate" }}
+                </p>
                 <p class="text-xs text-gray-800/50">{{ position }} Candidate</p>
             </div>
-            <div class="">
-                <p class="font-black text-3xl">{{ candidate?.votes }}</p>
-                <span class="text-sm font-normal">votes</span>
-                <img :src="BallotImage" class="place-self-center" />
+            <div class="grid gap-4">
+                <div>
+                    <p class="font-black text-3xl lg:text-4xl xl:text-6xl">
+                        {{ candidate?.votes || 0 }}
+                    </p>
+                    <span class="text-sm text-gray-300 font-normal">votes</span>
+                </div>
+
+                <div class="pb-5">
+                    <img :src="NoBallotStatImage" class="place-self-center" />
+                </div>
             </div>
         </div>
     </SharedCommonCard>

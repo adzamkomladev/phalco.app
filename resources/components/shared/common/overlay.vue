@@ -60,7 +60,7 @@ const positionClass = ref(getType());
                         : 'mb-4'
                 "
                 v-if="!hideTitle"
-                class="flex justify-between z-10 items-center px-10 mobile:px-5"
+                class="flex justify-between z-10 items-center px-10"
             >
                 <p class="font-black mobile:text-lg text-2xl md:text-3xl">
                     {{ title }}
@@ -81,7 +81,7 @@ const positionClass = ref(getType());
             <div class="flex flex-col overflow-hidden flex-grow">
                 <div
                     v-if="!useSheet"
-                    class="overflow-y-auto px-10 mobile:px-5 max-h-[calc(100vh-80px)] min-h-full"
+                    class="overflow-y-auto sm:px-10 _sm:px-4 max-h-[calc(100vh-80px)] min-h-full"
                 >
                     <slot />
                 </div>

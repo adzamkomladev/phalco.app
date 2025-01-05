@@ -170,7 +170,7 @@ const describeBy = computed(() => `${props.id}-error`);
 
 <template>
     <div ref="datePicker" class="relative">
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between pointer-events-none items-center">
             <label
                 v-if="props.label"
                 :for="props.id"

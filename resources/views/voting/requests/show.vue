@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import VottingRequestImage from "~/resources/images/voting/request_details.png?src";
+import VottingRequestImage from "~/resources/images/main/request_details.png?src";
 import { VoteRequestresult } from "~/resources/interfaces/voting/requests/show.interface";
 
 const testData: VoteRequestresult = {

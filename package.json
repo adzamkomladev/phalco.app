@@ -18,7 +18,7 @@
         "@vueuse/core": "^11.1.0",
         "autoprefixer": "^10.4.20",
         "axios": "^1.7.7",
-        "chokidar": "^3.6.0",
+        "chokidar": "^4.0.1",
         "concurrently": "^9.1.0",
         "eslint": "^9.12.0",
         "eslint-plugin-vue": "^9.29.0",
@@ -53,6 +53,6 @@
         "dropzone": "^6.0.0-beta.2",
         "laravel-vite-plugin": "^1.0.5",
         "lodash": "^4.17.21",
-        "preline": "^2.4.1"
+        "preline": "^2.6.0"
     }
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BallotImage from "~/resources/images/voting/ballot.webp?src";
+import BallotImage from "~/resources/images/main/ballot.webp?src";
 
 useHead({
     title: "Voting: New Ballot",
@@ -31,7 +31,7 @@ const elections: any = useProperty("elections.all");
             </div>
         </div>
         <div class="mt-5">
-            <VotingBallotsFormsCreate :elections="elections" />
+            <VotingBallotsCreateForm :elections="elections" />
         </div>
     </SharedCommonOverlay>
 </template>

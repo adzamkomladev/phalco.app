@@ -38,12 +38,15 @@ export default {
                     raw: `only screen and (min-height: 1024px)`,
                 }, mobile: {
                     raw: `only screen and (min-width: 380px)`,
+                }, xs: {
+                    raw: `only screen and (min-width: 500px)`,
                 },
               _mobile: {
                     raw: `only screen and (max-width: 380px)`,
                 },
+               
                 _xs: {
-                    raw: `only screen and (max-width: 500px)`,
+                    raw: `only screen and (max-width: 499px)`,
                 },
                
                 _sm: {

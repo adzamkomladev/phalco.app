@@ -34,6 +34,7 @@ const leadingCandidate = computed<Option | null>(() => {
             <VotingBallotsShowTable
                 :ballot-header="ballotHeader"
                 :data="ballot.options"
+                :ballot-id="ballot.id"
             />
         </div>
         <div class="lg:col-span-3 grid sm:_lg:grid-cols-2 gap-4 lg">
@@ -41,7 +42,7 @@ const leadingCandidate = computed<Option | null>(() => {
                 :candidate="leadingCandidate"
                 :position="ballot.position"
             />
-            <VotingBallotsShowMessage />
+            <VotingBallotsShowCandidateComparison />
         </div>
     </div>
 </template>
