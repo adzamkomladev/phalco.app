@@ -5,8 +5,7 @@ use App\Http\Middleware\EnsureUserHasSelectedOrganization;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    HelloWorld::dispatch(fake()->randomNumber(2));
-
+    // HelloWorld::dispatch(fake()->randomNumber(2))
     return hybridly('welcome');
 })->name('welcome');
 
