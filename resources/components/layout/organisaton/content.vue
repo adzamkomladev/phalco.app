@@ -16,7 +16,7 @@ const description = ref(props.description);
             <p
                 class="text-black dark:text-primary-700 font-black text-2xl md:text-3xl lg:text-4xl pb-4"
             >
-                Organisation
+                Organization
             </p>
 
             <div class="felx flex-col gap-4">

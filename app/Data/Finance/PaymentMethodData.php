@@ -7,6 +7,7 @@ use Spatie\LaravelData\Data;
 class PaymentMethodData extends Data
 {
     public function __construct(
+        public ?int $id,
         public string $account_name,
         public string $account_number,
         public string $channel_code,

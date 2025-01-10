@@ -4,7 +4,7 @@ import CampaignImage from "~/resources/images/election/campaign.webp?src";
 import {
     Stage,
     StageStatsCampaigns,
-} from "~/resources/interfaces/elections/selected.interface";
+} from "~/resources/interfaces/elections/show.interface";
 
 import { formatDate } from "~/resources/utils/shared/date";
 

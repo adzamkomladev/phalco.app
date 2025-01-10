@@ -20,22 +20,28 @@ final class PaymentsTable extends Table
     {
         return [
             Columns\TextColumn::make('id')->label('#')->visible(false),
+            Columns\TextColumn::make('account')
+                ->label('Account')
+                ->transformValueUsing(fn (Payment $payment) => $payment->madeBy->name)
+                ->extra((fn (Payment $payment) => [
+                    'avatar' => $payment->madeBy->avatar,
+                    'description' => $payment->description,
+                ])),
             Columns\TextColumn::make('amount')
                 ->label('Amount')
                 ->transformValueUsing(fn (Payment $payment) => $payment->amount / 100)
                 ->extra((fn (Payment $payment) => ['id' => $payment->id])),
-            Columns\TextColumn::make('reference')->label('Reference'),
-            Columns\TextColumn::make('gateway_reference')->label('Gateway Reference'),
-            Columns\TextColumn::make('gateway')->label('Gateway'),
+            Columns\TextColumn::make('gateway_reference')->label('Reference'),
+            Columns\TextColumn::make('gateway')->label('Type'),
             Columns\TextColumn::make('status')->label('Status'),
-            Columns\TextColumn::make('created')->label('Created'),
+            Columns\TextColumn::make('created_at')->label('Created'),
         ];
     }
 
     protected function defineRefiners(): array
     {
         return [
-            Sorts\Sort::make('created'),
+            Sorts\Sort::make('created_at')->default('desc'),
             CallbackFilter::make(
                 name: 'search',
                 callback: function (InternalBuilder $builder, mixed $value, string $property) {
@@ -59,6 +65,7 @@ final class PaymentsTable extends Table
     {
         return $this->getModel()
             ->query()
+            ->with(['madeBy:id,first_name,last_name,avatar,selected_organization_id'])
             ->where('organization_id', $this->organizationId);
     }
 }

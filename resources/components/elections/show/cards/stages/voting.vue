@@ -1,12 +1,18 @@
 <script lang="ts" setup>
+import NoLeadingCandidatesImage from "~/resources/svg/main/paper_in_box.svg?src";
+
 import {
     Stage,
-    StageStatsCampaigns,
     StageStatsVoting,
-} from "~/resources/interfaces/elections/selected.interface";
+} from "~/resources/interfaces/elections/show.interface";
+import { ElectionBallotProps } from "~/resources/interfaces/voting/polling-stations/index.interface";
 import { formatDate, secondsUntil } from "~/resources/utils/shared/date";
 
-const props = defineProps<{ stageStat: StageStatsVoting; stage: Stage }>();
+const props = defineProps<{
+    stageStat: StageStatsVoting;
+    stage: Stage;
+    ballots: ElectionBallotProps[];
+}>();
 
 const timeLeftToEndDate = Math.floor(secondsUntil(props.stage.end));
 </script>
@@ -36,59 +42,39 @@ const timeLeftToEndDate = Math.floor(secondsUntil(props.stage.end));
         </div>
 
         <div class="flex flex-col gap-5 h-full">
-            <div class="grid grid-cols-7 gap-[5%] _xs:gap-0">
-                <div class="col-span-3 _xs:col-span-7 _xs:px-10">
-                    <SharedChartPie
-                        :data="[
-                            {
-                                label: '',
-                                value: stageStat.voters,
-                                color: '#b3daf0',
-                            },
-                            {
-                                label: '',
-                                value: stageStat?.ballots,
-                                color: '#07689F',
-                            },
-                        ]"
+            <p
+                v-if="ballots && ballots.length > 0"
+                class="font-semibold text-lg ml-2"
+            >
+                Leading Candidatesddd
+            </p>
+            <div
+                v-if="ballots && ballots.length > 0"
+                v-for="(ballot, bi) in ballots"
+            >
+                <p class="ml-2">{{ ballot.ballotName }}</p>
+                <div class="" v-for="(candidate, ci) in ballot.candidates">
+                    <ElectionsShowCardsStagesVotingCandidate
+                        :candidate-name="candidate.candidateName"
+                        :candidate-picture="candidate.candidatePicture"
+                        :party-logo="candidate.partyLogo"
+                        :party-name-abrev="candidate.partyNameAbrev"
+                        :votes="candidate.votes"
                     />
                 </div>
-                <div
-                    class="col-span-4 _xs:text-center _xs:col-span-7 flex flex-col text-xs sm:whitespace-nowrap p-2 pr-0 gap-4 justify-center"
-                >
-                    <div class="grid gap-4 grid-cols-2 xs:hidden">
-                        <div>
-                            <p class="text-gray-500">Total ballots</p>
-                            <p class="font-bold text-sm flex gap-1">
-                                <span
-                                    class="size-3 bg-secondary-500 self-center"
-                                />
-                                {{ stageStat.ballots }}
-                            </p>
-                        </div>
-                        <div>
-                            <p class="text-gray-500">Total voters</p>
-                            <p
-                                class="font-bold text-sm w-20 text-wrap flex gap-1"
-                            >
-                                <span
-                                    class="size-3 bg-secondary-200 self-center"
-                                />
-                                {{ stageStat.voters }}
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-gray-500">Time Remaining</p>
-
-                        <SharedCommonTimer
-                            class="text-2xl md:text-3xl md:_xl:text-2xl font-bold"
-                            :duration="timeLeftToEndDate"
-                        />
-                    </div>
-                </div>
             </div>
-
+            <div
+                v-else
+                class="p-5 flex _sm:flex-col gap-5 _sm:gap-0 _xl:md:gap-0 _xl:md:flex-col"
+            >
+                <img
+                    :src="NoLeadingCandidatesImage"
+                    class="w-[50%] _sm:w-[60%] _xl:md:w-[60%] max-h-96 place-self-center"
+                />
+                <p class="text-black/70 pt-4 capitalize place-self-center">
+                    no leading candidate(s) available
+                </p>
+            </div>
             <SharedCommonCard
                 class="divide-y h-60 divide-gray-300 dark:divide-gray-600 text-sm gap-2 flex flex-col"
             >
@@ -148,7 +134,7 @@ const timeLeftToEndDate = Math.floor(secondsUntil(props.stage.end));
                 </div>
             </SharedCommonCard>
             <router-link
-                :href="route('voting.ballots.index')"
+                :href="route('home')"
                 class="text-center text-secondary-300"
             >
                 Move to dashboard page

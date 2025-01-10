@@ -18,7 +18,6 @@ class Index
 
     public function asController()
     {
-
         return view('elections.index', $this->handle(request()->user()->selected_organization_id));
     }
 
@@ -36,7 +35,7 @@ class Index
                     'totalSpent' => 0,
                     'totalCampaigns' => 0,
                 ]),
-                'elections' => ElectionsTable::make(),
+                'electionsTable' => ElectionsTable::make(),
             ];
         }
 
@@ -71,7 +70,7 @@ class Index
                 'totalSpent' => 0,
                 'totalCampaigns' => 0,
             ]),
-            'elections' => ElectionsTable::make(),
+            'electionsTable' => ElectionsTable::make(),
         ];
     }
 }

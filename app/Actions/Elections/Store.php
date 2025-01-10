@@ -7,6 +7,7 @@ use App\Models\Election;
 use App\Models\ElectionActivity;
 use App\Models\ElectionStage;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -19,7 +20,7 @@ class Store
     {
         return [
             'name' => ['required', 'max:100'],
-            'logo' => ['required', 'url'],
+            'logo' => ['required', 'string'],
             'description' => ['nullable', 'string'],
             'start' => ['required', 'date'],
             'end' => ['required', 'date'],
@@ -41,6 +42,7 @@ class Store
     {
         $stages = collect($data['stages'])->sortBy('start');
         $stage = $stages->first();
+        $data['logo'] = app()->isProduction() ? Storage::url($data['logo']) : asset("storage/{$data['logo']}");
 
         $election = Election::create([
             'name' => $data['name'],
@@ -68,12 +70,13 @@ class Store
             ])
             ->toArray();
 
-        Octane::concurrently([fn () => ElectionActivity::create([
-            'election_id' => $electionId,
-            'status' => 'active',
-            'user_id' => $userId,
-            'reason' => 'Create new election',
-        ]),
+        Octane::concurrently([
+            fn () => ElectionActivity::create([
+                'election_id' => $electionId,
+                'status' => 'active',
+                'user_id' => $userId,
+                'reason' => 'Create new election',
+            ]),
             fn () => ElectionStage::insert($stagesToBeCreated),
         ]);
 

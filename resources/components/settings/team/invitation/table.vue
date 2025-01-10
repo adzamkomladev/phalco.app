@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import InvitationImage from "~/resources/svg/settings/no_invite.svg?src";
+import InvitationImage from "~/resources/svg/main/no_invite.svg?src";
 
 const props = defineProps<{
     invites: App.Data.Settings.Team.InvitationData[];
@@ -88,7 +88,10 @@ const flash = useProperty("flash");
                         </tbody>
                     </table>
                     <div class="text-primary-500 select-none" v-else>
-                        <img :src="InvitationImage" class="w-52" />
+                        <img
+                            :src="InvitationImage"
+                            class="w-72 place-self-center"
+                        />
 
                         <p class="py-4 text-xs">
                             Pending and expired invites will appear here

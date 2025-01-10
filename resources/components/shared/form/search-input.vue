@@ -26,13 +26,13 @@ defineExpose({ focus, select });
                 :name="props.name"
                 :placeholder="props.placeholder"
                 v-model="model"
-                class="py-2 px-3 ps-11 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400 dark:placeholder-gray-500 dark:focus:ring-gray-600"
+                class="py-2 px-3 peer ps-11 block w-full border-gray-200 rounded-lg text-sm focus:border-primary-400 focus:ring-primary-400 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400 dark:placeholder-gray-500 dark:focus:ring-gray-600"
             />
             <div
-                class="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-4"
+                class="absolute peer-focus:text-primary-500 inset-y-0 start-0 flex items-center pointer-events-none ps-4"
             >
                 <svg
-                    class="shrink-0 size-4 text-gray-400 dark:text-gray-500"
+                    class="shrink-0 size-4"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"

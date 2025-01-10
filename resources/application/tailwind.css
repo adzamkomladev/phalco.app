@@ -6,4 +6,26 @@
     html {
         font-family: "Poppins", ui-sans-serif, system-ui;
     }
+
+    /* Target the scrollbar */
+::-webkit-scrollbar {
+    @apply size-[6px];
+
+}
+
+/* Track (background of scrollbar) */
+::-webkit-scrollbar-track {
+    @apply bg-[#f9f9f9] dark:bg-gray-700 rounded-full ;
+}
+
+/* Thumb (draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+        @apply dark:bg-gray-700 bg-[#E1E1E1] rounded-full hover:bg-gray-600;
+
+    border: 3px solid #E1E1E120; /* padding around thumb for aesthetic */
+}
+
+
+
+
 }

@@ -28,7 +28,7 @@ import DropletImage from "~/resources/svg/welcome/drop.svg?url";
                                 :duration="360"
                                 class="text-wrap"
                             >
-                                Election Management made easy
+                                Voting made easy
                             </p>
                         </SharedAnimationBlurReview>
                     </p>
@@ -43,12 +43,9 @@ import DropletImage from "~/resources/svg/welcome/drop.svg?url";
                             v-motion-fade-visible-once
                             :duration="300"
                             :delay="500"
-                            >Lorem ipsum dolor sit amet , quae beatae ullam
-                            tempore ratione repellendus amet dolorem blanditiis,
-                            veritatis animi! Modi veritatis placeat cupiditate.
-                            ratione repellendus amet dolorem blanditiis,
-                            veritatis animi! Modi veritatis placeat cupiditate.
-                            .</span
+                            >We handle all voting related tasks for you. We are
+                            your helper from the planning to the end of the
+                            voting process</span
                         >
                     </p>
 

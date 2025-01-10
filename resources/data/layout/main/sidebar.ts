@@ -1,6 +1,4 @@
 import { SideBarMenuProps } from "~/resources/interfaces/layout/main-sidebar.interface";
-const pollingStationId = useProperty("elections.agentPollingStation.id");
-const electionId = useProperty("elections.selected.id");
 
 export const menus: SideBarMenuProps[] = [
     {
@@ -9,7 +7,7 @@ export const menus: SideBarMenuProps[] = [
         to: "home",
     },
     {
-        label: "Election",
+        label: "Elections",
         icon: "election",
         sublink: [
             {
@@ -22,21 +20,33 @@ export const menus: SideBarMenuProps[] = [
             },
         ],
     },
-    {
-        label: "Nominations",
-        icon: "users",
-        sublink: [
-            {
-                label: "dashboard",
-            },
-            {
-                label: "new nomination",
-            },
-        ],
-    },
+    // {
+    //     label: "Nominations",
+    //     icon: "users",
+    // },
     {
         label: "Campaigns",
         icon: "campaign_main",
+        sublink: [
+            {
+                label: "SMS",
+                icon: "polling_station",
+                sublink: [
+                    {
+                        label: "Dashboard",
+                        to: "campaigns.sms.index",
+                    },
+                    {
+                        label: "New campaign",
+                        to: "campaigns.sms.create",
+                    },
+                    {
+                        label: "Senders",
+                        to: "campaigns.sms.senders.index",
+                    },
+                ],
+            }
+        ],
     },
     {
         label: "Audiences",
@@ -52,20 +62,20 @@ export const menus: SideBarMenuProps[] = [
             },
         ],
     },
-    {
-        label: "Strategies",
-        icon: "strategy",
-    },
-    {
-        label: "Donations",
-        icon: "donation",
-    },
+    // {
+    //     label: "Strategies",
+    //     icon: "strategy",
+    // },
+    // {
+    //     label: "Donations",
+    //     icon: "donation",
+    // },
     {
         label: "Voting",
         icon: "vote",
         sublink: [
             {
-                label: "Polling station",
+                label: "Polling Stations",
                 icon: "polling_station",
                 sublink: [
                     {
@@ -79,7 +89,7 @@ export const menus: SideBarMenuProps[] = [
                 ],
             },
             {
-                label: "Agent",
+                label: "Agents",
                 icon: "agent",
                 sublink: [
                     {
@@ -93,7 +103,7 @@ export const menus: SideBarMenuProps[] = [
                 ],
             },
             {
-                label: "Ballot",
+                label: "Ballots",
                 icon: "ballot",
                 sublink: [
                     {
@@ -106,27 +116,18 @@ export const menus: SideBarMenuProps[] = [
                     },
                 ],
             },
-            {
-                label: "Request",
-                icon: "request",
-                to: "voting.ballots.create",
-                sublink: [
-                    {
-                        label: "Dashboard",
-                        // to: {
-                        //     name: "voting.requests.index",
-                        //     params: { electionId, pollingStationId },
-                        // },
-                    },
-                ],
-            },
+            // {
+            //     label: "Requests",
+            //     icon: "request",
+            //     to: "voting.requests.index",
+            // },
         ],
     },
-    {
-        label: "Coalation",
-        icon: "coalation",
-        to: "password.reset",
-    },
+    // {
+    //     label: "Coalation",
+    //     icon: "coalation",
+    //     to: "password.reset",
+    // },
     {
         label: "Finance",
         icon: "cedi",

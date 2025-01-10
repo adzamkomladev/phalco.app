@@ -1,43 +1,54 @@
 <script setup lang="ts">
+import TopUpImage from "~/resources/images/finance/top_up.webp?src";
+
 useHead({
     title: "Top Up Wallet",
 });
 
 const props = defineProps<{
-    wallet_id: number;
-    wallet_name: string;
+    walletId: number;
+    walletName: string;
 }>();
-
-console.log(props.wallet_name);
 
 const form = useForm({
     method: "POST",
     url: route("finance.payments.initiate"),
     fields: {
         amount: 0,
-        wallet_id: props.wallet_id,
+        wallet_id: props.walletId,
     },
     hooks: {
-        success: () => console.log("34jdfkdjfkdjkfjdkfjdjfkjk"),
+        success: () => form.reset(),
     },
 });
 </script>
 
 <template>
-    <SharedCommonOverlay :title="'Top Up ' + wallet_name + ' Wallet'" size="xl">
-        <div class="mt-5">
-            <form @submit.prevent="form.submit">
-                <div class="grid sm:grid-cols-12 gap-2 sm:gap-6">
-                    <div class="sm:col-span-3">
-                        <label
-                            for="amount"
-                            class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200"
-                        >
-                            Amount
-                        </label>
-                    </div>
+    <SharedCommonOverlay
+        :title="'Top Up ' + walletName + ' Wallet'"
+        class="max-w-xl w-xl _sm:max-w-full"
+    >
+        <div
+            class="flex flex-row-reverse rounded-3xl bg-secondary-300 dark:bg-gradient-to-r from-secondary-950 to-secondary-800"
+        >
+            <div class="font-medium pt-10 px-10 basis-1/2 shrink-0 grow">
+                <p class="text-gray-50 text-lg dark:text-gray-100">
+                    Top Up Your Account
+                </p>
+                <p class="font-normal text-xs dark:text-gray-300 text-gray-100">
+                    Enter your top up amount and click to pay using mobile
+                    money, card, or your bank.
+                </p>
+            </div>
+            <div class="">
+                <img :src="TopUpImage" class="w-full _sm:hidden h-52 w-auto" />
+            </div>
+        </div>
 
-                    <div class="sm:col-span-9">
+        <div class="mt-10">
+            <form @submit.prevent="form.submit">
+                <div class="gap-2 sm:gap-6">
+                    <div class="">
                         <SharedFormBaseInput
                             v-model="form.fields.amount"
                             :error="form.errors.amount"
@@ -49,20 +60,11 @@ const form = useForm({
                     </div>
                 </div>
 
-                <div class="mt-8 flex justify-end gap-x-2">
-                    <button
-                        type="submit"
-                        class="w-3/12 py-2 px-3 items-center gap-x-2 text-sm text-center font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                    >
-                        <span
-                            v-if="form.processing"
-                            class="animate-spin inline-block size-4 border-[3px] border-current border-t-transparent text-white rounded-full"
-                            role="status"
-                            aria-label="loading"
-                        ></span>
-
-                        Make Payment
-                    </button>
+                <div class="mt-10 flex justify-end gap-x-2">
+                    <SharedFormSubmitButton
+                        :loading="form.processing"
+                        text="Top Up"
+                    />
                 </div>
             </form>
         </div>

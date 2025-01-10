@@ -24,7 +24,7 @@ class HandleSuccessfulPayment
 
     public function handle(int $paymentId, array $data)
     {
-        $payment = Payment::find($paymentId);
+        $payment = Payment::with(['madeBy'])->find($paymentId);
 
         $wallet = Wallet::find($payment->metadata['wallet_id']);
 
@@ -43,6 +43,9 @@ class HandleSuccessfulPayment
 
             $wallet->deposit($payment->amount, [
                 'payment_id' => $payment->id,
+                'description' => $payment->description,
+                'name' => $payment->madeBy->name,
+                'avatar' => $payment->madeBy->avatar,
             ]);
 
             $payment->update([

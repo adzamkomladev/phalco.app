@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DropDown } from "~/resources/interfaces/common/index.interface";
+import { DropDown } from "~/resources/interfaces/shared/common.interface";
 
 const props = defineProps<DropDown>();
 
@@ -84,7 +84,7 @@ const positionStyle = computed(() => {
 
         <dialog
             ref="dialogRef"
-            class="border-none border-transparent"
+            class="border-none border-transparent w-full"
             :class="[positionStyle, dialogClass]"
         >
             <transition name="fade" mode="out-in">
@@ -93,7 +93,7 @@ const positionStyle = computed(() => {
                     v-if="isVisible"
                     class="w-full"
                 >
-                    <slot>content</slot>
+                    <slot></slot>
                 </div>
             </transition>
         </dialog>

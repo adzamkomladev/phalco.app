@@ -26,6 +26,8 @@ class BallotOption extends Model
         'avatar',
         'order',
         'status',
+        'party',
+        'party_image',
     ];
 
     public function ballot(): BelongsTo

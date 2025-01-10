@@ -5,8 +5,8 @@ namespace App\Actions\Finance;
 use App\Models\Organization;
 use App\Tables\Finance\PaymentsTable;
 use App\Tables\Finance\TransactionsTable;
+use Illuminate\Support\Facades\Concurrency;
 use Illuminate\Support\Facades\DB;
-use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 use function Hybridly\view;
@@ -34,7 +34,7 @@ class Index
             $donations,
             $totalTransactions,
             $transactionTypes
-        ] = Octane::concurrently([
+        ] = Concurrency::run([
             fn () => [
                 'id' => $organization->wallet->id,
                 'balance' => ($organization->balanceInt ?? 0) / 100,

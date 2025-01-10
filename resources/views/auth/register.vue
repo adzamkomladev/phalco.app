@@ -24,7 +24,7 @@ const register = useForm({
         description="Create a new account with Phalco"
     >
         <div>
-            <AuthGoogleButton text="Sign Up with google" />
+            <AuthGoogleButton text="Sign Up with Google" />
         </div>
 
         <SharedCommonOr />

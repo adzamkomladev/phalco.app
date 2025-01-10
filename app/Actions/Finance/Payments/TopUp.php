@@ -16,8 +16,8 @@ class TopUp
         $wallet = $this->handle($walletId);
 
         return view('finance.top-up', [
-            'wallet_id' => $walletId,
-            'wallet_name' => $wallet->name,
+            'walletId' => $walletId,
+            'walletName' => $wallet->name,
         ])->base('finance.index');
     }
 

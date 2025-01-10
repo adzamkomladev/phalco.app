@@ -5,11 +5,12 @@ export default {
         "./node_modules/preline/preline.js",
         "./resources/**/*.{js,ts,vue,blade.php}",
     ],
+
     theme: {
         extend: {
-            backgroundImage: {
-                "gradient-to-45":
-                    "linear-gradient(45deg, var(--tw-gradient-stops))",
+          
+            aspectRation: {
+                card: "3.374/2.125",
             },
             boxShadow: {
                 card: "0 1px 6.3px -1px #6b728070",
@@ -25,6 +26,7 @@ export default {
                 "about-sm": "url('../svg/welcome/about_bg_sm.svg')",
                 "about-lg": "url('../svg/welcome/about_bg_lg.svg')",
                 "menu-br": "url('../svg/welcome/menu/background.svg')",
+                "chat": "url('https://www.transparenttextures.com/patterns/asfalt-dark.png')",
                 organization: "url('../svg/organization/layout.svg')",
             },
             screens: {
@@ -36,10 +38,19 @@ export default {
                 },
                 "2xtall": {
                     raw: `only screen and (min-height: 1024px)`,
+                }, mobile: {
+                    raw: `only screen and (min-width: 380px)`,
+                }, xs: {
+                    raw: `only screen and (min-width: 500px)`,
                 },
+              _mobile: {
+                    raw: `only screen and (max-width: 380px)`,
+                },
+               
                 _xs: {
-                    raw: `only screen and (max-width: 500px)`,
+                    raw: `only screen and (max-width: 499px)`,
                 },
+               
                 _sm: {
                     raw: `only screen and (max-width: 639px)`,
                 },
@@ -110,17 +121,17 @@ export default {
                 },
                 crimson: {
                     DEFAULT: "#c41409", // Main bright red color
-                    50: "#fde8e7",
-                    100: "#fbd0cf",
-                    200: "#f8a19f",
-                    300: "#f47170",
-                    400: "#f04141",
-                    500: "#c41409", // base color
-                    535: "#FD6A6159", // base color
-                    600: "#ac1208",
-                    700: "#940f07",
-                    800: "#7b0c06",
-                    900: "#630a05",
+                    50: "#ffe8e7",
+                    100: "#fee8e7",
+                    200: "#feddda",
+                    300: "#fcb8b3",
+                    400: "#f5190b",
+                    500: "#dd170a", // base color
+                    535: "#c41409", // base color
+                    600: "#b81308",
+                    700: "#930f07",
+                    800: "#6e0b05",
+                    900: "#560904",
                 },
                 forest: {
                     DEFAULT: "#00980F", // Main color

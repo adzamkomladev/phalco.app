@@ -3,7 +3,8 @@
 namespace App\Actions\Voting\PollingStations;
 
 use App\Models\PollingStation;
-use Illuminate\Contracts\Database\Eloquent\Builder;
+use App\Tables\Voting\PollingStations\RequestsTable;
+use App\Tables\Voting\PollingStations\VotersTable;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class Show
@@ -12,20 +13,17 @@ class Show
 
     public function asController(int $id)
     {
-        return hybridly('voting.polling-stations.show', [
-            'pollingStation' => $this->handle($id),
-        ]);
+        return hybridly('voting.polling-stations.show', $this->handle($id));
     }
 
     public function handle(int $pollingStationId)
     {
-        return PollingStation::with([
-            'election',
-            'agent',
-            'voters',
-            'voteEntryRequests' => fn (Builder $query) => $query->where('status', 'pending'),
-        ])
-            ->withCount(['votes'])
-            ->find($pollingStationId);
+        return [
+            'voters' => VotersTable::make(['pollingStationId' => $pollingStationId]),
+            'requests' => RequestsTable::make(['pollingStationId' => $pollingStationId]),
+            'pollingStation' => PollingStation::select(['id', 'name', 'code', 'user_id'])
+                ->with(['agent:id,first_name,last_name,email,avatar,selected_organization_id'])
+                ->find($pollingStationId),
+        ];
     }
 }
