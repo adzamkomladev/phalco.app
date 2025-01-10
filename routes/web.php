@@ -61,8 +61,8 @@ Route::prefix('password')
         Route::post('reset', \App\Actions\Auth\Password\Reset::class)->name('reset');
     });
 
-//endregion
-//region Home Routes
+// endregion
+// region Home Routes
 
 Route::get('home/agents', \App\Actions\Home\Agents::class)->name('home.agents')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
@@ -196,9 +196,9 @@ Route::prefix('audiences')
         Route::get('{id}/show/contacts/{contactId}/show', \App\Actions\Audiences\Contacts\Show::class)->name('contacts.show');
     });
 
-//endregion
+// endregion
 
-//region Campaigns Routes
+// region Campaigns Routes
 
 Route::prefix('campaigns')
     ->name('campaigns.')
@@ -226,7 +226,7 @@ Route::post('campaigns/sms/cost', \App\Actions\Campaigns\Sms\GetCost::class)
     ->name('campaigns.sms.cost')
     ->middleware('auth');
 
-//endregion
+// endregion
 
 // region Uploads Routes
 
@@ -261,9 +261,9 @@ Route::prefix('settings')
         Route::get('organization', \App\Actions\Settings\Organization\Index::class)->name('organization');
     });
 
-//endregion
+// endregion
 
-//region Agents Routes
+// region Agents Routes
 
 Route::prefix('agents')
     ->name('agents.')
@@ -277,7 +277,7 @@ Route::prefix('agents')
         Route::post('messages', \App\Actions\Agents\Messages\Store::class)->name('messages.store');
     });
 
-//endregion
+// endregion
 
 Route::get('common/countries', \App\Actions\Common\GetCountries::class)
     ->name('common.countries');
