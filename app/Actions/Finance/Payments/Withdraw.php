@@ -2,7 +2,10 @@
 
 namespace App\Actions\Finance\Payments;
 
+use App\Data\Finance\PaymentMethodData;
+use App\Models\PaymentMethod;
 use Bavix\Wallet\Models\Wallet;
+use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 use function Hybridly\view;
@@ -13,16 +16,24 @@ class Withdraw
 
     public function asController(int $walletId)
     {
-        $wallet = $this->handle($walletId);
-
-        return view('finance.withdraw', [
-            'wallet_id' => $walletId,
-            'wallet_name' => $wallet?->name,
-        ])->base('finance.index');
+        return view('finance.withdraw', $this->handle(request()->user()->selected_organization_id, $walletId))
+            ->base('finance.index');
     }
 
-    public function handle(int $walletId)
+    public function handle(int $organizationId, int $walletId)
     {
-        return Wallet::find($walletId);
+        [
+            $paymentMethods,
+            $wallet
+        ] = Octane::concurrently([
+            fn () => PaymentMethod::where('organization_id', $organizationId)->get(),
+            fn () => Wallet::find($walletId),
+        ]);
+
+        return [
+            'walletId' => $walletId,
+            'walletName' => $wallet?->name,
+            'methods' => PaymentMethodData::collect($paymentMethods),
+        ];
     }
 }

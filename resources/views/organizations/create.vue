@@ -2,7 +2,7 @@
 useHead({
     title: "Create an Organization",
 });
-const create = useForm({
+const form = useForm({
     method: "POST",
     url: route("organizations.store"),
     fields: {
@@ -12,10 +12,7 @@ const create = useForm({
         description: "",
     },
     hooks: {
-        start: () => console.log("The request has started."),
-        fail: () => console.log("The request has failed."),
-        after: () => console.log("The request has finished."),
-        success: () => console.log("The request has succeeded."),
+        success: () => form.reset(),
     },
 });
 </script>
@@ -26,32 +23,32 @@ const create = useForm({
         description="Enter organization details"
     >
         <div class="mt-4">
-            <form @submit.prevent="create.submit">
+            <form @submit.prevent="form.submit">
                 <div class="grid gap-y-6">
                     <div class="flex flex-col justify-center">
                         <SharedFormBaseImageUpload
-                            v-model="create.fields.logo"
-                            :error="create.errors.logo"
+                            v-model="form.fields.logo"
+                            :error="form.errors.logo"
                         />
                     </div>
                     <SharedFormBaseInput
-                        v-model="create.fields.name"
-                        :error="create.errors.name"
+                        v-model="form.fields.name"
+                        :error="form.errors.name"
                         id="name"
                         name="name"
-                        placeholder="Organisation Name"
+                        placeholder="Organization Name"
                     />
                     <SharedFormBaseInput
-                        v-model="create.fields.address"
-                        :error="create.errors.address"
+                        v-model="form.fields.address"
+                        :error="form.errors.address"
                         id="name"
                         name="name"
                         placeholder="Address"
                     />
 
                     <SharedFormBaseTextarea
-                        v-model="create.fields.description"
-                        :error="create.errors.description"
+                        v-model="form.fields.description"
+                        :error="form.errors.description"
                         id="description"
                         name="description"
                         placeholder="Description"

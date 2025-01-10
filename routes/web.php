@@ -1,11 +1,9 @@
 <?php
 
-use App\Events\Users\HelloWorld;
 use App\Http\Middleware\EnsureUserHasSelectedOrganization;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    // HelloWorld::dispatch(fake()->randomNumber(2))
     return hybridly('welcome');
 })->name('welcome');
 
@@ -14,15 +12,23 @@ Route::get('/phone-verif', function () {
     return hybridly('auth.phone-verification');
 })->name('phone-verif');
 
-Route::get('/election-selected', function () {
-    return hybridly('elections.selected');
-})->name('election-selected');
+// Route::get('/send-request', function () {
+//     return hybridly('home.agents.request-form');
+// })->name('send-request');
 
-Route::get('/elections', function () {
-    return hybridly('elections.index');
-})->middleware('auth')->name('elections');
+Route::get('/audiences/contacts/show', function () {
+    return hybridly('audiences.contacts.show');
+})->name('audiences.add-contacts');
 
-//region Auth Routes
+// Route::get('/voting/request', function () {
+//     return hybridly('voting.requests.show');
+// })->name('voting.request.show');
+
+// Route::get('/elections', function () {
+//     return hybridly('elections.index');
+// })->middleware('auth')->name('elections');
+
+// region Auth Routes
 
 Route::prefix('google')
     ->name('google.')
@@ -55,16 +61,23 @@ Route::prefix('password')
         Route::post('reset', \App\Actions\Auth\Password\Reset::class)->name('reset');
     });
 
-//endregion
+// endregion
+// region Home Routes
 
-//region Home Routes
+Route::get('home/agents', \App\Actions\Home\Agents::class)->name('home.agents')
+    ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
+Route::get('home/agents/messages', \App\Actions\Messages\Agents\Index::class)->name('home.agents.messages')
+    ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
+Route::get('/agent/request', function () {
+    return hybridly('home.agents.request-show');
+})->name('agents.request');
 
 Route::get('home', \App\Actions\Home\Index::class)->name('home')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
 
-//endregion
+// endregion
 
-//region Voting Routes
+// region Voting Routes
 
 Route::prefix('voting')
     ->name('voting.')
@@ -77,6 +90,7 @@ Route::prefix('voting')
                 Route::get('{id}/show', \App\Actions\Voting\PollingStations\Show::class)->name('show');
                 Route::get('{id}/show/{voteEntryRequestId}/request', \App\Actions\Voting\PollingStations\ShowVoteEntryRequest::class)->name('show.request');
                 Route::get('create', \App\Actions\Voting\PollingStations\Create::class)->name('create');
+                // Route::get('voters/create', \App\Actions\Voting\PollingStations\Voters\Create::class)->name('voters.create');
                 Route::post('upload', \App\Actions\Voting\PollingStations\Upload::class)->name('upload');
                 Route::get('', \App\Actions\Voting\PollingStations\Index::class)->name('index');
                 Route::post('', \App\Actions\Voting\PollingStations\Store::class)->name('store');
@@ -85,7 +99,6 @@ Route::prefix('voting')
         Route::prefix('agents')
             ->name('agents.')
             ->group(function () {
-
                 Route::get('{id}/show', \App\Actions\Voting\Agents\Show::class)->name('show');
                 Route::get('create', \App\Actions\Voting\Agents\Create::class)->name('create');
                 Route::post('upload', \App\Actions\Voting\Agents\Upload::class)->name('upload');
@@ -96,6 +109,8 @@ Route::prefix('voting')
         Route::prefix('ballots')
             ->name('ballots.')
             ->group(function () {
+
+                Route::get('{id}/options/create', \App\Actions\Voting\Ballots\Options\Create::class)->name('options.create');
 
                 Route::get('create', \App\Actions\Voting\Ballots\Create::class)->name('create');
                 Route::get('{id}/show', \App\Actions\Voting\Ballots\Show::class)->name('show');
@@ -114,9 +129,9 @@ Route::prefix('voting')
             });
     });
 
-//endregion
+// endregion
 
-//region Organization Routes
+// region Organization Routes
 
 Route::prefix('organizations')
     ->name('organizations.')
@@ -129,9 +144,9 @@ Route::prefix('organizations')
         Route::get('invitations/{token}/verify', \App\Actions\Settings\Team\VerifyInvitation::class)->name('invitations.verify');
     });
 
-//endregion
+// endregion
 
-//region Elections Routes
+// region Elections Routes
 
 Route::prefix('elections')
     ->name('elections.')
@@ -144,16 +159,15 @@ Route::prefix('elections')
         Route::patch('switch', \App\Actions\Elections\SwitchElection::class)->name('switch');
     });
 
-//endregion
+// endregion
 
-//region Finance Routes
+// region Finance Routes
 
 Route::prefix('finance')
     ->name('finance.')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class])
     ->group(function () {
         Route::get('transactions/{id}/show', \App\Actions\Finance\Transactions\Show::class)->name('transactions.show');
-
         Route::get('payments/{id}/show', \App\Actions\Finance\Payments\Show::class)->name('payments.show');
         Route::get('payments/{walletId}/top-up', \App\Actions\Finance\Payments\TopUp::class)->name('payments.top-up');
         Route::get('payments/{walletId}/withdraw', \App\Actions\Finance\Payments\Withdraw::class)->name('payments.withdraw');
@@ -165,9 +179,9 @@ Route::prefix('finance')
         Route::get('', \App\Actions\Finance\Index::class)->name('index');
     });
 
-//endregion
+// endregion
 
-//region Audiences Routes
+// region Audiences Routes
 
 Route::prefix('audiences')
     ->name('audiences.')
@@ -177,18 +191,50 @@ Route::prefix('audiences')
         Route::post('', \App\Actions\Audiences\Store::class)->name('store');
         Route::get('create', \App\Actions\Audiences\Create::class)->name('create');
         Route::get('{id}/show', \App\Actions\Audiences\Show::class)->name('show');
+        Route::get('{id}/contacts/create', \App\Actions\Audiences\Contacts\Create::class)->name('contacts.create');
+        Route::post('/{id}/contacts', \App\Actions\Audiences\Contacts\Store::class)->name('contacts.store');
         Route::get('{id}/show/contacts/{contactId}/show', \App\Actions\Audiences\Contacts\Show::class)->name('contacts.show');
     });
 
-//endregion
+// endregion
 
-//region Uploads Routes
+// region Campaigns Routes
+
+Route::prefix('campaigns')
+    ->name('campaigns.')
+    ->middleware(['verified', EnsureUserHasSelectedOrganization::class])
+    ->group(function () {
+        Route::prefix('sms')
+            ->name('sms.')
+            ->group(function () {
+                Route::get('senders', \App\Actions\Campaigns\Sms\Sender\Index::class)->name('senders.index');
+                Route::post('senders', \App\Actions\Campaigns\Sms\Sender\Store::class)->name('senders.store');
+                Route::get('', \App\Actions\Campaigns\Sms\Index::class)->name('index');
+                Route::post('', \App\Actions\Campaigns\Sms\Store::class)->name('store');
+                Route::get('create', \App\Actions\Campaigns\Sms\Create::class)->name('create');
+                Route::get('{id}/show', \App\Actions\Campaigns\Sms\Show::class)->name('show');
+                Route::patch('{id}/pause', \App\Actions\Campaigns\Sms\PauseCampaign::class)->name('pause');
+                Route::patch('{id}/resume', \App\Actions\Campaigns\Sms\ResumeCampaign::class)->name('resume');
+                Route::patch('{id}/stop', \App\Actions\Campaigns\Sms\StopCampaign::class)->name('stop');
+            });
+    });
+
+Route::post('campaigns/sms/count', \App\Actions\Campaigns\Sms\GetSmsCount::class)
+    ->name('campaigns.sms.count')
+    ->middleware('auth');
+Route::post('campaigns/sms/cost', \App\Actions\Campaigns\Sms\GetCost::class)
+    ->name('campaigns.sms.cost')
+    ->middleware('auth');
+
+// endregion
+
+// region Uploads Routes
 
 Route::post('assets/upload', \App\Actions\Assets\Upload::class)->name('assets.upload')->middleware('auth');
 
-//endregion
+// endregion
 
-//region Settings Routes
+// region Settings Routes
 
 Route::prefix('settings')
     ->name('settings.')
@@ -215,4 +261,23 @@ Route::prefix('settings')
         Route::get('organization', \App\Actions\Settings\Organization\Index::class)->name('organization');
     });
 
-//endregion
+// endregion
+
+// region Agents Routes
+
+Route::prefix('agents')
+    ->name('agents.')
+    ->middleware(['verified', EnsureUserHasSelectedOrganization::class])
+    ->group(function () {
+        Route::get('requests/{id}/show', \App\Actions\Agents\Requests\Show::class)->name('requests.show');
+        Route::post('requests', \App\Actions\Agents\Requests\Store::class)->name('requests.store');
+        Route::get('requests/{id}/create', \App\Actions\Agents\Requests\Create::class)->name('requests.create');
+
+        Route::get('messages', \App\Actions\Agents\Messages\Index::class)->name('messages.index');
+        Route::post('messages', \App\Actions\Agents\Messages\Store::class)->name('messages.store');
+    });
+
+// endregion
+
+Route::get('common/countries', \App\Actions\Common\GetCountries::class)
+    ->name('common.countries');

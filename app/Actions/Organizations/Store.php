@@ -2,9 +2,11 @@
 
 namespace App\Actions\Organizations;
 
+use App\Actions\Finance\SetupOrganizationWallets;
 use App\Models\OrganizationMembership;
 use App\Models\OrganizationRole;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -18,7 +20,7 @@ class Store
         return [
             'name' => ['required', 'max:100'],
             'description' => ['nullable', 'string', 'max:255'],
-            'logo' => ['required', 'string', 'url'],
+            'logo' => ['required', 'string'],
         ];
     }
 
@@ -37,6 +39,7 @@ class Store
     {
         $userId = $user->id;
 
+        $data['logo'] = app()->isProduction() ? Storage::url($data['logo']) : asset("storage/{$data['logo']}");
         $organization = $user->organizationsOwned()->create($data);
 
         $organizationId = $organization->id;
@@ -84,5 +87,7 @@ class Store
                 'status' => 'active',
             ]),
         ]);
+
+        SetupOrganizationWallets::dispatch($organizationId);
     }
 }

@@ -3,7 +3,7 @@ useHead({
     title: "Forget Password",
 });
 
-const register = useForm({
+const form = useForm({
     method: "POST",
     url: route("password.reset"),
     fields: {
@@ -12,10 +12,7 @@ const register = useForm({
     },
 
     hooks: {
-        start: () => console.log("The request has started."),
-        fail: () => console.log("The request has failed."),
-        after: () => console.log("The request has finished."),
-        success: () => console.log("The request has succeeded."),
+        success: () => form.reset(),
     },
 });
 </script>
@@ -26,11 +23,11 @@ const register = useForm({
         title="Reset Password"
         description="Enter new password to continue with phalco"
     >
-        <form @submit.prevent="register.submit">
+        <form @submit.prevent="form.submit">
             <div class="grid gap-y-4 _md:landscape:gap-y-4 sm:gap-y-8 pt-2">
                 <SharedFormBaseInput
-                    v-model="register.fields.password"
-                    :error="register.errors.password"
+                    v-model="form.fields.password"
+                    :error="form.errors.password"
                     id="password"
                     name="password"
                     type="password"
@@ -38,8 +35,8 @@ const register = useForm({
                 />
 
                 <SharedFormBaseInput
-                    v-model="register.fields.password_confirmation"
-                    :error="register.errors.password_confirmation"
+                    v-model="form.fields.password_confirmation"
+                    :error="form.errors.password_confirmation"
                     id="password_confirmation"
                     name="password_confirmation"
                     type="password"
@@ -47,7 +44,7 @@ const register = useForm({
                 />
 
                 <SharedFormSubmitButton
-                    :loading="register.processing"
+                    :loading="form.processing"
                     text="Proceed"
                 />
             </div>

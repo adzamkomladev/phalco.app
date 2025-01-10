@@ -24,4 +24,6 @@ _ide_helper*
 .phpstorm.meta.php
 /data.ms
 vite.config.ts.timestamp-*
-bun.lockb
+bun.lockbrr
+.rr.yaml
+composer.*

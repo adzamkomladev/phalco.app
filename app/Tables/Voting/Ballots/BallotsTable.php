@@ -37,7 +37,7 @@ final class BallotsTable extends Table
     protected function defineRefiners(): array
     {
         return [
-            Sorts\Sort::make('created_at'),
+            Sorts\Sort::make('created_at')->default('desc'),
             CallbackFilter::make(
                 name: 'search',
                 callback: function (InternalBuilder $builder, mixed $value, string $property) {

@@ -16,7 +16,7 @@ class Index
 
     public function asController()
     {
-        return view('finance.payments.methods.index', $this->handle(auth()->user()->selected_organization_id))
+        return view('finance.payments.methods.index', $this->handle(request()->user()->selected_organization_id))
             ->base('finance.index');
     }
 

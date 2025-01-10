@@ -1,4 +1,4 @@
-import { positionType } from "../common/index.interface";
+import { positionType } from "./common.interface";
 type BaseDateInputPropsType = "datetime" | "date";
 type BaseDateInputPropsScope = "start" | "end" | "general";
 type SubmitButtonPropsType = "submit" | "simple" | string;
@@ -16,8 +16,16 @@ export interface BaseInputProps extends FormProp {
     required?: boolean;
     autocomplete?: string;
     error?: string;
+    disabled?: boolean;
+    min?:number;
+    max?:number;
 }
-
+export interface BaseRadioGroupProps extends FormProp {
+    required?: boolean;
+    error?: string;
+    disabled?: boolean;
+    options?:string[]
+}
 
 export interface BaseDateInputProps extends BaseInputProps {
     startDate?: Date | null;
@@ -25,8 +33,8 @@ export interface BaseDateInputProps extends BaseInputProps {
     disablePast?: boolean;
     latestDate?: Date;
     farthestDate?: Date;
-    scope: BaseDateInputPropsScope;
-    type: BaseDateInputPropsType;
+    scope?: BaseDateInputPropsScope;
+    type?: BaseDateInputPropsType;
 }
 
 
@@ -56,7 +64,7 @@ export interface SearchInputProps extends FormProp {
 export interface SubmitButtonProps {
     loading?: boolean;
     text?: string;
-    type?:SubmitButtonPropsType;
+    type?: SubmitButtonPropsType;
 }
 
 export interface BaseTextareaProps extends FormProp {
@@ -74,13 +82,15 @@ export interface BaseOtpProps extends FormProp {
 }
 
 export interface BaseAdvanceSelectProps extends FormProp{
-    modelValue: string | number;
-    options: Array<string | number | {label:string,value:string}>;
+    selectMultiple?:boolean;
+    modelValue?: string | number;
+    options: any;
     position?:positionType
     selectedClass?: string;
     selectClass?: string;
     optionClass?: string;
     optionsClass?: string;
     hideOnSelect?: boolean;
+    hasIcon?:boolean;
 }
 

@@ -14,7 +14,7 @@ class Upload
     {
         return [
             'election_id' => ['required', 'int', 'exists:elections,id'],
-            'upload_file' => ['required', 'string', 'url'],
+            'upload_file' => ['required', 'string'],
         ];
     }
 
@@ -32,25 +32,7 @@ class Upload
     public function handle(int $organizationId, array $data): void
     {
         (new PollingStationsImport($data['election_id'], $organizationId))
-            ->queue($this->getFilePath($data['upload_file']))
+            ->queue($data['upload_file'], 'contabo')
             ->allOnQueue('imports');
-    }
-
-    private function removeDomain(string $url): string
-    {
-        $parsedUrl = parse_url($url);
-
-        if ($parsedUrl === false) {
-            throw new \Exception('Could not parse URL');
-        }
-
-        return $parsedUrl['path'];
-    }
-
-    private function getFilePath(string $url): string
-    {
-        $path = $this->removeDomain($url);
-
-        return str_replace('/storage/', '', $path);
     }
 }

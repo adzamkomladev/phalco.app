@@ -1,20 +1,37 @@
 <script setup lang="ts">
-import { Election } from "~/resources/interfaces/elections/selected.interface";
-import { formatDate } from "~/resources/utils/shared/date";
+import { Election } from "~/resources/interfaces/elections/show.interface";
+import { formatDate, secondsUntil } from "~/resources/utils/shared/date";
+import { Stage } from "~/resources/interfaces/elections/show.interface";
 
-const props = defineProps<{ election: Election }>();
+const props = defineProps<{ election: Election; stage?: Stage | null }>();
+const secondsLeftToVote = Math.floor(
+    secondsUntil(props.stage?.end || new Date()),
+);
 </script>
 
 <template>
     <SharedCommonCard class="divide-y dark:divide-gray-500 gap-2 flex flex-col">
-        <div class="flex items-center gap-2">
-            <img
-                :src="election.logo"
-                class="size-10 aspect-square rounded-full border"
-            />
+        <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <img
+                    :src="election.logo"
+                    class="size-10 aspect-square rounded-full border"
+                />
 
-            <span class="font-bold text-2xl">{{ election.name }}</span>
+                <span class="font-bold text-2xl">{{ election.name }}</span>
+            </div>
+            <div v-if="stage?.stage === 'voting'" class="min-w-28">
+                <SharedCommonTimer
+                    :duration="secondsLeftToVote"
+                    class="font-black text-2xl"
+                />
+                <div class="flex items-center">
+                    <SharedCommonIcon name="vote" class="" />
+                    <p class="text-gray-500 text-center">to voting</p>
+                </div>
+            </div>
         </div>
+
         <div
             class="grid text-sm grid-cols-4 xl:grid-cols-5 _xs:divide-y dark:divide-gray-500 _xs:grid-cols-2 gap-6 py-2"
         >

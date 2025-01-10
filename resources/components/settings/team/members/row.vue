@@ -12,14 +12,14 @@ const { key, value, extra } = props.row;
     <tr :key="key">
         <td class="size-px whitespace-nowrap">
             <div class="py-3 ps-6">
-                <label for="hs-at-with-checkboxes-1" class="flex">
+                <!-- <label for="hs-at-with-checkboxes-1" class="flex">
                     <input
                         type="checkbox"
                         class="text-primary-600 border-gray-300 rounded shrink-0 focus:ring-primary-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-600 dark:checked:bg-primary-500 dark:checked:border-primary-500 dark:focus:ring-offset-gray-800"
                         id="hs-at-with-checkboxes-1"
                     />
                     <span class="sr-only">Checkbox</span>
-                </label>
+                </label> -->
             </div>
         </td>
 
@@ -80,14 +80,7 @@ const { key, value, extra } = props.row;
             </div>
         </td>
         <td class="size-px whitespace-nowrap">
-            <div class="px-6 py-1.5">
-                <a
-                    data-hs-overlay="#hs-overlay-create-user"
-                    class="inline-flex items-center text-sm font-medium text-primary-600 cursor-pointer gap-x-1 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                >
-                    Edit
-                </a>
-            </div>
+            <SharedTableShowDetail />
         </td>
     </tr>
 </template>

@@ -16,6 +16,7 @@ final class AgentsTable extends Table
 
     public function __construct(
         public readonly int $organizationId,
+        public readonly ?int $electionId,
         public readonly int $roleId
     ) {}
 
@@ -29,20 +30,21 @@ final class AgentsTable extends Table
                 ->extra((fn (User $user) => [
                     'id' => $user->id,
                     'email' => $user->email,
+                    'phone' => $user->phone,
                     'avatar' => $user->avatar,
                 ])),
             Columns\TextColumn::make('polling_stations')->label('Polling Stations')
-                ->transformValueUsing(fn (User $user) => $user->polling_stations_count ?? 0),
+                ->transformValueUsing(fn (User $user) => $user->polling_stations_count ?? 0)
+                ->extra((fn (User $user) => ['vote_requests' => $user->vote_requests_count ?? 0])),
             Columns\TextColumn::make('added_on')->label('Added On')
                 ->transformValueUsing(fn (User $user) => $user->organizationMemberships->first()->created_at->diffForHumans()),
-
         ];
     }
 
     protected function defineRefiners(): array
     {
         return [
-            Sorts\Sort::make('id'),
+            Sorts\Sort::make('added_on'),
             CallbackFilter::make(
                 name: 'search',
                 callback: function (InternalBuilder $builder, mixed $value, string $property) {
@@ -67,7 +69,10 @@ final class AgentsTable extends Table
         return $this->getModel()
             ->query()
             ->with('organizationMemberships')
-            ->withCount('pollingStations')
+            ->withCount([
+                'pollingStations',
+                'voteRequests' => fn (InternalBuilder $query) => $query->where('status', 'pending')->where('election_id', $this->electionId),
+            ])
             ->whereRelation('organizationMemberships', 'organization_id', $this->organizationId)
             ->whereRelation('organizationMemberships', 'organization_role_id', $this->roleId);
     }

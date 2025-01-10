@@ -6,9 +6,9 @@ use App\Mail\Voting\Agents\AgentCreated;
 use App\Models\OrganizationMembership;
 use App\Models\OrganizationRole;
 use App\Models\User;
+use Illuminate\Support\Facades\Concurrency;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Laravel\Octane\Facades\Octane;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class SetupAgent
@@ -32,7 +32,7 @@ class SetupAgent
         $role = 'customer';
         $avatar = "https://ui-avatars.com/api/?name={$firstName}+{$lastName}&background=random";
 
-        [$organizationRole, $user] = Octane::concurrently([
+        [$organizationRole, $user] = Concurrency::run([
             fn () => OrganizationRole::with('organization')
                 ->where('organization_id', $organizationId)
                 ->where('name', 'agent')
