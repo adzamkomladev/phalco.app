@@ -24,7 +24,7 @@ const social = [
 </script>
 
 <template>
-    <footer class="bg-secondary-500 text-sm relative overflow-hidden">
+    <footer class="bg-secondary-500 font-unbounded  text-sm relative overflow-hidden">
         <div class="py-10 lg:pt-20 mx-auto">
             <!-- Grid -->
             <div
@@ -100,7 +100,7 @@ const social = [
                 </div>
                 <div class="">
                     <div class="md:ml-16">
-                        <h3 class="text-xl font-semibold text-white">
+                        <h3 class="text-xl md:text-2xl font-unbounded font-semibold text-white">
                             What are you waiting for??
                         </h3>
                         <p class="text-white/70 mb-4">

@@ -16,6 +16,8 @@ export default {
             },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
+                unbounded: ['Unbounded', 'sans-serif'],
+
             },
             backgroundImage: {
                 logo: "url('../svg/icon/logo.svg')",
