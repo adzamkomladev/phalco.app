@@ -22,7 +22,7 @@ Route::get('/elections', function () {
     return hybridly('elections.index');
 })->middleware('auth')->name('elections');
 
-//region Auth Routes
+// region Auth Routes
 
 Route::prefix('google')
     ->name('google.')
@@ -55,16 +55,16 @@ Route::prefix('password')
         Route::post('reset', \App\Actions\Auth\Password\Reset::class)->name('reset');
     });
 
-//endregion
+// endregion
 
-//region Home Routes
+// region Home Routes
 
 Route::get('home', \App\Actions\Home\Index::class)->name('home')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
 
-//endregion
+// endregion
 
-//region Voting Routes
+// region Voting Routes
 
 Route::prefix('voting')
     ->name('voting.')
@@ -114,9 +114,9 @@ Route::prefix('voting')
             });
     });
 
-//endregion
+// endregion
 
-//region Organization Routes
+// region Organization Routes
 
 Route::prefix('organizations')
     ->name('organizations.')
@@ -129,9 +129,9 @@ Route::prefix('organizations')
         Route::get('invitations/{token}/verify', \App\Actions\Settings\Team\VerifyInvitation::class)->name('invitations.verify');
     });
 
-//endregion
+// endregion
 
-//region Elections Routes
+// region Elections Routes
 
 Route::prefix('elections')
     ->name('elections.')
@@ -144,9 +144,9 @@ Route::prefix('elections')
         Route::patch('switch', \App\Actions\Elections\SwitchElection::class)->name('switch');
     });
 
-//endregion
+// endregion
 
-//region Finance Routes
+// region Finance Routes
 
 Route::prefix('finance')
     ->name('finance.')
@@ -165,9 +165,9 @@ Route::prefix('finance')
         Route::get('', \App\Actions\Finance\Index::class)->name('index');
     });
 
-//endregion
+// endregion
 
-//region Audiences Routes
+// region Audiences Routes
 
 Route::prefix('audiences')
     ->name('audiences.')
@@ -180,15 +180,15 @@ Route::prefix('audiences')
         Route::get('{id}/show/contacts/{contactId}/show', \App\Actions\Audiences\Contacts\Show::class)->name('contacts.show');
     });
 
-//endregion
+// endregion
 
-//region Uploads Routes
+// region Uploads Routes
 
 Route::post('assets/upload', \App\Actions\Assets\Upload::class)->name('assets.upload')->middleware('auth');
 
-//endregion
+// endregion
 
-//region Settings Routes
+// region Settings Routes
 
 Route::prefix('settings')
     ->name('settings.')
@@ -215,4 +215,4 @@ Route::prefix('settings')
         Route::get('organization', \App\Actions\Settings\Organization\Index::class)->name('organization');
     });
 
-//endregion
+// endregion
