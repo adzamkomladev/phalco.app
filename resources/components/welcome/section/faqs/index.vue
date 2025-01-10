@@ -54,7 +54,7 @@ import FaqsImage from "~/resources/svg/welcome/faqs.webp?url";
                 v-motion-fade-visible
                 :duration="300"
                 :delay="90"
-                class="font-black font-sans text-3xl md:text-4xl"
+                class="font-black font-unbounded text-3xl md:text-4xl"
             >
                 FAQ'S
             </p>
@@ -75,7 +75,7 @@ import FaqsImage from "~/resources/svg/welcome/faqs.webp?url";
                 <img :src="FaqsImage" class="h-full w-auto" />
             </div>
             <div class="sm:col-span-5">
-                <p class="font-black font-sans pb-5 text-2xl md:text-3xl">
+                <p class="font-black font-unbounded pb-5 text-2xl md:text-3xl">
                     Frequently Asked Questions
                 </p>
                 <div class="grid gap-2 text-sm">

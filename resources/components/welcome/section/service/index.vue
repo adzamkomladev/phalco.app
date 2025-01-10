@@ -31,7 +31,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                 v-motion-fade-visible
                 :duration="300"
                 :delay="90"
-                class="font-black font-sans text-3xl md:text-4xl"
+                class="font-black font-unbounded text-3xl md:text-4xl"
             >
                 Our Service
             </p>
@@ -61,7 +61,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                         v-motion-fade-visible
                         :duration="300"
                         :delay="90"
-                        class="font-black font-sans text-3xl md:text-4xl pb-4"
+                        class="font-black font-unbounded text-3xl md:text-4xl pb-4"
                     >
                         Fast Decisions
                     </p>
@@ -110,7 +110,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                         v-motion-fade-visible
                         :duration="300"
                         :delay="90"
-                        class="font-black font-sans text-3xl md:text-4xl pb-4"
+                        class="font-black font-unbounded text-3xl md:text-4xl pb-4"
                     >
                         Campaigning
                     </p>
@@ -153,7 +153,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                         v-motion-fade-visible
                         :duration="300"
                         :delay="90"
-                        class="font-black font-sans text-3xl md:text-4xl pb-4"
+                        class="font-black font-unbounded text-3xl md:text-4xl pb-4"
                     >
                         Voting
                     </p>
@@ -195,7 +195,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                         v-motion-fade-visible
                         :duration="300"
                         :delay="90"
-                        class="font-black font-sans text-3xl md:text-4xl pb-4"
+                        class="font-black font-unbounded text-3xl md:text-4xl pb-4"
                     >
                         Management
                     </p>

@@ -44,7 +44,7 @@ const premium = {
                 v-motion-fade-visible
                 :duration="300"
                 :delay="90"
-                class="font-black font-sans text-3xl md:text-4xl"
+                class="font-black font-unbounded text-3xl md:text-4xl"
             >
                 Pricing
             </p>

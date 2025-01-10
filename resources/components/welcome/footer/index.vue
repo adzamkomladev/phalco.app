@@ -25,31 +25,31 @@ const social = [
 
 <template>
     <footer
-        class="bg-secondary-500 font-unbounded text-sm relative overflow-hidden"
+        class="bg-secondary-500 font-unbounded text-[10px] sm:text-xs md:text-sm relative overflow-hidden"
     >
         <div class="py-10 lg:pt-20 mx-auto">
             <!-- Grid -->
             <div
-                class="grid grid-cols-[10rem_minmax(0,1fr)] lg:grid-cols-[15rem_minmax(0,1fr)] grid-rows-[auto_minmax(0,1fr)] gap-4"
+                class="grid grid-cols-[5rem_minmax(0,1fr)] sm:grid-cols-[10rem_minmax(0,1fr)] xl:mx-[5%] mx-4 md:mx-10 md:grid-cols-[15rem_minmax(0,1fr)] lg:grid-cols-[16rem_minmax(0,1fr)] grid-rows-[auto_minmax(0,1fr)] gap-4"
             >
                 <!-- Phalco Logo -->
-                <div class="_sm:col-span-2">
+                <div class="_sm:col-span-2 ">
                     <SharedCommonIcon
                         name="logo_full"
-                        class="h-auto w-[11rem] md:w-[12rem] px-4 text-white"
+                        class="h-auto lg:w-full sm:w-36 md:_lg:w-40 w-32 px-4 text-white"
                     />
                 </div>
                 <!-- End Logo -->
                 <div
-                    class="mx-auto _sm:text-center _sm:gap-16 _sm:pr-[10rem] row-span-2 _sm:flex-col flex justify-center gap-5"
+                    class="sm:mr-16 _sm:xs:text-center  _sm:xs:gap-16 _sm:pr-[10%] row-span-2 _sm:flex-col flex justify-end gap-10 lg:gap-[5%] font-[20]"
                 >
                     <div class="">
-                        <h4 class="font-semibold text-white">Products</h4>
-                        <div class="mt-3 grid space-y-5">
+                        <h4 class="font-semibold text-white text-xs sm:text-sm  md:text-lg ">Election Workflow</h4>
+                        <div class="mt-3 grid gap-4 lg:space-y-5 ">
                             <p
                                 v-for="(item, index) in products"
                                 :key="index"
-                                class="text-white/70 hover:text-white"
+                                class="text-white/70  hover:text-white"
                             >
                                 {{ item }}
                             </p>
@@ -57,8 +57,8 @@ const social = [
                     </div>
 
                     <div class="">
-                        <h4 class="font-semibold text-white">Contact</h4>
-                        <div class="mt-3 grid space-y-5">
+                        <h4 class="font-semibold text-white text-xs sm:text-sm  md:text-lg ">Contact</h4>
+                        <div class="mt-3 grid gap-4 lg:space-y-5">
                             <p class="text-white hover:text-white">
                                 Komla Adzam
                             </p>
@@ -85,29 +85,26 @@ const social = [
                 </div>
 
                 <div
-                    class="row-span-3 flex _sm:flex-col _sm:row-span-3 _sm:row-start-2 justify-between"
-                >
-                    <img
-                        :src="FooterIllustrationPinkLine"
-                        alt="Footer illustration"
-                        class="sm:w-1/3 _md:mt-1"
-                        aria-hidden="true"
-                    />
+                    class="row-span-3  _sm:row-span-3 _sm:row-start-2 place-content-end"
+                >   
+                <div class="_sm:-mr-5 _sm:-mb-10 sm:pl-20 ">
                     <img
                         :src="FooterIllustrationImage"
                         alt="Footer illustration"
-                        class="w-auto object-contain max-h-"
+                        class="w-auto place-self-end  object-contai max-h-"
                         aria-hidden="true"
                     />
+                </div>          
+                    
                 </div>
                 <div class="">
-                    <div class="md:ml-16">
+                    <div class="">
                         <h3
-                            class="text-xl md:text-2xl font-unbounded font-semibold text-white"
-                        >
+                            class="_xs:text-xs  text-lg md:text-2xl font-unbounded font-semibold text-white"
+                        > 
                             What are you waiting for??
                         </h3>
-                        <p class="text-white/70 mb-4">
+                        <p class="text-white/90 _xs:text-[10px] mb-4">
                             Create an account and Get Started now
                         </p>
                         <router-link
@@ -118,7 +115,7 @@ const social = [
                         </router-link>
                     </div>
                 </div>
-                <div class="_sm:col-span-full md:ml-16 _sm:hidden _sm:text-end">
+                <div class="_sm:col-span-full _sm:hidden _sm:text-end font-[20] ">
                     <p class="_xs:text-xs text-sm text-white/70">
                         © 2024 Phalco. All rights reserved.
                     </p>
@@ -129,9 +126,15 @@ const social = [
         <img
             :src="FooterIllustrationOrangeLine"
             alt="Footer illustration"
-            class="absolute _md:-top-10 md:bottom-0 right-0 h-32 _md:-rotate-90 md:h-40 lg:h-48 w-auto"
+            class="absolute sm:bottom-0 top-[calc(50%_-5rem)]  right-0 h-20  md:h-40 lg:h-48 w-auto"
             aria-hidden="true"
         />
+        <img
+                        :src="FooterIllustrationPinkLine"
+                        alt="Footer illustration"
+                        class="absolute -left-2 top-1/3 h-14"
+                        aria-hidden="true"
+                    />
         <!-- Illustration -->
     </footer>
 </template>

@@ -7,7 +7,7 @@ import DropletImage from "~/resources/svg/welcome/drop.svg?url";
 </script>
 
 <template>
-    <body class="bg-gray-100 md:text-lg flex flex-col">
+    <body class="bg-gray-100 font-poppins md:text-lg flex flex-col">
         <WelcomeHeader />
 
         <main
@@ -26,7 +26,7 @@ import DropletImage from "~/resources/svg/welcome/drop.svg?url";
                                 v-motion-fade-visible
                                 :delay="100"
                                 :duration="360"
-                                class="text-wrap"
+                                class="text-wrap font-unbounded"
                             >
                                 Election Management made easy
                             </p>
@@ -113,7 +113,7 @@ import DropletImage from "~/resources/svg/welcome/drop.svg?url";
             <WelcomeSectionService />
             <WelcomeSectionPricing />
             <WelcomeSectionTrusts />
-            <WelcomeSectionFaqs />
+            <WelcomeSectionFaqs /> 
 
             <div class="md:border-t">
                 <WelcomeFooter />

@@ -40,6 +40,9 @@ export default {
                 _xs: {
                     raw: `only screen and (max-width: 500px)`,
                 },
+                xs: {
+                    raw: `only screen and (min-width: 500px)`,
+                },
                 _sm: {
                     raw: `only screen and (max-width: 639px)`,
                 },
