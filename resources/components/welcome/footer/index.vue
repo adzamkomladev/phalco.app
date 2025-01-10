@@ -25,19 +25,30 @@ const social = [
 
 <template>
     <footer class="bg-secondary-500 text-sm relative overflow-hidden">
-        <div class=" py-10   lg:pt-20 mx-auto">
+        <div class="py-10 lg:pt-20 mx-auto">
             <!-- Grid -->
-            <div class="grid grid-cols-[10rem_minmax(0,1fr)] lg:grid-cols-[15rem_minmax(0,1fr)]  grid-rows-[auto_minmax(0,1fr)] gap-4">
+            <div
+                class="grid grid-cols-[10rem_minmax(0,1fr)] lg:grid-cols-[15rem_minmax(0,1fr)] grid-rows-[auto_minmax(0,1fr)] gap-4"
+            >
                 <!-- Phalco Logo -->
-                <div class=" _sm:col-span-2">
-                    <SharedCommonIcon name="logo_full" class="h-auto w-[11rem] md:w-[12rem]  px-4 text-white" />
+                <div class="_sm:col-span-2">
+                    <SharedCommonIcon
+                        name="logo_full"
+                        class="h-auto w-[11rem] md:w-[12rem] px-4 text-white"
+                    />
                 </div>
                 <!-- End Logo -->
-                <div class="mx-auto _sm:text-center _sm:gap-16 _sm:pr-[10rem]  row-span-2 _sm:flex-col flex justify-center gap-5">
+                <div
+                    class="mx-auto _sm:text-center _sm:gap-16 _sm:pr-[10rem] row-span-2 _sm:flex-col flex justify-center gap-5"
+                >
                     <div class="">
                         <h4 class="font-semibold text-white">Products</h4>
                         <div class="mt-3 grid space-y-5">
-                            <p v-for="(item, index) in products" :key="index" class="text-white/70 hover:text-white">
+                            <p
+                                v-for="(item, index) in products"
+                                :key="index"
+                                class="text-white/70 hover:text-white"
+                            >
                                 {{ item }}
                             </p>
                         </div>
@@ -46,7 +57,9 @@ const social = [
                     <div class="">
                         <h4 class="font-semibold text-white">Contact</h4>
                         <div class="mt-3 grid space-y-5">
-                            <p class="text-white hover:text-white">Komla Adzam</p>
+                            <p class="text-white hover:text-white">
+                                Komla Adzam
+                            </p>
                             <p class="text-white/70 hover:text-white">
                                 komla@yopmail.com
                             </p>
@@ -54,21 +67,36 @@ const social = [
                                 +233 456 45466
                             </p>
                             <div class="space-x-4">
-                                <router-link v-for="(item, index) in social" :key="index" :href="item.url"
-                                    class="inline-flex justify-center items-center w-8 h-8 text-center text-white hover:bg-white/10 rounded-full transition bg-[#ffffff20] p-2">
-                                    <SharedCommonIcon :name="item.icon"></SharedCommonIcon>
+                                <router-link
+                                    v-for="(item, index) in social"
+                                    :key="index"
+                                    :href="item.url"
+                                    class="inline-flex justify-center items-center w-8 h-8 text-center text-white hover:bg-white/10 rounded-full transition bg-[#ffffff20] p-2"
+                                >
+                                    <SharedCommonIcon
+                                        :name="item.icon"
+                                    ></SharedCommonIcon>
                                 </router-link>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row-span-3  flex _sm:flex-col _sm:row-span-3  _sm:row-start-2  justify-between  ">
-                    <img :src="FooterIllustrationPinkLine" alt="Footer illustration" class="sm:w-1/3 _md:mt-1 "
-                        aria-hidden="true" />
-                    <img :src="FooterIllustrationImage" alt="Footer illustration" class="w-auto object-contain  max-h-"
-                        aria-hidden="true" />
-
+                <div
+                    class="row-span-3 flex _sm:flex-col _sm:row-span-3 _sm:row-start-2 justify-between"
+                >
+                    <img
+                        :src="FooterIllustrationPinkLine"
+                        alt="Footer illustration"
+                        class="sm:w-1/3 _md:mt-1"
+                        aria-hidden="true"
+                    />
+                    <img
+                        :src="FooterIllustrationImage"
+                        alt="Footer illustration"
+                        class="w-auto object-contain max-h-"
+                        aria-hidden="true"
+                    />
                 </div>
                 <div class="">
                     <div class="md:ml-16">
@@ -78,27 +106,28 @@ const social = [
                         <p class="text-white/70 mb-4">
                             Create an account and Get Started now
                         </p>
-                        <router-link :href="route('register')"
-                            class="bg-white text-phalco-blue px-6 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                        <router-link
+                            :href="route('register')"
+                            class="bg-white text-phalco-blue px-6 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                        >
                             Get Started
                         </router-link>
                     </div>
                 </div>
-                <div class="_sm:col-span-full md:ml-16 _sm:hidden _sm:text-end ">
-                    <p class="_xs:text-xs text-sm  text-white/70">
+                <div class="_sm:col-span-full md:ml-16 _sm:hidden _sm:text-end">
+                    <p class="_xs:text-xs text-sm text-white/70">
                         © 2024 Phalco. All rights reserved.
                     </p>
                 </div>
             </div>
             <!-- End Grid -->
-
-            
         </div>
-        <img :src="FooterIllustrationOrangeLine" alt="Footer illustration"
+        <img
+            :src="FooterIllustrationOrangeLine"
+            alt="Footer illustration"
             class="absolute _md:-top-10 md:bottom-0 right-0 h-32 _md:-rotate-90 md:h-40 lg:h-48 w-auto"
-            aria-hidden="true" />
+            aria-hidden="true"
+        />
         <!-- Illustration -->
-
-
     </footer>
 </template>
