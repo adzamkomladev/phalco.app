@@ -113,7 +113,7 @@ import DropletImage from "~/resources/svg/welcome/drop.svg?url";
             <WelcomeSectionService />
             <WelcomeSectionPricing />
             <WelcomeSectionTrusts />
-            <WelcomeSectionFaqs /> 
+            <WelcomeSectionFaqs />
 
             <div class="md:border-t">
                 <WelcomeFooter />
