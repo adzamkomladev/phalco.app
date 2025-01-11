@@ -1,80 +1,77 @@
 <script setup lang="ts">
-
 import MadeEasyImage1 from "~/resources/svg/welcome/made_easy_1.webp?url";
 import MadeEasyImage2 from "~/resources/svg/welcome/made_easy_2.webp?url";
 import MadeEasyImage3 from "~/resources/svg/welcome/made-easy_3.svg?url";
 import ArrowImage from "~/resources/svg/welcome/made_easy_arrow.svg?url";
 import DropletImage from "~/resources/svg/welcome/drop.svg?url";
-
 </script>
 
 <template>
-    <body class=" font-poppins md:text-lg flex flex-col">
+    <body class="font-poppins md:text-lg flex flex-col">
         <WelcomeHeader />
 
         <main
             id="home"
-            class="scroll-mt-[9rem]  max-w-[1600px] self-center oveflow-x-hidden"
-        >  
+            class="scroll-mt-[9rem] max-w-[1600px] self-center oveflow-x-hidden"
+        >
             <section id="home" class="relative flex _sm:flex-col bg-white">
                 <div
-                    class="sm:basis-1/2 pl-[5%]    _sm:px-[8%] sm:pt-10 relative shrink-0 _sm:text-center z-10 flex flex-col gap-10 h:gap-20 "
+                    class="sm:basis-1/2 pl-[5%] _sm:px-[8%] sm:pt-10 relative shrink-0 _sm:text-center z-10 flex flex-col gap-10 h:gap-20"
                 >
-                <div>
-
-               
-                    <p
-                        class="font-black text-2xl pb-2 sm:text-3xl text-black md:text-4xl lg:text-5xl md:leading-[3rem]"
-                    >
-                        <SharedAnimationBlurReview :delay="0" :duration="0.67">
-                            <p
-                                v-motion-fade-visible
-                                :delay="100"
-                                :duration="360"
-                                class="text-wrap font-unbounded"
-                            >
-                                Election Management made easy
-                            </p>
-                        </SharedAnimationBlurReview>
-                    </p>
-                    <div
-                        v-motion-fade-visible
-                        :delay="100"
-                        :duration="360"
-                        class=" "
-                    >
+                    <div>
                         <p
-                            class="text-left _sm:text-sm  inline-block "
-                            v-motion-fade-visible-once
-                            :duration="300"
-                            :delay="500"
+                            class="font-black text-2xl pb-2 sm:text-3xl text-black md:text-4xl lg:text-5xl md:leading-[3rem]"
                         >
-                            We handle all voting related tasks for you. We are
-                            your helper from the planning to the end of the
-                            voting process. From nomination , vetting
-                            ,campaigning,team managemnt , team managemment
-                            financal managemnt , voting collaton and many more
-                        </p>
-                        
-                    </div>
-
-                    <div class="py-2 sm:pt-10">
-                        <router-link :href="route('register')">
-                            <button
-                                v-motion-pop-visible-once
-                                :delay="800"
-                                class="p-2 w-full md:w-52 hover:opacity-90 transition-all hover:scale-105 text-white bg-primary-500 rounded-md font-bold"
+                            <SharedAnimationBlurReview
+                                :delay="0"
+                                :duration="0.67"
                             >
-                                Get Started
-                            </button>
-                        </router-link>
+                                <p
+                                    v-motion-fade-visible
+                                    :delay="100"
+                                    :duration="360"
+                                    class="text-wrap font-unbounded"
+                                >
+                                    Election Management made easy
+                                </p>
+                            </SharedAnimationBlurReview>
+                        </p>
+                        <div
+                            v-motion-fade-visible
+                            :delay="100"
+                            :duration="360"
+                            class=" "
+                        >
+                            <p
+                                class="text-left _sm:text-sm inline-block"
+                                v-motion-fade-visible-once
+                                :duration="300"
+                                :delay="500"
+                            >
+                                We handle all voting related tasks for you. We
+                                are your helper from the planning to the end of
+                                the voting process. From nomination , vetting
+                                ,campaigning,team managemnt , team managemment
+                                financal managemnt , voting collaton and many
+                                more
+                            </p>
+                        </div>
+
+                        <div class="py-2 sm:pt-10">
+                            <router-link :href="route('register')">
+                                <button
+                                    v-motion-pop-visible-once
+                                    :delay="800"
+                                    class="p-2 w-full md:w-52 hover:opacity-90 transition-all hover:scale-105 text-white bg-primary-500 rounded-md font-bold"
+                                >
+                                    Get Started
+                                </button>
+                            </router-link>
+                        </div>
                     </div>
-                     </div>
-                    <div
-                    class="w-full h-[30%] -ml-[10%] _md:hidden"
-                >
-                    <img :src="ArrowImage" class="h-full " />
-                </div>
+                    <div class="w-full h-[30%] -ml-[10%] _md:hidden">
+                        <img :src="ArrowImage" class="h-full" />
+                    </div>
                 </div>
                 <div
                     class="items-end sm:pr-[5%] _sm:px-[8%] col-span-6 md:w-[110%] sticky md:right-0"
@@ -118,7 +115,6 @@ import DropletImage from "~/resources/svg/welcome/drop.svg?url";
                         </div>
                     </div>
                 </div>
-              
             </section>
             <WelcomeSectionService />
             <WelcomeSectionPricing />
