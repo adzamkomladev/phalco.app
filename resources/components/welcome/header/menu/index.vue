@@ -55,12 +55,13 @@ function debounce(func: Function, wait: number) {
 </script>
 
 <template>
-    
-        <div class="flex sm:gap-10 md:gap-16 lg:gap-20  sm:w-fit sm:place-self-center items-center _sm:justify-evenly">
-            <WelcomeHeaderMenuLink
-                v-for="(menu, index) in menus"
-                :to="menu.to"
-                :key="index"
-            />
-        </div>
+    <div
+        class="flex sm:gap-10 md:gap-16 lg:gap-20 sm:w-fit sm:place-self-center items-center _sm:justify-evenly"
+    >
+        <WelcomeHeaderMenuLink
+            v-for="(menu, index) in menus"
+            :to="menu.to"
+            :key="index"
+        />
+    </div>
 </template>
