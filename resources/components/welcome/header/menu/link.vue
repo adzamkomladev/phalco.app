@@ -32,7 +32,7 @@ const isActive = computed(() => currentSection.value === props.to);
 <template>
     <a
         :href="'#' + to"
-        class="relative group _xs:text-xs text-base md:text-lg text-black text-nowrap hover:text-primary-500 font-medium capitalize pb-4 focus:outline-none focus:text-neutral-300"
+        class="relative group _xs:text-sm text-base md:text-lg text-black text-nowrap hover:text-primary-500 font-medium capitalize pb-4 focus:outline-none focus:text-neutral-300"
         :class="{ 'text-primary-500': isActive }"
         aria-current="page"
     >

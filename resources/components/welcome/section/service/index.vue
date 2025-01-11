@@ -52,11 +52,18 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
             >
                 <div class="basis-1/2 shrink-0 _sm:px-[10%]">
                     <img
+                    v-motion-slide-visible-bottom
+                  :duration="300"
+                        :delay="90"
                         :src="FastDecisionImage"
                         class="sm:w-[30vw] sm:max-w-72"
                     />
                 </div>
-                <div>
+                <div
+                v-motion-slide-visible-top
+                  :duration="500"
+                        :delay="90"
+                >
                     <p
                         v-motion-fade-visible
                         :duration="300"
@@ -93,9 +100,13 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                 class="flex items-center sm:grid-cols-2 px-[10%] md:px-[15%] sm:even:flex-row-reverse _sm:flex-col"
             >
                 <div
+                
                     class="basis-1/2 relative shrink-0 flex justify-end _sm:px-[10%]"
                 >
                     <img
+                    v-motion-slide-visible-top
+                  :duration="500"
+                        :delay="90"
                         :src="CampaigningImage"
                         class="sm:w-[30vw] sm:max-w-72"
                     />
@@ -105,7 +116,11 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                         class="absolute sm:hidden rotate-[270deg] right-0 w-[10%] md:w-[15%] bottom-0"
                     />
                 </div>
-                <div>
+                <div
+                v-motion-slide-visible-bottom
+                  :duration="500"
+                        :delay="90"
+                >
                     <p
                         v-motion-fade-visible
                         :duration="300"
@@ -139,16 +154,26 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                 </div>
             </div>
             <div
+            
                 class="flex items-center relative sm:grid-cols-2 px-[10%] md:px-[15%] sm:even:flex-row-reverse _sm:flex-col"
             >
                 <img
+              
                     :src="StepsImage"
                     class="absolute _sm:hidden left-0 w-[10%] md:w-[15%] bottom-0"
                 />
                 <div class="basis-1/2 shrink-0 _sm:px-[10%]">
-                    <img :src="VotingImage" class="sm:w-[30vw] sm:max-w-72" />
+                    <img 
+                    v-motion-slide-visible-bottom
+                  :duration="500"
+                        :delay="90"
+                    :src="VotingImage" class="sm:w-[30vw] sm:max-w-72" />
                 </div>
-                <div>
+                <div
+                v-motion-slide-visible-top
+                  :duration="500"
+                        :delay="90"
+                >
                     <p
                         v-motion-fade-visible
                         :duration="300"
@@ -186,11 +211,20 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
             >
                 <div class="basis-1/2 shrink-0 flex justify-end _sm:px-[10%]">
                     <img
+
+                    v-motion-slide-visible-top
+                  :duration="500"
+                        :delay="90" 
+
                         :src="ManagementImage"
                         class="sm:w-[30vw] sm:max-w-72"
                     />
                 </div>
-                <div>
+                <div
+                v-motion-slide-visible-bottom
+                  :duration="500"
+                        :delay="90"
+                >
                     <p
                         v-motion-fade-visible
                         :duration="300"
