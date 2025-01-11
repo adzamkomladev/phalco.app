@@ -30,6 +30,9 @@ export default {
                 organization: "url('../svg/organization/layout.svg')",
             },
             screens: {
+                h: {
+                    raw: `only screen and (min-height: 480px)`,
+                },
                 tall: {
                     raw: `only screen and (min-height: 640px)`,
                 },

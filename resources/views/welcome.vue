@@ -1,23 +1,28 @@
 <script setup lang="ts">
+
 import MadeEasyImage1 from "~/resources/svg/welcome/made_easy_1.webp?url";
 import MadeEasyImage2 from "~/resources/svg/welcome/made_easy_2.webp?url";
 import MadeEasyImage3 from "~/resources/svg/welcome/made-easy_3.svg?url";
 import ArrowImage from "~/resources/svg/welcome/made_easy_arrow.svg?url";
 import DropletImage from "~/resources/svg/welcome/drop.svg?url";
+
 </script>
 
 <template>
-    <body class="bg-gray-100 font-poppins md:text-lg flex flex-col">
+    <body class=" font-poppins md:text-lg flex flex-col">
         <WelcomeHeader />
 
         <main
             id="home"
-            class="scroll-mt-[9rem] bg-white max-w-[1600px] self-center oveflow-x-hidden"
-        >
-            <section id="home" class="relative flex _sm:flex-col">
+            class="scroll-mt-[9rem]  max-w-[1600px] self-center oveflow-x-hidden"
+        >  
+            <section id="home" class="relative flex _sm:flex-col bg-white">
                 <div
-                    class="sm:basis-1/2 pl-[5%] _sm:px-[8%] sm:pt-10 relative h-fit shrink-0 _sm:text-center z-10"
+                    class="sm:basis-1/2 pl-[5%]    _sm:px-[8%] sm:pt-10 relative shrink-0 _sm:text-center z-10 flex flex-col gap-10 h:gap-20 "
                 >
+                <div>
+
+               
                     <p
                         class="font-black text-2xl pb-2 sm:text-3xl text-black md:text-4xl lg:text-5xl md:leading-[3rem]"
                     >
@@ -39,7 +44,7 @@ import DropletImage from "~/resources/svg/welcome/drop.svg?url";
                         class=" "
                     >
                         <p
-                            class="text-left _sm:text-sm bg-white/80 inline-block"
+                            class="text-left _sm:text-sm  inline-block "
                             v-motion-fade-visible-once
                             :duration="300"
                             :delay="500"
@@ -50,6 +55,7 @@ import DropletImage from "~/resources/svg/welcome/drop.svg?url";
                             ,campaigning,team managemnt , team managemment
                             financal managemnt , voting collaton and many more
                         </p>
+                        
                     </div>
 
                     <div class="py-2 sm:pt-10">
@@ -63,6 +69,12 @@ import DropletImage from "~/resources/svg/welcome/drop.svg?url";
                             </button>
                         </router-link>
                     </div>
+                     </div>
+                    <div
+                    class="w-full h-[30%] -ml-[10%] _md:hidden"
+                >
+                    <img :src="ArrowImage" class="h-full " />
+                </div>
                 </div>
                 <div
                     class="items-end sm:pr-[5%] _sm:px-[8%] col-span-6 md:w-[110%] sticky md:right-0"
@@ -106,11 +118,7 @@ import DropletImage from "~/resources/svg/welcome/drop.svg?url";
                         </div>
                     </div>
                 </div>
-                <div
-                    class="absolute w-full h-[25%] left-0 -bottom-0 _md:hidden"
-                >
-                    <img :src="ArrowImage" class="h-full" />
-                </div>
+              
             </section>
             <WelcomeSectionService />
             <WelcomeSectionPricing />
