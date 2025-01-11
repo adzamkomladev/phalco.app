@@ -17,6 +17,8 @@ export default {
             },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
+                unbounded: ['Unbounded', 'sans-serif'],
+
             },
             backgroundImage: {
                 logo: "url('../svg/icon/logo.svg')",
@@ -48,7 +50,9 @@ export default {
                 _xs: {
                     raw: `only screen and (max-width: 499px)`,
                 },
-               
+                xs: {
+                    raw: `only screen and (min-width: 500px)`,
+                },
                 _sm: {
                     raw: `only screen and (max-width: 639px)`,
                 },
@@ -174,6 +178,9 @@ export default {
             animation: {
                 expand: "expand 0.3s ease-out forwards",
                 collapse: "collapse 0.3s ease-out forwards",
+            },
+            translate: {
+                "-full": "-100%",
             },
         },
     },

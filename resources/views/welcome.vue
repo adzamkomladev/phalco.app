@@ -1,54 +1,58 @@
 <script setup lang="ts">
-import ImageWelcomeSm from "~/resources/images/welcome/landing_sm.webp?url";
-import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
+import MadeEasyImage1 from "~/resources/svg/welcome/made_easy_1.webp?url";
+import MadeEasyImage2 from "~/resources/svg/welcome/made_easy_2.webp?url";
+import MadeEasyImage3 from "~/resources/svg/welcome/made-easy_3.svg?url";
+import ArrowImage from "~/resources/svg/welcome/made_easy_arrow.svg?url";
+import DropletImage from "~/resources/svg/welcome/drop.svg?url";
 </script>
 
 <template>
-    <body class="bg-gray-100 md:text-lg flex flex-col">
+    <body class="bg-gray-100 font-poppins md:text-lg flex flex-col">
+        <WelcomeHeader />
+
         <main
             id="home"
-            class="bg-[#F6F6F6] scroll-mt-24 md:bg-white max-w-[1600px] self-center"
+            class="scroll-mt-[9rem] bg-white max-w-[1600px] self-center oveflow-x-hidden"
         >
-            <LandingHeader />
-
-            <section
-                id="home"
-                class="md:pl-[8%] pl-0 scroll-mt-48 md:mt-12 grid grid-cols-12 _md:flex flex-col-reverse overflow-hidden"
-            >
+            <section id="home" class="relative flex _sm:flex-col">
                 <div
-                    class="col-span-6 z-10 _md:p-[8%] md:bg-transparent bg-white _md:rounded-t-[3rem] pt-14 gap-2 flex flex-col"
+                    class="sm:basis-1/2 pl-[5%] _sm:px-[8%] sm:pt-10 relative h-fit shrink-0 _sm:text-center z-10"
                 >
                     <p
-                        class="font-black text-3xl md:text-[3.5rem] inline md:leading-[5rem] md:w-[110%]"
+                        class="font-black text-2xl pb-2 sm:text-3xl text-black md:text-4xl lg:text-5xl md:leading-[3rem]"
                     >
                         <SharedAnimationBlurReview :delay="0" :duration="0.67">
                             <p
                                 v-motion-fade-visible
                                 :delay="100"
                                 :duration="360"
+                                class="text-wrap font-unbounded"
                             >
-                                Voting made easy
+                                Election Management made easy
                             </p>
                         </SharedAnimationBlurReview>
                     </p>
-                    <p
+                    <div
                         v-motion-fade-visible
                         :delay="100"
                         :duration="360"
-                        class="md:w-[82%] lg:w-full"
+                        class=" "
                     >
-                        <span
-                            class="text-gray-700 inline bg-[#ffffffaa]"
+                        <p
+                            class="text-left _sm:text-sm bg-white/80 inline-block"
                             v-motion-fade-visible-once
                             :duration="300"
                             :delay="500"
-                            >We handle all voting related tasks for you. We are
-                            your helper from the planning to the end of the
-                            voting process</span
                         >
-                    </p>
+                            We handle all voting related tasks for you. We are
+                            your helper from the planning to the end of the
+                            voting process. From nomination , vetting
+                            ,campaigning,team managemnt , team managemment
+                            financal managemnt , voting collaton and many more
+                        </p>
+                    </div>
 
-                    <div class="py-2">
+                    <div class="py-2 sm:pt-10">
                         <router-link :href="route('register')">
                             <button
                                 v-motion-pop-visible-once
@@ -58,65 +62,63 @@ import ImageWelcomeLg from "~/resources/images/welcome/landing_lg.webp?url";
                                 Get Started
                             </button>
                         </router-link>
-                        <p
-                            class="my-4 text-sm md:text-base sm:text-base text-gray-600 font-bold dark:text-gray-400 md:hidden"
-                        >
-                            Already have an account ?
-                            <router-link
-                                class="text-primary-twi decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
-                                :href="route('login')"
-                            >
-                                Login
-                            </router-link>
-                        </p>
                     </div>
                 </div>
                 <div
-                    class="py-8 items-end col-span-6 md:w-[110%] sticky md:right-0"
+                    class="items-end sm:pr-[5%] _sm:px-[8%] col-span-6 md:w-[110%] sticky md:right-0"
                 >
-                    <img
-                        v-motion-pop-visible-once
-                        :delay="1000"
-                        :duration="900"
-                        :src="ImageWelcomeLg"
-                        class="_md:hidden md:block float-right"
-                    />
+                    <div class="grid grid-cols-2 place-items-center">
+                        <img
+                            v-motion-pop-visible-once
+                            :delay="1200"
+                            :duration="900"
+                            :src="MadeEasyImage3"
+                            class="self-right max-h-[40%]"
+                        />
+                        <img
+                            v-motion-pop-visible-once
+                            :delay="1000"
+                            :duration="900"
+                            :src="MadeEasyImage1"
+                            class="max-h-[30vh]"
+                        />
+                    </div>
 
-                    <img
-                        v-motion-fade-visible
-                        :duration="360"
-                        :delay="90"
-                        :src="ImageWelcomeSm"
-                        class="md:hidden _md:block w-full p-10"
-                    />
+                    <div class="lg:-mt-10 lg:-ml-20 flex relative md:gap-[5%]">
+                        <div>
+                            <img
+                                v-motion-fade-visible
+                                :duration="360"
+                                :delay="90"
+                                :src="MadeEasyImage2"
+                                class="w-[90%] max-h-[70vh]"
+                            />
+                        </div>
+
+                        <div class="pt-[30%]">
+                            <img
+                                v-motion-fade-visible
+                                :duration="360"
+                                :delay="90"
+                                :src="DropletImage"
+                                class=""
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="absolute w-full h-[25%] left-0 -bottom-0 _md:hidden"
+                >
+                    <img :src="ArrowImage" class="h-full" />
                 </div>
             </section>
+            <WelcomeSectionService />
+            <WelcomeSectionPricing />
+            <WelcomeSectionTrusts />
+            <WelcomeSectionFaqs />
 
-            <LandingSection
-                class=""
-                id="service"
-                title="Our Service"
-                description="These services are what we offer to our clients. You don't have to be alone or burdened during your voting process."
-            >
-                <LandingServiceShow class="px-[8%]" />
-            </LandingSection>
-            <LandingSection
-                id="pricing"
-                title="Pricing"
-                description="Affordable pricing that meets your demands"
-            >
-                <LandingPricingShow class="px-8 md:px-[8%]" />
-            </LandingSection>
-            <LandingSection
-                id="About Us"
-                class="md:pr-0"
-                title="About Us"
-                description="We are here to help you with your voting needs"
-            >
-                <LandingAboutRequirement class="md:pl-[8%] _md:pl-0" />
-            </LandingSection>
             <div class="md:border-t">
-                <LandingFooterShow />
+                <WelcomeFooter />
             </div>
         </main>
     </body>

@@ -28,7 +28,7 @@ Route::get('/audiences/contacts/show', function () {
 //     return hybridly('elections.index');
 // })->middleware('auth')->name('elections');
 
-//region Auth Routes
+// region Auth Routes
 
 Route::prefix('google')
     ->name('google.')
@@ -61,8 +61,8 @@ Route::prefix('password')
         Route::post('reset', \App\Actions\Auth\Password\Reset::class)->name('reset');
     });
 
-//endregion
-//region Home Routes
+// endregion
+// region Home Routes
 
 Route::get('home/agents', \App\Actions\Home\Agents::class)->name('home.agents')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
@@ -75,9 +75,9 @@ Route::get('/agent/request', function () {
 Route::get('home', \App\Actions\Home\Index::class)->name('home')
     ->middleware(['verified', EnsureUserHasSelectedOrganization::class]);
 
-//endregion
+// endregion
 
-//region Voting Routes
+// region Voting Routes
 
 Route::prefix('voting')
     ->name('voting.')
@@ -129,9 +129,9 @@ Route::prefix('voting')
             });
     });
 
-//endregion
+// endregion
 
-//region Organization Routes
+// region Organization Routes
 
 Route::prefix('organizations')
     ->name('organizations.')
@@ -144,9 +144,9 @@ Route::prefix('organizations')
         Route::get('invitations/{token}/verify', \App\Actions\Settings\Team\VerifyInvitation::class)->name('invitations.verify');
     });
 
-//endregion
+// endregion
 
-//region Elections Routes
+// region Elections Routes
 
 Route::prefix('elections')
     ->name('elections.')
@@ -159,9 +159,9 @@ Route::prefix('elections')
         Route::patch('switch', \App\Actions\Elections\SwitchElection::class)->name('switch');
     });
 
-//endregion
+// endregion
 
-//region Finance Routes
+// region Finance Routes
 
 Route::prefix('finance')
     ->name('finance.')
@@ -179,9 +179,9 @@ Route::prefix('finance')
         Route::get('', \App\Actions\Finance\Index::class)->name('index');
     });
 
-//endregion
+// endregion
 
-//region Audiences Routes
+// region Audiences Routes
 
 Route::prefix('audiences')
     ->name('audiences.')
@@ -196,9 +196,9 @@ Route::prefix('audiences')
         Route::get('{id}/show/contacts/{contactId}/show', \App\Actions\Audiences\Contacts\Show::class)->name('contacts.show');
     });
 
-//endregion
+// endregion
 
-//region Campaigns Routes
+// region Campaigns Routes
 
 Route::prefix('campaigns')
     ->name('campaigns.')
@@ -226,15 +226,15 @@ Route::post('campaigns/sms/cost', \App\Actions\Campaigns\Sms\GetCost::class)
     ->name('campaigns.sms.cost')
     ->middleware('auth');
 
-//endregion
+// endregion
 
-//region Uploads Routes
+// region Uploads Routes
 
 Route::post('assets/upload', \App\Actions\Assets\Upload::class)->name('assets.upload')->middleware('auth');
 
-//endregion
+// endregion
 
-//region Settings Routes
+// region Settings Routes
 
 Route::prefix('settings')
     ->name('settings.')
@@ -261,9 +261,9 @@ Route::prefix('settings')
         Route::get('organization', \App\Actions\Settings\Organization\Index::class)->name('organization');
     });
 
-//endregion
+// endregion
 
-//region Agents Routes
+// region Agents Routes
 
 Route::prefix('agents')
     ->name('agents.')
@@ -277,7 +277,7 @@ Route::prefix('agents')
         Route::post('messages', \App\Actions\Agents\Messages\Store::class)->name('messages.store');
     });
 
-//endregion
+// endregion
 
 Route::get('common/countries', \App\Actions\Common\GetCountries::class)
     ->name('common.countries');
