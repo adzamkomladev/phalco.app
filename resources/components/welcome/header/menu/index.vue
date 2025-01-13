@@ -32,8 +32,8 @@ onMounted(() => {
 
     const observer = new IntersectionObserver(handleIntersection, {
         root: null,
-        rootMargin: "30px",
-        threshold: 0.6,
+        rootMargin: "10px",
+        threshold: 0.1,
     });
 
     document.querySelectorAll("section").forEach((section) => {
@@ -63,5 +63,6 @@ function debounce(func: Function, wait: number) {
             :to="menu.to"
             :key="index"
         />
+        
     </div>
 </template>

@@ -20,6 +20,6 @@ const FaqIsOpened = ref(false);
                 </div>
             </button>
         </template>
-        <p class="pb-3">{{ faq.answer }}</p>
+        <p class="pb-3 text-gray-600">{{ faq.answer }}</p>
     </SharedAnimationCollapsible>
 </template>

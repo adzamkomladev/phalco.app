@@ -37,7 +37,7 @@ import FaqsImage from "~/resources/svg/welcome/faqs.webp?url";
 </script>
 
 <template>
-    <section id="contact" class="bg-white py-8 _sm:px-[8%] scroll-mt-20">
+    <section id="contact" class="bg-white py-8 _sm:px-[8%] -scroll-mt-20">
         <div
             class="flex px-[8%] relative flex-col text-center gap-2 py-8 overflow-hidden"
         >
@@ -54,7 +54,7 @@ import FaqsImage from "~/resources/svg/welcome/faqs.webp?url";
                 v-motion-fade-visible
                 :duration="300"
                 :delay="90"
-                class="font-black font-unbounded text-3xl md:text-4xl"
+                class="font-black font-unbounded text-3xl md:text-4xl   text-black"
             >
                 FAQ'S
             </p>

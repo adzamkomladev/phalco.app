@@ -11,7 +11,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
 <template>
     <section
         id="service"
-        class="bg-white py-8 relative flex flex-col gap-8 place-content-center scroll-mt-20"
+        class="bg-white py-8 relative flex flex-col gap-8 place-content-center "
     >
         <img
             class="_sm:hidden absolute left-[10%] bottom-0"
@@ -31,7 +31,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                 v-motion-fade-visible
                 :duration="300"
                 :delay="90"
-                class="font-black font-unbounded text-3xl md:text-4xl"
+                class="font-black font-unbounded text-3xl md:text-4xl  text-black"
             >
                 Our Service
             </p>
@@ -39,7 +39,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                 v-motion-fade-visible
                 :duration="360"
                 :delay="90"
-                class="text-gray-700 block self-center md:text-center lg:w-[50rem] text-balance"
+                class=" block self-center md:text-center lg:w-[50rem] text-balance"
             >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore
@@ -64,7 +64,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                         v-motion-fade-visible
                         :duration="300"
                         :delay="90"
-                        class="font-black font-unbounded text-3xl md:text-4xl pb-4"
+                        class="font-black font-unbounded text-3xl md:text-4xl  text-black pb-4 "
                     >
                         Fast Decisions
                     </p>
@@ -72,7 +72,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                         v-motion-fade-visible
                         :duration="360"
                         :delay="90"
-                        class="text-gray-700 block text-sm _sm:pr-[10%] sm:text-leftself-center _sm:text-pretty sm:text-justify"
+                        class=" block text-sm _sm:pr-[10%] sm:text-leftself-center _sm:text-pretty sm:text-justify"
                     >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -84,7 +84,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                     <router-link
                         class="text-secondary-500 group flex items-center gap-2 my-4"
                     >
-                        <span class="text-base font-semibold">Learn More</span>
+                        <span class="text-xs sm:text-sm font-semibold ">Learn More</span>
                         <SharedCommonIcon
                             name="arrow_farward"
                             class="transition-all group:hover:transition-y-5 h-4"
@@ -116,7 +116,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                         v-motion-fade-visible
                         :duration="300"
                         :delay="90"
-                        class="font-black font-unbounded text-3xl md:text-4xl pb-4"
+                        class="font-black font-unbounded text-3xl md:text-4xl  text-black pb-4"
                     >
                         Campaigning
                     </p>
@@ -124,7 +124,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                         v-motion-fade-visible
                         :duration="360"
                         :delay="90"
-                        class="text-gray-700 block _sm:pr-[10%] sm:text-leftself-center _sm:text-pretty sm:text-justify"
+                        class=" block _sm:pr-[10%] sm:text-leftself-center _sm:text-pretty sm:text-justify"
                     >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -136,7 +136,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                     <router-link
                         class="text-secondary-500 group flex items-center gap-2 my-4"
                     >
-                        <span class="text-base font-semibold">Learn More</span>
+                        <span class="text-xs sm:text-sm font-semibold ">Learn More</span>
                         <SharedCommonIcon
                             name="arrow_farward"
                             class="transition-all group:hover:transition-y-5 h-4"
@@ -165,7 +165,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                         v-motion-fade-visible
                         :duration="300"
                         :delay="90"
-                        class="font-black font-unbounded text-3xl md:text-4xl pb-4"
+                        class="font-black font-unbounded text-3xl md:text-4xl  text-black pb-4"
                     >
                         Voting
                     </p>
@@ -173,7 +173,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                         v-motion-fade-visible
                         :duration="360"
                         :delay="90"
-                        class="text-gray-700 block _sm:pr-[10%] sm:text-leftself-center _sm:text-pretty sm:text-justify"
+                        class=" block _sm:pr-[10%] sm:text-leftself-center _sm:text-pretty sm:text-justify"
                     >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -185,7 +185,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                     <router-link
                         class="text-secondary-500 group flex items-center gap-2 my-4"
                     >
-                        <span class="text-base font-semibold">Learn More</span>
+                        <span class="text-xs sm:text-sm font-semibold ">Learn More</span>
                         <SharedCommonIcon
                             name="arrow_farward"
                             class="transition-all group:hover:transition-y-5 h-4"
@@ -210,7 +210,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                         v-motion-fade-visible
                         :duration="300"
                         :delay="90"
-                        class="font-black font-unbounded text-3xl md:text-4xl pb-4"
+                        class="font-black font-unbounded text-3xl md:text-4xl  text-black pb-4"
                     >
                         Management
                     </p>
@@ -218,7 +218,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                         v-motion-fade-visible
                         :duration="360"
                         :delay="90"
-                        class="text-gray-700 block _sm:pr-[10%] sm:text-leftself-center _sm:text-pretty sm:text-justify"
+                        class=" block _sm:pr-[10%] sm:text-leftself-center _sm:text-pretty sm:text-justify"
                     >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -230,7 +230,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
                     <router-link
                         class="text-secondary-500 group flex items-center gap-2 my-4"
                     >
-                        <span class="text-base font-semibold">Learn More</span>
+                        <span class="text-xs sm:text-sm font-semibold ">Learn More</span>
                         <SharedCommonIcon
                             name="arrow_farward"
                             class="transition-all group:hover:transition-y-5 h-4"
@@ -244,7 +244,7 @@ import StarImage from "~/resources/svg/welcome/pricing_star.svg?url";
             v-motion-fade-visible
             :duration="360"
             :delay="90"
-            class="text-gray-700 block _sm:pt-10 text-base self-center text-center sm:w-[50%] text-balance"
+            class=" block _sm:pt-10 text-base self-center text-center sm:w-[50%] text-balance"
         >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore

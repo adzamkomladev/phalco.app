@@ -22,15 +22,15 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
             >
                 Trusted By Many
             </p>
-            <span
+            <div
                 v-motion-fade-visible
                 :duration="360"
                 :delay="90"
-                class="text-gray-700 block self-center md:text-center lg:w-[50rem] text-balance"
+                class="text-gray-700 block self-center md:text-center w-fit bg-white/60 text-balance"
             >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore
-            </span>
+        </div>
         </div>
         <SharedCommonSlideOnMouseEnter class=" ">
             <div class="flex group my-10">
