@@ -43,7 +43,7 @@ import DropletImage from "~/resources/svg/welcome/drop.svg?url";
                             class=" "
                         >
                             <p
-                                class="text-left _sm:text-sm inline-block"
+                                class="text-left _sm:text-sm inline bg-white/50"
                                 v-motion-fade-visible-once
                                 :duration="300"
                                 :delay="500"
