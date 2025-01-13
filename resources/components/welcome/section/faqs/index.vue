@@ -54,7 +54,7 @@ import FaqsImage from "~/resources/svg/welcome/faqs.webp?url";
                 v-motion-fade-visible
                 :duration="300"
                 :delay="90"
-                class="font-black font-unbounded text-3xl md:text-4xl   text-black"
+                class="font-black font-unbounded text-3xl md:text-4xl text-black"
             >
                 FAQ'S
             </p>

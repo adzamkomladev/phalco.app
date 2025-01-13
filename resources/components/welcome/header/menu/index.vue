@@ -63,6 +63,5 @@ function debounce(func: Function, wait: number) {
             :to="menu.to"
             :key="index"
         />
-        
     </div>
 </template>

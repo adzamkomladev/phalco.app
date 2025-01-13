@@ -1,4 +1,3 @@
-
 <template>
     <header
         class="sticky top-0 left-0 w-full z-50 bg-white transition-transform duration-300"
@@ -9,10 +8,7 @@
             </h1>
         </div>
 
-        <div
-            class="transition-all duration-300 relative overflow-hidden"
-          
-        >
+        <div class="transition-all duration-300 relative overflow-hidden">
             <WelcomeHeaderMenu />
         </div>
     </header>

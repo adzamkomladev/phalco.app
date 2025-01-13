@@ -18,7 +18,7 @@ const updateActiveSection = (entries: IntersectionObserverEntry[]) => {
 onMounted(() => {
     const observer = new IntersectionObserver(updateActiveSection, {
         rootMargin: "10px",
-        threshold: 0.1
+        threshold: 0.1,
     });
 
     document.querySelectorAll("section").forEach((section) => {

@@ -30,7 +30,7 @@ import ObjectsImage from "~/resources/svg/welcome/3_objects.svg?url";
             >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore
-        </div>
+            </div>
         </div>
         <SharedCommonSlideOnMouseEnter class=" ">
             <div class="flex group my-10">
